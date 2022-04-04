@@ -1,0 +1,8 @@
+dataset,resource,column,field
+employment-allocation,,WKT,geometry
+employment-allocation,,Location,name
+employment-allocation,,Policy,reference
+employment-allocation,,Link_to_Po,documentation-url
+employment-allocation,,Policy_Num,reference
+employment-allocation,,Site Address,name
+employment-allocation,,Link to Policy,documentation-url

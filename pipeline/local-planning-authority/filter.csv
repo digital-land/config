@@ -1,0 +1,2 @@
+dataset,resource,field,pattern
+local-planning-authority,,reference,"^[^E0]"

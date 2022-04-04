@@ -1,0 +1,2 @@
+dataset,resource,field,pattern
+parish,,reference,"^[^E]"

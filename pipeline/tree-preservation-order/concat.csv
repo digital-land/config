@@ -1,0 +1,2 @@
+dataset,resource,field,fields,separator,entry-date,start-date,end-date
+tree-preservation-zone,,tree-species-list,SPECIES_1_NAME;SPECIES_2_NAME;SPECIES_3_NAME;SPECIES_4_NAME;SPECIES_5_NAME;SPECIES_6_NAME,;,,,

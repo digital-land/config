@@ -1,0 +1,15 @@
+dataset,resource,column,field
+planning-application,,ExtractDate,entry-date
+planning-application,,OrganisationURI,organisation
+planning-application,,CaseReference,reference
+planning-application,,CaseURL,documentation-url
+planning-application,,CaseDate,start-date
+planning-application,,ServiceTypeURI,service-type
+planning-application,,ClassificationURI,development-classification
+planning-application,,CaseText,description
+planning-application,,LocationText,address-text
+planning-application,,Status,planning-application-status
+planning-application,,Decision,planning-decision
+planning-application,,DecisionType,planning-decision-type
+planning-application,,UPRN,address
+planning-application,,GroundArea,ground-area

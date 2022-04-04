@@ -1,0 +1,5 @@
+dataset,resource,column,field
+open-space,,WKT,geometry
+open-space,,SITE,name
+open-space,,OBJECTID,reference
+open-space,,Link_to_Policy,documentation-url

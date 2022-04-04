@@ -1,0 +1,5 @@
+dataset,resource,column,field
+ancient-woodland,,WKT,geometry
+ancient-woodland,,THEMID,reference
+ancient-woodland,,NAME,name
+ancient-woodland,,STATUS,ancient-woodland-status

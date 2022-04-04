@@ -1,0 +1,4 @@
+dataset,resource,column,field
+region,,WKT,geometry
+region,,rgn15cd,reference
+region,,rgn15nm,name

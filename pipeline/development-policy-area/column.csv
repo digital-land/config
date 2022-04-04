@@ -1,0 +1,4 @@
+dataset,resource,column,field
+development-policy-area,,AND_SITE,name
+development-policy-area,,F_CODE,reference
+development-policy-area,,WKT,geometry

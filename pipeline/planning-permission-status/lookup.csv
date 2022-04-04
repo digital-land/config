@@ -1,0 +1,4 @@
+prefix,resource,organisation,reference,entity
+planning-permission-status,,,permissioned,11800000
+planning-permission-status,,,not-permissioned,11800001
+planning-permission-status,,,pending-decision,11800002

@@ -1,0 +1,8 @@
+prefix,resource,organisation,reference,entity
+planning-permission-type,,,full-planning-permission,11900000
+planning-permission-type,,,outline-planning-permission,11900001
+planning-permission-type,,,reserved-matters-approval,11900002
+planning-permission-type,,,permission-in-principle,11900003
+planning-permission-type,,,technical-details-consent,11900004
+planning-permission-type,,,planning-permission-granted-under-an-order,11900005
+planning-permission-type,,,other,11900006

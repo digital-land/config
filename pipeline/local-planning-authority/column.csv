@@ -1,0 +1,8 @@
+dataset,resource,column,field
+local-planning-authority,,WKT,geometry
+local-planning-authority,,LPA19CD,reference
+local-planning-authority,,LPA20CD,reference
+local-planning-authority,,LPA21CD,reference
+local-planning-authority,,LPA19NM,name
+local-planning-authority,,LPA20NM,name
+local-planning-authority,,LPA21NM,name

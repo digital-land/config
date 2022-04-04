@@ -1,0 +1,4 @@
+dataset,resource,column,field
+parish,,WKT,geometry
+parish,,par19cd,reference
+parish,,par19nm,name
