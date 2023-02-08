@@ -16,6 +16,7 @@ var/
 
 # ignore generated dataset files
 dataset/
+specification/
 
 # ignore databases
 *.db
