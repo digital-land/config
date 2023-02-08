@@ -39,3 +39,4 @@ conservation-area,f46f960e44ec42f41d500bb9586097bdcdb98ec0b6cf20d9dc47eb914b997e
 conservation-area,,reference,^(.*)\.0*0$,\1
 conservation-area,,reference,NO DATA CURRENTLY AVAILABLE FOR THIS DISTRICT,
 conservation-area,,name,NO DATA CURRENTLY AVAILABLE FOR THIS DISTRICT,
+conservation-area,,documentation-url,Conservation Area Appraisal report currently available for this area,

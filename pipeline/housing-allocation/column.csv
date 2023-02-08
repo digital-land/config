@@ -1,9 +1,0 @@
-dataset,resource,column,field
-housing-allocation,,WKT,geometry
-housing-allocation,,Location,name
-housing-allocation,,Link_to_Po,documentation-url
-housing-allocation,,Policy,reference
-housing-allocation,,Policy_Num,reference
-housing-allocation,,Site Address,name
-housing-allocation,,Site_Addre,name
-housing-allocation,,Link to Policy,documentation-url

@@ -1,5 +1,5 @@
 dataset,resource,column,field
 ramsar,,WKT,geometry
 ramsar,,NAME,name
-ramsar,,OBJECTID,reference
-ramsar,,GISDATE,start-date
+ramsar,,CODE,reference
+ramsar,,GISDATE,entry-date

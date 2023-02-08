@@ -1,1 +1,2 @@
-pipeline,resource,field,default-field,entry-date,start-date,end-date
+dataset,resource,field,default-field,entry-date,start-date,end-date
+article-4-direction-area,,reference,name,,,

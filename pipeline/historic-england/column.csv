@@ -54,3 +54,9 @@ world-heritage-site,,InscrDate,start-date
 world-heritage-site,,ListEntry,reference
 world-heritage-site,,Notes,notes
 world-heritage-site,,WKT,geometry
+world-heritage-site-buffer-zone,,AmendDate,entry-date
+world-heritage-site-buffer-zone,,Hyperlink,documentation-url
+world-heritage-site-buffer-zone,,InscrDate,start-date
+world-heritage-site-buffer-zone,,ListEntry,reference
+world-heritage-site-buffer-zone,,Notes,notes
+world-heritage-site-buffer-zone,,WKT,geometry

@@ -1,1 +1,2 @@
-pipeline,resource,field,fields,separator,entry-date,start-date,end-date
+dataset,resource,field,fields,separator,entry-date,start-date,end-date
+article-4-direction-area,16dffe1834b1a66689878fd8746f906e4ba8a0663d465b2d6f04cde393b71b7c,address-text,ADDRESS1;ADDRESS2;ADDRESS3;POSTCODE,", ",,,

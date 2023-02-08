@@ -1,2 +1,2 @@
 dataset,resource,field,pattern
-national-park,,reference,^[^E]
+national-park,,reference,^E

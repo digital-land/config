@@ -2,4 +2,4 @@ dataset,resource,column,field
 area-of-outstanding-natural-beauty,,WKT,geometry
 area-of-outstanding-natural-beauty,,DESIG_DATE,start-date
 area-of-outstanding-natural-beauty,,HOTLINK,documentation-url
-area-of-outstanding-natural-beauty,,CODE,area-of-outstanding-natural-beauty
+area-of-outstanding-natural-beauty,,CODE,reference

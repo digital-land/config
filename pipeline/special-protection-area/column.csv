@@ -1,0 +1,5 @@
+dataset,resource,column,field
+special-protection-area,,WKT,geometry
+special-protection-area,,SPA_NAME,name
+special-protection-area,,SPA_CODE,reference
+special-protection-area,,GIS_DATE,entry-date
