@@ -1,4 +1,4 @@
-source,attribution,collection,documentation-url,endpoint,licence,organisation,pipelines,entry-date,start-date,end-date
+source,attribution,collection,documentation-url,endpoint,licence,organisation,pipeline,entry-date,start-date,end-date
 3f4303c2d40faa0bcd2cc78d45348841,,planning-application,,fc4058d681aeca46be5731aca49baa7cabee06f4b855f536e0c8b1a6cf071e3f,,local-authority-eng:HAE,planning-application,2022-03-04T08:08:25Z,,
 f4221069d6cebadf7b9269afb7ab9832,,planning-application,https://data.gov.uk/dataset/12b09dc1-a39a-47c7-b896-a5a205072527/planning-applications,219eb4e54df116c73655dc2a1ef021c08c76d5218632b6020963a1caab072e14,,local-authority-eng:BNE,planning-application,2022-03-05T14:14:46Z,,
 6133c2d8df5103d3ca1dfc34f1477c3e,,planning-application,https://data.gov.uk/dataset/12b09dc1-a39a-47c7-b896-a5a205072527/planning-applications,4d5c165fc543f8104c8554199535efe3d2c2bc0d0959ce52c5edeb8b0a9d3f3d,,local-authority-eng:BNE,planning-application,2022-03-05T14:14:46Z,,
