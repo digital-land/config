@@ -1,5 +1,5 @@
-dataset,resource,column,field
-special-area-of-conservation,,WKT,geometry
-special-area-of-conservation,,SAC_CODE,reference
-special-area-of-conservation,,GIS_DATE,start-date
-special-area-of-conservation,,SAC_NAME,name
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+WKT,special-area-of-conservation,,,,geometry,,
+SAC_CODE,special-area-of-conservation,,,,reference,,
+GIS_DATE,special-area-of-conservation,,,,start-date,,
+SAC_NAME,special-area-of-conservation,,,,name,,

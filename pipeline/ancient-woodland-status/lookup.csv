@@ -1,3 +1,1 @@
-prefix,reference,entity
-ancient-woodland-status,ASNW,29100000
-ancient-woodland-status,PAWS,29100001
+end-date,endpoint,entity,entry-date,entry-number,organisation,prefix,resource,start-date,value,reference

@@ -1,8 +1,2 @@
-dataset,resource,field,fields,separator,entry-date,start-date,end-date
-tree-preservation-zone,,tree-species-list,SPECIES_1_NAME;SPECIES_2_NAME;SPECIES_3_NAME;SPECIES_4_NAME;SPECIES_5_NAME;SPECIES_6_NAME,;,,,
-tree-preservation-zone,10a1d54078c8dddf5a75e745bc78ec0febe6d8b074043814d580897188068230,reference,TPO;TPO_Group,/,,,
-tree-preservation-zone,565ccd7f93f479428b2164f3e02e49a454f47721bf418b1a153ac19049ec05ea,reference,TPO;TPO_Group,/,,,
-tree-preservation-zone,7315d937dcef7d3b9028d71e0ce6cd9b0277e36cb2b69783e1b215a955ce20db,reference,TPO;TPO_Group,/,,,
-tree-preservation-zone,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c042efa34f8,reference,TPO;TPO_Group,/,,,
-tree,1409cd22efe9d2e0d74cfbfa5acfa9b11830dfec156336686c15ec3022854c9f,reference,REFVAL;LABEL,/,,,
-tree-preservation-zone,c33b6a9e91363959c5feaad7fccc5e1c50f72c949d728713fd48c48dd9335df8,reference,REFVAL;LABEL,/,,,
+end-date,entry-date,endpoint,field,fields,dataset,resource,separator,start-date
+,,,reference,REFVAL;LABEL,tree,1409cd22efe9d2e0d74cfbfa5acfa9b11830dfec156336686c15ec3022854c9f,/,

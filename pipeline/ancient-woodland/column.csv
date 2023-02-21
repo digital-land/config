@@ -1,5 +1,5 @@
-dataset,resource,column,field
-ancient-woodland,,WKT,geometry
-ancient-woodland,,THEMID,reference
-ancient-woodland,,NAME,name
-ancient-woodland,,STATUS,ancient-woodland-status
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+WKT,ancient-woodland,,,,geometry,,
+THEMID,ancient-woodland,,,,reference,,
+NAME,ancient-woodland,,,,name,,
+STATUS,ancient-woodland,,,,ancient-woodland-status,,

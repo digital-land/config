@@ -1,9 +1,1 @@
-dataset,resource,column,field
-design-code-area,,WKT,geometry
-design-code-area,22bcc30f0fc96bbe9086853edb607c02df3e7bfd006b25dda4216f30ab17d083,LABEL,reference
-design-code-area,85e26113cbc3ced698aa72be161c968f0a63573a7593c43cab12e5431027d40c,CODE,reference
-design-code-area,85e26113cbc3ced698aa72be161c968f0a63573a7593c43cab12e5431027d40c,NUMBER,design-code
-design-code-area,08b656dcede0aa79c849634e34559a97041233b3f5ccc6ec9bf7d54b30a76f1f,APGRECNO,reference
-design-code-area,97d8cf013acf356d9ddeb38733c844c655fcb8e09a5bf10507fa228e806cb6ec,Ref,reference
-design-code-area,97d8cf013acf356d9ddeb38733c844c655fcb8e09a5bf10507fa228e806cb6ec,Broad_Loca,name
-design-code-area,e3d6218275b451f559664ea82e8a2904c28d4fed2f19bb856e0f1a3bf45d1c26,CODE,reference
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date

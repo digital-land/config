@@ -1,3 +1,1 @@
-dataset,resource,field,pattern,value
-tree,8f35e0a7bbca0daeda982d6f39aac0afa7b0fae1bf9419c53a5d279f450ad7b3,reference,^$,2551?
-tree,a993375ec694f798bbfacff2a8553141a537436d017c6f30e161c6c4b55b5292,reference,^$,2551?
+dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date,value

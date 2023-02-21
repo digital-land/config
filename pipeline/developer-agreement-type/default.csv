@@ -1,2 +1,1 @@
-dataset,resource,field,default-field,entry-date,start-date,end-date
-
+dataset,default-field,end-date,endpoint,entry-date,entry-number,field,resource,start-date

@@ -1,4 +1,4 @@
-dataset,resource,column,field
-parish,,WKT,geometry
-parish,,par19cd,reference
-parish,,par19nm,name
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+WKT,parish,,,,geometry,,
+par19cd,parish,,,,reference,,
+par19nm,parish,,,,name,,

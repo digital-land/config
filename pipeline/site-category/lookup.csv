@@ -1,3 +1,1 @@
-prefix,resource,organisation,reference,entity
-site-category,,,deliverable,14300000
-site-category,,,hazardous-substances,14300001
+end-date,endpoint,entity,entry-date,entry-number,organisation,prefix,resource,start-date,value,reference

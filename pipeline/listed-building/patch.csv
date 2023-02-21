@@ -1,13 +1,4 @@
-dataset,resource,field,pattern,value
-listed-building,,listed-building-grade,^Listed Building Grade I$,I
-listed-building,,listed-building-grade,^Listed Building Grade II$,II
-listed-building,,listed-building-grade,^Listed Building Grade II\*$,II*
-listed-building-outline,,reference,^(.*)\.0000*$,\1
-listed-building-outline,,listed-building-grade,^Listed Building Grade (.*)$,\1
-listed-building-outline,,listed-building-grade,^Grade (.*)$,\1
-listed-building-outline,6c961fcd2c76a1602a98f309dc7bffe4323b3192bb839c9c773b4365f9a2ec41,reference,^0$,
-listed-building-outline,,listed-building-grade,^1$,I
-listed-building-outline,,listed-building-grade,^2$,II
-listed-building-outline,,listed-building-grade,^2\*$,II*
-listed-building-outline,,listed-building-grade,^3$,III
-listed-building-outline,,listed-building-grade,^2 Star$,II*
+dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date,value
+listed-building,,,,,listed-building-grade,^Listed Building Grade I$,,,I
+listed-building,,,,,listed-building-grade,^Listed Building Grade II$,,,II
+listed-building,,,,,listed-building-grade,^Listed Building Grade II\*$,,,II*

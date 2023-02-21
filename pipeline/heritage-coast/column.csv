@@ -1,5 +1,5 @@
-dataset,resource,column,field
-heritage-coast,,WKT,geometry
-heritage-coast,,DESIG_DATE,start-date
-heritage-coast,,HOTLINK,documentation-url
-heritage-coast,,REF_CODE,reference
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+WKT,heritage-coast,,,,geometry,,
+DESIG_DATE,heritage-coast,,,,start-date,,
+HOTLINK,heritage-coast,,,,documentation-url,,
+REF_CODE,heritage-coast,,,,reference,,

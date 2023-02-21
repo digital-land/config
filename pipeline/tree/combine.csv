@@ -1,2 +1,1 @@
-dataset,resource,field,separator,entry-date,start-date,end-date
-tree-preservation-zone,d551675f1579af9e69e105e9fe8f33fc4160dd8004fd6975863480e0d16b6337,geometry,,,,
+dataset,end-date,endpoint,entry-date,field,resource,separator,start-date
