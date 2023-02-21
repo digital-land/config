@@ -1,2 +1,2 @@
-dataset,resource,field,separator,entry-date,start-date,end-date
+dataset,endpoint,field,separator,entry-date,start-date,end-date
 listed-building-outline,2b0ef9c4c1482e0f32139e231a146d52a3cde2e4148db87c13c0b414d981c32a,geometry,,,,
