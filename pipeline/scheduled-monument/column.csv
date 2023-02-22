@@ -1,0 +1,6 @@
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+AmendDate,scheduled-monument,,,,entry-date,,
+Hyperlink,scheduled-monument,,,,documentation-url,,
+SchedDate,scheduled-monument,,,,start-date,,
+ListEntry,scheduled-monument,,,,reference,,
+WKT,scheduled-monument,,,,geometry,,

@@ -1,0 +1,7 @@
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+AmendDate,protected-wreck-site,,,,entry-date,,
+Hyperlink,protected-wreck-site,,,,documentation-url,,
+SInumber,protected-wreck-site,,,,legislation,,
+DesigDate,protected-wreck-site,,,,start-date,,
+ListEntry,protected-wreck-site,,,,reference,,
+WKT,protected-wreck-site,,,,geometry,,

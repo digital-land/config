@@ -1,0 +1,9 @@
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+Assessment,heritage-at-risk,,,,reference,,
+ListEntry,heritage-at-risk,,,,reference,,
+List_Entry,heritage-at-risk,,,,reference,,
+ArticleA_1,heritage-at-risk,,,,heritage-asset-type,,
+Assessme_2,heritage-at-risk,,,,heritage-risk-assessment-methodology,,
+EntryName,heritage-at-risk,,,,name,,
+URL,heritage-at-risk,,,,documentation-url,,
+WKT,heritage-at-risk,,,,geometry,,

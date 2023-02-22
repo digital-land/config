@@ -1,0 +1,7 @@
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+ListEntry,building-preservation-notice,,,,reference,,
+BPNStart,building-preservation-notice,,,,start-date,,
+BPNExpire,building-preservation-notice,,,,end-date,,
+AmendDate,building-preservation-notice,,,,entry-date,,
+Hyperlink,building-preservation-notice,,,,documentation-url,,
+WKT,building-preservation-notice,,,,point,,

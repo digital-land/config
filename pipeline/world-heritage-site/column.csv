@@ -1,0 +1,7 @@
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+AmendDate,world-heritage-site,,,,entry-date,,
+Hyperlink,world-heritage-site,,,,documentation-url,,
+InscrDate,world-heritage-site,,,,start-date,,
+ListEntry,world-heritage-site,,,,reference,,
+Notes,world-heritage-site,,,,notes,,
+WKT,world-heritage-site,,,,geometry,,
