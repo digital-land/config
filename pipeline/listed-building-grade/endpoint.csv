@@ -1,1 +1,16 @@
-end-date,endpoint,endpoint-url,entry-date,parameters,plugin,start-date
+endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
+d7a3030ffdf1c6f70cffdc0230928df129362c4b0c2d8b32e3bef22910e3f3f7,https://raw.githubusercontent.com/digital-land/historic-england-collection/main/data/listed-building-grade.csv,,,2021-06-02T15:15:36Z,,2021-10-02
+c187fc319f7175f30f123c26cd74e398844b0176b3e5c1690f2d710ef1cb237f,https://historicengland.org.uk/content/data-downloads-gis/listed-buildings/,,,2021-05-28T13:13:07Z,,
+fe11d79074c5744a47ce11171e6f7c376ea41a62ef2882d527192213645b9503,https://raw.githubusercontent.com/digital-land/listed-building-collection/main/data/listed-building-grade.csv,,,2021-11-22T16:16:19Z,,
+2edd619184cc8fdfcebab5be89c7de2ccbe03c72c7b6f71361920e3cda55163d,https://opendata.arcgis.com/datasets/a0ea54c61b1f4bdfbe9605324cf70c81_0.geojson,,,2021-11-23T19:19:01Z,,
+f9e48302f921da41ac204cd97817651db192c83dcbc032afc9a8f19f6ce57849,https://raw.githubusercontent.com/digital-land/listed-building-collection/main/data/Southwark/Grade%20I.zip,,,2021-12-07T11:11:51Z,,
+25763ee988ddbee9003f2dd58941c01b166e1a61e88b956f1f734c4dc4584021,https://raw.githubusercontent.com/digital-land/listed-building-collection/main/data/Southwark/Grade%20II.zip,,,2021-12-07T11:11:51Z,,
+7d33d185db7a5ba469da8f9e1d8d04a09f1a35650271282697d214e33dcd9fa1,https://raw.githubusercontent.com/digital-land/listed-building-collection/main/data/Southwark/Grade%20I%20Star.zip,,,2021-12-07T14:14:18Z,,
+0cbe4f9bc30b4b44da34618881d5986fdf49cfcf5d37ea998d26da79520e12a0,https://maps.buckscc.gov.uk/arcgis/services/PLANNING/RIPA_BOPS/MapServer/WFSServer?service=WFS&version=2.0.0&request=GetFeature&typeName=PLANNING_RIPA_BOPS:Listed_Buildings&outputFormat=GML2,,,2022-05-04T16:16:06:52Z,,
+fad9233216dbd89f5e1c5707d7ecc8a5b2e336b6270bd9652c78f877d255f49f,https://mapping.canterbury.gov.uk/arcgis/rest/services/External/Planning_Constraints_New/MapServer/7,,arcgis,2022-05-05T22:22:18:56Z,,
+6c03bc498c117edddbd56138be9d27e63d36ec7b0334c7754934af58b680b6f3,https://mapping.canterbury.gov.uk/arcgis/rest/services/External/Planning_Constraints_New/MapServer/8,,arcgis,2022-05-06T13:13:26:22Z,,
+a15cf992712968ed507792bb8e41ba7cb47732a15d35bd3c121e1fd0d85fe274,https://datamillnorth.org/download/listedbuildings/91298d09-45a6-4c6d-a909-11ec4eaab957/listedbuildings.csv,,,2022-07-01T14:14:45:55Z,,
+3ee8504f4511028a881ec4c4bd3ba0d2e45571839a658e90b74c163c1c08a809,https://gis.doncaster.gov.uk/arcgis/rest/services/Planning/Heritage/MapServer/2,,arcgis,2022-07-04T09:09:18:59Z,,2022-11-01
+29c2a158839842d4315d9280f3181a4273f67f0d349d706cfc3174c394b000ff,https://medwaymaps.medway.gov.uk/WFS/wfs.exe?service=WFS&version=2.0.0&request=GetFeature&TypeNames=DVL_LISTED_BUILDINGS,,wfs,2022-07-25T14:25:50Z,,
+2b0ef9c4c1482e0f32139e231a146d52a3cde2e4148db87c13c0b414d981c32a,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/ows?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Alisted_buildings_DL&OutputFormat=GML2,,wfs,2022-07-28T13:21:40Z,,
+8c363105b8138f6471cd4a453a84f15870be417ed0624d4b12f7b39ba49306ed,https://maps.doncaster.gov.uk/server/rest/services/Planning/Heritage_Map/MapServer/1,,arcgis,2022-11-01T16:42:43Z,,

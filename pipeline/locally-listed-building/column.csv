@@ -1,0 +1,8 @@
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+ListEntry,listed-building,,,,reference,,
+ID,listed-building,,,,reference,,
+ListDate,listed-building,,,,start-date,,
+AmendDate,listed-building,,,,entry-date,,
+Grade,listed-building,,,,listed-building-grade,,
+Hyperlink,listed-building,,,,documentation-url,,
+WKT,listed-building,,,,point,,

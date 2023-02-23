@@ -1,0 +1,3 @@
+dataset,end-date,endpoint,entry-date,entry-number,pattern,resource,start-date
+developer-agreement,,,,,"^Developer Agreements,,,,,,,,",,
+developer-agreement,,,,,"^,*[^,]*,*$",,
