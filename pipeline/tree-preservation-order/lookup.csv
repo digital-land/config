@@ -1,1 +1,2222 @@
 end-date,endpoint,entity,entry-date,entry-number,organisation,prefix,resource,start-date,value,reference
+,,7001000000,,,local-authority-eng:LBH,tree-preservation-order,,,,1
+,,7001000001,,,local-authority-eng:LBH,tree-preservation-order,,,,2
+,,7001000002,,,local-authority-eng:LBH,tree-preservation-order,,,,3
+,,7001000003,,,local-authority-eng:LBH,tree-preservation-order,,,,4
+,,7001000004,,,local-authority-eng:LBH,tree-preservation-order,,,,5
+,,7001000005,,,local-authority-eng:LBH,tree-preservation-order,,,,6
+,,7001000006,,,local-authority-eng:LBH,tree-preservation-order,,,,7
+,,7001000007,,,local-authority-eng:LBH,tree-preservation-order,,,,8
+,,7001000008,,,local-authority-eng:LBH,tree-preservation-order,,,,9
+,,7001000009,,,local-authority-eng:LBH,tree-preservation-order,,,,10
+,,7001000010,,,local-authority-eng:LBH,tree-preservation-order,,,,11
+,,7001000011,,,local-authority-eng:LBH,tree-preservation-order,,,,12
+,,7001000012,,,local-authority-eng:LBH,tree-preservation-order,,,,13
+,,7001000013,,,local-authority-eng:LBH,tree-preservation-order,,,,14
+,,7001000014,,,local-authority-eng:LBH,tree-preservation-order,,,,15
+,,7001000015,,,local-authority-eng:LBH,tree-preservation-order,,,,16
+,,7001000016,,,local-authority-eng:LBH,tree-preservation-order,,,,17
+,,7001000017,,,local-authority-eng:LBH,tree-preservation-order,,,,18
+,,7001000018,,,local-authority-eng:LBH,tree-preservation-order,,,,19
+,,7001000019,,,local-authority-eng:LBH,tree-preservation-order,,,,20
+,,7001000020,,,local-authority-eng:LBH,tree-preservation-order,,,,21
+,,7001000021,,,local-authority-eng:LBH,tree-preservation-order,,,,22
+,,7001000022,,,local-authority-eng:LBH,tree-preservation-order,,,,23
+,,7001000023,,,local-authority-eng:LBH,tree-preservation-order,,,,24
+,,7001000024,,,local-authority-eng:LBH,tree-preservation-order,,,,26
+,,7001000025,,,local-authority-eng:LBH,tree-preservation-order,,,,27
+,,7001000026,,,local-authority-eng:LBH,tree-preservation-order,,,,28
+,,7001000027,,,local-authority-eng:LBH,tree-preservation-order,,,,29
+,,7001000028,,,local-authority-eng:LBH,tree-preservation-order,,,,30
+,,7001000029,,,local-authority-eng:LBH,tree-preservation-order,,,,31
+,,7001000030,,,local-authority-eng:LBH,tree-preservation-order,,,,32
+,,7001000031,,,local-authority-eng:LBH,tree-preservation-order,,,,33
+,,7001000032,,,local-authority-eng:LBH,tree-preservation-order,,,,34
+,,7001000033,,,local-authority-eng:LBH,tree-preservation-order,,,,35
+,,7001000034,,,local-authority-eng:LBH,tree-preservation-order,,,,36
+,,7001000035,,,local-authority-eng:LBH,tree-preservation-order,,,,37
+,,7001000036,,,local-authority-eng:LBH,tree-preservation-order,,,,38
+,,7001000037,,,local-authority-eng:LBH,tree-preservation-order,,,,40
+,,7001000038,,,local-authority-eng:LBH,tree-preservation-order,,,,41
+,,7001000039,,,local-authority-eng:LBH,tree-preservation-order,,,,42
+,,7001000040,,,local-authority-eng:LBH,tree-preservation-order,,,,43
+,,7001000041,,,local-authority-eng:LBH,tree-preservation-order,,,,44
+,,7001000042,,,local-authority-eng:LBH,tree-preservation-order,,,,47
+,,7001000043,,,local-authority-eng:LBH,tree-preservation-order,,,,48
+,,7001000044,,,local-authority-eng:LBH,tree-preservation-order,,,,49
+,,7001000045,,,local-authority-eng:LBH,tree-preservation-order,,,,51
+,,7001000046,,,local-authority-eng:LBH,tree-preservation-order,,,,52
+,,7001000047,,,local-authority-eng:LBH,tree-preservation-order,,,,53
+,,7001000048,,,local-authority-eng:LBH,tree-preservation-order,,,,54
+,,7001000049,,,local-authority-eng:LBH,tree-preservation-order,,,,55
+,,7001000050,,,local-authority-eng:LBH,tree-preservation-order,,,,56
+,,7001000051,,,local-authority-eng:LBH,tree-preservation-order,,,,57
+,,7001000052,,,local-authority-eng:LBH,tree-preservation-order,,,,58
+,,7001000053,,,local-authority-eng:LBH,tree-preservation-order,,,,59
+,,7001000054,,,local-authority-eng:LBH,tree-preservation-order,,,,60
+,,7001000055,,,local-authority-eng:LBH,tree-preservation-order,,,,61
+,,7001000056,,,local-authority-eng:LBH,tree-preservation-order,,,,62
+,,7001000057,,,local-authority-eng:LBH,tree-preservation-order,,,,63
+,,7001000058,,,local-authority-eng:LBH,tree-preservation-order,,,,64
+,,7001000059,,,local-authority-eng:LBH,tree-preservation-order,,,,65
+,,7001000060,,,local-authority-eng:LBH,tree-preservation-order,,,,66
+,,7001000061,,,local-authority-eng:LBH,tree-preservation-order,,,,67
+,,7001000062,,,local-authority-eng:LBH,tree-preservation-order,,,,68
+,,7001000063,,,local-authority-eng:LBH,tree-preservation-order,,,,69
+,,7001000064,,,local-authority-eng:LBH,tree-preservation-order,,,,70
+,,7001000065,,,local-authority-eng:LBH,tree-preservation-order,,,,72
+,,7001000066,,,local-authority-eng:LBH,tree-preservation-order,,,,73
+,,7001000067,,,local-authority-eng:LBH,tree-preservation-order,,,,74
+,,7001000068,,,local-authority-eng:LBH,tree-preservation-order,,,,75
+,,7001000069,,,local-authority-eng:LBH,tree-preservation-order,,,,76
+,,7001000070,,,local-authority-eng:LBH,tree-preservation-order,,,,77
+,,7001000071,,,local-authority-eng:LBH,tree-preservation-order,,,,78
+,,7001000072,,,local-authority-eng:LBH,tree-preservation-order,,,,79
+,,7001000073,,,local-authority-eng:LBH,tree-preservation-order,,,,81
+,,7001000074,,,local-authority-eng:LBH,tree-preservation-order,,,,82
+,,7001000075,,,local-authority-eng:LBH,tree-preservation-order,,,,83
+,,7001000076,,,local-authority-eng:LBH,tree-preservation-order,,,,84
+,,7001000077,,,local-authority-eng:LBH,tree-preservation-order,,,,87
+,,7001000078,,,local-authority-eng:LBH,tree-preservation-order,,,,88
+,,7001000079,,,local-authority-eng:LBH,tree-preservation-order,,,,89
+,,7001000080,,,local-authority-eng:LBH,tree-preservation-order,,,,90
+,,7001000081,,,local-authority-eng:LBH,tree-preservation-order,,,,91
+,,7001000082,,,local-authority-eng:LBH,tree-preservation-order,,,,92
+,,7001000083,,,local-authority-eng:LBH,tree-preservation-order,,,,93
+,,7001000084,,,local-authority-eng:LBH,tree-preservation-order,,,,94
+,,7001000085,,,local-authority-eng:LBH,tree-preservation-order,,,,95
+,,7001000086,,,local-authority-eng:LBH,tree-preservation-order,,,,96
+,,7001000087,,,local-authority-eng:LBH,tree-preservation-order,,,,97
+,,7001000088,,,local-authority-eng:LBH,tree-preservation-order,,,,98
+,,7001000089,,,local-authority-eng:LBH,tree-preservation-order,,,,99
+,,7001000090,,,local-authority-eng:LBH,tree-preservation-order,,,,101
+,,7001000091,,,local-authority-eng:LBH,tree-preservation-order,,,,102
+,,7001000092,,,local-authority-eng:LBH,tree-preservation-order,,,,103
+,,7001000093,,,local-authority-eng:LBH,tree-preservation-order,,,,104
+,,7001000094,,,local-authority-eng:LBH,tree-preservation-order,,,,105
+,,7001000095,,,local-authority-eng:LBH,tree-preservation-order,,,,106
+,,7001000096,,,local-authority-eng:LBH,tree-preservation-order,,,,107
+,,7001000097,,,local-authority-eng:LBH,tree-preservation-order,,,,108
+,,7001000098,,,local-authority-eng:LBH,tree-preservation-order,,,,109
+,,7001000099,,,local-authority-eng:LBH,tree-preservation-order,,,,110
+,,7001000100,,,local-authority-eng:LBH,tree-preservation-order,,,,111
+,,7001000101,,,local-authority-eng:LBH,tree-preservation-order,,,,112
+,,7001000102,,,local-authority-eng:LBH,tree-preservation-order,,,,113
+,,7001000103,,,local-authority-eng:LBH,tree-preservation-order,,,,114
+,,7001000104,,,local-authority-eng:LBH,tree-preservation-order,,,,115
+,,7001000105,,,local-authority-eng:LBH,tree-preservation-order,,,,116
+,,7001000106,,,local-authority-eng:LBH,tree-preservation-order,,,,117
+,,7001000107,,,local-authority-eng:LBH,tree-preservation-order,,,,118
+,,7001000108,,,local-authority-eng:LBH,tree-preservation-order,,,,119
+,,7001000109,,,local-authority-eng:LBH,tree-preservation-order,,,,120
+,,7001000110,,,local-authority-eng:LBH,tree-preservation-order,,,,122
+,,7001000111,,,local-authority-eng:LBH,tree-preservation-order,,,,123
+,,7001000112,,,local-authority-eng:LBH,tree-preservation-order,,,,124
+,,7001000113,,,local-authority-eng:LBH,tree-preservation-order,,,,125
+,,7001000114,,,local-authority-eng:LBH,tree-preservation-order,,,,126
+,,7001000115,,,local-authority-eng:LBH,tree-preservation-order,,,,128
+,,7001000116,,,local-authority-eng:LBH,tree-preservation-order,,,,129
+,,7001000117,,,local-authority-eng:LBH,tree-preservation-order,,,,130
+,,7001000118,,,local-authority-eng:LBH,tree-preservation-order,,,,131
+,,7001000119,,,local-authority-eng:LBH,tree-preservation-order,,,,132
+,,7001000120,,,local-authority-eng:LBH,tree-preservation-order,,,,133
+,,7001000121,,,local-authority-eng:LBH,tree-preservation-order,,,,134
+,,7001000122,,,local-authority-eng:LBH,tree-preservation-order,,,,135
+,,7001000123,,,local-authority-eng:LBH,tree-preservation-order,,,,136
+,,7001000124,,,local-authority-eng:LBH,tree-preservation-order,,,,137
+,,7001000125,,,local-authority-eng:LBH,tree-preservation-order,,,,138
+,,7001000126,,,local-authority-eng:LBH,tree-preservation-order,,,,139
+,,7001000127,,,local-authority-eng:LBH,tree-preservation-order,,,,141
+,,7001000128,,,local-authority-eng:LBH,tree-preservation-order,,,,144
+,,7001000129,,,local-authority-eng:LBH,tree-preservation-order,,,,145
+,,7001000130,,,local-authority-eng:LBH,tree-preservation-order,,,,146
+,,7001000131,,,local-authority-eng:LBH,tree-preservation-order,,,,147
+,,7001000132,,,local-authority-eng:LBH,tree-preservation-order,,,,148
+,,7001000133,,,local-authority-eng:LBH,tree-preservation-order,,,,149
+,,7001000134,,,local-authority-eng:LBH,tree-preservation-order,,,,150
+,,7001000135,,,local-authority-eng:LBH,tree-preservation-order,,,,151
+,,7001000136,,,local-authority-eng:LBH,tree-preservation-order,,,,152
+,,7001000137,,,local-authority-eng:LBH,tree-preservation-order,,,,153
+,,7001000138,,,local-authority-eng:LBH,tree-preservation-order,,,,154
+,,7001000139,,,local-authority-eng:LBH,tree-preservation-order,,,,155
+,,7001000140,,,local-authority-eng:LBH,tree-preservation-order,,,,156
+,,7001000141,,,local-authority-eng:LBH,tree-preservation-order,,,,157
+,,7001000142,,,local-authority-eng:LBH,tree-preservation-order,,,,159
+,,7001000143,,,local-authority-eng:LBH,tree-preservation-order,,,,160
+,,7001000144,,,local-authority-eng:LBH,tree-preservation-order,,,,162
+,,7001000145,,,local-authority-eng:LBH,tree-preservation-order,,,,163
+,,7001000146,,,local-authority-eng:LBH,tree-preservation-order,,,,166
+,,7001000147,,,local-authority-eng:LBH,tree-preservation-order,,,,168
+,,7001000148,,,local-authority-eng:LBH,tree-preservation-order,,,,171
+,,7001000149,,,local-authority-eng:LBH,tree-preservation-order,,,,172
+,,7001000150,,,local-authority-eng:LBH,tree-preservation-order,,,,173
+,,7001000151,,,local-authority-eng:LBH,tree-preservation-order,,,,174
+,,7001000152,,,local-authority-eng:LBH,tree-preservation-order,,,,175
+,,7001000153,,,local-authority-eng:LBH,tree-preservation-order,,,,176
+,,7001000154,,,local-authority-eng:LBH,tree-preservation-order,,,,177
+,,7001000155,,,local-authority-eng:LBH,tree-preservation-order,,,,178
+,,7001000156,,,local-authority-eng:LBH,tree-preservation-order,,,,179
+,,7001000157,,,local-authority-eng:LBH,tree-preservation-order,,,,180
+,,7001000158,,,local-authority-eng:LBH,tree-preservation-order,,,,181
+,,7001000159,,,local-authority-eng:LBH,tree-preservation-order,,,,182
+,,7001000160,,,local-authority-eng:LBH,tree-preservation-order,,,,183
+,,7001000161,,,local-authority-eng:LBH,tree-preservation-order,,,,184
+,,7001000162,,,local-authority-eng:LBH,tree-preservation-order,,,,185
+,,7001000163,,,local-authority-eng:LBH,tree-preservation-order,,,,186
+,,7001000164,,,local-authority-eng:LBH,tree-preservation-order,,,,187
+,,7001000165,,,local-authority-eng:LBH,tree-preservation-order,,,,188
+,,7001000166,,,local-authority-eng:LBH,tree-preservation-order,,,,189
+,,7001000167,,,local-authority-eng:LBH,tree-preservation-order,,,,190
+,,7001000168,,,local-authority-eng:LBH,tree-preservation-order,,,,192
+,,7001000169,,,local-authority-eng:LBH,tree-preservation-order,,,,194
+,,7001000170,,,local-authority-eng:LBH,tree-preservation-order,,,,195
+,,7001000171,,,local-authority-eng:LBH,tree-preservation-order,,,,196
+,,7001000172,,,local-authority-eng:LBH,tree-preservation-order,,,,197
+,,7001000173,,,local-authority-eng:LBH,tree-preservation-order,,,,198
+,,7001000174,,,local-authority-eng:LBH,tree-preservation-order,,,,199
+,,7001000175,,,local-authority-eng:LBH,tree-preservation-order,,,,200
+,,7001000176,,,local-authority-eng:LBH,tree-preservation-order,,,,202
+,,7001000177,,,local-authority-eng:LBH,tree-preservation-order,,,,203
+,,7001000178,,,local-authority-eng:LBH,tree-preservation-order,,,,204
+,,7001000179,,,local-authority-eng:LBH,tree-preservation-order,,,,205
+,,7001000180,,,local-authority-eng:LBH,tree-preservation-order,,,,206
+,,7001000181,,,local-authority-eng:LBH,tree-preservation-order,,,,207
+,,7001000182,,,local-authority-eng:LBH,tree-preservation-order,,,,208
+,,7001000183,,,local-authority-eng:LBH,tree-preservation-order,,,,209
+,,7001000184,,,local-authority-eng:LBH,tree-preservation-order,,,,210
+,,7001000185,,,local-authority-eng:LBH,tree-preservation-order,,,,211
+,,7001000186,,,local-authority-eng:LBH,tree-preservation-order,,,,212
+,,7001000187,,,local-authority-eng:LBH,tree-preservation-order,,,,213
+,,7001000188,,,local-authority-eng:LBH,tree-preservation-order,,,,214
+,,7001000189,,,local-authority-eng:LBH,tree-preservation-order,,,,215
+,,7001000190,,,local-authority-eng:LBH,tree-preservation-order,,,,216
+,,7001000191,,,local-authority-eng:LBH,tree-preservation-order,,,,217
+,,7001000192,,,local-authority-eng:LBH,tree-preservation-order,,,,218
+,,7001000193,,,local-authority-eng:LBH,tree-preservation-order,,,,219
+,,7001000194,,,local-authority-eng:LBH,tree-preservation-order,,,,220
+,,7001000195,,,local-authority-eng:LBH,tree-preservation-order,,,,221
+,,7001000196,,,local-authority-eng:LBH,tree-preservation-order,,,,222
+,,7001000197,,,local-authority-eng:LBH,tree-preservation-order,,,,223
+,,7001000198,,,local-authority-eng:LBH,tree-preservation-order,,,,224
+,,7001000199,,,local-authority-eng:LBH,tree-preservation-order,,,,225
+,,7001000200,,,local-authority-eng:LBH,tree-preservation-order,,,,226
+,,7001000201,,,local-authority-eng:LBH,tree-preservation-order,,,,227
+,,7001000202,,,local-authority-eng:LBH,tree-preservation-order,,,,228
+,,7001000203,,,local-authority-eng:LBH,tree-preservation-order,,,,229
+,,7001000204,,,local-authority-eng:LBH,tree-preservation-order,,,,230
+,,7001000205,,,local-authority-eng:LBH,tree-preservation-order,,,,232
+,,7001000206,,,local-authority-eng:LBH,tree-preservation-order,,,,233
+,,7001000207,,,local-authority-eng:LBH,tree-preservation-order,,,,234
+,,7001000208,,,local-authority-eng:LBH,tree-preservation-order,,,,235
+,,7001000209,,,local-authority-eng:LBH,tree-preservation-order,,,,236
+,,7001000210,,,local-authority-eng:LBH,tree-preservation-order,,,,237
+,,7001000211,,,local-authority-eng:LBH,tree-preservation-order,,,,238
+,,7001000212,,,local-authority-eng:LBH,tree-preservation-order,,,,239
+,,7001000213,,,local-authority-eng:LBH,tree-preservation-order,,,,240
+,,7001000214,,,local-authority-eng:LBH,tree-preservation-order,,,,241
+,,7001000215,,,local-authority-eng:LBH,tree-preservation-order,,,,242
+,,7001000216,,,local-authority-eng:LBH,tree-preservation-order,,,,243
+,,7001000217,,,local-authority-eng:LBH,tree-preservation-order,,,,244
+,,7001000218,,,local-authority-eng:LBH,tree-preservation-order,,,,245
+,,7001000219,,,local-authority-eng:LBH,tree-preservation-order,,,,246
+,,7001000220,,,local-authority-eng:LBH,tree-preservation-order,,,,247
+,,7001000221,,,local-authority-eng:LBH,tree-preservation-order,,,,248
+,,7001000222,,,local-authority-eng:LBH,tree-preservation-order,,,,249
+,,7001000223,,,local-authority-eng:LBH,tree-preservation-order,,,,250
+,,7001000224,,,local-authority-eng:LBH,tree-preservation-order,,,,251
+,,7001000225,,,local-authority-eng:LBH,tree-preservation-order,,,,252
+,,7001000226,,,local-authority-eng:LBH,tree-preservation-order,,,,253
+,,7001000227,,,local-authority-eng:LBH,tree-preservation-order,,,,254
+,,7001000228,,,local-authority-eng:LBH,tree-preservation-order,,,,255
+,,7001000229,,,local-authority-eng:LBH,tree-preservation-order,,,,256
+,,7001000230,,,local-authority-eng:LBH,tree-preservation-order,,,,257
+,,7001000231,,,local-authority-eng:LBH,tree-preservation-order,,,,258
+,,7001000232,,,local-authority-eng:LBH,tree-preservation-order,,,,259
+,,7001000233,,,local-authority-eng:LBH,tree-preservation-order,,,,260
+,,7001000234,,,local-authority-eng:LBH,tree-preservation-order,,,,261
+,,7001000235,,,local-authority-eng:LBH,tree-preservation-order,,,,262
+,,7001000236,,,local-authority-eng:LBH,tree-preservation-order,,,,263
+,,7001000237,,,local-authority-eng:LBH,tree-preservation-order,,,,264
+,,7001000238,,,local-authority-eng:LBH,tree-preservation-order,,,,265
+,,7001000239,,,local-authority-eng:LBH,tree-preservation-order,,,,266
+,,7001000240,,,local-authority-eng:LBH,tree-preservation-order,,,,267
+,,7001000241,,,local-authority-eng:LBH,tree-preservation-order,,,,268
+,,7001000242,,,local-authority-eng:LBH,tree-preservation-order,,,,269
+,,7001000243,,,local-authority-eng:LBH,tree-preservation-order,,,,271
+,,7001000244,,,local-authority-eng:LBH,tree-preservation-order,,,,272
+,,7001000245,,,local-authority-eng:LBH,tree-preservation-order,,,,273
+,,7001000246,,,local-authority-eng:LBH,tree-preservation-order,,,,274
+,,7001000247,,,local-authority-eng:LBH,tree-preservation-order,,,,275
+,,7001000248,,,local-authority-eng:LBH,tree-preservation-order,,,,277
+,,7001000249,,,local-authority-eng:LBH,tree-preservation-order,,,,400
+,,7001000250,,,local-authority-eng:LBH,tree-preservation-order,,,,401
+,,7001000251,,,local-authority-eng:LBH,tree-preservation-order,,,,402
+,,7001000252,,,local-authority-eng:LBH,tree-preservation-order,,,,403
+,,7001000253,,,local-authority-eng:LBH,tree-preservation-order,,,,404
+,,7001000254,,,local-authority-eng:LBH,tree-preservation-order,,,,405
+,,7001000255,,,local-authority-eng:LBH,tree-preservation-order,,,,406
+,,7001000256,,,local-authority-eng:LBH,tree-preservation-order,,,,407
+,,7001000257,,,local-authority-eng:LBH,tree-preservation-order,,,,408
+,,7001000258,,,local-authority-eng:LBH,tree-preservation-order,,,,409
+,,7001000259,,,local-authority-eng:LBH,tree-preservation-order,,,,411
+,,7001000260,,,local-authority-eng:LBH,tree-preservation-order,,,,412
+,,7001000261,,,local-authority-eng:LBH,tree-preservation-order,,,,413
+,,7001000262,,,local-authority-eng:LBH,tree-preservation-order,,,,414
+,,7001000263,,,local-authority-eng:LBH,tree-preservation-order,,,,415
+,,7001000264,,,local-authority-eng:LBH,tree-preservation-order,,,,416
+,,7001000265,,,local-authority-eng:LBH,tree-preservation-order,,,,417
+,,7001000266,,,local-authority-eng:LBH,tree-preservation-order,,,,418
+,,7001000267,,,local-authority-eng:LBH,tree-preservation-order,,,,419
+,,7001000268,,,local-authority-eng:LBH,tree-preservation-order,,,,420
+,,7001000269,,,local-authority-eng:LBH,tree-preservation-order,,,,421
+,,7001000270,,,local-authority-eng:LBH,tree-preservation-order,,,,422
+,,7001000271,,,local-authority-eng:LBH,tree-preservation-order,,,,423
+,,7001000272,,,local-authority-eng:LBH,tree-preservation-order,,,,424
+,,7001000273,,,local-authority-eng:LBH,tree-preservation-order,,,,426
+,,7001000274,,,local-authority-eng:LBH,tree-preservation-order,,,,427
+,,7001000275,,,local-authority-eng:LBH,tree-preservation-order,,,,428
+,,7001000276,,,local-authority-eng:LBH,tree-preservation-order,,,,429
+,,7001000277,,,local-authority-eng:LBH,tree-preservation-order,,,,430
+,,7001000278,,,local-authority-eng:LBH,tree-preservation-order,,,,431
+,,7001000279,,,local-authority-eng:LBH,tree-preservation-order,,,,432
+,,7001000280,,,local-authority-eng:LBH,tree-preservation-order,,,,433
+,,7001000281,,,local-authority-eng:LBH,tree-preservation-order,,,,434
+,,7001000282,,,local-authority-eng:LBH,tree-preservation-order,,,,438
+,,7001000283,,,local-authority-eng:LBH,tree-preservation-order,,,,440
+,,7001000284,,,local-authority-eng:LBH,tree-preservation-order,,,,441
+,,7001000285,,,local-authority-eng:LBH,tree-preservation-order,,,,442
+,,7001000286,,,local-authority-eng:LBH,tree-preservation-order,,,,443
+,,7001000287,,,local-authority-eng:LBH,tree-preservation-order,,,,444
+,,7001000288,,,local-authority-eng:LBH,tree-preservation-order,,,,445
+,,7001000289,,,local-authority-eng:LBH,tree-preservation-order,,,,446
+,,7001000290,,,local-authority-eng:LBH,tree-preservation-order,,,,447
+,,7001000291,,,local-authority-eng:LBH,tree-preservation-order,,,,448
+,,7001000292,,,local-authority-eng:LBH,tree-preservation-order,,,,450
+,,7001000293,,,local-authority-eng:LBH,tree-preservation-order,,,,452
+,,7001000294,,,local-authority-eng:LBH,tree-preservation-order,,,,453
+,,7001000295,,,local-authority-eng:LBH,tree-preservation-order,,,,454
+,,7001000296,,,local-authority-eng:LBH,tree-preservation-order,,,,455
+,,7001000297,,,local-authority-eng:LBH,tree-preservation-order,,,,457
+,,7001000298,,,local-authority-eng:LBH,tree-preservation-order,,,,459
+,,7001000299,,,local-authority-eng:LBH,tree-preservation-order,,,,460
+,,7001000300,,,local-authority-eng:LBH,tree-preservation-order,,,,461
+,,7001000301,,,local-authority-eng:LBH,tree-preservation-order,,,,463
+,,7001000302,,,local-authority-eng:LBH,tree-preservation-order,,,,465
+,,7001000303,,,local-authority-eng:LBH,tree-preservation-order,,,,466
+,,7001000304,,,local-authority-eng:LBH,tree-preservation-order,,,,468
+,,7001000305,,,local-authority-eng:LBH,tree-preservation-order,,,,469
+,,7001000306,,,local-authority-eng:LBH,tree-preservation-order,,,,477
+,,7001000307,,,local-authority-eng:BUC,tree-preservation-order,,,,IPO/1945
+,,7001000308,,,local-authority-eng:BUC,tree-preservation-order,,,,IPO/1946
+,,7001000309,,,local-authority-eng:BUC,tree-preservation-order,,,,IPO/1948
+,,7001000310,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1949
+,,7001000311,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1949
+,,7001000312,,,local-authority-eng:BUC,tree-preservation-order,,,,11/1949
+,,7001000313,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1951
+,,7001000314,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1951
+,,7001000315,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1952
+,,7001000316,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1952
+,,7001000317,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1952
+,,7001000318,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1952
+,,7001000319,,,local-authority-eng:BUC,tree-preservation-order,,,,09/1952
+,,7001000320,,,local-authority-eng:BUC,tree-preservation-order,,,,H6/1952/OCC
+,,7001000321,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1954
+,,7001000322,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1954
+,,7001000323,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1954
+,,7001000324,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1955
+,,7001000325,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1955
+,,7001000326,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1955
+,,7001000327,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1955
+,,7001000328,,,local-authority-eng:BUC,tree-preservation-order,,,,08/1955
+,,7001000329,,,local-authority-eng:BUC,tree-preservation-order,,,,10/1955
+,,7001000330,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1956
+,,7001000331,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1956
+,,7001000332,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1956
+,,7001000333,,,local-authority-eng:BUC,tree-preservation-order,,,,09/1956
+,,7001000334,,,local-authority-eng:BUC,tree-preservation-order,,,,10/1956
+,,7001000335,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1957
+,,7001000336,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1957
+,,7001000337,,,local-authority-eng:BUC,tree-preservation-order,,,,08/1957
+,,7001000338,,,local-authority-eng:BUC,tree-preservation-order,,,,14/1957
+,,7001000339,,,local-authority-eng:BUC,tree-preservation-order,,,,15/1957
+,,7001000340,,,local-authority-eng:BUC,tree-preservation-order,,,,16/1957
+,,7001000341,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1958
+,,7001000342,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1958
+,,7001000343,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1958
+,,7001000344,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1958
+,,7001000345,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1959
+,,7001000346,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1960
+,,7001000347,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1960
+,,7001000348,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1961
+,,7001000349,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1961
+,,7001000350,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1961
+,,7001000351,,,local-authority-eng:BUC,tree-preservation-order,,,,09/1961
+,,7001000352,,,local-authority-eng:BUC,tree-preservation-order,,,,10/1961
+,,7001000353,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1962
+,,7001000354,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1962
+,,7001000355,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1963
+,,7001000356,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1964
+,,7001000357,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1964
+,,7001000358,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1965
+,,7001000359,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1966
+,,7001000360,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1967
+,,7001000361,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1967
+,,7001000362,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1968
+,,7001000363,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1968/WR
+,,7001000364,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1968/WR
+,,7001000365,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1968
+,,7001000366,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1968
+,,7001000367,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1968
+,,7001000368,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1969
+,,7001000369,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1969
+,,7001000370,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1969
+,,7001000371,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1969
+,,7001000372,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1969
+,,7001000373,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1970/HW
+,,7001000374,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1970/WR
+,,7001000375,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1970/HW
+,,7001000376,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1970/WR
+,,7001000377,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1970/HW
+,,7001000378,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1970/WR
+,,7001000379,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1970/HW
+,,7001000380,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1970/M
+,,7001000381,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1970/HW
+,,7001000382,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1970/WR
+,,7001000383,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1970/HW
+,,7001000384,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1970/WR
+,,7001000385,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1970/HW
+,,7001000386,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1970/WR
+,,7001000387,,,local-authority-eng:BUC,tree-preservation-order,,,,08/1970/WR
+,,7001000388,,,local-authority-eng:BUC,tree-preservation-order,,,,08A/1970/WR
+,,7001000389,,,local-authority-eng:BUC,tree-preservation-order,,,,10/1970/WR
+,,7001000390,,,local-authority-eng:BUC,tree-preservation-order,,,,11/1970/WR
+,,7001000391,,,local-authority-eng:BUC,tree-preservation-order,,,,12/1970/WR
+,,7001000392,,,local-authority-eng:BUC,tree-preservation-order,,,,13/1970/WR
+,,7001000393,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1971/HW
+,,7001000394,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1971/M
+,,7001000395,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1971/WR
+,,7001000396,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1971/HW
+,,7001000397,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1971/WR
+,,7001000398,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1971/HW
+,,7001000399,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1971/WR
+,,7001000400,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1971/HW
+,,7001000401,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1971/WR
+,,7001000402,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1971/HW
+,,7001000403,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1971/WR
+,,7001000404,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1971/HW
+,,7001000405,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1971/WR
+,,7001000406,,,local-authority-eng:BUC,tree-preservation-order,,,,06A/1971/WR
+,,7001000407,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1971/HW
+,,7001000408,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1971/WR
+,,7001000409,,,local-authority-eng:BUC,tree-preservation-order,,,,08/1971/HW
+,,7001000410,,,local-authority-eng:BUC,tree-preservation-order,,,,09/1971/HW
+,,7001000411,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1972/WR
+,,7001000412,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1972/WR
+,,7001000413,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1972/WR
+,,7001000414,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1972/WR
+,,7001000415,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1972/WR
+,,7001000416,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1972/WR
+,,7001000417,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1972/WR
+,,7001000418,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1973/WR
+,,7001000419,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1973/HW
+,,7001000420,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1973/M
+,,7001000421,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1973/HW
+,,7001000422,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1973/HW
+,,7001000423,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1973/HW
+,,7001000424,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1974/M
+,,7001000425,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1974/WR
+,,7001000426,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1974/HW
+,,7001000427,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1974
+,,7001000428,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1974
+,,7001000429,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1974
+,,7001000430,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1975
+,,7001000431,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1975
+,,7001000432,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1975
+,,7001000433,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1975
+,,7001000434,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1975
+,,7001000435,,,local-authority-eng:BUC,tree-preservation-order,,,,08/1975
+,,7001000436,,,local-authority-eng:BUC,tree-preservation-order,,,,09/1975
+,,7001000437,,,local-authority-eng:BUC,tree-preservation-order,,,,10/1975
+,,7001000438,,,local-authority-eng:BUC,tree-preservation-order,,,,11/1975
+,,7001000439,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1976
+,,7001000440,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1976
+,,7001000441,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1976
+,,7001000442,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1976
+,,7001000443,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1976
+,,7001000444,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1976
+,,7001000445,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1976
+,,7001000446,,,local-authority-eng:BUC,tree-preservation-order,,,,08/1976
+,,7001000447,,,local-authority-eng:BUC,tree-preservation-order,,,,10/1976
+,,7001000448,,,local-authority-eng:BUC,tree-preservation-order,,,,11/1976
+,,7001000449,,,local-authority-eng:BUC,tree-preservation-order,,,,12/1976
+,,7001000450,,,local-authority-eng:BUC,tree-preservation-order,,,,13/1976
+,,7001000451,,,local-authority-eng:BUC,tree-preservation-order,,,,14/1976
+,,7001000452,,,local-authority-eng:BUC,tree-preservation-order,,,,17/1976
+,,7001000453,,,local-authority-eng:BUC,tree-preservation-order,,,,18/1976
+,,7001000454,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1977
+,,7001000455,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1977
+,,7001000456,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1977
+,,7001000457,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1977
+,,7001000458,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1977
+,,7001000459,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1977
+,,7001000460,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1977
+,,7001000461,,,local-authority-eng:BUC,tree-preservation-order,,,,08/1977
+,,7001000462,,,local-authority-eng:BUC,tree-preservation-order,,,,09/1977
+,,7001000463,,,local-authority-eng:BUC,tree-preservation-order,,,,10/1977
+,,7001000464,,,local-authority-eng:BUC,tree-preservation-order,,,,11/1977
+,,7001000465,,,local-authority-eng:BUC,tree-preservation-order,,,,12/1977
+,,7001000466,,,local-authority-eng:BUC,tree-preservation-order,,,,13/1977
+,,7001000467,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1978
+,,7001000468,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1978
+,,7001000469,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1978
+,,7001000470,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1978
+,,7001000471,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1978
+,,7001000472,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1978
+,,7001000473,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1978
+,,7001000474,,,local-authority-eng:BUC,tree-preservation-order,,,,08/1978
+,,7001000475,,,local-authority-eng:BUC,tree-preservation-order,,,,09/1978
+,,7001000476,,,local-authority-eng:BUC,tree-preservation-order,,,,11/1978
+,,7001000477,,,local-authority-eng:BUC,tree-preservation-order,,,,13/1978
+,,7001000478,,,local-authority-eng:BUC,tree-preservation-order,,,,14/1978
+,,7001000479,,,local-authority-eng:BUC,tree-preservation-order,,,,15/1978
+,,7001000480,,,local-authority-eng:BUC,tree-preservation-order,,,,16/1978
+,,7001000481,,,local-authority-eng:BUC,tree-preservation-order,,,,17/1978
+,,7001000482,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1979
+,,7001000483,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1979
+,,7001000484,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1979
+,,7001000485,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1979
+,,7001000486,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1979
+,,7001000487,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1979
+,,7001000488,,,local-authority-eng:BUC,tree-preservation-order,,,,08/1979
+,,7001000489,,,local-authority-eng:BUC,tree-preservation-order,,,,09/1979
+,,7001000490,,,local-authority-eng:BUC,tree-preservation-order,,,,10/1979
+,,7001000491,,,local-authority-eng:BUC,tree-preservation-order,,,,11/1979
+,,7001000492,,,local-authority-eng:BUC,tree-preservation-order,,,,12/1979
+,,7001000493,,,local-authority-eng:BUC,tree-preservation-order,,,,13/1979
+,,7001000494,,,local-authority-eng:BUC,tree-preservation-order,,,,14/1979
+,,7001000495,,,local-authority-eng:BUC,tree-preservation-order,,,,15/1979
+,,7001000496,,,local-authority-eng:BUC,tree-preservation-order,,,,17/1979
+,,7001000497,,,local-authority-eng:BUC,tree-preservation-order,,,,18/1979
+,,7001000498,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1980
+,,7001000499,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1980
+,,7001000500,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1980
+,,7001000501,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1980
+,,7001000502,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1980
+,,7001000503,,,local-authority-eng:BUC,tree-preservation-order,,,,08/1980
+,,7001000504,,,local-authority-eng:BUC,tree-preservation-order,,,,09/1980
+,,7001000505,,,local-authority-eng:BUC,tree-preservation-order,,,,10/1980
+,,7001000506,,,local-authority-eng:BUC,tree-preservation-order,,,,11/1980
+,,7001000507,,,local-authority-eng:BUC,tree-preservation-order,,,,12/1980
+,,7001000508,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1981
+,,7001000509,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1981
+,,7001000510,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1981
+,,7001000511,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1981
+,,7001000512,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1981
+,,7001000513,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1982
+,,7001000514,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1982
+,,7001000515,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1982
+,,7001000516,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1982
+,,7001000517,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1982
+,,7001000518,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1982
+,,7001000519,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1982
+,,7001000520,,,local-authority-eng:BUC,tree-preservation-order,,,,08/1982
+,,7001000521,,,local-authority-eng:BUC,tree-preservation-order,,,,09/1982
+,,7001000522,,,local-authority-eng:BUC,tree-preservation-order,,,,10/1982
+,,7001000523,,,local-authority-eng:BUC,tree-preservation-order,,,,11/1982
+,,7001000524,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1983
+,,7001000525,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1983
+,,7001000526,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1983
+,,7001000527,,,local-authority-eng:BUC,tree-preservation-order,,,,06/1983
+,,7001000528,,,local-authority-eng:BUC,tree-preservation-order,,,,07/1983
+,,7001000529,,,local-authority-eng:BUC,tree-preservation-order,,,,08/1983
+,,7001000530,,,local-authority-eng:BUC,tree-preservation-order,,,,09/1983
+,,7001000531,,,local-authority-eng:BUC,tree-preservation-order,,,,10/1983
+,,7001000532,,,local-authority-eng:BUC,tree-preservation-order,,,,11/1983
+,,7001000533,,,local-authority-eng:BUC,tree-preservation-order,,,,12/1983
+,,7001000534,,,local-authority-eng:BUC,tree-preservation-order,,,,13/1983
+,,7001000535,,,local-authority-eng:BUC,tree-preservation-order,,,,01/1984
+,,7001000536,,,local-authority-eng:BUC,tree-preservation-order,,,,02/1984
+,,7001000537,,,local-authority-eng:BUC,tree-preservation-order,,,,03/1984
+,,7001000538,,,local-authority-eng:BUC,tree-preservation-order,,,,04/1984
+,,7001000539,,,local-authority-eng:BUC,tree-preservation-order,,,,05/1984
+,,7001000540,,,local-authority-eng:CAT,tree-preservation-order,,,,2/2019/CAN
+,,7001000541,,,local-authority-eng:CAT,tree-preservation-order,,,,TPO/02/2015/CAN
+,,7001000542,,,local-authority-eng:CAT,tree-preservation-order,,,,TPO/01/2020/WHI
+,,7001000543,,,local-authority-eng:CAT,tree-preservation-order,,,,TPO/01/2021/ICK
+,,7001000544,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1970/BLE
+,,7001000545,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1962/HER
+,,7001000546,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1962/WIC
+,,7001000547,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1963/CAN
+,,7001000548,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1963/HER
+,,7001000549,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1963/STU
+,,7001000550,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1964/BIS
+,,7001000551,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1968/BIS
+,,7001000552,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1968/CHE
+,,7001000553,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1969/CHE
+,,7001000554,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1969/STU
+,,7001000555,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1970/CAN
+,,7001000556,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1970/CHE
+,,7001000557,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1971/HAR
+,,7001000558,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1972/KIN
+,,7001000559,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1973/CAN
+,,7001000560,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1973/LHA
+,,7001000561,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1973/WHI
+,,7001000562,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1974/BRI
+,,7001000563,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1975/STU
+,,7001000564,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1983/CHA
+,,7001000565,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1985/HAC
+,,7001000566,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1987/CHE
+,,7001000567,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1989/WHI
+,,7001000568,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1990/STU
+,,7001000569,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1991/WHI
+,,7001000570,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1992/HBA
+,,7001000571,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1993/WHI
+,,7001000572,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1994/WHI
+,,7001000573,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1995/FOR
+,,7001000574,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1996/WHI
+,,7001000575,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1997/CHE
+,,7001000576,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1998/HAR
+,,7001000577,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1999/PET
+,,7001000578,,,local-authority-eng:CAT,tree-preservation-order,,,,2/2001/WAL
+,,7001000579,,,local-authority-eng:CAT,tree-preservation-order,,,,2/2002/BRI
+,,7001000580,,,local-authority-eng:CAT,tree-preservation-order,,,,2/2003/LHA
+,,7001000581,,,local-authority-eng:CAT,tree-preservation-order,,,,2/2004/LHA
+,,7001000582,,,local-authority-eng:CAT,tree-preservation-order,,,,2/2008/HER
+,,7001000583,,,local-authority-eng:CAT,tree-preservation-order,,,,2/2009/WHI
+,,7001000584,,,local-authority-eng:CAT,tree-preservation-order,,,,2/2011/WHI
+,,7001000585,,,local-authority-eng:CAT,tree-preservation-order,,,,2/2013/CAN
+,,7001000586,,,local-authority-eng:CAT,tree-preservation-order,,,,2/2014/BAR
+,,7001000587,,,local-authority-eng:CAT,tree-preservation-order,,,,20/1990/WAL
+,,7001000588,,,local-authority-eng:CAT,tree-preservation-order,,,,21/1990/BAR
+,,7001000589,,,local-authority-eng:CAT,tree-preservation-order,,,,22/1990/FOR
+,,7001000590,,,local-authority-eng:CAT,tree-preservation-order,,,,23/1990/STU
+,,7001000591,,,local-authority-eng:CAT,tree-preservation-order,,,,24/1990/BLE
+,,7001000592,,,local-authority-eng:CAT,tree-preservation-order,,,,25/1990/WOM
+,,7001000593,,,local-authority-eng:CAT,tree-preservation-order,,,,26/1990/BLE
+,,7001000594,,,local-authority-eng:CAT,tree-preservation-order,,,,27/1990/KIN
+,,7001000595,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1959/PET
+,,7001000596,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1961/HER
+,,7001000597,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1963/HBA
+,,7001000598,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1963/STU
+,,7001000599,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1964/STU
+,,7001000600,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1968/THA
+,,7001000601,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1968/WHI
+,,7001000602,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1969/CHE
+,,7001000603,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1970/BLE
+,,7001000604,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1970/CAN
+,,7001000605,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1971/WES
+,,7001000606,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1972/STU
+,,7001000607,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1973/PET
+,,7001000608,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1975/HAC
+,,7001000609,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1951/BAR
+,,7001000610,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1953/BAR
+,,7001000611,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1962/HBA
+,,7001000612,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1957/CAN
+,,7001000613,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1957/CHE
+,,7001000614,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1958/CAN
+,,7001000615,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1959/HBA
+,,7001000616,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1960/HBA
+,,7001000617,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1961/CHI
+,,7001000618,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1961/HBA
+,,7001000619,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1962/CAN
+,,7001000620,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1962/PET
+,,7001000621,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1963/CAN
+,,7001000622,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1963/HBA
+,,7001000623,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1964/WES
+,,7001000624,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1965/HAC
+,,7001000625,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1965/HER
+,,7001000626,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1965/WHI
+,,7001000627,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1966/CAN
+,,7001000628,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1966/HAR
+,,7001000629,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1966/HER
+,,7001000630,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1967/CAN
+,,7001000631,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1967/STU
+,,7001000632,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1967/WAL
+,,7001000633,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1968/KIN
+,,7001000634,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1968/WHI
+,,7001000635,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1970/BLE
+,,7001000636,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1970/CAN
+,,7001000637,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1971/CAN
+,,7001000638,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1971/WOM
+,,7001000639,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1973/HAR
+,,7001000640,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1974/CAN
+,,7001000641,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1975/CAN
+,,7001000642,,,local-authority-eng:CAT,tree-preservation-order,,,,8/1976/BLE
+,,7001000643,,,local-authority-eng:CAT,tree-preservation-order,,,,8/1987/CHA
+,,7001000644,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1977/WHI
+,,7001000645,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1978/UHA
+,,7001000646,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1980/WIC
+,,7001000647,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1982/HBA
+,,7001000648,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1983/KIN
+,,7001000649,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1984/CAN
+,,7001000650,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1986/HBA
+,,7001000651,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1987/UHA
+,,7001000652,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1989/HBA
+,,7001000653,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1990/WHI
+,,7001000654,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1991/WES
+,,7001000655,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1992/BAR
+,,7001000656,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1993/BEK
+,,7001000657,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1994/CAN
+,,7001000658,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1995/BRI
+,,7001000659,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1996/HBA
+,,7001000660,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1998/CAN
+,,7001000661,,,local-authority-eng:CAT,tree-preservation-order,,,,1/1999/KIN
+,,7001000662,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2000/HER
+,,7001000663,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2001/CHA
+,,7001000664,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2002/CAN
+,,7001000665,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2003/STU
+,,7001000666,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2004/STU
+,,7001000667,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2005/CAN
+,,7001000668,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2006/STU
+,,7001000669,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2007/WHI
+,,7001000670,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2009/CHE
+,,7001000671,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2010/HER
+,,7001000672,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2013/WHI
+,,7001000673,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2014/CHE
+,,7001000674,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2015/WHI
+,,7001000675,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2017/KIN
+,,7001000676,,,local-authority-eng:CAT,tree-preservation-order,,,,1/2019/WHI
+,,7001000677,,,local-authority-eng:CAT,tree-preservation-order,,,,10/1969/BRI
+,,7001000678,,,local-authority-eng:CAT,tree-preservation-order,,,,10/1970/ICK
+,,7001000679,,,local-authority-eng:CAT,tree-preservation-order,,,,10/1975/CAN
+,,7001000680,,,local-authority-eng:CAT,tree-preservation-order,,,,10/1976/CAN
+,,7001000681,,,local-authority-eng:CAT,tree-preservation-order,,,,10/1988/KIN
+,,7001000682,,,local-authority-eng:CAT,tree-preservation-order,,,,10/1989/PET
+,,7001000683,,,local-authority-eng:CAT,tree-preservation-order,,,,10/1990/WHI
+,,7001000684,,,local-authority-eng:CAT,tree-preservation-order,,,,11/1970/HAC
+,,7001000685,,,local-authority-eng:CAT,tree-preservation-order,,,,11/1975/CAN
+,,7001000686,,,local-authority-eng:CAT,tree-preservation-order,,,,11/1976/HER
+,,7001000687,,,local-authority-eng:CAT,tree-preservation-order,,,,11/1989/STU
+,,7001000688,,,local-authority-eng:CAT,tree-preservation-order,,,,11/1990/PET
+,,7001000689,,,local-authority-eng:CAT,tree-preservation-order,,,,12/1970/BEK
+,,7001000690,,,local-authority-eng:CAT,tree-preservation-order,,,,12/1975/CAN
+,,7001000691,,,local-authority-eng:CAT,tree-preservation-order,,,,12/1989/HER
+,,7001000692,,,local-authority-eng:CAT,tree-preservation-order,,,,12/1990/HER
+,,7001000693,,,local-authority-eng:CAT,tree-preservation-order,,,,13/1989/BIS
+,,7001000694,,,local-authority-eng:CAT,tree-preservation-order,,,,13/1990/PET
+,,7001000695,,,local-authority-eng:CAT,tree-preservation-order,,,,14/1975/HAR
+,,7001000696,,,local-authority-eng:CAT,tree-preservation-order,,,,14/1989/BAR
+,,7001000697,,,local-authority-eng:CAT,tree-preservation-order,,,,14/1990/CHA
+,,7001000698,,,local-authority-eng:CAT,tree-preservation-order,,,,15/1975/HAR
+,,7001000699,,,local-authority-eng:CAT,tree-preservation-order,,,,15/1990/HBA
+,,7001000700,,,local-authority-eng:CAT,tree-preservation-order,,,,16/1975/CHE
+,,7001000701,,,local-authority-eng:CAT,tree-preservation-order,,,,16/1990/CAN
+,,7001000702,,,local-authority-eng:CAT,tree-preservation-order,,,,17/1990/STU
+,,7001000703,,,local-authority-eng:CAT,tree-preservation-order,,,,18/1990/CAN
+,,7001000704,,,local-authority-eng:CAT,tree-preservation-order,,,,19/1990/WHI
+,,7001000705,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1957/ICK
+,,7001000706,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1958/PET
+,,7001000707,,,local-authority-eng:CAT,tree-preservation-order,,,,2/1959/PET
+,,7001000708,,,local-authority-eng:CAT,tree-preservation-order,,,,9/1970/LIT
+,,7001000709,,,local-authority-eng:CAT,tree-preservation-order,,,,9/1975/CHE
+,,7001000710,,,local-authority-eng:CAT,tree-preservation-order,,,,9/1976/CHI
+,,7001000711,,,local-authority-eng:CAT,tree-preservation-order,,,,9/1988/WHI
+,,7001000712,,,local-authority-eng:CAT,tree-preservation-order,,,,9/1989/PET
+,,7001000713,,,local-authority-eng:CAT,tree-preservation-order,,,,9/1990/PET
+,,7001000714,,,local-authority-eng:CAT,tree-preservation-order,,,,9/1991/BAR
+,,7001000715,,,local-authority-eng:CAT,tree-preservation-order,,,,9/1992/LIT
+,,7001000716,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1963/ICK
+,,7001000717,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1969/WHI
+,,7001000718,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1969/WOM
+,,7001000719,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1970/CAN
+,,7001000720,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1972/ICK
+,,7001000721,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1973/WAL
+,,7001000722,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1976/CAN
+,,7001000723,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1982/BAR
+,,7001000724,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1985/CAN
+,,7001000725,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1986/CAN
+,,7001000726,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1988/WHI
+,,7001000727,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1989/HER
+,,7001000728,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1990/CHA
+,,7001000729,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1991/LIT
+,,7001000730,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1993/CAN
+,,7001000731,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1994/CAN
+,,7001000732,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1995/CAN
+,,7001000733,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1996/KIN
+,,7001000734,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1999/STU
+,,7001000735,,,local-authority-eng:CAT,tree-preservation-order,,,,5/2001/CAN
+,,7001000736,,,local-authority-eng:CAT,tree-preservation-order,,,,5/2004/CAN
+,,7001000737,,,local-authority-eng:CAT,tree-preservation-order,,,,5/2007/HBA
+,,7001000738,,,local-authority-eng:CAT,tree-preservation-order,,,,5/2008/CHE
+,,7001000739,,,local-authority-eng:CAT,tree-preservation-order,,,,5/2013/BLE
+,,7001000740,,,local-authority-eng:CAT,tree-preservation-order,,,,5/2014/HER
+,,7001000741,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1968/KIN
+,,7001000742,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1969/HAR
+,,7001000743,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1970/WOM
+,,7001000744,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1972/CHA
+,,7001000745,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1973/BRI
+,,7001000746,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1985/BAR
+,,7001000747,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1987/STU
+,,7001000748,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1988/WHI
+,,7001000749,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1990/BRI
+,,7001000750,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1991/LIT
+,,7001000751,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1992/HAC
+,,7001000752,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1994/BAR
+,,7001000753,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1995/CHA
+,,7001000754,,,local-authority-eng:CAT,tree-preservation-order,,,,6/1999/PET
+,,7001000755,,,local-authority-eng:CAT,tree-preservation-order,,,,6/2001/HER
+,,7001000756,,,local-authority-eng:CAT,tree-preservation-order,,,,6/2004/BRI
+,,7001000757,,,local-authority-eng:CAT,tree-preservation-order,,,,6/2007/WHI
+,,7001000758,,,local-authority-eng:CAT,tree-preservation-order,,,,6/2014/CAN
+,,7001000759,,,local-authority-eng:CAT,tree-preservation-order,,,,7/1968/CHA
+,,7001000760,,,local-authority-eng:CAT,tree-preservation-order,,,,7/1969/CHE
+,,7001000761,,,local-authority-eng:CAT,tree-preservation-order,,,,7/1972/HAR
+,,7001000762,,,local-authority-eng:CAT,tree-preservation-order,,,,7/1976/WHI
+,,7001000763,,,local-authority-eng:CAT,tree-preservation-order,,,,7/1988/WHI
+,,7001000764,,,local-authority-eng:CAT,tree-preservation-order,,,,7/1989/HBA
+,,7001000765,,,local-authority-eng:CAT,tree-preservation-order,,,,7/1990/PET
+,,7001000766,,,local-authority-eng:CAT,tree-preservation-order,,,,7/1991/WES
+,,7001000767,,,local-authority-eng:CAT,tree-preservation-order,,,,7/1992/WHI
+,,7001000768,,,local-authority-eng:CAT,tree-preservation-order,,,,7/1995/CHI
+,,7001000769,,,local-authority-eng:CAT,tree-preservation-order,,,,7/2004/WHI
+,,7001000770,,,local-authority-eng:CAT,tree-preservation-order,,,,7/2007/HBA
+,,7001000771,,,local-authority-eng:CAT,tree-preservation-order,,,,8/1968/BLE
+,,7001000772,,,local-authority-eng:CAT,tree-preservation-order,,,,8/1969/PET
+,,7001000773,,,local-authority-eng:CAT,tree-preservation-order,,,,8/1970/CHA
+,,7001000774,,,local-authority-eng:CAT,tree-preservation-order,,,,8/1972/STU
+,,7001000775,,,local-authority-eng:CAT,tree-preservation-order,,,,01/1957/LHA
+,,7001000776,,,local-authority-eng:CAT,tree-preservation-order,,,,8/1975/HAR
+,,7001000777,,,local-authority-eng:CAT,tree-preservation-order,,,,8/1988/WIC
+,,7001000778,,,local-authority-eng:CAT,tree-preservation-order,,,,8/1989/CHE
+,,7001000779,,,local-authority-eng:CAT,tree-preservation-order,,,,8/1990/BLE
+,,7001000780,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1983/FOR
+,,7001000781,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1985/BRI
+,,7001000782,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1986/STU
+,,7001000783,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1987/CHA
+,,7001000784,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1988/THA
+,,7001000785,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1989/HAR
+,,7001000786,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1990/HER
+,,7001000787,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1991/CHE
+,,7001000788,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1992/WHI
+,,7001000789,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1993/CAN
+,,7001000790,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1994/LHA
+,,7001000791,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1995/BLE
+,,7001000792,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1996/CAN
+,,7001000793,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1997/CAN
+,,7001000794,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1998/CHE
+,,7001000795,,,local-authority-eng:CAT,tree-preservation-order,,,,3/1999/WHI
+,,7001000796,,,local-authority-eng:CAT,tree-preservation-order,,,,3/2001/CAN
+,,7001000797,,,local-authority-eng:CAT,tree-preservation-order,,,,3/2004/HER
+,,7001000798,,,local-authority-eng:CAT,tree-preservation-order,,,,3/2008/WHI
+,,7001000799,,,local-authority-eng:CAT,tree-preservation-order,,,,3/2011/CAN
+,,7001000800,,,local-authority-eng:CAT,tree-preservation-order,,,,3/2013/ICK
+,,7001000801,,,local-authority-eng:CAT,tree-preservation-order,,,,3/2014/CAN
+,,7001000802,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1959/THA
+,,7001000803,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1963/CAN
+,,7001000804,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1964/LHA
+,,7001000805,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1968/WHI
+,,7001000806,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1969/CHE
+,,7001000807,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1969/WES
+,,7001000808,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1970/BLE
+,,7001000809,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1970/CAN
+,,7001000810,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1972/ICK
+,,7001000811,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1973/CHA
+,,7001000812,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1975/CAN
+,,7001000813,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1976/CHA
+,,7001000814,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1982/HAR
+,,7001000815,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1983/WES
+,,7001000816,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1985/WHI
+,,7001000817,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1986/HER
+,,7001000818,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1987/WHI
+,,7001000819,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1988/HAC
+,,7001000820,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1989/PET
+,,7001000821,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1991/LIT
+,,7001000822,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1993/CHA
+,,7001000823,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1994/WAL
+,,7001000824,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1995/CAN
+,,7001000825,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1996/CAN
+,,7001000826,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1997/CHA
+,,7001000827,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1998/CAN
+,,7001000828,,,local-authority-eng:CAT,tree-preservation-order,,,,4/1999/CAN
+,,7001000829,,,local-authority-eng:CAT,tree-preservation-order,,,,4/2001/KIN
+,,7001000830,,,local-authority-eng:CAT,tree-preservation-order,,,,4/2004/HBA
+,,7001000831,,,local-authority-eng:CAT,tree-preservation-order,,,,4/2007/BRI
+,,7001000832,,,local-authority-eng:CAT,tree-preservation-order,,,,4/2008/CAN
+,,7001000833,,,local-authority-eng:CAT,tree-preservation-order,,,,4/2013/BLE
+,,7001000834,,,local-authority-eng:CAT,tree-preservation-order,,,,4/2014/WHI
+,,7001000835,,,local-authority-eng:CAT,tree-preservation-order,,,,5/1959/LIT
+,,7001000836,,,local-authority-eng:CAT,tree-preservation-order,,,,8/1991/LHA
+,,7001000837,,,local-authority-eng:CAT,tree-preservation-order,,,,8/1992/HAC
+,,7001000838,,,local-authority-eng:CAT,tree-preservation-order,,,,8/1995/WHI
+,,7001000839,,,local-authority-eng:CAT,tree-preservation-order,,,,8/2004/WHI
+,,7001000840,,,local-authority-eng:CAT,tree-preservation-order,,,,9/1968/BLE
+,,7001000841,,,local-authority-eng:CAT,tree-preservation-order,,,,TPO/04/2021/HER
+,,7001000842,,,local-authority-eng:CAT,tree-preservation-order,,,,TPO/05/2021/WIC
+,,7001000843,,,local-authority-eng:CAT,tree-preservation-order,,,,TPO/03/2021/WHI
+,,7001000844,,,local-authority-eng:SWK,tree-preservation-order,,,,2
+,,7001000845,,,local-authority-eng:SWK,tree-preservation-order,,,,4
+,,7001000846,,,local-authority-eng:SWK,tree-preservation-order,,,,9
+,,7001000847,,,local-authority-eng:SWK,tree-preservation-order,,,,10
+,,7001000848,,,local-authority-eng:SWK,tree-preservation-order,,,,13
+,,7001000849,,,local-authority-eng:SWK,tree-preservation-order,,,,17
+,,7001000850,,,local-authority-eng:SWK,tree-preservation-order,,,,18
+,,7001000851,,,local-authority-eng:SWK,tree-preservation-order,,,,20
+,,7001000852,,,local-authority-eng:SWK,tree-preservation-order,,,,32
+,,7001000853,,,local-authority-eng:SWK,tree-preservation-order,,,,33
+,,7001000854,,,local-authority-eng:SWK,tree-preservation-order,,,,39
+,,7001000855,,,local-authority-eng:SWK,tree-preservation-order,,,,44
+,,7001000856,,,local-authority-eng:SWK,tree-preservation-order,,,,45
+,,7001000857,,,local-authority-eng:SWK,tree-preservation-order,,,,48
+,,7001000858,,,local-authority-eng:SWK,tree-preservation-order,,,,55
+,,7001000859,,,local-authority-eng:SWK,tree-preservation-order,,,,58
+,,7001000860,,,local-authority-eng:SWK,tree-preservation-order,,,,60
+,,7001000861,,,local-authority-eng:SWK,tree-preservation-order,,,,61
+,,7001000862,,,local-authority-eng:SWK,tree-preservation-order,,,,65
+,,7001000863,,,local-authority-eng:SWK,tree-preservation-order,,,,66
+,,7001000864,,,local-authority-eng:SWK,tree-preservation-order,,,,67
+,,7001000865,,,local-authority-eng:SWK,tree-preservation-order,,,,69
+,,7001000866,,,local-authority-eng:SWK,tree-preservation-order,,,,70
+,,7001000867,,,local-authority-eng:SWK,tree-preservation-order,,,,73
+,,7001000868,,,local-authority-eng:SWK,tree-preservation-order,,,,74
+,,7001000869,,,local-authority-eng:SWK,tree-preservation-order,,,,76
+,,7001000870,,,local-authority-eng:SWK,tree-preservation-order,,,,79
+,,7001000871,,,local-authority-eng:SWK,tree-preservation-order,,,,82
+,,7001000872,,,local-authority-eng:SWK,tree-preservation-order,,,,85
+,,7001000873,,,local-authority-eng:SWK,tree-preservation-order,,,,86B
+,,7001000874,,,local-authority-eng:SWK,tree-preservation-order,,,,87a
+,,7001000875,,,local-authority-eng:SWK,tree-preservation-order,,,,88
+,,7001000876,,,local-authority-eng:SWK,tree-preservation-order,,,,90
+,,7001000877,,,local-authority-eng:SWK,tree-preservation-order,,,,91
+,,7001000878,,,local-authority-eng:SWK,tree-preservation-order,,,,92
+,,7001000879,,,local-authority-eng:SWK,tree-preservation-order,,,,93
+,,7001000880,,,local-authority-eng:SWK,tree-preservation-order,,,,94
+,,7001000881,,,local-authority-eng:SWK,tree-preservation-order,,,,97
+,,7001000882,,,local-authority-eng:SWK,tree-preservation-order,,,,98
+,,7001000883,,,local-authority-eng:SWK,tree-preservation-order,,,,143
+,,7001000884,,,local-authority-eng:SWK,tree-preservation-order,,,,144
+,,7001000885,,,local-authority-eng:SWK,tree-preservation-order,,,,150
+,,7001000886,,,local-authority-eng:SWK,tree-preservation-order,,,,151
+,,7001000887,,,local-authority-eng:SWK,tree-preservation-order,,,,152
+,,7001000888,,,local-authority-eng:SWK,tree-preservation-order,,,,154
+,,7001000889,,,local-authority-eng:SWK,tree-preservation-order,,,,160
+,,7001000890,,,local-authority-eng:SWK,tree-preservation-order,,,,161
+,,7001000891,,,local-authority-eng:SWK,tree-preservation-order,,,,165
+,,7001000892,,,local-authority-eng:SWK,tree-preservation-order,,,,168
+,,7001000893,,,local-authority-eng:SWK,tree-preservation-order,,,,171
+,,7001000894,,,local-authority-eng:SWK,tree-preservation-order,,,,178
+,,7001000895,,,local-authority-eng:SWK,tree-preservation-order,,,,179
+,,7001000896,,,local-authority-eng:SWK,tree-preservation-order,,,,180
+,,7001000897,,,local-authority-eng:SWK,tree-preservation-order,,,,184
+,,7001000898,,,local-authority-eng:SWK,tree-preservation-order,,,,188
+,,7001000899,,,local-authority-eng:SWK,tree-preservation-order,,,,189
+,,7001000900,,,local-authority-eng:SWK,tree-preservation-order,,,,190
+,,7001000901,,,local-authority-eng:SWK,tree-preservation-order,,,,195
+,,7001000902,,,local-authority-eng:SWK,tree-preservation-order,,,,196
+,,7001000903,,,local-authority-eng:SWK,tree-preservation-order,,,,197
+,,7001000904,,,local-authority-eng:SWK,tree-preservation-order,,,,198
+,,7001000905,,,local-authority-eng:SWK,tree-preservation-order,,,,199
+,,7001000906,,,local-authority-eng:SWK,tree-preservation-order,,,,200b
+,,7001000907,,,local-authority-eng:SWK,tree-preservation-order,,,,203
+,,7001000908,,,local-authority-eng:SWK,tree-preservation-order,,,,204
+,,7001000909,,,local-authority-eng:SWK,tree-preservation-order,,,,205
+,,7001000910,,,local-authority-eng:SWK,tree-preservation-order,,,,206
+,,7001000911,,,local-authority-eng:SWK,tree-preservation-order,,,,208
+,,7001000912,,,local-authority-eng:SWK,tree-preservation-order,,,,209b
+,,7001000913,,,local-authority-eng:SWK,tree-preservation-order,,,,210B
+,,7001000914,,,local-authority-eng:SWK,tree-preservation-order,,,,213
+,,7001000915,,,local-authority-eng:SWK,tree-preservation-order,,,,215
+,,7001000916,,,local-authority-eng:SWK,tree-preservation-order,,,,216
+,,7001000917,,,local-authority-eng:SWK,tree-preservation-order,,,,217B
+,,7001000918,,,local-authority-eng:SWK,tree-preservation-order,,,,218
+,,7001000919,,,local-authority-eng:SWK,tree-preservation-order,,,,219
+,,7001000920,,,local-authority-eng:SWK,tree-preservation-order,,,,221
+,,7001000921,,,local-authority-eng:SWK,tree-preservation-order,,,,222
+,,7001000922,,,local-authority-eng:SWK,tree-preservation-order,,,,226A
+,,7001000923,,,local-authority-eng:SWK,tree-preservation-order,,,,228
+,,7001000924,,,local-authority-eng:SWK,tree-preservation-order,,,,229B
+,,7001000925,,,local-authority-eng:SWK,tree-preservation-order,,,,231
+,,7001000926,,,local-authority-eng:SWK,tree-preservation-order,,,,231.1
+,,7001000927,,,local-authority-eng:SWK,tree-preservation-order,,,,236
+,,7001000928,,,local-authority-eng:SWK,tree-preservation-order,,,,239
+,,7001000929,,,local-authority-eng:SWK,tree-preservation-order,,,,240
+,,7001000930,,,local-authority-eng:SWK,tree-preservation-order,,,,241
+,,7001000931,,,local-authority-eng:SWK,tree-preservation-order,,,,246
+,,7001000932,,,local-authority-eng:SWK,tree-preservation-order,,,,248
+,,7001000933,,,local-authority-eng:SWK,tree-preservation-order,,,,249
+,,7001000934,,,local-authority-eng:SWK,tree-preservation-order,,,,250
+,,7001000935,,,local-authority-eng:SWK,tree-preservation-order,,,,251
+,,7001000936,,,local-authority-eng:SWK,tree-preservation-order,,,,252
+,,7001000937,,,local-authority-eng:SWK,tree-preservation-order,,,,253
+,,7001000938,,,local-authority-eng:SWK,tree-preservation-order,,,,254
+,,7001000939,,,local-authority-eng:SWK,tree-preservation-order,,,,256
+,,7001000940,,,local-authority-eng:SWK,tree-preservation-order,,,,261
+,,7001000941,,,local-authority-eng:SWK,tree-preservation-order,,,,262
+,,7001000942,,,local-authority-eng:SWK,tree-preservation-order,,,,264
+,,7001000943,,,local-authority-eng:SWK,tree-preservation-order,,,,265
+,,7001000944,,,local-authority-eng:SWK,tree-preservation-order,,,,266
+,,7001000945,,,local-authority-eng:SWK,tree-preservation-order,,,,267
+,,7001000946,,,local-authority-eng:SWK,tree-preservation-order,,,,267.1
+,,7001000947,,,local-authority-eng:SWK,tree-preservation-order,,,,268
+,,7001000948,,,local-authority-eng:SWK,tree-preservation-order,,,,269
+,,7001000949,,,local-authority-eng:SWK,tree-preservation-order,,,,279
+,,7001000950,,,local-authority-eng:SWK,tree-preservation-order,,,,280
+,,7001000951,,,local-authority-eng:SWK,tree-preservation-order,,,,280.1
+,,7001000952,,,local-authority-eng:SWK,tree-preservation-order,,,,282
+,,7001000953,,,local-authority-eng:SWK,tree-preservation-order,,,,284
+,,7001000954,,,local-authority-eng:SWK,tree-preservation-order,,,,285
+,,7001000955,,,local-authority-eng:SWK,tree-preservation-order,,,,294
+,,7001000956,,,local-authority-eng:SWK,tree-preservation-order,,,,295
+,,7001000957,,,local-authority-eng:SWK,tree-preservation-order,,,,298
+,,7001000958,,,local-authority-eng:SWK,tree-preservation-order,,,,299
+,,7001000959,,,local-authority-eng:SWK,tree-preservation-order,,,,302
+,,7001000960,,,local-authority-eng:SWK,tree-preservation-order,,,,306
+,,7001000961,,,local-authority-eng:SWK,tree-preservation-order,,,,307
+,,7001000962,,,local-authority-eng:SWK,tree-preservation-order,,,,308
+,,7001000963,,,local-authority-eng:SWK,tree-preservation-order,,,,309
+,,7001000964,,,local-authority-eng:SWK,tree-preservation-order,,,,311
+,,7001000965,,,local-authority-eng:SWK,tree-preservation-order,,,,313
+,,7001000966,,,local-authority-eng:SWK,tree-preservation-order,,,,316
+,,7001000967,,,local-authority-eng:SWK,tree-preservation-order,,,,317
+,,7001000968,,,local-authority-eng:SWK,tree-preservation-order,,,,319
+,,7001000969,,,local-authority-eng:SWK,tree-preservation-order,,,,320
+,,7001000970,,,local-authority-eng:SWK,tree-preservation-order,,,,324
+,,7001000971,,,local-authority-eng:SWK,tree-preservation-order,,,,327
+,,7001000972,,,local-authority-eng:SWK,tree-preservation-order,,,,328
+,,7001000973,,,local-authority-eng:SWK,tree-preservation-order,,,,329
+,,7001000974,,,local-authority-eng:SWK,tree-preservation-order,,,,330
+,,7001000975,,,local-authority-eng:SWK,tree-preservation-order,,,,333
+,,7001000976,,,local-authority-eng:SWK,tree-preservation-order,,,,334
+,,7001000977,,,local-authority-eng:SWK,tree-preservation-order,,,,337
+,,7001000978,,,local-authority-eng:SWK,tree-preservation-order,,,,338
+,,7001000979,,,local-authority-eng:SWK,tree-preservation-order,,,,341
+,,7001000980,,,local-authority-eng:SWK,tree-preservation-order,,,,342
+,,7001000981,,,local-authority-eng:SWK,tree-preservation-order,,,,348
+,,7001000982,,,local-authority-eng:SWK,tree-preservation-order,,,,349
+,,7001000983,,,local-authority-eng:SWK,tree-preservation-order,,,,353
+,,7001000984,,,local-authority-eng:SWK,tree-preservation-order,,,,354
+,,7001000985,,,local-authority-eng:SWK,tree-preservation-order,,,,356
+,,7001000986,,,local-authority-eng:SWK,tree-preservation-order,,,,369
+,,7001000987,,,local-authority-eng:SWK,tree-preservation-order,,,,370
+,,7001000988,,,local-authority-eng:SWK,tree-preservation-order,,,,371
+,,7001000989,,,local-authority-eng:SWK,tree-preservation-order,,,,375
+,,7001000990,,,local-authority-eng:SWK,tree-preservation-order,,,,387
+,,7001000991,,,local-authority-eng:SWK,tree-preservation-order,,,,388
+,,7001000992,,,local-authority-eng:SWK,tree-preservation-order,,,,394
+,,7001000993,,,local-authority-eng:SWK,tree-preservation-order,,,,397
+,,7001000994,,,local-authority-eng:SWK,tree-preservation-order,,,,399
+,,7001000995,,,local-authority-eng:SWK,tree-preservation-order,,,,401
+,,7001000996,,,local-authority-eng:SWK,tree-preservation-order,,,,402
+,,7001000997,,,local-authority-eng:SWK,tree-preservation-order,,,,404
+,,7001000998,,,local-authority-eng:SWK,tree-preservation-order,,,,415
+,,7001000999,,,local-authority-eng:SWK,tree-preservation-order,,,,416
+,,7001001000,,,local-authority-eng:SWK,tree-preservation-order,,,,417
+,,7001001001,,,local-authority-eng:SWK,tree-preservation-order,,,,418
+,,7001001002,,,local-authority-eng:SWK,tree-preservation-order,,,,420
+,,7001001003,,,local-authority-eng:SWK,tree-preservation-order,,,,421
+,,7001001004,,,local-authority-eng:SWK,tree-preservation-order,,,,425
+,,7001001005,,,local-authority-eng:SWK,tree-preservation-order,,,,426
+,,7001001006,,,local-authority-eng:SWK,tree-preservation-order,,,,427
+,,7001001007,,,local-authority-eng:SWK,tree-preservation-order,,,,428
+,,7001001008,,,local-authority-eng:SWK,tree-preservation-order,,,,431
+,,7001001009,,,local-authority-eng:SWK,tree-preservation-order,,,,432
+,,7001001010,,,local-authority-eng:SWK,tree-preservation-order,,,,433
+,,7001001011,,,local-authority-eng:SWK,tree-preservation-order,,,,434
+,,7001001012,,,local-authority-eng:SWK,tree-preservation-order,,,,435
+,,7001001013,,,local-authority-eng:SWK,tree-preservation-order,,,,436
+,,7001001014,,,local-authority-eng:SWK,tree-preservation-order,,,,437
+,,7001001015,,,local-authority-eng:SWK,tree-preservation-order,,,,438
+,,7001001016,,,local-authority-eng:SWK,tree-preservation-order,,,,439
+,,7001001017,,,local-authority-eng:SWK,tree-preservation-order,,,,440
+,,7001001018,,,local-authority-eng:SWK,tree-preservation-order,,,,441
+,,7001001019,,,local-authority-eng:SWK,tree-preservation-order,,,,443
+,,7001001020,,,local-authority-eng:SWK,tree-preservation-order,,,,444
+,,7001001021,,,local-authority-eng:SWK,tree-preservation-order,,,,445
+,,7001001022,,,local-authority-eng:SWK,tree-preservation-order,,,,446
+,,7001001023,,,local-authority-eng:SWK,tree-preservation-order,,,,447
+,,7001001024,,,local-authority-eng:SWK,tree-preservation-order,,,,448
+,,7001001025,,,local-authority-eng:SWK,tree-preservation-order,,,,449
+,,7001001026,,,local-authority-eng:SWK,tree-preservation-order,,,,450
+,,7001001027,,,local-authority-eng:SWK,tree-preservation-order,,,,451
+,,7001001028,,,local-authority-eng:SWK,tree-preservation-order,,,,452
+,,7001001029,,,local-authority-eng:SWK,tree-preservation-order,,,,453
+,,7001001030,,,local-authority-eng:SWK,tree-preservation-order,,,,454
+,,7001001031,,,local-authority-eng:SWK,tree-preservation-order,,,,455
+,,7001001032,,,local-authority-eng:SWK,tree-preservation-order,,,,456
+,,7001001033,,,local-authority-eng:SWK,tree-preservation-order,,,,457
+,,7001001034,,,local-authority-eng:SWK,tree-preservation-order,,,,458
+,,7001001035,,,local-authority-eng:SWK,tree-preservation-order,,,,459
+,,7001001036,,,local-authority-eng:SWK,tree-preservation-order,,,,460
+,,7001001037,,,local-authority-eng:SWK,tree-preservation-order,,,,461
+,,7001001038,,,local-authority-eng:SWK,tree-preservation-order,,,,462
+,,7001001039,,,local-authority-eng:SWK,tree-preservation-order,,,,464
+,,7001001040,,,local-authority-eng:SWK,tree-preservation-order,,,,465
+,,7001001041,,,local-authority-eng:SWK,tree-preservation-order,,,,466
+,,7001001042,,,local-authority-eng:SWK,tree-preservation-order,,,,467
+,,7001001043,,,local-authority-eng:SWK,tree-preservation-order,,,,468
+,,7001001044,,,local-authority-eng:SWK,tree-preservation-order,,,,469a
+,,7001001045,,,local-authority-eng:SWK,tree-preservation-order,,,,470
+,,7001001046,,,local-authority-eng:SWK,tree-preservation-order,,,,471
+,,7001001047,,,local-authority-eng:SWK,tree-preservation-order,,,,472
+,,7001001048,,,local-authority-eng:SWK,tree-preservation-order,,,,473
+,,7001001049,,,local-authority-eng:SWK,tree-preservation-order,,,,475
+,,7001001050,,,local-authority-eng:SWK,tree-preservation-order,,,,476
+,,7001001051,,,local-authority-eng:SWK,tree-preservation-order,,,,477
+,,7001001052,,,local-authority-eng:SWK,tree-preservation-order,,,,478
+,,7001001053,,,local-authority-eng:SWK,tree-preservation-order,,,,479
+,,7001001054,,,local-authority-eng:SWK,tree-preservation-order,,,,481
+,,7001001055,,,local-authority-eng:SWK,tree-preservation-order,,,,482
+,,7001001056,,,local-authority-eng:SWK,tree-preservation-order,,,,483
+,,7001001057,,,local-authority-eng:SWK,tree-preservation-order,,,,484
+,,7001001058,,,local-authority-eng:SWK,tree-preservation-order,,,,486
+,,7001001059,,,local-authority-eng:SWK,tree-preservation-order,,,,487
+,,7001001060,,,local-authority-eng:SWK,tree-preservation-order,,,,488
+,,7001001061,,,local-authority-eng:SWK,tree-preservation-order,,,,489
+,,7001001062,,,local-authority-eng:SWK,tree-preservation-order,,,,490
+,,7001001063,,,local-authority-eng:SWK,tree-preservation-order,,,,491
+,,7001001064,,,local-authority-eng:SWK,tree-preservation-order,,,,492
+,,7001001065,,,local-authority-eng:SWK,tree-preservation-order,,,,493
+,,7001001066,,,local-authority-eng:SWK,tree-preservation-order,,,,494
+,,7001001067,,,local-authority-eng:SWK,tree-preservation-order,,,,497
+,,7001001068,,,local-authority-eng:SWK,tree-preservation-order,,,,498
+,,7001001069,,,local-authority-eng:SWK,tree-preservation-order,,,,499
+,,7001001070,,,local-authority-eng:SWK,tree-preservation-order,,,,500
+,,7001001071,,,local-authority-eng:SWK,tree-preservation-order,,,,501
+,,7001001072,,,local-authority-eng:SWK,tree-preservation-order,,,,502
+,,7001001073,,,local-authority-eng:SWK,tree-preservation-order,,,,503
+,,7001001074,,,local-authority-eng:SWK,tree-preservation-order,,,,504
+,,7001001075,,,local-authority-eng:SWK,tree-preservation-order,,,,507
+,,7001001076,,,local-authority-eng:SWK,tree-preservation-order,,,,509
+,,7001001077,,,local-authority-eng:SWK,tree-preservation-order,,,,510
+,,7001001078,,,local-authority-eng:SWK,tree-preservation-order,,,,511
+,,7001001079,,,local-authority-eng:SWK,tree-preservation-order,,,,512
+,,7001001080,,,local-authority-eng:SWK,tree-preservation-order,,,,513
+,,7001001081,,,local-authority-eng:SWK,tree-preservation-order,,,,514
+,,7001001082,,,local-authority-eng:SWK,tree-preservation-order,,,,515
+,,7001001083,,,local-authority-eng:SWK,tree-preservation-order,,,,516
+,,7001001084,,,local-authority-eng:SWK,tree-preservation-order,,,,517
+,,7001001085,,,local-authority-eng:SWK,tree-preservation-order,,,,518
+,,7001001086,,,local-authority-eng:SWK,tree-preservation-order,,,,519
+,,7001001087,,,local-authority-eng:SWK,tree-preservation-order,,,,520
+,,7001001088,,,local-authority-eng:SWK,tree-preservation-order,,,,521
+,,7001001089,,,local-authority-eng:SWK,tree-preservation-order,,,,522
+,,7001001090,,,local-authority-eng:SWK,tree-preservation-order,,,,523
+,,7001001091,,,local-authority-eng:SWK,tree-preservation-order,,,,524
+,,7001001092,,,local-authority-eng:SWK,tree-preservation-order,,,,525
+,,7001001093,,,local-authority-eng:SWK,tree-preservation-order,,,,526
+,,7001001094,,,local-authority-eng:SWK,tree-preservation-order,,,,527
+,,7001001095,,,local-authority-eng:SWK,tree-preservation-order,,,,528
+,,7001001096,,,local-authority-eng:SWK,tree-preservation-order,,,,529
+,,7001001097,,,local-authority-eng:SWK,tree-preservation-order,,,,530
+,,7001001098,,,local-authority-eng:SWK,tree-preservation-order,,,,531
+,,7001001099,,,local-authority-eng:SWK,tree-preservation-order,,,,532
+,,7001001100,,,local-authority-eng:SWK,tree-preservation-order,,,,533
+,,7001001101,,,local-authority-eng:SWK,tree-preservation-order,,,,534
+,,7001001102,,,local-authority-eng:SWK,tree-preservation-order,,,,535
+,,7001001103,,,local-authority-eng:SWK,tree-preservation-order,,,,536
+,,7001001104,,,local-authority-eng:SWK,tree-preservation-order,,,,537
+,,7001001105,,,local-authority-eng:SWK,tree-preservation-order,,,,538
+,,7001001106,,,local-authority-eng:SWK,tree-preservation-order,,,,539
+,,7001001107,,,local-authority-eng:SWK,tree-preservation-order,,,,540
+,,7001001108,,,local-authority-eng:SWK,tree-preservation-order,,,,541
+,,7001001109,,,local-authority-eng:SWK,tree-preservation-order,,,,542
+,,7001001110,,,local-authority-eng:SWK,tree-preservation-order,,,,543
+,,7001001111,,,local-authority-eng:SWK,tree-preservation-order,,,,544
+,,7001001112,,,local-authority-eng:SWK,tree-preservation-order,,,,545
+,,7001001113,,,local-authority-eng:SWK,tree-preservation-order,,,,546
+,,7001001114,,,local-authority-eng:SWK,tree-preservation-order,,,,547
+,,7001001115,,,local-authority-eng:SWK,tree-preservation-order,,,,548
+,,7001001116,,,local-authority-eng:SWK,tree-preservation-order,,,,549
+,,7001001117,,,local-authority-eng:SWK,tree-preservation-order,,,,550
+,,7001001118,,,local-authority-eng:SWK,tree-preservation-order,,,,551
+,,7001001119,,,local-authority-eng:SWK,tree-preservation-order,,,,552
+,,7001001120,,,local-authority-eng:SWK,tree-preservation-order,,,,553
+,,7001001121,,,local-authority-eng:SWK,tree-preservation-order,,,,554
+,,7001001122,,,local-authority-eng:SWK,tree-preservation-order,,,,555
+,,7001001123,,,local-authority-eng:SWK,tree-preservation-order,,,,556
+,,7001001124,,,local-authority-eng:SWK,tree-preservation-order,,,,557
+,,7001001125,,,local-authority-eng:SWK,tree-preservation-order,,,,558
+,,7001001126,,,local-authority-eng:SWK,tree-preservation-order,,,,559
+,,7001001127,,,local-authority-eng:SWK,tree-preservation-order,,,,560
+,,7001001128,,,local-authority-eng:SWK,tree-preservation-order,,,,561
+,,7001001129,,,local-authority-eng:SWK,tree-preservation-order,,,,562
+,,7001001130,,,local-authority-eng:SWK,tree-preservation-order,,,,563
+,,7001001131,,,local-authority-eng:SWK,tree-preservation-order,,,,564
+,,7001001132,,,local-authority-eng:SWK,tree-preservation-order,,,,565
+,,7001001133,,,local-authority-eng:SWK,tree-preservation-order,,,,566
+,,7001001134,,,local-authority-eng:SWK,tree-preservation-order,,,,567
+,,7001001135,,,local-authority-eng:SWK,tree-preservation-order,,,,568
+,,7001001136,,,local-authority-eng:SWK,tree-preservation-order,,,,569
+,,7001001137,,,local-authority-eng:SWK,tree-preservation-order,,,,570
+,,7001001138,,,local-authority-eng:SWK,tree-preservation-order,,,,571
+,,7001001139,,,local-authority-eng:SWK,tree-preservation-order,,,,572
+,,7001001140,,,local-authority-eng:SWK,tree-preservation-order,,,,573
+,,7001001141,,,local-authority-eng:SWK,tree-preservation-order,,,,574
+,,7001001142,,,local-authority-eng:SWK,tree-preservation-order,,,,575
+,,7001001143,,,local-authority-eng:SWK,tree-preservation-order,,,,576
+,,7001001144,,,local-authority-eng:SWK,tree-preservation-order,,,,577
+,,7001001145,,,local-authority-eng:SWK,tree-preservation-order,,,,578
+,,7001001146,,,local-authority-eng:SWK,tree-preservation-order,,,,579
+,,7001001147,,,local-authority-eng:SWK,tree-preservation-order,,,,580
+,,7001001148,,,local-authority-eng:SWK,tree-preservation-order,,,,581
+,,7001001149,,,local-authority-eng:SWK,tree-preservation-order,,,,582
+,,7001001150,,,local-authority-eng:SWK,tree-preservation-order,,,,583
+,,7001001151,,,local-authority-eng:SWK,tree-preservation-order,,,,584
+,,7001001152,,,local-authority-eng:SWK,tree-preservation-order,,,,586
+,,7001001153,,,local-authority-eng:SWK,tree-preservation-order,,,,587
+,,7001001154,,,local-authority-eng:SWK,tree-preservation-order,,,,588
+,,7001001155,,,local-authority-eng:SWK,tree-preservation-order,,,,589
+,,7001001156,,,local-authority-eng:SWK,tree-preservation-order,,,,590
+,,7001001157,,,local-authority-eng:SWK,tree-preservation-order,,,,591
+,,7001001158,,,local-authority-eng:SWK,tree-preservation-order,,,,592
+,,7001001159,,,local-authority-eng:SWK,tree-preservation-order,,,,593
+,,7001001160,,,local-authority-eng:SWK,tree-preservation-order,,,,594
+,,7001001161,,,local-authority-eng:SWK,tree-preservation-order,,,,595
+,,7001001162,,,local-authority-eng:SWK,tree-preservation-order,,,,596
+,,7001001163,,,local-authority-eng:SWK,tree-preservation-order,,,,597
+,,7001001164,,,local-authority-eng:SWK,tree-preservation-order,,,,598
+,,7001001165,,,local-authority-eng:SWK,tree-preservation-order,,,,601
+,,7001001166,,,local-authority-eng:SWK,tree-preservation-order,,,,602
+,,7001001167,,,local-authority-eng:SWK,tree-preservation-order,,,,604
+,,7001001168,,,local-authority-eng:SWK,tree-preservation-order,,,,605
+,,7001001169,,,local-authority-eng:SWK,tree-preservation-order,,,,606
+,,7001001170,,,local-authority-eng:SWK,tree-preservation-order,,,,607
+,,7001001171,,,local-authority-eng:SWK,tree-preservation-order,,,,608
+,,7001001172,,,local-authority-eng:SWK,tree-preservation-order,,,,610
+,,7001001173,,,local-authority-eng:SWK,tree-preservation-order,,,,611
+,,7001001174,,,local-authority-eng:SWK,tree-preservation-order,,,,612
+,,7001001175,,,local-authority-eng:SWK,tree-preservation-order,,,,613
+,,7001001176,,,local-authority-eng:SWK,tree-preservation-order,,,,614
+,,7001001177,,,local-authority-eng:SWK,tree-preservation-order,,,,615
+,,7001001178,,,local-authority-eng:SWK,tree-preservation-order,,,,616
+,,7001001179,,,local-authority-eng:SWK,tree-preservation-order,,,,617
+,,7001001180,,,local-authority-eng:SWK,tree-preservation-order,,,,618
+,,7001001181,,,local-authority-eng:SWK,tree-preservation-order,,,,619
+,,7001001182,,,local-authority-eng:SWK,tree-preservation-order,,,,621
+,,7001001183,,,local-authority-eng:SWK,tree-preservation-order,,,,622
+,,7001001184,,,local-authority-eng:SWK,tree-preservation-order,,,,624
+,,7001001185,,,local-authority-eng:SWK,tree-preservation-order,,,,625
+,,7001001186,,,local-authority-eng:SWK,tree-preservation-order,,,,626
+,,7001001187,,,local-authority-eng:SWK,tree-preservation-order,,,,627
+,,7001001188,,,local-authority-eng:SWK,tree-preservation-order,,,,628
+,,7001001189,,,local-authority-eng:SWK,tree-preservation-order,,,,629
+,,7001001190,,,local-authority-eng:SWK,tree-preservation-order,,,,630
+,,7001001191,,,local-authority-eng:SWK,tree-preservation-order,,,,631
+,,7001001192,,,local-authority-eng:SWK,tree-preservation-order,,,,632
+,,7001001193,,,local-authority-eng:SWK,tree-preservation-order,,,,633
+,,7001001194,,,local-authority-eng:SWK,tree-preservation-order,,,,634
+,,7001001195,,,local-authority-eng:SWK,tree-preservation-order,,,,635
+,,7001001196,,,local-authority-eng:SWK,tree-preservation-order,,,,636
+,,7001001197,,,local-authority-eng:SWK,tree-preservation-order,,,,637
+,,7001001198,,,local-authority-eng:SWK,tree-preservation-order,,,,638
+,,7001001199,,,local-authority-eng:SWK,tree-preservation-order,,,,2069
+,,7001001200,,,local-authority-eng:SWK,tree-preservation-order,,,,2088
+,,7001001201,,,local-authority-eng:SWK,tree-preservation-order,,,,2444
+,,7001001202,,,local-authority-eng:SWK,tree-preservation-order,,,,17458
+,,7001001203,,,local-authority-eng:SWK,tree-preservation-order,,,,25135
+,,7001001204,,,local-authority-eng:SWK,tree-preservation-order,,,,54748
+,,7001001205,,,local-authority-eng:SWK,tree-preservation-order,,,,57653
+,,7001001206,,,local-authority-eng:SWK,tree-preservation-order,,,,86A
+,,7001001207,,,local-authority-eng:SWK,tree-preservation-order,,,,209a
+,,7001001208,,,local-authority-eng:SWK,tree-preservation-order,,,,210a
+,,7001001209,,,local-authority-eng:SWK,tree-preservation-order,,,,458a
+,,7001001210,,,local-authority-eng:SWK,tree-preservation-order,,,,521a
+,,7001001211,,,local-authority-eng:NET,tree-preservation-order,,,,1950/002
+,,7001001212,,,local-authority-eng:NET,tree-preservation-order,,,,1965/002
+,,7001001213,,,local-authority-eng:NET,tree-preservation-order,,,,1966/001
+,,7001001214,,,local-authority-eng:NET,tree-preservation-order,,,,1966/002
+,,7001001215,,,local-authority-eng:NET,tree-preservation-order,,,,1967/001
+,,7001001216,,,local-authority-eng:NET,tree-preservation-order,,,,1967/003
+,,7001001217,,,local-authority-eng:NET,tree-preservation-order,,,,1967/004
+,,7001001218,,,local-authority-eng:NET,tree-preservation-order,,,,1967/006
+,,7001001219,,,local-authority-eng:NET,tree-preservation-order,,,,1967/007
+,,7001001220,,,local-authority-eng:NET,tree-preservation-order,,,,1967/008
+,,7001001221,,,local-authority-eng:NET,tree-preservation-order,,,,1967/009
+,,7001001222,,,local-authority-eng:NET,tree-preservation-order,,,,1968/001
+,,7001001223,,,local-authority-eng:NET,tree-preservation-order,,,,1968/004
+,,7001001224,,,local-authority-eng:NET,tree-preservation-order,,,,1968/006
+,,7001001225,,,local-authority-eng:NET,tree-preservation-order,,,,1968/007
+,,7001001226,,,local-authority-eng:NET,tree-preservation-order,,,,1968/008
+,,7001001227,,,local-authority-eng:NET,tree-preservation-order,,,,1968/009
+,,7001001228,,,local-authority-eng:NET,tree-preservation-order,,,,1968/010
+,,7001001229,,,local-authority-eng:NET,tree-preservation-order,,,,1968/011
+,,7001001230,,,local-authority-eng:NET,tree-preservation-order,,,,1968/012
+,,7001001231,,,local-authority-eng:NET,tree-preservation-order,,,,1968/013
+,,7001001232,,,local-authority-eng:NET,tree-preservation-order,,,,1968/014
+,,7001001233,,,local-authority-eng:NET,tree-preservation-order,,,,1968/016
+,,7001001234,,,local-authority-eng:NET,tree-preservation-order,,,,1968/017
+,,7001001235,,,local-authority-eng:NET,tree-preservation-order,,,,1968/018
+,,7001001236,,,local-authority-eng:NET,tree-preservation-order,,,,1968/020
+,,7001001237,,,local-authority-eng:NET,tree-preservation-order,,,,1968/022
+,,7001001238,,,local-authority-eng:NET,tree-preservation-order,,,,1968/023
+,,7001001239,,,local-authority-eng:NET,tree-preservation-order,,,,1968/025
+,,7001001240,,,local-authority-eng:NET,tree-preservation-order,,,,1969/002
+,,7001001241,,,local-authority-eng:NET,tree-preservation-order,,,,1970/001
+,,7001001242,,,local-authority-eng:NET,tree-preservation-order,,,,1971/002
+,,7001001243,,,local-authority-eng:NET,tree-preservation-order,,,,1971/003
+,,7001001244,,,local-authority-eng:NET,tree-preservation-order,,,,1971/004
+,,7001001245,,,local-authority-eng:NET,tree-preservation-order,,,,1972/001
+,,7001001246,,,local-authority-eng:NET,tree-preservation-order,,,,1972/002
+,,7001001247,,,local-authority-eng:NET,tree-preservation-order,,,,1972/003
+,,7001001248,,,local-authority-eng:NET,tree-preservation-order,,,,1972/004
+,,7001001249,,,local-authority-eng:NET,tree-preservation-order,,,,1972/005
+,,7001001250,,,local-authority-eng:NET,tree-preservation-order,,,,1973/001
+,,7001001251,,,local-authority-eng:NET,tree-preservation-order,,,,1973/002
+,,7001001252,,,local-authority-eng:NET,tree-preservation-order,,,,1973/003
+,,7001001253,,,local-authority-eng:NET,tree-preservation-order,,,,1973/004
+,,7001001254,,,local-authority-eng:NET,tree-preservation-order,,,,1973/005
+,,7001001255,,,local-authority-eng:NET,tree-preservation-order,,,,1973/006
+,,7001001256,,,local-authority-eng:NET,tree-preservation-order,,,,1973/007
+,,7001001257,,,local-authority-eng:NET,tree-preservation-order,,,,1974/001
+,,7001001258,,,local-authority-eng:NET,tree-preservation-order,,,,1974/002
+,,7001001259,,,local-authority-eng:NET,tree-preservation-order,,,,1974/003
+,,7001001260,,,local-authority-eng:NET,tree-preservation-order,,,,1974/004
+,,7001001261,,,local-authority-eng:NET,tree-preservation-order,,,,1974/005
+,,7001001262,,,local-authority-eng:NET,tree-preservation-order,,,,1974/006
+,,7001001263,,,local-authority-eng:NET,tree-preservation-order,,,,1974/007
+,,7001001264,,,local-authority-eng:NET,tree-preservation-order,,,,1974/008
+,,7001001265,,,local-authority-eng:NET,tree-preservation-order,,,,1975/002
+,,7001001266,,,local-authority-eng:NET,tree-preservation-order,,,,1975/007
+,,7001001267,,,local-authority-eng:NET,tree-preservation-order,,,,1975/010
+,,7001001268,,,local-authority-eng:NET,tree-preservation-order,,,,1975/011
+,,7001001269,,,local-authority-eng:NET,tree-preservation-order,,,,1975/013
+,,7001001270,,,local-authority-eng:NET,tree-preservation-order,,,,1975/017
+,,7001001271,,,local-authority-eng:NET,tree-preservation-order,,,,1976/001
+,,7001001272,,,local-authority-eng:NET,tree-preservation-order,,,,1976/003
+,,7001001273,,,local-authority-eng:NET,tree-preservation-order,,,,1976/004
+,,7001001274,,,local-authority-eng:NET,tree-preservation-order,,,,1976/005
+,,7001001275,,,local-authority-eng:NET,tree-preservation-order,,,,1976/006
+,,7001001276,,,local-authority-eng:NET,tree-preservation-order,,,,1976/007
+,,7001001277,,,local-authority-eng:NET,tree-preservation-order,,,,1976/010
+,,7001001278,,,local-authority-eng:NET,tree-preservation-order,,,,1976/011
+,,7001001279,,,local-authority-eng:NET,tree-preservation-order,,,,1977/001
+,,7001001280,,,local-authority-eng:NET,tree-preservation-order,,,,1977/002
+,,7001001281,,,local-authority-eng:NET,tree-preservation-order,,,,1977/006
+,,7001001282,,,local-authority-eng:NET,tree-preservation-order,,,,1977/007
+,,7001001283,,,local-authority-eng:NET,tree-preservation-order,,,,1977/008
+,,7001001284,,,local-authority-eng:NET,tree-preservation-order,,,,1977/009
+,,7001001285,,,local-authority-eng:NET,tree-preservation-order,,,,1977/011
+,,7001001286,,,local-authority-eng:NET,tree-preservation-order,,,,1977/013
+,,7001001287,,,local-authority-eng:NET,tree-preservation-order,,,,1977/015
+,,7001001288,,,local-authority-eng:NET,tree-preservation-order,,,,1978/001
+,,7001001289,,,local-authority-eng:NET,tree-preservation-order,,,,1978/002
+,,7001001290,,,local-authority-eng:NET,tree-preservation-order,,,,1978/003
+,,7001001291,,,local-authority-eng:NET,tree-preservation-order,,,,1978/004
+,,7001001292,,,local-authority-eng:NET,tree-preservation-order,,,,1978/005
+,,7001001293,,,local-authority-eng:NET,tree-preservation-order,,,,1978/006
+,,7001001294,,,local-authority-eng:NET,tree-preservation-order,,,,1978/007
+,,7001001295,,,local-authority-eng:NET,tree-preservation-order,,,,1978/008
+,,7001001296,,,local-authority-eng:NET,tree-preservation-order,,,,1978/009
+,,7001001297,,,local-authority-eng:NET,tree-preservation-order,,,,1978/010
+,,7001001298,,,local-authority-eng:NET,tree-preservation-order,,,,1979/001
+,,7001001299,,,local-authority-eng:NET,tree-preservation-order,,,,1979/002
+,,7001001300,,,local-authority-eng:NET,tree-preservation-order,,,,1979/003
+,,7001001301,,,local-authority-eng:NET,tree-preservation-order,,,,1979/004
+,,7001001302,,,local-authority-eng:NET,tree-preservation-order,,,,1980/001
+,,7001001303,,,local-authority-eng:NET,tree-preservation-order,,,,1980/002
+,,7001001304,,,local-authority-eng:NET,tree-preservation-order,,,,1980/003
+,,7001001305,,,local-authority-eng:NET,tree-preservation-order,,,,1980/004
+,,7001001306,,,local-authority-eng:NET,tree-preservation-order,,,,1980/005
+,,7001001307,,,local-authority-eng:NET,tree-preservation-order,,,,1980/007
+,,7001001308,,,local-authority-eng:NET,tree-preservation-order,,,,1980/008
+,,7001001309,,,local-authority-eng:NET,tree-preservation-order,,,,1980/009
+,,7001001310,,,local-authority-eng:NET,tree-preservation-order,,,,1980/010
+,,7001001311,,,local-authority-eng:NET,tree-preservation-order,,,,1980/011
+,,7001001312,,,local-authority-eng:NET,tree-preservation-order,,,,1981/001
+,,7001001313,,,local-authority-eng:NET,tree-preservation-order,,,,1981/003
+,,7001001314,,,local-authority-eng:NET,tree-preservation-order,,,,1981/005
+,,7001001315,,,local-authority-eng:NET,tree-preservation-order,,,,1981/007
+,,7001001316,,,local-authority-eng:NET,tree-preservation-order,,,,1981/009
+,,7001001317,,,local-authority-eng:NET,tree-preservation-order,,,,1982/001
+,,7001001318,,,local-authority-eng:NET,tree-preservation-order,,,,1982/002
+,,7001001319,,,local-authority-eng:NET,tree-preservation-order,,,,1982/003
+,,7001001320,,,local-authority-eng:NET,tree-preservation-order,,,,1982/004
+,,7001001321,,,local-authority-eng:NET,tree-preservation-order,,,,1982/005
+,,7001001322,,,local-authority-eng:NET,tree-preservation-order,,,,1982/007
+,,7001001323,,,local-authority-eng:NET,tree-preservation-order,,,,1982/008
+,,7001001324,,,local-authority-eng:NET,tree-preservation-order,,,,1982/010
+,,7001001325,,,local-authority-eng:NET,tree-preservation-order,,,,1983/001
+,,7001001326,,,local-authority-eng:NET,tree-preservation-order,,,,1983/002
+,,7001001327,,,local-authority-eng:NET,tree-preservation-order,,,,1983/003
+,,7001001328,,,local-authority-eng:NET,tree-preservation-order,,,,1983/004
+,,7001001329,,,local-authority-eng:NET,tree-preservation-order,,,,1983/005
+,,7001001330,,,local-authority-eng:NET,tree-preservation-order,,,,1984/002
+,,7001001331,,,local-authority-eng:NET,tree-preservation-order,,,,1984/003
+,,7001001332,,,local-authority-eng:NET,tree-preservation-order,,,,1984/004
+,,7001001333,,,local-authority-eng:NET,tree-preservation-order,,,,1984/005
+,,7001001334,,,local-authority-eng:NET,tree-preservation-order,,,,1984/008
+,,7001001335,,,local-authority-eng:NET,tree-preservation-order,,,,1984/009
+,,7001001336,,,local-authority-eng:NET,tree-preservation-order,,,,1984/010
+,,7001001337,,,local-authority-eng:NET,tree-preservation-order,,,,1984/011
+,,7001001338,,,local-authority-eng:NET,tree-preservation-order,,,,1984/012
+,,7001001339,,,local-authority-eng:NET,tree-preservation-order,,,,1984/013
+,,7001001340,,,local-authority-eng:NET,tree-preservation-order,,,,1984/017
+,,7001001341,,,local-authority-eng:NET,tree-preservation-order,,,,1984/019
+,,7001001342,,,local-authority-eng:NET,tree-preservation-order,,,,1984/020
+,,7001001343,,,local-authority-eng:NET,tree-preservation-order,,,,1985/001
+,,7001001344,,,local-authority-eng:NET,tree-preservation-order,,,,1985/004
+,,7001001345,,,local-authority-eng:NET,tree-preservation-order,,,,1985/006
+,,7001001346,,,local-authority-eng:NET,tree-preservation-order,,,,1985/007
+,,7001001347,,,local-authority-eng:NET,tree-preservation-order,,,,1985/008
+,,7001001348,,,local-authority-eng:NET,tree-preservation-order,,,,1985/009
+,,7001001349,,,local-authority-eng:NET,tree-preservation-order,,,,1985/011
+,,7001001350,,,local-authority-eng:NET,tree-preservation-order,,,,1985/013
+,,7001001351,,,local-authority-eng:NET,tree-preservation-order,,,,1985/015
+,,7001001352,,,local-authority-eng:NET,tree-preservation-order,,,,1985/017
+,,7001001353,,,local-authority-eng:NET,tree-preservation-order,,,,1986/001
+,,7001001354,,,local-authority-eng:NET,tree-preservation-order,,,,1986/002
+,,7001001355,,,local-authority-eng:NET,tree-preservation-order,,,,1986/003
+,,7001001356,,,local-authority-eng:NET,tree-preservation-order,,,,1986/004
+,,7001001357,,,local-authority-eng:NET,tree-preservation-order,,,,1986/005
+,,7001001358,,,local-authority-eng:NET,tree-preservation-order,,,,1986/007
+,,7001001359,,,local-authority-eng:NET,tree-preservation-order,,,,1986/008
+,,7001001360,,,local-authority-eng:NET,tree-preservation-order,,,,1986/010
+,,7001001361,,,local-authority-eng:NET,tree-preservation-order,,,,1986/011
+,,7001001362,,,local-authority-eng:NET,tree-preservation-order,,,,1986/013
+,,7001001363,,,local-authority-eng:NET,tree-preservation-order,,,,1986/014
+,,7001001364,,,local-authority-eng:NET,tree-preservation-order,,,,1987/001
+,,7001001365,,,local-authority-eng:NET,tree-preservation-order,,,,1987/002
+,,7001001366,,,local-authority-eng:NET,tree-preservation-order,,,,1987/003
+,,7001001367,,,local-authority-eng:NET,tree-preservation-order,,,,1987/004
+,,7001001368,,,local-authority-eng:NET,tree-preservation-order,,,,1987/005
+,,7001001369,,,local-authority-eng:NET,tree-preservation-order,,,,1987/006
+,,7001001370,,,local-authority-eng:NET,tree-preservation-order,,,,1987/007
+,,7001001371,,,local-authority-eng:NET,tree-preservation-order,,,,1987/008
+,,7001001372,,,local-authority-eng:NET,tree-preservation-order,,,,1987/009
+,,7001001373,,,local-authority-eng:NET,tree-preservation-order,,,,1987/010
+,,7001001374,,,local-authority-eng:NET,tree-preservation-order,,,,1987/011
+,,7001001375,,,local-authority-eng:NET,tree-preservation-order,,,,1988/001
+,,7001001376,,,local-authority-eng:NET,tree-preservation-order,,,,1988/002
+,,7001001377,,,local-authority-eng:NET,tree-preservation-order,,,,1988/003
+,,7001001378,,,local-authority-eng:NET,tree-preservation-order,,,,1988/005
+,,7001001379,,,local-authority-eng:NET,tree-preservation-order,,,,1988/006
+,,7001001380,,,local-authority-eng:NET,tree-preservation-order,,,,1988/008
+,,7001001381,,,local-authority-eng:NET,tree-preservation-order,,,,1988/009
+,,7001001382,,,local-authority-eng:NET,tree-preservation-order,,,,1988/010
+,,7001001383,,,local-authority-eng:NET,tree-preservation-order,,,,1988/011
+,,7001001384,,,local-authority-eng:NET,tree-preservation-order,,,,1988/012
+,,7001001385,,,local-authority-eng:NET,tree-preservation-order,,,,1988/013
+,,7001001386,,,local-authority-eng:NET,tree-preservation-order,,,,1988/014
+,,7001001387,,,local-authority-eng:NET,tree-preservation-order,,,,1988/015
+,,7001001388,,,local-authority-eng:NET,tree-preservation-order,,,,1988/016
+,,7001001389,,,local-authority-eng:NET,tree-preservation-order,,,,1989/001
+,,7001001390,,,local-authority-eng:NET,tree-preservation-order,,,,1989/002 A
+,,7001001391,,,local-authority-eng:NET,tree-preservation-order,,,,1989/003
+,,7001001392,,,local-authority-eng:NET,tree-preservation-order,,,,1989/004
+,,7001001393,,,local-authority-eng:NET,tree-preservation-order,,,,1989/006
+,,7001001394,,,local-authority-eng:NET,tree-preservation-order,,,,1989/007
+,,7001001395,,,local-authority-eng:NET,tree-preservation-order,,,,1989/008
+,,7001001396,,,local-authority-eng:NET,tree-preservation-order,,,,1989/009
+,,7001001397,,,local-authority-eng:NET,tree-preservation-order,,,,1989/010
+,,7001001398,,,local-authority-eng:NET,tree-preservation-order,,,,1989/011
+,,7001001399,,,local-authority-eng:NET,tree-preservation-order,,,,1989/012
+,,7001001400,,,local-authority-eng:NET,tree-preservation-order,,,,1989/013
+,,7001001401,,,local-authority-eng:NET,tree-preservation-order,,,,1989/014
+,,7001001402,,,local-authority-eng:NET,tree-preservation-order,,,,1989/015
+,,7001001403,,,local-authority-eng:NET,tree-preservation-order,,,,1989/017
+,,7001001404,,,local-authority-eng:NET,tree-preservation-order,,,,1989/019
+,,7001001405,,,local-authority-eng:NET,tree-preservation-order,,,,1990/001
+,,7001001406,,,local-authority-eng:NET,tree-preservation-order,,,,1990/002
+,,7001001407,,,local-authority-eng:NET,tree-preservation-order,,,,1990/003 A
+,,7001001408,,,local-authority-eng:NET,tree-preservation-order,,,,1990/004
+,,7001001409,,,local-authority-eng:NET,tree-preservation-order,,,,1990/005
+,,7001001410,,,local-authority-eng:NET,tree-preservation-order,,,,1990/007
+,,7001001411,,,local-authority-eng:NET,tree-preservation-order,,,,1990/008
+,,7001001412,,,local-authority-eng:NET,tree-preservation-order,,,,1990/009
+,,7001001413,,,local-authority-eng:NET,tree-preservation-order,,,,1990/010
+,,7001001414,,,local-authority-eng:NET,tree-preservation-order,,,,1991/001
+,,7001001415,,,local-authority-eng:NET,tree-preservation-order,,,,1991/002
+,,7001001416,,,local-authority-eng:NET,tree-preservation-order,,,,1991/003
+,,7001001417,,,local-authority-eng:NET,tree-preservation-order,,,,1991/004
+,,7001001418,,,local-authority-eng:NET,tree-preservation-order,,,,1991/005
+,,7001001419,,,local-authority-eng:NET,tree-preservation-order,,,,1991/007
+,,7001001420,,,local-authority-eng:NET,tree-preservation-order,,,,1991/009
+,,7001001421,,,local-authority-eng:NET,tree-preservation-order,,,,1991/010
+,,7001001422,,,local-authority-eng:NET,tree-preservation-order,,,,1991/011
+,,7001001423,,,local-authority-eng:NET,tree-preservation-order,,,,1991/015
+,,7001001424,,,local-authority-eng:NET,tree-preservation-order,,,,1991/016
+,,7001001425,,,local-authority-eng:NET,tree-preservation-order,,,,1991/019
+,,7001001426,,,local-authority-eng:NET,tree-preservation-order,,,,1991/020
+,,7001001427,,,local-authority-eng:NET,tree-preservation-order,,,,1991/021
+,,7001001428,,,local-authority-eng:NET,tree-preservation-order,,,,1991/022
+,,7001001429,,,local-authority-eng:NET,tree-preservation-order,,,,1992/001
+,,7001001430,,,local-authority-eng:NET,tree-preservation-order,,,,1992/002
+,,7001001431,,,local-authority-eng:NET,tree-preservation-order,,,,1992/003
+,,7001001432,,,local-authority-eng:NET,tree-preservation-order,,,,1992/004
+,,7001001433,,,local-authority-eng:NET,tree-preservation-order,,,,1992/005
+,,7001001434,,,local-authority-eng:NET,tree-preservation-order,,,,1993/001
+,,7001001435,,,local-authority-eng:NET,tree-preservation-order,,,,1993/002
+,,7001001436,,,local-authority-eng:NET,tree-preservation-order,,,,1993/003
+,,7001001437,,,local-authority-eng:NET,tree-preservation-order,,,,1993/004
+,,7001001438,,,local-authority-eng:NET,tree-preservation-order,,,,1993/005
+,,7001001439,,,local-authority-eng:NET,tree-preservation-order,,,,1993/006
+,,7001001440,,,local-authority-eng:NET,tree-preservation-order,,,,1993/007
+,,7001001441,,,local-authority-eng:NET,tree-preservation-order,,,,1993/008
+,,7001001442,,,local-authority-eng:NET,tree-preservation-order,,,,1994/003
+,,7001001443,,,local-authority-eng:NET,tree-preservation-order,,,,1994/005
+,,7001001444,,,local-authority-eng:NET,tree-preservation-order,,,,1994/006
+,,7001001445,,,local-authority-eng:NET,tree-preservation-order,,,,1994/007
+,,7001001446,,,local-authority-eng:NET,tree-preservation-order,,,,1994/010
+,,7001001447,,,local-authority-eng:NET,tree-preservation-order,,,,1994/011
+,,7001001448,,,local-authority-eng:NET,tree-preservation-order,,,,1994/012
+,,7001001449,,,local-authority-eng:NET,tree-preservation-order,,,,1994/013
+,,7001001450,,,local-authority-eng:NET,tree-preservation-order,,,,1994/014
+,,7001001451,,,local-authority-eng:NET,tree-preservation-order,,,,1995/002
+,,7001001452,,,local-authority-eng:NET,tree-preservation-order,,,,1995/003
+,,7001001453,,,local-authority-eng:NET,tree-preservation-order,,,,1995/004
+,,7001001454,,,local-authority-eng:NET,tree-preservation-order,,,,1995/005
+,,7001001455,,,local-authority-eng:NET,tree-preservation-order,,,,1995/006
+,,7001001456,,,local-authority-eng:NET,tree-preservation-order,,,,1995/007
+,,7001001457,,,local-authority-eng:NET,tree-preservation-order,,,,1995/009
+,,7001001458,,,local-authority-eng:NET,tree-preservation-order,,,,1995/010
+,,7001001459,,,local-authority-eng:NET,tree-preservation-order,,,,1995/012
+,,7001001460,,,local-authority-eng:NET,tree-preservation-order,,,,1995/013
+,,7001001461,,,local-authority-eng:NET,tree-preservation-order,,,,1995/014
+,,7001001462,,,local-authority-eng:NET,tree-preservation-order,,,,1995/015
+,,7001001463,,,local-authority-eng:NET,tree-preservation-order,,,,1995/016
+,,7001001464,,,local-authority-eng:NET,tree-preservation-order,,,,1996/002
+,,7001001465,,,local-authority-eng:NET,tree-preservation-order,,,,1996/003
+,,7001001466,,,local-authority-eng:NET,tree-preservation-order,,,,1996/005
+,,7001001467,,,local-authority-eng:NET,tree-preservation-order,,,,1996/007
+,,7001001468,,,local-authority-eng:NET,tree-preservation-order,,,,1996/008
+,,7001001469,,,local-authority-eng:NET,tree-preservation-order,,,,1996/009
+,,7001001470,,,local-authority-eng:NET,tree-preservation-order,,,,1996/010
+,,7001001471,,,local-authority-eng:NET,tree-preservation-order,,,,1996/011
+,,7001001472,,,local-authority-eng:NET,tree-preservation-order,,,,1996/012
+,,7001001473,,,local-authority-eng:NET,tree-preservation-order,,,,1996/013
+,,7001001474,,,local-authority-eng:NET,tree-preservation-order,,,,1997/001
+,,7001001475,,,local-authority-eng:NET,tree-preservation-order,,,,1997/002
+,,7001001476,,,local-authority-eng:NET,tree-preservation-order,,,,1997/003
+,,7001001477,,,local-authority-eng:NET,tree-preservation-order,,,,1997/004
+,,7001001478,,,local-authority-eng:NET,tree-preservation-order,,,,1997/005
+,,7001001479,,,local-authority-eng:NET,tree-preservation-order,,,,1997/007
+,,7001001480,,,local-authority-eng:NET,tree-preservation-order,,,,1998/001
+,,7001001481,,,local-authority-eng:NET,tree-preservation-order,,,,2000/003
+,,7001001482,,,local-authority-eng:NET,tree-preservation-order,,,,2000/005
+,,7001001483,,,local-authority-eng:NET,tree-preservation-order,,,,2001/002
+,,7001001484,,,local-authority-eng:NET,tree-preservation-order,,,,2004/001
+,,7001001485,,,local-authority-eng:NET,tree-preservation-order,,,,2004/002
+,,7001001486,,,local-authority-eng:NET,tree-preservation-order,,,,2004/004
+,,7001001487,,,local-authority-eng:NET,tree-preservation-order,,,,2004/005
+,,7001001488,,,local-authority-eng:NET,tree-preservation-order,,,,2004/006
+,,7001001489,,,local-authority-eng:NET,tree-preservation-order,,,,2004/007
+,,7001001490,,,local-authority-eng:NET,tree-preservation-order,,,,2004/008
+,,7001001491,,,local-authority-eng:NET,tree-preservation-order,,,,2004/009
+,,7001001492,,,local-authority-eng:NET,tree-preservation-order,,,,2004/011
+,,7001001493,,,local-authority-eng:NET,tree-preservation-order,,,,2004/012
+,,7001001494,,,local-authority-eng:NET,tree-preservation-order,,,,2004/013
+,,7001001495,,,local-authority-eng:NET,tree-preservation-order,,,,2004/014
+,,7001001496,,,local-authority-eng:NET,tree-preservation-order,,,,2004/015
+,,7001001497,,,local-authority-eng:NET,tree-preservation-order,,,,2004/016
+,,7001001498,,,local-authority-eng:NET,tree-preservation-order,,,,2004/018
+,,7001001499,,,local-authority-eng:NET,tree-preservation-order,,,,2004/020
+,,7001001500,,,local-authority-eng:NET,tree-preservation-order,,,,2005/001
+,,7001001501,,,local-authority-eng:NET,tree-preservation-order,,,,2005/002
+,,7001001502,,,local-authority-eng:NET,tree-preservation-order,,,,2005/003
+,,7001001503,,,local-authority-eng:NET,tree-preservation-order,,,,2005/005
+,,7001001504,,,local-authority-eng:NET,tree-preservation-order,,,,2005/006
+,,7001001505,,,local-authority-eng:NET,tree-preservation-order,,,,2005/007
+,,7001001506,,,local-authority-eng:NET,tree-preservation-order,,,,2005/009
+,,7001001507,,,local-authority-eng:NET,tree-preservation-order,,,,2006/001
+,,7001001508,,,local-authority-eng:NET,tree-preservation-order,,,,2006/002
+,,7001001509,,,local-authority-eng:NET,tree-preservation-order,,,,2006/003
+,,7001001510,,,local-authority-eng:NET,tree-preservation-order,,,,2006/004
+,,7001001511,,,local-authority-eng:NET,tree-preservation-order,,,,2006/005
+,,7001001512,,,local-authority-eng:NET,tree-preservation-order,,,,2006/006
+,,7001001513,,,local-authority-eng:NET,tree-preservation-order,,,,2006/007
+,,7001001514,,,local-authority-eng:NET,tree-preservation-order,,,,2007/002
+,,7001001515,,,local-authority-eng:NET,tree-preservation-order,,,,2007/003
+,,7001001516,,,local-authority-eng:NET,tree-preservation-order,,,,2007/004
+,,7001001517,,,local-authority-eng:NET,tree-preservation-order,,,,2007/005
+,,7001001518,,,local-authority-eng:NET,tree-preservation-order,,,,2007/006
+,,7001001519,,,local-authority-eng:NET,tree-preservation-order,,,,2008/001
+,,7001001520,,,local-authority-eng:NET,tree-preservation-order,,,,2008/003
+,,7001001521,,,local-authority-eng:NET,tree-preservation-order,,,,2009/001
+,,7001001522,,,local-authority-eng:NET,tree-preservation-order,,,,2009/002
+,,7001001523,,,local-authority-eng:NET,tree-preservation-order,,,,2009/004
+,,7001001524,,,local-authority-eng:NET,tree-preservation-order,,,,2009-008
+,,7001001525,,,local-authority-eng:NET,tree-preservation-order,,,,2010-001
+,,7001001526,,,local-authority-eng:NET,tree-preservation-order,,,,2011/001
+,,7001001527,,,local-authority-eng:NET,tree-preservation-order,,,,2011/002
+,,7001001528,,,local-authority-eng:NET,tree-preservation-order,,,,2011/003
+,,7001001529,,,local-authority-eng:NET,tree-preservation-order,,,,2012/001
+,,7001001530,,,local-authority-eng:NET,tree-preservation-order,,,,2012/003
+,,7001001531,,,local-authority-eng:NET,tree-preservation-order,,,,2012/005
+,,7001001532,,,local-authority-eng:NET,tree-preservation-order,,,,2012/006
+,,7001001533,,,local-authority-eng:NET,tree-preservation-order,,,,2012/008
+,,7001001534,,,local-authority-eng:NET,tree-preservation-order,,,,2012/009
+,,7001001535,,,local-authority-eng:NET,tree-preservation-order,,,,2012/010
+,,7001001536,,,local-authority-eng:NET,tree-preservation-order,,,,2012/011
+,,7001001537,,,local-authority-eng:NET,tree-preservation-order,,,,2012/012
+,,7001001538,,,local-authority-eng:NET,tree-preservation-order,,,,2012/013
+,,7001001539,,,local-authority-eng:NET,tree-preservation-order,,,,2013/002
+,,7001001540,,,local-authority-eng:NET,tree-preservation-order,,,,2013/003
+,,7001001541,,,local-authority-eng:NET,tree-preservation-order,,,,2013/004
+,,7001001542,,,local-authority-eng:NET,tree-preservation-order,,,,2013/008
+,,7001001543,,,local-authority-eng:NET,tree-preservation-order,,,,2013/009
+,,7001001544,,,local-authority-eng:NET,tree-preservation-order,,,,2013/010
+,,7001001545,,,local-authority-eng:NET,tree-preservation-order,,,,2013/011
+,,7001001546,,,local-authority-eng:NET,tree-preservation-order,,,,2014/002
+,,7001001547,,,local-authority-eng:NET,tree-preservation-order,,,,2014/003
+,,7001001548,,,local-authority-eng:NET,tree-preservation-order,,,,2014/004
+,,7001001549,,,local-authority-eng:NET,tree-preservation-order,,,,2015/002
+,,7001001550,,,local-authority-eng:NET,tree-preservation-order,,,,2015/003
+,,7001001551,,,local-authority-eng:NET,tree-preservation-order,,,,2015/005
+,,7001001552,,,local-authority-eng:NET,tree-preservation-order,,,,2015/006
+,,7001001553,,,local-authority-eng:NET,tree-preservation-order,,,,2016/005
+,,7001001554,,,local-authority-eng:NET,tree-preservation-order,,,,2016/006
+,,7001001555,,,local-authority-eng:NET,tree-preservation-order,,,,2016/007
+,,7001001556,,,local-authority-eng:NET,tree-preservation-order,,,,2016/011
+,,7001001557,,,local-authority-eng:NET,tree-preservation-order,,,,2017/001
+,,7001001558,,,local-authority-eng:NET,tree-preservation-order,,,,2017/002
+,,7001001559,,,local-authority-eng:NET,tree-preservation-order,,,,2018/002
+,,7001001560,,,local-authority-eng:NET,tree-preservation-order,,,,2018/003
+,,7001001561,,,local-authority-eng:NET,tree-preservation-order,,,,2018/006
+,,7001001562,,,local-authority-eng:NET,tree-preservation-order,,,,2018/007
+,,7001001563,,,local-authority-eng:NET,tree-preservation-order,,,,2018/008
+,,7001001564,,,local-authority-eng:NET,tree-preservation-order,,,,2018/009
+,,7001001565,,,local-authority-eng:NET,tree-preservation-order,,,,2018/011
+,,7001001566,,,local-authority-eng:NET,tree-preservation-order,,,,2018/012
+,,7001001567,,,local-authority-eng:NET,tree-preservation-order,,,,2018/013
+,,7001001568,,,local-authority-eng:NET,tree-preservation-order,,,,2019/001
+,,7001001569,,,local-authority-eng:NET,tree-preservation-order,,,,2019/002
+,,7001001570,,,local-authority-eng:NET,tree-preservation-order,,,,2019/003
+,,7001001571,,,local-authority-eng:NET,tree-preservation-order,,,,2019/006
+,,7001001572,,,local-authority-eng:NET,tree-preservation-order,,,,2019/007
+,,7001001573,,,local-authority-eng:NET,tree-preservation-order,,,,2019/009
+,,7001001574,,,local-authority-eng:NET,tree-preservation-order,,,,2019/011
+,,7001001575,,,local-authority-eng:NET,tree-preservation-order,,,,2019/012
+,,7001001576,,,local-authority-eng:NET,tree-preservation-order,,,,2019/014
+,,7001001577,,,local-authority-eng:NET,tree-preservation-order,,,,2019/016
+,,7001001578,,,local-authority-eng:NET,tree-preservation-order,,,,2019/018
+,,7001001579,,,local-authority-eng:NET,tree-preservation-order,,,,2019/020
+,,7001001580,,,local-authority-eng:NET,tree-preservation-order,,,,2020/002
+,,7001001581,,,local-authority-eng:NET,tree-preservation-order,,,,2020/003
+,,7001001582,,,local-authority-eng:NET,tree-preservation-order,,,,2020/004
+,,7001001583,,,local-authority-eng:NET,tree-preservation-order,,,,2020/005
+,,7001001584,,,local-authority-eng:NET,tree-preservation-order,,,,2020/006
+,,7001001585,,,local-authority-eng:NET,tree-preservation-order,,,,2020/009
+,,7001001586,,,local-authority-eng:NET,tree-preservation-order,,,,2021/001
+,,7001001587,,,local-authority-eng:NET,tree-preservation-order,,,,2021/002
+,,7001001588,,,local-authority-eng:NET,tree-preservation-order,,,,2021/004
+,,7001001589,,,local-authority-eng:NET,tree-preservation-order,,,,2021/005
+,,7001001590,,,local-authority-eng:NET,tree-preservation-order,,,,2021/006
+,,7001001591,,,local-authority-eng:NET,tree-preservation-order,,,,2021/008
+,,7001001592,,,local-authority-eng:NET,tree-preservation-order,,,,2021/009
+,,7001001593,,,local-authority-eng:NET,tree-preservation-order,,,,2021/010
+,,7001001594,,,local-authority-eng:NET,tree-preservation-order,,,,2021/013
+,,7001001595,,,local-authority-eng:NET,tree-preservation-order,,,,2021/014
+,,7001001596,,,local-authority-eng:NET,tree-preservation-order,,,,2021/015
+,,7001001597,,,local-authority-eng:NET,tree-preservation-order,,,,2021/016
+,,7001001598,,,local-authority-eng:NET,tree-preservation-order,,,,2021/017
+,,7001001599,,,local-authority-eng:NET,tree-preservation-order,,,,2021/019
+,,7001001600,,,local-authority-eng:NET,tree-preservation-order,,,,2022/001
+,,7001001601,,,local-authority-eng:NET,tree-preservation-order,,,,2022/002
+,,7001001602,,,local-authority-eng:NET,tree-preservation-order,,,,2022/004
+,,7001001603,,,local-authority-eng:NET,tree-preservation-order,,,,2022/005
+,,7001001604,,,local-authority-eng:NET,tree-preservation-order,,,,2022/006
+,,7001001605,,,local-authority-eng:NET,tree-preservation-order,,,,2022/007
+,,7001001606,,,local-authority-eng:NET,tree-preservation-order,,,,2022/010
+,,7001001607,,,local-authority-eng:NET,tree-preservation-order,,,,2022/011
+,,7001001608,,,local-authority-eng:NET,tree-preservation-order,,,,1968/015
+,,7001001609,,,local-authority-eng:NET,tree-preservation-order,,,,1975/001
+,,7001001610,,,local-authority-eng:NET,tree-preservation-order,,,,1975/003
+,,7001001611,,,local-authority-eng:NET,tree-preservation-order,,,,1975/004
+,,7001001612,,,local-authority-eng:NET,tree-preservation-order,,,,1975/005
+,,7001001613,,,local-authority-eng:NET,tree-preservation-order,,,,1975/006
+,,7001001614,,,local-authority-eng:NET,tree-preservation-order,,,,1975/012
+,,7001001615,,,local-authority-eng:NET,tree-preservation-order,,,,1975/015
+,,7001001616,,,local-authority-eng:NET,tree-preservation-order,,,,1975/018
+,,7001001617,,,local-authority-eng:NET,tree-preservation-order,,,,1975/019
+,,7001001618,,,local-authority-eng:NET,tree-preservation-order,,,,1975/020
+,,7001001619,,,local-authority-eng:NET,tree-preservation-order,,,,1976/012
+,,7001001620,,,local-authority-eng:NET,tree-preservation-order,,,,1977/003
+,,7001001621,,,local-authority-eng:NET,tree-preservation-order,,,,1977/005
+,,7001001622,,,local-authority-eng:NET,tree-preservation-order,,,,1977/012
+,,7001001623,,,local-authority-eng:NET,tree-preservation-order,,,,1981/002
+,,7001001624,,,local-authority-eng:NET,tree-preservation-order,,,,1981/006
+,,7001001625,,,local-authority-eng:NET,tree-preservation-order,,,,1984/007
+,,7001001626,,,local-authority-eng:NET,tree-preservation-order,,,,1984/018
+,,7001001627,,,local-authority-eng:NET,tree-preservation-order,,,,1985/003
+,,7001001628,,,local-authority-eng:NET,tree-preservation-order,,,,1985/010
+,,7001001629,,,local-authority-eng:NET,tree-preservation-order,,,,1985/012
+,,7001001630,,,local-authority-eng:NET,tree-preservation-order,,,,1985/014
+,,7001001631,,,local-authority-eng:NET,tree-preservation-order,,,,1985/016
+,,7001001632,,,local-authority-eng:NET,tree-preservation-order,,,,1986/009
+,,7001001633,,,local-authority-eng:NET,tree-preservation-order,,,,1986/012
+,,7001001634,,,local-authority-eng:NET,tree-preservation-order,,,,1990/012
+,,7001001635,,,local-authority-eng:NET,tree-preservation-order,,,,1991/018
+,,7001001636,,,local-authority-eng:NET,tree-preservation-order,,,,1991/023
+,,7001001637,,,local-authority-eng:NET,tree-preservation-order,,,,1991/024
+,,7001001638,,,local-authority-eng:NET,tree-preservation-order,,,,1992/006
+,,7001001639,,,local-authority-eng:NET,tree-preservation-order,,,,1994/001
+,,7001001640,,,local-authority-eng:NET,tree-preservation-order,,,,1994/002
+,,7001001641,,,local-authority-eng:NET,tree-preservation-order,,,,1994/004
+,,7001001642,,,local-authority-eng:NET,tree-preservation-order,,,,1994/008
+,,7001001643,,,local-authority-eng:NET,tree-preservation-order,,,,1995/001
+,,7001001644,,,local-authority-eng:NET,tree-preservation-order,,,,1995/008
+,,7001001645,,,local-authority-eng:NET,tree-preservation-order,,,,1995/017
+,,7001001646,,,local-authority-eng:NET,tree-preservation-order,,,,1995/018
+,,7001001647,,,local-authority-eng:NET,tree-preservation-order,,,,1996/001
+,,7001001648,,,local-authority-eng:NET,tree-preservation-order,,,,1996/004
+,,7001001649,,,local-authority-eng:NET,tree-preservation-order,,,,1996/006
+,,7001001650,,,local-authority-eng:NET,tree-preservation-order,,,,1997/006
+,,7001001651,,,local-authority-eng:NET,tree-preservation-order,,,,1998/002
+,,7001001652,,,local-authority-eng:NET,tree-preservation-order,,,,1998/003
+,,7001001653,,,local-authority-eng:NET,tree-preservation-order,,,,2000/001
+,,7001001654,,,local-authority-eng:NET,tree-preservation-order,,,,2000/002
+,,7001001655,,,local-authority-eng:NET,tree-preservation-order,,,,2000/004
+,,7001001656,,,local-authority-eng:NET,tree-preservation-order,,,,2000/006
+,,7001001657,,,local-authority-eng:NET,tree-preservation-order,,,,2002/001
+,,7001001658,,,local-authority-eng:NET,tree-preservation-order,,,,2002/002
+,,7001001659,,,local-authority-eng:NET,tree-preservation-order,,,,2004/003
+,,7001001660,,,local-authority-eng:NET,tree-preservation-order,,,,2006/008
+,,7001001661,,,local-authority-eng:NET,tree-preservation-order,,,,2007/001
+,,7001001662,,,local-authority-eng:NET,tree-preservation-order,,,,2008/002
+,,7001001663,,,local-authority-eng:NET,tree-preservation-order,,,,2008/004
+,,7001001664,,,local-authority-eng:NET,tree-preservation-order,,,,2008/005
+,,7001001665,,,local-authority-eng:NET,tree-preservation-order,,,,2009/003
+,,7001001666,,,local-authority-eng:NET,tree-preservation-order,,,,2009-009
+,,7001001667,,,local-authority-eng:NET,tree-preservation-order,,,,2009-010
+,,7001001668,,,local-authority-eng:NET,tree-preservation-order,,,,2012/002
+,,7001001669,,,local-authority-eng:NET,tree-preservation-order,,,,2012/004
+,,7001001670,,,local-authority-eng:NET,tree-preservation-order,,,,2012/007
+,,7001001671,,,local-authority-eng:NET,tree-preservation-order,,,,2013/001
+,,7001001672,,,local-authority-eng:NET,tree-preservation-order,,,,2013/005
+,,7001001673,,,local-authority-eng:NET,tree-preservation-order,,,,2013/007
+,,7001001674,,,local-authority-eng:NET,tree-preservation-order,,,,2014/001
+,,7001001675,,,local-authority-eng:NET,tree-preservation-order,,,,2015/001
+,,7001001676,,,local-authority-eng:NET,tree-preservation-order,,,,2015/007
+,,7001001677,,,local-authority-eng:NET,tree-preservation-order,,,,2016/008
+,,7001001678,,,local-authority-eng:NET,tree-preservation-order,,,,2017/003
+,,7001001679,,,local-authority-eng:NET,tree-preservation-order,,,,2017/005
+,,7001001680,,,local-authority-eng:NET,tree-preservation-order,,,,2017/006
+,,7001001681,,,local-authority-eng:NET,tree-preservation-order,,,,2018/001
+,,7001001682,,,local-authority-eng:NET,tree-preservation-order,,,,2018/004
+,,7001001683,,,local-authority-eng:NET,tree-preservation-order,,,,2018/005
+,,7001001684,,,local-authority-eng:NET,tree-preservation-order,,,,2018/010
+,,7001001685,,,local-authority-eng:NET,tree-preservation-order,,,,2019/004
+,,7001001686,,,local-authority-eng:NET,tree-preservation-order,,,,2019/005
+,,7001001687,,,local-authority-eng:NET,tree-preservation-order,,,,2019/010
+,,7001001688,,,local-authority-eng:NET,tree-preservation-order,,,,2019/013
+,,7001001689,,,local-authority-eng:NET,tree-preservation-order,,,,2019/019
+,,7001001690,,,local-authority-eng:NET,tree-preservation-order,,,,2019/021
+,,7001001691,,,local-authority-eng:NET,tree-preservation-order,,,,2019/022
+,,7001001692,,,local-authority-eng:NET,tree-preservation-order,,,,2022/003
+,,7001001693,,,local-authority-eng:NET,tree-preservation-order,,,,2022/009
+,,7001001694,,,local-authority-eng:MDW,tree-preservation-order,,,,G133/1992
+,,7001001695,,,local-authority-eng:MDW,tree-preservation-order,,,,G28/1978
+,,7001001696,,,local-authority-eng:MDW,tree-preservation-order,,,,G38/1980
+,,7001001697,,,local-authority-eng:MDW,tree-preservation-order,,,,M191/2009
+,,7001001698,,,local-authority-eng:MDW,tree-preservation-order,,,,M220/2013
+,,7001001699,,,local-authority-eng:MDW,tree-preservation-order,,,,R172/1993
+,,7001001700,,,local-authority-eng:MDW,tree-preservation-order,,,,R192/1995
+,,7001001701,,,local-authority-eng:MDW,tree-preservation-order,,,,TO BE CHECKED BY SH
+,,7001001702,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G100/1990
+,,7001001703,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G101/1990
+,,7001001704,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G10/1969
+,,7001001705,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G102/1990
+,,7001001706,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G104/1990
+,,7001001707,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G106/1990
+,,7001001708,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G108/1990
+,,7001001709,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G109/1991
+,,7001001710,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G110/1991
+,,7001001711,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G111/1991
+,,7001001712,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G112/1991
+,,7001001713,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G113/1991
+,,7001001714,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G114/1991
+,,7001001715,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G115/1991
+,,7001001716,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G116/1991
+,,7001001717,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G117/1991
+,,7001001718,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G118/1991
+,,7001001719,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G119/1991
+,,7001001720,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G1/1968
+,,7001001721,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G120/1991
+,,7001001722,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G121/1991
+,,7001001723,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G122/1991
+,,7001001724,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G124/1991
+,,7001001725,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G125/1991
+,,7001001726,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G126/1991
+,,7001001727,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G127/1991
+,,7001001728,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G128/1991
+,,7001001729,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G129/1992
+,,7001001730,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G131/1992
+,,7001001731,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G132/1992
+,,7001001732,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G134/1992
+,,7001001733,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G135/1992
+,,7001001734,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G136/1992
+,,7001001735,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G137/1992
+,,7001001736,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G138/1992
+,,7001001737,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G139/1992
+,,7001001738,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G141/1993
+,,7001001739,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G142/1993
+,,7001001740,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G144/1994
+,,7001001741,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G145/1994
+,,7001001742,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G146/1994
+,,7001001743,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G148/1994
+,,7001001744,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G152/1994
+,,7001001745,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G157/1995
+,,7001001746,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G159/1995
+,,7001001747,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G160/1996
+,,7001001748,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G161/1996
+,,7001001749,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G16/1972
+,,7001001750,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G162/1998
+,,7001001751,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G163/1998
+,,7001001752,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G17/1974
+,,7001001753,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G19/1973
+,,7001001754,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G20/1973
+,,7001001755,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G21/1973
+,,7001001756,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G22/1973
+,,7001001757,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G23/1973
+,,7001001758,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G24/1973
+,,7001001759,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G27/1978
+,,7001001760,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G31/1979
+,,7001001761,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G3/1968
+,,7001001762,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G32/1979
+,,7001001763,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G33/1979
+,,7001001764,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G36/1979
+,,7001001765,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G37/1979
+,,7001001766,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G39/1980
+,,7001001767,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G40/1980
+,,7001001768,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G41/1980
+,,7001001769,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G4/1972
+,,7001001770,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G42/1980
+,,7001001771,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G43/1982
+,,7001001772,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G44/1982
+,,7001001773,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G46/1983
+,,7001001774,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G47/1983
+,,7001001775,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G48/1983
+,,7001001776,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G49/1984
+,,7001001777,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G50/1984
+,,7001001778,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G51/1985
+,,7001001779,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G5/1969
+,,7001001780,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G53/1985
+,,7001001781,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G55/1986
+,,7001001782,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G58/1986
+,,7001001783,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G59/1986
+,,7001001784,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G61/1987
+,,7001001785,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G6/1971
+,,7001001786,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G61A/1987
+,,7001001787,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G62/1987
+,,7001001788,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G64/1987
+,,7001001789,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G65/1987
+,,7001001790,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G67/1987
+,,7001001791,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G68/1987
+,,7001001792,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G72/1987
+,,7001001793,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G74/1988
+,,7001001794,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G75/1988
+,,7001001795,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G76/1988
+,,7001001796,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G77/1988
+,,7001001797,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G80/1989
+,,7001001798,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G81/1989
+,,7001001799,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G8/1969
+,,7001001800,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G82/1989
+,,7001001801,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G83/1989
+,,7001001802,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G84/1989
+,,7001001803,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G85/1989
+,,7001001804,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G86/1989
+,,7001001805,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G87/1989
+,,7001001806,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G88/1989
+,,7001001807,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G89/1989
+,,7001001808,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G90/1989
+,,7001001809,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G91/1989
+,,7001001810,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G9/1969
+,,7001001811,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G92/1989
+,,7001001812,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G93/1989
+,,7001001813,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G94/1990
+,,7001001814,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G97/1990
+,,7001001815,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G98/1990
+,,7001001816,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO G99/1990
+,,7001001817,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO K1/1972
+,,7001001818,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M03/1998
+,,7001001819,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M06/1998
+,,7001001820,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M07/1998
+,,7001001821,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M100/2002
+,,7001001822,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M10/1998
+,,7001001823,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M102/2002
+,,7001001824,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M103/2002
+,,7001001825,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M104/2002
+,,7001001826,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M105/1971
+,,7001001827,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M107/2002
+,,7001001828,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M108/2003
+,,7001001829,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M109/2002
+,,7001001830,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M110/2003
+,,7001001831,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M111/2003
+,,7001001832,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M112/2003
+,,7001001833,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M113/2003
+,,7001001834,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M114/2003
+,,7001001835,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M115/2003
+,,7001001836,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M117/2003
+,,7001001837,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M118/2003
+,,7001001838,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M119/2003
+,,7001001839,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M1/1998
+,,7001001840,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M120/2003
+,,7001001841,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M121/2003
+,,7001001842,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M122/2003
+,,7001001843,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M123/2003
+,,7001001844,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M124/2003
+,,7001001845,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M125/2003
+,,7001001846,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M128/2003
+,,7001001847,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M129/2003
+,,7001001848,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M130/2003
+,,7001001849,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M132/2003
+,,7001001850,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M133/2004
+,,7001001851,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M134/2003
+,,7001001852,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M135/2004
+,,7001001853,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M136/2003
+,,7001001854,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M137/2004
+,,7001001855,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M138/2004
+,,7001001856,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M139/2004
+,,7001001857,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M140/2004
+,,7001001858,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M141/2004
+,,7001001859,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M14/1998
+,,7001001860,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M142/2004
+,,7001001861,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M143/2004
+,,7001001862,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M144/2004
+,,7001001863,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M145/2004
+,,7001001864,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M146/2004
+,,7001001865,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M147/2004
+,,7001001866,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M148/2004
+,,7001001867,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M149/2004
+,,7001001868,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M150/2006
+,,7001001869,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M151/2006
+,,7001001870,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M15/1998
+,,7001001871,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M152/2006
+,,7001001872,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M153/2005
+,,7001001873,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M154/2005
+,,7001001874,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M155/2005
+,,7001001875,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M156/2005
+,,7001001876,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M157/2005
+,,7001001877,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M158/2005
+,,7001001878,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M159/2005
+,,7001001879,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M160/2006
+,,7001001880,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M161/2006
+,,7001001881,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M162/2006
+,,7001001882,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M163/2006
+,,7001001883,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M164/2006
+,,7001001884,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M165/2006
+,,7001001885,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M166/2006
+,,7001001886,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M167/2006
+,,7001001887,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M168/2006
+,,7001001888,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M169/2006
+,,7001001889,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M170/2007
+,,7001001890,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M171/2007
+,,7001001891,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M172/2007
+,,7001001892,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M173/2007
+,,7001001893,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M174/2007
+,,7001001894,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M175/2007
+,,7001001895,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M176/2007
+,,7001001896,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M177/2007
+,,7001001897,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M178/2007
+,,7001001898,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M179/2007
+,,7001001899,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M180/2008
+,,7001001900,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M181/2008
+,,7001001901,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M18/1998
+,,7001001902,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M183/2009
+,,7001001903,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M184/2009
+,,7001001904,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M185/2009
+,,7001001905,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M186/2009
+,,7001001906,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M187/2010
+,,7001001907,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M188/2009
+,,7001001908,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M189/2010
+,,7001001909,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M190/2010
+,,7001001910,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M19/1998
+,,7001001911,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M192/2010
+,,7001001912,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M193/2010
+,,7001001913,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M194/2010
+,,7001001914,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M195/2010
+,,7001001915,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M196/2010
+,,7001001916,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M197/2010
+,,7001001917,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M198/2010
+,,7001001918,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M199/2011
+,,7001001919,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M200/2011
+,,7001001920,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M201/2011
+,,7001001921,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M20/1998
+,,7001001922,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M202/2011
+,,7001001923,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M203/2011
+,,7001001924,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M204/2011
+,,7001001925,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M205/2011
+,,7001001926,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M206/2011
+,,7001001927,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M207/2011
+,,7001001928,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M208/2011
+,,7001001929,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M209/2012
+,,7001001930,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M210/2012
+,,7001001931,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M211/2012
+,,7001001932,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M212/2012
+,,7001001933,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M213/2012
+,,7001001934,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M214/2012
+,,7001001935,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M215/2013
+,,7001001936,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M216/2013
+,,7001001937,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M217/2013
+,,7001001938,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M219/2013
+,,7001001939,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M2/1998
+,,7001001940,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M221/2013
+,,7001001941,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M22/1998
+,,7001001942,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M222/2013
+,,7001001943,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M223/2013
+,,7001001944,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M224/2014
+,,7001001945,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M225/2014
+,,7001001946,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M226/2014
+,,7001001947,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M227/2015
+,,7001001948,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M228/2015
+,,7001001949,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M229/2015
+,,7001001950,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M230-2015
+,,7001001951,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M231/2015
+,,7001001952,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M233/2016
+,,7001001953,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M234/2016
+,,7001001954,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M235/2016
+,,7001001955,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M236/2016
+,,7001001956,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M237/2016
+,,7001001957,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M238/2016
+,,7001001958,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M239/2019
+,,7001001959,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M27/1998
+,,7001001960,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M28/1988
+,,7001001961,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M29/1998
+,,7001001962,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M30/1998
+,,7001001963,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M32/1998
+,,7001001964,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M33/1998
+,,7001001965,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M34/1999
+,,7001001966,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M35/1998
+,,7001001967,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M36/1998
+,,7001001968,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M37/1999
+,,7001001969,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M38/1999
+,,7001001970,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M39/1999
+,,7001001971,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M41/1998
+,,7001001972,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M4/1998
+,,7001001973,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M42/1999
+,,7001001974,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M43/1999
+,,7001001975,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M44/1999
+,,7001001976,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M45/1999
+,,7001001977,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M47/1999
+,,7001001978,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M48/1999
+,,7001001979,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M49/1999
+,,7001001980,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M50/1999
+,,7001001981,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M51/1999
+,,7001001982,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M5/1998
+,,7001001983,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M52/1999
+,,7001001984,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M53/1999
+,,7001001985,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M54/1999
+,,7001001986,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M55/1999
+,,7001001987,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M56/1999
+,,7001001988,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M57/1999
+,,7001001989,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M58/1999
+,,7001001990,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M59/1999
+,,7001001991,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M60/1999
+,,7001001992,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M61/1999
+,,7001001993,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M62/1999
+,,7001001994,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M64/2000
+,,7001001995,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M65/2000
+,,7001001996,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M66/2000
+,,7001001997,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M67/2000
+,,7001001998,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M68/2000
+,,7001001999,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M70/2000
+,,7001002000,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M71/1999
+,,7001002001,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M72/2000
+,,7001002002,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M73/2000
+,,7001002003,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M74/2000
+,,7001002004,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M75/2000
+,,7001002005,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M76/2000
+,,7001002006,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M77/2000
+,,7001002007,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M78/2000
+,,7001002008,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M79/2000
+,,7001002009,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M81/2000
+,,7001002010,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M8/1998
+,,7001002011,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M82/2000
+,,7001002012,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M84/2001
+,,7001002013,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M85/2001
+,,7001002014,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M86/2001
+,,7001002015,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M87/2001
+,,7001002016,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M88/2001
+,,7001002017,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M89/2002
+,,7001002018,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M90/2001
+,,7001002019,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M91/2002
+,,7001002020,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M9/1998
+,,7001002021,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M93/2001
+,,7001002022,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M94/2002
+,,7001002023,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M94a/2002
+,,7001002024,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M95/2002
+,,7001002025,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M96/2002
+,,7001002026,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M97/2002
+,,7001002027,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO M98/2002
+,,7001002028,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R100/1989
+,,7001002029,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R10/1969
+,,7001002030,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R102/1989
+,,7001002031,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R103/1989
+,,7001002032,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R104/1990
+,,7001002033,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R105/1990
+,,7001002034,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R106/1990
+,,7001002035,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R107/1990
+,,7001002036,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R108/1990
+,,7001002037,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R111/1990
+,,7001002038,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R11/1969
+,,7001002039,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R113/1990
+,,7001002040,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R114/1990
+,,7001002041,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R115/1990
+,,7001002042,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R116/1990
+,,7001002043,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R117/1990
+,,7001002044,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R118/1990
+,,7001002045,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R119/1990
+,,7001002046,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R1/1965
+,,7001002047,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R120/1990 (1) & (2)
+,,7001002048,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R121/1990
+,,7001002049,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R122/1990
+,,7001002050,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R123/1990
+,,7001002051,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R124/1990
+,,7001002052,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R125/1990
+,,7001002053,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R126/1991
+,,7001002054,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R127/1990
+,,7001002055,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R128/1990
+,,7001002056,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R129/1990
+,,7001002057,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R130/1990
+,,7001002058,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R131/1990
+,,7001002059,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R13/1971
+,,7001002060,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R132/1990
+,,7001002061,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R133/1990
+,,7001002062,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R135/1990
+,,7001002063,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R136/1990
+,,7001002064,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R137/1990
+,,7001002065,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R138/1990
+,,7001002066,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R139/1991
+,,7001002067,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R140/1991
+,,7001002068,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R14/1972
+,,7001002069,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R143/1990
+,,7001002070,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R144/1991
+,,7001002071,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R145/1991
+,,7001002072,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R146-1991
+,,7001002073,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R147/1991
+,,7001002074,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R148/1991
+,,7001002075,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R149/1991
+,,7001002076,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R150/1991
+,,7001002077,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R151/1991
+,,7001002078,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R152/1991
+,,7001002079,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R153/1991
+,,7001002080,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R154/1991
+,,7001002081,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R155/1991
+,,7001002082,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R156/1992
+,,7001002083,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R157/1992
+,,7001002084,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R158/1992
+,,7001002085,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R159/1992
+,,7001002086,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R160/1992
+,,7001002087,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R161/1992
+,,7001002088,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R162/1992
+,,7001002089,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R163/1992
+,,7001002090,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R164/1992
+,,7001002091,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R165/1992
+,,7001002092,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R166/1992
+,,7001002093,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R168/1992
+,,7001002094,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R169/1992
+,,7001002095,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R170/1993
+,,7001002096,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R171/1993
+,,7001002097,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R173/1993
+,,7001002098,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R174/1993
+,,7001002099,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R175/1993
+,,7001002100,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R176/1994
+,,7001002101,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R177/1994
+,,7001002102,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R178/1994
+,,7001002103,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R179/1994
+,,7001002104,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R180/1995
+,,7001002105,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R181/1995
+,,7001002106,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R18/1972
+,,7001002107,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R183/1995
+,,7001002108,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R184/1995
+,,7001002109,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R185/1994
+,,7001002110,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R186/1995
+,,7001002111,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R187/1995
+,,7001002112,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R188/1995
+,,7001002113,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R190/1995
+,,7001002114,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R191/1995
+,,7001002115,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R193/1995
+,,7001002116,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R194/1995
+,,7001002117,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R195/1995
+,,7001002118,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R196/1995
+,,7001002119,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R198/1995
+,,7001002120,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R199/1995
+,,7001002121,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R200/1995
+,,7001002122,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R201/1995
+,,7001002123,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R202/1995
+,,7001002124,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R203/1995
+,,7001002125,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R204/1995
+,,7001002126,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R205/1995
+,,7001002127,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R206/1995
+,,7001002128,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R207/1995
+,,7001002129,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R208/1995
+,,7001002130,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R210/1995
+,,7001002131,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R211/1996
+,,7001002132,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R212/1996
+,,7001002133,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R214/1996
+,,7001002134,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R215/1996
+,,7001002135,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R216/1996
+,,7001002136,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R218/1996
+,,7001002137,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R219/1996
+,,7001002138,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R2/1966
+,,7001002139,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R221/1996
+,,7001002140,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R22/1974
+,,7001002141,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R222/1997
+,,7001002142,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R223/1997
+,,7001002143,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R224/1997
+,,7001002144,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R225/1997
+,,7001002145,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R226/1997
+,,7001002146,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R228/1997
+,,7001002147,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R229/1997
+,,7001002148,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R231/1997
+,,7001002149,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R232/1997
+,,7001002150,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R234/1998
+,,7001002151,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R236/1998
+,,7001002152,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R237/1998
+,,7001002153,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R238/1998
+,,7001002154,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R239/1998
+,,7001002155,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R240/1981
+,,7001002156,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R26/1977
+,,7001002157,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R27/1981
+,,7001002158,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R28/1981
+,,7001002159,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R31/1984
+,,7001002160,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R3/1968
+,,7001002161,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R34/1986
+,,7001002162,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R36/1986
+,,7001002163,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R37/1986
+,,7001002164,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R38/1986
+,,7001002165,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R39/1986
+,,7001002166,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R40/1986
+,,7001002167,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R41/1986
+,,7001002168,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R4/1968
+,,7001002169,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R43/1987
+,,7001002170,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R44/1987
+,,7001002171,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R45/1987
+,,7001002172,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R49/1987
+,,7001002173,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R50/1987
+,,7001002174,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R51/1987
+,,7001002175,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R5/1970
+,,7001002176,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R53/1987
+,,7001002177,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R54/1987
+,,7001002178,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R55/1987
+,,7001002179,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R56/1988
+,,7001002180,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R58/1988
+,,7001002181,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R59/1988
+,,7001002182,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R60/1988
+,,7001002183,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R62/1988
+,,7001002184,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R63/1988
+,,7001002185,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R64/1988
+,,7001002186,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R65/1988
+,,7001002187,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R66/1988
+,,7001002188,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R67/1988
+,,7001002189,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R68/1988
+,,7001002190,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R69/1988
+,,7001002191,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R70/1988
+,,7001002192,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R71/1988
+,,7001002193,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R7/1969
+,,7001002194,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R73/1989
+,,7001002195,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R74/1989
+,,7001002196,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R75/1989
+,,7001002197,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R76/1989
+,,7001002198,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R77 & R78/1989
+,,7001002199,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R79/1989
+,,7001002200,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R80/1989
+,,7001002201,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R81/1989
+,,7001002202,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R8/1969
+,,7001002203,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R82/1989
+,,7001002204,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R83/1989
+,,7001002205,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R84/1989
+,,7001002206,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R85/1989
+,,7001002207,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R87/1989
+,,7001002208,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R88/1989
+,,7001002209,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R89/1989
+,,7001002210,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R90/1989
+,,7001002211,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R91/1989
+,,7001002212,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R9/1969
+,,7001002213,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R92/1989
+,,7001002214,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R93/1989
+,,7001002215,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R94/1989
+,,7001002216,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R95/1989
+,,7001002217,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R96/1989
+,,7001002218,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R97/1989
+,,7001002219,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R98/1989
+,,7001002220,,,local-authority-eng:MDW,tree-preservation-order,,,,TPO R99/1989

@@ -1,1 +1,186 @@
 end-date,endpoint,entity,entry-date,entry-number,organisation,prefix,resource,start-date,value,reference
+,,610000,,,,green-belt,,,,E06000006/Merseyside and Greater Manchester
+,,610001,,,,green-belt,,,,E06000007/Merseyside and Greater Manchester
+,,610002,,,,green-belt,,,,E06000008/Merseyside and Greater Manchester
+,,610003,,,,green-belt,,,,E06000009/Blackpool
+,,610004,,,,green-belt,,,,E06000014/York
+,,610005,,,,green-belt,,,,E06000015/Derby and Nottingham
+,,610006,,,,green-belt,,,,E06000018/Derby and Nottingham
+,,610007,,,,green-belt,,,,E06000021/Stoke-on-Trent
+,,610008,,,,green-belt,,,,E06000022/Bath and Bristol
+,,610009,,,,green-belt,,,,E06000023/Bath and Bristol
+,,610010,,,,green-belt,,,,E06000024/Bath and Bristol
+,,610011,,,,green-belt,,,,E06000025/Bath and Bristol
+,,610012,,,,green-belt,,,,E06000032/London
+,,610013,,,,green-belt,,,,E06000033/London
+,,610014,,,,green-belt,,,,E06000034/London
+,,610015,,,,green-belt,,,,E06000035/London
+,,610016,,,,green-belt,,,,E06000036/London
+,,610017,,,,green-belt,,,,E06000039/London
+,,610018,,,,green-belt,,,,E06000040/London
+,,610019,,,,green-belt,,,,E06000041/London
+,,610020,,,,green-belt,,,,E06000047/Tyne and Wear
+,,610021,,,,green-belt,,,,E06000049/Merseyside and Greater Manchester
+,,610022,,,,green-belt,,,,E06000049/Stoke-on-Trent
+,,610023,,,,green-belt,,,,E06000050/Merseyside and Greater Manchester
+,,610024,,,,green-belt,,,,E06000051/Birmingham
+,,610025,,,,green-belt,,,,E06000054/Bath and Bristol
+,,610026,,,,green-belt,,,,E06000056/London
+,,610027,,,,green-belt,,,,E06000057/Tyne and Wear
+,,610028,,,,green-belt,,,,E06000058/South West Hampshire
+,,610029,,,,green-belt,,,,E06000059/South West Hampshire
+,,610030,,,,green-belt,,,,E06000060/London
+,,610031,,,,green-belt,,,,E07000008/Cambridge
+,,610032,,,,green-belt,,,,E07000009/Cambridge
+,,610033,,,,green-belt,,,,E07000012/Cambridge
+,,610034,,,,green-belt,,,,E07000032/Derby and Nottingham
+,,610035,,,,green-belt,,,,E07000033/South and West Yorkshire
+,,610036,,,,green-belt,,,,E07000034/South and West Yorkshire
+,,610037,,,,green-belt,,,,E07000036/Derby and Nottingham
+,,610038,,,,green-belt,,,,E07000037/Merseyside and Greater Manchester
+,,610039,,,,green-belt,,,,E07000038/South and West Yorkshire
+,,610040,,,,green-belt,,,,E07000039/Burton-upon-Trent and Swadlincote
+,,610041,,,,green-belt,,,,E07000039/Derby and Nottingham
+,,610042,,,,green-belt,,,,E07000066/London
+,,610043,,,,green-belt,,,,E07000068/London
+,,610044,,,,green-belt,,,,E07000069/London
+,,610045,,,,green-belt,,,,E07000070/London
+,,610046,,,,green-belt,,,,E07000072/London
+,,610047,,,,green-belt,,,,E07000073/London
+,,610048,,,,green-belt,,,,E07000075/London
+,,610049,,,,green-belt,,,,E07000077/London
+,,610050,,,,green-belt,,,,E07000078/Cheltenham and Gloucester
+,,610051,,,,green-belt,,,,E07000079/Cheltenham and Gloucester
+,,610052,,,,green-belt,,,,E07000083/Cheltenham and Gloucester
+,,610053,,,,green-belt,,,,E07000091/South West Hampshire
+,,610054,,,,green-belt,,,,E07000095/London
+,,610055,,,,green-belt,,,,E07000096/London
+,,610056,,,,green-belt,,,,E07000098/London
+,,610057,,,,green-belt,,,,E07000099/London
+,,610058,,,,green-belt,,,,E07000102/London
+,,610059,,,,green-belt,,,,E07000103/London
+,,610060,,,,green-belt,,,,E07000107/London
+,,610061,,,,green-belt,,,,E07000109/London
+,,610062,,,,green-belt,,,,E07000110/London
+,,610063,,,,green-belt,,,,E07000111/London
+,,610064,,,,green-belt,,,,E07000115/London
+,,610065,,,,green-belt,,,,E07000116/London
+,,610066,,,,green-belt,,,,E07000117/Merseyside and Greater Manchester
+,,610067,,,,green-belt,,,,E07000118/Merseyside and Greater Manchester
+,,610068,,,,green-belt,,,,E07000119/Blackpool
+,,610069,,,,green-belt,,,,E07000120/Merseyside and Greater Manchester
+,,610070,,,,green-belt,,,,"E07000121/Carnforth, Lancaster and Morecambe"
+,,610071,,,,green-belt,,,,E07000122/Merseyside and Greater Manchester
+,,610072,,,,green-belt,,,,E07000123/Merseyside and Greater Manchester
+,,610073,,,,green-belt,,,,E07000124/Merseyside and Greater Manchester
+,,610074,,,,green-belt,,,,E07000125/Merseyside and Greater Manchester
+,,610075,,,,green-belt,,,,E07000126/Merseyside and Greater Manchester
+,,610076,,,,green-belt,,,,E07000127/Merseyside and Greater Manchester
+,,610077,,,,green-belt,,,,E07000128/Blackpool
+,,610078,,,,green-belt,,,,E07000164/York
+,,610079,,,,green-belt,,,,E07000165/South and West Yorkshire
+,,610080,,,,green-belt,,,,E07000165/York
+,,610081,,,,green-belt,,,,E07000167/York
+,,610082,,,,green-belt,,,,E07000169/South and West Yorkshire
+,,610083,,,,green-belt,,,,E07000169/York
+,,610084,,,,green-belt,,,,E07000170/Derby and Nottingham
+,,610085,,,,green-belt,,,,E07000172/Derby and Nottingham
+,,610086,,,,green-belt,,,,E07000173/Derby and Nottingham
+,,610087,,,,green-belt,,,,E07000175/Derby and Nottingham
+,,610088,,,,green-belt,,,,E07000176/Derby and Nottingham
+,,610089,,,,green-belt,,,,E07000177/Oxford
+,,610090,,,,green-belt,,,,E07000178/Oxford
+,,610091,,,,green-belt,,,,E07000179/Oxford
+,,610092,,,,green-belt,,,,E07000180/Oxford
+,,610093,,,,green-belt,,,,E07000181/Oxford
+,,610094,,,,green-belt,,,,E07000187/Bath and Bristol
+,,610095,,,,green-belt,,,,E07000192/Birmingham
+,,610096,,,,green-belt,,,,E07000193/Burton-upon-Trent and Swadlincote
+,,610097,,,,green-belt,,,,E07000194/Birmingham
+,,610098,,,,green-belt,,,,E07000195/Stoke-on-Trent
+,,610099,,,,green-belt,,,,E07000196/Birmingham
+,,610100,,,,green-belt,,,,E07000197/Birmingham
+,,610101,,,,green-belt,,,,E07000197/Stoke-on-Trent
+,,610102,,,,green-belt,,,,E07000198/Stoke-on-Trent
+,,610103,,,,green-belt,,,,E07000199/Birmingham
+,,610104,,,,green-belt,,,,E07000207/London
+,,610105,,,,green-belt,,,,E07000208/London
+,,610106,,,,green-belt,,,,E07000209/London
+,,610107,,,,green-belt,,,,E07000210/London
+,,610108,,,,green-belt,,,,E07000211/London
+,,610109,,,,green-belt,,,,E07000212/London
+,,610110,,,,green-belt,,,,E07000213/London
+,,610111,,,,green-belt,,,,E07000214/London
+,,610112,,,,green-belt,,,,E07000215/London
+,,610113,,,,green-belt,,,,E07000216/London
+,,610114,,,,green-belt,,,,E07000217/London
+,,610115,,,,green-belt,,,,E07000218/Birmingham
+,,610116,,,,green-belt,,,,E07000219/Birmingham
+,,610117,,,,green-belt,,,,E07000220/Birmingham
+,,610118,,,,green-belt,,,,E07000221/Birmingham
+,,610119,,,,green-belt,,,,E07000222/Birmingham
+,,610120,,,,green-belt,,,,E07000228/London
+,,610121,,,,green-belt,,,,E07000234/Birmingham
+,,610122,,,,green-belt,,,,E07000236/Birmingham
+,,610123,,,,green-belt,,,,E07000237/Birmingham
+,,610124,,,,green-belt,,,,E07000238/Birmingham
+,,610125,,,,green-belt,,,,E07000239/Birmingham
+,,610126,,,,green-belt,,,,E07000240/London
+,,610127,,,,green-belt,,,,E07000241/London
+,,610128,,,,green-belt,,,,E07000242/London
+,,610129,,,,green-belt,,,,E07000243/London
+,,610130,,,,green-belt,,,,E08000001/Merseyside and Greater Manchester
+,,610131,,,,green-belt,,,,E08000002/Merseyside and Greater Manchester
+,,610132,,,,green-belt,,,,E08000003/Merseyside and Greater Manchester
+,,610133,,,,green-belt,,,,E08000004/Merseyside and Greater Manchester
+,,610134,,,,green-belt,,,,E08000005/Merseyside and Greater Manchester
+,,610135,,,,green-belt,,,,E08000006/Merseyside and Greater Manchester
+,,610136,,,,green-belt,,,,E08000007/Merseyside and Greater Manchester
+,,610137,,,,green-belt,,,,E08000008/Merseyside and Greater Manchester
+,,610138,,,,green-belt,,,,E08000009/Merseyside and Greater Manchester
+,,610139,,,,green-belt,,,,E08000010/Merseyside and Greater Manchester
+,,610140,,,,green-belt,,,,E08000011/Merseyside and Greater Manchester
+,,610141,,,,green-belt,,,,E08000012/Merseyside and Greater Manchester
+,,610142,,,,green-belt,,,,E08000013/Merseyside and Greater Manchester
+,,610143,,,,green-belt,,,,E08000014/Merseyside and Greater Manchester
+,,610144,,,,green-belt,,,,E08000015/Merseyside and Greater Manchester
+,,610145,,,,green-belt,,,,E08000016/South and West Yorkshire
+,,610146,,,,green-belt,,,,E08000017/South and West Yorkshire
+,,610147,,,,green-belt,,,,E08000018/South and West Yorkshire
+,,610148,,,,green-belt,,,,E08000019/South and West Yorkshire
+,,610149,,,,green-belt,,,,E08000021/Tyne and Wear
+,,610150,,,,green-belt,,,,E08000022/Tyne and Wear
+,,610151,,,,green-belt,,,,E08000023/Tyne and Wear
+,,610152,,,,green-belt,,,,E08000024/Tyne and Wear
+,,610153,,,,green-belt,,,,E08000025/Birmingham
+,,610154,,,,green-belt,,,,E08000026/Birmingham
+,,610155,,,,green-belt,,,,E08000027/Birmingham
+,,610156,,,,green-belt,,,,E08000028/Birmingham
+,,610157,,,,green-belt,,,,E08000029/Birmingham
+,,610158,,,,green-belt,,,,E08000030/Birmingham
+,,610159,,,,green-belt,,,,E08000031/Birmingham
+,,610160,,,,green-belt,,,,E08000032/South and West Yorkshire
+,,610161,,,,green-belt,,,,E08000033/South and West Yorkshire
+,,610162,,,,green-belt,,,,E08000034/South and West Yorkshire
+,,610163,,,,green-belt,,,,E08000035/South and West Yorkshire
+,,610164,,,,green-belt,,,,E08000036/South and West Yorkshire
+,,610165,,,,green-belt,,,,E08000037/Tyne and Wear
+,,610166,,,,green-belt,,,,E09000002/London
+,,610167,,,,green-belt,,,,E09000003/London
+,,610168,,,,green-belt,,,,E09000004/London
+,,610169,,,,green-belt,,,,E09000006/London
+,,610170,,,,green-belt,,,,E09000008/London
+,,610171,,,,green-belt,,,,E09000009/London
+,,610172,,,,green-belt,,,,E09000010/London
+,,610173,,,,green-belt,,,,E09000011/London
+,,610174,,,,green-belt,,,,E09000014/London
+,,610175,,,,green-belt,,,,E09000015/London
+,,610176,,,,green-belt,,,,E09000016/London
+,,610177,,,,green-belt,,,,E09000017/London
+,,610178,,,,green-belt,,,,E09000018/London
+,,610179,,,,green-belt,,,,E09000021/London
+,,610180,,,,green-belt,,,,E09000025/London
+,,610181,,,,green-belt,,,,E09000026/London
+,,610182,,,,green-belt,,,,E09000027/London
+,,610183,,,,green-belt,,,,E09000029/London
+,,610184,,,,green-belt,,,,E09000031/London

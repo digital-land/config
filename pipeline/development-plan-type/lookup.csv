@@ -1,1 +1,12 @@
 end-date,endpoint,entity,entry-date,entry-number,organisation,prefix,resource,start-date,value,reference
+,,5200000,,,,development-plan-type,,,,area-action-plan
+,,5200001,,,,development-plan-type,,,,core-strategy
+,,5200002,,,,development-plan-type,,,,development-management
+,,5200003,,,,development-plan-type,,,,local-plan
+,,5200004,,,,development-plan-type,,,,minerals-waste
+,,5200005,,,,development-plan-type,,,,all-other-types
+,,5200006,,,,development-plan-type,,,,partial-review
+,,5200007,,,,development-plan-type,,,,site-allocations
+,,5200008,,,,development-plan-type,,,,neighbourhood-plan
+,,5200009,,,,development-plan-type,,,,minerals-plan
+,,5200010,,,,development-plan-type,,,,waste-plan

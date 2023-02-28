@@ -1,1 +1,8 @@
 end-date,endpoint,entity,entry-date,entry-number,organisation,prefix,resource,start-date,value,reference
+,,5700000,,,,document-type,,,,area-appraisal
+,,5700001,,,,document-type,,,,notice
+,,5700002,,,,document-type,,,,article-4-document
+,,5700003,,,,document-type,,,,authoritative-boundary
+,,5700004,,,,document-type,,,,extension-report
+,,5700005,,,,document-type,,,,designation-report
+,,5700006,,,,document-type,,,,guidance

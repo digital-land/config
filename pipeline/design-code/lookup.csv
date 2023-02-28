@@ -1,1 +1,11 @@
 end-date,endpoint,entity,entry-date,entry-number,organisation,prefix,resource,start-date,value,reference
+,,641000,,,local-authority-eng:NUN,design-code,,,,HSG2
+,,641001,,,local-authority-eng:BUC,design-code,,,,1
+,,641002,,,local-authority-eng:GRT,design-code,,,,WUV
+,,641003,,,local-authority-eng:HYN,design-code,,,,HNCHZBJU
+,,641004,,,local-authority-eng:POR,design-code,,,,1
+,,641005,,,local-authority-eng:POR,design-code,,,,2
+,,641006,,,local-authority-eng:DAC,design-code,,,,1
+,,641007,,,local-authority-eng:HEF,design-code,,,,1
+,,641008,,,local-authority-eng:NWL,design-code,,,,1
+,,641009,,,local-authority-eng:SWK,design-code,,,,1

@@ -1,1 +1,4 @@
 end-date,endpoint,entity,entry-date,entry-number,organisation,prefix,resource,start-date,value,reference
+,,11900000,,,,planning-permission-type,,,,full planning permission
+,,11900001,,,,planning-permission-type,,,,outline planning permission
+,,11900001,,,,planning-permission-type,,,,outline planning permission

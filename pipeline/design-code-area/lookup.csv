@@ -1,1 +1,13 @@
 end-date,endpoint,entity,entry-date,entry-number,organisation,prefix,resource,start-date,value,reference
+,,627000,,,local-authority-eng:NUN,design-code-area,,,,HSG2 western parcel
+,,627001,,,local-authority-eng:NUN,design-code-area,,,,HSG2 eastern parcel
+,,627002,,,local-authority-eng:BUC,design-code-area,,,,E10000002
+,,627003,,,local-authority-eng:GRT,design-code-area,,,,01715E Phase 1
+,,627004,,,local-authority-eng:HYN,design-code-area,,,,5
+,,627005,,,local-authority-eng:POR,design-code-area,,,,BL9
+,,627006,,,local-authority-eng:POR,design-code-area,,,,BL10
+,,627007,,,local-authority-eng:POR,design-code-area,,,,BL6
+,,627008,,,local-authority-eng:POR,design-code-area,,,,BL7
+,,627009,,,local-authority-eng:POR,design-code-area,,,,BL8
+,,627010,,,local-authority-eng:NWL,design-code-area,,,,E07000134
+,,627011,,,local-authority-eng:POR,design-code-area,,,,1
