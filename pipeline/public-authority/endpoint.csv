@@ -1,4 +1,4 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-50dc792c5ae95b9471d476dcac3f20f7d65f1d9159bf00d7ccb9f46416c5b235,https://raw.githubusercontent.com/digital-land/organisation-collection/main/data/public-authority.csv,,,2022-05-30T14:14:21:13Z,,
-76b91cbaf17f07d8230f0a7b9880daba50e669ceee2dc61c568fe95a8fe8dbff,https://query.wikidata.org/sparql#sparql/wikidata/public-authority.rq,,sparql,2022-05-30T19:19:48:00Z,,2022-09-16
-50dc792c5ae95b9471d476dcac3f20f7d65f1d9159bf00d7ccb9f46416c5b235,https://raw.githubusercontent.com/digital-land/organisation-collection/main/data/public-authority.csv,,,2022-05-30T20:20:10:41Z,,
+50dc792c5ae95b9471d476dcac3f20f7d65f1d9159bf00d7ccb9f46416c5b235,https://raw.githubusercontent.com/digital-land/organisation-collection/main/data/public-authority.csv,,,2022-05-30,,
+76b91cbaf17f07d8230f0a7b9880daba50e669ceee2dc61c568fe95a8fe8dbff,https://query.wikidata.org/sparql#sparql/wikidata/public-authority.rq,,sparql,2022-05-30,,2022-09-16
+50dc792c5ae95b9471d476dcac3f20f7d65f1d9159bf00d7ccb9f46416c5b235,https://raw.githubusercontent.com/digital-land/organisation-collection/main/data/public-authority.csv,,,2022-05-30,,

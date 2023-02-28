@@ -1,5 +1,5 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-fc7a371a4f4ac4d478fbc91dcdd52f6a34296ca78f25cb35c112d22652f98032,https://raw.githubusercontent.com/digital-land/organisation-collection/main/data/development-corporation.csv,,,2022-05-27T19:19:57:44Z,,
-c5be036592c42493f500aa1b4cb29b932dd7c70fa06bdde45b11a99a789f13b0,https://query.wikidata.org/sparql#sparql/wikidata/development-corporation.rq,,sparql,2022-05-30T19:19:47:54Z,,2022-09-16
-fc7a371a4f4ac4d478fbc91dcdd52f6a34296ca78f25cb35c112d22652f98032,https://raw.githubusercontent.com/digital-land/organisation-collection/main/data/development-corporation.csv,,,2022-05-30T20:20:10:35Z,,
-61126147b7b754003c06857b4d09a562eb1daaf682acebc07731914b20934921,https://opendatacommunities.org/sparql#sparql/opendatacommunities/development-corporation.rq,,sparql,2022-06-06T17:17:00:20Z,,2022-09-16
+fc7a371a4f4ac4d478fbc91dcdd52f6a34296ca78f25cb35c112d22652f98032,https://raw.githubusercontent.com/digital-land/organisation-collection/main/data/development-corporation.csv,,,2022-05-27,,
+c5be036592c42493f500aa1b4cb29b932dd7c70fa06bdde45b11a99a789f13b0,https://query.wikidata.org/sparql#sparql/wikidata/development-corporation.rq,,sparql,2022-05-30,,2022-09-16
+fc7a371a4f4ac4d478fbc91dcdd52f6a34296ca78f25cb35c112d22652f98032,https://raw.githubusercontent.com/digital-land/organisation-collection/main/data/development-corporation.csv,,,2022-05-30,,
+61126147b7b754003c06857b4d09a562eb1daaf682acebc07731914b20934921,https://opendatacommunities.org/sparql#sparql/opendatacommunities/development-corporation.rq,,sparql,2022-06-06,,2022-09-16

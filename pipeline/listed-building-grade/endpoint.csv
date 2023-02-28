@@ -1,3 +1,3 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-d7a3030ffdf1c6f70cffdc0230928df129362c4b0c2d8b32e3bef22910e3f3f7,https://raw.githubusercontent.com/digital-land/historic-england-collection/main/data/listed-building-grade.csv,,,2021-06-02T15:15:36Z,,2021-10-02
-fe11d79074c5744a47ce11171e6f7c376ea41a62ef2882d527192213645b9503,https://raw.githubusercontent.com/digital-land/listed-building-collection/main/data/listed-building-grade.csv,,,2021-11-22T16:16:19Z,,
+d7a3030ffdf1c6f70cffdc0230928df129362c4b0c2d8b32e3bef22910e3f3f7,https://raw.githubusercontent.com/digital-land/historic-england-collection/main/data/listed-building-grade.csv,,,2021-06-02,,2021-10-02
+fe11d79074c5744a47ce11171e6f7c376ea41a62ef2882d527192213645b9503,https://raw.githubusercontent.com/digital-land/listed-building-collection/main/data/listed-building-grade.csv,,,2021-11-22,,
