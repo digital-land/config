@@ -1,1 +1,9 @@
 end-date,endpoint,entity,entry-date,entry-number,organisation,prefix,resource,start-date,value,reference
+,,8800000,,,,local-authority-type,,,,COMB
+,,8800001,,,,local-authority-type,,,,SRA
+,,8800002,,,,local-authority-type,,,,CC
+,,8800003,,,,local-authority-type,,,,UA
+,,8800004,,,,local-authority-type,,,,MD
+,,8800005,,,,local-authority-type,,,,NMD
+,,8800006,,,,local-authority-type,,,,LBO
+,,8800007,,,,local-authority-type,,,,CTY
