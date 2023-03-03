@@ -1,6 +1,6 @@
 column,dataset,end-date,endpoint,entry-date,field,resource,start-date
 SSSI_NAME,site-of-special-scientific-interest,,,,name,,
-reference,site-of-special-scientific-interest,,,,IGNORE,,
+reference,site-of-special-scientific-interest,,,,unused,,
 ENSISID,site-of-special-scientific-interest,,,,reference,,
 WKT,site-of-special-scientific-interest,,,,geometry,,
 GIS_DATE,site-of-special-scientific-interest,,,,start-date,,
