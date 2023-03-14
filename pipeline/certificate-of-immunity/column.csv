@@ -1,7 +1,0 @@
-column,dataset,end-date,endpoint,entry-date,field,resource,start-date
-ListEntry,certificate-of-immunity,,,,reference,,
-COIStart,certificate-of-immunity,,,,start-date,,
-COIExpire,certificate-of-immunity,,,,end-date,,
-AmendDate,certificate-of-immunity,,,,entry-date,,
-Hyperlink,certificate-of-immunity,,,,documentation-url,,
-WKT,certificate-of-immunity,,,,point,,

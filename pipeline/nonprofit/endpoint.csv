@@ -1,4 +1,0 @@
-endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-e2131de27e2569f7015d8bb93fff17f9d8f70ce271b8487653c5c7ec1a9470c8,https://raw.githubusercontent.com/digital-land/organisation-collection/main/data/nonprofit.csv,,,2022-05-30,,
-f54eb6ad6b51e34a979676f6c0af25dd240a5163da8f14b3edfe83f9c3e93f20,https://query.wikidata.org/sparql#sparql/wikidata/nonprofit.rq,,sparql,2022-05-30,,2022-09-16
-e2131de27e2569f7015d8bb93fff17f9d8f70ce271b8487653c5c7ec1a9470c8,https://raw.githubusercontent.com/digital-land/organisation-collection/main/data/nonprofit.csv,,,2022-05-30,,

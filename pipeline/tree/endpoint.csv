@@ -1,5 +1,0 @@
-endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-f8d5163c023f27f599fee22535f5959e52f18313755fcb3243c78577985cda2d,https://opendata.arcgis.com/datasets/dbbcc688ab9c4b53ac03df44e02ae704_0.geojson,,,2021-10-29,2020-12-17,
-921954ef5241801cd3c199ace4f9e551e6214ab34ff66d3c58a561c4f2bc79f0,https://maps.buckscc.gov.uk/arcgis/services/PLANNING/TPO_CSB_ST/MapServer/WFSServer?request=GetFeature&service=WFS&typename=PLANNING_TPO_CSB_ST:Tree_Preservation_Orders_-_Single_Trees__Chiltern___South_Bucks_,,wfs,2022-05-04,,
-84f6228e842a4a410c41ada01dcb50eb5e8a5a8f8299efe35ac24817698c8c75,https://datamillnorth.org/download/treepreservationorders/0ba9ca5d-a094-4c56-9931-ae8096006038/TPOs_points.csv,,,2022-07-01,,
-a05e76e962d438545a5a48c967cd2b1229ebc951a9a4a6d4d7ecad4379f0f1ca,https://maps.doncaster.gov.uk/server/rest/services/Planning/TPO_Map/MapServer/0/,,arcgis,2022-10-26,,

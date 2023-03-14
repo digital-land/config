@@ -1,8 +1,0 @@
-column,dataset,end-date,endpoint,entry-date,field,resource,start-date
-AmendDate,park-and-garden,,,,entry-date,,
-ListEntry,park-and-garden,,,,reference,,
-Grade,park-and-garden,,,,park-and-garden-grade,,
-Hyperlink,park-and-garden,,,,documentation-url,,
-Name,park-and-garden,,,,name,,
-RegDate,park-and-garden,,,,start-date,,
-WKT,park-and-garden,,,,geometry,,

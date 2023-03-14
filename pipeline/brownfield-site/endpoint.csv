@@ -1,4 +1,0 @@
-endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-2da2e306ec5bde3853000dd2b73a3c792c8e6f9009e4448b83510d1acbfc8ad6,https://data.london.gov.uk/download/brownfield-land-register/eb7e7357-0707-4d47-9b0d-e0499eff41c0/London%20Brownfield%20Register%20ESRI%20shapefile.zip,,,2020-12-22,,
-201c08f03d060f21f71bc93e64b7b166a6e2f34ccb772d19fbf2e3ec2084cdeb,https://map.cornwall.gov.uk/arcgis/services/inspire/inspire_landbuildings/MapServer/WFSServer?request=GetFeature&service=WFS&typename=inspire_inspire_landbuildings:cornwall_council_brownfield_register,,,2020-12-23,,
-20c877c9ce9fbc8d81db2a840d2950b675fc04ca54095b38a273531b91626c28,https://www.rother.gov.uk/wp-content/uploads/2020/01/RDCBLR19.zip,,,2020-12-24,,

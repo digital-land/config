@@ -1,3 +1,0 @@
-endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-491c55755d90a44e0e0f6224e128cf811861987c32dae2df89ab98ed895482c1,https://query.wikidata.org/sparql#sparql/wikidata/passenger-transport-executive.rq,,sparql,2022-05-30,,2022-09-16
-3db4679da662bde2fbb4ae4dfe3ba0a87d79a5836a28a8ab97a889aadf6ea655,https://raw.githubusercontent.com/digital-land/organisation-collection/main/data/passenger-transport-executive.csv,,,2022-05-30,,

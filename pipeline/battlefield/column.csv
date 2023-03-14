@@ -1,6 +1,0 @@
-column,dataset,end-date,endpoint,entry-date,field,resource,start-date
-ListEntry,battlefield,,,,reference,,
-RegDate,battlefield,,,,start-date,,
-AmendDate,battlefield,,,,entry-date,,
-Hyperlink,battlefield,,,,documentation-url,,
-WKT,battlefield,,,,geometry,,

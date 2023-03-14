@@ -1,3 +1,0 @@
-endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-839907d0a0b9f1357d11bbe51adf2a725dc43d63a284a83111b0580bfb925325,https://query.wikidata.org/sparql#sparql/wikidata/government-organisation.rq,,sparql,2022-05-30,,2022-09-16
-e01e10ea07ffbe377a35707bd610a85c216ec5ef664a1a76d9fbbe756e87a8b9,https://raw.githubusercontent.com/digital-land/organisation-collection/main/data/government-organisation.csv,,,2022-05-30,,

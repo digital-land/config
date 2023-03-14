@@ -1,4 +1,0 @@
-dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date,value
-listed-building,,,,,listed-building-grade,^Listed Building Grade I$,,,I
-listed-building,,,,,listed-building-grade,^Listed Building Grade II$,,,II
-listed-building,,,,,listed-building-grade,^Listed Building Grade II\*$,,,II*

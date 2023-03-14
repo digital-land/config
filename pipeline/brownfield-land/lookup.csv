@@ -1,4 +1,10 @@
 end-date,endpoint,entity,entry-date,entry-number,organisation,prefix,resource,start-date,value,reference
+,,10900000,,,,ownership-status,,,,owned by a public authority
+,,10900001,,,,ownership-status,,,,not owned by a public authority
+,,10900002,,,,ownership-status,,,,mixed ownership
+,,11900000,,,,planning-permission-type,,,,full planning permission
+,,11900001,,,,planning-permission-type,,,,outline planning permission
+,,11900001,,,,planning-permission-type,,,,outline planning permission
 ,,1700000,,,local-authority-eng:TEI,brownfield-land,,,,BFR001
 ,,1700001,,,local-authority-eng:TEI,brownfield-land,,,,BFR002
 ,,1700002,,,local-authority-eng:TEI,brownfield-land,,,,BFR003

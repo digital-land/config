@@ -1,6 +1,0 @@
-dataset,default-field,end-date,endpoint,entry-date,entry-number,field,resource,start-date
-listed-building-outline,ADDRESS,,,,,address-text,6c961fcd2c76a1602a98f309dc7bffe4323b3192bb839c9c773b4365f9a2ec41,
-listed-building-outline,ADDRESS0,,,,,address-text,6c961fcd2c76a1602a98f309dc7bffe4323b3192bb839c9c773b4365f9a2ec41,
-listed-building-outline,LIST_NUMBE,,,,,reference,6c961fcd2c76a1602a98f309dc7bffe4323b3192bb839c9c773b4365f9a2ec41,
-listed-building-outline,DESCRIPTIO,,,,,description,6c961fcd2c76a1602a98f309dc7bffe4323b3192bb839c9c773b4365f9a2ec41,
-listed-building-outline,listed-building,,,,,reference,,

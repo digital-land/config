@@ -1,4 +1,8 @@
 end-date,endpoint,entity,entry-date,entry-number,organisation,prefix,resource,start-date,value,reference
-,,11900000,,,,planning-permission-type,,,,full planning permission
-,,11900001,,,,planning-permission-type,,,,outline planning permission
-,,11900001,,,,planning-permission-type,,,,outline planning permission
+,,11900000,,,,planning-permission-type,,,,full-planning-permission
+,,11900001,,,,planning-permission-type,,,,outline-planning-permission
+,,11900002,,,,planning-permission-type,,,,reserved-matters-approval
+,,11900003,,,,planning-permission-type,,,,permission-in-principle
+,,11900004,,,,planning-permission-type,,,,technical-details-consent
+,,11900005,,,,planning-permission-type,,,,planning-permission-granted-under-an-order
+,,11900006,,,,planning-permission-type,,,,other

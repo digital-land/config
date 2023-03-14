@@ -1,1 +1,4 @@
 dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date,value
+article-4-direction-area,,,,,name,Central Activity Zone,,,Central Activities Zone
+article-4-direction-area,,,,,start-date,Effective *(.*)$,,,\1
+article-4-direction-area,,,,,description,.*,e8791be20829a2aa6cca0ba62250b6b43eadaec78ac7727271197931fb5f0a9d,,Demolition of commercial buildings and construction of new dwellinghouses is restricted

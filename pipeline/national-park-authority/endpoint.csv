@@ -1,3 +1,0 @@
-endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-3ab14fb1e45ea2e68ea0c62a7c4ac0805343a099b5f92a8c330400f620ed3a3f,https://query.wikidata.org/sparql#sparql/wikidata/national-park-authority.rq,,sparql,2022-05-30,,2022-09-16
-50b747102edf6443770c69067d781941798488f16281bddcf1dbece5f4ee7e5d,https://opendatacommunities.org/sparql#sparql/opendatacommunities/national-park-authority.rq,,sparql,2022-06-06,,2022-09-16
