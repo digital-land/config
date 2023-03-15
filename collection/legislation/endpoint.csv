@@ -1,3 +1,3 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-bd15d1466ddf88e31ed224b0f7dd88b378f9187ed6b51b329481c032e99f4eea,https://raw.githubusercontent.com/digital-land/legislation-collection/main/data/permitted-development-right.csv,,,2021-11-28T11:11:30Z,,
-3c44b28bbe71251aa1bd8c5e080e913033b82aa56e88c9f6589daa8dca8ac82c,https://raw.githubusercontent.com/digital-land/legislation-collection/main/data/permitted-development-right-part.csv,,,2021-11-28T11:11:30Z,,
+bd15d1466ddf88e31ed224b0f7dd88b378f9187ed6b51b329481c032e99f4eea,https://raw.githubusercontent.com/digital-land/legislation-collection/main/data/permitted-development-right.csv,,,2021-11-28,,
+3c44b28bbe71251aa1bd8c5e080e913033b82aa56e88c9f6589daa8dca8ac82c,https://raw.githubusercontent.com/digital-land/legislation-collection/main/data/permitted-development-right-part.csv,,,2021-11-28,,
