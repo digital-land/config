@@ -1,2 +1,3 @@
-dataset,end-date,endpoint,entry-date,field,resource,separator,start-date
-ancient-woodland,,,,geometry,,,
+dataset,endpoint,resource,field,separator,entry-date,start-date,end-date
+ancient-woodland,,,organisation,,,,
+ancient-woodland,,,entity,,,,
