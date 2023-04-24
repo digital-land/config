@@ -3442,6 +3442,11 @@ end-date,endpoint,entity,entry-date,entry-number,organisation,prefix,resource,st
 ,,420,,,,waste-authority,,,,Q5600652
 ,,420,,,,wikidata,,,,Q5600652
 ,,420,,,,billing-authority,,,,E6202
+,,10000,,,,local-authority,,,,CUA
+,,10001,,,,local-authority,,,,WFUA
+,,10002,,,,local-authority,,,,WMCA
+,,10003,,,,local-authority,,,,SUA
+,,10004,,,,local-authority,,,,NYUA
 ,,501908,,,,local-authority-eng,,,,NNUA
 ,,501908,,,,local-authority-eng,,,,Q60790121
 ,,501908,,,,local-authority,,,,NNUA
