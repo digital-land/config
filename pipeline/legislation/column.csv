@@ -1,1 +1,3 @@
-column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+dataset,resource,column,field
+permitted-development-right-part,,permitted-development-right-part,reference
+permitted-development-right,,permitted-development-right,reference

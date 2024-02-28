@@ -62,15 +62,6 @@ def handle_collection_or_pipeline(path, folder_type, filenames):
         # Copy the specified files
         copy_files(path, dest_dir, filenames)
         
-        # For collection, also check for the "log" folder and copy if exists
-        if folder_type == "collection":
-            log_path = os.path.join(path, "log")
-            if os.path.exists(log_path):
-                log_dest_dir = os.path.join(dest_dir, "log")
-                os.makedirs(log_dest_dir, exist_ok=True)
-                print(f"Found log directory: {log_path}, copying to {log_dest_dir}")
-                copy_files(log_path, log_dest_dir)  # Copy all contents of the log directory
-                print("Log files copied successfully.")
         print(f"{folder_type.capitalize()} files copied successfully.")
     else:
         print(f"{folder_type.capitalize()} '{collection_name}' not found in the repository.")
