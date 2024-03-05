@@ -1,6 +1,6 @@
-column,dataset,end-date,endpoint,entry-date,field,resource,start-date
-WKT,national-park,,,,geometry,,
-NPARK15CD,national-park,,,,reference,,
-NPARK15NM,national-park,,,,name,,
-npark18cd,national-park,,,,reference,,
-npark18nm,national-park,,,,name,,
+dataset,resource,column,field
+national-park,,WKT,geometry
+national-park,,NPARK15CD,reference
+national-park,,NPARK15NM,name
+national-park,,npark18cd,reference
+national-park,,npark18nm,name
