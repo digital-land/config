@@ -1,3 +1,3 @@
-dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date
-world-heritage-site,,,,,notes,|Core Area,,
-world-heritage-site-buffer-zone,,,,,notes,Buffer Zone,,
+dataset,resource,field,pattern
+world-heritage-site,,notes,"|Core Area"
+world-heritage-site-buffer-zone,,notes,"Buffer Zone"

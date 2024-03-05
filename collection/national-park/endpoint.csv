@@ -1,3 +1,3 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-48b0d08d547af3d959084610b07ac4c74ccf5306267827b63b40c4c698b7ff45,https://opendata.arcgis.com/datasets/2dcdc561b48f424aa93f798d6ec84eb4_0.geojson,,,2020-11-30,2020-11-30,
-6b5a5ff541c241f71ac0c4187d0766c84fac32c2341ac1f32413371670df5128,https://opendata.arcgis.com/datasets/6b6603ff43f94dcfa14ba6facdb5d8a8_0.geojson,,,2020-11-30,2020-11-30,
+48b0d08d547af3d959084610b07ac4c74ccf5306267827b63b40c4c698b7ff45,https://opendata.arcgis.com/datasets/2dcdc561b48f424aa93f798d6ec84eb4_0.geojson,,,2020-11-30T00:00:00Z,2020-11-30,
+6b5a5ff541c241f71ac0c4187d0766c84fac32c2341ac1f32413371670df5128,https://opendata.arcgis.com/datasets/6b6603ff43f94dcfa14ba6facdb5d8a8_0.geojson,,,2020-11-30T00:00:00Z,2020-11-30,
