@@ -1,1 +1,2 @@
-dataset,end-date,endpoint,entry-date,field,resource,separator,start-date
+dataset,endpoint,field,separator,entry-date,start-date,end-date
+article-4-direction-area,d779ad1c91c5a46e2d4ace4d5446d7d7f81df1ed058f882121070574697a5412,geometry,,,,
