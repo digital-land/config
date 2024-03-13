@@ -17,3 +17,14 @@ For example the headers in any combine.csv should correspond
 to the fields list in colmun.md. 
 
 https://github.com/digital-land/specification/blob/main/content/dataset/combine.csv
+
+## :warning: Known files not included
+There may be reasons why git is inappropriate to store files for the configuration.
+This is probably because they are too large. Below is a list of these files.
+They are instead stored in the s3 bucket. These will need to be manually updated
+by someone with acess.
+
+the files below have been added to the git ignore
+
+List of files:
+- pipeline/title-boundary/lookup.csv
