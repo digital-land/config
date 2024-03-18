@@ -1,36 +1,39 @@
-column,dataset,end-date,endpoint,entry-date,field,resource,start-date
-Developer-Agreement,developer-agreement,,,,reference,,
-Developer Agreement,developer-agreement,,,,reference,,
-Organisation,developer-agreement,,,,organisation,,
-Created,developer-agreement,,,,entry-date,,
-Start Date,developer-agreement,,,,start-date,,
-End Date,developer-agreement,,,,end-date,,
-Planning Application,developer-agreement,,,,planning-application,,
-Document URL,developer-agreement,,,,document-url,,
-Ext Document-URL,developer-agreement,,,,document-url,,
-Agreement Type,developer-agreement,,,,developer-agreement-type,,
-Developer Agreement Type,developer-agreement,,,,developer-agreement-type,,
-"""Developer-agreeement""",developer-agreement,,,,reference,,
-"""start-date""",developer-agreement,,,,start-date,,
-"""planning-application""",developer-agreement,,,,planning-application,,
-Planning Application(s),developer-agreement,,,,planning-application,,
-Developer Agreement Contribution,developer-agreement-contribution,,,,reference,,
-Developer Agreement,developer-agreement-contribution,,,,developer-agreement,,
-Contribution Purpose,developer-agreement-contribution,,,,contribution-purpose,,
-Contribution-Purpose - Category,developer-agreement-contribution,,,,contribution-purpose,,
-Amount,developer-agreement-contribution,,,,amount,,
-housing units,developer-agreement-contribution,,,,units,,
-Units Achieved,developer-agreement-contribution,,,,units,,
-Created,developer-agreement-contribution,,,,entry-date,,
-Start Date,developer-agreement-contribution,,,,start-date,,
-End Date,developer-agreement-contribution,,,,end-date,,
-amount (£),developer-agreement-contribution,,,,amount,,
-Developer Agreement Transactions(1),developer-agreement-transaction,,,,developer-agreement-transaction,,
-Contribution-funding Status,developer-agreement-transaction,,,,contribution-funding-status,,
-Amount,developer-agreement-transaction,,,,amount,,
-Units,developer-agreement-transaction,,,,units,,
-Units Achieved,developer-agreement-transaction,,,,units,,
-units (non-financial contribution ),developer-agreement-transaction,,,,units,,
-Created,developer-agreement-transaction,,,,entry-date,,
-Start Date,developer-agreement-transaction,,,,start-date,,
-End Date,developer-agreement-transaction,,,,end-date,,
+dataset,resource,column,field
+developer-agreement,,Developer-Agreement,reference
+developer-agreement,,Developer Agreement,reference
+developer-agreement,,Organisation,organisation
+developer-agreement,,Created,entry-date
+developer-agreement,,Start Date,start-date
+developer-agreement,,End Date,end-date
+developer-agreement,,Planning Application,planning-application
+developer-agreement,,Document URL,document-url
+developer-agreement,,Ext Document-URL,document-url
+developer-agreement,,Agreement Type,developer-agreement-type
+developer-agreement,,Developer Agreement Type,developer-agreement-type
+developer-agreement,,"""Developer-agreeement""",reference
+developer-agreement,,"""start-date""",start-date
+developer-agreement,,"""planning-application""",planning-application
+developer-agreement,,Planning Application(s),planning-application
+developer-agreement-contribution,,Developer Agreement Contribution,reference
+developer-agreement-contribution,,Developer Agreement,developer-agreement
+developer-agreement-contribution,,Contribution Purpose,contribution-purpose
+developer-agreement-contribution,,Contribution-Purpose - Category,contribution-purpose
+developer-agreement-contribution,,Amount,amount
+developer-agreement-contribution,,housing units,units
+developer-agreement-contribution,,Units Achieved,units
+developer-agreement-contribution,,Created,entry-date
+developer-agreement-contribution,,Start Date,start-date
+developer-agreement-contribution,,End Date,end-date
+developer-agreement-contribution,,amount (£),amount
+developer-agreement-transaction,,Developer Agreement Transactions(1),developer-agreement-transaction
+developer-agreement-transaction,,Contribution-funding Status,contribution-funding-status
+developer-agreement-transaction,,Amount,amount
+developer-agreement-transaction,,Units,units
+developer-agreement-transaction,,Units Achieved,units
+developer-agreement-transaction,,units (non-financial contribution ),units
+developer-agreement-transaction,,Created,entry-date
+developer-agreement-transaction,,Start Date,start-date
+developer-agreement-transaction,,End Date,end-date
+contribution-funding-status,,contribution-funding-status,reference
+contribution-purpose,,contribution-purpose,reference
+developer-agreement-type,,developer-agreement-type,reference
