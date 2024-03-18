@@ -1,3 +1,3 @@
-dataset,end-date,endpoint,entry-date,field,resource,separator,start-date
-conservation-area,,9419f8804448962f2567b68fa1697c9cae2e3b2d7db80816cc0083233a565670,,geometry,,,
-conservation-area,,3359f0dcc3566387183cdf903722f1771dde9cba1f16c78d9afd1c13d6589007,,geometry,,,
+dataset,endpoint,field,separator,entry-date,start-date,end-date
+conservation-area,9419f8804448962f2567b68fa1697c9cae2e3b2d7db80816cc0083233a565670,geometry,,,,
+conservation-area,3359f0dcc3566387183cdf903722f1771dde9cba1f16c78d9afd1c13d6589007,geometry,,,,
