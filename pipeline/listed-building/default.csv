@@ -1,6 +1,6 @@
-dataset,default-field,end-date,endpoint,entry-date,entry-number,field,resource,start-date
-listed-building-outline,ADDRESS,,,,,address-text,6c961fcd2c76a1602a98f309dc7bffe4323b3192bb839c9c773b4365f9a2ec41,
-listed-building-outline,ADDRESS0,,,,,address-text,6c961fcd2c76a1602a98f309dc7bffe4323b3192bb839c9c773b4365f9a2ec41,
-listed-building-outline,LIST_NUMBE,,,,,reference,6c961fcd2c76a1602a98f309dc7bffe4323b3192bb839c9c773b4365f9a2ec41,
-listed-building-outline,DESCRIPTIO,,,,,description,6c961fcd2c76a1602a98f309dc7bffe4323b3192bb839c9c773b4365f9a2ec41,
-listed-building-outline,listed-building,,,,,reference,,
+dataset,resource,field,default-field,entry-date,start-date,end-date
+listed-building-outline,6c961fcd2c76a1602a98f309dc7bffe4323b3192bb839c9c773b4365f9a2ec41,address-text,ADDRESS,,,
+listed-building-outline,6c961fcd2c76a1602a98f309dc7bffe4323b3192bb839c9c773b4365f9a2ec41,address-text,ADDRESS0,,,
+listed-building-outline,6c961fcd2c76a1602a98f309dc7bffe4323b3192bb839c9c773b4365f9a2ec41,reference,LIST_NUMBE,,,
+listed-building-outline,6c961fcd2c76a1602a98f309dc7bffe4323b3192bb839c9c773b4365f9a2ec41,description,DESCRIPTIO,,,
+listed-building-outline,,reference,listed-building,,,
