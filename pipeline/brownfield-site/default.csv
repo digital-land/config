@@ -1,2 +1,2 @@
-dataset,default-field,end-date,endpoint,entry-date,entry-number,field,resource,start-date
-brownfield-site,reference,,,,,brownfield-site,,
+dataset,resource,field,default-field,entry-date,start-date,end-date
+brownfield-site,,brownfield-site,reference,,,
