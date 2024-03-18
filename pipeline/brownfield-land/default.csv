@@ -1,6 +1,6 @@
-dataset,default-field,end-date,endpoint,entry-date,entry-number,field,resource,start-date
-brownfield-land,MinNetDwellings,,,,,NetDwellingsRangeFrom,,
-brownfield-land,NetDwellingsRangeTo,,,,,NetDwellingsRangeFrom,,
-brownfield-land,NetDwellingsRangeFrom,,,,,NetDwellingsRangeTo,,
-brownfield-land,MinNetDwellings,,,,,NetDwellingsRangeTo,,
-brownfield-land,FirstAddedDate,,,,,LastUpdatedDate,,
+dataset,resource,field,default-field,entry-date,start-date,end-date
+brownfield-land,,NetDwellingsRangeFrom,MinNetDwellings,,,
+brownfield-land,,NetDwellingsRangeFrom,NetDwellingsRangeTo,,,
+brownfield-land,,NetDwellingsRangeTo,NetDwellingsRangeFrom,,,
+brownfield-land,,NetDwellingsRangeTo,MinNetDwellings,,,
+brownfield-land,,LastUpdatedDate,FirstAddedDate,,,
