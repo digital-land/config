@@ -1,6 +1,6 @@
-dataset,end-date,endpoint,entry-date,entry-number,field,resource,start-date,value
-design-code-area,,720b5c98b623dce36488f74c90339e11342577b73765b979529727f6dcd3b478,,,design-code,,,1
-design-code-area,,434e2cbc3550ec08e43566f4ac849fbb7d470010ef2e3aac6013defad7043b2c,,,design-code-area,,,1
-design-code-area,,434e2cbc3550ec08e43566f4ac849fbb7d470010ef2e3aac6013defad7043b2c,,,design-code,,,2
-design-code-area,,e3d6218275b451f559664ea82e8a2904c28d4fed2f19bb856e0f1a3bf45d1c26,,,design-code,,,1
-design-code-area,,74cc3a5804c503bc61fd06de1cece813fe54e982f12549001ada140b6f67fb75,,,design-code,,,1
+dataset,endpoint,field,value
+design-code-area,720b5c98b623dce36488f74c90339e11342577b73765b979529727f6dcd3b478,design-code,1
+design-code-area,434e2cbc3550ec08e43566f4ac849fbb7d470010ef2e3aac6013defad7043b2c,design-code-area,1
+design-code-area,434e2cbc3550ec08e43566f4ac849fbb7d470010ef2e3aac6013defad7043b2c,design-code,2
+design-code-area,e3d6218275b451f559664ea82e8a2904c28d4fed2f19bb856e0f1a3bf45d1c26,design-code,1
+design-code-area,74cc3a5804c503bc61fd06de1cece813fe54e982f12549001ada140b6f67fb75,design-code,1
