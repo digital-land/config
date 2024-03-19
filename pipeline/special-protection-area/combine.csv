@@ -1,2 +1,2 @@
-dataset,end-date,endpoint,entry-date,field,resource,separator,start-date
-special-protection-area,,,,geometry,,,
+dataset,endpoint,field,separator,entry-date,start-date,end-date
+special-protection-area,,geometry,,,,
