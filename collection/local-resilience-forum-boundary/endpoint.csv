@@ -1,0 +1,2 @@
+endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
+f627f6581cecd57f8170d1eac2b5add0db76c0dae5f1573bd2fb972a5609f4bb,https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Resilience_Forums_December_2020_Boundaries_EW_BFC_V2/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-02-18T19:19:50:43Z,2023-05-26,

@@ -1,0 +1,6 @@
+dataset,resource,column,field
+local-resilience-forum-boundary,,WKT,geometry
+local-resilience-forum-boundary,,LRF19CD,reference
+local-resilience-forum-boundary,,LRF19NM,name
+local-resilience-forum-boundary,,LRF20CD,reference
+local-resilience-forum-boundary,,LRF20NM,name
