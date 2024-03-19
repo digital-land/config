@@ -1,2 +1,2 @@
-end-date,entry-date,endpoint,field,fields,dataset,resource,separator,start-date
-,,,reference,LAD20CD;GB_Name,green-belt,,/,
+pipeline,resource,field,fields,separator,entry-date,start-date,end-date
+green-belt,,reference,LAD20CD;GB_Name,/,,
