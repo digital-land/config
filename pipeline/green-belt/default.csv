@@ -1,2 +1,2 @@
-dataset,default-field,end-date,endpoint,entry-date,entry-number,field,resource,start-date
-green-belt,local-authority-district,,,,,organisation,,
+dataset,resource,field,default-field,entry-date,start-date,end-date
+green-belt,,organisation,local-authority-district,,,
