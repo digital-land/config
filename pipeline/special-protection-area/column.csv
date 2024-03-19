@@ -1,5 +1,5 @@
-column,dataset,end-date,endpoint,entry-date,field,resource,start-date
-WKT,special-protection-area,,,,geometry,,
-SPA_NAME,special-protection-area,,,,name,,
-SPA_CODE,special-protection-area,,,,reference,,
-GIS_DATE,special-protection-area,,,,entry-date,,
+dataset,resource,column,field
+special-protection-area,,WKT,geometry
+special-protection-area,,SPA_NAME,name
+special-protection-area,,SPA_CODE,reference
+special-protection-area,,GIS_DATE,entry-date
