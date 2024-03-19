@@ -1,0 +1,7 @@
+dataset,resource,column,field
+flood-risk-zone,,objectid,reference
+flood-risk-zone,,WKT,geometry
+flood-risk-zone,,type,flood-risk-type
+
+
+
