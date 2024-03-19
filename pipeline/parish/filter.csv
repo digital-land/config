@@ -1,2 +1,2 @@
-dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date
-parish,,,,,reference,^E,,
+dataset,resource,field,pattern
+parish,,reference,"^E"
