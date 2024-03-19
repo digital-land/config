@@ -1,2 +1,2 @@
-dataset,end-date,endpoint,entry-date,field,resource,separator,start-date
-site-of-special-scientific-interest,,,,geometry,,,
+dataset,endpoint,field,separator,entry-date,start-date,end-date
+site-of-special-scientific-interest,,geometry,,,,
