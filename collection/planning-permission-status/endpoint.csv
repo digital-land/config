@@ -1,2 +1,2 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-62c0f319c2dd048f7e0aebaae669415e577f6fcf7491a030ccd472d1e43d3526,https://github.com/digital-land/planning-permission-status-collection/raw/main/data/planning-permission-status.csv,,,2021-03-26,,
+62c0f319c2dd048f7e0aebaae669415e577f6fcf7491a030ccd472d1e43d3526,https://github.com/digital-land/planning-permission-status-collection/raw/main/data/planning-permission-status.csv,,,2021-03-26T00:00:00Z,,
