@@ -1,0 +1,9 @@
+endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
+efe50ad6d9e02514ac9bf568efeca6494bbf5fa6b4b71af051ecee909f209974,https://raw.githubusercontent.com/digital-land/infrastructure-project-collection/main/data/infrastructure-project-decision.csv,,,2023-09-28,2023-09-28,2024-02-01
+9febce4a07d7ed389830b10d118a275f82474667dd245d2a575f2a5b866be65d,https://raw.githubusercontent.com/digital-land/infrastructure-project-collection/main/data/infrastructure-project-document-type.csv,,,2023-09-28,2023-09-28,2024-02-01
+8f67d65ea07356c7c9f5b5f0aa730de42d2485d9d34d8258605d8ed8468d0766,https://raw.githubusercontent.com/digital-land/infrastructure-project-collection/main/data/infrastructure-project-event.csv,,,2023-09-28,2023-09-28,
+ddda69fe1b53f54cbc38a7953864dee4d7c386edde1465c1a1637a497778db3f,https://raw.githubusercontent.com/digital-land/infrastructure-project-collection/main/data/infrastructure-project-type.csv,,,2023-09-28,2023-09-28,
+80f861e565b7ff31065ce74baf3f5d627681b506052588ff27e47a7049b7a295,https://raw.githubusercontent.com/digital-land/infrastructure-project-collection/main/data/nsip.csv,,,2023-09-28,2023-09-28,
+20474b8bf3fa9d55be964f775e5f4bd826b3c20dafd8fd3e4f5c87ebd7354ca9,https://raw.githubusercontent.com/digital-land/infrastructure-project-collection/main/data/nsip-19-projects-polygons.geojson,,,2023-09-28,2023-09-28,
+6f42823272b7e427c95ba1f30da8a69c96e9b939c36639fed109a431f7087fd3,https://dluhc-datasets.planning-data.dev/dataset/infrastructure-project-decision.csv,,,2024-02-01,2024-02-01,
+059be673b5bbc9c69665e59af57a3c51d423869eccaa2645863aad5f1e828833,https://dluhc-datasets.planning-data.dev/dataset/infrastructure-project-document-type.csv,,,2024-02-01,2024-02-01,
