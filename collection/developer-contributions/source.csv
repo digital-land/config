@@ -1217,7 +1217,7 @@ eb46ed246a9c2f15de8015c37d703e71,,developer-contributions,,ed3bfc74b694c532c8cce
 5f2baecc1ecf656a112d70d63ee79e63,,developer-contributions,,5a9584e916a6cb1887d39194d5cf99ea14e3683c6b72b6ca9cefab71313aac3a,,local-authority-eng:GAT,developer-agreement-transaction,2024-03-20,,
 bde1155437ca975b2f6be7e61049cf18,,developer-contributions,,597ba6f8b88f54f59c1a1ae3bfb6972a1cc92a0a63de33cfe08bf4af0237c53b,,local-authority-eng:GLO,developer-agreement-transaction,2024-03-20,,
 ce251aa186ddc5c204365ac594ba2e07,,developer-contributions,,9027d183979ba9038ead7a0e56b5e8bfdaec3bb718c93d71446725baed6b639c,,local-authority-eng:TEW,developer-agreement-transaction,2024-03-20,,
-748fae5e0bdbac7587086feb6e170c5a,,developer-contributions,,6613ade403b2be9230b34abcad6040430a65f4c878c981465f75837d5781c195,,local-authority-eng:TON,developer-agreement-transaction,2024-03-20,,
+748fae5e0bdbac7587086feb6e170c5a,,developer-contributions,,6613ade403b2be9230b34abcad6040430a65f4c878c981465f75837d5781c195,,local-authority-eng:TON,developer-agreement-transaction,2024-03-20,,2024-04-11
 04848dd34285b2c251a7e46162276656,,developer-contributions,https://www.stroud.gov.uk/environment/planning-and-building-control/community-infrastructure-levy-cil/csv-data,53f414c26a47ac567d167155e2d55cc523337818cdc32e5001429aca9aa98cfa,,local-authority-eng:STO,developer-agreement-contribution,2024-03-20,,
 acd868d3cebb3e0ae70c571a1cbd58d3,,developer-contributions,www.southhams.gov.uk/developer-contribution ,13b51f0c4ec6daeb601c99d95c4030e92489330fac4684fc23b94a8e79423fa8,,local-authority-eng:SHA,developer-agreement-contribution,2024-03-20,,2024-04-10
 0ecc982360d1a6e0f88bdd55bbd6f9fd,,developer-contributions,,098883d530aa4b2412e504d467f9b1c157e709c71639aaa60326ee0be9a64bad,,local-authority-eng:NLN,developer-agreement-contribution,2024-03-20,,
@@ -1235,7 +1235,7 @@ f0323f49b57f90e0e1014438d5fbe781,,developer-contributions,,f2b24613da8241f416f69
 fa2154d162f05ab4f933ddb1fbd6c816,,developer-contributions,,e3c908e0084aa8dc2ba0aadc4ddf0a7c70bd1284da2b306a48bb4d63af8ca2b8,,local-authority-eng:GAT,developer-agreement-contribution,2024-03-20,,
 7c1e34dc3b0429bfdfabc2bf640b9e2f,,developer-contributions,,50ce8bc714cd997dd04c95ee0d5ac513274d92e2de727a357080ed366a73bf78,,local-authority-eng:GLO,developer-agreement-contribution,2024-03-20,,
 3ad56b4473bf97fe393352a2cc12695c,,developer-contributions,,78e3acbe6861533d167c5088774c8b74f0bdc83cace997fb437b349c7be353b1,,local-authority-eng:TEW,developer-agreement-contribution,2024-03-20,,
-b44fed40e4707b148c63e4f192d65065,,developer-contributions,,9fc0bd86242d9d2457b1ab39003e7719c81d156387ceb45a7a6ac7823f814830,,local-authority-eng:TON,developer-agreement-contribution,2024-03-20,,
+b44fed40e4707b148c63e4f192d65065,,developer-contributions,,9fc0bd86242d9d2457b1ab39003e7719c81d156387ceb45a7a6ac7823f814830,,local-authority-eng:TON,developer-agreement-contribution,2024-03-20,,2024-04-11
 e47ce84ef014ea59278bfc85703e3d62,,developer-contributions,https://www.stroud.gov.uk/environment/planning-and-building-control/community-infrastructure-levy-cil/csv-data,8066711da61959140b9587725af9d389998127272c97ca5b9e87119b2d971aba,ogl3,local-authority-eng:STO,developer-agreement,2024-03-20,,
 5a523e0b17594083fdb2d676a9749f1f,,developer-contributions,,1ab3503e3ec900758196dd70e4bee1b23e57ae80a29159943b09a41f616078f6,,local-authority-eng:WOR,developer-agreement,2024-03-20,,
 4d43614111ece9cea4349533a4d3c718,,developer-contributions,https://www.newforestnpa.gov.uk/planning/infrastructure-funding-statements/,8f0f34925d34f94b2d023da99603d8b6b91205e779e6b0e515cef96f132bc046,ogl3,local-authority-eng:NEW,developer-agreement,2024-03-20,,
@@ -1254,3 +1254,5 @@ a35196c0d973ca5533b22ac4313fd19c,,developer-contributions,,8c707938eb35d80d3cb9b
 640599ce542fe7b380412aa99b32f97d,,developer-contributions,,25aaeafa50b422c5238674372908fd6883e75f877c929894ca924cbf7ab81d92,,local-authority-eng:GLO,developer-agreement,2024-03-20,,
 801932364eaf52fabc12252b39c8a0f4,,developer-contributions,,1c0f0faffa7d61139b619719ba518467c088a495f2b8d734feaa8b23daf3782b,,local-authority-eng:TEW,developer-agreement,2024-03-20,,
 fd8b7ab3c03b76ccddc5d336bbeb8352,,developer-contributions,,ab30692886a4a17bfd9d8ccf444da234d3d4a42bfba661ba600363d335e118b6,,local-authority-eng:TON,developer-agreement,2024-03-20,,
+1afff0cea2802339d1e39918bf04066c,,developer-contributions,,b57da577dd6ed179febb5eb2b63b26c32fb33e69e693c60c743795e27ca7dd20,,local-authority-eng:TON,developer-agreement-transaction,2024-04-11,,
+e9c84a9ac0dacc1b16a79fea8a2cc22e,,developer-contributions,,a112e22053eded1580a8053cfa588413286f6a701a4f7a965e45ade9c3ccb500,,local-authority-eng:TON,developer-agreement-contribution,2024-04-11,,
