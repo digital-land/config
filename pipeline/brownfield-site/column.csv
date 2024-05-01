@@ -4,6 +4,7 @@ brownfield-site,,OrganisationURI,organisation
 brownfield-site,,organisati,organisation
 brownfield-site,,SiteReference,reference
 brownfield-site,,siterefere,reference
+brownfield-site,,FID,reference
 brownfield-site,,SiteNameAddress,name
 brownfield-site,,sitenamead,name
 brownfield-site,,FirstAddedDate,start-date
