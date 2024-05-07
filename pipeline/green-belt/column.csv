@@ -9,6 +9,7 @@ green-belt,,lad17cd,local-authority-district
 green-belt,,lad18cd,local-authority-district
 green-belt,,lad19cd,local-authority-district
 green-belt,,lad20cd,local-authority-district
+green-belt,,LAD_CD,local-authority-district
 green-belt,,la_name,name
 green-belt,,lad11nm,name
 green-belt,,lad15nm,name
@@ -17,4 +18,5 @@ green-belt,,lad17nm,name
 green-belt,,lad18nm,name
 green-belt,,lad19nm,name
 green-belt,,lad20nm,name
+green-belt,,LAD_NM,name
 green-belt,,GB_Name,green-belt-core
