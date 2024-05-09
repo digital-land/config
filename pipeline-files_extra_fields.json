@@ -1,0 +1,1343 @@
+[
+  {
+    "file_path": "pipeline/local-nature-reserve/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/local-nature-reserve/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/design-code/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/national-nature-reserve/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/national-nature-reserve/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 1
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 2
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/filter.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 2
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/local-resilience-forum-boundary/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/area-of-outstanding-natural-beauty/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/area-of-outstanding-natural-beauty/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/area-of-outstanding-natural-beauty/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/area-of-outstanding-natural-beauty/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/flood-risk-zone/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/flood-risk-zone/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/document/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/document/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/document/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/document/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/document/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/special-protection-area/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/region/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/region/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/region/filter.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/region/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/region/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/region/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-project/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/column.csv",
+    "extra_fields": [
+      {
+        "field_name": "pattern",
+        "n_values": 0
+      },
+      {
+        "field_name": "value",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/organisation/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/article-4-direction/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/title-boundary/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/title-boundary/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/filter.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 2
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/filter.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/local-planning-authority/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-land/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 25
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/conservation-area/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/conservation-area/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/developer-contributions/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/developer-contributions/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/developer-contributions/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/convert.csv",
+    "extra_fields": [
+      {
+        "field_name": "script",
+        "n_values": 0
+      },
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/patch.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/filter.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/concat.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/transform.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/skip.csv",
+    "extra_fields": [
+      {
+        "field_name": "pipeline",
+        "n_values": 0
+      }
+    ]
+  }
+]

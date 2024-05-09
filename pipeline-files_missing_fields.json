@@ -1,0 +1,3468 @@
+[
+  {
+    "file_path": "pipeline/local-nature-reserve/default-value.csv",
+    "missing_fields": [
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-nature-reserve/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-nature-reserve/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-nature-reserve/convert.csv",
+    "missing_fields": [
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-nature-reserve/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-nature-reserve/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-nature-reserve/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-nature-reserve/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-nature-reserve/skip.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-nature-reserve/lookup.csv",
+    "missing_fields": [
+      "value",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-nature-reserve/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/design-code/default-value.csv",
+    "missing_fields": [
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/design-code/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/design-code/convert.csv",
+    "missing_fields": [
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/design-code/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/design-code/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/design-code/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/design-code/skip.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/design-code/lookup.csv",
+    "missing_fields": [
+      "value",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/design-code/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement-collection/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/filter.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "resource",
+      "start-date",
+      "organisation",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-authority-district/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-nature-reserve/default-value.csv",
+    "missing_fields": [
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-nature-reserve/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-nature-reserve/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-nature-reserve/convert.csv",
+    "missing_fields": [
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-nature-reserve/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-nature-reserve/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-nature-reserve/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-nature-reserve/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-nature-reserve/skip.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-nature-reserve/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-nature-reserve/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/lookup.csv",
+    "missing_fields": [
+      "value",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/listed-building/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ramsar/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/default-value.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/filter.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/lookup.csv",
+    "missing_fields": [
+      "value",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/tree-preservation-order/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-resilience-forum-boundary/default-value.csv",
+    "missing_fields": [
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-resilience-forum-boundary/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-resilience-forum-boundary/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-resilience-forum-boundary/convert.csv",
+    "missing_fields": [
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-resilience-forum-boundary/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-resilience-forum-boundary/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-resilience-forum-boundary/filter.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-resilience-forum-boundary/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-resilience-forum-boundary/transform.csv",
+    "missing_fields": [
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-resilience-forum-boundary/skip.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-resilience-forum-boundary/lookup.csv",
+    "missing_fields": [
+      "value",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-resilience-forum-boundary/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/area-of-outstanding-natural-beauty/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/area-of-outstanding-natural-beauty/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/area-of-outstanding-natural-beauty/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/area-of-outstanding-natural-beauty/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/area-of-outstanding-natural-beauty/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/area-of-outstanding-natural-beauty/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/area-of-outstanding-natural-beauty/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/area-of-outstanding-natural-beauty/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "resource",
+      "start-date",
+      "organisation",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/area-of-outstanding-natural-beauty/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/lookup.csv",
+    "missing_fields": [
+      "value",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-site/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/flood-risk-zone/default-value.csv",
+    "missing_fields": [
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/flood-risk-zone/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/flood-risk-zone/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/flood-risk-zone/convert.csv",
+    "missing_fields": [
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/flood-risk-zone/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/flood-risk-zone/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/flood-risk-zone/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/flood-risk-zone/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/flood-risk-zone/skip.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/flood-risk-zone/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/flood-risk-zone/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/filter.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "resource",
+      "start-date",
+      "organisation",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/historic-england/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/document/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/document/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/document/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/document/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/document/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/document/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/document/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/document/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/document/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "resource",
+      "start-date",
+      "organisation",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-of-special-scientific-interest/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/filter.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "resource",
+      "start-date",
+      "organisation",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/parish/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-protection-area/default-value.csv",
+    "missing_fields": [
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-protection-area/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-protection-area/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-protection-area/convert.csv",
+    "missing_fields": [
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-protection-area/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-protection-area/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-protection-area/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-protection-area/skip.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-protection-area/lookup.csv",
+    "missing_fields": [
+      "value",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-protection-area/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/region/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/region/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/region/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/region/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/region/filter.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/region/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/region/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/region/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/region/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "resource",
+      "start-date",
+      "organisation",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/region/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ownership-status/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-project/default-value.csv",
+    "missing_fields": [
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-project/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-project/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-project/convert.csv",
+    "missing_fields": [
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-project/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-project/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-project/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-project/skip.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-project/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-project/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "resource",
+      "start-date",
+      "organisation",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/ancient-woodland/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-type/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/column.csv",
+    "missing_fields": [
+      "dataset",
+      "column",
+      "start-date",
+      "field",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/lookup.csv",
+    "missing_fields": [
+      "reference",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/infrastructure-funding-statement/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/organisation/default-value.csv",
+    "missing_fields": [
+      "entry-number",
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/organisation/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/organisation/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/organisation/convert.csv",
+    "missing_fields": [
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/organisation/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/organisation/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/organisation/filter.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/organisation/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/organisation/skip.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/organisation/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "resource",
+      "start-date",
+      "organisation",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/organisation/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/article-4-direction/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/article-4-direction/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/article-4-direction/convert.csv",
+    "missing_fields": [
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/article-4-direction/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/article-4-direction/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/article-4-direction/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/article-4-direction/transform.csv",
+    "missing_fields": [
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/article-4-direction/skip.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/article-4-direction/lookup.csv",
+    "missing_fields": [
+      "value",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/article-4-direction/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/special-area-of-conservation/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "resource",
+      "start-date",
+      "organisation",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/heritage-coast/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/title-boundary/default-value.csv",
+    "missing_fields": [
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/title-boundary/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/title-boundary/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/title-boundary/convert.csv",
+    "missing_fields": [
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/title-boundary/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/title-boundary/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/title-boundary/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/title-boundary/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/title-boundary/skip.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/title-boundary/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/filter.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/lookup.csv",
+    "missing_fields": [
+      "value",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/green-belt/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/filter.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/legislation/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-planning-authority/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-planning-authority/convert.csv",
+    "missing_fields": [
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-planning-authority/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-planning-authority/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-planning-authority/filter.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-planning-authority/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-planning-authority/transform.csv",
+    "missing_fields": [
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-planning-authority/skip.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-planning-authority/lookup.csv",
+    "missing_fields": [
+      "reference",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/local-planning-authority/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-land/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-land/convert.csv",
+    "missing_fields": [
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-land/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-land/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-land/filter.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-land/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-land/transform.csv",
+    "missing_fields": [
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-land/skip.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-land/lookup.csv",
+    "missing_fields": [
+      "value",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/brownfield-land/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/conservation-area/combine.csv",
+    "missing_fields": [
+      "resource"
+    ]
+  },
+  {
+    "file_path": "pipeline/conservation-area/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/conservation-area/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/conservation-area/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/conservation-area/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/conservation-area/concat.csv",
+    "missing_fields": [
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/conservation-area/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/conservation-area/lookup.csv",
+    "missing_fields": [
+      "value",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/conservation-area/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "notes",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/planning-permission-status/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/developer-contributions/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/developer-contributions/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/developer-contributions/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/developer-contributions/patch.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/developer-contributions/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/developer-contributions/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/developer-contributions/skip.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/developer-contributions/lookup.csv",
+    "missing_fields": [
+      "value",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/developer-contributions/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/filter.csv",
+    "missing_fields": [
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "resource",
+      "start-date",
+      "organisation",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/national-park/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/lookup.csv",
+    "missing_fields": [
+      "value",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/site-category/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/column.csv",
+    "missing_fields": [
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/convert.csv",
+    "missing_fields": [
+      "dataset",
+      "plugin",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint",
+      "parameters"
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/default.csv",
+    "missing_fields": [
+      "entry-number",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/patch.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/filter.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/concat.csv",
+    "missing_fields": [
+      "dataset",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/transform.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "resource",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/skip.csv",
+    "missing_fields": [
+      "dataset",
+      "entry-number",
+      "start-date",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/lookup.csv",
+    "missing_fields": [
+      "value",
+      "start-date",
+      "organisation",
+      "end-date",
+      "entry-date",
+      "endpoint"
+    ]
+  },
+  {
+    "file_path": "pipeline/central-activities-zone/old-entity.csv",
+    "missing_fields": [
+      "end-date",
+      "entry-date",
+      "start-date"
+    ]
+  }
+]
