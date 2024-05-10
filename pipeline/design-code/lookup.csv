@@ -1,23 +1,23 @@
-prefix,resource,entry-number,organisation,reference,entity
-design-code,,,local-authority-eng:NUN,HSG2,641000
-design-code,,,local-authority-eng:BUC,1,641001
-design-code,,,local-authority-eng:GRT,WUV,641002
-design-code,,,local-authority-eng:HYN,HNCHZBJU,641003
-design-code,,,local-authority-eng:POR,1,641004
-design-code,,,local-authority-eng:POR,2,641005
-design-code,,,local-authority-eng:DAC,1,641006
-design-code,,,local-authority-eng:HEF,1,641007
-design-code,,,local-authority-eng:NWL,1,641008
-design-code,,,local-authority-eng:SWK,1,641009
-design-code-area,,,local-authority-eng:NUN,HSG2 western parcel,627000
-design-code-area,,,local-authority-eng:NUN,HSG2 eastern parcel,627001
-design-code-area,,,local-authority-eng:BUC,E10000002,627002
-design-code-area,,,local-authority-eng:GRT,01715E Phase 1,627003
-design-code-area,,,local-authority-eng:HYN,5,627004
-design-code-area,,,local-authority-eng:POR,BL9,627005
-design-code-area,,,local-authority-eng:POR,BL10,627006
-design-code-area,,,local-authority-eng:POR,BL6,627007
-design-code-area,,,local-authority-eng:POR,BL7,627008
-design-code-area,,,local-authority-eng:POR,BL8,627009
-design-code-area,,,local-authority-eng:NWL,E07000134,627010
-design-code-area,,,local-authority-eng:POR,1,627011
+prefix,resource,entry-number,organisation,reference,entity,start-date,end-date,entry-date,endpoint
+design-code,,,local-authority-eng:NUN,HSG2,641000,,,,
+design-code,,,local-authority-eng:BUC,1,641001,,,,
+design-code,,,local-authority-eng:GRT,WUV,641002,,,,
+design-code,,,local-authority-eng:HYN,HNCHZBJU,641003,,,,
+design-code,,,local-authority-eng:POR,1,641004,,,,
+design-code,,,local-authority-eng:POR,2,641005,,,,
+design-code,,,local-authority-eng:DAC,1,641006,,,,
+design-code,,,local-authority-eng:HEF,1,641007,,,,
+design-code,,,local-authority-eng:NWL,1,641008,,,,
+design-code,,,local-authority-eng:SWK,1,641009,,,,
+design-code-area,,,local-authority-eng:NUN,HSG2 western parcel,627000,,,,
+design-code-area,,,local-authority-eng:NUN,HSG2 eastern parcel,627001,,,,
+design-code-area,,,local-authority-eng:BUC,E10000002,627002,,,,
+design-code-area,,,local-authority-eng:GRT,01715E Phase 1,627003,,,,
+design-code-area,,,local-authority-eng:HYN,5,627004,,,,
+design-code-area,,,local-authority-eng:POR,BL9,627005,,,,
+design-code-area,,,local-authority-eng:POR,BL10,627006,,,,
+design-code-area,,,local-authority-eng:POR,BL6,627007,,,,
+design-code-area,,,local-authority-eng:POR,BL7,627008,,,,
+design-code-area,,,local-authority-eng:POR,BL8,627009,,,,
+design-code-area,,,local-authority-eng:NWL,E07000134,627010,,,,
+design-code-area,,,local-authority-eng:POR,1,627011,,,,

@@ -1,4 +1,4 @@
-dataset,resource,column,field
-region,,WKT,geometry
-region,,rgn15cd,reference
-region,,rgn15nm,name
+dataset,resource,column,field,start-date,end-date,entry-date,endpoint
+region,,WKT,geometry,,,,
+region,,rgn15cd,reference,,,,
+region,,rgn15nm,name,,,,

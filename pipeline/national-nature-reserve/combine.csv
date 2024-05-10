@@ -1,2 +1,2 @@
-dataset,endpoint,field,separator,entry-date,start-date,end-date
-national-nature-reserve,ac8444ec72f8c3bb5d5721f0f5dc4a7893050e3063ca640df194aef82e15e7a0,geometry,,,,
+dataset,endpoint,field,separator,entry-date,start-date,end-date,resource
+national-nature-reserve,ac8444ec72f8c3bb5d5721f0f5dc4a7893050e3063ca640df194aef82e15e7a0,geometry,,,,,

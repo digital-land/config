@@ -1,2 +1,2 @@
-dataset,resource,field,pattern
-local-resilience-forum-boundary,,reference,"^E"
+dataset,resource,field,pattern,entry-number,start-date,end-date,entry-date,endpoint
+local-resilience-forum-boundary,,reference,^E,,,,,

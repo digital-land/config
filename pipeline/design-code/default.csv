@@ -1,3 +1,3 @@
-dataset,resource,field,default-field,entry-date,start-date,end-date
-design-code-area,22bcc30f0fc96bbe9086853edb607c02df3e7bfd006b25dda4216f30ab17d083,design-code,name,,,
-design-code,,reference,name,,,
+dataset,resource,field,default-field,entry-date,start-date,end-date,entry-number,endpoint
+design-code-area,22bcc30f0fc96bbe9086853edb607c02df3e7bfd006b25dda4216f30ab17d083,design-code,name,,,,,
+design-code,,reference,name,,,,,

@@ -1,42 +1,42 @@
-dataset,resource,field,pattern,value
-conservation-area,b85206c928baa3c519e8d7f6f8c0ea378bfad2f8eeacc65b2a1c0be8250f1e9f,name,^.*conservation area name:(.*) designated date:.*$,\1
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,barking and dagenham,local-authority-eng:BDG
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,barnet,local-authority-eng:GLA
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,bexley,local-authority-eng:BEX
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,brent,local-authority-eng:BEN
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,bromley,local-authority-eng:BRY
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,camden,local-authority-eng:CMD
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,city of london,local-authority-eng:LND
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,croydon,local-authority-eng:CRY
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,ealing,local-authority-eng:EAL
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,enfield,local-authority-eng:ENF
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,greenwich,local-authority-eng:GRE
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,hackney,local-authority-eng:HCK
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,hammersmith and fulham,local-authority-eng:HMF
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,haringey,local-authority-eng:HRY
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,harrow,local-authority-eng:HRW
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,havering,local-authority-eng:HAV
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,hillingdon,local-authority-eng:HIL
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,hounslow,local-authority-eng:HNS
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,islington,local-authority-eng:ISL
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,kensington and chelsea,local-authority-eng:KEC
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,kingston upon thames,local-authority-eng:KTT
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,lambeth,local-authority-eng:LBH
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,lewisham,local-authority-eng:LEW
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,lldc,development-corporation:Q6670544
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,merton,local-authority-eng:MRT
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,newham,local-authority-eng:NWM
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,redbridge,local-authority-eng:RDB
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,richmond upon thames,local-authority-eng:RIC
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,southwark,local-authority-eng:SWK
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,sutton,local-authority-eng:STN
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,tower hamlets,local-authority-eng:TWH
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,waltham forest,local-authority-eng:WFT
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,wandsworth,local-authority-eng:WND
-conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,westminster,local-authority-eng:WSM
-conservation-area,f46f960e44ec42f41d500bb9586097bdcdb98ec0b6cf20d9dc47eb914b997e9a,name,^This site is within (.*),\1
-conservation-area,f46f960e44ec42f41d500bb9586097bdcdb98ec0b6cf20d9dc47eb914b997e9a,reference,^This site is within (.*),\1
-conservation-area,,reference,^(.*)\.0*0$,\1
-conservation-area,,reference,NO DATA CURRENTLY AVAILABLE FOR THIS DISTRICT,
-conservation-area,,name,NO DATA CURRENTLY AVAILABLE FOR THIS DISTRICT,
-conservation-area,,documentation-url,Conservation Area Appraisal report currently available for this area,
+dataset,resource,field,pattern,value,entry-number,start-date,end-date,entry-date,endpoint
+conservation-area,b85206c928baa3c519e8d7f6f8c0ea378bfad2f8eeacc65b2a1c0be8250f1e9f,name,^.*conservation area name:(.*) designated date:.*$,\1,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,barking and dagenham,local-authority-eng:BDG,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,barnet,local-authority-eng:GLA,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,bexley,local-authority-eng:BEX,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,brent,local-authority-eng:BEN,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,bromley,local-authority-eng:BRY,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,camden,local-authority-eng:CMD,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,city of london,local-authority-eng:LND,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,croydon,local-authority-eng:CRY,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,ealing,local-authority-eng:EAL,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,enfield,local-authority-eng:ENF,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,greenwich,local-authority-eng:GRE,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,hackney,local-authority-eng:HCK,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,hammersmith and fulham,local-authority-eng:HMF,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,haringey,local-authority-eng:HRY,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,harrow,local-authority-eng:HRW,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,havering,local-authority-eng:HAV,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,hillingdon,local-authority-eng:HIL,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,hounslow,local-authority-eng:HNS,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,islington,local-authority-eng:ISL,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,kensington and chelsea,local-authority-eng:KEC,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,kingston upon thames,local-authority-eng:KTT,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,lambeth,local-authority-eng:LBH,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,lewisham,local-authority-eng:LEW,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,lldc,development-corporation:Q6670544,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,merton,local-authority-eng:MRT,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,newham,local-authority-eng:NWM,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,redbridge,local-authority-eng:RDB,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,richmond upon thames,local-authority-eng:RIC,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,southwark,local-authority-eng:SWK,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,sutton,local-authority-eng:STN,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,tower hamlets,local-authority-eng:TWH,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,waltham forest,local-authority-eng:WFT,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,wandsworth,local-authority-eng:WND,,,,,
+conservation-area,f617d13ef7ff061424ec50ed641f05779797ff03beb2cde6935f2a307c01ab44,organisation,westminster,local-authority-eng:WSM,,,,,
+conservation-area,f46f960e44ec42f41d500bb9586097bdcdb98ec0b6cf20d9dc47eb914b997e9a,name,^This site is within (.*),\1,,,,,
+conservation-area,f46f960e44ec42f41d500bb9586097bdcdb98ec0b6cf20d9dc47eb914b997e9a,reference,^This site is within (.*),\1,,,,,
+conservation-area,,reference,^(.*)\.0*0$,\1,,,,,
+conservation-area,,reference,NO DATA CURRENTLY AVAILABLE FOR THIS DISTRICT,,,,,,
+conservation-area,,name,NO DATA CURRENTLY AVAILABLE FOR THIS DISTRICT,,,,,,
+conservation-area,,documentation-url,Conservation Area Appraisal report currently available for this area,,,,,,

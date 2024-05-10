@@ -1,7 +1,4 @@
-dataset,resource,column,field
-flood-risk-zone,,objectid,reference
-flood-risk-zone,,WKT,geometry
-flood-risk-zone,,type,flood-risk-type
-
-
-
+dataset,resource,column,field,start-date,end-date,entry-date,endpoint
+flood-risk-zone,,objectid,reference,,,,
+flood-risk-zone,,WKT,geometry,,,,
+flood-risk-zone,,type,flood-risk-type,,,,
