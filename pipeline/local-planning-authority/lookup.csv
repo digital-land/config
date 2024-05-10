@@ -1,4 +1,4 @@
-prefix,resource,organisation,value,entity
+prefix,resource,organisation,reference,entity
 local-planning-authority,,,E60000001,626001
 statistical-geography,,,E60000001,626001
 local-planning-authority,,,E60000002,626002
