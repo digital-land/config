@@ -87,3 +87,5 @@ f074b84d4e43c23a9f3c862a5679bac8cc3c6ef93e5bc4f8f89bb46a3caa586b,https://www.sta
 0f702ed6bb596fcede4c59614aa1b3bb238165df6906ee403aa7146610f6c3ec,https://www.stalbans.gov.uk/sites/default/files/documents/publications/planning-building-control/Agile/Conservation_Area_Dataset.json,,,2024-02-05,2024-01-31,
 1ce2276aaa2ee05aed0c14e5eb4023692eb41feaf5ff89c76b79e1df7cae158f,https://map.northlincs.gov.uk/GetOWS.ashx?VERSION=1.0.0&SERVICE=WFS&REQUEST=GetFeature&TYPENAME=conservation_area_details&MAPSOURCE=nlincs_mapsources%2Fnlc_wfs&OUTPUTFORMAT=csv,,,2024-04-08,2024-04-03,
 f6e780af9842b90fcd4af1250ba894d7d07c7acac18210210db38e4c4cc702f4,https://m.northlincs.gov.uk/geoserver/arcus_ws/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=arcus_ws%3Aopen_conservationareas&outputFormat=application%2Fjson,,,2024-04-08,2024-04-04,
+d9192cbca1ef98f32f726c7585b7a80ee1a7a3e69e48a108969232c1882550e8,https://www.rossendale.gov.uk/downloads/file/18437/conservation-area-dataset,,,2024-05-13,2024-05-10,
+be638dacab8e9643716043350587d10a38204c596cf3e70be5105149991d6eaf,https://www.rossendale.gov.uk/downloads/file/18438/conservation-area-documents-dataset,,,2024-05-13,2024-05-10,
