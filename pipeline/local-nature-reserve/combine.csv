@@ -1,2 +1,2 @@
-dataset,endpoint,field,separator,entry-date,start-date,end-date
-local-nature-reserve,455d7632e2113fbbd67b24bfef61d6730493ef80aae992c91bc6c2c254bfcd0d,geometry,,,,
+dataset,endpoint,field,separator,entry-date,start-date,end-date,resource
+local-nature-reserve,455d7632e2113fbbd67b24bfef61d6730493ef80aae992c91bc6c2c254bfcd0d,geometry,,,,,

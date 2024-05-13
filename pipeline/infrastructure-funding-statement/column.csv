@@ -1,1 +1,1 @@
-pipeline,resource,pattern,value
+resource,dataset,column,start-date,field,end-date,entry-date,endpoint

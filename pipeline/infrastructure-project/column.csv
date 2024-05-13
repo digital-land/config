@@ -1,3 +1,3 @@
-dataset,endpoint,resource,column,field
-infrastructure-project,,,Code,reference
-infrastructure-project,,,WKT,geometry
+dataset,endpoint,resource,column,field,start-date,end-date,entry-date
+infrastructure-project,,,Code,reference,,,
+infrastructure-project,,,WKT,geometry,,,

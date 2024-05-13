@@ -1,2 +1,2 @@
-dataset,resource,field,default-field,entry-date,start-date,end-date
-article-4-direction-area,,reference,name,,,
+dataset,resource,field,default-field,entry-date,start-date,end-date,entry-number,endpoint
+article-4-direction-area,,reference,name,,,,,

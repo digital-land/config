@@ -1,4 +1,4 @@
-dataset,resource,column,field
-title-boundary,,NATIONALCADASTRALREFERENCE,reference
-title-boundary,,WKT,geometry
-title-boundary,,VALIDFROM,start-date
+dataset,resource,column,field,start-date,end-date,entry-date,endpoint
+title-boundary,,NATIONALCADASTRALREFERENCE,reference,,,,
+title-boundary,,WKT,geometry,,,,
+title-boundary,,VALIDFROM,start-date,,,,
