@@ -1,2 +1,2 @@
 dataset,resource,field,pattern,entry-number,start-date,end-date,entry-date,endpoint
-local-authority-district,,reference,^E,,,,,
+local-authority-district,,reference,"^E",,,,,
