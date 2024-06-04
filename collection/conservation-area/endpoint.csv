@@ -89,3 +89,4 @@ f074b84d4e43c23a9f3c862a5679bac8cc3c6ef93e5bc4f8f89bb46a3caa586b,https://www.sta
 f6e780af9842b90fcd4af1250ba894d7d07c7acac18210210db38e4c4cc702f4,https://m.northlincs.gov.uk/geoserver/arcus_ws/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=arcus_ws%3Aopen_conservationareas&outputFormat=application%2Fjson,,,2024-04-08,2024-04-04,
 d9192cbca1ef98f32f726c7585b7a80ee1a7a3e69e48a108969232c1882550e8,https://www.rossendale.gov.uk/downloads/file/18437/conservation-area-dataset,,,2024-05-13,2024-05-10,
 be638dacab8e9643716043350587d10a38204c596cf3e70be5105149991d6eaf,https://www.rossendale.gov.uk/downloads/file/18438/conservation-area-documents-dataset,,,2024-05-13,2024-05-10,
+275b25beedd0b5a908c6e1a406ef7836e2bc3da3bdf406784edf14869144be52,https://dluhc-datasets.planning-data.dev/dataset/conservation-area-document-type.csv,,,2024-06-03,2024-05-22,
