@@ -70,7 +70,7 @@ c8a5bd5df5a14bd9ffbb3667ced1a9e3c080422af1702bf4e5c93903c9962568,https://raw.git
 0a3aaf764068310cc788b294d43436e49630a8095d81f9d1ee3ea085d62ea87a,https://maps.doncaster.gov.uk/server/rest/services/Planning/Heritage_Map/MapServer/0,,arcgis,2022-11-01T12:44:15Z,,
 3d871564775d1789a0e3fca4a2efed10a5c3219fdbdcf130187c1923786c9498,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/ows?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Aconservation_areas_DL&OutputFormat=GML2,,wfs,2022-11-15T17:09:14Z,,
 ed6b7303a2256e7764c5cbf4e7496b460935e5458f3481be5d677da0666c1064,https://datamillnorth.org/download/conservation-areas/5785bd0c-b3d2-4724-b7f4-8b6f3ff231c9/conservation_areas.csv,,,2022-11-15T17:10:43Z,,
-3359f0dcc3566387183cdf903722f1771dde9cba1f16c78d9afd1c13d6589007,https://opendata.camden.gov.uk/api/views/cbz9-k9zc/rows.csv?accessType=DOWNLOAD,,,2023-08-14T09:09:18:43Z,,
+3359f0dcc3566387183cdf903722f1771dde9cba1f16c78d9afd1c13d6589007,https://opendata.camden.gov.uk/api/views/cbz9-k9zc/rows.csv?accessType=DOWNLOAD,,,2023-08-14T09:09:18:43Z,,2024-06-13
 ecf6d0fbf0312df98a2f7e8e8b41a65757a5f1eb3ad31859a55c68c6a2300212,https://www.southwark.gov.uk/assets/attach/194104/Conservation-Areas.gpkg,,,2023-08-15T13:13:41:25Z,,
 b7a883112c2d06e9d0e486ddc2aa1a1c345284fcc4f56feaf72bcfcf5e27fa24,https://services7.arcgis.com/NXULfNGIlsKmpCJD/arcgis/rest/services/Conservation_Areas/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2023-10-06T09:09:40:19Z,,
 fbe35483bb292b89c811a2db835df9dd5212ee1093daebd1f6b811d620643c1b,https://services-eu1.arcgis.com/xk4RA36G57mVH7Aw/ArcGIS/rest/services/Conservation_Areas_National_Planning_Map_view/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2023-10-10T10:10:10:27Z,,
@@ -90,3 +90,5 @@ f6e780af9842b90fcd4af1250ba894d7d07c7acac18210210db38e4c4cc702f4,https://m.north
 d9192cbca1ef98f32f726c7585b7a80ee1a7a3e69e48a108969232c1882550e8,https://www.rossendale.gov.uk/downloads/file/18437/conservation-area-dataset,,,2024-05-13,2024-05-10,
 be638dacab8e9643716043350587d10a38204c596cf3e70be5105149991d6eaf,https://www.rossendale.gov.uk/downloads/file/18438/conservation-area-documents-dataset,,,2024-05-13,2024-05-10,
 275b25beedd0b5a908c6e1a406ef7836e2bc3da3bdf406784edf14869144be52,https://dluhc-datasets.planning-data.dev/dataset/conservation-area-document-type.csv,,,2024-06-03,2024-05-22,
+8fdf314ef9044149cd8df70e51838e385fdeda24be1be7bc6b3e402fda48f43a,https://opendata.camden.gov.uk/resource/geu8-xww8.csv,,,2024-06-13,,
+d9c1f90bebda35186029557b7ee6e60c951e25c20fb1599fd51860846198018d,https://opendata.camden.gov.uk/resource/3hsk-65x3.csv,,,2024-06-13,,
