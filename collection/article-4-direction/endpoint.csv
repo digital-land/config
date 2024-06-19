@@ -26,8 +26,8 @@ d779ad1c91c5a46e2d4ace4d5446d7d7f81df1ed058f882121070574697a5412,http://medwayma
 83aa4b6b9a8e042c9ab842f91994835c94a9f2cfb6bb2b75908216fa77bde191,https://dservices2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/services/Article_4_Directions_View_WFS/WFSServer?service=wfs&request=GetFeature&TypeNames=Article_4&OutputFormat=GML2,,wfs,2022-06-30T09:09:56:24Z,,
 e5598a75328d5890efb7e6d8bb6c1d181fbed2cda45af24de6627f60e777bbe2,https://raw.githubusercontent.com/digital-land/article-4-direction-collection/main/data/article-4-direction-rule.csv,,,2022-10-11T17:17:20:33Z,,
 657ede08e75ebdacbf21522a8f312e05297cd19ece206c92512db2894947dee6,https://maps.doncaster.gov.uk/server/rest/services/Planning/Article_4/MapServer/0/,,arcgis,2022-11-07T13:57:24Z,,
-16857564d1658edeaa7703207b91525d005e7696e2e9392fbb6fa4231fa550ef,https://datamillnorth.org/download/newcastle-article-4-directions/4c650010-8d88-4bba-9f4a-85587742a64d/article4directionareas.csv,,,2023-02-23T22:22:12:39Z,,
-d788f7a3f32b918aca77f75952243261fae0f6eddc6d32636a8955198d0293fd,https://datamillnorth.org/download/newcastle-article-4-directions/5e84e19f-028c-4902-8a23-bd0dd3f388eb/article4directions.csv,,,2023-02-28T11:11:10:23Z,,
+16857564d1658edeaa7703207b91525d005e7696e2e9392fbb6fa4231fa550ef,https://datamillnorth.org/download/newcastle-article-4-directions/4c650010-8d88-4bba-9f4a-85587742a64d/article4directionareas.csv,,,2023-02-23T22:22:12:39Z,,2024-06-19
+d788f7a3f32b918aca77f75952243261fae0f6eddc6d32636a8955198d0293fd,https://datamillnorth.org/download/newcastle-article-4-directions/5e84e19f-028c-4902-8a23-bd0dd3f388eb/article4directions.csv,,,2023-02-28T11:11:10:23Z,,2024-06-19
 3bbf7138bc9dacbf42700c5d114ba0c1856ae4cdc7c92360e95103ae59d38c0a,https://opendata.camden.gov.uk/api/views/45mg-zjup/rows.csv,,,2023-08-11T16:16:49:18Z,,
 fc6886730a30350775d915a11a8bf5644e42c32395315abd525665a02246751a,https://maps.doncaster.gov.uk/server/rest/services/Planning/Article_4_DSA/MapServer/0,,arcgis,2023-08-30T10:10:04:07Z,,2024-02-05
 22b68af5f133601d5bafc187546b06f0cfffb95a1a6166449cec471ac7ed6706,https://opendata.camden.gov.uk/api/views/ypia-t7j2/rows.csv,,,2023-09-05T10:10:05:41Z,,
