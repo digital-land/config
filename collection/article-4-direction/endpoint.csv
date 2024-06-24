@@ -51,3 +51,5 @@ d46992e6e7eaf3024937f20db16f4826a0144297637f0fdb445afadf5dd54f69,https://www.sta
 9786de81333a1dc128c875e0e362701712c0eb282f3888c31aa3383fe059d9e2,https://m.northlincs.gov.uk/geoserver/arcus_ws/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=arcus_ws%3Aopen_article_4&outputFormat=application%2Fjson,,,2024-04-08,2024-04-04,
 345c6d1562d81d5e440acb797fb354f16188f03859286b0fbae7c339bf5cb87b,https://datamillnorth.org/download/vqxyn/78a9d52c-87ae-4e41-a891-dbfa7002870b/article4directionareas.csv,,,2024-06-18,,
 a02feb3527e71370736ccab89b16c78babde811a47a00a1b90f8d62dfba3ba4e,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/arcgis/rest/services/SPE_Article_4_Directions/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-06-20,,
+eb830049575fb851430d8d623f44742c2386e1a2be6a0ad6d9a2cfc19bb70fd1,https://www.rossendale.gov.uk/downloads/file/18494/article-4-direction-documents-dataset,,,2024-06-21,,
+b870545dec246145a07dbccfac4fd546186c766afb58c513094c61cb5d6d06d1,https://www.rossendale.gov.uk/downloads/file/18493/article-4-direction-area-dataset,,,2024-06-21,,
