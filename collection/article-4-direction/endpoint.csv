@@ -55,3 +55,4 @@ eb830049575fb851430d8d623f44742c2386e1a2be6a0ad6d9a2cfc19bb70fd1,https://www.ros
 b870545dec246145a07dbccfac4fd546186c766afb58c513094c61cb5d6d06d1,https://www.rossendale.gov.uk/downloads/file/18493/article-4-direction-area-dataset,,,2024-06-21,,
 e23d220663fd8297427832c7f0aa7bf8431a5318051364ff57df31be4dd3052c,https://apps.n-somerset.gov.uk/planningdata/Article%204%20Direction%20Area.json,,,2024-06-24,,
 0587dcfba69b374a7b3146db4efdb34d3ba92db745aef9b895b4cade24d0ac2e,https://apps.n-somerset.gov.uk/planningdata/Article%204%20Direction%20Dataset.csv,,,2024-06-24,,
+11ceb6807ca6320712e4b589a625e94a6efada5c41928b91579ee7abf236fcae,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/article_4_DL/wfs?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Aarticle_4_DL&OutputFormat=GML2,,,2024-07-02,2024-07-02,
