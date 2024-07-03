@@ -1,1 +1,2 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
+fc97e727f904220bd787b6edc2facb168d6cd4e32298b6ad68ab178934869661,https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Provisional Agricultural Land Classification (ALC) (England)/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-07-03,2024-07-02,
