@@ -1,0 +1,2 @@
+endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
+07fa2114f0868eab26a55ef3a7f9a4e4c4359a39a54d510cdf99d5183d80803d,https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Countries_December_2023_Boundaries_UK_BFC/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-06-13T06:06:21:33Z,,

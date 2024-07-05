@@ -1,0 +1,4 @@
+dataset,resource,column,field
+border,,WKT,geometry
+border,,CTRY23CD,reference
+border,,CTRY23NM,name
