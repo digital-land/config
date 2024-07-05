@@ -1,2 +1,2 @@
-dataset,resource,field,pattern
-statistical-geography,,reference,"^E"
+dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date
+statistical-geography,,,,,reference,^E,,
