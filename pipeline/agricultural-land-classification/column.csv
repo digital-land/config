@@ -1,0 +1,2 @@
+dataset,endpoint,resource,column,field,start-date,end-date,entry-date
+agricultural-land-classification,,,ALC_GRADE,agricultural-land-classification-grade,,,
