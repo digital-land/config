@@ -1,2 +1,2 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-4313725e68b7361418a092769c8247773e5e19e5512a7229d547843354e7f2b1,https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Wards_May_2024_Boundaries_UK_BGC/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-07-08,2024-07-01,
+5e65ca6b570cabcaf1693ac9b65602a985da1129dd63b7d1b4134730333b90d3,https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Wards_May_2024_Boundaries_UK_BGC/FeatureServer/0/,,arcgis,2024-07-08,2024-07-01,
