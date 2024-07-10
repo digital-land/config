@@ -1,0 +1,4 @@
+dataset,endpoint,resource,column,field,start-date,end-date,entry-date
+ward,,,WKT,geometry,,,
+ward,,,WD24CD,reference,,,
+ward,,,WD24NM,name,,,

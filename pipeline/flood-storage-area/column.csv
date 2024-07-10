@@ -1,0 +1,3 @@
+dataset,endpoint,resource,column,field,start-date,end-date,entry-date
+flood-storage-area,,,id,reference,,,
+flood-storage-area,,,WKT,geometry,,,

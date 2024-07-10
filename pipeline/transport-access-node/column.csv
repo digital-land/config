@@ -1,0 +1,10 @@
+dataset,endpoint,resource,column,field,start-date,end-date,entry-date
+transport-access-node,,,ATCOCode,reference,,,
+transport-access-node,,,NaptanCode,naptan-code,,,
+transport-access-node,,,CommonName,name,,,
+transport-access-node,,,StopType,transport-access-node-type,,,
+transport-access-node,,,BusStopType,bus-stop-type,,,
+transport-access-node,,,Notes,notes,,,
+transport-access-node,,,CreationDateTime,start-date,,,
+transport-access-node,,,longitude,GeoX,,,
+transport-access-node,,,latitude,GeoY,,,
