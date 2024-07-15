@@ -2,5 +2,6 @@ endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
 2da2e306ec5bde3853000dd2b73a3c792c8e6f9009e4448b83510d1acbfc8ad6,https://data.london.gov.uk/download/brownfield-land-register/eb7e7357-0707-4d47-9b0d-e0499eff41c0/London%20Brownfield%20Register%20ESRI%20shapefile.zip,,,2020-12-22T00:00:00Z,,2024-06-19
 201c08f03d060f21f71bc93e64b7b166a6e2f34ccb772d19fbf2e3ec2084cdeb,https://map.cornwall.gov.uk/arcgis/services/inspire/inspire_landbuildings/MapServer/WFSServer?request=GetFeature&service=WFS&typename=inspire_inspire_landbuildings:cornwall_council_brownfield_register,,,2020-12-23T00:00:00Z,,
 20c877c9ce9fbc8d81db2a840d2950b675fc04ca54095b38a273531b91626c28,https://www.rother.gov.uk/wp-content/uploads/2020/01/RDCBLR19.zip,,,2020-12-24T00:00:00Z,,
-78d223dd184defa605919f1dedf6d8eb13d12c754231f488802735ea83bbf0cc,https://www.southwark.gov.uk/assets/attach/194797/Brownfield-Land.gpkg,,,2023-08-16T09:09:35:06Z,,
+78d223dd184defa605919f1dedf6d8eb13d12c754231f488802735ea83bbf0cc,https://www.southwark.gov.uk/assets/attach/194797/Brownfield-Land.gpkg,,,2023-08-16T09:09:35:06Z,,2024-07-12
 7d4956039101e59efb75845068ec0666a051c8bec5bb694f9e641096d4b882c7,https://maps.doncaster.gov.uk/server/rest/services/Planning/Brownfield_Sites/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-05-01,,
+a479562f69544f6e6e56aafdb9717418743ea73033c8fe98e21933edef8a60b8,https://www.southwark.gov.uk/assets/attach/194797/Brownfield-Land.geojson,,,2024-07-12,,
