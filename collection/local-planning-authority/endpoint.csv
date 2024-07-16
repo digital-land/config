@@ -1,5 +1,5 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-7ba8de104f56e7af971c89ebb271d312c88731f5b4623d5288940c1857734bd3,https://opendata.arcgis.com/datasets/508ba25e1d154ed3b2b9fb0e7c2ea5e3_0.geojson,,,2022-03-17T16:16:14:51Z,,
+7ba8de104f56e7af971c89ebb271d312c88731f5b4623d5288940c1857734bd3,https://opendata.arcgis.com/datasets/508ba25e1d154ed3b2b9fb0e7c2ea5e3_0.geojson,,,2022-03-17T16:16:14:51Z,,2024-07-16
 ccd0d4fef3ef2f70518d115f02f8ae0d5db2cd075a3fb0fa7b8ccfe720821ca1,https://opendata.arcgis.com/datasets/b14472e9b32e43dc914565d74e709571_0.geojson,,,2022-03-17T16:16:21:12Z,2020-09-22,
 9581bc027a7da5f144022f100575159016d9915c5a6eea71aa7cbf545b8e2934,https://opendata.arcgis.com/datasets/298ad192c3e840f0b59d5c631d580d29_0.geojson,,,2022-03-17T16:16:23:04Z,2021-10-25,
 b45acb56d8e7e4e25ae51b210daec811006bc47a8bf5dc7906b8abf3210e8088,https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Planning_Authorities_April_2022_UK_BFE_2022/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2023-11-14T22:22:58:38Z,2022-08-22,
