@@ -1,0 +1,4 @@
+dataset,endpoint,resource,column,field,start-date,end-date,entry-date
+nature-improvement-area,,,GlobalID,reference,,,
+nature-improvement-area,,,NIA_NAME,name,,,
+

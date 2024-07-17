@@ -1,0 +1,2 @@
+endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
+80f24879a59c911998f4edd8d4afa5c5148368ad8b65602af514f2094131f938,https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/Nature_Improvement_Areas_England/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-07-17,2024-07-16,
