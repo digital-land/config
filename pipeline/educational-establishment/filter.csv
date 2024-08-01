@@ -1,2 +1,2 @@
-dataset,resource,field,pattern,entry-number,start-date,end-date,entry-date,endpoint
-educational-establishment,,json,"local-authority-district: "^E"",,,,,
+dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date
+educational-establishment,,,,,local-authority-district,"^E",,
