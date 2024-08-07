@@ -1253,7 +1253,7 @@ b84c05a4df1e260ee220f16781a96bdb675a1072814a67db0cdb6842d70cb7c0,https://www.sef
 de2d4d2d8f9426ead172ce4593ca606cdc79cfdd6f27470f47b851c963ea7c6d,https://www.sevenoaks.gov.uk/download/downloads/id/1392/brownfield_land_register_-_december_2022_csv_file.csv,,,2023-08-14T15:15:54:25Z,,
 1509ad718ca634d3f890be7314324a626a9100ff109445c287ec4fa4cbbd97f9,https://www.southderbyshire.gov.uk/assets/attach/11216/Copy-of-South-Derbyshire_brownfieldregister_2022-12-31_CSV-2-.csv,,,2023-08-15T13:13:05:40Z,,
 62a37835f142c30e7c41fe5c3fb7e0f616150497c1d9db59de6718638171759d,https://www.sheffield.gov.uk/sites/default/files/docs/planning-and-development/housing-land/brownfield-register-sites-dec-2021.csv,,,2023-08-15T13:13:18:17Z,,
-f2f10aa3c3c122d7964ada8aa7edd82e2029da376c9590d61c3c0017419ab734,https://data.cambridgeshireinsight.org.uk/sites/default/files/SCDCBrownfieldRegister2020_ESRIwebmapUpdate.csv,,,2023-08-15T13:13:20:03Z,,
+f2f10aa3c3c122d7964ada8aa7edd82e2029da376c9590d61c3c0017419ab734,https://data.cambridgeshireinsight.org.uk/sites/default/files/SCDCBrownfieldRegister2020_ESRIwebmapUpdate.csv,,,2023-08-15T13:13:20:03Z,,2024-08-07
 73a697def05777a52ff5bdda1769538d513e56006856087976716be15c8b79aa,https://www.sandwell.gov.uk/download/downloads/id/24170/sandwell_brownfield_register_2022.xlsx,,,2023-08-15T13:13:27:35Z,,2024-05-20
 87ae274151c84dbc8943d75d827fde5fcb691fe1b773bea02901d0643d5e23b0,https://www.stalbans.gov.uk/sites/default/files/attachments/Brownfield%20Register%20Dec%202021%20Excel.xlsx,,,2023-08-15T13:13:30:22Z,,
 57b07aaa71a2d39e40f8bd5282312b61247e2fd4697e65b3c9cdb3cf24d73ddc,https://www.runnymede.gov.uk/downloads/file/1373/brownfield-register-2021-od,,,2023-08-15T13:13:36:05Z,,
@@ -1377,7 +1377,7 @@ a844141c8a45811d3620cf7ece02ee92dec6bc69c6fba80c647f11ff9efff6c1,https://www.new
 3c80e9a429da47629e362e8171dced0da7687762f66dc73347de803d4147f5e0,https://www.cotswold.gov.uk/media/vctak1hs/1-2-09-brownfield-register-2023.csv,,,2023-09-27,2023-09-27,
 a1d61a8672c9bd031a8c4378b41bb15d4e2a308e359b38501be12fff6179a427,https://www.lichfielddc.gov.uk/downloads/file/2389/brownfield-land-register-2023,,,2023-10-02,2023-10-02,
 232f93bf253c36d25b0e23c6fc501b206d6eb0c71a6dcde3986e7343d53982c4,https://www.guildford.gov.uk/media/35723/Guildford-Brownfield-Register-2023/CSV/guildford_brownfieldregister_2023_10_12_rev1.csv?m=638327116385130000,,,2023-10-23,2023-10-12,
-f39432bd7a4799f95d7acec2c9ed25100ec6f25df28a5deddddfa52fd65b371d,https://data.cambridgeshireinsight.org.uk/sites/default/files/CambridgeBrownfieldRegister2020_ESRIwebmapUpdate.csv,,,2023-10-27,2021-04-11,
+f39432bd7a4799f95d7acec2c9ed25100ec6f25df28a5deddddfa52fd65b371d,https://data.cambridgeshireinsight.org.uk/sites/default/files/CambridgeBrownfieldRegister2020_ESRIwebmapUpdate.csv,,,2023-10-27,2021-04-11,2024-08-07
 466bee338fb4c68fe077c5abf3810bfc0c7d81946417b1f304f89fa2b2d9d1a9,https://consult.cheshirewestandchester.gov.uk/resources/portal/supportingfiles/778353,,,2023-10-29,2023-02-11,2024-05-20
 965a95403fad3b3f298fe19461a29be32c2795573e15c02beb0c34530c91a05e,https://www.manchester.gov.uk/download/downloads/id/29070/brownfield_land_register_2022.csv,,,2023-10-29,2022-03-31,2024-05-20
 f418979b27b576f82e11598edcbaf13c902dd46f73ed81934adb20dcd005d2ab,https://data.leicester.gov.uk/api/explore/v2.1/catalog/datasets/brownfield-register/exports/csv?lang=en&timezone=Europe%2FLondon&use_labels=true&delimiter=%3B,,,2023-10-29,2023-07-05,
@@ -1429,3 +1429,5 @@ e37f704cd18fd5a0a5759c6944cc2adb0a9cc7b62e915fec4eb94ebab02c6a61,https://www.che
 f56bb2a9148b05fc4c4bb3261d7d661effa317b5c09b26d33ff0bd8f1cc669ee,https://www.cotswold.gov.uk/media/m2lik3z4/1-2-09-brownfield-register-2024.csv,,,2024-07-04,2024-07-04,
 65e9bfe4aa5b0c75d086da4f28273b10b1b1aeb4c8ce72b890d9372bce8bb1ed,https://www.sandwell.gov.uk/downloads/file/2172/sandwell-brownfield-register-2023-csv-,,,2024-07-12,,
 ab50170d042fdaf5a57871f3adab24a954e86b6b578a315b785e9dcb653eb9b4,https://www.westmorlandandfurness.gov.uk/sites/default/files/2024-07/brownfield-sites.csv,,,2024-07-18,2024-07-18,
+15fec523bda9520835e6cc18c854c7cbbf9aff67fb3e3802380913358c4e4289,https://www.greatercambridgeplanning.org/media/alweaxy3/gcspbrownfieldregister2023_final_city.xlsx,,,2024-08-07,,
+14cd4d1584db4cc144010caccea35d27ba9c89ecd0c785b8baa5564b90e413bd,https://www.greatercambridgeplanning.org/media/3j1pxq2c/gcspbrownfieldregister2023_final_scdc.xlsx,,,2024-08-07,,
