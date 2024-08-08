@@ -68,7 +68,7 @@ c8a5bd5df5a14bd9ffbb3667ced1a9e3c080422af1702bf4e5c93903c9962568,https://raw.git
 9419f8804448962f2567b68fa1697c9cae2e3b2d7db80816cc0083233a565670,https://maps.buckscc.gov.uk/arcgis/services/PLANNING/RIPA_BOPS/MapServer/WFSServer?service=WFS&version=2.0.0&request=GetFeature&typeName=PLANNING_RIPA_BOPS:Conservation_Areas&outputFormat=GML2,,,2022-05-06T18:18:20:10Z,,
 3359f0dcc3566387183cdf903722f1771dde9cba1f16c78d9afd1c13d6589007,https://opendata.camden.gov.uk/api/views/cbz9-k9zc/rows.csv?accessType=DOWNLOAD,,,2022-09-27T15:26:14Z,,2024-02-11
 0a3aaf764068310cc788b294d43436e49630a8095d81f9d1ee3ea085d62ea87a,https://maps.doncaster.gov.uk/server/rest/services/Planning/Heritage_Map/MapServer/0,,arcgis,2022-11-01T12:44:15Z,,
-3d871564775d1789a0e3fca4a2efed10a5c3219fdbdcf130187c1923786c9498,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/ows?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Aconservation_areas_DL&OutputFormat=GML2,,wfs,2022-11-15T17:09:14Z,,
+3d871564775d1789a0e3fca4a2efed10a5c3219fdbdcf130187c1923786c9498,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/ows?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Aconservation_areas_DL&OutputFormat=GML2,,wfs,2022-11-15T17:09:14Z,,2024-08-07
 ed6b7303a2256e7764c5cbf4e7496b460935e5458f3481be5d677da0666c1064,https://datamillnorth.org/download/conservation-areas/5785bd0c-b3d2-4724-b7f4-8b6f3ff231c9/conservation_areas.csv,,,2022-11-15T17:10:43Z,,
 3359f0dcc3566387183cdf903722f1771dde9cba1f16c78d9afd1c13d6589007,https://opendata.camden.gov.uk/api/views/cbz9-k9zc/rows.csv?accessType=DOWNLOAD,,,2023-08-14T09:09:18:43Z,,2024-06-13
 ecf6d0fbf0312df98a2f7e8e8b41a65757a5f1eb3ad31859a55c68c6a2300212,https://www.southwark.gov.uk/assets/attach/194104/Conservation-Areas.gpkg,,,2023-08-15T13:13:41:25Z,,2024-07-10
@@ -96,3 +96,4 @@ d9c1f90bebda35186029557b7ee6e60c951e25c20fb1599fd51860846198018d,https://opendat
 efaec8fa03a6bb0ca9db87fa4d2f9c9806d4e21c4376506f2b90f2ff91e32eb4,https://www.eastcambs.gov.uk/sites/default/files/Conservation%20area%20dataset.gpkg,,,2024-07-03,2024-07-01,
 2737f4f6d755809cbe3e84341cfcd6792d74844d34338bb050d47eebf2ce017b,https://www.sandwell.gov.uk/downloads/file/2889/conservation-area-dataset-july24,,,2024-07-05,,
 8d0400b1e63b9b42a7e406175555b52b6350a5b8d3f2a30fefac9bf142b9af92,https://www.southwark.gov.uk/assets/attach/194104/Conservation-Areas.geojson,,,2024-07-10,,
+6dad8060cbdf75cf7c28c511b107a367e7c0435e04d130793b8464454bfd384c,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/conservation_areas_DL/wfs?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Aconservation_areas_DL&OutputFormat=GML2,,,2024-08-07,,
