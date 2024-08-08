@@ -419,3 +419,8 @@ conservation-area,2bebde11cb215cd6348f5e47a4ed58c8f86d6a533911ed52b821d351346d9e
 conservation-area,2bebde11cb215cd6348f5e47a4ed58c8f86d6a533911ed52b821d351346d9ebe,,prconstrntrefval,reference,,,
 conservation-area,14b600742e98828a6236f52246d80855d55b10855e7c0c0cffcfdf56a3b96f52,,website,documentation-url,,,
 conservation-area,14b600742e98828a6236f52246d80855d55b10855e7c0c0cffcfdf56a3b96f52,,location,name,,,
+conservation-area,6dad8060cbdf75cf7c28c511b107a367e7c0435e04d130793b8464454bfd384c,,fid,reference,,,
+conservation-area,6dad8060cbdf75cf7c28c511b107a367e7c0435e04d130793b8464454bfd384c,,start_date,start-date,,,
+conservation-area,6dad8060cbdf75cf7c28c511b107a367e7c0435e04d130793b8464454bfd384c,,entry_date,entry-date,,,
+conservation-area,6dad8060cbdf75cf7c28c511b107a367e7c0435e04d130793b8464454bfd384c,,Easting,GeoX,,,
+conservation-area,6dad8060cbdf75cf7c28c511b107a367e7c0435e04d130793b8464454bfd384c,,Northing,GeoY,,,
