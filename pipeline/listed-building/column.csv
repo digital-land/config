@@ -115,3 +115,5 @@ listed-building-outline,a15cf992712968ed507792bb8e41ba7cb47732a15d35bd3c121e1fd0
 listed-building-outline,3ee8504f4511028a881ec4c4bd3ba0d2e45571839a658e90b74c163c1c08a809,,REFVAL,listed-building,,,
 listed-building-outline,3ee8504f4511028a881ec4c4bd3ba0d2e45571839a658e90b74c163c1c08a809,,Title,name,,,
 listed-building-outline,3ee8504f4511028a881ec4c4bd3ba0d2e45571839a658e90b74c163c1c08a809,,Link,documentation-url,,,
+listed-building,f569cf738abb48f8d9d2bda008b5e27716877dd84a22fa9edc463c288251fad8,,fid,reference,,,
+listed-building,f569cf738abb48f8d9d2bda008b5e27716877dd84a22fa9edc463c288251fad8,,WKT,geometry,,,

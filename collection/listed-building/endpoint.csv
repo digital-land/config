@@ -29,3 +29,4 @@ b64e3b0edc13c75c0a21a459c13c7c9c6eb89e0785885ca7a32a553d81c0c824,https://maps.ep
 d19fec0b28886bf0d4cb16d2af1bb71db84bf95fda52a6369b1ee39473a8e1bd,https://m.northlincs.gov.uk/geoserver/arcus_ws/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=arcus_ws%3Aopen_listed_buildings&outputFormat=application%2Fjson,,,2024-04-08,2024-04-04,
 86989e02343ffef9d8b435e466deffa059597d4e9f643cacd2daf625b19d726a,https://apps.n-somerset.gov.uk/planningdata/Listed_buildings_outline_dataset.json,,,2024-06-24,,
 0632321f15531b1b328167183e65b64bf41913025e7e11d1a3d8f877484274af,https://www.southwark.gov.uk/assets/attach/194140/Listed-buildings-outlines.geojson,,,2024-07-10,,
+f569cf738abb48f8d9d2bda008b5e27716877dd84a22fa9edc463c288251fad8,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/listed_buildings_DL/wfs?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Alisted_buildings_DL&OutputFormat=GML2,,wfs,2024-08-12,,
