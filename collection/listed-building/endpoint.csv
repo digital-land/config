@@ -12,7 +12,7 @@ fad9233216dbd89f5e1c5707d7ecc8a5b2e336b6270bd9652c78f877d255f49f,https://mapping
 a15cf992712968ed507792bb8e41ba7cb47732a15d35bd3c121e1fd0d85fe274,https://datamillnorth.org/download/listedbuildings/91298d09-45a6-4c6d-a909-11ec4eaab957/listedbuildings.csv,,,2022-07-01T14:14:45:55Z,,
 3ee8504f4511028a881ec4c4bd3ba0d2e45571839a658e90b74c163c1c08a809,https://gis.doncaster.gov.uk/arcgis/rest/services/Planning/Heritage/MapServer/2,,arcgis,2022-07-04T09:09:18:59Z,,2022-11-01
 29c2a158839842d4315d9280f3181a4273f67f0d349d706cfc3174c394b000ff,https://medwaymaps.medway.gov.uk/WFS/wfs.exe?service=WFS&version=2.0.0&request=GetFeature&TypeNames=DVL_LISTED_BUILDINGS,,wfs,2022-07-25T14:25:50Z,,
-2b0ef9c4c1482e0f32139e231a146d52a3cde2e4148db87c13c0b414d981c32a,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/ows?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Alisted_buildings_DL&OutputFormat=GML2,,wfs,2022-07-28T13:21:40Z,,
+2b0ef9c4c1482e0f32139e231a146d52a3cde2e4148db87c13c0b414d981c32a,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/ows?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Alisted_buildings_DL&OutputFormat=GML2,,wfs,2022-07-28T13:21:40Z,,2024-08-13
 8c363105b8138f6471cd4a453a84f15870be417ed0624d4b12f7b39ba49306ed,https://maps.doncaster.gov.uk/server/rest/services/Planning/Heritage_Map/MapServer/1,,arcgis,2022-11-01T16:42:43Z,,
 542df0fe6f134916c24b5257c6df45a8be367e898f545a9ec8923b69dfb9bcb9,https://www.southwark.gov.uk/assets/attach/194140/Listed-buildings-outlines.gpkg,,,2023-08-15T14:14:04:16Z,,2024-07-10
 431efe2f2cbc73eb181f67ce9cc27cc61f88236835eb2b3b96ee6a54ceb6458a,https://opendata.camden.gov.uk/api/views/uu3n-zgbj/rows.csv?accessType=DOWNLOAD,,,2023-09-29T12:12:40:17Z,,
@@ -29,3 +29,4 @@ b64e3b0edc13c75c0a21a459c13c7c9c6eb89e0785885ca7a32a553d81c0c824,https://maps.ep
 d19fec0b28886bf0d4cb16d2af1bb71db84bf95fda52a6369b1ee39473a8e1bd,https://m.northlincs.gov.uk/geoserver/arcus_ws/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=arcus_ws%3Aopen_listed_buildings&outputFormat=application%2Fjson,,,2024-04-08,2024-04-04,
 86989e02343ffef9d8b435e466deffa059597d4e9f643cacd2daf625b19d726a,https://apps.n-somerset.gov.uk/planningdata/Listed_buildings_outline_dataset.json,,,2024-06-24,,
 0632321f15531b1b328167183e65b64bf41913025e7e11d1a3d8f877484274af,https://www.southwark.gov.uk/assets/attach/194140/Listed-buildings-outlines.geojson,,,2024-07-10,,
+f569cf738abb48f8d9d2bda008b5e27716877dd84a22fa9edc463c288251fad8,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/listed_buildings_DL/wfs?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Alisted_buildings_DL&OutputFormat=GML2,,wfs,2024-08-13,2024-08-13,
