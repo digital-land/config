@@ -46,3 +46,4 @@ d481e2c6bf9d4c2dae5bf6d8e2b199b74755104b807830c41d7515c4b46a70c6,https://apps.n-
 892c998c0191108ffddcbd08a424a33cc90cdf78b8693f98c2c44a64831c4f02,https://www.southwark.gov.uk/assets/attach/194775/Tree-preservation-order-zones.geojson,,,2024-07-12,,
 599237e24ea953f431090df305657e05d78d64e6e33adc00d907706676c46f4d,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/tpo_points_DL/wfs?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Atpo_points_DL&OutputFormat=GML2,,wfs,2024-08-12,,
 a7ef5696e5bf4f93041aad697819d972f9cce2687890a7af19090c49c3ba4570,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/tpo_polys_DL/wfs?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Atpo_polys_DL&OutputFormat=GML2,,wfs,2024-08-12,,
+e9a8796c89f39ff819566625f243643b3ff953a30f1f247778bb57741cc5653c,https://www.ashford.gov.uk/media/uuqnswra/tpo_spatial_22_07_24.csv,,,2024-09-02,,
