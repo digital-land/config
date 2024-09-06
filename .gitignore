@@ -21,5 +21,17 @@ var/
 .idea/
 .python-version
 
+# ignore collection files created when running locally 
+collection/*/log/
+collection/*/resource/
+collection/*/log.csv
+collection/*/resource.csv
+collection/*/pipeline.mk
+expectations/
+flattened/
+issue/
+specification/
+transformed/
+
 # ignore specific files
 pipeline/title-boundary/lookup.csv
