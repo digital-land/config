@@ -411,3 +411,6 @@ brownfield-land,,OrganisationURI,,http://opendatacommunities.org/id/district-cou
 brownfield-land,,OrganisationURI,,http://opendatacommunities.org/id/district-council/east-northamptonshire,,,,,6461d9795af0884960d25d58b5adccdf9e2687a97b7758da2a7393bc036c2541
 brownfield-land,,OrganisationURI,,http://opendatacommunities.org/id/district-council/kettering,,,,,e953e2eae62a251b6b9e39376c1b2c7ed78bdce2ca37b1218ab5d83a17b1e1d6
 brownfield-land,a21b6b3489f3ab236cb4341e761df4adbbe686ae10f6dbb91dbc50c05d55453b,OrganisationURI,,http://opendatacommunities.org/doc/london-borough-council/kingston,,,,,
+brownfield-land,890c3ac73da82610fe1b7d444c8c89c92a7f368316e3c0f8d2e72f0c439b5245,OrganisationURI,http://opendatacommunities.org/id/london-borough-council/barking-and-dage,http://opendatacommunities.org/doc/london-borough-council/barking-and-dagenham,,,,,
+brownfield-land,890c3ac73da82610fe1b7d444c8c89c92a7f368316e3c0f8d2e72f0c439b5245,OrganisationURI,http://opendatacommunities.org/id/london-borough-council/hammersmith-and-,http://opendatacommunities.org/doc/london-borough-council/hammersmith-and-fulham,,,,,
+brownfield-land,890c3ac73da82610fe1b7d444c8c89c92a7f368316e3c0f8d2e72f0c439b5245,OrganisationURI,http://opendatacommunities.org/id/london-borough-council/kensington-and-c,http://opendatacommunities.org/doc/london-borough-council/kensington-and-chelsea,,,,,
