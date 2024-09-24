@@ -49,3 +49,4 @@ a7ef5696e5bf4f93041aad697819d972f9cce2687890a7af19090c49c3ba4570,https://gcty.dy
 e9a8796c89f39ff819566625f243643b3ff953a30f1f247778bb57741cc5653c,https://www.ashford.gov.uk/media/uuqnswra/tpo_spatial_22_07_24.csv,,,2024-09-02,,
 e89653123a38ddddfd70d71589c15d28ba2444ccefd5d7903e71ec762f2b4bd3,https://apps.n-somerset.gov.uk/planningdata/Tree_Dataset.json,,,2024-08-21,2024-06-20,
 239445b34f503bc768c366c4260fc26b498f62951c1cb1215f8305165cc7b688,https://apps.n-somerset.gov.uk/planningdata/Tree_Preservation_Order_Dataset.csv,,,2024-09-02,2024-06-20,
+2d3cb22e544acf2029c608a945e64943d2bec415ad2ad87aeabed9c7a58a903b,https://maps.birmingham.gov.uk/server/rest/services/planx/PlanX/FeatureServer/3/query?outFields=*&where=1%3D1&f=geojson,,,2024-09-24,,
