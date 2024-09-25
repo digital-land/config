@@ -1,0 +1,4 @@
+dataset,resource,column,field
+built-up-area,,WKT,geometry
+built-up-area,,BUA24CD,reference
+built-up-area,,BUA24NM,name
