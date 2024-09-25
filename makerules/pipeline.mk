@@ -41,6 +41,14 @@ ifeq ($(ISSUE_DIR),)
 ISSUE_DIR=issue/
 endif
 
+ifeq ($(PERFORMANCE_DIR),)
+PERFORMANCE_DIR=performance/
+endif
+
+ifeq ($(OPERATIONAL_ISSUE_DIR),)
+OPERATIONAL_ISSUE_DIR=$(PERFORMANCE_DIR)operational_issue/
+endif
+
 ifeq ($(COLUMN_FIELD_DIR),)
 COLUMN_FIELD_DIR=var/column-field/
 endif
@@ -63,6 +71,7 @@ DATASET_DIRS=\
 	$(COLUMN_FIELD_DIR)\
 	$(DATASET_RESOURCE_DIR)\
 	$(ISSUE_DIR)\
+	$(PERFORMANCE_DIR)\
 	$(DATASET_DIR)\
 	$(FLATTENED_DIR)
 endif
@@ -84,12 +93,13 @@ PIPELINE_CONFIG_FILES=\
 	$(PIPELINE_DIR)old-entity.csv\
 	$(PIPELINE_DIR)patch.csv\
 	$(PIPELINE_DIR)skip.csv\
-	$(PIPELINE_DIR)transform.csv
+	$(PIPELINE_DIR)transform.csv\
+	$(PIPELINE_DIR)entity-organisation.csv
 endif
 
 define run-pipeline
-	mkdir -p $(@D) $(ISSUE_DIR)$(notdir $(@D)) $(COLUMN_FIELD_DIR)$(notdir $(@D)) $(DATASET_RESOURCE_DIR)$(notdir $(@D))
-	digital-land ${DIGITAL_LAND_OPTS} --dataset $(notdir $(@D)) --pipeline-dir $(PIPELINE_DIR) $(DIGITAL_LAND_FLAGS) pipeline $(1) --organisation-path $(CACHE_DIR)organisation.csv --issue-dir $(ISSUE_DIR)$(notdir $(@D)) --column-field-dir $(COLUMN_FIELD_DIR)$(notdir $(@D)) --dataset-resource-dir $(DATASET_RESOURCE_DIR)$(notdir $(@D)) $(PIPELINE_FLAGS) $< $@
+	mkdir -p $(@D) $(ISSUE_DIR)$(notdir $(@D)) $(OPERATIONAL_ISSUE_DIR) $(COLUMN_FIELD_DIR)$(notdir $(@D)) $(DATASET_RESOURCE_DIR)$(notdir $(@D))
+	digital-land ${DIGITAL_LAND_OPTS} --dataset $(notdir $(@D)) $(DIGITAL_LAND_FLAGS) pipeline $(1) --issue-dir $(ISSUE_DIR)$(notdir $(@D)) --column-field-dir $(COLUMN_FIELD_DIR)$(notdir $(@D)) --dataset-resource-dir $(DATASET_RESOURCE_DIR)$(notdir $(@D)) --config-path $(CACHE_DIR)config.sqlite3 $(PIPELINE_FLAGS) $< $@
 endef
 
 define build-dataset =
@@ -105,6 +115,7 @@ define build-dataset =
 	time digital-land ${DIGITAL_LAND_OPTS} expectations-dataset-checkpoint --output-dir=$(EXPECTATION_DIR) --specification-dir=specification --data-path=$(basename $@).sqlite3
 	csvstack $(EXPECTATION_DIR)/**/$(notdir $(basename $@))-results.csv > $(basename $@)-expectation-result.csv
 	csvstack $(EXPECTATION_DIR)/**/$(notdir $(basename $@))-issues.csv > $(basename $@)-expectation-issue.csv
+	digital-land ${DIGITAL_LAND_OPTS} --dataset $(notdir $(basename $@)) operational-issue-save-csv --operational-issue-dir $(OPERATIONAL_ISSUE_DIR)
 endef
 
 collection::
@@ -141,7 +152,21 @@ clean::
 	rm -rf ./var
 
 # local copy of the organisation dataset
+# Download historic operational issue log data for relevant datasets
 init::	$(CACHE_DIR)organisation.csv
+	@datasets=$$(awk -F , '$$2 == "$(COLLECTION_NAME)" {print $$4}' specification/dataset.csv); \
+	for dataset in $$datasets; do \
+		url="$(DATASTORE_URL)$(OPERATIONAL_ISSUE_DIR)$$dataset/operational-issue.csv"; \
+		echo "Downloading operational issue log for $$dataset at url $$url";\
+		status_code=$$(curl --write-out "%{http_code}" --silent --output /dev/null "$$url"); \
+		if [ "$$status_code" -eq 200 ]; then \
+			echo "Downloading file..."; \
+			curl --silent --output "$(OPERATIONAL_ISSUE_DIR)/$$dataset/operational-issue.csv" "$$url"; \
+			echo "Log downloaded to $(OPERATIONAL_ISSUE_DIR)/$$dataset/operational-issue.csv"; \
+		else \
+			echo "File not found at $$url"; \
+		fi; \
+	done
 
 makerules::
 	curl -qfsL '$(SOURCE_URL)/makerules/main/pipeline.mk' > makerules/pipeline.mk
@@ -149,6 +174,7 @@ makerules::
 save-transformed::
 	aws s3 sync $(TRANSFORMED_DIR) s3://$(COLLECTION_DATASET_BUCKET_NAME)/$(REPOSITORY)/$(TRANSFORMED_DIR) --no-progress
 	aws s3 sync $(ISSUE_DIR) s3://$(COLLECTION_DATASET_BUCKET_NAME)/$(REPOSITORY)/$(ISSUE_DIR) --no-progress
+	aws s3 sync $(PERFORMANCE_DIR) s3://$(COLLECTION_DATASET_BUCKET_NAME)/$(PERFORMANCE_DIR) --no-progress
 	aws s3 sync $(COLUMN_FIELD_DIR) s3://$(COLLECTION_DATASET_BUCKET_NAME)/$(REPOSITORY)/$(COLUMN_FIELD_DIR) --no-progress
 	aws s3 sync $(DATASET_RESOURCE_DIR) s3://$(COLLECTION_DATASET_BUCKET_NAME)/$(REPOSITORY)/$(DATASET_RESOURCE_DIR) --no-progress
 
@@ -194,6 +220,13 @@ $(PIPELINE_DIR)%.csv:
 	fi
 
 config:: $(PIPELINE_CONFIG_FILES)
+ifeq ($(PIPELINE_CONFIG_FILES), .dummy)
+	echo "pipeline_config_files are dummy not making config.sqlite" 
+else
+	mkdir -p $(CACHE_DIR)
+	digital-land --pipeline-dir $(PIPELINE_DIR) config-create --config-path $(CACHE_DIR)config.sqlite3
+	digital-land --pipeline-dir $(PIPELINE_DIR) config-load --config-path $(CACHE_DIR)config.sqlite3
+endif
 
 clean::
 	rm -f $(PIPELINE_CONFIG_FILES)
