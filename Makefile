@@ -7,6 +7,7 @@ endif
 
 # use the local Collection and pipeline directories for that collection
 # if there's anything in the bucket rather than here then it will be added
+COLLECTION_NAME=$(COLLECTION)
 COLLECTION_DIR=collection/$(COLLECTION)/
 PIPELINE_DIR=pipeline/$(COLLECTION)/
 
