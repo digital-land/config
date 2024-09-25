@@ -108,3 +108,4 @@ a03c0455c85c00217e7894da32a8ab3098afedf81e1a55ad6efd640946d48b17,https://www.cas
 ab8e712f15d91a4a95c2e89eacdbe324c8783eaa6f0b3b2ac94a1bb5d16574f3,https://raw.githubusercontent.com/digital-land/conservation-area-data/refs/heads/main/data/Output/Missing/SCA-conservation-area.csv,,,2024-09-24,2024-09-24,
 f0504cf86d020dcf1d4dd74993a250cd785ff783ccfac5b28129f01e4c8fa4e8,https://raw.githubusercontent.com/digital-land/conservation-area-data/refs/heads/main/data/Output/Missing/SCA-conservation-area-document.csv,,,2024-09-24,2024-09-24,
 1aa6059f066e9708c73868c00dd8e0092ba063299f62530d59deea5f6f164560,https://maps.birmingham.gov.uk/server/rest/services/planx/PlanX/FeatureServer/4/query?outFields=*&where=1%3D1&f=geojson,,,2024-09-24,,
+19a19114f4ce19ab8984ee84787589123f6b69f8fe8dca8a59f8599b25039c77,https://maps.birmingham.gov.uk/server/rest/services/planx/PlanX/FeatureServer/5/query?where=1=1&outfields=*&f=geojson,,,2024-09-25,,
