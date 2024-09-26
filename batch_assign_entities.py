@@ -7,68 +7,84 @@ import sys
 def process_csv(csv_file):
     failed_downloads = []
     failed_assignments = []
+    successful_resources = []
+    
+    resources_dir = './resources'
+    os.makedirs(resources_dir, exist_ok=True)
+    try:
+        with open(csv_file, 'r') as file:
+            csv_reader = csv.DictReader(file)
+            for row_number, row in enumerate(csv_reader, start=1):
 
-    with open(csv_file, 'r') as file:
-        csv_reader = csv.DictReader(file)
-        for row_number, row in enumerate(csv_reader, start=1):
+                # only process unknown entities
+                if row['issue_type'].lower() != 'unknown entity':
+                    continue
 
-            # only process unknown entities
-            if row['issue_type'].lower() != 'unknown entity':
-                continue
-
-            collection_name = row['collection']
-            resource = row['resource']
-            endpoint = row['endpoint']
-            dataset = row['pipeline']
-            organisation = row['organisation']
+                collection_name = row['collection']
+                resource = row['resource']
+                endpoint = row['endpoint']
+                dataset = row['pipeline']
+                organisation = row['organisation']
 
 
-            download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
+                download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
+                resource_path = os.path.join(resources_dir, resource)
 
-            # try to download the resource
+                # try to download the resource
+                try:
+                    response = requests.get(download_link)
+                    response.raise_for_status()
+                    with open(resource_path, 'wb') as f:
+                        f.write(response.content)
+                    print(f"Downloaded: {resource}")
+                except requests.RequestException as e:
+                    print(f"Failed to download: {resource}")
+                    print(f"Error: {e}")
+                    failed_downloads.append((row_number, resource, str(e)))
+                    continue
+
+                command = [
+                    "digital-land",
+                    "assign-entities",
+                    f"resources/{resource}",
+                    endpoint,
+                    collection_name,
+                    dataset,
+                    organisation,
+                    "-c", f"./collection/{collection_name}",
+                    "-p", f"./pipeline/{collection_name}"
+                ]
+
+                # execute the command but return error if assign-entities fails
+                try:
+                    result = subprocess.run(command, check=True, capture_output=True, text=True)
+                    print(f"Command executed successfully: {' '.join(command)}")
+                    print(result.stdout)
+                    successful_resources.append(resource_path)  
+
+                except subprocess.CalledProcessError as e:
+                    print(f"Command failed: {' '.join(command)}")
+                    print(f"Error code: {e.returncode}")
+                    print(f"Error output: {e.stderr}")
+                    failed_assignments.append((row_number, resource, e.returncode, e.stderr))
+                except Exception as e:
+                    print(f"An unexpected error occurred: {e}")
+                    failed_assignments.append((row_number, resource, "Unexpected error", str(e)))
+
+    finally:
+        # remove successfully processed resources
+        for resource_path in successful_resources:
             try:
-                response = requests.get(download_link)
-                response.raise_for_status()
-                with open(resource, 'wb') as f:
-                    f.write(response.content)
-                print(f"Downloaded: {resource}")
-            except requests.RequestException as e:
-                print(f"Failed to download: {resource}")
-                print(f"Error: {e}")
-                failed_downloads.append((row_number, resource, str(e)))
-                continue
-
-            command = [
-                "digital-land",
-                "assign-entities",
-                f"{resource}",
-                endpoint,
-                collection_name,
-                dataset,
-                organisation,
-                "-c", f"./collection/{collection_name}",
-                "-p", f"./pipeline/{collection_name}"
-            ]
-
-            # execute the command but return error if assign-entities fails
-            try:
-                result = subprocess.run(command, check=True, capture_output=True, text=True)
-                print(f"Command executed successfully: {' '.join(command)}")
-                print(result.stdout)
-            except subprocess.CalledProcessError as e:
-                print(f"Command failed: {' '.join(command)}")
-                print(f"Error code: {e.returncode}")
-                print(f"Error output: {e.stderr}")
-                failed_assignments.append((row_number, resource, e.returncode, e.stderr))
-            except Exception as e:
-                print(f"An unexpected error occurred: {e}")
-                failed_assignments.append((row_number, resource, "Unexpected error", str(e)))
-
-            # Clean up downloaded resources
-            try:
-                os.remove(resource)
+                os.remove(resource_path)
+                print(f"Removed: {resource_path}")
             except OSError as e:
-                print(f"Failed to remove {resource}: {e}")
+                print(f"Failed to remove {resource_path}: {e}")
+
+        # Removes resources directory if empty
+        try:
+            os.rmdir(resources_dir)
+        except OSError as e:
+            print(f"Failed to remove the resources directory: {e}")
 
     # Summary of results
     print("\n--- Summary Report ---")
