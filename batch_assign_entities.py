@@ -7,6 +7,10 @@ from digital_land.cli import assign_entities_cmd
 from digital_land.collection import Collection
 
 def process_csv(csv_file):
+    """
+    Uses provided vile path to automatically process and assign unknown entities
+
+    """
     failed_downloads = []
     failed_assignments = []
     successful_resources = []
