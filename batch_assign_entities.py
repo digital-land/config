@@ -1,30 +1,23 @@
 import csv
 import requests
-import os
-import subprocess
 import sys
 
-from digital_land.cli import assign_entities_cmd
 from pathlib import Path
-from digital_land.commands import assign_entities
-from digital_land.organisation import Organisation
+from digital_land.cli import assign_entities_cmd
 from digital_land.collection import Collection
-
-import click
 
 def process_csv(csv_file):
     failed_downloads = []
     failed_assignments = []
     successful_resources = []
     
-    resources_dir = './resources'
-    os.makedirs(resources_dir, exist_ok=True)
+    resources_dir = Path('./resources')
+    resources_dir.mkdir(exist_ok=True)
+    
     try:
         with open(csv_file, 'r') as file:
             csv_reader = csv.DictReader(file)
             for row_number, row in enumerate(csv_reader, start=1):
-
-                # only process unknown entities
                 if row['issue_type'].lower() != 'unknown entity':
                     continue
 
@@ -34,16 +27,13 @@ def process_csv(csv_file):
                 dataset = row['pipeline']
                 organisation_name = row['organisation']
 
-
                 download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
-                resource_path = os.path.join(resources_dir, resource)
+                resource_path = resources_dir / resource
 
-                # try to download the resource
                 try:
                     response = requests.get(download_link)
                     response.raise_for_status()
-                    with open(resource_path, 'wb') as f:
-                        f.write(response.content)
+                    resource_path.write_bytes(response.content)
                     print(f"Downloaded: {resource}")
                 except requests.RequestException as e:
                     print(f"Failed to download: {resource}")
@@ -51,92 +41,23 @@ def process_csv(csv_file):
                     failed_downloads.append((row_number, resource, str(e)))
                     continue
 
-
-                # command = [
-                #     "digital-land",
-                #     "assign-entities",
-                #     f"resources/{resource}",
-                #     endpoint,
-                #     collection_name,
-                #     dataset,
-                #     organisation,
-                #     "-c", f"./collection/{collection_name}",
-                #     "-p", f"./pipeline/{collection_name}"
-                # ]
-
-                # try:
-                #     result = subprocess.run(command, check=True, capture_output=True, text=True)
-
-                # execute the command but return error if assign-entities fails
-                # collection = Collection(collection_name,f"collection/{collection_name}")
-                collection_path = f"collection/{collection_name}"
-                # specification_dir = "specification",
-                # pipeline_dir = f"pipeline/{collection_name}",
-                # organisation_path = "var/cache/organisation.csv"
-                
-# resource_path,
-#     endpoints,
-#     collection_name,
-#     dataset,
-#     organisation,
-#     collection_dir,
-#     specification_dir,
-#     pipeline_dir,
-#     organisation_path,
-
+                collection_path = Path(f"collection/{collection_name}")
                 collection = Collection(name=collection_name, directory=collection_path)
                 collection.load()
 
-
-                resource_path = Path(f'resources/{resource}')
-                print(resource_path)
-                endpoints = endpoint
-                collection_name = collection_name
-                dataset = dataset
-                organisation = organisation_name
-                collection_dir = Path(collection_path)
-                specification_dir = Path("specification")
-                organisation_path = Path("var/cache/organisation.csv")
-                pipeline_dir = Path("pipeline/")
-
                 try:
-                    # assign_entities(
-                    #     resource_file_paths = [resource],
-                    #     collection =collection,
-                    #     dataset = dataset,
-                    #     organisation = [organisation_name],
-                    #     pipeline_dir = f"pipeline/{collection_name}",
-                    #     specification_dir = "specification",
-                    #     organisation_path =  "var/cache/organisation.csv",
-                    #     endpoints = [endpoint],
-                    # )
-                    
-                    # assign_entities_cmd(
-                    #     resource,
-                    #     endpoints,
-                    #     collection_name,
-                    #     dataset,
-                    #     organisation,
-                    #     collection_dir,
-                    #     specification_dir,
-                    #     organisation_path,
-                    # )
-
-                    # ctx = click.Context(assign_entities_cmd)
-
-
                     assign_entities_cmd.callback(
-                    # ctx,
-                    resource,
-                    endpoints,
-                    collection_name,
-                    dataset,
-                    organisation,
-                    collection_dir,
-                    specification_dir,
-                    pipeline_dir,
-                    organisation_path
+                        resource_path,
+                        endpoint,
+                        collection_name,
+                        dataset,
+                        organisation_name,
+                        collection_path,
+                        Path("specification"),
+                        Path(f"pipeline/{collection_name}"),
+                        Path("var/cache/organisation.csv")
                     )
+                    print()
                     print(f"Entities assigned successfully for resource: {resource}")
                     successful_resources.append(resource_path)
                 except Exception as e:
@@ -145,18 +66,23 @@ def process_csv(csv_file):
                     failed_assignments.append((row_number, resource, "AssignmentError", str(e)))
 
     finally:
-        # remove successfully processed resources
+        # Remove successfully processed resources and their associated .gfs files
         for resource_path in successful_resources:
             try:
+                if resource_path.exists():
+                    resource_path.unlink()
                 
-                os.remove(resource_path)
-                print(f"Removed: {resource_path}")
+                # Remove associated .gfs file if it exists
+                gfs_path = resource_path.with_suffix('.gfs')
+                if gfs_path.exists():
+                    gfs_path.unlink()
             except OSError as e:
-                print(f"Failed to remove {resource_path}: {e}")
+                print(f"Failed to remove {resource_path} or its .gfs file: {e}")
 
-        # Removes resources directory if empty
+        # Remove resources directory if empty
         try:
-            os.rmdir(resources_dir)
+            if not any(resources_dir.iterdir()):
+                resources_dir.rmdir()
         except OSError as e:
             print(f"Failed to remove the resources directory: {e}")
 
@@ -164,13 +90,13 @@ def process_csv(csv_file):
     print("\n--- Summary Report ---")
     if failed_downloads:
         print("\nFailed Downloads:")
-        for row, resource, error in failed_downloads:
-            print(f"Row {row}: {resource} - Error: {error}")
+        for resource, error in failed_downloads:
+            print(f"Resource: {resource} - Error: {error}")
     
     if failed_assignments:
         print("\nFailed Assign-Entities Operations:")
-        for row, resource, error_code, error_message in failed_assignments:
-            print(f"Row {row}: {resource} - Error Code: {error_code}, Message: {error_message}")
+        for resource, error_code, error_message in failed_assignments:
+            print(f"Resoure : {resource} - Error Code: {error_code}, Message: {error_message}")
     
     if not failed_downloads and not failed_assignments:
         print("All operations completed successfully.")
