@@ -4,6 +4,14 @@ import os
 import subprocess
 import sys
 
+from digital_land.cli import assign_entities_cmd
+from pathlib import Path
+from digital_land.commands import assign_entities
+from digital_land.organisation import Organisation
+from digital_land.collection import Collection
+
+import click
+
 def process_csv(csv_file):
     failed_downloads = []
     failed_assignments = []
@@ -24,7 +32,7 @@ def process_csv(csv_file):
                 resource = row['resource']
                 endpoint = row['endpoint']
                 dataset = row['pipeline']
-                organisation = row['organisation']
+                organisation_name = row['organisation']
 
 
                 download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
@@ -43,38 +51,104 @@ def process_csv(csv_file):
                     failed_downloads.append((row_number, resource, str(e)))
                     continue
 
-                command = [
-                    "digital-land",
-                    "assign-entities",
-                    f"resources/{resource}",
-                    endpoint,
+
+                # command = [
+                #     "digital-land",
+                #     "assign-entities",
+                #     f"resources/{resource}",
+                #     endpoint,
+                #     collection_name,
+                #     dataset,
+                #     organisation,
+                #     "-c", f"./collection/{collection_name}",
+                #     "-p", f"./pipeline/{collection_name}"
+                # ]
+
+                # try:
+                #     result = subprocess.run(command, check=True, capture_output=True, text=True)
+
+                # execute the command but return error if assign-entities fails
+                # collection = Collection(collection_name,f"collection/{collection_name}")
+                collection_path = f"collection/{collection_name}"
+                # specification_dir = "specification",
+                # pipeline_dir = f"pipeline/{collection_name}",
+                # organisation_path = "var/cache/organisation.csv"
+                
+# resource_path,
+#     endpoints,
+#     collection_name,
+#     dataset,
+#     organisation,
+#     collection_dir,
+#     specification_dir,
+#     pipeline_dir,
+#     organisation_path,
+
+                collection = Collection(name=collection_name, directory=collection_path)
+                collection.load()
+
+
+                resource_path = Path(f'resources/{resource}')
+                print(resource_path)
+                endpoints = endpoint
+                collection_name = collection_name
+                dataset = dataset
+                organisation = organisation_name
+                collection_dir = Path(collection_path)
+                specification_dir = Path("specification")
+                organisation_path = Path("var/cache/organisation.csv")
+                pipeline_dir = Path("pipeline/")
+
+                try:
+                    # assign_entities(
+                    #     resource_file_paths = [resource],
+                    #     collection =collection,
+                    #     dataset = dataset,
+                    #     organisation = [organisation_name],
+                    #     pipeline_dir = f"pipeline/{collection_name}",
+                    #     specification_dir = "specification",
+                    #     organisation_path =  "var/cache/organisation.csv",
+                    #     endpoints = [endpoint],
+                    # )
+                    
+                    # assign_entities_cmd(
+                    #     resource,
+                    #     endpoints,
+                    #     collection_name,
+                    #     dataset,
+                    #     organisation,
+                    #     collection_dir,
+                    #     specification_dir,
+                    #     organisation_path,
+                    # )
+
+                    # ctx = click.Context(assign_entities_cmd)
+
+
+                    assign_entities_cmd.callback(
+                    # ctx,
+                    resource,
+                    endpoints,
                     collection_name,
                     dataset,
                     organisation,
-                    "-c", f"./collection/{collection_name}",
-                    "-p", f"./pipeline/{collection_name}"
-                ]
-
-                # execute the command but return error if assign-entities fails
-                try:
-                    result = subprocess.run(command, check=True, capture_output=True, text=True)
-                    print(f"Command executed successfully: {' '.join(command)}")
-                    print(result.stdout)
-                    successful_resources.append(resource_path)  
-
-                except subprocess.CalledProcessError as e:
-                    print(f"Command failed: {' '.join(command)}")
-                    print(f"Error code: {e.returncode}")
-                    print(f"Error output: {e.stderr}")
-                    failed_assignments.append((row_number, resource, e.returncode, e.stderr))
+                    collection_dir,
+                    specification_dir,
+                    pipeline_dir,
+                    organisation_path
+                    )
+                    print(f"Entities assigned successfully for resource: {resource}")
+                    successful_resources.append(resource_path)
                 except Exception as e:
-                    print(f"An unexpected error occurred: {e}")
-                    failed_assignments.append((row_number, resource, "Unexpected error", str(e)))
+                    print(f"Failed to assign entities for resource: {resource}")
+                    print(f"Error: {str(e)}")
+                    failed_assignments.append((row_number, resource, "AssignmentError", str(e)))
 
     finally:
         # remove successfully processed resources
         for resource_path in successful_resources:
             try:
+                
                 os.remove(resource_path)
                 print(f"Removed: {resource_path}")
             except OSError as e:
@@ -112,6 +186,6 @@ if __name__ == "__main__":
     try:
         failed_downloads, failed_assignments = process_csv(csv_file)
         print(f"\nTotal failed downloads: {len(failed_downloads)}")
-        print(f"Total failed assign-entities operations: {len(failed_assignments)}")
+        print(f"Total failed assign-entities operations: {len(failed_assignments)}") 
     except Exception as e:
         print(f"An error occurred while processing the CSV file: {e}")
