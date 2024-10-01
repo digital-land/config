@@ -57,6 +57,10 @@ ifeq ($(DATASET_RESOURCE_DIR),)
 DATASET_RESOURCE_DIR=var/dataset-resource/
 endif
 
+ifeq ($(CONVERTED_RESOURCE_DIR),)
+CONVERTED_RESOURCE_DIR=var/converted-resource/
+endif
+
 ifeq ($(DATASET_DIR),)
 DATASET_DIR=dataset/
 endif
@@ -70,6 +74,7 @@ DATASET_DIRS=\
 	$(TRANSFORMED_DIR)\
 	$(COLUMN_FIELD_DIR)\
 	$(DATASET_RESOURCE_DIR)\
+	$(CONVERTED_RESOURCE_DIR)\
 	$(ISSUE_DIR)\
 	$(PERFORMANCE_DIR)\
 	$(DATASET_DIR)\
@@ -115,7 +120,7 @@ define build-dataset =
 	time digital-land ${DIGITAL_LAND_OPTS} expectations-dataset-checkpoint --output-dir=$(EXPECTATION_DIR) --specification-dir=specification --data-path=$(basename $@).sqlite3
 	csvstack $(EXPECTATION_DIR)/**/$(notdir $(basename $@))-results.csv > $(basename $@)-expectation-result.csv
 	csvstack $(EXPECTATION_DIR)/**/$(notdir $(basename $@))-issues.csv > $(basename $@)-expectation-issue.csv
-	digital-land ${DIGITAL_LAND_OPTS} --dataset $(notdir $(basename $@)) operational-issue-save-csv --operational-issue-dir $(OPERATIONAL_ISSUE_DIR)
+	time digital-land ${DIGITAL_LAND_OPTS} --dataset $(notdir $(basename $@)) operational-issue-save-csv --operational-issue-dir $(OPERATIONAL_ISSUE_DIR)
 endef
 
 collection::
