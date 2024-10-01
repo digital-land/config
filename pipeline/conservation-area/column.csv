@@ -428,3 +428,6 @@ conservation-area,7eddd356d929189e7ee8b964e12c8b61ba73c9a100eea0282aeeeb26a7659b
 conservation-area,78e4a8bde3613e91b6fab11101df7aa9f4fd4ecd53f12850568c275ff38c04b6,,organisation,notes,,,
 conservation-area,035a8f9726afb502ba44acd9b635150646d2003927fb7e2dcf89095e3d10a33d,,DESIG_DATE,designation-date,,,
 conservation-area,035a8f9726afb502ba44acd9b635150646d2003927fb7e2dcf89095e3d10a33d,,DOCUMENTSURL,documentation-url,,,
+conservation-area,d027bc3baf8f1bdf299797a1c368c1144fd19cf431e30214baa5f92e1f6ab5c6,,x,GeoX,,,
+conservation-area,d027bc3baf8f1bdf299797a1c368c1144fd19cf431e30214baa5f92e1f6ab5c6,,y,GeoY,,,
+conservation-area,d027bc3baf8f1bdf299797a1c368c1144fd19cf431e30214baa5f92e1f6ab5c6,,UID,reference,,,
