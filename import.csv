@@ -1,2 +1,2 @@
 organisation,documentation-url,endpoint-url,start-date,pipelines,plugin,licence
-local-authority-eng:BUC,https://www.buckinghamshire.gov.uk/planning-and-building-control/having-a-say-and-reporting-issues/article-4-directions/,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Article_4_Directions_Chiltern/FeatureServer/0/query?where=1%3D1&f=geojson&outfields=*,,article-4-direction-area,,ogl3
+local-authority-eng:BUC,https://www.buckinghamshire.gov.uk/planning-and-building-control/trees-and-hedges/trees-and-hedges-guidance/what-is-a-tree-preservation-order-tpo/,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Tree_Preservation_Orders_Aylesbury_Vale/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,tree-preservation-order,,ogl3
