@@ -9,7 +9,6 @@ from digital_land.collection import Collection
 def process_csv(csv_file):
     """
     Uses provided vile path to automatically process and assign unknown entities
-
     """
     failed_downloads = []
     failed_assignments = []
@@ -61,8 +60,7 @@ def process_csv(csv_file):
                         Path(f"pipeline/{collection_name}"),
                         Path("var/cache/organisation.csv")
                     )
-                    print()
-                    print(f"Entities assigned successfully for resource: {resource}")
+                    print(f"\nEntities assigned successfully for resource: {resource}")
                     successful_resources.append(resource_path)
                 except Exception as e:
                     print(f"Failed to assign entities for resource: {resource}")
@@ -70,20 +68,18 @@ def process_csv(csv_file):
                     failed_assignments.append((row_number, resource, "AssignmentError", str(e)))
 
     finally:
-        # Remove successfully processed resources and their associated .gfs files
+        # Remove successfully processed resources 
         for resource_path in successful_resources:
             try:
                 if resource_path.exists():
                     resource_path.unlink()
                 
-                # Remove associated .gfs file if it exists
                 gfs_path = resource_path.with_suffix('.gfs')
                 if gfs_path.exists():
                     gfs_path.unlink()
             except OSError as e:
                 print(f"Failed to remove {resource_path} or its .gfs file: {e}")
 
-        # Remove resources directory if empty
         try:
             if not any(resources_dir.iterdir()):
                 resources_dir.rmdir()
