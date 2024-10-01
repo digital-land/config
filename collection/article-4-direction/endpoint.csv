@@ -70,3 +70,4 @@ aebb76c92ecb4193c63cd0bbf1c06682356617dadfb2c7b1fd38474d3fa967b7,https://www.cas
 cbcb9faf926ec4e15ec1c8d8459b4593810faa005d6ba61cc76dfd372c210b5a,https://www.castlepoint.gov.uk/download/article-4-direction-datasetcsv.csv?ver=14179&doc=docm93jijm4n8305.csv,,,2024-09-20,2024-09-20,
 f7803fa6e54c43e59b73b1659cc0776ed21352da138ec73e4b83ef64864de03a,https://maps.birmingham.gov.uk/server/rest/services/planx/PlanX/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-09-24,,
 91d97dadb79ce25bf8bef023de03c8c2d68fba9579b5119d6e130b1760700d8f,https://maps.birmingham.gov.uk/server/rest/services/planx/PlanX/FeatureServer/1/query?where=1=1&outfields=*&f=geojson,,,2024-09-25,,
+4b9e2b3e33beb72e918447efc99a202b37846ffa272adfc0f665054ba23c819c,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Article_4_Directions_South_Bucks/FeatureServer/0/query?where=1%3D1&f=geojson&outfields=*,,,2024-10-01,,

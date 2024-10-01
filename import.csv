@@ -1,0 +1,2 @@
+organisation,documentation-url,endpoint-url,start-date,pipelines,plugin,licence
+local-authority-eng:BUC,https://www.buckinghamshire.gov.uk/planning-and-building-control/having-a-say-and-reporting-issues/article-4-directions/,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Article_4_Directions_South_Bucks/FeatureServer/0/query?where=1%3D1&f=geojson&outfields=*,,article-4-direction-area,,ogl3
