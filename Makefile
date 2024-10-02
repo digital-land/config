@@ -24,9 +24,15 @@ EXPECTATION_DIR = expectations/$(COLLECTION)/
 VAR_DIR = var/$(COLLECTION)/
 
 # use this to make stuff that is normally in var
-COLUMN_FIELD_DIR=$(VAR_DIR)/column-field/
-DATASET_RESOURCE_DIR=$(VAR_DIR)/dataset-resource/
-CACHE_DIR=$(VAR_DIR)/cache/
+COLUMN_FIELD_DIR=$(VAR_DIR)column-field/
+DATASET_RESOURCE_DIR=$(VAR_DIR)dataset-resource/
+CACHE_DIR=$(VAR_DIR)cache/
+CONVERTED_RESOURCE_DIR=$(VAR_DIR)converted-resource/
+# add in anotherr directory
+PERFORMANCE_DIR=performance/$(COLLECTION)/
+
+# use below to toggle which makerrules branch when testing
+MAKERULES_URL = https://raw.githubusercontent.com/digital-land/makerules/feat/config/
 
 include makerules/makerules.mk
 include makerules/development.mk

@@ -32,6 +32,7 @@ flattened/
 issue/
 specification/
 transformed/
+performance/
 
 # ignore specific files
 pipeline/title-boundary/lookup.csv
