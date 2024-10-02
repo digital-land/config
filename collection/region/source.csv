@@ -1,2 +1,3 @@
 source,attribution,collection,documentation-url,endpoint,licence,organisation,pipelines,entry-date,start-date,end-date
 c29e86ba7c3b01b0554fa664104b4e56,ons,region,https://geoportal.statistics.gov.uk/datasets/regions-december-2015-full-extent-boundaries-in-england/explore,acf3e807b4d328111af4ade3570a726756880a1cfecfe4c98a225647712c544d,ogl3,government-organisation:D303,region,2021-12-05T20:20:10Z,,
+db445c7a9b48701a4f133d96782e6892,,region,https://geoportal.statistics.gov.uk/datasets/ons::regions-december-2023-boundaries-en-bfe-2/about,363f4e6869fdffd02b91d40373846a00597f8ed288ea99b794e5e1e6dd48848e,ogl3,government-organisation:D303,region,2024-10-02,2024-10-02,
