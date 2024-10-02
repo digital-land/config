@@ -1,2 +1,3 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
 2fe69293c0911843f5ca04d2b8a34b3e4f5cc412f64cc06cb69c7753efa3785a,https://opendata.arcgis.com/datasets/b48d99f080c34352a095df3e00cf6e8c_0.geojson,,,2021-01-11T00:00:00Z,,
+16f8dcc23978b61a03e92f1b5520ca956ee698a7b306cbc55acf4687899bffcc,https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Parishes_May_2023_Boundaries_EW_BFE/FeatureServer/0/,,arcgis,2024-10-02,2024-10-02,
