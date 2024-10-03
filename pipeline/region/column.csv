@@ -2,3 +2,5 @@ dataset,resource,column,field,start-date,end-date,entry-date,endpoint
 region,,WKT,geometry,,,,
 region,,rgn15cd,reference,,,,
 region,,rgn15nm,name,,,,
+region,,RGN23CD,reference,,,,
+region,,RGN23NM,name,,,,
