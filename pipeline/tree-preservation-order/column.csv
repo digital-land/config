@@ -425,3 +425,6 @@ tree-preservation-order,45d990e6122b78c0b4193f2df7099a1e2da7bdb03a55a52d268af83d
 tree-preservation-order,45d990e6122b78c0b4193f2df7099a1e2da7bdb03a55a52d268af83d4c23f19e,,X,GeoX,,,
 tree-preservation-order,45d990e6122b78c0b4193f2df7099a1e2da7bdb03a55a52d268af83d4c23f19e,,Y,GeoY,,,
 tree-preservation-order,314ce9104c6e495d89317de2085d2bcbac1abe54e9f7cb068f35be8171eaa80b,,INT_ID,reference,,,
+tree-preservation-order,d6abdbc3123bc4b60ee9d34ab1ec52dda34d67e6260802df6a944a5f7d09352b,,TREE_PRESERVATION_ORDER,reference,,,
+tree-preservation-order,d6abdbc3123bc4b60ee9d34ab1ec52dda34d67e6260802df6a944a5f7d09352b,,Documentation_URL,IGNORE,,,
+tree,d6abdbc3123bc4b60ee9d34ab1ec52dda34d67e6260802df6a944a5f7d09352b,,WKT,geometry,,,
