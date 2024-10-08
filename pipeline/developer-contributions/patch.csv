@@ -58,3 +58,33 @@ developer-agreement-transaction,,organisation,GRE,local-authority-eng:GRE,,,,,
 developer-agreement-transaction,,organisation,local-authority:ash,local-authority-eng:ASH,,,,,
 developer-agreement-transaction,,organisation,local-authority-eng:wot,local-authority-eng:WOT,,,,,
 developer-agreement-transaction,,organisation,national-park:10,national-park-authority:Q20198711,,,,,
+developer-agreement-contribution,,contribution-purpose,'Amended -Affordable- Housing- plan- locations',affordable-housing,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-contribution,,contribution-purpose,'community-facilties',community-facilities,,,,,1ded2d38b58e6288e3272c42945cdf69626125c02c5691dc24a486b3934210ff
+developer-agreement-contribution,,contribution-purpose,'digtial-infrastructure',digital-infrastructure,,,,,e80e128827994e3997e8bffb1550b1cbeefac08f7e598ffc082d7ab86527948d
+developer-agreement-contribution,,contribution-purpose,'Economic Developent (Local Employment)',economic-development,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
+developer-agreement-contribution,,contribution-purpose,'Education - Secondary',education,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
+developer-agreement-contribution,,contribution-purpose,'education-primary',education,,,,,df74cf1c725e3d723dd0b700f99e5234d248f4ff58cb3bed32ba2c424026028f
+developer-agreement-contribution,,contribution-purpose,'Green Infrastructure - Public Realm',green-infrastructure,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
+developer-agreement-contribution,,contribution-purpose,'Initial off -site- affordable- housing -contribution',affordable-housing,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-contribution,,contribution-purpose,'Off -site- affordable- housing -contribution',affordable-housing,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-contribution,,contribution-purpose,'Open Space',open-space,,,,,616902e1261ef646b23e8b4dd8e82bbc853489c90e575a9a096161c2d163a2dc
+developer-agreement-contribution,,contribution-purpose,'Open Space and Leisure',open-space,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
+developer-agreement-contribution,,contribution-purpose,'open-space-and-lesiure',open-space,,,,,c5401ba0e9229a1c91e81ca4c0112baf9e6008371442b1d3731be26dd33cc8fd
+developer-agreement-contribution,,contribution-purpose,'open-spaces-and-leisure',open-space,,,,,914e84dd87312abf478d67da171e8dc5c8e6946ce7ad0d32737dab75f5530698
+developer-agreement-contribution,,contribution-purpose,'other - Ecological Monitoring',other,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
+developer-agreement-contribution,,contribution-purpose,'other-allotments',other,,,,,3c6e01bbf35f5618601873d4025c1d3abae976b24dd58bd41611feea56f7d84e
+developer-agreement-contribution,,contribution-purpose,'other-allotments',other,,,,,91f67ff8088b672bc8171a630ee63ce650e6b35e299c9588b196c51d9a05ba2e
+developer-agreement-contribution,,contribution-purpose,'other-ecology',other,,,,,3c6e01bbf35f5618601873d4025c1d3abae976b24dd58bd41611feea56f7d84e
+developer-agreement-contribution,,contribution-purpose,'other-ecology',other,,,,,91f67ff8088b672bc8171a630ee63ce650e6b35e299c9588b196c51d9a05ba2e
+developer-agreement-contribution,,contribution-purpose,'other-HRA',other,,,,,3c6e01bbf35f5618601873d4025c1d3abae976b24dd58bd41611feea56f7d84e
+developer-agreement-contribution,,contribution-purpose,'other-HRA',other,,,,,91f67ff8088b672bc8171a630ee63ce650e6b35e299c9588b196c51d9a05ba2e
+developer-agreement-contribution,,contribution-purpose,'other-police',other,,,,,afd5f4176bb544595dc93a119751dedb714cdc8ca9888515710ef6cc5f2d4a8f
+developer-agreement-contribution,,contribution-purpose,'Parking spaces contribution',transport,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-contribution,,contribution-purpose,'Public Open Space',open-space,,,,,616902e1261ef646b23e8b4dd8e82bbc853489c90e575a9a096161c2d163a2dc
+developer-agreement-contribution,,contribution-purpose,'To provide £50 of free travel to one user of each dwelling using the car club',transport,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-contribution,,contribution-purpose,'Traffic signal contribution',transport,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-contribution,,contribution-purpose,'Transport and Travel',transport,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
+developer-agreement-contribution,,contribution-purpose,'Transport and travel',transport,,,,,e80e128827994e3997e8bffb1550b1cbeefac08f7e598ffc082d7ab86527948d
+developer-agreement-contribution,,contribution-purpose,'Travel plan auditing contribution',transport,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-transaction,,contribution-funding-status,'receieved',received,,,,,c404f16827cf6292298c70779fd3601066c2aa1850f3109ac647a129a126051c
+developer-agreement-transaction,,contribution-funding-status,'recieved',received,,,,,c404f16827cf6292298c70779fd3601066c2aa1850f3109ac647a129a126051c
