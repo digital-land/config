@@ -1,3 +1,3 @@
 dataset,resource,field,pattern,value,entry-number,start-date,end-date,entry-date,endpoint
-infrastructure-project,,infrastructure-project-type,'Business & Commercial',business-and-commercial ,,,,,80f861e565b7ff31065ce74baf3f5d627681b506052588ff27e47a7049b7a295
-infrastructure-project,,infrastructure-project-type,'Waste Water',waste-and-water,,,,,80f861e565b7ff31065ce74baf3f5d627681b506052588ff27e47a7049b7a295
+infrastructure-project,,infrastructure-project-type,Business & Commercial,business-and-commercial ,,,,,80f861e565b7ff31065ce74baf3f5d627681b506052588ff27e47a7049b7a295
+infrastructure-project,,infrastructure-project-type,Waste Water,waste-and-water,,,,,80f861e565b7ff31065ce74baf3f5d627681b506052588ff27e47a7049b7a295
