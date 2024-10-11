@@ -47,7 +47,7 @@ save-config::
 # custom makefile rule for adding endpoints using the add-data command
 add-data:
 ifeq ($(INPUT_CSV),)
-		@echo "Provide INPUT_CSV Environment Variable to add data."
-		@exit 1
+	$(error Provide INPUT_CSV Environment Variable to add data)
+	@exit 1
 endif
-		digital-land add-endpoints-and-lookups $(INPUT_CSV) $(COLLECTION) -c $(COLLECTION_DIR) -p $(PIPELINE_DIR) -o $(CACHE_DIR)organisation.csv
+	digital-land add-endpoints-and-lookups $(INPUT_CSV) $(COLLECTION) -c $(COLLECTION_DIR) -p $(PIPELINE_DIR) -o $(CACHE_DIR)organisation.csv
