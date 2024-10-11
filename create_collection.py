@@ -30,6 +30,7 @@ def create_project_structure(name):
             "convert.csv": "end-date,endpoint,entry-date,parameters,dataset,plugin,resource,start-date",
             "default-value.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,resource,start-date,value",
             "default.csv": "dataset,default-field,end-date,endpoint,entry-date,entry-number,field,resource,start-date",
+            "entity-organisation.csv":"dataset,entity-minimum,entity-maximum,organisation",
             "filter.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date",
             "lookup.csv": "prefix,resource,entry-number,organisation,reference,entity",
             "old-entity.csv" : "old-entity,status,entity,notes,end-date,entry-date,start-date",
