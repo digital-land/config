@@ -20,12 +20,13 @@ EXPECTATION_DIR = expectations/$(COLLECTION)/
 
 # we create a var directorry here to store anything that would be in the var dir
 # we strictly don't need this as everything is automatically separated by dataset
-VAR_DIR = var/$(COLLECTION)/
+VAR_DIR = var/$(COLLECTION)
 
 # use this to make stuff that is normally in var
 COLUMN_FIELD_DIR=$(VAR_DIR)/column-field/
 DATASET_RESOURCE_DIR=$(VAR_DIR)/dataset-resource/
 CACHE_DIR=$(VAR_DIR)/cache/
+CONVERTED_RESOURCE_DIR=$(VAR_DIR)/converted-resource/
 
 include makerules/makerules.mk
 include makerules/development.mk
@@ -42,3 +43,11 @@ save-config::
 
 # what  to do next
 # resource directory is being  
+
+# custom makefile rule for adding endpoints using the add-data command
+add-data:
+ifeq ($(INPUT_CSV),)
+		@echo "Provide INPUT_CSV Environment Variable to add data."
+		@exit 1
+endif
+		digital-land add-endpoints-and-lookups $(INPUT_CSV) $(COLLECTION) -c $(COLLECTION_DIR) -p $(PIPELINE_DIR) -o $(CACHE_DIR)organisation.csv
