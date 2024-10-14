@@ -110,3 +110,4 @@ f0504cf86d020dcf1d4dd74993a250cd785ff783ccfac5b28129f01e4c8fa4e8,https://raw.git
 1aa6059f066e9708c73868c00dd8e0092ba063299f62530d59deea5f6f164560,https://maps.birmingham.gov.uk/server/rest/services/planx/PlanX/FeatureServer/4/query?outFields=*&where=1%3D1&f=geojson,,,2024-09-24,,
 19a19114f4ce19ab8984ee84787589123f6b69f8fe8dca8a59f8599b25039c77,https://maps.birmingham.gov.uk/server/rest/services/planx/PlanX/FeatureServer/5/query?where=1=1&outfields=*&f=geojson,,,2024-09-25,,
 d027bc3baf8f1bdf299797a1c368c1144fd19cf431e30214baa5f92e1f6ab5c6,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Conservation_Areas_HE/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-01,,
+a32ee3c64fd2a4c0c1b7e4d65a0165185e7bf8309451aca1a6c8487f7d41a65d,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/LBTH_ConservationAreas/FeatureServer/6/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-11,2024-10-11,
