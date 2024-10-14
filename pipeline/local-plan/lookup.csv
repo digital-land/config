@@ -1,3 +1,10 @@
 prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date
 local-plan,,,,government-organisation:D1342,arun-district-council-local-plan-2011,4220000,,,
 local-plan,,,,government-organisation:D1342,london-borough-of-islington-local-plan-2023,4220001,,,
+local-plan-document,,,,government-organisation:D1342,arun-district-council-local-plan-2011-2,3800000,,,
+local-plan-document,,,,government-organisation:D1342,arun-district-council-local-plan-2011-3,3800001,,,
+local-plan-document,,,,government-organisation:D1342,london-borough-of-islington-local-plan-2023-1,3800002,,,
+local-plan-document,,,,government-organisation:D1342,london-borough-of-islington-local-plan-2023-2,3800003,,,
+local-plan-document,,,,government-organisation:D1342,london-borough-of-islington-local-plan-2023-6,3800004,,,
+local-plan-boundary,,,,government-organisation:D1342,E09000007,4211000,,,
+local-plan-boundary,,,,government-organisation:D1342,E09000019,4211001,,,
