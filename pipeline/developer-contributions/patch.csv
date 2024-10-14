@@ -88,3 +88,14 @@ developer-agreement-contribution,,contribution-purpose,Transport and travel,tran
 developer-agreement-contribution,,contribution-purpose,Travel plan auditing contribution,transport,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
 developer-agreement-transaction,,contribution-funding-status,receieved,received,,,,,c404f16827cf6292298c70779fd3601066c2aa1850f3109ac647a129a126051c
 developer-agreement-transaction,,contribution-funding-status,recieved,received,,,,,c404f16827cf6292298c70779fd3601066c2aa1850f3109ac647a129a126051c
+developer-agreement,,developer-agreement-type,106,section-106,,,,,
+developer-agreement,,developer-agreement-type,278,section-278,,,,,
+developer-agreement-contribution,,contribution-purpose,(?i)green.*infrastructure|infrastructure.*green,green-infrastructure,,,,,
+developer-agreement-contribution,,contribution-purpose,(?i)digital.*infrastructure|infrastructure.*digital,digital-infrastructure,,,,,
+developer-agreement-contribution,,contribution-purpose,(?i)economic.*develop|develop.*economic,green-infrastructure,,,,,
+developer-agreement-contribution,,contribution-purpose,(?i)transport.*travel|travel.*transport,green-infrastructure,,,,,
+developer-agreement-contribution,,contribution-purpose,(?i)health,health,,,,,
+developer-agreement-contribution,,contribution-purpose,(?i)education,education,,,,,
+developer-agreement-transaction,,contribution-funding-status,(?i)recevied,received,,,,,
+developer-agreement-transaction,,contribution-funding-status,(?i)recieved,received,,,,,
+developer-agreement-transaction,,contribution-funding-status,(?i)transferred,transferred,,,,,
