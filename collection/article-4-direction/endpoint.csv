@@ -77,3 +77,4 @@ f7803fa6e54c43e59b73b1659cc0776ed21352da138ec73e4b83ef64864de03a,https://maps.bi
 6854c25386b9c65c857c7ee74d54dac393bbff199513eae66f4f30eaaa873820,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/LBTH_Article4/FeatureServer/5/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-11,2024-10-11,
 46119b56528a12bad69cc19160000ab2ca3f8edd39b05f74ad8bc956b531a57e,https://maps2.bristol.gov.uk/server2/rest/services/ext/ODP_Datasets/MapServer/7/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-16,,
 c998e8befc7c357fe7f001af02e9ddc2cd3238c81d958e8156188fdf2f06ba2f,https://maps2.bristol.gov.uk/server2/rest/services/ext/ODP_Datasets/MapServer/6/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-16,,
+7fd9d1689d43229394ad65492587dd663d84e5b5e713353387701e010f3a1856,https://www.mapping.cityoflondon.gov.uk/arcgis/rest/services/COL_Published/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-22,,
