@@ -113,3 +113,4 @@ d027bc3baf8f1bdf299797a1c368c1144fd19cf431e30214baa5f92e1f6ab5c6,https://service
 a32ee3c64fd2a4c0c1b7e4d65a0165185e7bf8309451aca1a6c8487f7d41a65d,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/LBTH_ConservationAreas/FeatureServer/6/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-11,2024-10-11,
 867e63988b9b050238b0deb9b9cc02994bc74432ccb95b7716a46b7252c8d7f9,https://maps2.bristol.gov.uk/server2/rest/services/ext/ODP_Datasets/MapServer/5/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-16,,
 336059237936a81622bd4e129068f553b5692b8bd3c6b33c61d0174a83d33024,https://maps2.bristol.gov.uk/server2/rest/services/ext/ODP_Datasets/MapServer/4/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-16,,
+c7bcd1cf9e1a3eee50c3648b877f4717cab8c95073223c54684a437704a8b4da,https://plymouth.thedata.place/dataset/7d77ca62-817b-4a01-9cfc-cbc0d4c1696b/resource/1f4590e9-28f8-4b73-aad6-911ea81901e4/download/conservation_area_documents_plymouth.csv,,,2024-10-23,,
