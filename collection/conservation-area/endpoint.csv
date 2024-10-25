@@ -227,4 +227,6 @@ b6fd0c9cccb13466c8e2bd671f814791199b5f39e0bfa1dcc68694e0f30e36bf,https://raw.git
 6a97a937db55d2797662cf9ac0a48192684fafd55f05aca95bfdd52a50348e39,https://raw.githubusercontent.com/digital-land/conservation-area-data/refs/heads/main/data/Output/Missing/WNM-conservation-area-document.csv,,,2024-10-17,,
 07635939d73a5553c49285d4de56fe69eac15b16ee3b810364f7621160a92f51,https://raw.githubusercontent.com/digital-land/conservation-area-data/refs/heads/main/data/Output/Missing/WOK-conservation-area-document.csv,,,2024-10-17,,
 db1d7731114481ec5fafe32f7439f1709d7bf65561e1a78a6ea43a4d8de5c962,https://raw.githubusercontent.com/digital-land/conservation-area-data/refs/heads/main/data/Output/Missing/WOT-conservation-area-document.csv,,,2024-10-17,,
+d28294636eb23ba136308d5e1ce0739bbaa7bb05031c6a86f632a2519099ed87,https://www.wirral.gov.uk/files/conservationarea.geojson/download?inline,,,2024-10-25,,
+4f7e77db56b58e62b7f5935cd7eabff4cbfa2a059023a0ec1114b47c7f99febb,https://www.wirral.gov.uk/files/conservation-area-document.csv/download?inline,,,2024-10-25,,
 10cf8d9f6bbb69c93cfee3277941fb6b88b21d9c681532f7a1a1846eebdb7af0,https://www.mapping.cityoflondon.gov.uk/arcgis/rest/services/COL_Published/MapServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-24,,
