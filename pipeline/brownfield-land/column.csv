@@ -133,3 +133,7 @@ brownfield-land,,br_permission_type,PermissionType,,,,
 brownfield-land,,br_net_dwellings_range_to,NetDwellingsRangeTo,,,,
 brownfield-land,,br_net_dwellings_range_from,NetDwellingsRangeFrom,,,,
 brownfield-land,,br_hazardous_subst	,HazardousSubstances,,,,
+brownfield-land,,GeoX,IGNORE,,,,86d76797d9869faecb7c7b4252a77975a26aa3a4da20efb1019b1ee95de08185
+brownfield-land,,GeoY,IGNORE,,,,86d76797d9869faecb7c7b4252a77975a26aa3a4da20efb1019b1ee95de08185
+brownfield-land,,EASTING,longitude,,,,86d76797d9869faecb7c7b4252a77975a26aa3a4da20efb1019b1ee95de08185
+brownfield-land,,NORTHING,latitude,,,,86d76797d9869faecb7c7b4252a77975a26aa3a4da20efb1019b1ee95de08185
