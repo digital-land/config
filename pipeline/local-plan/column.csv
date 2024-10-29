@@ -1,1 +1,3 @@
-column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+dataset,endpoint,resource,column,field,start-date,end-date,entry-date
+local-plan-document-type,306b632d1b2cb712fccdbb5b7b39ec978fd9a5c0f3df4b8a54ce946b3b6b30bd,,entity,IGNORE,,,
+local-plan-event,a2e53a9581245c3e83bb3294c71bbe1741691056afc99f6265252a6ec363c982,,entity,IGNORE,,,
