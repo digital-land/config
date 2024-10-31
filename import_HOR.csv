@@ -1,0 +1,2 @@
+organisation,endpoint-url,documentation-url,start-date,pipelines,plugin,licence
+local-authority:HOR,https://services.arcgis.com/kpKmjwOZyXMs3vON/arcgis/rest/services/hdc_3825_TPO_polygon_OGL_WGS84/FeatureServer/2/,https://www.horsham.gov.uk/planning/protected-trees/check-if-a-tree-is-protected,07/10/2024,tree-preservation-order;tree-preservation-zone;tree,arcgis,ogl3
