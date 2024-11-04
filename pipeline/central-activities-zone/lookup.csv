@@ -1,6 +1,6 @@
 resource,entry-number,prefix,reference,entity,start-date,organisation,end-date,entry-date,endpoint
-,,local-authority-eng,SWK,329,,,,,
-,,local-authority-eng,LBH,192,,,,,
+,,local-authority,SWK,329,,,,,
+,,local-authority,LBH,192,,,,,
 ,,central-activities-zone,CAZ00000001,2200001,,,,,
 ,,central-activities-zone,CAZ00000002,2200002,,,,,
 ,,central-activities-zone,CAZ00000003,2200003,,,,,
