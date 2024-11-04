@@ -18,6 +18,11 @@ DATASET_DIR=dataset/$(COLLECTION)/
 FLATTENED_DIR=flattened/$(COLLECTION)/
 EXPECTATION_DIR = expectations/$(COLLECTION)/
 
+# We are testing migrating to parquet files, as part of this we are creating a new log directory and will 
+# be slowly migrating various logs that are created into one directory. dur to name classes the name below is
+# used
+OUTPUT_LOG_DIR=log/$(COLLECTION)/
+
 # we create a var directorry here to store anything that would be in the var dir
 # we strictly don't need this as everything is automatically separated by dataset
 VAR_DIR = var/$(COLLECTION)
