@@ -6,7 +6,7 @@ from pathlib import Path
 from digital_land.cli import assign_entities_cmd
 from digital_land.collection import Collection
 
-def process_csv(csv_file):
+def process_csv():
     """
     Uses provided file path to automatically process and assign unknown entities
     """
@@ -16,9 +16,18 @@ def process_csv(csv_file):
     
     resources_dir = Path('./resources')
     resources_dir.mkdir(exist_ok=True)
-    
+
+    csv_file_link = 'https://config-manager-prototype.herokuapp.com/reporting/download?type=odp-issue'
+    csv_file = requests.get(csv_file_link)
+
+    if csv_file.status_code == 200:
+        with open('issue_summary.csv', 'wb') as file:
+            file.write(csv_file.content)
+        print("CSV file downloaded successfully!")
+    else:
+        print(f"Failed to download the file. Status code: {response.status_code}")    
     try:
-        with open(csv_file, 'r') as file:
+        with open('issue_summary.csv', 'r') as file:
             csv_reader = csv.DictReader(file)
             for row_number, row in enumerate(csv_reader, start=1):
                 if row['issue_type'].lower() != 'unknown entity':
@@ -104,13 +113,9 @@ def process_csv(csv_file):
     return failed_downloads, failed_assignments
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        csv_file = sys.argv[1]
-    else:
-        csv_file = input("Enter csv file path: ")
-    
+
     try:
-        failed_downloads, failed_assignments = process_csv(csv_file)
+        failed_downloads, failed_assignments = process_csv()
         print(f"\nTotal failed downloads: {len(failed_downloads)}")
         print(f"Total failed assign-entities operations: {len(failed_assignments)}") 
     except Exception as e:
