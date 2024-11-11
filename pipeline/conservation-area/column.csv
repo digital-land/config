@@ -548,3 +548,5 @@ conservation-area,cbc9b157127a34e63f927d2c5dec4b25d58477ccde1ae8f836c4a5f9ba5e29
 conservation-area,89d2deb81ed1c1e943d9f3999c565100d22db04531761bf098ed05cabf8c8423,,organisation,IGNORE,,,
 conservation-area-document,864d74ebb515466435db25df7b4c936077e745f51b9eca670111cd6e4c202843,,organisation,IGNORE,,,
 conservation-area,6cc963eed60a955c0012a61481010d5cc0fbfb595e5d0670c09756540f22cf4d,,uid,reference,,,
+conservation-area,6cc963eed60a955c0012a61481010d5cc0fbfb595e5d0670c09756540f22cf4d,,date_updat,entry-date,,,
+conservation-area,6cc963eed60a955c0012a61481010d5cc0fbfb595e5d0670c09756540f22cf4d,,date_of_de,start-date,,,
