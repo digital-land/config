@@ -4,3 +4,4 @@ endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
 291304123a698c9e4ba674a1ee21611827b08b0d9c6a52eae58a1ba2146d49e4,https://raw.githubusercontent.com/digital-land/local-plans-explorer/refs/heads/main/data/export/local-plan-document.csv,,,2024-10-15,,
 a2e53a9581245c3e83bb3294c71bbe1741691056afc99f6265252a6ec363c982,https://dluhc-datasets.planning-data.dev/dataset/local-plan-event.csv,,,2024-10-29,,
 306b632d1b2cb712fccdbb5b7b39ec978fd9a5c0f3df4b8a54ce946b3b6b30bd,https://dluhc-datasets.planning-data.dev/dataset/local-plan-document-type.csv,,,2024-10-29,,
+6c806302524eebcbfc9c34f89adf97ffcc75c66f53b08d79a8e3f2c685075148,https://raw.githubusercontent.com/digital-land/local-plans-explorer/refs/heads/main/data/export/local-plan-timetable.csv,,,2024-11-12,,
