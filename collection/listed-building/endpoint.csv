@@ -38,3 +38,4 @@ ebec555824d8f1bb2148af571a63c0ca99e01a173f6bce70ff36287d2a4e2ea9,https://maps2.b
 2422d123ec972ac516171687e530b37a7b0c9cfc53cb9154e0121dd5bcaafc03,https://www.mapping.cityoflondon.gov.uk/arcgis/rest/services/COL_Published/MapServer/2/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-25,,
 d4f439fc666b883c110ba5399f83e9519aa6085d00c1ba4ba761091d41bf2a79,https://www.ashford.gov.uk/media/nbtf0mzr/listedbuilding_abc.csv,,,2024-10-25,,
 af28edf7a93957680be4563991a8d6dd67c841ecf70b6861dc31437fc343fb4a,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/ArcGIS/rest/services/Listed_Buildings/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-28,,
+d24dbcb176ee1cca4e169d3793e9856b72560bd49ae96bec292df6d7a70d14ce,https://www.wirral.gov.uk/files/listed-building-outline.geojson/download?inline,,,2024-11-13,,
