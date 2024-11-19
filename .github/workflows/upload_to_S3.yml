@@ -4,38 +4,15 @@ on:
   push:
     branches:
       - spike/config-per-environment
-  workflow_dispatch:
-    inputs:
-      environment:
-        type: string
-        description: The environment to deploy to.
-        default: 'Development'
 
 jobs:
-  detect-environments:
-    runs-on: ubuntu-latest
-    outputs:
-      environments: ${{ steps.environments.outputs.result }}
-    steps:
-      - uses: actions/github-script@v6
-        id: environments
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          result-encoding: json
-          script: |
-            if (context.payload?.inputs?.environment) return [context.payload?.inputs?.environment];
-            const {data: {environments}} = 
-              await github.request(`GET /repos/${process.env.GITHUB_REPOSITORY}/environments`);
-            return environments.map(e => e.name)
-
   upload_to_S3:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.environment == 'Development' }}
-    environment: ${{ github.event.inputs.environment }}
+    environment: 'Development'
     steps:
       - name: Running environment
         run: |
-          echo "Running in environment: ${{ github.event.inputs.environment }}"
+          echo "Running in environment: Development"
 
       - name: Check out repository
         uses: actions/checkout@v4
@@ -49,4 +26,4 @@ jobs:
 
       - name: Save to S3
         run: |
-          aws s3 sync ./config/ s3://${{ secrets.CONFIG_S3_BUCKET }}/config-${{ matrix.environment }}/ --delete
+          aws s3 sync ./config/ s3://${{ secrets.CONFIG_S3_BUCKET }}/config-Development/ --delete
