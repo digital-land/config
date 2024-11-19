@@ -26,4 +26,4 @@ jobs:
 
       - name: Save to S3
         run: |
-          aws s3 sync ./config/ s3://${{ secrets.CONFIG_S3_BUCKET }}/config-Development/ --delete
+          aws s3 sync config/ s3://${{ secrets.CONFIG_S3_BUCKET }}/config-Development/ --delete
