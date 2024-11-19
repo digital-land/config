@@ -16,11 +16,7 @@ jobs:
 
       - name: Check out repository
         uses: actions/checkout@v4
-
-      - name: List files in the repository
-        run: |
-          ls -R
-
+      
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
         with:
@@ -30,4 +26,4 @@ jobs:
 
       - name: Save to S3
         run: |
-          aws s3 sync config/ s3://${{ secrets.CONFIG_S3_BUCKET }}/config-Development/ --delete
+          aws s3 sync ./ s3://${{ secrets.CONFIG_S3_BUCKET }}/config-Development/ --exclude ".git/*" --delete
