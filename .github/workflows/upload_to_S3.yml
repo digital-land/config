@@ -7,8 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        type: environment
+        type: string
         description: The environment to deploy to.
+        default: 'Development'
 
 jobs:
   detect-environments:
@@ -29,16 +30,12 @@ jobs:
 
   upload_to_S3:
     runs-on: ubuntu-latest
-    needs: [detect-environments]
-    strategy:
-      matrix:
-        environment: ${{ fromJSON(needs.detect-environments.outputs.environments) }}
-    environment: ${{ matrix.environment }}
-    if: ${{ matrix.environment == 'Development' }}
+    if: ${{ github.event.inputs.environment == 'Development' }}
+    environment: ${{ github.event.inputs.environment }}
     steps:
       - name: Running environment
         run: |
-          echo "Running in environment: ${{ matrix.environment }}"
+          echo "Running in environment: ${{ github.event.inputs.environment }}"
 
       - name: Check out repository
         uses: actions/checkout@v4
