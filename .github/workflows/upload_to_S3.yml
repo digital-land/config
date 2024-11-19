@@ -26,4 +26,4 @@ jobs:
 
       - name: Save to S3
         run: |
-          aws s3 sync ./ s3://${{ secrets.CONFIG_S3_BUCKET }}/config-Development/ --exclude ".git/*" --delete
+          aws s3 sync ./ s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config-Development/ --exclude ".git/*" --delete
