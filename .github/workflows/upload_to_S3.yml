@@ -39,5 +39,5 @@ jobs:
 
       - name: Save to S3
         run: |
-          aws s3 sync config/collection s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/collection --delete
-          aws s3 sync config/pipeline s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/pipeline --delete
+          aws s3 sync ./collection s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/collection --delete
+          aws s3 sync ./pipeline s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/pipeline --delete
