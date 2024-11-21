@@ -38,44 +38,14 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Configure AWS Credentials-Development
-        if: ${{ matrix.environment == 'Development' }}
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-access-key-id: ${{ secrets.DEPLOY_AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.DEPLOY_AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-2
 
-      - name: Save to S3-Development
-        if: ${{ matrix.environment == 'Development' }}
+      - name: Save to S3
         run: |
           aws s3 sync ./collection s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/collection
           aws s3 sync ./pipeline s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/pipeline
-
-      - name: Configure AWS Credentials - Staging
-        if: ${{ matrix.environment == 'Staging' }}
-        uses: aws-actions/configure-aws-credentials@v1-node16
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-2
-  
-      - name: Save to S3 - Staging
-        if: ${{ matrix.environment == 'Staging' }}
-        run: |
-          aws s3 sync ./collection s3://${{ secrets.STAGING_COLLECTION_DATA_BUCKET }}/config/collection
-          aws s3 sync ./pipeline s3://${{ secrets.STAGING_COLLECTION_DATA_BUCKET }}/config/pipeline
-  
-      - name: Configure AWS Credentials - Production
-        if: ${{ matrix.environment == 'Production' }}
-        uses: aws-actions/configure-aws-credentials@v1-node16
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-2
-  
-      - name: Save to S3 - Production
-        if: ${{ matrix.environment == 'Production' }}
-        run: |
-          aws s3 sync ./collection s3://${{ secrets.PRODUCTION_COLLECTION_DATA_BUCKET }}/config/collection
-          aws s3 sync ./pipeline s3://${{ secrets.PRODUCTION_COLLECTION_DATA_BUCKET }}/config/pipeline
