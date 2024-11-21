@@ -99,3 +99,5 @@ developer-agreement-contribution,,contribution-purpose,(?i)education,education,,
 developer-agreement-transaction,,contribution-funding-status,(?i)recevied,received,,,,,
 developer-agreement-transaction,,contribution-funding-status,(?i)recieved,received,,,,,
 developer-agreement-transaction,,contribution-funding-status,(?i)transferred,transferred,,,,,
+developer-agreement,,organisation,CDC,http://opendatacommunities.org/id/district-council/cherwell,,,,,2c2b48e6720e529fec1895a0e308db7d95f7c152a65d85dfafb8efa08ec6ecb4
+developer-agreement,,organisation,HAO,http://opendatacommunities.org/id/district-council/harborough,,,,,2e4c62e01f5ac1903659f0837b9950c0e13c5a50f0a1a43f2cd9687ea9b7cb36
