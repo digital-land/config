@@ -433,3 +433,4 @@ tree,921cc67b0a42e501137e3a4cb112b281dece73502ba7428e5d26d622052f2a22,,WKT,geome
 tree-preservation-order,,,organisation,IGNORE,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
 tree,,,organisation,IGNORE,,,
+tree,0c83c1c9572e704f3d51c4a5dd5f950c5aa0e9ecf7353a009b03575beecf5a47,,tree-preservation-zone-type,tree-preservation-order-tree,,,
