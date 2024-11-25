@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - spike/config-per-environment
     workflow_dispatch:
       inputs:
         environment:
