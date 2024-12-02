@@ -57,7 +57,7 @@ e23d220663fd8297427832c7f0aa7bf8431a5318051364ff57df31be4dd3052c,https://apps.n-
 0587dcfba69b374a7b3146db4efdb34d3ba92db745aef9b895b4cade24d0ac2e,https://apps.n-somerset.gov.uk/planningdata/Article%204%20Direction%20Dataset.csv,,,2024-06-24,,
 11ceb6807ca6320712e4b589a625e94a6efada5c41928b91579ee7abf236fcae,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/article_4_DL/wfs?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Aarticle_4_DL&OutputFormat=GML2,,,2024-07-02,2024-07-02,
 16d98d5693ac7f8d4619ddb2053601bbb84f05041d638432947ea9520457f089,https://www.eastcambs.gov.uk/sites/default/files/Article%204%20direction%20dataset.csv,,,2024-07-03,2024-07-01,
-3fd5b83549d8a53a98cff21e9e5673f583502ac37145463d961ae02c8a5ec71b,https://www.eastcambs.gov.uk/sites/default/files/Article%204%20direction%20area.gpkg,,,2024-07-03,2024-07-01,
+3fd5b83549d8a53a98cff21e9e5673f583502ac37145463d961ae02c8a5ec71b,https://www.eastcambs.gov.uk/sites/default/files/Article%204%20direction%20area.gpkg,,,2024-07-03,2024-07-01,2024-12-02
 196a877ca7aa581c5f190f15262b1e38483a0cf3ccbe56c8d82ac43534c8c897,https://www.sandwell.gov.uk/downloads/file/2894/article-4-direction-dataset,,,2024-07-05,,
 32e803298b278d83d5f58b1d12497f94c1cbf2f844428f3614f692c7f36c7eeb,https://www.lambeth.gov.uk/sites/default/files/2024-07/LBL_Article_4.csv,,,2024-07-10,,
 bed4f351349b9a0b2ec746d1650a01c37b5965ea75f2a8791c8c81483d439371,https://www.lambeth.gov.uk/sites/default/files/2024-07/LBL_Article_4_Area_GeoJSON.txt,,,2024-07-10,,
@@ -86,3 +86,4 @@ be557dcef843918934b9216fd597a70b02cc5546a9bee9366985340bb3269045,https://service
 ca4bb4ce3d76cc57183c2de03dfddb6f3e45b451c658b077d0626e2b6f871c0a,https://www.wirral.gov.uk/files/article-4-direction.csv/download?inline,,,2024-11-20,,
 55cf0a2a52a0c2e523e1d7606e6c3d55e8a3aca681babe9acc1183e4afa76439,https://www.wirral.gov.uk/files/article-4-direction-area.geojson/download?inline,,,2024-11-20,,
 90dcae622e23a4e136120a6d59ad80397611ff46bea1b79a28dda771958c8843,https://www.sstaffs.gov.uk/sites/default/files/2024-11/South Staffordshire Article 4 Spatial Dataset_0.geojson,,,2024-11-22,,
+aa1a95099c62c629e9e7e6955edd959e367374f7fbaf94a4af4056ff47387368,https://eastcambs.gov.uk/sites/default/files/2024-11/Article%204%20direction%20area%20%282%29.gpkg,,,2024-12-02,,
