@@ -242,3 +242,5 @@ ebeea8689113e04aa6e709520e0b437aa0f39e80952498dd00663d9cfabb2030,https://www.sst
 6be2e81951485d6856463b6ed433ebf69661be33981b0985d0a9bb5142686e01,https://www.sstaffs.gov.uk/sites/default/files/2024-11/South%20Staffs%20Conservation%20Area%20geometry%20dataset%20ODP1.geojson,,,2024-11-26,,
 dfb701a17a10d46053eea72484ff3836a75dd839eab109c78f1a3fbc8ca17409,https://www.newforest.gov.uk/media/4226/NFDC-conservation-area.geojson/json/NFDC-conservation-area.geojson,,,2024-11-27,,
 6180a42205056c2f716158e940cd6f2af138e76f63b0730ba0c3582a2673e261,https://www.newforest.gov.uk/media/4225/conservation-area-document-dataset/xls/conservation-area-document_NFDC.csv?m=1732022311657,,,2024-11-27,,
+881a3e8d5026b1cbce2e539f717b337b16f46527e868d7383ed09bc48f06664d,https://raw.githubusercontent.com/digital-land/conservation-area-data/refs/heads/main/data/Output/ExistingMatched/ALL-conservation-area.csv,,,2024-12-04,,
+bdb5d64f21954caea66ce8e2ff1717018fc04a929856ae6633e4c2790a8e212b,https://raw.githubusercontent.com/digital-land/conservation-area-data/refs/heads/main/data/Output/ExistingMatched/ALL-conservation-area-document.csv,,,2024-12-04,,
