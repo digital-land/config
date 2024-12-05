@@ -79,7 +79,7 @@ f7803fa6e54c43e59b73b1659cc0776ed21352da138ec73e4b83ef64864de03a,https://maps.bi
 c998e8befc7c357fe7f001af02e9ddc2cd3238c81d958e8156188fdf2f06ba2f,https://maps2.bristol.gov.uk/server2/rest/services/ext/ODP_Datasets/MapServer/6/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-16,,
 7fd9d1689d43229394ad65492587dd663d84e5b5e713353387701e010f3a1856,https://www.mapping.cityoflondon.gov.uk/arcgis/rest/services/COL_Published/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-22,,
 3a311d9acfee72bec2fe70fb9cb29b45aa297dbb1c527d4e235121f782e87779,https://plymouth.thedata.place/dataset/616c1f4f-151f-4859-9177-142c4135da2d/resource/d1c637e1-0503-4a22-bd37-8bd0e2de671d/download/article_4_direction_plymouth.csv,,,2024-10-30,,2024-12-05
-8026d95f5da3cbda8ac6d183601586b372896720f49e31925ae1f4374f254c43,https://plymouth.thedata.place/dataset/616c1f4f-151f-4859-9177-142c4135da2d/resource/dbdb8fee-fa7d-4c49-830a-2732259fa978/download/article_4_direction_area_plymouth.geojson,,,2024-10-30,,
+8026d95f5da3cbda8ac6d183601586b372896720f49e31925ae1f4374f254c43,https://plymouth.thedata.place/dataset/616c1f4f-151f-4859-9177-142c4135da2d/resource/dbdb8fee-fa7d-4c49-830a-2732259fa978/download/article_4_direction_area_plymouth.geojson,,,2024-10-30,,2024-12-05
 667fc1598d817e6456c775277214067697b1e09f50b11c0111c5fdaaac756028,https://maps.doncaster.gov.uk/server/rest/services/Planning/Article_4/MapServer/6/,,arcgis,2024-11-07,,
 d3599f46a21de336fdcf154dbc0601cae3244cad242afd42b8fbe0fcdedad472,https://www.sstaffs.gov.uk/sites/default/files/2024-11/Article%204%20Direction%20Data_0.csv,,,2024-11-12,,
 be557dcef843918934b9216fd597a70b02cc5546a9bee9366985340bb3269045,https://services.southwark.gov.uk/assets/attach/194785/Article-4-direction-area.geojson,,,2024-11-15,,
@@ -89,3 +89,4 @@ ca4bb4ce3d76cc57183c2de03dfddb6f3e45b451c658b077d0626e2b6f871c0a,https://www.wir
 aa1a95099c62c629e9e7e6955edd959e367374f7fbaf94a4af4056ff47387368,https://eastcambs.gov.uk/sites/default/files/2024-11/Article%204%20direction%20area%20%282%29.gpkg,,,2024-12-02,,
 7b0904bd85af78baccb3d8c75d75ec149f0f9af3661a1dc1c983ada3d9a69150,https://eastcambs.gov.uk/sites/default/files/2024-12/Article%204%20direction%20dataset%20-New.csv,,,2024-12-02,,
 0076621b85266c55a2813a4561d188afaea56ff0623be0907be328a625e97e5e,https://plymouth.thedata.place/dataset/b18b02a2-c836-4bfc-93f8-bb2edc37fa9c/resource/b48b6c47-f268-407a-91cf-07ad6f9d5ca5/download/article_4_direction_plymouth.csv,,,2024-12-05,,
+ced0b624cb0e3ed809bf20c6b46b2e603b5b3ee080ee6c988e7f8e8ca0413e05,https://plymouth.thedata.place/dataset/b18b02a2-c836-4bfc-93f8-bb2edc37fa9c/resource/43a43a94-575c-4d3f-8ee5-436d5c3970ab/download/article4.geojson,,,2024-12-05,,
