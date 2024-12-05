@@ -1443,4 +1443,6 @@ afeedf64adda8a28f44f726f46a28a46241bef247bd80166af6059636586311e,https://guildfo
 25f30994ef42979d3343a0e57947804554a987b54bfa8c4dde731ca6cb67ddb6,https://plymouth.thedata.place/dataset/ece0ce26-9d4f-4ee8-b054-783d6097a250/resource/7b2a5885-a89f-477e-b538-f36326250f60/download/bfr-2024.csv,,,2024-11-13,,
 66c64790857c1f8cd4309705d5b970d1a658e35442b9678fb41cedd8b82d7cc3,https://services.southwark.gov.uk/assets/attach/194797/Brownfield-Land.geojson,,,2024-11-15,,
 0a2fa05e29fa0a27682d343bde5714bdd3a8185f815ddaae08b7ceabacb7dc40,https://www.barnsley.gov.uk/media/xgcnier0/brownfield-land.csv,,,2024-12-02,,
+9a903e7c477cea591bc0eaac6e4f7a9f9d38da4dfd1a43f7b2915099d2d59246,https://services.arcgis.com/yvqphKcf9bBSnjX1/ArcGIS/rest/services/Brownfield_Land_Register/FeatureServer/12/query?where=1%3D1&outfields=*&f=geojson,,,2024-12-03,,
 fb40e6e3065d3eefc7fadc101464e932c51b943e4e67500b200189cdfe41adec,https://www.fareham.gov.uk/pdf/planning/BrownfieldLandRegisterPart1_2024.csv,,,2024-12-02,,
+
