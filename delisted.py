@@ -2,7 +2,7 @@ import requests
 from shapely.geometry import shape, Polygon
 from shapely import wkt
 import json
-import datetime
+from datetime import datetime
 import logging
 import pandas as pd
 from requests import adapters
@@ -80,12 +80,14 @@ def get_types_and_check_overlap(heritage_categories):
                     obj_geo = feature["geometry"]
                     article_version_name = feature["properties"].get("ARTICLEVERSIONNAME")
                     obj_id = feature["properties"].get("OBJECTID")
+                    end_time = feature["properties"].get("DateRemovedFromList")
 
                     if obj_geo and article_version_name:
                         heritage_data[heritage_description].append({
                             'geometry': shape(obj_geo),
                             'article_version_name': article_version_name,
-                            'object_id': obj_id
+                            'object_id': obj_id,
+                            'date_removed': end_time
                         })
 
             # Check overlaps for each heritage category
@@ -132,6 +134,8 @@ def get_types_and_check_overlap(heritage_categories):
                                             if dataset_geometry.intersects(heritage_item['geometry']):
                                                 print(f"OVERLAP detected for {record.get('entity', 'Unknown Entity')} with {heritage_category}")
                                                 print(f"Overlapping Heritage: {heritage_item['article_version_name']}")
+                                                date_unformated = datetime.utcfromtimestamp(heritage_item['date_removed'] / 1000)  
+                                                date_formatted =date_unformated.strftime('%Y-%m-%d')
                                                 all_overlapping_entities.append({
                                                     'entity': record["entity"],
                                                     'entity_geo' : record["geometry"],
@@ -139,6 +143,7 @@ def get_types_and_check_overlap(heritage_categories):
                                                     'overlapping_heritage_category': heritage_category,
                                                     'heritage_article_version_name': heritage_item['article_version_name'],
                                                     'heritage_object_id': heritage_item['object_id'],
+                                                    'heritage_end_date': date_formatted,
                                                     'heritage_geo': heritage_item['geometry']
                                                 })
                                                 break
@@ -170,7 +175,7 @@ def main():
 
     csv_filename = 'heritage_overlaps.csv'
 
-    headers = ['entity', 'entity_geo', 'dataset', 'overlapping_heritage_category', 'heritage_article_version_name', 'heritage_object_id', 'heritage_geo']
+    headers = ['entity', 'entity_geo', 'dataset', 'overlapping_heritage_category', 'heritage_article_version_name', 'heritage_object_id', 'heritage_end_date', 'heritage_geo']
 
     with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
         csv_writer = csv.DictWriter(csvfile, fieldnames=headers)
