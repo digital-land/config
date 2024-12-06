@@ -1,2 +1,3 @@
 source,attribution,collection,documentation-url,endpoint,licence,organisation,pipelines,entry-date,start-date,end-date
-e01a6ab1cd556431fd0e8176c2868b45,,parish,,2fe69293c0911843f5ca04d2b8a34b3e4f5cc412f64cc06cb69c7753efa3785a,,government-organisation:D303,parish,2021-01-11T00:00:00Z,2021-01-11,
+e01a6ab1cd556431fd0e8176c2868b45,,parish,,2fe69293c0911843f5ca04d2b8a34b3e4f5cc412f64cc06cb69c7753efa3785a,,government-organisation:D303,parish,2021-01-11T00:00:00Z,2021-01-11,2024-12-04
+7cba4e4fdbe09667f6584f2e60ce112d,,parish,https://geoportal.statistics.gov.uk/datasets/ons::parishes-may-2024-boundaries-ew-bfe-2/about,394b4b495be60927af25a58ac3be218ef1e5877cceb256754d9dd361d338dae8,ogl3,government-organisation:D303,parish,2024-12-05,2024-12-04,
