@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - main
-    workflow_dispatch:
-      inputs:
-        environment:
-          type: environment
-          description: The environment to deploy to.
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: environment
+        description: The environment to deploy to.
 
 jobs:
   detect-environments:
