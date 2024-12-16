@@ -32,5 +32,5 @@
 **Reviewer's checklist:**
 - [ ] Expected checks have been completed by PR requester
 - [ ] Correct date format used in config files (YYYY-mm-dd)
-- [ ] Number of new lookups ist as expected from source data
+- [ ] Number of new lookups is as expected from source data
 - [ ] Spot checked that newly assigned entity numbers aren’t in use
