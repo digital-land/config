@@ -238,7 +238,7 @@ c7bcd1cf9e1a3eee50c3648b877f4717cab8c95073223c54684a437704a8b4da,https://plymout
 6cc963eed60a955c0012a61481010d5cc0fbfb595e5d0670c09756540f22cf4d,https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/Conservation_Areas/FeatureServer/1,,arcgis,2024-11-08,,
 d02c91c33b6d0999c5d95acab72bd87e012f150427e4b7759a5e4bd5a150eed2,https://map.salford.gov.uk/geoserver/SpatialPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=SpatialPlanning:aslp_conservation_areas&outputFormat=application%2Fjson,,,2024-11-13,,
 b431e9c6b7178db0847e8c5510d86b993dca23a0354fb792cb5dd871aa0f9854,https://services.southwark.gov.uk/assets/attach/194104/Conservation-Areas.geojson,,,2024-11-15,,
-ebeea8689113e04aa6e709520e0b437aa0f39e80952498dd00663d9cfabb2030,https://www.sstaffs.gov.uk/sites/default/files/2024-11/South Staffs Conservation Area document dataset_1.csv,,,2024-11-22,,
+ebeea8689113e04aa6e709520e0b437aa0f39e80952498dd00663d9cfabb2030,https://www.sstaffs.gov.uk/sites/default/files/2024-11/South Staffs Conservation Area document dataset_1.csv,,,2024-11-22,,2024-12-17
 6be2e81951485d6856463b6ed433ebf69661be33981b0985d0a9bb5142686e01,https://www.sstaffs.gov.uk/sites/default/files/2024-11/South%20Staffs%20Conservation%20Area%20geometry%20dataset%20ODP1.geojson,,,2024-11-26,,
 dfb701a17a10d46053eea72484ff3836a75dd839eab109c78f1a3fbc8ca17409,https://www.newforest.gov.uk/media/4226/NFDC-conservation-area.geojson/json/NFDC-conservation-area.geojson,,,2024-11-27,,
 6180a42205056c2f716158e940cd6f2af138e76f63b0730ba0c3582a2673e261,https://www.newforest.gov.uk/media/4225/conservation-area-document-dataset/xls/conservation-area-document_NFDC.csv?m=1732022311657,,,2024-11-27,,
@@ -424,3 +424,4 @@ f020e0548c4a668928d45365d1b9e168b4f5506a1e396d4d338a94da2d3e8a02,https://raw.git
 c91a73a9bf714bff921bf7394de22cb8cf82fbd935353a0be592eb98a0958e24,https://raw.githubusercontent.com/digital-land/conservation-area-data/refs/heads/main/data/Output/ExistingMatched/241211/WSK-conservation-area-document.csv,,,2024-12-12,,
 9d564d55e6710b039d6f2b4cfddc2914a8a0f796e4050b07361ff28fd7497366,https://raw.githubusercontent.com/digital-land/conservation-area-data/refs/heads/main/data/Output/ExistingMatched/241211/WYE-conservation-area-document.csv,,,2024-12-12,,
 5ce9f7fd111d1747ec8cad3d2f2099fd04fa5f6e8f5e199d631d9a2cdcbeed98,https://raw.githubusercontent.com/digital-land/conservation-area-data/refs/heads/main/data/Output/ExistingMatched/241211/WYR-conservation-area-document.csv,,,2024-12-12,,
+9181f07d30189821c33ea48304029441910724c3f4529c1758751d3b393ba104,https://www.sstaffs.gov.uk/sites/default/files/2024-12/South%20Staffs%20Conservation%20Area%20document%20dataset_1.csv,,,2024-12-17,2024-12-17,
