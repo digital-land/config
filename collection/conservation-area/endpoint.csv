@@ -93,7 +93,7 @@ be638dacab8e9643716043350587d10a38204c596cf3e70be5105149991d6eaf,https://www.ros
 8fdf314ef9044149cd8df70e51838e385fdeda24be1be7bc6b3e402fda48f43a,https://opendata.camden.gov.uk/resource/geu8-xww8.csv,,,2024-06-13,,
 d9c1f90bebda35186029557b7ee6e60c951e25c20fb1599fd51860846198018d,https://opendata.camden.gov.uk/resource/3hsk-65x3.csv,,,2024-06-13,,
 69f9df6cc9c634fe3b7c157d9478fd1983dba349226f8d3a80dc863ba37f88e5,https://apps.n-somerset.gov.uk/planningdata/Conservation%20Areas.json,,,2024-06-21,,
-efaec8fa03a6bb0ca9db87fa4d2f9c9806d4e21c4376506f2b90f2ff91e32eb4,https://www.eastcambs.gov.uk/sites/default/files/Conservation%20area%20dataset.gpkg,,,2024-07-03,2024-07-01,
+efaec8fa03a6bb0ca9db87fa4d2f9c9806d4e21c4376506f2b90f2ff91e32eb4,https://www.eastcambs.gov.uk/sites/default/files/Conservation%20area%20dataset.gpkg,,,2024-07-03,2024-07-01,2024-12-18
 2737f4f6d755809cbe3e84341cfcd6792d74844d34338bb050d47eebf2ce017b,https://www.sandwell.gov.uk/downloads/file/2889/conservation-area-dataset-july24,,,2024-07-05,,
 8d0400b1e63b9b42a7e406175555b52b6350a5b8d3f2a30fefac9bf142b9af92,https://www.southwark.gov.uk/assets/attach/194104/Conservation-Areas.geojson,,,2024-07-10,,2024-11-15
 6dad8060cbdf75cf7c28c511b107a367e7c0435e04d130793b8464454bfd384c,https://gcty.dynamicmaps.co.uk:8443/geoserver/Digital_Land/conservation_areas_DL/wfs?service=wfs&request=GetFeature&TypeNames=Digital_Land%3Aconservation_areas_DL&OutputFormat=GML2,,,2024-08-07,,
@@ -427,3 +427,5 @@ c91a73a9bf714bff921bf7394de22cb8cf82fbd935353a0be592eb98a0958e24,https://raw.git
 9181f07d30189821c33ea48304029441910724c3f4529c1758751d3b393ba104,https://www.sstaffs.gov.uk/sites/default/files/2024-12/South%20Staffs%20Conservation%20Area%20document%20dataset_1.csv,,,2024-12-17,2024-12-17,
 c5e2d6e496bd8144a3848fda83edfc3abf7e0ac680340ce52cae870e17958375,https://www.torbay.gov.uk/services/geoserver/DigitalPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=DigitalPlanning%3ADLUHC_conservation_area_document_Torbay&outputFormat=csv&format_options=filename:conservation_area_document_Torbay.csv,,,2024-12-17,2024-12-17,
 1b7c8f2033977c6fc78dda2be827856e3c455c12ada0519ddd99f4cb8273060e,https://www.torbay.gov.uk/services/geoserver/DigitalPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=DigitalPlanning%3ADLUHC_conservation_area_Torbay&outputFormat=application%2Fjson,,,2024-12-17,2024-12-17,
+51fe21e9011479314712c9bc6e51015c2ab07c6f8fc25874eca1eeffdfa0563a,https://eastcambs.gov.uk/sites/default/files/2024-12/Conservation%20area%20dataset.gpkg,,,2024-12-18,2024-12-18,
+0ee5cc32fae15fa17b57d2fa55f96e3f7c453ca9e4503e88612d5cd8234ac974,https://eastcambs.gov.uk/sites/default/files/2024-12/Conservation%20area%20documents%20datasets.csv,,,2024-12-18,2024-12-18,
