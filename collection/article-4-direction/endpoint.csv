@@ -101,3 +101,5 @@ d5ad6672335d6357c8dc5776d0c18c6f3cc40f7a5a6d0d13607e7a454e05855e,https://atlas.p
 f4d600b88aaf18172828b1dce6c4d00f9b93784dad2c11055b2d6eec899f714b,https://atlas.peterborough.gov.uk/arcgis/rest/services/Planning/Planning_Digitisation_GOV_UK_External_Connection/MapServer/0/query?outFields=*&where=1%3D1&f=json,,,2025-01-02,,
 098f0733c0e45568c70460ba521ebd269cd0e18253f944ec03a2252c2febcd71,https://data.rochdale.gov.uk/files/Article_4_DirectionsDocumentDataset.csv,,,2025-01-02,,
 2cefde155cf648a2923963c216be96b7fc9c2679d56c30edd9fedf5192decfc9,https://data.rochdale.gov.uk/files/Article_4_DirectionsAreaDataset.csv,,,2025-01-02,,
+1e75db94e3349d46db1e037d5cd4b9b0967d22e2d6f69f041a0788c361afb32d,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/LBTH_Article_4_Direction_Residential_To_HMO/FeatureServer/83/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,
+2428c7af0edd692592197b477c6f1d61129ee54568b1caab2be88c89bc7696a0,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/LBTH_Article_4_Direction_Class_E_To_Residential/FeatureServer/84/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,
