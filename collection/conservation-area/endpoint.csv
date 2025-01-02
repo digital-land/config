@@ -432,3 +432,4 @@ c5e2d6e496bd8144a3848fda83edfc3abf7e0ac680340ce52cae870e17958375,https://www.tor
 330a3056cae0abd2395e9dc253ed519db95f9524c9e9c7920a82081604648904,https://www.easthants.gov.uk/sites/default/files/2024-10/Open%20data%20-%20conservation%20areas.csv,,,2024-12-18,2024-12-18,
 72b72c28986d9ad90a889c8c60a8de40bb086014d380d173f4f109a2e8757faa,https://www.rbkc.gov.uk/media/document/conservationareacsv,,,2025-01-02,,
 c0edde23d54ff309a28347a18ac195a3bd90ce04c70035dd5bd2a81422501d61,https://services-eu1.arcgis.com/tO2FhEnLa2qmISt9/arcgis/rest/services/Cambridge_City_Council_Conservation_Areas/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,
+56b7cf4cc457dd53ecfeb3f5cf7e34637b8f0efdb9711758cf4287901bbe0dbe,https://services-eu1.arcgis.com/tO2FhEnLa2qmISt9/arcgis/rest/services/South_Cambs_District_Council_Conservation_Areas/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,
