@@ -103,3 +103,5 @@ f4d600b88aaf18172828b1dce6c4d00f9b93784dad2c11055b2d6eec899f714b,https://atlas.p
 2cefde155cf648a2923963c216be96b7fc9c2679d56c30edd9fedf5192decfc9,https://data.rochdale.gov.uk/files/Article_4_DirectionsAreaDataset.csv,,,2025-01-02,,
 1e75db94e3349d46db1e037d5cd4b9b0967d22e2d6f69f041a0788c361afb32d,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/LBTH_Article_4_Direction_Residential_To_HMO/FeatureServer/83/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,
 2428c7af0edd692592197b477c6f1d61129ee54568b1caab2be88c89bc7696a0,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/LBTH_Article_4_Direction_Class_E_To_Residential/FeatureServer/84/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,
+94f98b37cac85e97132b45831270b0112d04061ca9e2b25b2cfd35c795e9fd07,https://www.newforest.gov.uk/media/4269/NFDC%20article%204%20direction%20area.geojson/json/NFDC%20article%204%20direction%20area.geojson,,,2025-01-02,,
+894e66f3df0d85574911e9898479bf6c1f3dd9bb8bd235d00627b74adfb02f82,https://newforest.gov.uk/media/4266/article-4-direction/xls/NFDC_article_4_direction.csv?m=1734350453880,,,2025-01-02,,
