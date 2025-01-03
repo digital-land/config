@@ -9,3 +9,5 @@ tree-preservation-zone,,tree-preservation-zone-type,(?!Individual),,,,,d6abdbc31
 tree,,tree-preservation-order-tree,Individual,,,,,d6abdbc3123bc4b60ee9d34ab1ec52dda34d67e6260802df6a944a5f7d09352b
 tree-preservation-zone,,tree-preservation-zone-type,Area,,,,,0c83c1c9572e704f3d51c4a5dd5f950c5aa0e9ecf7353a009b03575beecf5a47
 tree,,tree-preservation-order-tree,Individual,,,,,0c83c1c9572e704f3d51c4a5dd5f950c5aa0e9ecf7353a009b03575beecf5a47
+tree-preservation-zone,,tree-preservation-zone-type,(?!Tree),,,,,3237276c4ae0e3dae446205a7b917485ce23c196203d80bf30c8cb186e67c8f3
+tree,,tree-preservation-order-tree,Tree,,,,,3237276c4ae0e3dae446205a7b917485ce23c196203d80bf30c8cb186e67c8f3
