@@ -74,3 +74,6 @@ dc446f429ef237a6c197f36f930e9a45c90c02aaef2a0cea191b8194afdec20c,https://www.tor
 b5f6a2d78b05da255d6d2d7c3502c8046817b19506528234d0f1657e8ea53da7,https://www.rbkc.gov.uk/media/document/treedatasetcsv,,,2025-01-02,,
 b285bb6e4dee87a0974df32ecfe93086ef6765c867acf4658c6aad651a031c32,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/LBTH_Tree_Preservation_Zone/FeatureServer/149/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,
 eaceade72cd00741743fba9921fb2ef764ed3363f882f420904cb96d20c44106,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/LBTH_Tree_Preservation_Orders/FeatureServer/148/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,
+314ce9104c6e495d89317de2085d2bcbac1abe54e9f7cb068f35be8171eaa80b,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Tree_Preservation_Orders_Aylesbury_Vale/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2025-01-03,,
+45d990e6122b78c0b4193f2df7099a1e2da7bdb03a55a52d268af83d4c23f19e,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Tree_Preservation_Orders_CSB/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-03,,
+3237276c4ae0e3dae446205a7b917485ce23c196203d80bf30c8cb186e67c8f3,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Tree_Preservation_Orders/FeatureServer/0/,,arcgis,2025-01-03,,
