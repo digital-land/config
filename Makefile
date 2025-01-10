@@ -55,4 +55,4 @@ ifeq ($(INPUT_CSV),)
 	$(error Provide INPUT_CSV Environment Variable to add data)
 	@exit 1
 endif
-	digital-land add-endpoints-and-lookups $(INPUT_CSV) $(COLLECTION) -c $(COLLECTION_DIR) -p $(PIPELINE_DIR) -o $(CACHE_DIR)organisation.csv
+	digital-land add-data $(INPUT_CSV) $(COLLECTION) -c $(COLLECTION_DIR) -p $(PIPELINE_DIR) -o $(CACHE_DIR)organisation.csv
