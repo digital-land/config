@@ -852,7 +852,7 @@ fe11a631a9df0c2b2b20a63634599fc52f898535293b7feb8f8d20a17049243b,https://www.isl
 7e6afc19848e7098988775c80b38189d943f30f1c1afa27f04d3a1b68158c0c9,https://www.medway.gov.uk/download/downloads/id/1833/brownfield_register.csv,,,2020-12-15,,
 2638d2e8a6dab627c53f829a5374fd48b25a1df1792d469f6ee126c6f4c1c953,https://www.rotherham.gov.uk/downloads/file/2179/brownfield-land-register-2020,,,2020-12-15,,
 fbca9bcc34537cd805bed40c2c0d6bebf7d35c9537a649a187fbb251b7dfe43c,https://www.southdowns.gov.uk/wp-content/uploads/2020/12/brownfield-land.csv,,,2020-12-16,,2024-11-18
-f1b17d5681ce1e1c7d0fc1463cd7b65ecae6774fc9293b45891c8e6670551dda,https://www.reigate-banstead.gov.uk/download/downloads/id/6525/reigateandbanstead_brownfieldregister_2020_12_31_rev1.csv,,,2020-12-16,,
+f1b17d5681ce1e1c7d0fc1463cd7b65ecae6774fc9293b45891c8e6670551dda,https://www.reigate-banstead.gov.uk/download/downloads/id/6525/reigateandbanstead_brownfieldregister_2020_12_31_rev1.csv,,,2020-12-16,,2025-01-24
 22604698cc5bd1b88e9b54d506e815073c9e0b2bbc5955b76cc67ba13affef51,https://www.west-lindsey.gov.uk/_resources/assets/attachment/full/0/55646.csv,,,2020-12-16,,2023-09-05
 bb3385ec2ba9dd90a4c92ff25bf107487076ce8188536b1e8aab88a6005d54e2,https://www.stalbans.gov.uk/sites/default/files/attachments/Brownfield%20Register%20CSV%20File%20-%20Dec%202020.csv,,,2020-12-17,,
 5a254613e4900bd91ce2be7fa850a171b5300cc09494fb9645468c9b873384ed,https://www.rother.gov.uk/wp-content/uploads/2020/01/brownfield-land.csv,,,2020-12-17,,
@@ -1394,7 +1394,7 @@ b0dade99eae36ebc0c0f689971f4aeb16c9ebf62a7ba6fbe54814111d9d09ff1,https://open.ba
 fb4b06f04f0f356c0c9dfc0ca7851207de9a1aa71218a1bcfb2a95929d56642f,https://www.dudley.gov.uk/media/xxhj0cym/brownfield-land.csv,,,2023-11-15,2023-10-16,2024-10-09
 6aaa9950727f2d3e72c158fc25d41d0c6dccee212b66daaf693d79c0ec5e280c,https://www.wirral.gov.uk/sites/default/files/2023-10/Part%201%20Sites.csv,,,2023-11-24,2023-11-20,
 904e542cfeb4d1bc8dcf69ef5d2616b2da7a61de0696ae23242881db398e8fc1,https://www.yorkshiredales.org.uk/wp-content/uploads/sites/13/2023/11/YorkshireDalesNationalParkE26000008_brownfield-register_2023-10-05.csv,,,2023-11-27,2023-11-20,
-dced5eac5230c6fa52c61b0a2390bbea5bd8d371e346a2539763070eb7dc188a,https://www.reigate-banstead.gov.uk/download/downloads/id/7172/reigateandbanstead_brownfieldregister_2023_12_31_rev1.csv,,,2023-12-22,2023-12-31,
+dced5eac5230c6fa52c61b0a2390bbea5bd8d371e346a2539763070eb7dc188a,https://www.reigate-banstead.gov.uk/download/downloads/id/7172/reigateandbanstead_brownfieldregister_2023_12_31_rev1.csv,,,2023-12-22,2023-12-31,2025-01-24
 501af492588334aeb09088f9dcad094764f84649eec87b9772cf8b269b733d2e,https://www.n-kesteven.gov.uk/sites/default/files/2023-12/NKDC_brownfield_land_register.csv,,,2023-12-20,2022-12-19,
 dbc31c677be363a199e2f967cd64ee7714adc763e8ce9b10f0624ad59a29383a,https://www.richmond.gov.uk/media/swyn2sgi/brownfield_land.csv,,,2023-12-22,2023-12-14,
 4d8767ba691dcfc738ccaac9bd84d0281588ce8bcebc1d1a456fdfe5059979b9,https://www.lambeth.gov.uk/sites/default/files/2023-12/brownfield-land.csv,,,2023-12-22,2023-12-20,
@@ -1515,3 +1515,6 @@ fec7f031e6f35f1dc73d791046e6a18f46bcdc5b45ea2c2fd7d467a14a9aeed4,https://www.str
 e552ece9ba0a40d17e717182bc0015df827f6febd9ca5f5b6078bd184feb1fd9,https://www.babergh.gov.uk/documents/d/asset-library-54706/bmsdc-brownfield-land-register-2024-1-1,,,2025-01-23,,
 cab696af7747508641e5fbb6befe713bc1489eaac0d42daf2cee4c3ef7d09bbf,https://www.midsuffolk.gov.uk/documents/d/asset-library-54706/bmsdc-brownfield-land-register-2024-1-1,,,2025-01-23,,
 6edd2437485cfb1c6c9d93ae9a4fd86c7bfac6f389b36b5a15dec08aefa42b6d,https://www.lichfielddc.gov.uk/downloads/file/2709/brownfield-land-register-2024v2,,,2025-01-23,,
+bc8776fc5504ed3f4804597a0d90a92ff61fa5e245f19c6efe033b5d2c2e9b37,https://consult.cheshirewestandchester.gov.uk/resources/portal/supportingfiles/798742,,,2025-01-24,,
+cd63035bc983ee38754531030ef35f519f1f9e1e9aa5f55aebda90b32bc09c53,https://hub.arcgis.com/api/v3/datasets/797b7c92787a4dc899faf11464c897b7_0/downloads/data?format=csv&spatialRefId=3857&where=1%3D1,,,2025-01-24,,
+b1df055cbc39b9f65fa6cd1fd741b67b58dc8188d40232c0ab0632c07b47ae2d,https://www.wandsworth.gov.uk/media/2wfbqrjm/brownfield-land.csv,,,2025-01-24,,
