@@ -73,7 +73,7 @@ e0cc574bd41411ecf7f4b6c7d326d849c5fff1b6bf08596f9360ce227a583cf1,http://www.kirk
 893d9d8e820947ecf0ee00f5630a43882741d4b36faa15d9973eb765e626c3cc,http://www.reigate-banstead.gov.uk/download/downloads/id/3904/reigateandbanstead_brownfieldregister_2017-12-31_1_csv.csv,,,2018-05-22,2017-12-31,2024-05-20
 77613da4100efadbdc6eb213d7ecd0beda94d02852cab2a5bf85d99f7ba11ba8,https://www.thanet.gov.uk//wp-content/uploads/2018/03/BrownfieldLandRegisterThanetDCa.csv,,,2018-05-22,,
 425a3e0cf53ef4980e9c133f850a6e9e1a34cfd2e444e4723a96cd3770e08a66,https://opendata.arcgis.com/datasets/24e275a6e4c44085a793366713c3a1de_21.csv,,,2018-05-22,,
-a1a418adb2f172e0f4802225dc2d682bf9245c99986850df44c323929c7811a4,https://www.daventrydc.gov.uk/EasySiteWeb/GatewayLink.aspx?alId=46090,,,2018-05-22,,
+a1a418adb2f172e0f4802225dc2d682bf9245c99986850df44c323929c7811a4,https://www.daventrydc.gov.uk/EasySiteWeb/GatewayLink.aspx?alId=46090,,,2018-05-22,,2025-01-21
 e485663d18775f736b67125712aae6a442457b3283f1e38dc6b9d94ec202c1e1,http://www.rotherham.gov.uk/download/downloads/id/3375/brownfield_land_register_2017.csv,,,2018-05-22,,2019-11-03
 2901bdeb770dc9f08a0da55a2dbd748409e737cb62ce25e79f82f16695c0e3cb,http://www.boston.gov.uk/CHttpHandler.ashx?id=22192&p=0,,,2018-05-22,,2019-11-24
 7c3325de5bcc2f6c8b46aa03be1ba0b23186d4d65e3bd46c667112691f049bba,http://www.dudley.gov.uk/EasysiteWeb/getresource.axd?AssetID=290865&type=full&servicetype=Attachment,,,2018-05-22,,2019-11-18
@@ -192,7 +192,7 @@ f51578d5fd97b9393038a880a9c3a63a700ad1921a1f55fcd0478b9e8e9c1147,http://www.read
 3d0fc00839d1630e709568ab2a945f750464c3b393c1a4092fce93e21bd0650c,https://www.richmondshire.gov.uk/media/8380/brownfield-land-register-part-1-csv-format.csv,,,2018-05-22,,2019-10-20
 104cb1732d544e40da36c7960f77d317d9133f6ce3e86613daa1db99f9d5b086,http://www.waverley.gov.uk/download/downloads/id/5939/waverley_brownfield_land_register_csv.csv,,,2018-05-22,,2023-09-05
 5e7de1fc7e308b2bc4c8d8f5eb3719a96f77c554bb501afa87cd974225fa927b,https://www.dacorum.gov.uk/docs/default-source/default-document-library/dbc---brownfield-land-register-2017---csv-data-gov-version.csv?sfvrsn=0,,,2018-05-22,2017-12-19,
-0229227627ed9813e1157731084ee85c1bb30e831c063065453e707c57129c0c,http://www.nnjpu.org.uk/docs/BrownfieldLandRegisterTemplate%20-%202017%20Update%20-%20ONLINE%20VERSION.xlsm,,,2021-09-08,2021-09-09,2024-05-20
+0229227627ed9813e1157731084ee85c1bb30e831c063065453e707c57129c0c,http://www.nnjpu.org.uk/docs/BrownfieldLandRegisterTemplate%20-%202017%20Update%20-%20ONLINE%20VERSION.xlsm,,,2021-09-08,2021-09-09,2024-05-21
 5cce3d3acef75db981e5cd57e7078d525d04ad504b54ba39306dfd69ee86eba7,https://www.walthamforest.gov.uk/node/4007,,,2018-05-22,,2024-05-20
 d46f17f0731ec70de00ade53bca1dfe7be33bcf8304b57bbd7b6897bfba850e6,http://www.gosport.gov.uk/files/GBCBrownfieldLandRegister.csv,,,2018-05-22,,2019-12-20
 cb3265f2e0732f53e949c12898603223699b8b245f019e800540ed4080f1a8d3,http://www.rochdale.gov.uk/docs/2017-12-14-brownfield-land-register-as-at-01-04-2017-v1.csv,,,2018-05-22,2017-04-01,2023-09-04
@@ -268,7 +268,7 @@ d8a16d03651b220f37c32edabd006744137af85045ed701d852ffdae5eee17a4,https://www.new
 19d632bd5a1a49844fba72909b0b2f9c5a84b953d0a9d3d8d272e1d3b0127990,https://www.warrington.gov.uk/download/downloads/id/14633/brownfield_register_november_2017.xls,,,2018-05-22,,2019-10-20
 821ef08fb55b1aed9b69ac56b0ecb65386fe1e2b0d3093956ac01953339ad1e8,https://www.braintree.gov.uk/download/downloads/id/7439/bdc_brownfield_land_register_2017.csv,,,2018-05-22,2019-10-21,2019-10-20
 605cf88aa50a8763fb1d114812aa8e71ac9bc05d65b463e577dc9f63cb2c1b5e,https://www.uttlesford.gov.uk/CHttpHandler.ashx?id=7478&p=0,,,2018-05-22,2018-01-04,2019-11-01
-0f6db116583df6b99c132dff7936dff40e734fad70f56aa9a8778af44d54a361,https://www.southlakeland.gov.uk/media/4685/brownfield-land-register-2017.csv,,,2018-05-22,,
+0f6db116583df6b99c132dff7936dff40e734fad70f56aa9a8778af44d54a361,https://www.southlakeland.gov.uk/media/4685/brownfield-land-register-2017.csv,,,2018-05-22,,2025-01-21
 f0d7ca6f18b90ab9b1c8f85b6b9e1d6c4c624740a81a1dbcb0abca9918a65755,https://www.havant.gov.uk/havant-brownfield-register-2017-pdf-18-kb,,,2018-05-22,,
 ed890e95ca38770e09c43a3d1c3fa29afad3918e482006612dc5c07410a2382f,https://www.warwickdc.gov.uk/download/downloads/id/4705/brownfield_register_2017_-_csv.csv,,,2018-05-22,,
 101ca55e27b01d7632a888af70f3dc382c05aa83e2e496e81f74bf7e689b30a1,https://www.wychavon.gov.uk/documents/10586/8873385/WychavonBrownfieldLandRegister2017wrapped.csv/f588a90c-1181-4598-19aa-9443e7b02ce2,,,2018-05-22,,2019-11-30
@@ -580,7 +580,7 @@ b5cee04ab4154f840eac7b12fc6949c1374548f64faeb175fc02fec9ab9f4405,https://www.har
 5f600c521173794e63ed8a5725971eae6aec3790ea3ce25737d056650ea3b8ce,https://www.fdean.gov.uk/media/5640/dclg-brownfield-land-register.xlsm,,,2019-12-14,,2020-05-07
 984b91b15cdb0607aa4c7c4ef26736902c8eb0fdf7c2e3dcaa61559e4666db9e,https://www.lambeth.gov.uk/sites/default/files/lambeth_brownfieldregister_2018-12-17_rev2.csv,,,2019-12-14,2018-12-17,2023-09-01
 5e897158f3f92c96942c7da96e56c3b70c08367eaeb78d0b018ab1db87b9093a,https://www.rbkc.gov.uk/sites/default/files/atoms/files/Brownfield%20Land%20Register%202018.csv,,,2019-12-14,,2023-09-01
-d197adb8a5cae279baad3492689bdb3517c6fa1d99ef106ca0035453fcb20273,https://www.daventrydc.gov.uk/EasySiteWeb/GatewayLink.aspx?alId=48857,,,2019-12-14,,
+d197adb8a5cae279baad3492689bdb3517c6fa1d99ef106ca0035453fcb20273,https://www.daventrydc.gov.uk/EasySiteWeb/GatewayLink.aspx?alId=48857,,,2019-12-14,,2025-01-21
 41e36be4938cd04e20058823a88e612e6ed9414c12d8ddbe6c966d92057efc6e,https://www.royalgreenwich.gov.uk/downloads/file/3572/brownfield_land_register_csv,,,2019-12-14,,2020-01-01
 e7dcb6f7fab20a9741a93ddcad892a462728e88ef90888f5098deaa4d02d3719,https://www.spelthorne.gov.uk/media/20374/Brownfield-Land-Register-2018/csv/Brownfield-Land-Register-2018.csv,,,2019-12-14,,2023-09-04
 568d724760d2f6073011747205487432ce8b860dddadd276f02c4058f12c317f,https://data.leicester.gov.uk/explore/dataset/leicester_brownfieldregister_2017-12-31_rev1/download/?format=csv&timezone=Europe/London&use_labels_for_header=true&csv_separator=%3B,,,2019-12-14,2017-12-31,2020-01-16
@@ -604,7 +604,7 @@ fff29e0c36acb91a51b968a7de6a8880bfeec9a202b1f74c250d816db3171662,https://www.tes
 3b59c6f8753167a096ab898e9478aabd81b57301f71a776b02affc4f75241787,https://www.sholland.gov.uk/media/11228/South-Holland-District-Brownfield-Land-Register-2018/CSV/southholland_brownfieldregister_2018_rev1_cvs1.csv,,,2019-12-15,,
 8fcb091366e6c367e81d80fa5a10a3df2a8d1918577f9f3ae74819b74f87573c,https://www.warwickdc.gov.uk/downloads/file/4705/brownfield_register_2017_-_csv.csv,,,2019-12-15,,2020-01-01
 be1fdc02dc5884aff64529a6fcff762b40b094e4680733749c09536202def25b,https://www.selby.gov.uk/sites/default/files/Brownfield_Register_August_2018.csv,,,2019-12-15,,
-5371438414e294028c64235ae437ac5c5801917b770cf61c08da977b67ea0aa9,https://www.southlakeland.gov.uk/media/6203/brownfield-land-register-2018.csv,,,2019-12-15,,
+5371438414e294028c64235ae437ac5c5801917b770cf61c08da977b67ea0aa9,https://www.southlakeland.gov.uk/media/6203/brownfield-land-register-2018.csv,,,2019-12-15,,2025-01-21
 acf7ca21710fcfbd685b35e97f6d6035d79b1300e575700e8743e569ac0ddab0,http://www.tunbridgewells.gov.uk/__data/assets/file/0010/243928/7F82183D0C68217BE0531401A8C02CC2_Final_Register.csv,,,2019-12-15,,2019-12-24
 86fe71308d7cc6075a6740cb5f79393241bebcfa17d36e46ebb65e2b83d68ceb,https://go.walsall.gov.uk/Portals/0/Uploads/Planning/Planning%20Documents/walsall_brownfieldregister-2018-12-17_rev2.csv,,,2019-12-15,2018-12-17,2023-09-05
 dd64c2da17f6eb4e43661445a85c3ad1cd144281a9bafa13e3d84ef8236c0dbb,https://www.tamworth.gov.uk/sites/default/files/planning_docs/Brownfield_register/2018-BF-register.xlsx,,,2019-12-15,,2024-05-20
@@ -690,7 +690,7 @@ b26cbe44a7597472d76731bf035f70a6fbefbf220e763080e20d752a16140181,https://beta.so
 54ac12bc2c4cb840b36ecd8f1bc6b82812bad2f5f5460213759b709b5e4f479d,https://centralbedfordshire.app.box.com/s/sjxveden08abbqo7loj9trcu1s5u6108,,,2019-12-22,2019-12-22,2019-12-22
 dba02d5050b14b47891a07a12ec7f59b65f5dbcfee869565b36e4eb072ad7223,https://data.yorkopendata.org/dataset/7b937604-a03f-406b-a50c-e0ae1e260d1e/resource/d525b526-f226-4968-a9a1-a07f8a5557fc/download/brownfieldregister2019.csv,,,2019-12-22,2019-12-18,
 fbc421a2e2a38ec3db2420cda8952fd28a5f1e1a8c595cfd9badee48011265c2,https://www.kirklees.gov.uk/brownfieldlandregister,,,2019-12-22,2019-12-22,2020-01-16
-2cc6c5bd597e1aff4d6b5db419ec54ece5ee870f9c4b251056655b5be2fc86a3,http://www.nnjpdu.org.uk/site/assets/files/1106/brownfieldlandregistertemplate_-_2017_update_-_online_version.xlsm,,,2019-12-22,,
+2cc6c5bd597e1aff4d6b5db419ec54ece5ee870f9c4b251056655b5be2fc86a3,http://www.nnjpdu.org.uk/site/assets/files/1106/brownfieldlandregistertemplate_-_2017_update_-_online_version.xlsm,,,2019-12-22,,2025-01-21
 1c4528a1dcd231ca2c0282dd3445f408d23c2730ac2380f380962a020e23ee97,http://iwight.com/content/BrownfieldLandRegister.csv,,,2019-12-22,,2023-09-01
 156806e678bb09a5049eac29c96b3ba836ae5e03df7852ac0a49545534b31fcc,https://www.great-yarmouth.gov.uk/CHttpHandler.ashx?id=4930&p=0,,,2019-12-22,2019-12-22,2023-08-14
 d9c351d0c55cb447a3d41dcd91f5049d2fddd32d4afc1858b00b668ae4594baf,https://drive.google.com/file/d/1qpyaNoBf3VTCxE9a5IQ3DDapYXIsIbyj/view,,,2019-12-22,,2020-01-06
@@ -767,7 +767,7 @@ ffad0e67cf92f031918f67f2fe687e8116d2b31fd2e715f04f83c76c80b24deb,https://www.pen
 cbe8edcde17181afc97b7e37091d20ddb38ae87d7f6b1ee2b1ebd4ce740a5eb6,https://www.northwarks.gov.uk/download/downloads/id/7760/brownfield_land_register.xlsx,,,2020-03-10,2020-03-10,2024-05-20
 be2fb3ffb87a7d5a36ae57ac8e546d27361c4572ae7a7db4da1c89e6013ee919,http://www.reigate-banstead.gov.uk/download/downloads/id/5963/reigateandbanstead_brownfieldregister_2019-12-31_rev1csv.csv,,,2020-03-11,2020-03-11,2024-05-20
 a6545e04c46dfe76f4f901f7729db6b09f6f92906a5aebf44edbd6bcc6a151d1,https://www.bournemouth.gov.uk/planningbuilding/PlanningPolicy/PlanningPolicyFiles/brownfieldlandregister/bcp-blr-2019.csv,,,2020-03-11,2020-03-11,
-5a5c4b1fd3d506ecdba5d06a5e47e49ba01e1ec5031c5bb36ad7a06b67968fc8,https://www.salford.gov.uk/media/394812/brownfield-land.csv,,,2020-03-11,2020-03-11,
+5a5c4b1fd3d506ecdba5d06a5e47e49ba01e1ec5031c5bb36ad7a06b67968fc8,https://www.salford.gov.uk/media/394812/brownfield-land.csv,,,2020-03-11,2020-03-11,2025-01-23
 d568f4d0c63f8f1b8693cfbdf93a457b82f5b5119ce71851eda51145cdf18092,https://www.teignbridge.gov.uk/media/8648/brownfieldlandregisterteignbridge2017.csv,,,2020-03-13,,2020-08-14
 bfdedb9b3291b4dfe9bbbef99548204071bd6eb5166832372c78a68c477cc9ff,https://go.walsall.gov.uk/Portals/0/Uploads/Planning/Planning%20Policy/walsall_brownfieldregister-2017-12-29_for_web.csv,,,2020-03-13,,2023-09-05
 a37f282500be87c3a701e03cd6f94a580494c65fab07c7d4f5a14e1720222eb7,https://www.sstaffs.gov.uk/doc/180553/name/BrownField%20Register%202019%20CSV.csv/,,,2020-03-13,2020-03-13,2023-09-04
@@ -818,7 +818,7 @@ d8a1358c753c84a729b45684ecf1289cd4be55ec95f52b32df4b6fccf57b53f8,https://www.fde
 39cff91d3fbbbe81c2a0e9ba4933ba0c09aab8162219755f91ba48c4f89d864d,https://www.dacorum.gov.uk/docs/default-source/strategic-planning/dacorum-borough-council-brownfield-land-register-2019-(csv-14kb).csv?sfvrsn=8b51089e_6&download=true,,,2020-10-19,2020-10-14,
 729945a89f34044c2a5fba583746d309b1ea854edee747794bf093f9538d4e1d,https://www.ne-derbyshire.gov.uk/component/edocman/brownfield-land-register-csv/download,,,2020-10-19,2020-10-14,
 782f1ad8b36e0f32f4cf2d47a6f0421ac572a8f22e3cd571dad16b3df0a8635b,https://www.southhams.gov.uk/media/5545/Brownfield-Sites-Register-2019-South-Hams/pdf/Final_PDF_file_for_South_Hams.pdf,,,2020-10-19,2020-10-14,2023-09-04
-03c638874d3c43a497ed10ceba3142d25d555f42f22c855d7d31fac7b95efe6e,https://www.southnorthants.gov.uk/download/downloads/id/6806/brownfield-land-register-31-march-2020.xlsx,,,2020-10-19,2020-10-14,
+03c638874d3c43a497ed10ceba3142d25d555f42f22c855d7d31fac7b95efe6e,https://www.southnorthants.gov.uk/download/downloads/id/6806/brownfield-land-register-31-march-2020.xlsx,,,2020-10-19,2020-10-14,2025-01-21
 c50fe953dd436feb4c34837869aa87ee8f271860cd0151770d859f3aa4f6e04a,https://www.southribble.gov.uk/sites/default/files/brownfield-land.csv,,,2020-10-19,2020-10-14,2023-09-04
 bc1e50f2d91252e00210565a143c9c61053ceb0177acdd8964fd121776f28517,http://www.southoxon.gov.uk/wp-content/uploads/sites/2/2019/07/2018_12_21-Brownfield-Register_South-Oxfordshire.csv_.xlsx,,,2020-10-19,2020-10-14,
 23d4b98d4cd3497012447b8cf247dbe0dc2ce4d6856a9380a35971d6f9d2083d,http://www.manchester.gov.uk/download/downloads/id/27405/2019_brownfield_land_register.csv,,,2020-10-19,2020-10-14,2023-09-01
@@ -852,7 +852,7 @@ fe11a631a9df0c2b2b20a63634599fc52f898535293b7feb8f8d20a17049243b,https://www.isl
 7e6afc19848e7098988775c80b38189d943f30f1c1afa27f04d3a1b68158c0c9,https://www.medway.gov.uk/download/downloads/id/1833/brownfield_register.csv,,,2020-12-15,,
 2638d2e8a6dab627c53f829a5374fd48b25a1df1792d469f6ee126c6f4c1c953,https://www.rotherham.gov.uk/downloads/file/2179/brownfield-land-register-2020,,,2020-12-15,,
 fbca9bcc34537cd805bed40c2c0d6bebf7d35c9537a649a187fbb251b7dfe43c,https://www.southdowns.gov.uk/wp-content/uploads/2020/12/brownfield-land.csv,,,2020-12-16,,2024-11-18
-f1b17d5681ce1e1c7d0fc1463cd7b65ecae6774fc9293b45891c8e6670551dda,https://www.reigate-banstead.gov.uk/download/downloads/id/6525/reigateandbanstead_brownfieldregister_2020_12_31_rev1.csv,,,2020-12-16,,
+f1b17d5681ce1e1c7d0fc1463cd7b65ecae6774fc9293b45891c8e6670551dda,https://www.reigate-banstead.gov.uk/download/downloads/id/6525/reigateandbanstead_brownfieldregister_2020_12_31_rev1.csv,,,2020-12-16,,2025-01-24
 22604698cc5bd1b88e9b54d506e815073c9e0b2bbc5955b76cc67ba13affef51,https://www.west-lindsey.gov.uk/_resources/assets/attachment/full/0/55646.csv,,,2020-12-16,,2023-09-05
 bb3385ec2ba9dd90a4c92ff25bf107487076ce8188536b1e8aab88a6005d54e2,https://www.stalbans.gov.uk/sites/default/files/attachments/Brownfield%20Register%20CSV%20File%20-%20Dec%202020.csv,,,2020-12-17,,
 5a254613e4900bd91ce2be7fa850a171b5300cc09494fb9645468c9b873384ed,https://www.rother.gov.uk/wp-content/uploads/2020/01/brownfield-land.csv,,,2020-12-17,,
@@ -970,7 +970,7 @@ f80571b48a10974f1b4821a439f17f75d5f9592c4a7617acedbe444ab85e3db3,https://www.run
 7c81c63c39cc1ef78118f17e1e691563ce0271f33592c5fff2b1d9ed46373e08,https://www.hyndburnbc.gov.uk/download-package/brownfield-register/?wpdmdl=5825&ind=rjl93FhX7rEVB71ik76HA-oqUgosxkw_ulf5fmIEjsaJdtG805Z93Mt_aZZSXlezmvxFGrzSdeuV5qOcbqIrvg,,,2021-09-08,2021-09-09,2024-05-20
 b7751fab6358a7f814bae1189dbf406ccced8e9f2ebdcee68ca7a3403b2da460,https://www.slough.gov.uk/downloads/file/361/slough-brownfield-land-register-2019,,,2021-09-08,2021-09-09,
 d5a45acce0b0e843c2fe2562bb53e3b2459b5cf3ccef21dba05f4e6e7d14a733,https://www.great-yarmouth.gov.uk/media/5939/Brownfield-Register-as-CSV/csv/Brownfield_Register_2020__Update.csv,,,2021-09-08,2021-09-09,
-02047b7f79a2a3c816bd7438dee10e183ead7ded1ed94e023c0bf28511c1e425,http://www.nnjpdu.org.uk/site/assets/files/1416/copy_of_brownfieldlandregistertemplate_-_2018_update_-_online_version.xlsm,,,2021-09-10,,
+02047b7f79a2a3c816bd7438dee10e183ead7ded1ed94e023c0bf28511c1e425,http://www.nnjpdu.org.uk/site/assets/files/1416/copy_of_brownfieldlandregistertemplate_-_2018_update_-_online_version.xlsm,,,2021-09-10,,2025-01-21
 cdb0603e749f1b0e124873c8bfaf8e8c463b3576be42d989abb26702302fe272,https://www.southnorfolkandbroadland.gov.uk/downloads/file/436/south-norfolk-brownfield-register-2019-12-31-csv-copy-,,,2021-09-08,2021-09-09,2023-09-04
 6461d9795af0884960d25d58b5adccdf9e2687a97b7758da2a7393bc036c2541,http://www.nnjpdu.org.uk/site/assets/files/1451/brownfieldlandregistertemplate_-_2019_update_-_online_version.xlsm,,,2021-09-10,,2024-11-05
 2258441ef147e834873d3dd74d148df7900f7182023cba48e6388bb5c88f8c2e,https://www.winchester.gov.uk/assets/attach/20504/Brownfield-Land-Register-2019.csv,,,2021-09-08,2021-09-09,
@@ -1382,7 +1382,7 @@ f39432bd7a4799f95d7acec2c9ed25100ec6f25df28a5deddddfa52fd65b371d,https://data.ca
 f418979b27b576f82e11598edcbaf13c902dd46f73ed81934adb20dcd005d2ab,https://data.leicester.gov.uk/api/explore/v2.1/catalog/datasets/brownfield-register/exports/csv?lang=en&timezone=Europe%2FLondon&use_labels=true&delimiter=%3B,,,2023-10-29,2023-07-05,
 e16fe5ad2a8019f9b91a95a9d7410057201b613a3349eb29287deb619f811a30,https://somersetcc.sharepoint.com/:x:/s/SCCPublic/EbPIsKdxkclNptDBnz7rF58B0oBmICWRqzzasokZpts5_A?e=9JWdiw,,,2023-10-29,2022-12-31,
 d83e48b87ae9a78ee7d8501bb1a82e237c0fc680cd209d763968fa8599ce73f3,https://www.nuneatonandbedworth.gov.uk/download/downloads/id/4108/brownfield_land_register_2020.csv,,,2023-10-31,2022-11-25,2024-05-20
-4358caaebc2c113629ccfc13c003f8618a8ae85afde71ab0de281e181e04a68a,https://www.salford.gov.uk/media/398951/salford-2022-brownfield-register.csv,,,2023-10-31,2022-03-31,
+4358caaebc2c113629ccfc13c003f8618a8ae85afde71ab0de281e181e04a68a,https://www.salford.gov.uk/media/398951/salford-2022-brownfield-register.csv,,,2023-10-31,2022-03-31,2025-01-23
 3cee4eb9a89953edb04a6857891ad7f53258c1d7009b9ba4e9829f56322afc2c,https://www.staffordbc.gov.uk/brownfield-land-register-csv-format,,,2023-10-31,2021-11-12,
 2c8447be98843e5a45d403cde391fcf8ff2ff60a6930b9e289639be15a1dd572,https://www.stevenage.gov.uk/documents/planning-policy/brownfield-land-register/brownfield-land-register-2021-2022.xlsx,,,2023-10-31,2021-11-12,
 e1bdc511b8c0ceedece43d594a289409ae6ac442c3823c90670ac6f5cfecca0a,https://www.warwickdc.gov.uk/download/downloads/id/7646/brownfield_register_2022_-_csv.csv,,,2023-11-01,2023-11-01,
@@ -1394,7 +1394,7 @@ b0dade99eae36ebc0c0f689971f4aeb16c9ebf62a7ba6fbe54814111d9d09ff1,https://open.ba
 fb4b06f04f0f356c0c9dfc0ca7851207de9a1aa71218a1bcfb2a95929d56642f,https://www.dudley.gov.uk/media/xxhj0cym/brownfield-land.csv,,,2023-11-15,2023-10-16,2024-10-09
 6aaa9950727f2d3e72c158fc25d41d0c6dccee212b66daaf693d79c0ec5e280c,https://www.wirral.gov.uk/sites/default/files/2023-10/Part%201%20Sites.csv,,,2023-11-24,2023-11-20,
 904e542cfeb4d1bc8dcf69ef5d2616b2da7a61de0696ae23242881db398e8fc1,https://www.yorkshiredales.org.uk/wp-content/uploads/sites/13/2023/11/YorkshireDalesNationalParkE26000008_brownfield-register_2023-10-05.csv,,,2023-11-27,2023-11-20,
-dced5eac5230c6fa52c61b0a2390bbea5bd8d371e346a2539763070eb7dc188a,https://www.reigate-banstead.gov.uk/download/downloads/id/7172/reigateandbanstead_brownfieldregister_2023_12_31_rev1.csv,,,2023-12-22,2023-12-31,
+dced5eac5230c6fa52c61b0a2390bbea5bd8d371e346a2539763070eb7dc188a,https://www.reigate-banstead.gov.uk/download/downloads/id/7172/reigateandbanstead_brownfieldregister_2023_12_31_rev1.csv,,,2023-12-22,2023-12-31,2025-01-24
 501af492588334aeb09088f9dcad094764f84649eec87b9772cf8b269b733d2e,https://www.n-kesteven.gov.uk/sites/default/files/2023-12/NKDC_brownfield_land_register.csv,,,2023-12-20,2022-12-19,
 dbc31c677be363a199e2f967cd64ee7714adc763e8ce9b10f0624ad59a29383a,https://www.richmond.gov.uk/media/swyn2sgi/brownfield_land.csv,,,2023-12-22,2023-12-14,
 4d8767ba691dcfc738ccaac9bd84d0281588ce8bcebc1d1a456fdfe5059979b9,https://www.lambeth.gov.uk/sites/default/files/2023-12/brownfield-land.csv,,,2023-12-22,2023-12-20,
@@ -1493,7 +1493,7 @@ da1ea83c19c9899769005c05cea04b218c32b3c262d36f1d75863350b92fa098,https://www.nor
 bb874d46cea0b0edd54b2a6ef069edfd59de3b4e9383d05eaba02ab26cbb80c9,https://lewisham.gov.uk/-/media/0-planning/planning-policy/brownfield/brownfield-land-register-csv-december-2024-final.csv,,,2025-01-06,,
 29edbbc124af56e18fa5916e827ea93224ed445bb722b5e79db35fd8afb44f75,https://www.brentwood.gov.uk/media/865,,,2025-01-06,,
 d021c2e34560f9a40b4c509685a12cbb0abd793c758fe0689991cfcb160a6d80,https://www.ne-derbyshire.gov.uk/_applications/_files/Brownfield%20Land%20Regsiter%202024%20-%20CSV%20Format.csv,,,2025-01-07,,
-e02c2513aec768daed359b3819fdee4f945c9fc6c43cddfa6c33178041f18bd6,https://www.lichfielddc.gov.uk/downloads/file/2704/brownfield-land-register-2024,,,2025-01-07,,
+e02c2513aec768daed359b3819fdee4f945c9fc6c43cddfa6c33178041f18bd6,https://www.lichfielddc.gov.uk/downloads/file/2704/brownfield-land-register-2024,,,2025-01-07,,2025-01-23
 4e41d1769bcc73182e6839965b589a716cc3309747334c5b78cf204f94000730,https://www.newforest.gov.uk/media/4271/brownfield-land-csv/xls/NFDC_brownfield-land.csv?m=1734596954963,,,2025-01-07,,
 347fbcaeb2240ed4cbf54721f4010cc8b7fa31eb9908c3172e4a488a329f76ac,https://www.birmingham.gov.uk/download/downloads/id/9037/brownfield_register.xlsx,,,2025-01-07,,
 776ad81957c21eaca97ecdb5b1434799a6ceaa0dd2d582e8b41c7c57c795c0dc,https://buckinghamshire-gov-uk.s3.amazonaws.com/documents/BC_Brownfield_Register_2024_3.csv,,,2025-01-07,,
@@ -1505,3 +1505,16 @@ da01b457e3c00787151c63ee44a9bfaf8953f33accd3050e8a15db69b31dfabe,https://www.eas
 0da7c0fa301e005b9416693808e303ab6a0a3af3d31c81a26062c93be188bc1d,https://www.surreyheath.gov.uk/sites/default/files/2024-12/Surrey%20Heath%20Brownfield%20Land%20Register%202024.xlsx,,,2025-01-08,,
 8dc8cc48c9494ab56f1f3058d0d4967f3b66b34c30770f2bf537ab911bf15bfb,https://www.west-norfolk.gov.uk/download/downloads/id/9024/brownfield_update_-_december_2024.csv,,,2025-01-08,,
 363ec3bed807e3adb377ad3f16722ba8a53fc3be22fb12215737c3ddad3cb46c,https://cms.westnorthants.gov.uk/media/19688/download,,,2025-01-10,,
+0b0aae90cae27a96a3ee5506b031c4b609bb770e97e16b4f217f59f8f1ea06bd,https://www.manchester.gov.uk/download/downloads/id/29132/brownfield_land_register_2024.csv,,,2025-01-22,,
+0265f27d411eb49e697d467a35a0d6615bdf0bbd1a2355c3dee8778883439667,https://www.west-lindsey.gov.uk/sites/default/files/2022-10/brownfield-land.csv,,,2025-01-22,,
+e8f95610704240b167aebb71238ce93e603f27049c305ec7d77202195470b4f2,https://www.teignbridge.gov.uk/media/vq4jzrcu/2024-bfr.csv,,,2025-01-22,,
+8ea6f68a20c03e93981bdbef5fbed8617261a3f8a1c1c00bcdca32023056e20f,https://plymouth.thedata.place/dataset/ece0ce26-9d4f-4ee8-b054-783d6097a250/resource/5fbbfee0-6cd5-40ad-9426-9eb84bde1826/download/250114_bfr_dec_2024_csv.csv,,,2025-01-22,,
+fec7f031e6f35f1dc73d791046e6a18f46bcdc5b45ea2c2fd7d467a14a9aeed4,https://www.stroud.gov.uk/media/hc2jsxts/brownfield-land.csv,,,2025-01-22,,
+9113d35ae38aef69a57f49c2f7d229f63d3f40818acafa57c9208cb1c4f0420a,https://www.rugby.gov.uk/documents/20124/0/Brownfield_Land_Register__January+2025+%281%29.csv/28c69fcd-cb9e-39d3-3f54-83e21d9411bc?t=1736936503954,,,2025-01-22,,
+5493d3c81d6456a7abc7edf62986a31450291c019f69f5c3e45d7ae1befa66b1,https://www.winchester.gov.uk/assets/attach/44221/Brownfield-Register-2024.csv,,,2025-01-22,,
+e552ece9ba0a40d17e717182bc0015df827f6febd9ca5f5b6078bd184feb1fd9,https://www.babergh.gov.uk/documents/d/asset-library-54706/bmsdc-brownfield-land-register-2024-1-1,,,2025-01-23,,
+cab696af7747508641e5fbb6befe713bc1489eaac0d42daf2cee4c3ef7d09bbf,https://www.midsuffolk.gov.uk/documents/d/asset-library-54706/bmsdc-brownfield-land-register-2024-1-1,,,2025-01-23,,
+6edd2437485cfb1c6c9d93ae9a4fd86c7bfac6f389b36b5a15dec08aefa42b6d,https://www.lichfielddc.gov.uk/downloads/file/2709/brownfield-land-register-2024v2,,,2025-01-23,,
+bc8776fc5504ed3f4804597a0d90a92ff61fa5e245f19c6efe033b5d2c2e9b37,https://consult.cheshirewestandchester.gov.uk/resources/portal/supportingfiles/798742,,,2025-01-24,,
+cd63035bc983ee38754531030ef35f519f1f9e1e9aa5f55aebda90b32bc09c53,https://hub.arcgis.com/api/v3/datasets/797b7c92787a4dc899faf11464c897b7_0/downloads/data?format=csv&spatialRefId=3857&where=1%3D1,,,2025-01-24,,
+b1df055cbc39b9f65fa6cd1fd741b67b58dc8188d40232c0ab0632c07b47ae2d,https://www.wandsworth.gov.uk/media/2wfbqrjm/brownfield-land.csv,,,2025-01-24,,
