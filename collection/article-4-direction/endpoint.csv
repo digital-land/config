@@ -108,3 +108,5 @@ f4d600b88aaf18172828b1dce6c4d00f9b93784dad2c11055b2d6eec899f714b,https://atlas.p
 cef4c02dacb006498d1c48729d2a18f3088b397132bce167e9b6c72f714b3a38,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/A4D_Merge/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-03,,
 3afdfd4ac6cba415f6ca0fd5cc7669cc4b25e827f40319b815a2ec5c3b9f1836,https://www.southnorfolkandbroadland.gov.uk/asset-library/bdc-article-4-direction-area.json,,,2025-01-15,,
 424ad40ebb7b5c30fc335bd922296bab1d42634c6c535ac657f18f64c5ca8492,https://www.southnorfolkandbroadland.gov.uk/asset-library/snc-article-4-direction-area.json,,,2025-01-15,,
+38358cf8e54c5c107d78f76ff9bd71cbea4f7fe4df31006a657ed38d94180891,https://hub.arcgis.com/api/v3/datasets/033544bf492c4571989537e7ceb73f6e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1,,,2025-01-31,,
+f710d80e5a2fef8013f5af997839a1fa84e1c25246eed5c2c8895f7566e35715,https://hub.arcgis.com/api/v3/datasets/4457b756c3a54d4b90e04e74022e9a39_1/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1,,,2025-01-31,,
