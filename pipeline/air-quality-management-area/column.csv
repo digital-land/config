@@ -1,0 +1,5 @@
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+aqma_ref,air-quality-management-area,,fc2f0599d4604ae4a9ceeafa994b2583be70bd37552b8fc188b2449d3b2b4700,,reference,,
+title,air-quality-management-area,,fc2f0599d4604ae4a9ceeafa994b2583be70bd37552b8fc188b2449d3b2b4700,,name,,
+descriptio,air-quality-management-area,,fc2f0599d4604ae4a9ceeafa994b2583be70bd37552b8fc188b2449d3b2b4700,,description,,
+WKT,air-quality-management-area,,fc2f0599d4604ae4a9ceeafa994b2583be70bd37552b8fc188b2449d3b2b4700,,geometry,,
