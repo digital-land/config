@@ -1525,3 +1525,6 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 1724702,410,,retire entities with wrong reference from broken local-authority:GLA csv resource,,,
 1724703,410,,retire entities with wrong reference from broken local-authority:GLA csv resource,,,
 1724704,410,,retire entities with wrong reference from broken local-authority:GLA csv resource,,,
+1725176,410,,retire entities already missing from platform and missing an organisation,,,
+1725177,410,,retire entities already missing from platform and missing an organisation,,,
+1727775,410,,retire entities already missing from platform and missing an organisation,,,
