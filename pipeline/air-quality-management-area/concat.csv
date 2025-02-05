@@ -1,1 +1,2 @@
-end-date,entry-date,endpoint,field,fields,dataset,resource,separator,start-date
+end-date,entry-date,endpoint,field,fields,dataset,resource,separator,start-date,prepend,append
+,,fc2f0599d4604ae4a9ceeafa994b2583be70bd37552b8fc188b2449d3b2b4700,documentation-url,aqma_ref,air-quality-management-area,,,,"https://uk-air.defra.gov.uk/aqma/details?aqma_ref=",
