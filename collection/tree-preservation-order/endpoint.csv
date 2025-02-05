@@ -76,3 +76,7 @@ eaceade72cd00741743fba9921fb2ef764ed3363f882f420904cb96d20c44106,https://service
 45d990e6122b78c0b4193f2df7099a1e2da7bdb03a55a52d268af83d4c23f19e,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Tree_Preservation_Orders_CSB/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-03,,
 3237276c4ae0e3dae446205a7b917485ce23c196203d80bf30c8cb186e67c8f3,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Tree_Preservation_Orders/FeatureServer/0/,,arcgis,2025-01-03,,
 94c35316969bc4c3184969c63ffec672e31fee41e3f70fa58058ee28d115a413,https://www.torbay.gov.uk/services/geoserver/DigitalPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=DigitalPlanning%3ADLUHC_tree_preservation_order_Torbay&outputFormat=CSV&format_options=filename:tree_preservation_order_Torbay.csv,,,2025-01-17,,
+7fba602d0916908c150e4326bde44c19c2a8b9a0dae0ada39e4e1c7c6146a5e6,https://www.wirral.gov.uk/files/tree-preservation-order.csv/download?inline,,,2025-02-05,,
+aa5fe3c1812f1ba4cc50111b8e90e081ea8dbe666f08d506c5adfe76fd7a7c3f,https://www.wirral.gov.uk/files/tree.geojson/download?inline,,,2025-02-05,,
+5b89802a704295d92602c760c47dc51667c47ec841baf56d6852dfc3fd91d5d5,https://www.wirral.gov.uk/files/tree-preservation-zone.geojson/download?inline,,,2025-02-05,,
+c1d65f06b7c0a242de3510837e0791fd3bf9fab19c09fa3477bcede0e883d7a1,https://www.sstaffs.gov.uk/sites/default/files/2025-01/South%20Staffs%20TPO%20non%20Zone%20Geometry%20Dataset.geojson,,,2025-02-05,,
