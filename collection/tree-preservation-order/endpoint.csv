@@ -51,8 +51,6 @@ e89653123a38ddddfd70d71589c15d28ba2444ccefd5d7903e71ec762f2b4bd3,https://apps.n-
 239445b34f503bc768c366c4260fc26b498f62951c1cb1215f8305165cc7b688,https://apps.n-somerset.gov.uk/planningdata/Tree_Preservation_Order_Dataset.csv,,,2024-09-02,2024-06-20,
 2d3cb22e544acf2029c608a945e64943d2bec415ad2ad87aeabed9c7a58a903b,https://maps.birmingham.gov.uk/server/rest/services/planx/PlanX/FeatureServer/3/query?outFields=*&where=1%3D1&f=geojson,,,2024-09-24,,
 74cb4c8a3ff8574c9bf438f492acddd078eac1f6da347fcd95dd1514ee086926,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Tree_Preservation_Orders_CSB/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-01,,
-45d990e6122b78c0b4193f2df7099a1e2da7bdb03a55a52d268af83d4c23f19e,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Tree_Preservation_Orders_CSB/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-01,,2024-12-18
-314ce9104c6e495d89317de2085d2bcbac1abe54e9f7cb068f35be8171eaa80b,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Tree_Preservation_Orders_Aylesbury_Vale/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2024-10-01,,2024-12-18
 093d93b05b23fc2d81922b06c60befe8f536d2a99a24993ad3f654d07c54b476,https://www.sandwell.gov.uk/downloads/file/3296/tree-preservation-zone-dataset,,,2024-10-02,,
 cd0ff78194618896cec280b2f0b383bfbb2670cc5eccbd5eedfd149589ee6976,https://www.sandwell.gov.uk/downloads/file/3297/tree-dataset,,,2024-10-02,,
 d6abdbc3123bc4b60ee9d34ab1ec52dda34d67e6260802df6a944a5f7d09352b,https://services.arcgis.com/kpKmjwOZyXMs3vON/arcgis/rest/services/hdc_3825_TPO_polygon_OGL_WGS84/FeatureServer/2/,,arcgis,2024-10-08,2024-10-07,
@@ -77,3 +75,8 @@ eaceade72cd00741743fba9921fb2ef764ed3363f882f420904cb96d20c44106,https://service
 314ce9104c6e495d89317de2085d2bcbac1abe54e9f7cb068f35be8171eaa80b,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Tree_Preservation_Orders_Aylesbury_Vale/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2025-01-03,,
 45d990e6122b78c0b4193f2df7099a1e2da7bdb03a55a52d268af83d4c23f19e,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Tree_Preservation_Orders_CSB/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-03,,
 3237276c4ae0e3dae446205a7b917485ce23c196203d80bf30c8cb186e67c8f3,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Tree_Preservation_Orders/FeatureServer/0/,,arcgis,2025-01-03,,
+94c35316969bc4c3184969c63ffec672e31fee41e3f70fa58058ee28d115a413,https://www.torbay.gov.uk/services/geoserver/DigitalPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=DigitalPlanning%3ADLUHC_tree_preservation_order_Torbay&outputFormat=CSV&format_options=filename:tree_preservation_order_Torbay.csv,,,2025-01-17,,
+7fba602d0916908c150e4326bde44c19c2a8b9a0dae0ada39e4e1c7c6146a5e6,https://www.wirral.gov.uk/files/tree-preservation-order.csv/download?inline,,,2025-02-05,,
+aa5fe3c1812f1ba4cc50111b8e90e081ea8dbe666f08d506c5adfe76fd7a7c3f,https://www.wirral.gov.uk/files/tree.geojson/download?inline,,,2025-02-05,,
+5b89802a704295d92602c760c47dc51667c47ec841baf56d6852dfc3fd91d5d5,https://www.wirral.gov.uk/files/tree-preservation-zone.geojson/download?inline,,,2025-02-05,,
+c1d65f06b7c0a242de3510837e0791fd3bf9fab19c09fa3477bcede0e883d7a1,https://www.sstaffs.gov.uk/sites/default/files/2025-01/South%20Staffs%20TPO%20non%20Zone%20Geometry%20Dataset.geojson,,,2025-02-05,,
