@@ -45,3 +45,4 @@ d24dbcb176ee1cca4e169d3793e9856b72560bd49ae96bec292df6d7a70d14ce,https://www.wir
 ed13f9730853788d50f2d53a490a064d460d8c6cabbbd201c80d8afe678ef79d,https://www.torbay.gov.uk/services/geoserver/DigitalPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=DigitalPlanning%3AvDLUHC_listed_building_outline_Torbay&outputFormat=application%2Fjson,,,2024-12-17,2024-12-17,
 a90770bf978a2d6bfbd16179e314b149ad0a922d21f84b940a826c7671676e7a,https://www.rbkc.gov.uk/media/document/listedbuildingoutlinecsv,,,2025-01-02,,
 53d76cd2b96235d7c94950b2089725f480d814131fc0d46c9e582225f93c9ed6,https://www.sandwell.gov.uk/downloads/file/3670/listed-building-outline-dataset,,,2025-01-28,,
+95948197690657516e22d8064af1f48f922f2796e7d3b319a25f57dbb99f661a,https://map.salford.gov.uk/geoserver/SpatialPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=SpatialPlanning:IHM_LISTEDBUILDINGS&outputFormat=application%2Fjson,,,2025-02-07,,
