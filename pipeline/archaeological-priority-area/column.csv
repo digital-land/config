@@ -1,0 +1,5 @@
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+primary_re,archaeological-priority-area,,070b2fd6b5069d64af289c33b0d80aec2d61cd4e7fb242a7281f264f709d3f52,,reference,,
+descriptio,archaeological-priority-area,,070b2fd6b5069d64af289c33b0d80aec2d61cd4e7fb242a7281f264f709d3f52,,name,,
+designatio,archaeological-priority-area,,070b2fd6b5069d64af289c33b0d80aec2d61cd4e7fb242a7281f264f709d3f52,,archaeological-risk-tier,,
+WKT,archaeological-priority-area,,070b2fd6b5069d64af289c33b0d80aec2d61cd4e7fb242a7281f264f709d3f52,,geometry,,
