@@ -1,0 +1,2 @@
+endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
+070b2fd6b5069d64af289c33b0d80aec2d61cd4e7fb242a7281f264f709d3f52,https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/Greater_London___Archaeological_Priority_Areas/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-10,,
