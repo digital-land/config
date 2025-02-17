@@ -46,5 +46,5 @@ ed13f9730853788d50f2d53a490a064d460d8c6cabbbd201c80d8afe678ef79d,https://www.tor
 a90770bf978a2d6bfbd16179e314b149ad0a922d21f84b940a826c7671676e7a,https://www.rbkc.gov.uk/media/document/listedbuildingoutlinecsv,,,2025-01-02,,
 53d76cd2b96235d7c94950b2089725f480d814131fc0d46c9e582225f93c9ed6,https://www.sandwell.gov.uk/downloads/file/3670/listed-building-outline-dataset,,,2025-01-28,,
 95948197690657516e22d8064af1f48f922f2796e7d3b319a25f57dbb99f661a,https://map.salford.gov.uk/geoserver/SpatialPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=SpatialPlanning:IHM_LISTEDBUILDINGS&outputFormat=application%2Fjson,,,2025-02-07,,
-38218b8649a20f91c927824071c70955a6d41915d1a5dfc0cbfce50b6c10bf0b,https://stg-arcgisazurecdataprod8.az.arcgis.com/exportfiles-16966-245/listed_buildings_WGS_84_7244197544964135651.geojson?sv=2018-03-28&sr=b&sig=foMZlqDPEsKx%2Fmq%2BTyUUVMq%2Bhn3v5BW%2FrEGy%2B67FOpA%3D&se=2025-02-11T17%3A57%3A17Z&sp=r,,,2025-02-11,,
+b3b5126c58819f1b3f988d651584b0ff62690b7765d0e76c24b0807bf68f5aa3,https://services8.arcgis.com/DOopK66xzdr2Avop/arcgis/rest/services/listed_buildings_WGS_84/FeatureServer/0/,,arcgis,2025-02-17,,
 a91ed722b5b7f5271c327ee86bee6a7882f784a05e727d67430abea15cedfbbf,https://services.southwark.gov.uk/assets/attach/339269/Listed-buildings-outlines.geojson,,,2025-02-14,,
