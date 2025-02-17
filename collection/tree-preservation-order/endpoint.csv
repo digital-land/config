@@ -80,4 +80,6 @@ eaceade72cd00741743fba9921fb2ef764ed3363f882f420904cb96d20c44106,https://service
 aa5fe3c1812f1ba4cc50111b8e90e081ea8dbe666f08d506c5adfe76fd7a7c3f,https://www.wirral.gov.uk/files/tree.geojson/download?inline,,,2025-02-05,,
 5b89802a704295d92602c760c47dc51667c47ec841baf56d6852dfc3fd91d5d5,https://www.wirral.gov.uk/files/tree-preservation-zone.geojson/download?inline,,,2025-02-05,,
 c1d65f06b7c0a242de3510837e0791fd3bf9fab19c09fa3477bcede0e883d7a1,https://www.sstaffs.gov.uk/sites/default/files/2025-01/South%20Staffs%20TPO%20non%20Zone%20Geometry%20Dataset.geojson,,,2025-02-05,,
+c8a8c4ee3f365b5d0e486c5d592f0de7f081f44ce266c9f543bf930677828021,https://services8.arcgis.com/DOopK66xzdr2Avop/arcgis/rest/services/tree_preservation_order_tree_WGS_84/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-17,,
+839ab89f77a258f1a62c72db26c7ef993c496897c565ed40c9aac417d6204b8c,https://services8.arcgis.com/DOopK66xzdr2Avop/arcgis/rest/services/tree_preservation_order_zone_WGS_84/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-17,,
 caf1e5b97424356516affcf0bbc36735c4ccb73e291cbf0f06ef2931bdf09ba8,https://services.southwark.gov.uk/assets/attach/337184/Tree-dataset.geojson,,,2025-02-14,,
