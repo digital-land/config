@@ -37,7 +37,7 @@ d7e334900b5355ff4b43323d146d9d72cd3647bb4b31025aa7bd05dcb69596de,https://service
 99dd0c0c5c8d8b3d4250ac27ed6e5c04c7a0c661f7f5e698d84c140ac240d1bc,https://maps.epsom-ewell.gov.uk/getOWS.ashx?MapSource=EEBC/planx&service=WFS&version=1.1.0&request=GetFeature&Typename=article4areas,,wfs,2023-10-23T11:11:54:20Z,,
 65672f37a643acac1a9d5599a0631db5d9bad9b2cf8874cc7214f06a712664b2,https://maps.buckscc.gov.uk/arcgis/rest/services/PLANNING/A4D_CSB/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,wfs,2023-11-07,2023-11-02,
 2d9575d771afff89f6d731be59a1ff8cedfd99efcd8bb2f0a746a2d18c9bd1ca,https://maps.birmingham.gov.uk/server/rest/services/planx/PlanX/FeatureServer/0/query?where=1=1&outfields=*&f=geojson,,wfs,2023-11-14,2023-11-14,2024-09-24
-3139776593c26742a0c9a92d3078957b90799c16cca269dae7229c6152f61e94,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/ArcGIS/rest/services/Planning_Portal_Article_4_Direction_081223/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,wfs,2023-12-14,,
+3139776593c26742a0c9a92d3078957b90799c16cca269dae7229c6152f61e94,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/ArcGIS/rest/services/Planning_Portal_Article_4_Direction_081223/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,wfs,2023-12-14,,2025-02-17
 4d69e04b32ecfa83f9c17f1fed6f13a94dc8c839607dd89c6c2fc8bfc2ab5e12,https://open.barnet.gov.uk/download/2ylny/z7y/article4-direction.csv,,,2023-12-18,2023-12-18,
 d4c09389082ca55e33cf532eb045ea7eb9dc447a24547fca734506f7e5f05413,https://open.barnet.gov.uk/download/e5l77/dhv/article4-direction-areas.csv,,,2023-12-18,2023-12-18,
 701a969f68db2fb8bae189534a1f32bb1cc5e357a3f67aa2a7deaae600fd4537,https://services-eu1.arcgis.com/xk4RA36G57mVH7Aw/ArcGIS/rest/services/Article_4_Output_view/FeatureServer/0//query?where=1%3D1&f=geojson&outfields=*,,,2023-12-21T11:11:26:31Z,,
@@ -113,8 +113,9 @@ f710d80e5a2fef8013f5af997839a1fa84e1c25246eed5c2c8895f7566e35715,https://hub.arc
 42240f67dbdba0aea9180b1dd7f3d53e64ca5b7a12ed865adc78de6d293395a9,https://beta.southglos.gov.uk/static/e19375ab137bdb706b8c2e05fea45c37/Article4DirectionDataset.csv,,,2025-02-10,,
 14b8541453cdf0bda13fb4fcdce33e87e9cc5aa29b63d0e984a3f4c099a5eedb,https://hosted.southglos.gov.uk/OpenData/Planning/Article4DirectionArea.json.txt,,,2025-02-10,,
 f8ab306cad8213eb969cffb8afe68440e104817c874a479f261b90b8cdf8e2b1,https://www.gateshead.gov.uk/media/44378/Article-4-Directions-Jan-2025/excel/Article__4_Directions.csv?m=1738067089907,,,2025-02-10,,
-0e1624cb9ed75d262047d4642714905f67be8200af046a45e43e1518b46d955f,https://stg-arcgisazurecdataprod8.az.arcgis.com/exportfiles-16966-261/article_4_area_wgs_84_-506686113767639684.geojson?sv=2018-03-28&sr=b&sig=t19RF%2FDxVQCdgU5wkv1wYfbV2YQl7B1XdOC4kxiUqdM%3D&se=2025-02-11T12%3A17%3A40Z&sp=r,,,2025-02-11,,
 9206a7a18afabe1a5dafe95f6cb1f10d7176ec30054f9a6b66acab94b9300cbb,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/arcgis/rest/services/Article_4_Direction_Dataset/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-11,,
 77eac0a88dc3c45103f4608cfd75de8f4dfb7621af486dbe6c353c01894c9bc8,https://www.westminster.gov.uk/media/document/wcc-article-4-direction-area-dataset-feb-2025,,,2025-02-14,,
+e727952d3be593a6c1e5951f278fe5d0a591b32be2d7e1fa428887b65af589f8,https://services8.arcgis.com/DOopK66xzdr2Avop/arcgis/rest/services/article_4_area_wgs_84/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-17,,
+3bafc9fcde2a15c55788303bfc6d4eb94a77119181e07bce966a0668f7d6eedf,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/ArcGIS/rest/services/Article_4_Direction/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-17,,
 ca7ca40185bbb4e749a42747e64978cdb051508c602c47b2c8ef521314defcaa,https://www.westminster.gov.uk/media/document/wcc-article-4-direction-dataset-feb-2025,,,2025-02-14,,
 8cde78952a39adf332bf729c3706cfd74deb8378db82c513b3066aa09f28354c,https://www.walthamforest.gov.uk/sites/default/files/2025-02/Waltham_Forest_Article_4_Directions_0.gpkg,,,2025-02-14,,
