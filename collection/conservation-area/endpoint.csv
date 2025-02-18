@@ -665,3 +665,7 @@ a13ff58b16af9bab9bed1dd928bf82ff55f776b294d4c096a4a6b346924822fc,https://raw.git
 7c07df2ea86a89f105df723f28ba3e67d25ad74c9d581803cf4ec6fcda1855c1,https://data.rochdale.gov.uk/files/Conservation_Areas_Document_Dataset.csv,,,2025-01-20,,
 dc658ab95279b4e6cc13ea66285d6164fca3b908e1a4ff181311d767d00eaa11,https://data.rochdale.gov.uk/files/Conservation_Areas_Area_Dataset.csv,,,2025-01-20,,
 16f2fa2cc35cc74e60cbf81cda42c5dc38d8bf110d2db91cc1402c8295804eff,https://xmap-hub.s3.eu-west-2.amazonaws.com/public-sector/surreyheath/digital_planning_data/conservation_areas.geojson,,,2025-02-17,,
+30e2532900e425a38a9e9f66a4483819b9875cb49b690c1061f7307b85332137,https://www.westminster.gov.uk/media/document/wcc-conservation-area-dataset-feb-2025,,,2025-02-18,,
+d2c6b215d0a1ff1b8f6ec443f71797e3f16c046d31691020b8fcfe435e6ad23b,https://www.westminster.gov.uk/media/document/wcc-conservation-area-document-dataset-feb-2025,,,2025-02-18,,
+c1c11131aa754e0282dd532497508687beb7eaf9d905a2e7625d6c15351a96aa,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/arcgis/rest/services/Conservation_Area_Data/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-18,,
+0f2e04f444b9e499edfb3f332eca228107a4560eaa6395907a588e33a451f5da,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/arcgis/rest/services/Conservation_Area_Documents_Dataset/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-18,,
