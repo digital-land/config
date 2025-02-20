@@ -115,7 +115,6 @@ f710d80e5a2fef8013f5af997839a1fa84e1c25246eed5c2c8895f7566e35715,https://hub.arc
 f8ab306cad8213eb969cffb8afe68440e104817c874a479f261b90b8cdf8e2b1,https://www.gateshead.gov.uk/media/44378/Article-4-Directions-Jan-2025/excel/Article__4_Directions.csv?m=1738067089907,,,2025-02-10,,
 9206a7a18afabe1a5dafe95f6cb1f10d7176ec30054f9a6b66acab94b9300cbb,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/arcgis/rest/services/Article_4_Direction_Dataset/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-11,,
 77eac0a88dc3c45103f4608cfd75de8f4dfb7621af486dbe6c353c01894c9bc8,https://www.westminster.gov.uk/media/document/wcc-article-4-direction-area-dataset-feb-2025,,,2025-02-14,,
-e727952d3be593a6c1e5951f278fe5d0a591b32be2d7e1fa428887b65af589f8,https://services8.arcgis.com/DOopK66xzdr2Avop/arcgis/rest/services/article_4_area_wgs_84/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-17,,
 3bafc9fcde2a15c55788303bfc6d4eb94a77119181e07bce966a0668f7d6eedf,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/ArcGIS/rest/services/Article_4_Direction/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-17,,
 ca7ca40185bbb4e749a42747e64978cdb051508c602c47b2c8ef521314defcaa,https://www.westminster.gov.uk/media/document/wcc-article-4-direction-dataset-feb-2025,,,2025-02-14,,
 8cde78952a39adf332bf729c3706cfd74deb8378db82c513b3066aa09f28354c,https://www.walthamforest.gov.uk/sites/default/files/2025-02/Waltham_Forest_Article_4_Directions_0.gpkg,,,2025-02-14,,
