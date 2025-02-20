@@ -79,7 +79,7 @@ fbe35483bb292b89c811a2db835df9dd5212ee1093daebd1f6b811d620643c1b,https://service
 1cafec4102c43a9e95f54bd36453240251c7741d7d15de7f742ceafac750f8e2,https://open.barnet.gov.uk/download/20yo8/c6n/conservation_area.gpkg,,,2023-11-06,2023-11-04,
 a09608d26986c205de7ab8dc54b5d76c776ca236a9ecf9d920eae07995c06cc8,https://maps.birmingham.gov.uk/server/rest/services/planx/PlanX/FeatureServer/4/query?where=1=1&outfields=*&f=geojson,,wfs,2023-11-14,2023-11-14,2024-09-24
 1a234afb482cc475a38ea9e8a2752556d3a7c379d803ef6b7ecb57b8e6f459f4,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/arcgis/rest/services/Map/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2023-11-20T10:10:19:16Z,,
-29bfaf49f0d5deaaa3b0ca0ceac987c3a21effc034ad5ad4551e3d7e1ed2e53f,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/ArcGIS/rest/services/Planning_Portal_Conservation_Area_281123/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2023-12-01T14:14:52:30Z,,
+29bfaf49f0d5deaaa3b0ca0ceac987c3a21effc034ad5ad4551e3d7e1ed2e53f,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/ArcGIS/rest/services/Planning_Portal_Conservation_Area_281123/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2023-12-01T14:14:52:30Z,,2025-02-18
 9247d952f3d1a3ad3ca513bb5c0169ffb7bd9b54c285fbc24eedf738fe17a9d5,https://maps.epsom-ewell.gov.uk/getOWS.ashx?MapSource=EEBC/planx&service=WFS&version=1.1.0&request=GetFeature&Typename=conservationareas,,,2023-12-04T12:12:06:16Z,,
 54bf142531133bc131b927d27c30fed857d3a3aab0b80737fe26ab0aba4610de,https://tewkesburybc.s3.eu-west-2.amazonaws.com/geojson/conservation-area.geojson,,,2024-01-17,2023-10-21,
 64b205f56014fc81435e61bb55745dbfac6fe7c87dcd13cb391262eb73a8c13b,https://gis.westberks.gov.uk/server/rest/services/Layers/LPA_CONSERVATION_AREAS/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2024-01-22,2023-12-18,
@@ -662,3 +662,10 @@ e27aefdbdac16a8cd84d960608b6b69557d1c4e0fa19c6185940a487ee4be33b,https://raw.git
 a13ff58b16af9bab9bed1dd928bf82ff55f776b294d4c096a4a6b346924822fc,https://raw.githubusercontent.com/digital-land/conservation-area-data/refs/heads/main/data/Output/ExistingMismatched/241216/WYC-conservation-area-document.csv,,,2025-01-13,,
 3b9312dfcac533f3215057f0f65564691e4cbbcc1f31fdda3fa0e022a60d096d,https://raw.githubusercontent.com/digital-land/conservation-area-data/refs/heads/main/data/Output/ExistingMismatched/241216/WYO-conservation-area-document.csv,,,2025-01-13,,
 64c36a1b7c32466beac9e2aea1e7bd59677e5a61106b4ba83ce1bcd714472880,https://eastcambs.gov.uk/sites/default/files/2024-12/Conservation%20area%20documents%20datasets%20%286%29_0.csv,,,2025-01-21,,
+7c07df2ea86a89f105df723f28ba3e67d25ad74c9d581803cf4ec6fcda1855c1,https://data.rochdale.gov.uk/files/Conservation_Areas_Document_Dataset.csv,,,2025-01-20,,
+dc658ab95279b4e6cc13ea66285d6164fca3b908e1a4ff181311d767d00eaa11,https://data.rochdale.gov.uk/files/Conservation_Areas_Area_Dataset.csv,,,2025-01-20,,
+16f2fa2cc35cc74e60cbf81cda42c5dc38d8bf110d2db91cc1402c8295804eff,https://xmap-hub.s3.eu-west-2.amazonaws.com/public-sector/surreyheath/digital_planning_data/conservation_areas.geojson,,,2025-02-17,,
+30e2532900e425a38a9e9f66a4483819b9875cb49b690c1061f7307b85332137,https://www.westminster.gov.uk/media/document/wcc-conservation-area-dataset-feb-2025,,,2025-02-18,,
+d2c6b215d0a1ff1b8f6ec443f71797e3f16c046d31691020b8fcfe435e6ad23b,https://www.westminster.gov.uk/media/document/wcc-conservation-area-document-dataset-feb-2025,,,2025-02-18,,
+c1c11131aa754e0282dd532497508687beb7eaf9d905a2e7625d6c15351a96aa,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/arcgis/rest/services/Conservation_Area_Data/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-18,,
+0f2e04f444b9e499edfb3f332eca228107a4560eaa6395907a588e33a451f5da,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/arcgis/rest/services/Conservation_Area_Documents_Dataset/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-18,,
