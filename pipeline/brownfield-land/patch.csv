@@ -376,7 +376,6 @@ brownfield-land,,OrganisationURI,maidstone e07000110,http://opendatacommunities.
 brownfield-land,,OrganisationURI,"click here to go to the city council entry on the ministry of housing, communities and local government website",http://opendatacommunities.org/id/unitary-authority/stoke-on-trent,,,,,
 brownfield-land,,OrganisationURI,south norfolk,http://opendatacommunities.org/id/district-council/south-norfolk,,,,,
 brownfield-land,,OrganisationURI,https://local-authority-eng.register.gov.uk/record/RIB,http://opendatacommunities.org/id/district-council/ribble-valley,,,,,
-brownfield-land,,OrganisationURI,http://opendatacommunities.org.id/unitary-authority/herefordshire,http://opendatacommunities.org/id/county-council/hertfordshire,,,,,
 brownfield-land,,OrganisationURI,http://opendatacommu nities.org/id/districtcouncil/forest-of-dean,http://opendatacommunities.org/id/district-council/forest-of-dean,,,,,
 brownfield-land,,OrganisationURI,http://opendatacommunities.org/doc/geography/administration/ua/E06000007,http://opendatacommunities.org/id/unitary-authority/warrington,,,,,
 brownfield-land,,OrganisationURI,http://opendatacommunities.org/id/districy-council/amber-valley,http://opendatacommunities.org/id/district-council/amber-valley,,,,,
@@ -424,3 +423,7 @@ brownfield-land,,OrganisationURI,"https://opendatacommunities.org/atlas/resource
 brownfield-land,,OrganisationURI,,http://opendatacommunities.org/id/unitary-authority/rutland,,,,,1f8955632ae7cb5476920108013ec56a23fc1935bc771ed1f1d0e3384676e22a
 brownfield-land,,OrganisationURI,E07000200,http://opendatacommunities.org/id/district-council/babergh,,,,,e552ece9ba0a40d17e717182bc0015df827f6febd9ca5f5b6078bd184feb1fd9
 brownfield-land,,OrganisationURI,E07000203,http://opendatacommunities.org/id/district-council/mid-suffolk,,,,,e552ece9ba0a40d17e717182bc0015df827f6febd9ca5f5b6078bd184feb1fd9
+brownfield-land,,OrganisationURI,"http://eforms.eden.gov.uk/fastweb/detail.asp?AltRef=07/0343&ApplicationNumber=07%2F0343&AddressPrefix=&Postcode=&Submit=Search",http://opendatacommunities.org/id/district-council/eden,,,,,31881b6f74d09d38d05526346c4448857b8609d433bd52e034d882bc6a0fbff5
+brownfield-land,,OrganisationURI,"http://eforms.eden.gov.uk/fastweb/detail.asp?AltRef=07/0343&ApplicationNumber=07%2F0343&AddressPrefix=&Postcode=&Submit=Search",http://opendatacommunities.org/id/district-council/eden,,,,,d1eb92649597a50f2cf43c528c17c14414b595590c4468acceae569a9db52a65
+brownfield-land,,OrganisationURI,,http://opendatacommunities.org/id/district-council/stafford,,,,,9985ab2f6dde34efbfcddbbced8763584d26a67ccf3ae36e2e48a85de6637531
+brownfield-land,,OrganisationURI,,http://opendatacommunities.org/id/district-council/stafford,,,,,b10867fc84f63009cb91b7a3036d80e37b0fba343c8068b2909581b94eb3a388
