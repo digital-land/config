@@ -327,9 +327,9 @@ ab5f9891cd4f8fdb4b5a70b17c6b5134d5a5de750f751f039de1000a2931cb95,https://www.iow
 5ff810c109999730be1b33d6981b7d77ef9ea2ddd555c034e390cdb377495c98,https://www.cheltenham.gov.uk/developer-agreement,,,2022-02-07T12:12:32Z,,
 ef1dad7ad416d89dda6264c02e604eea8f20898109d2eb611a48e40c868dc997,https://www.cheltenham.gov.uk/developer-agreement-contribution,,,2022-02-07T12:12:44Z,,
 dc0597114d854c837ca83bb05429d6045b40da13f909d31ce4045d7cfceb574f,https://www.cheltenham.gov.uk/developer-agreement-transaction,,,2022-02-07T12:12:45Z,,
-2648692f23a9bb6caf28cfb8da4b89bb09567a7b2abdd425887250c629b97973,https://dluhc-datasets.planning-data.dev/dataset/contribution-funding-status.csv,,,2023-09-19T14:14:01:54Z,,
-1a25fbdfc242ba4b766c43a850e3f0c54f41967490513b5f0fc185ce789f8876,https://dluhc-datasets.planning-data.dev/dataset/contribution-purpose.csv,,,2023-09-19T14:14:03:26Z,,
-0f3cef51b48fca66b39aa2b7cfa85657b59b893b5e36869570384fa4defeb592,https://dluhc-datasets.planning-data.dev/dataset/developer-agreement-type.csv,,,2023-09-19T14:14:03:51Z,,
+2648692f23a9bb6caf28cfb8da4b89bb09567a7b2abdd425887250c629b97973,https://dluhc-datasets.planning-data.dev/dataset/contribution-funding-status.csv,,,2023-09-19T14:14:01:54Z,,2025-02-27
+1a25fbdfc242ba4b766c43a850e3f0c54f41967490513b5f0fc185ce789f8876,https://dluhc-datasets.planning-data.dev/dataset/contribution-purpose.csv,,,2023-09-19T14:14:03:26Z,,2025-02-27
+0f3cef51b48fca66b39aa2b7cfa85657b59b893b5e36869570384fa4defeb592,https://dluhc-datasets.planning-data.dev/dataset/developer-agreement-type.csv,,,2023-09-19T14:14:03:51Z,,2025-02-27
 ae548069ca619d9db1de4a72c32e3e0e2c9544a70b7eb72ca28271b9b13dab81,https://cdn-eastherts.onwebcurl.com/s3fs-public/2022-12/East%20Herts%20Council%20-%20CVS%20File%201%20-%20developer-agreement.xlsx,,,2024-03-15,,
 8a1b8cb8b8859e068efe4810ea1225fa17fb2066f1c50fa1f46e5a18170dd7c0,https://www.easthants.gov.uk/media/6431/download?inline,,,2024-03-15,,2025-01-27
 f7fe6fbe3117c7a0847cc26dd0c708c5c4c749d0a178cc846450a3a3a4bff969,https://tewkesbury.gov.uk/wp-content/uploads/2022/Planning/Developer%20contributions/Infrastructure%20Funding%20Statement/Developer%20agreement,,,2024-03-15,2024-03-15,
@@ -442,3 +442,6 @@ bd50e709b18a5204488fa338f41f86f286a0e1a4b58e6b649446aa3efa6a6e40,https://beta.so
 70ee0bdc78bffc2b51fc719b9ab70daa87c3595e73c1dedea27b17414de16418,https://www.northyorkmoors.org.uk/__data/assets/file/0012/140250/developer-agreement_2024_12_17_updated.csv.csv,,,2025-02-27,,
 a471f1fc443d9d5e58872f9fc39fa73759f314ace9ae8e05b6622c6cc4229f5c,https://www.northyorkmoors.org.uk/__data/assets/file/0013/140251/developer-agreement-contribution_2024_12_17_updated.csv.csv,,,2025-02-27,,
 49376dfc086a594af57a2f7cc261d2547ede4b850d28b3b893fe332e93d13673,https://www.northyorkmoors.org.uk/__data/assets/file/0014/140252/developer-agreement-transactions_2024_12_17_updated.csv.csv,,,2025-02-27,,
+9b31b67d0f7585a452800f8297a1531f769ccbf780129cbd41f8b950969fc4e7,https://dataset-editor.development.planning.data.gov.uk/dataset/contribution-funding-status.csv,,,2025-02-27,2025-02-27,
+6aa53b285ed7310d568ff901b1191a30202684f2afe3a44271b5331be102db06,https://dataset-editor.development.planning.data.gov.uk/dataset/contribution-purpose.csv,,,2025-02-27,2025-02-27,
+6f2027efb496d0d06914cbfa342cc7b66d0c3d489c800c72e9482ca91c6ca079,https://dataset-editor.development.planning.data.gov.uk/dataset/developer-agreement-type.csv,,,2025-02-27,2025-02-27,
