@@ -309,9 +309,9 @@ b7f8c7cc2a4df45afc9f4cd9f57573c3063dc9aa4739afe906191ab28b0dd88c,https://www.hav
 125fb3f6a22aef73df6ea90ef4db2714d85c91cec3613f1d9d5dc1af1db099de,https://www.southnorthants.gov.uk/download/downloads/id/7363/developer-agreement-transaction-20211213.csv,,,2021-12-31T11:11:15Z,,
 24c6e58b61392f3f73ab40498c77aa0c07d79944d3289a21f8ada26b7bc08dd7,https://www.southnorthants.gov.uk/download/downloads/id/7031/developer-agreement-transaction-20201221.csv,,,2021-12-31T11:11:15Z,,
 0cf5fed4e9cdc4689b1735ffc7a3aaaae468099d722439a431ca5a596446b6bb,https://sunderland.gov.uk/article/17801/Developer-agreement-transaction-CSV,,,2021-12-31T11:11:16Z,,
-87f05681b0fb5cdec493dbe474ab32bf42612e92d805643f0c65b946e1e90aa2,https://www.northyorkmoors.org.uk/__data/assets/file/0028/408916/developer-agreement_20211129.csv.csv,,,2022-01-04T11:11:46Z,,
-afd5f4176bb544595dc93a119751dedb714cdc8ca9888515710ef6cc5f2d4a8f,https://www.northyorkmoors.org.uk/__data/assets/file/0027/408915/developer-agreement-contribution_20211129.csv.csv,,,2022-01-04T11:11:46Z,,
-149c6da16579816b8c32dea881b3784a4d81982163313c2d8356f7eb3f7e1cdc,https://www.northyorkmoors.org.uk/__data/assets/file/0026/408914/developer-agreement-transactions_20211129.csv,,,2022-01-04T11:11:46Z,,
+87f05681b0fb5cdec493dbe474ab32bf42612e92d805643f0c65b946e1e90aa2,https://www.northyorkmoors.org.uk/__data/assets/file/0028/408916/developer-agreement_20211129.csv.csv,,,2022-01-04T11:11:46Z,,2025-02-27
+afd5f4176bb544595dc93a119751dedb714cdc8ca9888515710ef6cc5f2d4a8f,https://www.northyorkmoors.org.uk/__data/assets/file/0027/408915/developer-agreement-contribution_20211129.csv.csv,,,2022-01-04T11:11:46Z,,2024-02-27
+149c6da16579816b8c32dea881b3784a4d81982163313c2d8356f7eb3f7e1cdc,https://www.northyorkmoors.org.uk/__data/assets/file/0026/408914/developer-agreement-transactions_20211129.csv,,,2022-01-04T11:11:46Z,,2025-02-27
 2ccb23e18a504b079a48c29594ef2e0c06c37a0dff60103b7801885ef1504d75,https://www.broxbourne.gov.uk/developer-agreements-20/21,,,2022-01-04T11:11:46Z,2021-11-23,2024-05-20
 738e38db52cc3fbff22a98d2a409dae82febf0c8c0ba537922cadab5200ca1ba,http://www.broxbourne.gov.uk/developer-agreement-contribution-20/21,,,2022-01-04T11:11:46Z,2021-11-23,2024-05-20
 99007affe9340413ac82b0b2482d242be1041501acf79e9581e5f690be6c952c,https://www.broxbourne.gov.uk/developer-agreement-transaction-19/20,,,2022-01-04T11:11:46Z,2020-11-23,
@@ -439,6 +439,9 @@ e9a1a6143d451ea16d3ed6222c1e063eabbeb3266a26d6118d2c6a2c50193c98,https://www.glo
 bd50e709b18a5204488fa338f41f86f286a0e1a4b58e6b649446aa3efa6a6e40,https://beta.southglos.gov.uk/static/3f20d800be478dcfcd1701798ceec622/S106-developer-agreement-dataset_20250212.csv,,,2025-02-17,,
 835ef553119c76e8a438e57c57e7aba2903afe4b74b50030381ecaab1edb7d4f,https://beta.southglos.gov.uk/static/435482451f78d707af1b3450df479d68/S106-developer-agreement-contribution-dataset_20250107.csv,,,2025-02-17,,
 51d72744c26ea2360a1ad391f470c403bc1f31799efd2a5ddd36e5b7a4ebfd90,https://beta.southglos.gov.uk/static/b4a25592c9fc574dff0e1852b7ac5eb1/S106-developer-agreement-transaction-dataset_20250107.csv,,,2025-02-17,,
+70ee0bdc78bffc2b51fc719b9ab70daa87c3595e73c1dedea27b17414de16418,https://www.northyorkmoors.org.uk/__data/assets/file/0012/140250/developer-agreement_2024_12_17_updated.csv.csv,,,2025-02-27,,
+a471f1fc443d9d5e58872f9fc39fa73759f314ace9ae8e05b6622c6cc4229f5c,https://www.northyorkmoors.org.uk/__data/assets/file/0013/140251/developer-agreement-contribution_2024_12_17_updated.csv.csv,,,2025-02-27,,
+49376dfc086a594af57a2f7cc261d2547ede4b850d28b3b893fe332e93d13673,https://www.northyorkmoors.org.uk/__data/assets/file/0014/140252/developer-agreement-transactions_2024_12_17_updated.csv.csv,,,2025-02-27,,
 9b31b67d0f7585a452800f8297a1531f769ccbf780129cbd41f8b950969fc4e7,https://dataset-editor.development.planning.data.gov.uk/dataset/contribution-funding-status.csv,,,2025-02-27,2025-02-27,
 6aa53b285ed7310d568ff901b1191a30202684f2afe3a44271b5331be102db06,https://dataset-editor.development.planning.data.gov.uk/dataset/contribution-purpose.csv,,,2025-02-27,2025-02-27,
 6f2027efb496d0d06914cbfa342cc7b66d0c3d489c800c72e9482ca91c6ca079,https://dataset-editor.development.planning.data.gov.uk/dataset/developer-agreement-type.csv,,,2025-02-27,2025-02-27,
