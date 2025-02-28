@@ -1,1 +1,2 @@
 dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date,value
+asset-of-community-value,,,,,point,"\(([-0-9\.]+),\s*([-0-9\.]+)\)",,,"POINT (\1 \2)"
