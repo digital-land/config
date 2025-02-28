@@ -1,0 +1,10 @@
+column,dataset,end-date,endpoint,entry-date,field,resource,start-date
+Property name and address,asset-of-community-value,,6c7c7c2c9e48f685756ec74fefa0d04daf69a75624b8016949fb67c673826a89,,name,,
+Date Nomination Received,asset-of-community-value,,6c7c7c2c9e48f685756ec74fefa0d04daf69a75624b8016949fb67c673826a89,,nomination-date,,
+Nominated By,asset-of-community-value,,6c7c7c2c9e48f685756ec74fefa0d04daf69a75624b8016949fb67c673826a89,,nominating-group,,
+Reason For Unsuccessful Nomination,asset-of-community-value,,6c7c7c2c9e48f685756ec74fefa0d04daf69a75624b8016949fb67c673826a89,,notes,,
+Decision Date,asset-of-community-value,,6c7c7c2c9e48f685756ec74fefa0d04daf69a75624b8016949fb67c673826a89,,decision-date,,
+Notice To Dispose Received By Council Date,asset-of-community-value,,6c7c7c2c9e48f685756ec74fefa0d04daf69a75624b8016949fb67c673826a89,,notification-to-sell-date,,
+Community Group Which Triggered Full Moratorium,asset-of-community-value,,6c7c7c2c9e48f685756ec74fefa0d04daf69a75624b8016949fb67c673826a89,,interested-group,,
+Listing Expiry Date,asset-of-community-value,,6c7c7c2c9e48f685756ec74fefa0d04daf69a75624b8016949fb67c673826a89,,expiry-date,,
+Location,asset-of-community-value,,6c7c7c2c9e48f685756ec74fefa0d04daf69a75624b8016949fb67c673826a89,,point,,
