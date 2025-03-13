@@ -492,9 +492,6 @@ conservation-area,local-authority:WOX,44004421,44004422
 conservation-area,local-authority:WOX,44005536,44005536
 conservation-area,local-authority:WOX,44006679,44006680
 conservation-area,local-authority:WOX,44012336,44012336
-conservation-area,local-authority:WRL,44000663,44000684
-conservation-area,local-authority:WRL,44005447,44005448
-conservation-area,local-authority:WRL,44012275,44012276
 conservation-area,local-authority:WSM,44002850,44002903
 conservation-area,local-authority:WSM,44004092,44004093
 conservation-area,local-authority:WSM,44008909,44008909
@@ -1125,3 +1122,5 @@ conservation-area,local-authority:TAN,44002263,44002263
 conservation-area,local-authority:TAN,44002300,44002300 
 conservation-area,local-authority:TAN,44002307,44002307
 conservation-area,local-authority:TAN,44004229,44004233
+conservation-area,local-authority:WRL,44000662,44000662
+conservation-area,local-authority:WRL,44013307,44013331
