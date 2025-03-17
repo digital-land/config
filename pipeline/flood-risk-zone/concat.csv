@@ -1,1 +1,3 @@
-dataset,resource,field,fields,separator,entry-date,start-date,end-date,endpoint
+dataset,resource,field,fields,separator,entry-date,start-date,end-date,endpoint,prepend,append
+flood-risk-zone,124a62c973429e80bb59ded0f049f5237ad8c6906edb4c73ac5749761febca79,reference,objectid,,,,,,,"/2"
+flood-risk-zone,e520b03633366cdca46708b9a98809417fe79e4d6b16e07adfb12e00888c38f9,reference,objectid,,,,,,,"/3"
