@@ -87,3 +87,6 @@ caf1e5b97424356516affcf0bbc36735c4ccb73e291cbf0f06ef2931bdf09ba8,https://service
 bc2a064a5f5ef2bb6796547bf1d84c01422232c332b705c56d186e70bd65e0af,https://www.rossendale.gov.uk/downloads/file/19075/tree-preservation-order-dataset,,,2025-03-10,2025-03-10,
 45ada2b4a70ada7485dfeb3fbe36b49caf1c32aeff85231773af544a2821ef37,https://www.rossendale.gov.uk/downloads/file/19073/tree-dataset,,,2025-03-10,2025-03-10,
 a8bfa5f533b530d3b23c9456d59812192fe5745a7b7be1889eef230703bd11c2,https://www.rossendale.gov.uk/downloads/file/19074/tree-preservation-zone-dataset,,,2025-03-10,2025-03-10,
+8152ca14f703747b1fc45664d130918ff05da7f4b92d16efb504ddb40c283b67,https://atlas.peterborough.gov.uk/arcgis/rest/services/Planning/Planning_Digitisation_GOV_UK_External_Connection/MapServer/4/query?outFields=*&where=1%3D1&f=geojson,,,2025-03-18,2025-03-18,
+e6903f1549f02d4116085ad87189bc1505b43bc89f9d6171de7d48f4c79fb3e9,https://atlas.peterborough.gov.uk/arcgis/rest/services/Planning/Planning_Digitisation_GOV_UK_External_Connection/MapServer/5/query?outFields=*&where=1%3D1&f=geojson,,,2025-03-18,2025-03-18,
+54d9567a86c4173e24e6bd858b591d4dd831981bea4db1a71242140b62978e35,https://atlas.peterborough.gov.uk/arcgis/rest/services/Planning/Planning_Digitisation_GOV_UK_External_Connection/MapServer/6/query?outFields=*&where=1%3D1&f=json,,,2025-03-18,2025-03-18,
