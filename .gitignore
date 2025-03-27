@@ -39,6 +39,4 @@ performance/
 
 # ignore specific files
 pipeline/title-boundary/lookup.csv
-input*.csv
-import*.csv
-retire*.csv
+/*.csv
