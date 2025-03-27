@@ -34,5 +34,9 @@ specification/
 transformed/
 performance/
 
+# ignore makerules folder
+/makerules/
+
 # ignore specific files
 pipeline/title-boundary/lookup.csv
+/*.csv
