@@ -1,2 +1,2 @@
 dataset,resource,field,pattern,entry-number,start-date,end-date,entry-date,endpoint
-parish,,reference,"^E",,,,,
+ward,,reference,"^E",,,,,
