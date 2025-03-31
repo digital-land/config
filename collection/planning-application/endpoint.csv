@@ -1,2 +1,6 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
 5dcb21663a114436c7a4fa557643000548d8b63ba4d0458c18360e942f5c4b59,https://raw.githubusercontent.com/digital-land/planning-condition-data/refs/heads/main/data/doncaster-conditions-data-2023-planning-application.csv,,,2025-02-21,,
+243421f06736bbfd943277196603d48fb95096d0106332b888cfd523a03a4d6f,https://www.adur-worthing.gov.uk/datasets/planning/adur-planning.csv,,,2025-03-31,,
+ad136cda0146efe5f810a5ae83ae276f91cab89b528233e73068459383f03fa3,https://www.adur-worthing.gov.uk/datasets/planning/worthing-planning.csv,,,2025-03-31,,
+e3369be4d79fa53896d105f012a79b880d0e829874f173cdae079e1bef14b978,https://opendata.camden.gov.uk/resource/2eiu-s2cw.geojson?$limit=80000,,,2025-03-31,,
+91e3956ad4a512a974678a5cfce5b9705445c8841c55acd5f833e328bd4b85ad,https://dluhc-datasets.planning-data.dev/dataset/planning-application-type.csv,,,2025-03-31,,

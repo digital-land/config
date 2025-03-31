@@ -1,1 +1,3 @@
-end-date,entry-date,endpoint,field,fields,dataset,resource,separator,start-date
+end-date,entry-date,endpoint,field,fields,dataset,resource,separator,start-date,prepend,append
+,,243421f06736bbfd943277196603d48fb95096d0106332b888cfd523a03a4d6f,point,GeoX;GeoY,planning-application,," ",,"POINT(",")"
+,,ad136cda0146efe5f810a5ae83ae276f91cab89b528233e73068459383f03fa3,point,GeoX;GeoY,planning-application,," ",,"POINT(",")"
