@@ -54,3 +54,4 @@ d3cafd03dbd7a0d307725e8fa0c5900d67f0e70527af5a6635013d938b20197d,https://service
 3c2fc35be4fd1008ab7b87d56da2e817c2926f3cf078b96d68f0833eefe69ba9,https://atlas.peterborough.gov.uk/arcgis/rest/services/Planning/Planning_Digitisation_GOV_UK_External_Connection/MapServer/7/query?outFields=*&where=1%3D1&f=geojson,,,2025-03-24,2025-03-24,
 986ca81a3137e7a09a761db13c0f9cd846056cbe11d2fc1bd3bf3ae478654fc3,https://services7.arcgis.com/Mz44joHFNpdc7JeO/arcgis/rest/services/IHM_ListedBuildings_view/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-03-26,2025-03-26,
 0be0fbb21262c23dc3ca3270bb4beeb8cdb11f76bd99c0b47dcd01ea9f9c881f,https://eastcambs.gov.uk/sites/default/files/2025-03/Listed%20building%20dataset.csv,,,2025-03-31,2025-03-31,
+f838255604dd6b7196c805bd295aca3a04b1eb4ab2f3a9c2cdcf49522eae639a,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20Listed%20Building%20Curtilages%20dataset.geojson,,,2025-04-02,2025-04-02,

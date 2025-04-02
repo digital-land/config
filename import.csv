@@ -1,2 +1,2 @@
 organisation,documentation-url,endpoint-url,start-date,pipelines,plugin,licence
-local-authority:PLY,https://www.plymouth.gov.uk/brownfield-land-register,https://plymouth.thedata.place/dataset/ece0ce26-9d4f-4ee8-b054-783d6097a250/resource/5fbbfee0-6cd5-40ad-9426-9eb84bde1826/download/250114_bfr_dec_2024_csv.csv,,brownfield-land,,ogl3
+local-authority:STT,https://www.sstaffs.gov.uk/planning/planning-policy-and-local-plans/planning-datasets,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20Listed%20Building%20Curtilages%20dataset.geojson,2025-04-02,listed-building,,ogl3
