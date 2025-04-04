@@ -1,2 +1,2 @@
 organisation,pipelines,documentation-url,endpoint-url,start-date,licence
-local-authority:SST,listed-building-outline,https://www.sstaffs.gov.uk/planning/planning-policy-and-local-plans/planning-datasets,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20Listed%20Building%20Curtilages%20dataset.geojson,2025-04-01,ogl3
+local-authority:WFT,conservation-area,https://www.walthamforest.gov.uk/planning-and-building-control/design-and-conservation/conservation-areas-and-listed-buildings,https://www.walthamforest.gov.uk/sites/default/files/2025-03/Waltham_Forest_Conservation_Areas.gpkg,2025-04-04,ogl3
