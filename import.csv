@@ -1,2 +1,2 @@
 organisation,documentation-url,endpoint-url,start-date,pipelines,plugin,licence
-local-authority:PLY,https://www.plymouth.gov.uk/brownfield-land-register,https://plymouth.thedata.place/dataset/ece0ce26-9d4f-4ee8-b054-783d6097a250/resource/5fbbfee0-6cd5-40ad-9426-9eb84bde1826/download/250114_bfr_dec_2024_csv.csv,,brownfield-land,,ogl3
+local-authority:LIV,https://liverpool.gov.uk/business/land-and-property/listed-building-data/,https://liverpool.gov.uk/media/xfso5wvm/lb-csv.csv,2025-04-07,listed-building-outline,,ogl3
