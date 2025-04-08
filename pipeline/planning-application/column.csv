@@ -1,7 +1,7 @@
 column,dataset,end-date,endpoint,entry-date,field,resource,start-date
 ExtractDate,planning-application,,243421f06736bbfd943277196603d48fb95096d0106332b888cfd523a03a4d6f,,entry-date,,
 CaseReference,planning-application,,243421f06736bbfd943277196603d48fb95096d0106332b888cfd523a03a4d6f,,reference,,
-OrganisationURI,planning-application,,243421f06736bbfd943277196603d48fb95096d0106332b888cfd523a03a4d6f,,organisation,,
+OrganisationURI,planning-application,,243421f06736bbfd943277196603d48fb95096d0106332b888cfd523a03a4d6f,,IGNORE,,
 CaseURL,planning-application,,243421f06736bbfd943277196603d48fb95096d0106332b888cfd523a03a4d6f,,documentation-url,,
 CaseDate,planning-application,,243421f06736bbfd943277196603d48fb95096d0106332b888cfd523a03a4d6f,,start-date,,
 ClassificationURI,planning-application,,243421f06736bbfd943277196603d48fb95096d0106332b888cfd523a03a4d6f,,development-classification,,
@@ -13,7 +13,7 @@ Decision,planning-application,,243421f06736bbfd943277196603d48fb95096d0106332b88
 DecisionType,planning-application,,243421f06736bbfd943277196603d48fb95096d0106332b888cfd523a03a4d6f,,planning-decision-type,,
 ExtractDate,planning-application,,ad136cda0146efe5f810a5ae83ae276f91cab89b528233e73068459383f03fa3,,entry-date,,
 CaseReference,planning-application,,ad136cda0146efe5f810a5ae83ae276f91cab89b528233e73068459383f03fa3,,reference,,
-OrganisationURI,planning-application,,ad136cda0146efe5f810a5ae83ae276f91cab89b528233e73068459383f03fa3,,organisation,,
+OrganisationURI,planning-application,,ad136cda0146efe5f810a5ae83ae276f91cab89b528233e73068459383f03fa3,,IGNORE,,
 CaseURL,planning-application,,ad136cda0146efe5f810a5ae83ae276f91cab89b528233e73068459383f03fa3,,documentation-url,,
 CaseDate,planning-application,,ad136cda0146efe5f810a5ae83ae276f91cab89b528233e73068459383f03fa3,,start-date,,
 ClassificationURI,planning-application,,ad136cda0146efe5f810a5ae83ae276f91cab89b528233e73068459383f03fa3,,development-classification,,
