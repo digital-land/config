@@ -9,3 +9,5 @@ assignees: ''
 [Guidance](https://digital-land.github.io/technical-documentation/data-operations-manual/How-To-Guides/Adding/Add-an-endpoint/)
 
 Jira Ticket: _Add link here_
+
+Make sure the JIRA ticket is resolved once endpoint has been added successfully
