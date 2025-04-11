@@ -1,2 +1,2 @@
 organisation,pipelines,documentation-url,endpoint-url,start-date,licence
-local-authority:SST,listed-building-outline,https://www.sstaffs.gov.uk/planning/planning-policy-and-local-plans/planning-datasets,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20Listed%20Building%20Curtilages%20dataset.geojson,2025-04-01,ogl3
+local-authority:ROS,brownfield-land,https://www.rossendale.gov.uk/downloads/download/10897/brownfield_land_register,https://www.rossendale.gov.uk/downloads/file/15788/brownfield-land-csv,2025-04-07,ogl3
