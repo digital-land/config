@@ -1,2 +1,6 @@
 organisation,pipelines,documentation-url,endpoint-url,start-date,licence
+<<<<<<< HEAD
 local-authority:CBF,listed-building-outline,https://www.centralbedfordshire.gov.uk/info/44/planning/1909/planning_open_data,https://www.centralbedfordshire.gov.uk/download/downloads/id/190/listed_building_dataset_wkt.csv,2025-04-11,ogl3
+=======
+local-authority:ROS,brownfield-land,https://www.rossendale.gov.uk/downloads/download/10897/brownfield_land_register,https://www.rossendale.gov.uk/downloads/file/15788/brownfield-land-csv,2025-04-07,ogl3
+>>>>>>> main
