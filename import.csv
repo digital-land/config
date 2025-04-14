@@ -1,2 +1,2 @@
 organisation,pipelines,documentation-url,endpoint-url,start-date,licence
-local-authority:SST,listed-building-outline,https://www.sstaffs.gov.uk/planning/planning-policy-and-local-plans/planning-datasets,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20Listed%20Building%20Curtilages%20dataset.geojson,2025-04-01,ogl3
+local-authority:CBF,listed-building-outline,https://www.centralbedfordshire.gov.uk/info/44/planning/1909/planning_open_data,https://www.centralbedfordshire.gov.uk/download/downloads/id/190/listed_building_dataset_wkt.csv,2025-04-11,ogl3
