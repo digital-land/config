@@ -27,7 +27,7 @@ def get_field_value_map(df, entity_number):
     """
     returns a dict of of field-value pairs for a given entity from transformed file
     """
-    sub_df = df[(df['entity'] == entity_number) & (df['field'] != 'reference')]
+    sub_df = df[(df['entity'] == entity_number) & (df['field'] != 'reference') & (df['field'] != 'entry-date')]
     return dict(zip(sub_df['field'], sub_df['value']))
 
 
