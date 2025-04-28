@@ -16,12 +16,20 @@ def get_old_resource_df(endpoint, collection_name, dataset):
     """
     returns transformed file for second latest resource using endpoint hash from CDN
     """
-    get_old_resource=f"https://datasette.planning.data.gov.uk/performance/reporting_historic_endpoints.csv?_sort=rowid&resource_end_date__notblank=1&endpoint__exact={endpoint}&_size=1"
-    response = requests.get(get_old_resource)
+    url = (
+        f"https://datasette.planning.data.gov.uk/performance/reporting_historic_endpoints.csv"
+        f"?_sort=rowid&resource_end_date__notblank=1&endpoint__exact={endpoint}&_size=1"
+    )
+    response = requests.get(url)
+    response.raise_for_status()
     old_resource_hash = pd.read_csv(StringIO(response.text))['resource'][0]
-    old_transformed_resource=f"https://files.planning.data.gov.uk/{collection_name}-collection/transformed/{dataset}/{old_resource_hash}.csv"
-    return pd.read_csv(old_transformed_resource)
 
+    transformed_url = (
+        f"https://files.planning.data.gov.uk/{collection_name}-collection/transformed/{dataset}/{old_resource_hash}.csv"
+    )
+    transformed_response = requests.get(transformed_url)
+    transformed_response.raise_for_status()
+    return pd.read_csv(StringIO(transformed_response.text))
 
 def get_field_value_map(df, entity_number):
     """
@@ -88,6 +96,7 @@ def process_csv(scope):
 
                     # get current transformed resource
                     current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
+                    #old_resource_df = pd.read_csv(os.path.join("var/cache/assign_entities/transformed", "second_resource.csv"))
                     
                     current_entities = set(current_resource_df['entity'])
                     old_entities = set(old_resource_df['entity'])
@@ -148,7 +157,7 @@ def process_csv(scope):
             print(f"Resource: {resource} - Error: {error}")
     if failed_assignments:
         print("\nFailed Assign-Entities Operations:")
-        for resource, error_code, error_message in failed_assignments:
+        for row_number, resource, error_code, error_message in failed_assignments:
             print(
                 f"Resoure : {resource} - Error Code: {error_code}, Message: {error_message}"
             )
@@ -157,7 +166,7 @@ def process_csv(scope):
     return failed_downloads, failed_assignments
 
 
-def get_scope(value):
+def get_scope(value, scope_dict):
     for scope, datasets in scope_dict.items():
         if value in datasets:
             return scope
@@ -186,7 +195,8 @@ if __name__ == "__main__":
         ].tolist(),
     }
 
-    df["scope"] = df["dataset"].apply(get_scope)
+    df["scope"] = df["dataset"].apply(lambda x: get_scope(x, scope_dict))
+
     df.to_csv("issue_summary.csv", index=False)
     print("issue_summary.csv downloaded successfully")
 
