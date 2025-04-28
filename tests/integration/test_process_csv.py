@@ -76,7 +76,7 @@ class MockResponse:
         self.status_code = status_code
 
     def raise_for_status(self):
-        if not 200:
+        if self.status_code != 200:
             raise requests.HTTPError("error")
 
     @property
