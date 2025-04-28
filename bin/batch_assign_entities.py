@@ -78,6 +78,8 @@ def process_csv(scope):
                     failed_downloads.append((row_number, resource, str(e)))
                     continue
                 collection_path = Path(f"collection/{collection_name}")
+
+                input_path = Path(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
                 try:
                     check_and_assign_entities(
                         [resource_path],
@@ -89,6 +91,7 @@ def process_csv(scope):
                         cache_dir / "organisation.csv",
                         Path("specification"),
                         Path(f"pipeline/{collection_name}"),
+                        input_path,
                     )
 
                     #get old transformed resource
@@ -96,7 +99,6 @@ def process_csv(scope):
 
                     # get current transformed resource
                     current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
-                    #old_resource_df = pd.read_csv(os.path.join("var/cache/assign_entities/transformed", "second_resource.csv"))
                     
                     current_entities = set(current_resource_df['entity'])
                     old_entities = set(old_resource_df['entity'])
