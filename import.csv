@@ -1,2 +1,2 @@
-organisation,pipelines,documentation-url,endpoint-url,start-date,licence
-local-authority:ECA,tree,https://eastcambs.gov.uk/planning-and-building-control/planning/built-heritage/planning-datasets,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Dataset.csv,2025-04-14,ogl3
+organisation,pipelines,documentation-url,endpoint-url,start-date,licence,plugin
+local-authority:ECA,tree,https://eastcambs.gov.uk/planning-and-building-control/planning/built-heritage/planning-datasets,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Dataset.csv,2025-04-14,ogl3,
