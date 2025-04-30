@@ -1,3 +1,2 @@
 organisation,pipelines,documentation-url,endpoint-url,start-date,licence
-local-authority:CBF,listed-building-outline,https://www.centralbedfordshire.gov.uk/info/44/planning/1909/planning_open_data,https://www.centralbedfordshire.gov.uk/download/downloads/id/190/listed_building_dataset_wkt.csv,2025-04-11,ogl3
-
+local-authority:CBF,tree-preservation-order,https://www.centralbedfordshire.gov.uk/info/44/planning/1909/planning_open_data,https://www.centralbedfordshire.gov.uk/download/downloads/id/191/tree_preservation_order_dataset_csv.xlsx,2025-04-30,ogl3
