@@ -684,3 +684,5 @@ bedbe0ddf018bb6adffacbd186ce29b693493b22e03f85b88b1e621e10eaf114,https://www.wal
 f988f08cbd646fbacbfcb9acd8cc9a7a4d9d093131b61e1b550c42a1a656f574,https://www.centralbedfordshire.gov.uk/download/downloads/id/188/conservation_area_dataset_csv.csv,,,2025-04-08,2025-04-04,
 534f36b110b88ee558285fb5e4fb05a450533a26814b36219966a7dbaa42313f,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/Conservation_Areas_documents_dataset/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-04-22,2025-04-10,
 3e3294d60a78531c43416d850a77a7c816c9f954b286ac3e308b4a400cec55fe,https://services-eu1.arcgis.com/kkZ3q6EOlzIRG0yO/arcgis/rest/services/ASLP_Conservation_areas_Public/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-04-28,2025-04-28,
+1507e3cb8834702bd0b043e4df77339e44a9f03fa80fac8af0b12dd6de4a6c59,https://www.newforestnpa.gov.uk/app/uploads/2025/01/Conservation-Area-Dataset-.csv,,,2025-04-30,2025-04-30,
+62247cf4c4c5326e594dee39b7e23c377ed3100e0b5d2097f847c6a862c9ba7b,https://www.newforestnpa.gov.uk/app/uploads/2025/01/NFNPA-conservation-area-documents-dataset-.csv,,,2025-04-30,2025-04-30,
