@@ -5,5 +5,8 @@ endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
 a2e53a9581245c3e83bb3294c71bbe1741691056afc99f6265252a6ec363c982,https://dluhc-datasets.planning-data.dev/dataset/local-plan-event.csv,,,2024-10-29,,2025-02-26
 306b632d1b2cb712fccdbb5b7b39ec978fd9a5c0f3df4b8a54ce946b3b6b30bd,https://dluhc-datasets.planning-data.dev/dataset/local-plan-document-type.csv,,,2024-10-29,,2025-02-26
 6c806302524eebcbfc9c34f89adf97ffcc75c66f53b08d79a8e3f2c685075148,https://raw.githubusercontent.com/digital-land/local-plans-explorer/refs/heads/main/data/export/local-plan-timetable.csv,,,2024-11-12,,
-e54f0daef3a45e9cde25f9c0758cd95ad1d34e8a05a33060201e9e7aa04e9e01,https://dataset-editor.development.planning.data.gov.uk/dataset/local-plan-event.csv,,,2025-02-26,2025-02-26,
-741ca0d214de4a35f76b9bf833c11c6e93c7698b9e2c7a09e6f31cdd37bb3066,https://dataset-editor.development.planning.data.gov.uk/dataset/local-plan-document-type.csv,,,2025-02-26,2025-02-26,
+e54f0daef3a45e9cde25f9c0758cd95ad1d34e8a05a33060201e9e7aa04e9e01,https://dataset-editor.development.planning.data.gov.uk/dataset/local-plan-event.csv,,,2025-02-26,2025-02-26,2025-05-01
+741ca0d214de4a35f76b9bf833c11c6e93c7698b9e2c7a09e6f31cdd37bb3066,https://dataset-editor.development.planning.data.gov.uk/dataset/local-plan-document-type.csv,,,2025-02-26,2025-02-26,2025-05-01
+9973e869654370d5759e14e5a200727b1e980cc54ff7e3c49713d8e2c671d679,https://dataset-editor.planning.data.gov.uk/dataset/document-type.csv,,,2025-05-01,2025-02-26,
+fc427ee67340e311b3417446c7a23f392006f4195dca61b6da22207199473027,https://dataset-editor.planning.data.gov.uk/dataset/local-plan-document-type.csv,,,2025-05-01,2025-02-26,
+2d067ea9b088c75b3572c1efd16d573f015b67e697d2edf8dab73b6c10c1cb10,https://dataset-editor.planning.data.gov.uk/dataset/local-plan-event.csv,,,2025-05-01,2025-02-26,
