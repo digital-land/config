@@ -1,6 +1,8 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
 014f829a6ebef894c46ddef4a58133a217f31adf4e688e3d6fab43af0b7ad63d,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/design-code-category.csv,,,2022-05-10T16:16:37:33Z,,
-014f829a6ebef894c46ddef4a58133a217f31adf4e688e3d6fab43af0b7ad63d,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/design-code-category.csv,,,2022-05-10T16:16:38:10Z,767d286dedd31744ee2cff3a9fdf601bea37bb4ecefa7dc4a3c23271f157e5e4,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/design-code-status.csv
+014f829a6ebef894c46ddef4a58133a217f31adf4e688e3d6fab43af0b7ad63d,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/design-code-category.csv,,,2022-05-10T16:16:38:10Z,,
+767d286dedd31744ee2cff3a9fdf601bea37bb4ecefa7dc4a3c23271f157e5e4,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/design-code-status.csv,,,2022-05-10T16:16:40:44Z,,2024-01-26
+4e5a7e17a76a1f796b6598403767f60a53d31735e58831f59b9089521bf3a118,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/Nuneaton-and-Bedworth-Arbury/design-code.csv,,,2022-05-10T16:16:43:34Z,,
 c6c0025816ba039cb10c1766f0036f4951f9c7bbc0013b1a8ac691cf82b33714,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/Nuneaton-and-Bedworth-Arbury/hsg2.zip,,,2022-05-10T16:16:44:22Z,,
 480de8763774f82802405b2b476de0795aac674932818daf557678fa7ccb74f2,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/Buckinghamshire/Buckinghamshire_region.zip,,,2022-05-10T18:18:25:43Z,,
 756ccb6953cd45bc6c5d51361d714698b7facc0f37d488f2c9d7faba271d3fe0,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/Guildford/design-code-area.csv,,,2022-05-10T20:20:35:19Z,,
