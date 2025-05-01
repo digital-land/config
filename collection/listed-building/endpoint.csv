@@ -1,7 +1,7 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
 d7a3030ffdf1c6f70cffdc0230928df129362c4b0c2d8b32e3bef22910e3f3f7,https://raw.githubusercontent.com/digital-land/historic-england-collection/main/data/listed-building-grade.csv,,,2021-06-02T15:15:36Z,,2021-10-02
 c187fc319f7175f30f123c26cd74e398844b0176b3e5c1690f2d710ef1cb237f,https://historicengland.org.uk/content/data-downloads-gis/listed-buildings/,,,2021-05-28T13:13:07Z,,
-fe11d79074c5744a47ce11171e6f7c376ea41a62ef2882d527192213645b9503,https://raw.githubusercontent.com/digital-land/listed-building-collection/main/data/listed-building-grade.csv,,,2021-11-22T16:16:19Z,,
+fe11d79074c5744a47ce11171e6f7c376ea41a62ef2882d527192213645b9503,https://raw.githubusercontent.com/digital-land/listed-building-collection/main/data/listed-building-grade.csv,,,2021-11-22T16:16:19Z,,2025-05-01
 2edd619184cc8fdfcebab5be89c7de2ccbe03c72c7b6f71361920e3cda55163d,https://opendata.arcgis.com/datasets/a0ea54c61b1f4bdfbe9605324cf70c81_0.geojson,,,2021-11-23T19:19:01Z,,
 f9e48302f921da41ac204cd97817651db192c83dcbc032afc9a8f19f6ce57849,https://raw.githubusercontent.com/digital-land/listed-building-collection/main/data/Southwark/Grade%20I.zip,,,2021-12-07T11:11:51Z,,2024-07-10
 25763ee988ddbee9003f2dd58941c01b166e1a61e88b956f1f734c4dc4584021,https://raw.githubusercontent.com/digital-land/listed-building-collection/main/data/Southwark/Grade%20II.zip,,,2021-12-07T11:11:51Z,,2024-07-10
@@ -60,3 +60,4 @@ df00c46a5ace79c05ac5aa7e6dd631d54c920569f4a4f2ffbe982ce141d6d6a7,https://liverpo
 07635003cdde6cc590a70206f07d9899fa90d08688f0669becd7326902568f5c,https://geoserver.leicester.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3AODP_LISTED_BUILDING_OUTLINE&outputFormat=application%2Fjson,,,2025-04-11,2025-04-08,
 8f83ab5f46febfbd9364dfd418a13d87fa99131be7bb6f7194a40deae52ea98f,https://www.westminster.gov.uk/media/document/wcc-listed-building-outline-dataset-mar-2025,,,2025-04-28,2025-04-08,
 f5b539072135c427d5599292bf2fff6cb7658c9f7dcbf174784a933b217c575c,https://services-eu1.arcgis.com/kkZ3q6EOlzIRG0yO/arcgis/rest/services/IHM_ListedBuildings_Public/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-04-28,2025-04-28,
+ff3c20c9755186b32bc942e92462c5c6e4076763da016c83363c2aaa3026bdce,https://dataset-editor.planning.data.gov.uk/dataset/listed-building-grade.csv,,,2025-05-01,2021-11-22,
