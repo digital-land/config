@@ -64,7 +64,7 @@ d28c8e35851a4bd9e103a30fd5d44c19caa8b04c843252b75c614308639f96f7,https://plymout
 bb2a8f795c5c57e992e0cfa128925abf6b88bd5bbb389f0b65a2047d82404526,https://plymouth.thedata.place/dataset/7a367919-9259-4f55-a4b4-009df658e401/resource/8489e342-6087-4ae0-a20e-c1dd60bdba31/download/tpo_trees_plymouth.geojson,,,2024-12-05,,
 5ceb0d5287a6bee4dec8b0dc5181c2327599c2c3b305560670a614c39e883fcb,https://plymouth.thedata.place/dataset/7a367919-9259-4f55-a4b4-009df658e401/resource/97901b2b-506e-44bf-b777-7d6c148919a4/download/tree_preservation_order-dataset.csv,,,2024-12-11,,
 a215cd87ddc71f2c176fd566ac6885034368766a51389efecf48f9bb635080f5,https://www.southnorfolkandbroadland.gov.uk/asset-library/bdc-tree-preservation-order.csv,,,2024-12-12,,2025-03-20
-f9b2bba7f246fe9b4d674ada7c96a003638f87c06c5c479303d161413c3eda89,https://www.sstaffs.gov.uk/sites/default/files/2024-12/south_staffs_tpo_zone_geometry_dataset.geojson,,,2024-12-17,2024-12-17,
+f9b2bba7f246fe9b4d674ada7c96a003638f87c06c5c479303d161413c3eda89,https://www.sstaffs.gov.uk/sites/default/files/2024-12/south_staffs_tpo_zone_geometry_dataset.geojson,,,2024-12-17,2024-12-17,2025-04-22
 47eb850a122b81d764964c048c28aafc700f39d8f400f9205e632ac38f51e1db,https://www.torbay.gov.uk/services/geoserver/DigitalPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=DigitalPlanning%3ADLUHC_tree_preservation_zone_Torbay&outputFormat=application%2Fjson,,,2024-12-17,2024-12-17,
 dc446f429ef237a6c197f36f930e9a45c90c02aaef2a0cea191b8194afdec20c,https://www.torbay.gov.uk/services/geoserver/DigitalPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=DigitalPlanning%3ADLUHC_tree_Torbay&outputFormat=application%2Fjson,,,2024-12-17,2024-12-17,
 898e4eec20bf667542dfbe98e2dbf1772187468ec2eda8edc56bec303ba2a7f6,https://www.rbkc.gov.uk/media/document/treepreservationorderdatasetcsv,,,2025-01-02,,
@@ -96,3 +96,9 @@ c41f81efa3f22a7ff86fab951b31f462ef71282aed2ee869bfc6fa437428178d,https://www.sou
 083bfb0b5defa06b4f877cbda4768dd72cd06eb22edd1471e08d410cfb150e66,https://www.southnorfolkandbroadland.gov.uk/asset-library/broadland-tree-preservation-order.json,,,2025-03-20,2025-03-20,
 d0f1de9d149de6d0576abc6d9707f4d80c6da8d804e66a70c7f531e316b57498,https://www.ashford.gov.uk/media/jksbvxwz/tpo_points_17_03_2025.csv,,,2025-04-03,2025-04-03,
 856a3529d072a1a68c16a401f8498bb643e0c115a27c2413f81e75eb888ea572,https://www.ashford.gov.uk/media/44vltouz/tpo_zones_17_03_2025.csv,,,2025-04-03,2025-04-03,
+6b0c845c3d7c312bde434700152f2bfa5c58b0bd722c1ba74f5f29b92fcbefdd,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20TPO%20zone%20April%202025.geojson,,,2025-04-22,2025-04-22,
+6db8ebe08279160b83b66f1d83fd57efe7de92344d8f0e026953fc41487954e9,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Dataset.csv,,,2025-04-29,2025-04-14,
+e207dd3168f5ef12cff098ba3a9f7bc99d5457ffc6c8d8165035d7ba2961f340,https://www.sandwell.gov.uk/downloads/file/4015/tree-preservation-order-dataset,,,2025-04-29,2025-04-28,
+7a5dab0b90510d47356b8a3f5bc9d617156fea0c26c5c732afc2c09bbd2ec426,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Preservation%20Zone%20Dataset.csv,,,2025-04-30,2025-04-14,
+e7d5f94460a8cf677ff3b754c3ccf5fa9b032f4d204d44f3d110ce06e13dd1e3,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Preservation%20Order.csv,,,2025-04-30,2025-04-14,
+728873ef348b582eeb078281819c2fb41e180ec1c32b2f07214d44e661962630,https://www.centralbedfordshire.gov.uk/download/downloads/id/191/tree_preservation_order_dataset_csv.xlsx,,,2025-04-30,2025-04-30,
