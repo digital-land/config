@@ -60,3 +60,4 @@ df00c46a5ace79c05ac5aa7e6dd631d54c920569f4a4f2ffbe982ce141d6d6a7,https://liverpo
 07635003cdde6cc590a70206f07d9899fa90d08688f0669becd7326902568f5c,https://geoserver.leicester.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3AODP_LISTED_BUILDING_OUTLINE&outputFormat=application%2Fjson,,,2025-04-11,2025-04-08,
 8f83ab5f46febfbd9364dfd418a13d87fa99131be7bb6f7194a40deae52ea98f,https://www.westminster.gov.uk/media/document/wcc-listed-building-outline-dataset-mar-2025,,,2025-04-28,2025-04-08,
 f5b539072135c427d5599292bf2fff6cb7658c9f7dcbf174784a933b217c575c,https://services-eu1.arcgis.com/kkZ3q6EOlzIRG0yO/arcgis/rest/services/IHM_ListedBuildings_Public/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-04-28,2025-04-28,
+f2f6ba1ef1abd09469dd5192b8f8fb6a1362d83436df7ebb05ae937eacec664a,https://haringey.gov.uk/sites/default/files/2025-04/listed_building.csv,,,2025-05-02,2025-04-29,
