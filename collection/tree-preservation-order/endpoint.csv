@@ -15,7 +15,7 @@ d551675f1579af9e69e105e9fe8f33fc4160dd8004fd6975863480e0d16b6337,https://datamil
 3aeef0b2fb0bb0c85a25bd4491b3c56f70924d6a8ae9d9e22764885965a2b4c7,https://medwaymaps.medway.gov.uk/WFS/wfs.exe?service=WFS&version=2.0.0&request=GetFeature&TypeNames=ENV_TREE_PRESERVATION_ORDERS,,wfs,2022-07-01T07:07:56:40Z,,
 de1eb90a8b037292ef8ae14bfabd1184847ef99b7c6296bb6e75379e6c1f9572,https://maps.doncaster.gov.uk/server/rest/services/Planning/TPO_Map/MapServer/1,,arcgis,2022-10-26T10:14:52Z,,
 a05e76e962d438545a5a48c967cd2b1229ebc951a9a4a6d4d7ecad4379f0f1ca,https://maps.doncaster.gov.uk/server/rest/services/Planning/TPO_Map/MapServer/0/,,arcgis,2022-10-26T10:15:59Z,,
-197442524d853ded36d6752aa9692bc1f98ee34e9d0d2368083b907f02c5ca74,https://raw.githubusercontent.com/digital-land/tree-preservation-order-collection/main/data/tree-preservation-zone-type.csv,,,2023-09-11T12:12:28:05Z,,
+197442524d853ded36d6752aa9692bc1f98ee34e9d0d2368083b907f02c5ca74,https://raw.githubusercontent.com/digital-land/tree-preservation-order-collection/main/data/tree-preservation-zone-type.csv,,,2023-09-11T12:12:28:05Z,,2025-05-01
 9aa9c76574fc8b02d50f4e55d626ca9f84769cfb60167e3dc2c731a6c988c3fa,https://services7.arcgis.com/NXULfNGIlsKmpCJD/arcgis/rest/services/Tree_Preservation_Zone/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2023-10-09T09:09:55:42Z,,2024-02-11
 41918491840440f6ff9c1cd2f4510c255148f1d9a9e0c2ae1ea89c10dff40f55,https://services7.arcgis.com/NXULfNGIlsKmpCJD/arcgis/rest/services/Tree_Preservation_Order/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2023-10-09T11:11:17:17Z,,
 c02b990ae3d48107c12c7482ab3a9b8662a2ca8b081756c63cabdd8a01e065e7,https://services-eu1.arcgis.com/xk4RA36G57mVH7Aw/ArcGIS/rest/services/TPO_National_Planning_Map_view/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2023-10-11T11:11:16:18Z,,
@@ -102,3 +102,4 @@ e207dd3168f5ef12cff098ba3a9f7bc99d5457ffc6c8d8165035d7ba2961f340,https://www.san
 7a5dab0b90510d47356b8a3f5bc9d617156fea0c26c5c732afc2c09bbd2ec426,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Preservation%20Zone%20Dataset.csv,,,2025-04-30,2025-04-14,
 e7d5f94460a8cf677ff3b754c3ccf5fa9b032f4d204d44f3d110ce06e13dd1e3,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Preservation%20Order.csv,,,2025-04-30,2025-04-14,
 728873ef348b582eeb078281819c2fb41e180ec1c32b2f07214d44e661962630,https://www.centralbedfordshire.gov.uk/download/downloads/id/191/tree_preservation_order_dataset_csv.xlsx,,,2025-04-30,2025-04-30,
+a00b30a6d130c841338f3152868501ae7ea577bf3b76b42a993f6e40fa513b15,https://dataset-editor.planning.data.gov.uk/dataset/tree-preservation-zone-type.csv,,,2025-05-01,2023-09-11,
