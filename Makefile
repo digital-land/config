@@ -57,18 +57,6 @@ ifeq ($(INPUT_CSV),)
 endif
 	digital-land add-data $(INPUT_CSV) $(COLLECTION) -c $(COLLECTION_DIR) -p $(PIPELINE_DIR) -o $(CACHE_DIR)organisation.csv
 
-all:: lint test
-
-lint:
-	make black ./src/application
-	python -m flake8 ./src/application
-
-black-check:
-	black --check .
-
-black:
-	python -m black .
-
 test:: test-unit test-integration
 
 test-unit:
