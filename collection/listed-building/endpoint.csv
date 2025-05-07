@@ -62,3 +62,4 @@ df00c46a5ace79c05ac5aa7e6dd631d54c920569f4a4f2ffbe982ce141d6d6a7,https://liverpo
 f5b539072135c427d5599292bf2fff6cb7658c9f7dcbf174784a933b217c575c,https://services-eu1.arcgis.com/kkZ3q6EOlzIRG0yO/arcgis/rest/services/IHM_ListedBuildings_Public/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-04-28,2025-04-28,
 a166aaa131624be30689b7fa5f49214a768c0b190ae92916b1bd7ea30a59f59e,https://www.newforestnpa.gov.uk/app/uploads/2025/02/Listed-Building-Dataset.csv,,,2025-04-30,2025-04-30,
 ff3c20c9755186b32bc942e92462c5c6e4076763da016c83363c2aaa3026bdce,https://dataset-editor.planning.data.gov.uk/dataset/listed-building-grade.csv,,,2025-05-01,2021-11-22,
+f2f6ba1ef1abd09469dd5192b8f8fb6a1362d83436df7ebb05ae937eacec664a,https://haringey.gov.uk/sites/default/files/2025-04/listed_building.csv,,,2025-05-06,2025-04-29,
