@@ -105,6 +105,7 @@ def test_process_csv_match_entities(
             raise ValueError("Unexpected URL")
 
     monkeypatch.setattr(batch_assign_entities.requests, "get", mock_get_match_entities)
+    monkeypatch.setattr(batch_assign_entities, "check_and_assign_entities", lambda *args, **kwargs: True)
 
     failed_downloads, failed_assignments = batch_assign_entities.process_csv(scope="odp")
     out, err = capfd.readouterr()
@@ -139,6 +140,7 @@ def test_process_csv_success(
             raise ValueError("Unexpected URL")
 
     monkeypatch.setattr(batch_assign_entities.requests, "get", mock_get_success)
+    monkeypatch.setattr(batch_assign_entities, "check_and_assign_entities", lambda *args, **kwargs: True)
 
     failed_downloads, failed_assignments = batch_assign_entities.process_csv(scope="odp")
     out, err = capfd.readouterr()
