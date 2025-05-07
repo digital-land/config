@@ -81,7 +81,7 @@ def process_csv(scope):
 
                 input_path = Path(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
                 try:
-                    check_and_assign_entities(
+                    success = check_and_assign_entities(
                         [resource_path],
                         [endpoint],
                         collection_name,
@@ -93,6 +93,11 @@ def process_csv(scope):
                         Path(f"pipeline/{collection_name}"),
                         input_path,
                     )
+                    # if operation cancelled by user because of issues with new entities
+                    if not success:
+                        print(f"Entity assignment for resource '{resource}' was cancelled.")
+                        successful_resources.append(resource_path)
+                        continue 
 
                     #get old transformed resource
                     old_resource_df = get_old_resource_df(endpoint,collection_name,dataset)
@@ -106,17 +111,20 @@ def process_csv(scope):
                     # store new entities in current_resource_df
                     new_entities = list(current_entities - old_entities)
                     current_resource_df = current_resource_df[current_resource_df['entity'].isin(new_entities)]
-                
-                    duplicate_entity={}
-                    for entity in new_entities:
-                        current_fields = get_field_value_map(current_resource_df, entity)
-      
-                        for old_resource_entity in old_resource_df['entity'].unique():
-                            old_resource_fields = get_field_value_map(old_resource_df, old_resource_entity)
+               
+                    duplicate_entity = {}
 
-                            if current_fields == old_resource_fields:
-                                duplicate_entity[entity]=old_resource_entity
-                                break
+                    # store old entity field maps
+                    field_map_to_old_entity = {}
+                    for old_entity in old_resource_df["entity"].unique():
+                        field_map = tuple(sorted(get_field_value_map(old_resource_df, old_entity).items()))
+                        field_map_to_old_entity[field_map] = old_entity
+
+                    # compare new entity field maps using dict lookup
+                    for entity in new_entities:
+                        current_fields = tuple(sorted(get_field_value_map(current_resource_df, entity).items()))
+                        if current_fields in field_map_to_old_entity:
+                            duplicate_entity[entity] = field_map_to_old_entity[current_fields]
 
                     if duplicate_entity:
                         print("Matching entities found (new_entity:matched_current_entity):",duplicate_entity)
