@@ -1,3 +1,4 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
 a7e225d52dffc3da69107c5383aca19922d9142b1f4dce99b04ccaae5f308242,https://raw.githubusercontent.com/digital-land/document-collection/main/data/conservation-area-documents.csv,,,2021-04-23T00:00:00Z,,
-6dc2762ab3ca43611e16b1b21b932752dc8f9af8edf4eff0fe1b361f7c62076a,https://raw.githubusercontent.com/digital-land/document-collection/main/data/document-type.csv,,,2021-12-06T22:22:24Z,,
+6dc2762ab3ca43611e16b1b21b932752dc8f9af8edf4eff0fe1b361f7c62076a,https://raw.githubusercontent.com/digital-land/document-collection/main/data/document-type.csv,,,2021-12-06T22:22:24Z,,2025-05-01
+9973e869654370d5759e14e5a200727b1e980cc54ff7e3c49713d8e2c671d679,https://dataset-editor.planning.data.gov.uk/dataset/document-type.csv,,,2025-05-01,2021-12-06,

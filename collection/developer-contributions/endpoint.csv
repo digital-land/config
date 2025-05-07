@@ -1,7 +1,7 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-607eb93bad47b5d4ea3364ec0fe4c4ce09d9e83674cceb559ccd0faf40c935db,https://raw.githubusercontent.com/digital-land/developer-contributions-collection/main/data/contribution-funding-status.csv,,,2021-03-25T00:00:00Z,,
-05762a3af6634daaa28f3f0c1480b40db9d965c5b798361602ee9b86d4a84490,https://raw.githubusercontent.com/digital-land/developer-contributions-collection/main/data/contribution-purpose.csv,,,2021-03-25T00:00:00Z,,
-70d55954062f43e5c3b725f3e67f97d72b9c61e3cec53e80b54f522f7ccc8d75,https://raw.githubusercontent.com/digital-land/developer-contributions-collection/main/data/developer-agreement-type.csv,,,2021-03-25T00:00:00Z,,
+607eb93bad47b5d4ea3364ec0fe4c4ce09d9e83674cceb559ccd0faf40c935db,https://raw.githubusercontent.com/digital-land/developer-contributions-collection/main/data/contribution-funding-status.csv,,,2021-03-25T00:00:00Z,,2025-04-30
+05762a3af6634daaa28f3f0c1480b40db9d965c5b798361602ee9b86d4a84490,https://raw.githubusercontent.com/digital-land/developer-contributions-collection/main/data/contribution-purpose.csv,,,2021-03-25T00:00:00Z,,2025-04-29
+70d55954062f43e5c3b725f3e67f97d72b9c61e3cec53e80b54f522f7ccc8d75,https://raw.githubusercontent.com/digital-land/developer-contributions-collection/main/data/developer-agreement-type.csv,,,2021-03-25T00:00:00Z,,2025-04-30
 675f65fd59ba990515e78f92aaf5394fa9442c2a6af1e4f99882ff953279f474,"https://www.adur-worthing.gov.uk/media/Media,158841,smxx.csv",,,2020-12-21T00:00:00Z,,2024-05-20
 2949face1bcd597baade64dbc4dcda33805a4ea2b8b89105d298013932f2be3d,https://www.ambervalley.gov.uk/images/documents/planningobligations/developer_agreements.csv,,,2021-01-11T00:00:00Z,,
 23700b00504d0ebbd20d642feb6c18a8168192ef932060ac148c612ae385a8e0,www.ashford.gov.uk/developer-agreements,,,2020-12-22T00:00:00Z,,2024-05-20
@@ -442,6 +442,9 @@ bd50e709b18a5204488fa338f41f86f286a0e1a4b58e6b649446aa3efa6a6e40,https://beta.so
 70ee0bdc78bffc2b51fc719b9ab70daa87c3595e73c1dedea27b17414de16418,https://www.northyorkmoors.org.uk/__data/assets/file/0012/140250/developer-agreement_2024_12_17_updated.csv.csv,,,2025-02-27,,
 a471f1fc443d9d5e58872f9fc39fa73759f314ace9ae8e05b6622c6cc4229f5c,https://www.northyorkmoors.org.uk/__data/assets/file/0013/140251/developer-agreement-contribution_2024_12_17_updated.csv.csv,,,2025-02-27,,
 49376dfc086a594af57a2f7cc261d2547ede4b850d28b3b893fe332e93d13673,https://www.northyorkmoors.org.uk/__data/assets/file/0014/140252/developer-agreement-transactions_2024_12_17_updated.csv.csv,,,2025-02-27,,
-9b31b67d0f7585a452800f8297a1531f769ccbf780129cbd41f8b950969fc4e7,https://dataset-editor.development.planning.data.gov.uk/dataset/contribution-funding-status.csv,,,2025-02-27,2025-02-27,
-6aa53b285ed7310d568ff901b1191a30202684f2afe3a44271b5331be102db06,https://dataset-editor.development.planning.data.gov.uk/dataset/contribution-purpose.csv,,,2025-02-27,2025-02-27,
-6f2027efb496d0d06914cbfa342cc7b66d0c3d489c800c72e9482ca91c6ca079,https://dataset-editor.development.planning.data.gov.uk/dataset/developer-agreement-type.csv,,,2025-02-27,2025-02-27,
+9b31b67d0f7585a452800f8297a1531f769ccbf780129cbd41f8b950969fc4e7,https://dataset-editor.development.planning.data.gov.uk/dataset/contribution-funding-status.csv,,,2025-02-27,2025-02-27,2025-04-30
+6aa53b285ed7310d568ff901b1191a30202684f2afe3a44271b5331be102db06,https://dataset-editor.development.planning.data.gov.uk/dataset/contribution-purpose.csv,,,2025-02-27,2025-02-27,2025-04-30
+6f2027efb496d0d06914cbfa342cc7b66d0c3d489c800c72e9482ca91c6ca079,https://dataset-editor.development.planning.data.gov.uk/dataset/developer-agreement-type.csv,,,2025-02-27,2025-02-27,2025-04-30
+2bc43ef2a1cbe24934c109d2e6e3a02d8297098454b784faa4b40b9a8ce26518,https://dataset-editor.planning.data.gov.uk/dataset/contribution-purpose.csv,,,2025-04-30,2025-02-27,
+40481c1ece6c0aa40ac976462cc721e6cc80febf4917f97d6e0c258b54d679b6,https://dataset-editor.planning.data.gov.uk/dataset/developer-agreement-type.csv,,,2025-04-30,2025-02-27,
+101a94d5dc32590a4ea8472286016183fa3016993cbec7ab3d887a6360486705,https://dataset-editor.planning.data.gov.uk/dataset/contribution-funding-status.csv,,,2025-04-30,2025-02-27,
