@@ -15,5 +15,7 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    - name: Run Lint and Tests
+    - name: Run Tests
       run: make test
+      env:
+        COLLECTION: dummy
