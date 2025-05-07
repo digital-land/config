@@ -79,7 +79,7 @@ eaceade72cd00741743fba9921fb2ef764ed3363f882f420904cb96d20c44106,https://service
 7fba602d0916908c150e4326bde44c19c2a8b9a0dae0ada39e4e1c7c6146a5e6,https://www.wirral.gov.uk/files/tree-preservation-order.csv/download?inline,,,2025-02-05,,
 aa5fe3c1812f1ba4cc50111b8e90e081ea8dbe666f08d506c5adfe76fd7a7c3f,https://www.wirral.gov.uk/files/tree.geojson/download?inline,,,2025-02-05,,
 5b89802a704295d92602c760c47dc51667c47ec841baf56d6852dfc3fd91d5d5,https://www.wirral.gov.uk/files/tree-preservation-zone.geojson/download?inline,,,2025-02-05,,
-c1d65f06b7c0a242de3510837e0791fd3bf9fab19c09fa3477bcede0e883d7a1,https://www.sstaffs.gov.uk/sites/default/files/2025-01/South%20Staffs%20TPO%20non%20Zone%20Geometry%20Dataset.geojson,,,2025-02-05,,
+c1d65f06b7c0a242de3510837e0791fd3bf9fab19c09fa3477bcede0e883d7a1,https://www.sstaffs.gov.uk/sites/default/files/2025-01/South%20Staffs%20TPO%20non%20Zone%20Geometry%20Dataset.geojson,,,2025-02-05,,2025-05-07
 c8a8c4ee3f365b5d0e486c5d592f0de7f081f44ce266c9f543bf930677828021,https://services8.arcgis.com/DOopK66xzdr2Avop/arcgis/rest/services/tree_preservation_order_tree_WGS_84/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-17,,
 caf1e5b97424356516affcf0bbc36735c4ccb73e291cbf0f06ef2931bdf09ba8,https://services.southwark.gov.uk/assets/attach/337184/Tree-dataset.geojson,,,2025-02-14,,
 839ab89f77a258f1a62c72db26c7ef993c496897c565ed40c9aac417d6204b8c,https://services8.arcgis.com/DOopK66xzdr2Avop/arcgis/rest/services/tree_preservation_order_zone_WGS_84/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-03-03,,
@@ -103,3 +103,4 @@ e207dd3168f5ef12cff098ba3a9f7bc99d5457ffc6c8d8165035d7ba2961f340,https://www.san
 e7d5f94460a8cf677ff3b754c3ccf5fa9b032f4d204d44f3d110ce06e13dd1e3,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Preservation%20Order.csv,,,2025-04-30,2025-04-14,
 728873ef348b582eeb078281819c2fb41e180ec1c32b2f07214d44e661962630,https://www.centralbedfordshire.gov.uk/download/downloads/id/191/tree_preservation_order_dataset_csv.xlsx,,,2025-04-30,2025-04-30,
 a00b30a6d130c841338f3152868501ae7ea577bf3b76b42a993f6e40fa513b15,https://dataset-editor.planning.data.gov.uk/dataset/tree-preservation-zone-type.csv,,,2025-05-01,2023-09-11,
+f59e8ab0f427a9e36635f185c0a2b8123fac7a19c70bf38bc6d250b65cb57150,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20TPO%20Tree%20April%202025%20v1_0.geojson,,,2025-05-07,2025-05-01,
