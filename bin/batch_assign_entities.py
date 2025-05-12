@@ -2,11 +2,42 @@ import csv
 import requests
 import sys
 import pandas as pd
+import os
+import shutil
 
 from pathlib import Path
 from io import StringIO
-from digital_land.cli import assign_entities_cmd
+from digital_land.commands import check_and_assign_entities
 from digital_land.collection import Collection
+from digital_land.utils.add_data_utils import get_user_response
+
+
+def get_old_resource_df(endpoint, collection_name, dataset):
+    """
+    returns transformed file for second latest resource using endpoint hash from CDN
+    """
+    url = (
+        f"https://datasette.planning.data.gov.uk/performance/reporting_historic_endpoints.csv"
+        f"?_sort=rowid&resource_end_date__notblank=1&endpoint__exact={endpoint}&_size=1"
+    )
+    response = requests.get(url)
+    response.raise_for_status()
+    old_resource_hash = pd.read_csv(StringIO(response.text))['resource'][0]
+
+    transformed_url = (
+        f"https://files.planning.data.gov.uk/{collection_name}-collection/transformed/{dataset}/{old_resource_hash}.csv"
+    )
+    transformed_response = requests.get(transformed_url)
+    transformed_response.raise_for_status()
+    return pd.read_csv(StringIO(transformed_response.text))
+
+def get_field_value_map(df, entity_number):
+    """
+    returns a dict of of field-value pairs for a given entity from transformed file
+    """
+    sub_df = df[(df['entity'] == entity_number) & (df['field'] != 'reference') & (df['field'] != 'entry-date')]
+    return dict(zip(sub_df['field'], sub_df['value']))
+
 
 def process_csv(scope):
     """
@@ -15,7 +46,7 @@ def process_csv(scope):
     failed_downloads = []
     failed_assignments = []
     successful_resources = []
-    resources_dir = Path("./resources")
+    resources_dir = Path("./resource")
     resources_dir.mkdir(exist_ok=True)
 
     try:
@@ -35,6 +66,7 @@ def process_csv(scope):
                 organisation_name = row["organisation"]
                 download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
                 resource_path = resources_dir / resource
+                cache_dir=Path("var/cache/")
                 try:
                     response = requests.get(download_link)
                     response.raise_for_status()
@@ -46,20 +78,63 @@ def process_csv(scope):
                     failed_downloads.append((row_number, resource, str(e)))
                     continue
                 collection_path = Path(f"collection/{collection_name}")
-                collection = Collection(name=collection_name, directory=collection_path)
-                collection.load()
+
+                input_path = Path(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
                 try:
-                    assign_entities_cmd.callback(
-                        resource_path,
-                        endpoint,
+                    success = check_and_assign_entities(
+                        [resource_path],
+                        [endpoint],
                         collection_name,
                         dataset,
-                        organisation_name,
+                        [organisation_name],
                         collection_path,
+                        cache_dir / "organisation.csv",
                         Path("specification"),
                         Path(f"pipeline/{collection_name}"),
-                        Path("var/cache/organisation.csv"),
+                        input_path,
                     )
+                    # if operation cancelled by user because of issues with new entities
+                    if not success:
+                        print(f"Entity assignment for resource '{resource}' was cancelled.")
+                        successful_resources.append(resource_path)
+                        continue 
+
+                    #get old transformed resource
+                    old_resource_df = get_old_resource_df(endpoint,collection_name,dataset)
+
+                    # get current transformed resource
+                    current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
+                    
+                    current_entities = set(current_resource_df['entity'])
+                    old_entities = set(old_resource_df['entity'])
+
+                    # store new entities in current_resource_df
+                    new_entities = list(current_entities - old_entities)
+                    current_resource_df = current_resource_df[current_resource_df['entity'].isin(new_entities)]
+               
+                    duplicate_entity = {}
+
+                    # store old entity field maps
+                    field_map_to_old_entity = {}
+                    for old_entity in old_resource_df["entity"].unique():
+                        field_map = tuple(sorted(get_field_value_map(old_resource_df, old_entity).items()))
+                        field_map_to_old_entity[field_map] = old_entity
+
+                    # compare new entity field maps using dict lookup
+                    for entity in new_entities:
+                        current_fields = tuple(sorted(get_field_value_map(current_resource_df, entity).items()))
+                        if current_fields in field_map_to_old_entity:
+                            duplicate_entity[entity] = field_map_to_old_entity[current_fields]
+
+                    if duplicate_entity:
+                        print("Matching entities found (new_entity:matched_current_entity):",duplicate_entity)
+                        if not get_user_response(
+                            "Do you want to still assign entities for this resource? (yes/no): "
+                        ):
+                            successful_resources.append(resource_path)
+                            continue
+
+                    shutil.copy(cache_dir / "assign_entities" / collection_name / "pipeline" / "lookup.csv", Path("pipeline") / collection_name / "lookup.csv")
                     print(f"\nEntities assigned successfully for resource: {resource}")
                     successful_resources.append(resource_path)
                 except Exception as e:
@@ -92,7 +167,7 @@ def process_csv(scope):
             print(f"Resource: {resource} - Error: {error}")
     if failed_assignments:
         print("\nFailed Assign-Entities Operations:")
-        for resource, error_code, error_message in failed_assignments:
+        for row_number, resource, error_code, error_message in failed_assignments:
             print(
                 f"Resoure : {resource} - Error Code: {error_code}, Message: {error_message}"
             )
@@ -101,7 +176,7 @@ def process_csv(scope):
     return failed_downloads, failed_assignments
 
 
-def get_scope(value):
+def get_scope(value, scope_dict):
     for scope, datasets in scope_dict.items():
         if value in datasets:
             return scope
@@ -130,7 +205,8 @@ if __name__ == "__main__":
         ].tolist(),
     }
 
-    df["scope"] = df["dataset"].apply(get_scope)
+    df["scope"] = df["dataset"].apply(lambda x: get_scope(x, scope_dict))
+
     df.to_csv("issue_summary.csv", index=False)
     print("issue_summary.csv downloaded successfully")
 
