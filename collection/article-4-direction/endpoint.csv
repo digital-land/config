@@ -82,7 +82,6 @@ c998e8befc7c357fe7f001af02e9ddc2cd3238c81d958e8156188fdf2f06ba2f,https://maps2.b
 8026d95f5da3cbda8ac6d183601586b372896720f49e31925ae1f4374f254c43,https://plymouth.thedata.place/dataset/616c1f4f-151f-4859-9177-142c4135da2d/resource/dbdb8fee-fa7d-4c49-830a-2732259fa978/download/article_4_direction_area_plymouth.geojson,,,2024-10-30,,2024-12-05
 667fc1598d817e6456c775277214067697b1e09f50b11c0111c5fdaaac756028,https://maps.doncaster.gov.uk/server/rest/services/Planning/Article_4/MapServer/6/,,arcgis,2024-11-07,,
 d3599f46a21de336fdcf154dbc0601cae3244cad242afd42b8fbe0fcdedad472,https://www.sstaffs.gov.uk/sites/default/files/2024-11/Article%204%20Direction%20Data_0.csv,,,2024-11-12,,
-be557dcef843918934b9216fd597a70b02cc5546a9bee9366985340bb3269045,https://services.southwark.gov.uk/assets/attach/194785/Article-4-direction-area.geojson,,,2024-11-15,,
 ca4bb4ce3d76cc57183c2de03dfddb6f3e45b451c658b077d0626e2b6f871c0a,https://www.wirral.gov.uk/files/article-4-direction.csv/download?inline,,,2024-11-20,,
 55cf0a2a52a0c2e523e1d7606e6c3d55e8a3aca681babe9acc1183e4afa76439,https://www.wirral.gov.uk/files/article-4-direction-area.geojson/download?inline,,,2024-11-20,,
 90dcae622e23a4e136120a6d59ad80397611ff46bea1b79a28dda771958c8843,https://www.sstaffs.gov.uk/sites/default/files/2024-11/South Staffordshire Article 4 Spatial Dataset_0.geojson,,,2024-11-22,,
@@ -131,3 +130,4 @@ fa43f1424a3c39642ff4664068da6432efd8f5ab7c81d702cea8fe95e4532d8c,https://www.wal
 5bf106eb6a9025d0bc88f0f92373cef3c4a617e9f10777686c0d90232b17e6dc,https://www.newforestnpa.gov.uk/app/uploads/2025/01/NFNPA-article-4-direction-dataset.xlsx,,,2025-04-30,2025-04-30,
 bd5862c4d77269173be9f1bdd58ecd8e608dbd16618331b3b08d43ddd610d241,https://www.ashford.gov.uk/media/dsplmr5a/article4_spatial_07_04_25.csv,,,2025-05-02,2025-05-01,
 ab1b0920799bc382b3d8c43f674b06dc4602be18fed7874bdb93206a977b74b7,https://www.centralbedfordshire.gov.uk/download/downloads/id/194/article_4_direction_area_dataset_csv.csv,,,2025-05-23,2025-05-22,
+be557dcef843918934b9216fd597a70b02cc5546a9bee9366985340bb3269045,https://services.southwark.gov.uk/assets/attach/194785/Article-4-direction-area.geojson,,,2025-05-28,2025-05-28,
