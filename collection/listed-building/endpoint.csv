@@ -50,7 +50,7 @@ a91ed722b5b7f5271c327ee86bee6a7882f784a05e727d67430abea15cedfbbf,https://service
 6a183d1c8b8505b27532c8335137139be5b8cdb97f8c2afded73a5e5b507c023,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/arcgis/rest/services/Listed_Building_Area_Data/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-18,,
 e4be3608a792d2773efc9b4863366ba07b9fad3e7656638b0fd1bc032cd159bd,https://hosted.southglos.gov.uk/OpenData/Planning/listed_buildings.gml.txt,,,2025-03-03,,
 d3cafd03dbd7a0d307725e8fa0c5900d67f0e70527af5a6635013d938b20197d,https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Listed_Buildings_Public/FeatureServer/0,,arcgis,2025-03-12,2025-03-12,
-532494ecf29142fb72f99582f43e9d01c72af5146d99446148ccc307c87b8520,https://www.walthamforest.gov.uk/sites/default/files/2025-02/Waltham_Forest_Listed_Buildings.gpkg,,,2025-03-21,2025-03-21,
+532494ecf29142fb72f99582f43e9d01c72af5146d99446148ccc307c87b8520,https://www.walthamforest.gov.uk/sites/default/files/2025-02/Waltham_Forest_Listed_Buildings.gpkg,,,2025-03-21,2025-03-21,2025-05-28
 3c2fc35be4fd1008ab7b87d56da2e817c2926f3cf078b96d68f0833eefe69ba9,https://atlas.peterborough.gov.uk/arcgis/rest/services/Planning/Planning_Digitisation_GOV_UK_External_Connection/MapServer/7/query?outFields=*&where=1%3D1&f=geojson,,,2025-03-24,2025-03-24,
 986ca81a3137e7a09a761db13c0f9cd846056cbe11d2fc1bd3bf3ae478654fc3,https://services7.arcgis.com/Mz44joHFNpdc7JeO/arcgis/rest/services/IHM_ListedBuildings_view/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-03-26,2025-03-26,2025-04-28
 0be0fbb21262c23dc3ca3270bb4beeb8cdb11f76bd99c0b47dcd01ea9f9c881f,https://eastcambs.gov.uk/sites/default/files/2025-03/Listed%20building%20dataset.csv,,,2025-03-31,2025-03-31,
@@ -63,3 +63,4 @@ f5b539072135c427d5599292bf2fff6cb7658c9f7dcbf174784a933b217c575c,https://service
 a166aaa131624be30689b7fa5f49214a768c0b190ae92916b1bd7ea30a59f59e,https://www.newforestnpa.gov.uk/app/uploads/2025/02/Listed-Building-Dataset.csv,,,2025-04-30,2025-04-30,
 ff3c20c9755186b32bc942e92462c5c6e4076763da016c83363c2aaa3026bdce,https://dataset-editor.planning.data.gov.uk/dataset/listed-building-grade.csv,,,2025-05-01,2021-11-22,
 f2f6ba1ef1abd09469dd5192b8f8fb6a1362d83436df7ebb05ae937eacec664a,https://haringey.gov.uk/sites/default/files/2025-04/listed_building.csv,,,2025-05-06,2025-04-29,
+8f94660fa9138984b4e2e6a1bf4b72a2ce2c28f427282d157400a281ec9d4f17,https://www.walthamforest.gov.uk/listed-buildings,,,2025-05-28,2025-05-28,
