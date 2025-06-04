@@ -237,7 +237,7 @@ c7bcd1cf9e1a3eee50c3648b877f4717cab8c95073223c54684a437704a8b4da,https://plymout
 864d74ebb515466435db25df7b4c936077e745f51b9eca670111cd6e4c202843,https://data.leicester.gov.uk/api/explore/v2.1/catalog/datasets/conservation-area-document/exports/xlsx?lang=en&timezone=Europe%2FLondon&use_labels=true,,,2024-11-05,,
 6cc963eed60a955c0012a61481010d5cc0fbfb595e5d0670c09756540f22cf4d,https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/Conservation_Areas/FeatureServer/1,,arcgis,2024-11-08,,
 d02c91c33b6d0999c5d95acab72bd87e012f150427e4b7759a5e4bd5a150eed2,https://map.salford.gov.uk/geoserver/SpatialPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=SpatialPlanning:aslp_conservation_areas&outputFormat=application%2Fjson,,,2024-11-13,,2025-03-27
-b431e9c6b7178db0847e8c5510d86b993dca23a0354fb792cb5dd871aa0f9854,https://services.southwark.gov.uk/assets/attach/194104/Conservation-Areas.geojson,,,2024-11-15,,
+b431e9c6b7178db0847e8c5510d86b993dca23a0354fb792cb5dd871aa0f9854,https://services.southwark.gov.uk/assets/attach/194104/Conservation-Areas.geojson,,,2024-11-15,,2025-06-04
 ebeea8689113e04aa6e709520e0b437aa0f39e80952498dd00663d9cfabb2030,https://www.sstaffs.gov.uk/sites/default/files/2024-11/South Staffs Conservation Area document dataset_1.csv,,,2024-11-22,,2024-12-17
 6be2e81951485d6856463b6ed433ebf69661be33981b0985d0a9bb5142686e01,https://www.sstaffs.gov.uk/sites/default/files/2024-11/South%20Staffs%20Conservation%20Area%20geometry%20dataset%20ODP1.geojson,,,2024-11-26,,
 dfb701a17a10d46053eea72484ff3836a75dd839eab109c78f1a3fbc8ca17409,https://www.newforest.gov.uk/media/4226/NFDC-conservation-area.geojson/json/NFDC-conservation-area.geojson,,,2024-11-27,,
@@ -692,3 +692,4 @@ a18851e8289f404d00c1fcac05cfc9439efd1a677ee4f4d7c6764a7ea54aaa42,https://liverpo
 8872e6a28a82ed0ffa06d812007e90c5f56d415f21152d7381ca2932e78c3279,https://www.ashford.gov.uk/media/oatln00s/conservationarea_22_07_24.csv,,,2025-05-13,2025-05-07,
 3e1748dbb586dc4746d1c2fa4fde3791cbe94d6f41adcbd7c3f5bc5cc4244ad2,https://www.centralbedfordshire.gov.uk/download/downloads/id/193/conservation_area_dataset.csv,,,2025-05-28,2025-05-28,
 aa67584401834fb9fd88d755e045440f5865d52b4d01df685a228f0db0e67542,https://www.newforestnpa.gov.uk/app/uploads/2025/05/NFNPA-conservation-area-documents-dataset.csv,,,2025-06-02,2025-05-27,
+2599a54f2edcf8799ae0f535a894699e9f3150eb5e04433002780fad5d4c49e7,https://www.southwark.gov.uk/sites/default/files/2025-05/digital-planning-data-conservation-areas.geojson,,,2025-06-04,2025-06-04,
