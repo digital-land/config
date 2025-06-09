@@ -26,6 +26,10 @@ else
 REFILL_TODAYS_LOGS=true
 endif
 
+ifeq ($(INCREMENTAL_LOADING_OVERRIDE),)
+INCREMENTAL_LOADING_OVERRIDE=false
+endif
+
 
 # data sources
 SOURCE_CSV=$(COLLECTION_DIR)source.csv

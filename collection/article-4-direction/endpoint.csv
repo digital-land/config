@@ -132,3 +132,4 @@ bd5862c4d77269173be9f1bdd58ecd8e608dbd16618331b3b08d43ddd610d241,https://www.ash
 ab1b0920799bc382b3d8c43f674b06dc4602be18fed7874bdb93206a977b74b7,https://www.centralbedfordshire.gov.uk/download/downloads/id/194/article_4_direction_area_dataset_csv.csv,,,2025-05-23,2025-05-22,
 be557dcef843918934b9216fd597a70b02cc5546a9bee9366985340bb3269045,https://services.southwark.gov.uk/assets/attach/194785/Article-4-direction-area.geojson,,,2025-05-28,2025-05-28,
 335edaa894f86d147315401bb213efeac85451189588a5223e50fcf4b7a1973a,https://maps.3csharedservices.org/arcgis/rest/services/GCSPArticle4Directions_OpenData/MapServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-05-29,2025-05-27,
+310613e98d7a5716892e5b48331f4c1d6007a693eddbda685d8422e2a2b7219a,https://geoserver.leicester.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3AODP_ARTICLE_4_DIRECTION_AREA&maxFeatures=5000&outputFormat=application%2Fjson,,,2025-06-09,2025-06-03,

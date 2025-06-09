@@ -1,2 +1,2 @@
 organisation,pipelines,documentation-url,endpoint-url,start-date,licence
-local-authority:CBF,conservation-area,https://www.centralbedfordshire.gov.uk/info/44/planning/1909/planning_open_data,https://www.centralbedfordshire.gov.uk/download/downloads/id/193/conservation_area_dataset.csv,2025-05-28,ogl3
+local-authority:LCE,article-4-direction-area,https://data.leicester.gov.uk/explore/dataset/article_4_direction/information/,https://geoserver.leicester.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3AODP_ARTICLE_4_DIRECTION_AREA&maxFeatures=5000&outputFormat=application%2Fjson,2025-06-03,ogl3
