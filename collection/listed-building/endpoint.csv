@@ -46,7 +46,7 @@ a90770bf978a2d6bfbd16179e314b149ad0a922d21f84b940a826c7671676e7a,https://www.rbk
 53d76cd2b96235d7c94950b2089725f480d814131fc0d46c9e582225f93c9ed6,https://www.sandwell.gov.uk/downloads/file/3670/listed-building-outline-dataset,,,2025-01-28,,
 95948197690657516e22d8064af1f48f922f2796e7d3b319a25f57dbb99f661a,https://map.salford.gov.uk/geoserver/SpatialPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=SpatialPlanning:IHM_LISTEDBUILDINGS&outputFormat=application%2Fjson,,,2025-02-07,,2025-03-27
 b3b5126c58819f1b3f988d651584b0ff62690b7765d0e76c24b0807bf68f5aa3,https://services8.arcgis.com/DOopK66xzdr2Avop/arcgis/rest/services/listed_buildings_WGS_84/FeatureServer/0/,,arcgis,2025-02-17,,
-a91ed722b5b7f5271c327ee86bee6a7882f784a05e727d67430abea15cedfbbf,https://services.southwark.gov.uk/assets/attach/339269/Listed-buildings-outlines.geojson,,,2025-02-14,,
+a91ed722b5b7f5271c327ee86bee6a7882f784a05e727d67430abea15cedfbbf,https://services.southwark.gov.uk/assets/attach/339269/Listed-buildings-outlines.geojson,,,2025-02-14,,2025-06-17
 6a183d1c8b8505b27532c8335137139be5b8cdb97f8c2afded73a5e5b507c023,https://services3.arcgis.com/lCzPKKaGs7lhrnrV/arcgis/rest/services/Listed_Building_Area_Data/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-18,,
 e4be3608a792d2773efc9b4863366ba07b9fad3e7656638b0fd1bc032cd159bd,https://hosted.southglos.gov.uk/OpenData/Planning/listed_buildings.gml.txt,,,2025-03-03,,
 d3cafd03dbd7a0d307725e8fa0c5900d67f0e70527af5a6635013d938b20197d,https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Listed_Buildings_Public/FeatureServer/0,,arcgis,2025-03-12,2025-03-12,
@@ -66,3 +66,4 @@ f2f6ba1ef1abd09469dd5192b8f8fb6a1362d83436df7ebb05ae937eacec664a,https://haringe
 8f94660fa9138984b4e2e6a1bf4b72a2ce2c28f427282d157400a281ec9d4f17,https://www.walthamforest.gov.uk/listed-buildings,,,2025-05-28,2025-05-28,
 7b13ce8da491b54eb7b267bc632bb1e393177fba079d6fc81847d90ba53be6a3,https://www.newforestnpa.gov.uk/app/uploads/2025/05/Listed-Building-Dataset-.csv,,,2025-05-29,2025-05-27,
 56da082a91b8cb569f1742e010b0ccfa9b308508600564e32a37ae763f1f59b5,https://smbc-opendata.s3.eu-west-1.amazonaws.com/Listed_Buildings_Stockport.csv,,,2025-06-06,2025-06-04,
+8dfc6c57ae80d2a656650e64e9e36b8de1cffb4100dbde28aca0475adb1967bd,https://www.southwark.gov.uk/sites/default/files/2025-06/Listed%20buildings%20outlines.geojson,,,2025-06-17,2025-06-17,
