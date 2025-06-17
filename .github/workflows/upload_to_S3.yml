@@ -1,14 +1,17 @@
 name: Upload to S3
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '30 22 * * *'
   workflow_dispatch:
     inputs:
       environment:
         type: environment
         description: The environment to deploy to.
+
+concurrency:
+  group: push-to-s3-main
+  cancel-in-progress: true
 
 jobs:
   detect-environments:
@@ -27,7 +30,8 @@ jobs:
               await github.request(`GET /repos/${process.env.GITHUB_REPOSITORY}/environments`);
             return environments.map(e => e.name)
 
-  upload_to_S3:
+  manual_upload_to_S3:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     needs: [detect-environments]
     strategy:
@@ -49,3 +53,57 @@ jobs:
         run: |
           aws s3 sync ./collection s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/collection
           aws s3 sync ./pipeline s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/pipeline
+
+  scheduled_upload_to_s3:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.DEPLOY_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEPLOY_AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+      - name: Save to S3
+        run: |
+          aws s3 sync ./collection s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/collection
+          aws s3 sync ./pipeline s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/pipeline
+
+  check-scheduled-push-failure:
+    runs-on: ubuntu-latest
+    needs:
+      - scheduled_upload_to_s3
+    if: github.event_name == 'schedule' && needs.scheduled_upload_to_s3.result == 'failure'
+    steps:
+      - name: send failure notification
+        uses: slackapi/slack-github-action@v1
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        with:
+          channel-id: 'planning-data-platform'
+          payload: |
+            {
+              "text": "S3 scheduled push has failed",
+              "icon_emoji": ":warning:",
+              "username": "S3 scheduled push",
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "S3 scheduled push has failed"
+                  }
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "The report is available on <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|GitHub>"
+                  }
+                }
+              ]
+            }
