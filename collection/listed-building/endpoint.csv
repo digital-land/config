@@ -67,3 +67,4 @@ f2f6ba1ef1abd09469dd5192b8f8fb6a1362d83436df7ebb05ae937eacec664a,https://haringe
 7b13ce8da491b54eb7b267bc632bb1e393177fba079d6fc81847d90ba53be6a3,https://www.newforestnpa.gov.uk/app/uploads/2025/05/Listed-Building-Dataset-.csv,,,2025-05-29,2025-05-27,
 56da082a91b8cb569f1742e010b0ccfa9b308508600564e32a37ae763f1f59b5,https://smbc-opendata.s3.eu-west-1.amazonaws.com/Listed_Buildings_Stockport.csv,,,2025-06-06,2025-06-04,
 8dfc6c57ae80d2a656650e64e9e36b8de1cffb4100dbde28aca0475adb1967bd,https://www.southwark.gov.uk/sites/default/files/2025-06/Listed%20buildings%20outlines.geojson,,,2025-06-17,2025-06-17,
+c93eeb2a36f48fba477e299ce37ee00b864c97b7b9918d6c005c92ae5a1b682c,https://maps.3csharedservices.org/arcgis/rest/services/GCSP/GSCPListedBuildings_OpenData/MapServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-06-18,2025-06-17,
