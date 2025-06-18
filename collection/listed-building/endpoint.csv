@@ -56,7 +56,7 @@ d3cafd03dbd7a0d307725e8fa0c5900d67f0e70527af5a6635013d938b20197d,https://service
 0be0fbb21262c23dc3ca3270bb4beeb8cdb11f76bd99c0b47dcd01ea9f9c881f,https://eastcambs.gov.uk/sites/default/files/2025-03/Listed%20building%20dataset.csv,,,2025-03-31,2025-03-31,
 f838255604dd6b7196c805bd295aca3a04b1eb4ab2f3a9c2cdcf49522eae639a,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20Listed%20Building%20Curtilages%20dataset.geojson,,,2025-04-02,2025-04-01,
 df00c46a5ace79c05ac5aa7e6dd631d54c920569f4a4f2ffbe982ce141d6d6a7,https://liverpool.gov.uk/media/xfso5wvm/lb-csv.csv,,,2025-04-08,2025-04-04,
-3208d1b3c19d2e3ddc979a249ef9c36150926cc2b655743134dcda0a5a4e83e1,https://www.centralbedfordshire.gov.uk/download/downloads/id/190/listed_building_dataset_wkt.csv,,,2025-04-14,2025-04-11,
+3208d1b3c19d2e3ddc979a249ef9c36150926cc2b655743134dcda0a5a4e83e1,https://www.centralbedfordshire.gov.uk/download/downloads/id/190/listed_building_dataset_wkt.csv,,,2025-04-14,2025-04-11,2025-06-18
 07635003cdde6cc590a70206f07d9899fa90d08688f0669becd7326902568f5c,https://geoserver.leicester.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3AODP_LISTED_BUILDING_OUTLINE&outputFormat=application%2Fjson,,,2025-04-11,2025-04-08,
 8f83ab5f46febfbd9364dfd418a13d87fa99131be7bb6f7194a40deae52ea98f,https://www.westminster.gov.uk/media/document/wcc-listed-building-outline-dataset-mar-2025,,,2025-04-28,2025-04-08,
 f5b539072135c427d5599292bf2fff6cb7658c9f7dcbf174784a933b217c575c,https://services-eu1.arcgis.com/kkZ3q6EOlzIRG0yO/arcgis/rest/services/IHM_ListedBuildings_Public/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-04-28,2025-04-28,
@@ -67,3 +67,4 @@ f2f6ba1ef1abd09469dd5192b8f8fb6a1362d83436df7ebb05ae937eacec664a,https://haringe
 7b13ce8da491b54eb7b267bc632bb1e393177fba079d6fc81847d90ba53be6a3,https://www.newforestnpa.gov.uk/app/uploads/2025/05/Listed-Building-Dataset-.csv,,,2025-05-29,2025-05-27,
 56da082a91b8cb569f1742e010b0ccfa9b308508600564e32a37ae763f1f59b5,https://smbc-opendata.s3.eu-west-1.amazonaws.com/Listed_Buildings_Stockport.csv,,,2025-06-06,2025-06-04,
 8dfc6c57ae80d2a656650e64e9e36b8de1cffb4100dbde28aca0475adb1967bd,https://www.southwark.gov.uk/sites/default/files/2025-06/Listed%20buildings%20outlines.geojson,,,2025-06-17,2025-06-17,
+d38651b88e981260f65ac42de46ab0ec2abf116cf4b70b5de79e6a6f716096d9,https://www.centralbedfordshire.gov.uk/download/downloads/id/197/listed_building_outline_dataset_csv.csv,,,2025-06-18,2025-05-22,
