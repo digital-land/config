@@ -69,3 +69,4 @@ f2f6ba1ef1abd09469dd5192b8f8fb6a1362d83436df7ebb05ae937eacec664a,https://haringe
 8dfc6c57ae80d2a656650e64e9e36b8de1cffb4100dbde28aca0475adb1967bd,https://www.southwark.gov.uk/sites/default/files/2025-06/Listed%20buildings%20outlines.geojson,,,2025-06-17,2025-06-17,
 c93eeb2a36f48fba477e299ce37ee00b864c97b7b9918d6c005c92ae5a1b682c,https://maps.3csharedservices.org/arcgis/rest/services/GCSP/GSCPListedBuildings_OpenData/MapServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-06-18,2025-06-17,
 d38651b88e981260f65ac42de46ab0ec2abf116cf4b70b5de79e6a6f716096d9,https://www.centralbedfordshire.gov.uk/download/downloads/id/197/listed_building_outline_dataset_csv.csv,,,2025-06-19,2025-06-19,
+ddf13db3152d2546f16306719e97db528072a626b7b42945ebb62de4467d9267,https://maps.3csharedservices.org/arcgis/rest/services/GCSP/GSCPListedBuildings_OpenData/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-06-19,2025-06-17,
