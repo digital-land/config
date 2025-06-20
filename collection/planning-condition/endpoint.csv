@@ -1,3 +1,4 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-12f904973a9b24a9e9ed521e0c9d3502b848334302d6f57017e3adbe3fe74e30,https://raw.githubusercontent.com/digital-land/planning-condition-data/refs/heads/main/data/doncaster-conditions-data-2023-planning-condition.csv,,,2025-02-21,,
+12f904973a9b24a9e9ed521e0c9d3502b848334302d6f57017e3adbe3fe74e30,https://raw.githubusercontent.com/digital-land/planning-condition-data/refs/heads/main/data/doncaster-conditions-data-2023-planning-condition.csv,,,2025-02-21,,2025-06-20
 87bd1e950655c932b97d590f470fd5a7cde776af9a805b71b065f7487b2e62ca,https://raw.githubusercontent.com/digital-land/planning-condition-data/refs/heads/main/data/doncaster-conditions-data-2023-planning-application-condition.csv,,,2025-02-21,,
+8bb4bf93eb541716f41a37a85682a5dcad9ebe8c8f6d7b91068e865969debedc,https://raw.githubusercontent.com/digital-land/planning-condition-data/refs/heads/main/data/doncaster-2024-planning-application-conditions.csv,,,2025-06-20,2025-06-18,
