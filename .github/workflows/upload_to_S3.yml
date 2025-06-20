@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - upload_to_S3
-    if: github.event_name == 'schedule' && needs.upload_to_S3.result == 'failure'
+    if: github.event_name == 'schedule' && contains(join(needs.*.result, ','), 'failure')
     steps:
       - name: send failure notification
         uses: slackapi/slack-github-action@v1
