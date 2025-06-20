@@ -1,3 +1,4 @@
 -e git+https://github.com/digital-land/digital-land-python.git#egg=digital-land
 pytest
 pytest-mock
+requests
