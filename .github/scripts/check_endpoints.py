@@ -29,10 +29,11 @@ def get_filtered_endpoints(dataset_name, days_ago):
         print(f"  ⚠️ No endpoint.csv for dataset '{dataset_name}'")
         return []
     rows = csv_to_json(resp.text)
-    cutoff = datetime.utcnow() - timedelta(days=days_ago)
-    filtered = [r for r in rows if r.get("endpoint")
-                and datetime.fromisoformat(r['entry-date']) >= cutoff]
-    print(f"  ▶️ Found {len(filtered)} new endpoint(s) in last {days_ago} day(s)")
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days_ago)
+    filtered = [
+        row for row in rows
+        if row.get("endpoint") and datetime.fromisoformat(row["entry-date"]).replace(tzinfo=timezone.utc) > cutoff_date
+    ]
     return filtered
 
 
