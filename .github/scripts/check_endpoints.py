@@ -1,39 +1,63 @@
+import sys
+import time
 import requests
 import csv
-from datetime import datetime, timedelta, timezone
-from io import StringIO
-import urllib.parse
-import time
+import io
+from datetime import datetime, timedelta
 
+# Number of days back to check
 NUMBER_OF_DAYS_BACK_TO_CHECK = 7
 
 
 def csv_to_json(csv_text):
-    reader = csv.DictReader(StringIO(csv_text))
+    reader = csv.DictReader(io.StringIO(csv_text))
     return list(reader)
 
 
 def get_dataset_names():
     url = "https://api.github.com/repos/digital-land/config/contents/collection"
-    response = requests.get(url)
-    response.raise_for_status()
-    data = response.json()
-    return [item['name'] for item in data if item['type'] == 'dir']
+    resp = requests.get(url)
+    resp.raise_for_status()
+    data = resp.json()
+    return [d['name'] for d in data if d['type'] == 'dir']
 
 
-def get_filtered_endpoints(dataset_name, days_ago=NUMBER_OF_DAYS_BACK_TO_CHECK):
-    csv_url = f"https://raw.githubusercontent.com/digital-land/config/refs/heads/main/collection/{dataset_name}/endpoint.csv"
-    response = requests.get(csv_url)
-    if response.status_code != 200:
+def get_filtered_endpoints(dataset_name, days_ago):
+    url = f"https://raw.githubusercontent.com/digital-land/config/main/collection/{dataset_name}/endpoint.csv"
+    resp = requests.get(url)
+    if resp.status_code != 200:
+        print(f"  ⚠️ No endpoint.csv for dataset '{dataset_name}'")
         return []
-    csv_text = response.text
-    rows = csv_to_json(csv_text)
-    cutoff_date = datetime.now(timezone.utc) - timedelta(days=days_ago)
-    filtered = [
-        row for row in rows
-        if row.get("endpoint") and datetime.fromisoformat(row["entry-date"]).replace(tzinfo=timezone.utc) > cutoff_date
-    ]
+    rows = csv_to_json(resp.text)
+    cutoff = datetime.utcnow() - timedelta(days=days_ago)
+    filtered = [r for r in rows if r.get("endpoint")
+                and datetime.fromisoformat(r['entry-date']) >= cutoff]
+    print(f"  ▶️ Found {len(filtered)} new endpoint(s) in last {days_ago} day(s)")
     return filtered
+
+
+def get_source_map(dataset_name):
+    url = f"https://raw.githubusercontent.com/digital-land/config/main/collection/{dataset_name}/source.csv"
+    resp = requests.get(url)
+    if resp.status_code != 200:
+        print(f"  ⚠️ No source.csv for dataset '{dataset_name}'")
+        return {}
+    rows = csv_to_json(resp.text)
+    mapping = {}
+    for r in rows:
+        endpoint = r.get('endpoint')
+        organisation = r.get('organisation', '').strip()
+        pipeline = r.get('pipeline', '').strip()
+        if not endpoint:
+            continue
+        if endpoint not in mapping:
+            mapping[endpoint] = {'organisations': set(), 'pipelines': set()}
+        if organisation:
+            mapping[endpoint]['organisations'].add(organisation)
+        if pipeline:
+            mapping[endpoint]['pipelines'].add(pipeline)
+    return mapping
+
 
 def check_endpoint(dataset_name, endpoint_hash, organisation_name, pipeline_label):
     url = (
