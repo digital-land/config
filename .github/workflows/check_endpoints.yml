@@ -2,8 +2,8 @@ name: Check Endpoints
 
 on:
   schedule:
-    # Run daily at 9:00 AM UTC
-    - cron: "0 9 * * *"
+    # Run daily at 8:00 AM UTC
+    - cron: "0 8 * * *"
   workflow_dispatch: # Allow manual triggering
 
 env:
