@@ -1,2 +1,5 @@
-prefix,reference,entity,entry-number,resource,start-date,organisation,end-date,entry-date,endpoint
-statistical-geography,E92000001,31000,,,,,,,
+prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date
+statistical-geography,,,,,E92000001,31000,,,
+statistical-geography,,,,government-organisation:D303,N92000002,31001,,,
+statistical-geography,,,,government-organisation:D303,S92000003,31002,,,
+statistical-geography,,,,government-organisation:D303,W92000004,31003,,,
