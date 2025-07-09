@@ -1,6 +1,6 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-014f829a6ebef894c46ddef4a58133a217f31adf4e688e3d6fab43af0b7ad63d,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/design-code-category.csv,,,2022-05-10T16:16:37:33Z,,
-014f829a6ebef894c46ddef4a58133a217f31adf4e688e3d6fab43af0b7ad63d,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/design-code-category.csv,,,2022-05-10T16:16:38:10Z,,
+014f829a6ebef894c46ddef4a58133a217f31adf4e688e3d6fab43af0b7ad63d,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/design-code-category.csv,,,2022-05-10T16:16:37:33Z,,2025-07-08
+014f829a6ebef894c46ddef4a58133a217f31adf4e688e3d6fab43af0b7ad63d,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/design-code-category.csv,,,2022-05-10T16:16:38:10Z,,2025-07-08
 767d286dedd31744ee2cff3a9fdf601bea37bb4ecefa7dc4a3c23271f157e5e4,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/design-code-status.csv,,,2022-05-10T16:16:40:44Z,,2024-01-26
 4e5a7e17a76a1f796b6598403767f60a53d31735e58831f59b9089521bf3a118,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/Nuneaton-and-Bedworth-Arbury/design-code.csv,,,2022-05-10T16:16:43:34Z,,
 c6c0025816ba039cb10c1766f0036f4951f9c7bbc0013b1a8ac691cf82b33714,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/Nuneaton-and-Bedworth-Arbury/hsg2.zip,,,2022-05-10T16:16:44:22Z,,
@@ -19,7 +19,7 @@ abe7e09820de4aab66d9d49a6733a4d899c1bd277c4638c7c3b45f3c31c610af,https://raw.git
 434e2cbc3550ec08e43566f4ac849fbb7d470010ef2e3aac6013defad7043b2c,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/Portsmouth/PCC_CityCentre_Pilot_NMDC_Code_Area.kml,,,2022-07-06T09:09:47:56Z,,
 720b5c98b623dce36488f74c90339e11342577b73765b979529727f6dcd3b478,https://raw.githubusercontent.com/digital-land/design-code-collection/main/data/Portsmouth/Portsmouth-estates.zip,,,2022-07-06T16:16:20:47Z,,
 8b70179ae883850301456cce620da2d6247c8348f6436525aa75e1bad599bad0,https://dluhc-datasets.planning-data.dev/dataset/design-code-status.csv,,,2024-01-26,2024-01-26,2025-02-26
-b0401b5df368a1b37aaba47904f69eec297867bebf83b638882e6709b75e07a3,https://raw.githubusercontent.com/digital-land/design-code-data/main/data/design-code.csv,,,2024-06-10,2024-06-06,
+b0401b5df368a1b37aaba47904f69eec297867bebf83b638882e6709b75e07a3,https://raw.githubusercontent.com/digital-land/design-code-data/main/data/design-code.csv,,,2024-06-10,2024-06-06,2025-07-09
 b98628127d2d1c10c1c9770015474e45f2e73ae067bc8c49235bdd994e8cc4bf,https://raw.githubusercontent.com/digital-land/design-code-data/main/data/design-code-rule.csv,,,2024-06-10,2024-06-06,
 3e31e8eb8b6fd6a7eb8f2d1fb1a9124881737d97e6c533a7e5878c997ffded56,https://dluhc-datasets.planning-data.dev/dataset/design-code-characteristic.csv,,,2024-06-10,2023-09-28,2025-02-26
 b26b23f3582c1e3657c27c893f46495056a4163a274a85dff408a5fbe831bbab,https://dluhc-datasets.planning-data.dev/dataset/design-code-area-type.csv,,,2024-06-10,2024-03-05,2025-02-26
@@ -29,3 +29,4 @@ b26b23f3582c1e3657c27c893f46495056a4163a274a85dff408a5fbe831bbab,https://dluhc-d
 731cb1e8318b7c3018a4f5b037ca6948aa0520d8802e0a2595d194ecfc52daa4,https://dataset-editor.planning.data.gov.uk/dataset/design-code-area-type.csv,,,2025-04-29,2025-02-26,
 ef500c77eb06ce33819ac85500ce5eb68b7f303bfe8c6801a0f8f4d798b9afa9,https://dataset-editor.planning.data.gov.uk/dataset/design-code-status.csv,,,2025-04-30,2025-02-26,
 9683592d3f6ed719b6405ffc125a77753005a0f0756f3f420a0511a93ba8fc94,https://dataset-editor.planning.data.gov.uk/dataset/design-code-characteristic.csv,,,2025-05-01,2025-02-26,
+8da374185471d132dea80dbddd306a55cec09246ae809153b4a225f23fe4cac4,https://dataset-editor.planning.data.gov.uk/dataset/design-code-rule-category.csv,,,2025-07-09,2025-07-09,
