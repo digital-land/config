@@ -1,2 +1,2 @@
 organisation,pipelines,documentation-url,endpoint-url,start-date,licence
-local-authority:CBF,conservation-area,https://www.centralbedfordshire.gov.uk/info/44/planning/1909/planning_open_data,https://www.centralbedfordshire.gov.uk/download/downloads/id/193/conservation_area_dataset.csv,2025-05-28,ogl3
+local-authority:DST,article-4-direction-area,https://gi.dorsetcouncil.gov.uk/dorsetexplorer/planning/public#map=10.35/50.79582/-2.31339/0&basemap=1/100/100,https://gi.dorsetcouncil.gov.uk/geoserver/planning-public/wfs?request=GetFeature&typeName=article_4&outputFormat=application%2Fjson,2025-07-25,ogl3

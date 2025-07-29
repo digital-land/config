@@ -138,3 +138,4 @@ c93c4cf0ab5f3eb331de01019359e4c6807a670438d24f232d13347836fc5c1b,https://www.wal
 73561cb3278821a28b271fce54e7779cb8a71064c5318994a98755a6e3aa58c1,https://www.southwark.gov.uk/sites/default/files/2025-06/Article%204%20direction%20area.geojson,,,2025-06-17,2025-06-17,
 011c8977b516be63ffdbfbc67a1d85eb420c6f39f02272602c2049893d033ddb,https://rdcpublic.blob.core.windows.net/website-uploads/2025/07/article_4_direction_area_dataset.csv,,,2025-07-21,2025-07-21,
 20fe9ab350874ee5c4e031150e5fb6136477632aa7740c3a87bdfc3e946b5eca,https://rdcpublic.blob.core.windows.net/website-uploads/2025/07/article_4_direction_dataset.csv,,,2025-07-22,2025-07-21,
+927ead1a30847f29a43c65116df4e1251516cff5879bd17b9b79b653feba299f,https://gi.dorsetcouncil.gov.uk/geoserver/planning-public/wfs?request=GetFeature&typeName=article_4&outputFormat=application%2Fjson,,,2025-07-28,2025-07-25,
