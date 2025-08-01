@@ -85,8 +85,8 @@ d3599f46a21de336fdcf154dbc0601cae3244cad242afd42b8fbe0fcdedad472,https://www.sst
 ca4bb4ce3d76cc57183c2de03dfddb6f3e45b451c658b077d0626e2b6f871c0a,https://www.wirral.gov.uk/files/article-4-direction.csv/download?inline,,,2024-11-20,,
 55cf0a2a52a0c2e523e1d7606e6c3d55e8a3aca681babe9acc1183e4afa76439,https://www.wirral.gov.uk/files/article-4-direction-area.geojson/download?inline,,,2024-11-20,,
 90dcae622e23a4e136120a6d59ad80397611ff46bea1b79a28dda771958c8843,https://www.sstaffs.gov.uk/sites/default/files/2024-11/South Staffordshire Article 4 Spatial Dataset_0.geojson,,,2024-11-22,,
-aa1a95099c62c629e9e7e6955edd959e367374f7fbaf94a4af4056ff47387368,https://eastcambs.gov.uk/sites/default/files/2024-11/Article%204%20direction%20area%20%282%29.gpkg,,,2024-12-02,,
-7b0904bd85af78baccb3d8c75d75ec149f0f9af3661a1dc1c983ada3d9a69150,https://eastcambs.gov.uk/sites/default/files/2024-12/Article%204%20direction%20dataset%20-New.csv,,,2024-12-02,,
+aa1a95099c62c629e9e7e6955edd959e367374f7fbaf94a4af4056ff47387368,https://eastcambs.gov.uk/sites/default/files/2024-11/Article%204%20direction%20area%20%282%29.gpkg,,,2024-12-02,,2025-08-01
+7b0904bd85af78baccb3d8c75d75ec149f0f9af3661a1dc1c983ada3d9a69150,https://eastcambs.gov.uk/sites/default/files/2024-12/Article%204%20direction%20dataset%20-New.csv,,,2024-12-02,,2025-08-01
 0076621b85266c55a2813a4561d188afaea56ff0623be0907be328a625e97e5e,https://plymouth.thedata.place/dataset/b18b02a2-c836-4bfc-93f8-bb2edc37fa9c/resource/b48b6c47-f268-407a-91cf-07ad6f9d5ca5/download/article_4_direction_plymouth.csv,,,2024-12-05,,
 ced0b624cb0e3ed809bf20c6b46b2e603b5b3ee080ee6c988e7f8e8ca0413e05,https://plymouth.thedata.place/dataset/b18b02a2-c836-4bfc-93f8-bb2edc37fa9c/resource/43a43a94-575c-4d3f-8ee5-436d5c3970ab/download/article4.geojson,,,2024-12-05,,
 81646d2e45c4f7f36846e79ccbd98f1c18ccb61f56cdfb768c46ac59396d2735,https://www.southnorfolkandbroadland.gov.uk/asset-library/bdc-article-4-direction-dataset.csv,,,2024-12-12,,2025-01-15
@@ -139,3 +139,5 @@ c93c4cf0ab5f3eb331de01019359e4c6807a670438d24f232d13347836fc5c1b,https://www.wal
 011c8977b516be63ffdbfbc67a1d85eb420c6f39f02272602c2049893d033ddb,https://rdcpublic.blob.core.windows.net/website-uploads/2025/07/article_4_direction_area_dataset.csv,,,2025-07-21,2025-07-21,
 20fe9ab350874ee5c4e031150e5fb6136477632aa7740c3a87bdfc3e946b5eca,https://rdcpublic.blob.core.windows.net/website-uploads/2025/07/article_4_direction_dataset.csv,,,2025-07-22,2025-07-21,
 927ead1a30847f29a43c65116df4e1251516cff5879bd17b9b79b653feba299f,https://gi.dorsetcouncil.gov.uk/geoserver/planning-public/wfs?request=GetFeature&typeName=article_4&outputFormat=application%2Fjson,,,2025-07-28,2025-07-25,
+a658f46f5968e7d66016b8cd62b922e0c450ba11c84eed78563a4628980145e4,https://eastcambs.gov.uk/Article4DirectionDatasetCSV,,,2025-08-01,2025-08-01,
+b85089a50f35415e868966f8d865db82af5aa74090c646ee82d71252d26204c8,https://eastcambs.gov.uk/Article4DirectionDatasetGPKG,,,2025-08-01,2025-08-01,
