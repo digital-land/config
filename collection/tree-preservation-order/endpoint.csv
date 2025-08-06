@@ -100,7 +100,7 @@ d0f1de9d149de6d0576abc6d9707f4d80c6da8d804e66a70c7f531e316b57498,https://www.ash
 6db8ebe08279160b83b66f1d83fd57efe7de92344d8f0e026953fc41487954e9,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Dataset.csv,,,2025-04-29,2025-04-14,2025-08-06
 e207dd3168f5ef12cff098ba3a9f7bc99d5457ffc6c8d8165035d7ba2961f340,https://www.sandwell.gov.uk/downloads/file/4015/tree-preservation-order-dataset,,,2025-04-29,2025-04-28,
 7a5dab0b90510d47356b8a3f5bc9d617156fea0c26c5c732afc2c09bbd2ec426,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Preservation%20Zone%20Dataset.csv,,,2025-04-30,2025-04-14,
-e7d5f94460a8cf677ff3b754c3ccf5fa9b032f4d204d44f3d110ce06e13dd1e3,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Preservation%20Order.csv,,,2025-04-30,2025-04-14,
+e7d5f94460a8cf677ff3b754c3ccf5fa9b032f4d204d44f3d110ce06e13dd1e3,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Preservation%20Order.csv,,,2025-04-30,2025-04-14,2025-08-06
 728873ef348b582eeb078281819c2fb41e180ec1c32b2f07214d44e661962630,https://www.centralbedfordshire.gov.uk/download/downloads/id/191/tree_preservation_order_dataset_csv.xlsx,,,2025-04-30,2025-04-30,2025-05-28
 a00b30a6d130c841338f3152868501ae7ea577bf3b76b42a993f6e40fa513b15,https://dataset-editor.planning.data.gov.uk/dataset/tree-preservation-zone-type.csv,,,2025-05-01,2023-09-11,
 f59e8ab0f427a9e36635f185c0a2b8123fac7a19c70bf38bc6d250b65cb57150,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20TPO%20Tree%20April%202025%20v1_0.geojson,,,2025-05-07,2025-05-01,
@@ -124,3 +124,4 @@ a199ae74687f5a038683689d6e75bd335491741169a8a262d344b541ef00b034,https://rdcpubl
 8f05ffe4f8ecca08fc017c730fdf63793e48e78987af22e9bda598d7daa90dfd,https://rdcpublic.blob.core.windows.net/website-uploads/2025/07/tree_preservation_tree_dataset.csv,,,2025-07-22,2025-07-21,
 a3e1de392baf72c54ea5da61d963421dc1779152583341703a369087dd730d00,https://rdcpublic.blob.core.windows.net/website-uploads/2025/07/tree_preservation_zone_dataset.csv,,,2025-07-22,2025-07-21,
 0e4964419445939b5b3156f78bffa23f4fd9da3f467ea620f7d52853a886da84,https://eastcambs.gov.uk/TreeDataset,,,2025-08-06,2025-08-06,
+187aca35c4154f043364cb4d6e7f41e9f2f58efcef0651a649ee176af1e4cf78,https://eastcambs.gov.uk/TreePreservationOrderDataset,,,2025-08-06,2025-08-05,
