@@ -141,3 +141,4 @@ c93c4cf0ab5f3eb331de01019359e4c6807a670438d24f232d13347836fc5c1b,https://www.wal
 927ead1a30847f29a43c65116df4e1251516cff5879bd17b9b79b653feba299f,https://gi.dorsetcouncil.gov.uk/geoserver/planning-public/wfs?request=GetFeature&typeName=article_4&outputFormat=application%2Fjson,,,2025-07-28,2025-07-25,
 a658f46f5968e7d66016b8cd62b922e0c450ba11c84eed78563a4628980145e4,https://eastcambs.gov.uk/Article4DirectionDatasetCSV,,,2025-08-01,2025-08-01,
 b85089a50f35415e868966f8d865db82af5aa74090c646ee82d71252d26204c8,https://eastcambs.gov.uk/Article4DirectionDatasetGPKG,,,2025-08-01,2025-08-01,
+00524fdeef6bf3f9526147bbf94dc870b5c23190d358470a70fd29ddf05f0dc8,https://services3.arcgis.com/HbafpLvwgoBYdsFH/arcgis/rest/services/Article_4_Direction/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-08-08,2025-08-06,
