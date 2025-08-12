@@ -142,3 +142,5 @@ c93c4cf0ab5f3eb331de01019359e4c6807a670438d24f232d13347836fc5c1b,https://www.wal
 a658f46f5968e7d66016b8cd62b922e0c450ba11c84eed78563a4628980145e4,https://eastcambs.gov.uk/Article4DirectionDatasetCSV,,,2025-08-01,2025-08-01,
 b85089a50f35415e868966f8d865db82af5aa74090c646ee82d71252d26204c8,https://eastcambs.gov.uk/Article4DirectionDatasetGPKG,,,2025-08-01,2025-08-01,
 00524fdeef6bf3f9526147bbf94dc870b5c23190d358470a70fd29ddf05f0dc8,https://services3.arcgis.com/HbafpLvwgoBYdsFH/arcgis/rest/services/Article_4_Direction/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-08-08,2025-08-06,
+0c842eaba15ca738fd0380312f5164420e814e8d085e2585973f70c4160d650b,https://www.salford.gov.uk/media/iygm3ix5/article-4-directions-dataset.csv,,,2025-08-12,2025-08-11,
+caad16edf2bfe43dfc4b27baeff716e07fdd96f540172388eaf53b617f60dcf3,https://www.sefton.gov.uk/media/vikfk02x/odparticle4directions.csv,,,2025-08-12,2025-08-11,
