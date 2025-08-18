@@ -1,1 +1,2 @@
 dataset,entity-minimum,entity-maximum,organisation
+local-authority-district,8600000,8699999,government-organisation:D303
