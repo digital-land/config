@@ -73,3 +73,4 @@ ddf13db3152d2546f16306719e97db528072a626b7b42945ebb62de4467d9267,https://maps.3c
 85da8abbdb8985c5df1755a68ef4cf31740873ac4c1cd61837ca486afd2d1efa,https://eastcambs.gov.uk/ListedBuildingsDataset,,,2025-08-05,2025-08-01,
 0035b6f2620fff5752b7ac3a2896ea6ed2cd2a602c4bb72036c56d36ddcb1a9b,https://gis.lambeth.gov.uk/arcgis/rest/services/LambethListedBuildings/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-08-06,2025-08-05,
 4b580972b8436fd9427b90064ffb9f10e2e83907064782cc8104a25743167296,https://services3.arcgis.com/HbafpLvwgoBYdsFH/arcgis/rest/services/Listed_Buildings/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-08-08,2025-08-06,
+da938141b3994a6cd68c45984a1c59c475e5f9a37d885363d555291f87cfdfd6,https://www.newforest.gov.uk/media/4556/NFDC-listed-building-outline.geojson/json/NFDC_listed-building-outline.geojson,,,2025-08-18,2025-08-15,
