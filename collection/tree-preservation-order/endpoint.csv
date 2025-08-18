@@ -127,3 +127,5 @@ a3e1de392baf72c54ea5da61d963421dc1779152583341703a369087dd730d00,https://rdcpubl
 187aca35c4154f043364cb4d6e7f41e9f2f58efcef0651a649ee176af1e4cf78,https://eastcambs.gov.uk/TreePreservationOrderDataset,,,2025-08-06,2025-08-05,
 9971cc8047de4a3b1fc27b197a2c2ff7a4f7fe504dfdee8ec2ac37ec34c5474d,https://eastcambs.gov.uk/TreePreservationZoneDataset,,,2025-08-07,2025-08-06,
 ccd898fc45006b4f6ba41116f8c648f6795b5e3b656cf51703a4fcaa5ae7dd06,https://services3.arcgis.com/HbafpLvwgoBYdsFH/arcgis/rest/services/Tree_Preservation_Orders/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-08-08,2025-08-06,
+d2fadce9d3d3cfbbae81ef088c8128160b57dfd8a500c140ec3eecefd5c116f5,https://www.newforest.gov.uk/media/4555/NFDC-tree-preservation-zone.geojson/json/NFDC_tree-preservation-zone.geojson,,,2025-08-18,2025-08-18,
+3eeadb5f494c02ca8d1405a99913031fa5b37973fa7b438c0f4eb729c5470664,https://www.newforest.gov.uk/media/4553/tree-preservation-orders/xls/NFDC_Tree_preservation_order.csv?m=1755181875593,,,2025-08-18,2025-08-18,
