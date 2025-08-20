@@ -1,2 +1,2 @@
 organisation,pipelines,documentation-url,endpoint-url,start-date,licence
-local-authority:DST,article-4-direction-area,https://gi.dorsetcouncil.gov.uk/dorsetexplorer/planning/public#map=10.35/50.79582/-2.31339/0&basemap=1/100/100,https://gi.dorsetcouncil.gov.uk/geoserver/planning-public/wfs?request=GetFeature&typeName=article_4&outputFormat=application%2Fjson,2025-07-25,ogl3
+local-authority:SLF,conservation-area-document,https://www.salford.gov.uk/conservation-area-data,https://www.salford.gov.uk/media/lsxnfa2q/conservation-area-document-data.csv,2025-08-20,ogl3

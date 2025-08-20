@@ -696,5 +696,7 @@ aa67584401834fb9fd88d755e045440f5865d52b4d01df685a228f0db0e67542,https://www.new
 07278f3305ce0e746d447803f90a06877912d248c3f1a732abaccc28727401ba,https://eastcambs.gov.uk/ConservationAreaDataset,,,2025-08-01,2025-08-01,
 2abfb9bd9f5877e04e042a843506b9c2734f1eb6c0f5bcfb1faccc6e1a9b02a4,https://eastcambs.gov.uk/ConservationAreaDocumentsDataset,,,2025-08-01,2025-08-01,
 e3a2411b19c7b7f14a23043e3bf21e48417d1aeeb1a699c63882488f96d40377,https://services3.arcgis.com/HbafpLvwgoBYdsFH/arcgis/rest/services/Conservation_Areas/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-08-19,2025-08-06,
-67d4003400f387d5c01087186669d9b1a189469f454eaf6043129b237e2ed525,https://www.salford.gov.uk/media/en1l5rku/conservation-area-documents.csv,,,2025-08-19,2025-08-12,
+67d4003400f387d5c01087186669d9b1a189469f454eaf6043129b237e2ed525,https://www.salford.gov.uk/media/en1l5rku/conservation-area-documents.csv,,,2025-08-19,2025-08-12,2025-08-20
 b1286b258bb7943f459ba2c30b0016bdeca49e6739a80885515d604c317f10be,https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Conservation_Areas_Public/FeatureServer/1/query?f=pjson&outFields=*&where=1=1,,,2025-08-19,2025-08-15,
+1f598957ea63069daca29685c4f8b46484bae08a9da9519b409ddda174ecfedd,https://www.salford.gov.uk/media/lsxnfa2q/conservation-area-document-data.csv,,,2025-08-20,2025-08-20,
+e26ee87c1bf9274e8c99d14abae1687a07c880ab4a45a5177e2d27fb70ed1979,https://xmap-hub.s3.eu-west-2.amazonaws.com/public-sector/surreyheath/digital_planning_data/conservation_area_documentation.csv,,,2025-08-20,2025-08-20,
