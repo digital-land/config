@@ -701,3 +701,4 @@ b1286b258bb7943f459ba2c30b0016bdeca49e6739a80885515d604c317f10be,https://service
 1f598957ea63069daca29685c4f8b46484bae08a9da9519b409ddda174ecfedd,https://www.salford.gov.uk/media/lsxnfa2q/conservation-area-document-data.csv,,,2025-08-21,2025-08-20,
 e26ee87c1bf9274e8c99d14abae1687a07c880ab4a45a5177e2d27fb70ed1979,https://xmap-hub.s3.eu-west-2.amazonaws.com/public-sector/surreyheath/digital_planning_data/conservation_area_documentation.csv,,,2025-08-21,2025-08-20,
 c58f7288d13de644a97a5121abe789c61b41fc3bf44c1dd3a34a9913c9b1ff39,https://www.sefton.gov.uk/media/zsnoiedt/conservationareasdocuments.csv,,,2025-08-21,2025-08-20,
+7418a91a37991ce7eb679adb65b0adb21f7fda310fae134af3d4ed30382a84c4,https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Conservation_Areas_Public/FeatureServer/0/query?f=pjson&outFields=*&where=1=1,,,2025-08-26,2025-08-26,
