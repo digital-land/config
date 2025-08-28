@@ -35,7 +35,7 @@ dc655cc7187a5959cd573c93279f2c805d4ed680b5c2203d234fa2c703a41318,https://maps.bi
 59b599fec6f412c75dbbd47321b2b3ed0a502885d98c25db876f475f7522d780,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/LBTH_ListedBuildings/FeatureServer/71/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-11,2024-10-11,
 ebec555824d8f1bb2148af571a63c0ca99e01a173f6bce70ff36287d2a4e2ea9,https://maps2.bristol.gov.uk/server2/rest/services/ext/ODP_Datasets/MapServer/3/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-16,,
 2422d123ec972ac516171687e530b37a7b0c9cfc53cb9154e0121dd5bcaafc03,https://www.mapping.cityoflondon.gov.uk/arcgis/rest/services/COL_Published/MapServer/2/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-25,,
-d4f439fc666b883c110ba5399f83e9519aa6085d00c1ba4ba761091d41bf2a79,https://www.ashford.gov.uk/media/nbtf0mzr/listedbuilding_abc.csv,,,2024-10-25,,
+d4f439fc666b883c110ba5399f83e9519aa6085d00c1ba4ba761091d41bf2a79,https://www.ashford.gov.uk/media/nbtf0mzr/listedbuilding_abc.csv,,,2024-10-25,,2025-08-28
 af28edf7a93957680be4563991a8d6dd67c841ecf70b6861dc31437fc343fb4a,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/ArcGIS/rest/services/Listed_Buildings/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-28,,
 d24dbcb176ee1cca4e169d3793e9856b72560bd49ae96bec292df6d7a70d14ce,https://www.wirral.gov.uk/files/listed-building-outline.geojson/download?inline,,,2024-11-13,,
 7316a66a07a603601f09573e74d5031ea02979b2279f900bc9a632d6a4dba012,https://services.southwark.gov.uk/assets/attach/194140/Listed-buildings-outlines.geojson,,,2024-11-15,,2025-02-14
@@ -77,3 +77,4 @@ da938141b3994a6cd68c45984a1c59c475e5f9a37d885363d555291f87cfdfd6,https://www.new
 595ac80f334598ad4c1cd6aeedf8a91ae566f8d654cf515932f5d9e56fa484c3,https://www.sefton.gov.uk/media/4opjfwzr/listedbuildings.csv,,,2025-08-22,2025-08-20,
 aa1b3db1ff880075539718575896013fd2bc93bf54c425ab60a50b051d66e9e9,https://services3.arcgis.com/HbafpLvwgoBYdsFH/ArcGIS/rest/services/Listed_Buildings/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-08-27,2025-08-22,
 13c458d391328cffc5c0644bcba7d191d3fe47cfffb192c5c39d2e6bdc336c4a,https://data.rochdale.gov.uk/files/Listed_Buildingwith_links_to_Historic_England.csv,,,2025-08-27,2025-08-26,
+71690f93d17f36ab5b7c17525c2aae07741537b4676cb49ac781595deb12d6ce,https://www.ashford.gov.uk/media/a41bdwuu/listedbuilding_abc.csv,,,2025-08-28,2025-08-27,
