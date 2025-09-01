@@ -19,7 +19,7 @@ d4a0f3d0aca376b252ee34333f42c335a97c158c79278ecceb82a7da1b21979d,https://www.cum
 e38bfe46143d42ec996fbe99add19c7ed136f2dee12c192edbc85b2211f8ce73,https://www.erewash.gov.uk/images/Planning_Policy/developer-agreement_20201217.csv,,,2020-12-22T00:00:00Z,,2025-07-07
 3992959d38f1c2642f75c91bbbad68c992a065ec50e02ba690ac8f4b711a8269,https://eryc.link/developeragreements,,,2021-01-04T00:00:00Z,,
 23edc40c94663cc5c9870d29874115735a5ffae8f111ae3741692452b5a422a7,http://www.eaststaffsbc.gov.uk/sites/default/files/docs/planning/planningpolicy/developer-agreement.csv,,,2020-12-22T00:00:00Z,,
-cd53aa90239d7fab29538bd27572a14ef5d617b08f5eb02f5bd4d07c787baa5b,https://www.gateshead.gov.uk/media/23679/developer-agreement-20201021/excel/developer-agreement_20201021.csv?m=637438037896670000,,,2020-12-17T00:00:00Z,,
+cd53aa90239d7fab29538bd27572a14ef5d617b08f5eb02f5bd4d07c787baa5b,https://www.gateshead.gov.uk/media/23679/developer-agreement-20201021/excel/developer-agreement_20201021.csv?m=637438037896670000,,,2020-12-17T00:00:00Z,,2025-09-01
 9f4b02fe50875efa7ed82f5205a36b98b81d66310d5ffb3987f64fe6155ed83b,https://www.gloucester.gov.uk/media/4792/developer-agreement_20201209.csv,,,2021-01-04T00:00:00Z,,2024-05-20
 afa0b3273bbb7e19c233af9c5dd16bbcbf4091ba69e1909e5a840e3586668f0b,http://www.gosport.gov.uk/developer-agreement,,,2020-12-29T00:00:00Z,,
 92c6e28bf2b1867dbffcfbf86ed9b47d1a179b85673059b9187d9344ef7ea55d,https://www3.halton.gov.uk/Pages/planning/pdf/registers/developeragreement.csv,,,2020-12-22T00:00:00Z,,2024-05-20
@@ -63,7 +63,7 @@ e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e,https://epsom-e
 e771020a1b6988d816e809cee11bc8a8bc46a31d7c74640340f67d64d4dc7d40,https://www.erewash.gov.uk/images/Planning_Policy/developer-contribution_20201217.csv,,,2020-12-22T00:00:00Z,,2025-07-07
 dada07835331757552efca96881859b4c5159c89fe44837b6185da761d80e54f,https://eryc.link/developercontributions,,,2021-01-04T00:00:00Z,,
 5a43596efd483ce830f6e8fc9b40645f7e3829b8c829ea5d4d4bf96a4bb73088,http://www.eaststaffsbc.gov.uk/sites/default/files/docs/planning/planningpolicy/developer-agreement-contribution.csv,,,2020-12-22T00:00:00Z,,
-ac85cd6749b8dec9b8be4ec6cf88ae721abeea9089c0f72fb50f8809dfc80050,https://www.gateshead.gov.uk/media/23680/developer-agreement-contribution-20201021/excel/developer-agreement-contribution_20201021.csv?m=637438037899400000,,,2020-12-17T00:00:00Z,,
+ac85cd6749b8dec9b8be4ec6cf88ae721abeea9089c0f72fb50f8809dfc80050,https://www.gateshead.gov.uk/media/23680/developer-agreement-contribution-20201021/excel/developer-agreement-contribution_20201021.csv?m=637438037899400000,,,2020-12-17T00:00:00Z,,2025-09-01
 266f6a4303ca00862996537c60e84e91f85928a1dd5be53a17e20c369da37303,https://www.gloucester.gov.uk/media/4793/developer-agreement-contribution_20201209.csv,,,2021-01-04T00:00:00Z,,2024-05-20
 b95d4641513f0b999d42de4eeefce08fcbe7d0ddc4d5970c7a9e8aa330ecf15a,http://www.gosport.gov.uk/developer-agreement-contribution,,,2020-12-29T00:00:00Z,,
 b4a9ea1d51cabb43df3b2597cf9b403e66a7711a69743420c1c75c0302b72007,https://www3.halton.gov.uk/Pages/planning/pdf/registers/developercontribution.csv,,,2020-12-22T00:00:00Z,,2024-05-20
@@ -106,7 +106,7 @@ b89a7ccd1ff32160402323509b8425bb61728a115ebe14ba80ac08e8b16e43f5,https://cdn-eas
 06b9562573dcb2b89bec1ef8e6e663f12be50a7274382db347614bba9f223e30,https://www.erewash.gov.uk/images/Planning_Policy/developer-agreement-transaction_20201217.csv,,,2020-12-22T00:00:00Z,,2025-07-07
 dab6c5354b093d392e61fca5302b0cebdc3dfe895a0babf15e26abfd9182eb4d,https://eryc.link/developertransactions  ,,,2021-01-04T00:00:00Z,,2025-08-28
 9809aa11e4f0536e21649e94552180ed717befe3b712649f2275528970f3a8d9,http://www.eaststaffsbc.gov.uk/sites/default/files/docs/planning/planningpolicy/developer-agreement-transaction.csv,,,2020-12-22T00:00:00Z,,
-ac85cd6749b8dec9b8be4ec6cf88ae721abeea9089c0f72fb50f8809dfc80050,https://www.gateshead.gov.uk/media/23680/developer-agreement-contribution-20201021/excel/developer-agreement-contribution_20201021.csv?m=637438037899400000,,,2020-12-17T00:00:00Z,,
+ac85cd6749b8dec9b8be4ec6cf88ae721abeea9089c0f72fb50f8809dfc80050,https://www.gateshead.gov.uk/media/23680/developer-agreement-contribution-20201021/excel/developer-agreement-contribution_20201021.csv?m=637438037899400000,,,2020-12-17T00:00:00Z,,2025-09-01
 ff11e8140d3e8733666b7f462a610ce1d4e51af27ec0cb496166bc0d5bed4f4d,https://www.gloucester.gov.uk/media/4794/developer-agreement-transaction_20201209.csv,,,2021-01-04T00:00:00Z,,2024-05-20
 b719eb1ac2edadc67ec0f586ef884601abec7ee2eb0ec4fb92f66a13bbe96116,http://www.gosport.gov.uk/developer-agreement-transaction,,,2020-12-29T00:00:00Z,,
 ff05401217ed0922dd380be2be60d1a8c22347f5e6a29ffc569998c4df5a99d3,https://www3.halton.gov.uk/Pages/planning/pdf/registers/developertransaction.csv,,,2020-12-22T00:00:00Z,,2024-05-20
@@ -149,7 +149,7 @@ d9987fbdc0dde5c61144837a2aef68be3979b0f3f5309abda62274e32b40e2e6,https://www.car
 bb47d70c6fd3dab53c9ec5890e8eae0209c121e6abb8e90a32ee8712d527d152,https://www.dover.gov.uk/Planning/Planning-Policy-and-Regeneration/Authority-Monitoring-Report/IFS/developer-agreement-2020-08-15.csv,,,2021-10-07T00:00:00Z,,2024-05-20
 6389f5d120b0c0b42a88385e6c9092ba08fdaa4d9d74cae5a8fd0fb216a4d4e9,https://www.e-lindsey.gov.uk/media/15220/developer-agreement-20200101/pdf/Developer_Agreement.pdf?m=637478599465700000,,,2021-10-07T00:00:00Z,,2025-07-23
 ccd3286f9d71590e3bd1ea48d23f63a1be7b7377eea827cad99c20cdddaab208,https://www.eastcambs.gov.uk/sites/default/files/developer-agreement_2020-10-12_1.csv,,,2021-10-07T00:00:00Z,,2025-02-28
-cd53aa90239d7fab29538bd27572a14ef5d617b08f5eb02f5bd4d07c787baa5b,https://www.gateshead.gov.uk/media/23679/developer-agreement-20201021/excel/developer-agreement_20201021.csv?m=637438037896670000,,,2021-10-07T00:00:00Z,2020-10-21,
+cd53aa90239d7fab29538bd27572a14ef5d617b08f5eb02f5bd4d07c787baa5b,https://www.gateshead.gov.uk/media/23679/developer-agreement-20201021/excel/developer-agreement_20201021.csv?m=637438037896670000,,,2021-10-07T00:00:00Z,2020-10-21,2025-09-01
 f55d37c93a250a1e3ca9499b914fb4a29b7a7f43872c4628fc8c25c5f5e704d0,https://www.harborough.gov.uk/download/downloads/id/6585/developer-agreement_20200821.csv,,,2021-10-07T00:00:00Z,,
 6c00e9469c095af9184485efb79b205142f422365c2fefaaf8ce52a0d463a960,https://www.hart.gov.uk/sites/default/files/4_The_Council/Policies_and_published_documents/Planning_policy/developer-agreement_20201217.csv,,,2021-10-07T00:00:00Z,2021-12-17,2024-05-20
 16453d07a8bf6da5ee1b20b6c230159e3757c8fa4ecb7d9a3ea94e30a753153b,https://www.hyndburnbc.gov.uk/download-package/section-106-agreements-s106-s-106/?wpdmdl=5555&ind=K0tXsdr0f3Y7X3fWPoojk2RWnNbQxQQQ8YJZ8mtbYVC3smG_r4gtbHR5FCYELVH1jItp0l7k-BZYFLa-x0Xfyw,,,2021-10-07T00:00:00Z,,2024-05-20
@@ -175,7 +175,7 @@ a9d95b6ba58c1047ecf0611c08a47b61bcf33a752ab283009e55ba02534ec019,https://www.cov
 65c04fb830320a32ceb91061f02d85be6fdb0f55fcae673441aeaf5f0cf52d6a,https://www.dover.gov.uk/Planning/Planning-Policy-and-Regeneration/Authority-Monitoring-Report/IFS/developer-agreement-contribution-2020-08-15.csv,,,2021-10-07T00:00:00Z,,2024-05-20
 d80c65813a53b77cbd21f3149a9f4a00bb1208bc3e94f95cd46aeaeb74505ff3,https://www.e-lindsey.gov.uk/media/15222/developer-agreement-contribution-20200101/pdf/Developer_Agreement_Contribution.pdf?m=637478599746700000,,,2021-10-07T00:00:00Z,,2025-07-23
 2194d68b6706bbd37db722beafac663dcc1008950597dd85e51c4643c337ea68,https://www.eastcambs.gov.uk/sites/default/files/developer-agreement-contribution_2020-10-12.csv,,,2021-10-07T00:00:00Z,,2025-02-28
-ac85cd6749b8dec9b8be4ec6cf88ae721abeea9089c0f72fb50f8809dfc80050,https://www.gateshead.gov.uk/media/23680/developer-agreement-contribution-20201021/excel/developer-agreement-contribution_20201021.csv?m=637438037899400000,,,2021-10-07T00:00:00Z,2020-10-21,
+ac85cd6749b8dec9b8be4ec6cf88ae721abeea9089c0f72fb50f8809dfc80050,https://www.gateshead.gov.uk/media/23680/developer-agreement-contribution-20201021/excel/developer-agreement-contribution_20201021.csv?m=637438037899400000,,,2021-10-07T00:00:00Z,2020-10-21,2025-09-01
 434b8cecebe34de6e1de501dce132392e1f68bb744f94db5795459411adad0ca,https://www.harborough.gov.uk/download/downloads/id/6586/developer-agreement-contribution_20200821.csv,,,2021-10-07T00:00:00Z,,
 b07b8c73f63f66ded3794efb67a1a0d6d4e779ad90e292bd53c90ac02506a513,https://www.hart.gov.uk/sites/default/files/4_The_Council/Policies_and_published_documents/Planning_policy/developer-agreement-contribution_20201217.csv,,,2021-10-07T00:00:00Z,2020-12-17,2024-05-20
 ab5f9891cd4f8fdb4b5a70b17c6b5134d5a5de750f751f039de1000a2931cb95,https://www.iow.gov.uk/PlanningObligations/Download.ashx?type=Extract&extract=Contributions,,,2021-10-07T00:00:00Z,,2024-05-20
@@ -199,14 +199,14 @@ e2f18ac72cee40c063f5be927ec2d11a56215ce5d973a696a83945fe635fae72,https://www.car
 94ffaa7ca746ca4922da6ce1ff5ae1cdd5a783614e1e3d9f4a061fd094d6433e,https://www.dover.gov.uk/Planning/Planning-Policy-and-Regeneration/Authority-Monitoring-Report/IFS/developer-agreement-transaction-2020-08-20.csv,,,2021-10-07T00:00:00Z,,2024-05-20
 125af0d961aceee7922d0dc24e7c6f1b162dbadc5e61b44b072bc691be1e53aa,https://www.e-lindsey.gov.uk/media/15221/developer-agreement-transaction-20200101/pdf/Developer_Agreement_Transaction.pdf?m=637478599332530000,,,2021-10-07T00:00:00Z,,2025-07-23
 4c281a9099a1fed67b086f61114806422efaa594db731f56b9110510da43efa8,https://www.eastcambs.gov.uk/sites/default/files/developer-agreement-transaction_2020-10-12.csv,,,2021-10-07T00:00:00Z,,2025-02-28
-ac85cd6749b8dec9b8be4ec6cf88ae721abeea9089c0f72fb50f8809dfc80050,https://www.gateshead.gov.uk/media/23680/developer-agreement-contribution-20201021/excel/developer-agreement-contribution_20201021.csv?m=637438037899400000,,,2021-10-07T00:00:00Z,2021-10-21,
+ac85cd6749b8dec9b8be4ec6cf88ae721abeea9089c0f72fb50f8809dfc80050,https://www.gateshead.gov.uk/media/23680/developer-agreement-contribution-20201021/excel/developer-agreement-contribution_20201021.csv?m=637438037899400000,,,2021-10-07T00:00:00Z,2021-10-21,2025-09-01
 ad5b569cebd9503989e03bc4b34ffb31ba1a2816ef26ca43af1fe98ce0559f33,https://www.hart.gov.uk/sites/default/files/4_The_Council/Policies_and_published_documents/Planning_policy/developer-agreement-transaction_20201217.csv,,,2021-10-07T00:00:00Z,2020-12-17,2024-05-20
 e6fbd61b44f686dfd55a324b35b494c0e8ecca549356a0bece6c93cc5090f035,https://www.iow.gov.uk/PlanningObligations/Download.ashx?type=Extract&extract=Transactions,,,2021-10-07T00:00:00Z,,2024-05-20
 b4b23d8c1e653a4e20c50641461b6553eac09f6087a13256547dee0f18ae7915,https://www.mybostonuk.com/wp-content/uploads/2020/12/developer-agreement-transaction_20201217.csv,,,2021-10-07T00:00:00Z,2020-12-17,2024-05-20
 61d370acac59f728cd676b8464fb8e272660a5b4ab93ba9ca44b5d22ca7ceceb,https://www.royalgreenwich.gov.uk/download/downloads/id/5053/developer_agreement_transactions.csv,,,2021-10-07T00:00:00Z,,
 ddc8cf61d30cf1c2ee7c43b458d93ad4a4d3c7a931b7e5a12144de334363873d,https://www.southdowns.gov.uk/wp-content/uploads/2020/12/developer-agreement-transaction_20200401.csv,,,2021-10-07T00:00:00Z,2020-01-04,2024-11-18
 6c00e9469c095af9184485efb79b205142f422365c2fefaaf8ce52a0d463a960,https://www.hart.gov.uk/sites/default/files/4_The_Council/Policies_and_published_documents/Planning_policy/developer-agreement_20201217.csv,,,2021-12-31T11:11:09Z,,2024-05-20
-5933c9927467888641c6ea10a2a9287ae0baf142b0debf8b99dc0cdd1c3e4e9b,https://www.gateshead.gov.uk/media/30549/developer-agreement-20211030/excel/developer-agreement_20211030.csv?m=637733622690470000,,,2021-12-31T11:11:10Z,,
+5933c9927467888641c6ea10a2a9287ae0baf142b0debf8b99dc0cdd1c3e4e9b,https://www.gateshead.gov.uk/media/30549/developer-agreement-20211030/excel/developer-agreement_20211030.csv?m=637733622690470000,,,2021-12-31T11:11:10Z,,2025-09-01
 2e4c62e01f5ac1903659f0837b9950c0e13c5a50f0a1a43f2cd9687ea9b7cb36,https://www.harborough.gov.uk/download/downloads/id/6969/2020-21_developer_agreements_csv.csv,,,2021-12-31T11:11:10Z,,
 e092c44e0a39d19c0c2be12be5b538f7b9ce480958c6224cb6e53be9f8217589,https://www.southlakeland.gov.uk/media/7779/developer-agreement_20211124.csv,,,2021-12-31T11:11:10Z,,
 3fe92365480827dc91e8023ecca7b3c8fcf41b01386a6e747b5b43a2d0067768,https://exeter.gov.uk/media/5870/developer-agreement_20211201.xlsx,,,2021-12-31T11:11:10Z,,
@@ -241,7 +241,7 @@ d5348ee1bb0b4335f408bb4ad3fb1354260c4b0c96bef60fddcc2aa737bb40ae,https://cdn-eas
 450f93f25887ed07df4f266fd5c6c4c910d84ff6a0d37e71aa7edfe297c4dffe,https://www.southnorthants.gov.uk/download/downloads/id/7030/developer-agreement-20201221.csv,,,2021-12-31T11:11:12Z,,
 e943119b9aba4960a75f6fb631dbbb8c82f56821f75acbd4f906e48e1f1cf1f5,https://sunderland.gov.uk/article/17799/Developer-agreement-CSV,,,2021-12-31T11:11:12Z,,
 b07b8c73f63f66ded3794efb67a1a0d6d4e779ad90e292bd53c90ac02506a513,https://www.hart.gov.uk/sites/default/files/4_The_Council/Policies_and_published_documents/Planning_policy/developer-agreement-contribution_20201217.csv,,,2021-12-31T11:11:12Z,,2024-05-20
-a5112b7ce09a6c6b46bd009d8fc6aedd6fc825a587485da4541efe97b6d45760,https://www.gateshead.gov.uk/media/30550/developer-agreement-contribution-20211030/excel/developer-agreement-contribution_20211030.csv?m=637733622694300000,,,2021-12-31T11:11:12Z,,
+a5112b7ce09a6c6b46bd009d8fc6aedd6fc825a587485da4541efe97b6d45760,https://www.gateshead.gov.uk/media/30550/developer-agreement-contribution-20211030/excel/developer-agreement-contribution_20211030.csv?m=637733622694300000,,,2021-12-31T11:11:12Z,,2025-09-01
 71ec538be4fe2d54759f186d043e56fa36b69c28a268f212c648d292c3843e39,https://www.harborough.gov.uk/download/downloads/id/6968/2020-21_developer_agreement_contributions_csv.csv,,,2021-12-31T11:11:12Z,,
 df74cf1c725e3d723dd0b700f99e5234d248f4ff58cb3bed32ba2c424026028f,https://www.southlakeland.gov.uk/media/7780/developer-agreement-contribution_20211124.csv,,,2021-12-31T11:11:12Z,,
 7ca11a7a2aa6ebb69e69f1b8bf873e6e3c6e442a323d4b566498f47607d7c711,https://exeter.gov.uk/media/5871/developer-agreement-contribution_20211201.xlsx,,,2021-12-31T11:11:12Z,,
@@ -276,7 +276,7 @@ bd7a13dbf7090089f620b37e900fcb8d281c85b661b75f13ced161bb6bdfc38c,https://www.sou
 f6f0f76c3e0c963b8899b552fae0ec4ee8c1c8119210faa10f238dc2bbdf08b9,https://www.southnorthants.gov.uk/download/downloads/id/7029/developer-agreement-contribution-20201221.csv,,,2021-12-31T11:11:14Z,,
 91f67ff8088b672bc8171a630ee63ce650e6b35e299c9588b196c51d9a05ba2e,https://sunderland.gov.uk/article/17800/Developer-agreement-contribution-CSV,,,2021-12-31T11:11:14Z,,
 ad5b569cebd9503989e03bc4b34ffb31ba1a2816ef26ca43af1fe98ce0559f33,https://www.hart.gov.uk/sites/default/files/4_The_Council/Policies_and_published_documents/Planning_policy/developer-agreement-transaction_20201217.csv,,,2021-12-31T11:11:14Z,,2024-05-20
-bd9d32a772125a93b99f99923dcfae97c3b54361534d80041b44b1745e1cf5f1,https://www.gateshead.gov.uk/media/30551/developer-agreement-transaction-20211030/excel/developer-agreement-transaction_20211030.csv?m=637733622696630000,,,2021-12-31T11:11:14Z,,
+bd9d32a772125a93b99f99923dcfae97c3b54361534d80041b44b1745e1cf5f1,https://www.gateshead.gov.uk/media/30551/developer-agreement-transaction-20211030/excel/developer-agreement-transaction_20211030.csv?m=637733622696630000,,,2021-12-31T11:11:14Z,,2025-09-01
 154022993141255beb9d88d619caa0f29ec5a862c210ff6a96911f0150490b65,https://www.southlakeland.gov.uk/media/7781/developer-agreement-transaction_20211124.csv,,,2021-12-31T11:11:14Z,,
 5a429317faba3975eae346fe6753036147f6afa60222114ff7c79d5494bfb2cf,https://exeter.gov.uk/media/5872/developer-agreement-transactions-_20211201.xlsx,,,2021-12-31T11:11:14Z,,
 c167981a98a67355c15da0a5bc2cfcdaebbc7533a72f0bac04b4a395abd3a554,https://docs.tmbc.gov.uk/docs/s106/developer-agreement-transaction_20211201.csv,,,2021-12-31T11:11:14Z,,
