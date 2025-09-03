@@ -35,7 +35,7 @@ jobs:
         if: failure()
         uses: digital-land/github-action-slack-notify-build@main
         with:
-          channel: planning-data-platform
+          channel: planning-data-alerts
           status: FAILED
           color: danger
 
