@@ -32,7 +32,7 @@ jobs:
           python .github/scripts/check_endpoints.py
 
       - name: Notify slack failure
-        if: failure()
+        if: failure() && github.ref == 'refs/heads/main'
         uses: digital-land/github-action-slack-notify-build@main
         with:
           channel: planning-data-alerts
