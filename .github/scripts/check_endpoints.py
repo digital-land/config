@@ -68,13 +68,6 @@ def get_sources(dataset_name):
     rows = csv_to_json(response.text)
     sources = {}
     for row in rows:
-        print(f"[DEBUG] {dataset_name} - raw row: {row}")
-        if 'organisation' not in row:
-            print(f"[DEBUG] {dataset_name} - row missing 'organisation' key")
-        elif row.get('organisation') is None:
-            print(f"[DEBUG] {dataset_name} - 'organisation' is None for this row")
-
-
         endpoint = row.get('endpoint')
         organisation = row.get('organisation', '').strip()
         pipeline = row.get('pipeline', '').strip()
@@ -86,7 +79,6 @@ def get_sources(dataset_name):
             sources[endpoint]['organisations'].add(organisation)
         if pipeline:
             sources[endpoint]['pipelines'].add(pipeline)
-    print(f"[DEBUG] {dataset_name} - total sources loaded: {len(sources)}")
     return sources
 
 
