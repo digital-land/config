@@ -841,7 +841,7 @@ ade8e6e9ea13f7011746d147f814ecdfa256e1c507ad7e748eea0f823c75d9bb,https://www.ede
 2fca52213ba962a8fb8eb66521fc6a46c2f7b51e00e1a67884659fa5daef9a79,https://www.thurrock.gov.uk/sites/default/files/assets/documents/brownfield-register-202004-v01.csv,,,2020-10-19,2020-10-14,2023-09-05
 0a78e8cbf4c48535e9b40cff62334224e1b43427119e1a82a88570ff32c0fa50,https://www.broads-authority.gov.uk/__data/assets/text_file/0028/256681/broads_authority_brownfieldregister_2019_12_04.csv,,,2020-10-19,2020-10-14,2023-09-05
 a501a6d8a519643ee34102a4794711845efbccdbd47a31fac59e1717dc70fa85,https://www.haringey.gov.uk/sites/haringeygovuk/files/brownfield_register.csv,,,2020-10-19,2020-10-14,2025-07-07
-1146929d1e4c5a5309d6d5e54be432dfe0a564403ffe78864754279518484478,https://www.ashford.gov.uk/media/b2cl5d2m/ashford_borough_council_brownfield_register-17-12-2018-1.csv,,,2020-10-19,2020-10-14,
+1146929d1e4c5a5309d6d5e54be432dfe0a564403ffe78864754279518484478,https://www.ashford.gov.uk/media/b2cl5d2m/ashford_borough_council_brownfield_register-17-12-2018-1.csv,,,2020-10-19,2020-10-14,2025-09-04
 36c289a0ff8edb3324c4fdb94b97a56752b27c027e492a3bd712125e0a0076fa,https://www.wiltshire.gov.uk/media/4779/Brownfield-Land-Register-Part-1-2019/excel/Brownfield-land-register-part-1-2019.csv?m=637364736950830000,,,2020-10-19,2020-10-14,2025-09-01
 80e1fcb4f1a0df037950f9be76a0ed96ac35cb8ed4504f6632d9d07c4ec99537,https://www.portsmouth.gov.uk/wp-content/uploads/2020/05/development-and-planning-portsmouth-brownfield-land-register.xlsx,,,2020-10-19,2020-10-14,
 3442f123feeccba9f853707ed669b27177faec4333bc37dbfeec3b8eee99fa91,https://erewash.gov.uk/images/Planning_Policy/brownfield-land.csv.xlsx,,,2020-10-19,2020-10-14,2025-07-07
@@ -1079,7 +1079,7 @@ ea98ea4d156ee47ff09af98d96d09951395b58e66d8b5fff55f50e3a537ff753,"https://www.ad
 734a30c885515b42eaa004258aede2f048e49ad136d28bb0901882c6d1dc9056,https://www-cloudfront.allerdale.gov.uk/media/filer_public/ea/63/ea63de5d-93fe-4a4e-a187-1bb6ba859541/brownfield_register_2023_update_for_website.xlsx,,,2023-07-06T11:11:52:52Z,2023-07-06,2025-07-07
 aeeaed70b55ac20a48703f826ff32149a9d8bf31ff08bd2122d7cf592ff9d67a,https://info.ambervalley.gov.uk/shareddatasets/brownfieldlandregister/AmberValleyBrownfieldLandRegister2020.csv,,,2023-07-06T11:11:52:52Z,2023-07-06,
 133c2c73aa8288c55eddb9f547f10b002860503b1b435d0ce136bd1cb3f7bc96,https://www.arun.gov.uk/download.cfm?doc=docm93jijm4n19342.csv&ver=21752,,,2023-07-06T11:11:52:52Z,2023-07-06,
-1146929d1e4c5a5309d6d5e54be432dfe0a564403ffe78864754279518484478,https://www.ashford.gov.uk/media/b2cl5d2m/ashford_borough_council_brownfield_register-17-12-2018-1.csv,,,2023-07-06T11:11:52:52Z,2023-07-06,
+1146929d1e4c5a5309d6d5e54be432dfe0a564403ffe78864754279518484478,https://www.ashford.gov.uk/media/b2cl5d2m/ashford_borough_council_brownfield_register-17-12-2018-1.csv,,,2023-07-06T11:11:52:52Z,2023-07-06,2025-09-04
 1c756f62c7d4335432c4dbe586300d51985bb7f03141f8e1034fe89721500314,https://www.ashfield.gov.uk/media/c3thhahu/brownfield-land-jan-2022.csv,,,2023-07-06T11:11:52:52Z,2023-07-06,
 87e1075c7812461e82831a6424d5358d40df293213016232348c024d97dfd4d7,https://www.babergh.gov.uk/assets/Planning-Policy/BMSDC-BrownfieldRegister-2017-12-21.csv,,,2023-07-06T11:11:52:52Z,2023-07-06,2024-05-20
 23a0c6d0c737d5469a81ba4e83dee129b9898250af1edecdad079ac5eb794fa2,https://data.bassetlaw.gov.uk/media/8744/bassetlaw-brownfield-register.csv,,,2023-07-06T11:11:52:52Z,2023-07-06,
@@ -1540,3 +1540,4 @@ ae90daf8e0a26b0b9854af870ebdb293cca9b958246c8d83a7246cf504a4f271,https://www.sou
 88d86c0ff2b5693448f73ca43a7a59a88b17ec718f82d4ba3ebb6d7dbedcbefe,https://consult.rbwm.gov.uk/file/6507697?_gl=1*18hh898*_ga*MTM5MDQ3MTI2Mi4xNzUwMDY2NzQ2*_ga_B1S76ZFQXK*czE3NTAyNDEwMzYkbzIkZzAkdDE3NTAyNDEwMzYkajYwJGwwJGgw,,,2025-06-18,2025-06-10,
 a4942cbb7a50eda9a365494c917fb627510cd60b38348f3875c4d3d5e43af73d,https://www.dartford.gov.uk/downloads/file/2662/brownfield-land-register,,,2025-07-11,2025-07-10,
 d6010c8870075e8766aed75adafbb290e3606e4fb0d62d7126379bf94851eab0,https://www.southdowns.gov.uk/wp-content/uploads/2025/08/BLR_2025_CSV_Final.csv,,,2025-08-22,2025-08-22,
+ba683f6a8619d2e600e58ea71c18c835b41353d833fd81cdc4e509f3f8802ab3,https://www.ashford.gov.uk/media/3jnnspan/ashford_borough_council_brownfield_register-17-12-2018-1.csv,,,2025-09-04,2025-08-27,
