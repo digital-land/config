@@ -53,7 +53,7 @@ e89653123a38ddddfd70d71589c15d28ba2444ccefd5d7903e71ec762f2b4bd3,https://apps.n-
 74cb4c8a3ff8574c9bf438f492acddd078eac1f6da347fcd95dd1514ee086926,https://services7.arcgis.com/uZqSSlRPLgqdItQE/ArcGIS/rest/services/Tree_Preservation_Orders_CSB/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-01,,
 093d93b05b23fc2d81922b06c60befe8f536d2a99a24993ad3f654d07c54b476,https://www.sandwell.gov.uk/downloads/file/3296/tree-preservation-zone-dataset,,,2024-10-02,,
 cd0ff78194618896cec280b2f0b383bfbb2670cc5eccbd5eedfd149589ee6976,https://www.sandwell.gov.uk/downloads/file/3297/tree-dataset,,,2024-10-02,,
-d6abdbc3123bc4b60ee9d34ab1ec52dda34d67e6260802df6a944a5f7d09352b,https://services.arcgis.com/kpKmjwOZyXMs3vON/arcgis/rest/services/hdc_3825_TPO_polygon_OGL_WGS84/FeatureServer/2/,,arcgis,2024-10-08,2024-10-07,
+d6abdbc3123bc4b60ee9d34ab1ec52dda34d67e6260802df6a944a5f7d09352b,https://services.arcgis.com/kpKmjwOZyXMs3vON/arcgis/rest/services/hdc_3825_TPO_polygon_OGL_WGS84/FeatureServer,,arcgis,2024-10-08,2024-10-07,
 e4c1a1851eb69c43ed4735aaa145d2975ef94f3a98ba7fe8ec30fa64dca7dba0,https://maps2.bristol.gov.uk/server2/rest/services/ext/ODP_Datasets/MapServer/2/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-16,,
 921cc67b0a42e501137e3a4cb112b281dece73502ba7428e5d26d622052f2a22,https://maps2.bristol.gov.uk/server2/rest/services/ext/ODP_Datasets/MapServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-16,,
 373a2a47ad71f4dec9927f6eb438a061ec568424840fe818512deadda91d9eff,https://maps2.bristol.gov.uk/server2/rest/services/ext/ODP_Datasets/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-10-16,,
@@ -134,3 +134,4 @@ d2fadce9d3d3cfbbae81ef088c8128160b57dfd8a500c140ec3eecefd5c116f5,https://www.new
 d0b3cca538f9691bee12461b6aa57573f4122fc9e9eda32adf89e77cec2e0cf6,https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Tree_Preservation_Orders_Public/FeatureServer/2/query?f=pjson&where=1=1&outFields=*,,,2025-08-19,2025-08-18,
 7b97d49f5afd043f8745bd6afdf3bca586bda28ebb783ce65a0bc1d3e5445479,https://www.newforest.gov.uk/media/4554/NFDC-tree.geojson/json/NFDC_tree.geojson,,,2025-08-20,2025-08-20,
 2aa01967ba7a54d5bb23e1f4ff7a1e6a92d84649e48c211197c3763454275400,https://www.sstaffs.gov.uk/sites/default/files/2025-08/TPO%20Order%20ODP%20Live%20Aug%2025%20csv.csv,,,2025-08-22,2025-08-20,
+
