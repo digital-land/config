@@ -1,6 +1,6 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
 d7a3030ffdf1c6f70cffdc0230928df129362c4b0c2d8b32e3bef22910e3f3f7,https://raw.githubusercontent.com/digital-land/historic-england-collection/main/data/listed-building-grade.csv,,,2021-06-02T15:15:36Z,,2021-10-02
-c187fc319f7175f30f123c26cd74e398844b0176b3e5c1690f2d710ef1cb237f,https://historicengland.org.uk/content/data-downloads-gis/listed-buildings/,,,2021-05-28T13:13:07Z,,
+c187fc319f7175f30f123c26cd74e398844b0176b3e5c1690f2d710ef1cb237f,https://historicengland.org.uk/content/data-downloads-gis/listed-buildings/,,,2021-05-28T13:13:07Z,,2025-09-04
 fe11d79074c5744a47ce11171e6f7c376ea41a62ef2882d527192213645b9503,https://raw.githubusercontent.com/digital-land/listed-building-collection/main/data/listed-building-grade.csv,,,2021-11-22T16:16:19Z,,2025-05-01
 2edd619184cc8fdfcebab5be89c7de2ccbe03c72c7b6f71361920e3cda55163d,https://opendata.arcgis.com/datasets/a0ea54c61b1f4bdfbe9605324cf70c81_0.geojson,,,2021-11-23T19:19:01Z,,2025-08-06
 f9e48302f921da41ac204cd97817651db192c83dcbc032afc9a8f19f6ce57849,https://raw.githubusercontent.com/digital-land/listed-building-collection/main/data/Southwark/Grade%20I.zip,,,2021-12-07T11:11:51Z,,2024-07-10
@@ -78,3 +78,4 @@ da938141b3994a6cd68c45984a1c59c475e5f9a37d885363d555291f87cfdfd6,https://www.new
 aa1b3db1ff880075539718575896013fd2bc93bf54c425ab60a50b051d66e9e9,https://services3.arcgis.com/HbafpLvwgoBYdsFH/ArcGIS/rest/services/Listed_Buildings/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-08-27,2025-08-22,
 13c458d391328cffc5c0644bcba7d191d3fe47cfffb192c5c39d2e6bdc336c4a,https://data.rochdale.gov.uk/files/Listed_Buildingwith_links_to_Historic_England.csv,,,2025-08-27,2025-08-26,
 71690f93d17f36ab5b7c17525c2aae07741537b4676cb49ac781595deb12d6ce,https://www.ashford.gov.uk/media/a41bdwuu/listedbuilding_abc.csv,,,2025-08-28,2025-08-27,
+dc8c5b70d258dae09068a430238ce0dfd0819708654ec730f1ea2e4be10ab267,https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/National_Heritage_List_for_England_NHLE_v02_VIEW/FeatureServer/0/,,arcgis,2025-09-04,2025-08-29,
