@@ -126,7 +126,7 @@ a3e1de392baf72c54ea5da61d963421dc1779152583341703a369087dd730d00,https://rdcpubl
 0e4964419445939b5b3156f78bffa23f4fd9da3f467ea620f7d52853a886da84,https://eastcambs.gov.uk/TreeDataset,,,2025-08-06,2025-08-06,
 187aca35c4154f043364cb4d6e7f41e9f2f58efcef0651a649ee176af1e4cf78,https://eastcambs.gov.uk/TreePreservationOrderDataset,,,2025-08-06,2025-08-05,
 9971cc8047de4a3b1fc27b197a2c2ff7a4f7fe504dfdee8ec2ac37ec34c5474d,https://eastcambs.gov.uk/TreePreservationZoneDataset,,,2025-08-07,2025-08-06,
-ccd898fc45006b4f6ba41116f8c648f6795b5e3b656cf51703a4fcaa5ae7dd06,https://services3.arcgis.com/HbafpLvwgoBYdsFH/arcgis/rest/services/Tree_Preservation_Orders/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-08-08,2025-08-06,
+ccd898fc45006b4f6ba41116f8c648f6795b5e3b656cf51703a4fcaa5ae7dd06,https://services3.arcgis.com/HbafpLvwgoBYdsFH/arcgis/rest/services/Tree_Preservation_Orders/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-08-08,2025-08-06,2025-09-08
 d2fadce9d3d3cfbbae81ef088c8128160b57dfd8a500c140ec3eecefd5c116f5,https://www.newforest.gov.uk/media/4555/NFDC-tree-preservation-zone.geojson/json/NFDC_tree-preservation-zone.geojson,,,2025-08-18,2025-08-18,
 3eeadb5f494c02ca8d1405a99913031fa5b37973fa7b438c0f4eb729c5470664,https://www.newforest.gov.uk/media/4553/tree-preservation-orders/xls/NFDC_Tree_preservation_order.csv?m=1755181875593,,,2025-08-18,2025-08-18,
 50ac966581d595fee25a7f1cd5e886ce9c1f3ebccb1e8f9f4e9807af29adf4c7,https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Tree_Preservation_Orders_Public/FeatureServer/0/query?f=pjson&where=1=1&outFields=*,,,2025-08-19,2025-08-18,
@@ -135,3 +135,4 @@ d0b3cca538f9691bee12461b6aa57573f4122fc9e9eda32adf89e77cec2e0cf6,https://service
 7b97d49f5afd043f8745bd6afdf3bca586bda28ebb783ce65a0bc1d3e5445479,https://www.newforest.gov.uk/media/4554/NFDC-tree.geojson/json/NFDC_tree.geojson,,,2025-08-20,2025-08-20,
 2aa01967ba7a54d5bb23e1f4ff7a1e6a92d84649e48c211197c3763454275400,https://www.sstaffs.gov.uk/sites/default/files/2025-08/TPO%20Order%20ODP%20Live%20Aug%2025%20csv.csv,,,2025-08-22,2025-08-20,
 017a9a42408141cfba13d4e1f8a0887a91a4e79110e3e5a990c1cf09f4239775,https://www.ashford.gov.uk/media/oi1e4x4w/tpo_zones.csv,,,2025-09-05,2025-08-27,
+8aa207a3d81a8fb327763abd85ca810e6cd5e32f6745037f0d07cb29cf0f6a31,https://services3.arcgis.com/HbafpLvwgoBYdsFH/arcgis/rest/services/Tree_Preservation_Orders/FeatureServer/0/,,arcgis,2025-09-08,2025-08-06,
