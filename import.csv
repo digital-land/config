@@ -1,2 +1,2 @@
-organisation,pipelines,documentation-url,endpoint-url,start-date,licence
-local-authority:DST,article-4-direction-area,https://gi.dorsetcouncil.gov.uk/dorsetexplorer/planning/public#map=10.35/50.79582/-2.31339/0&basemap=1/100/100,https://gi.dorsetcouncil.gov.uk/geoserver/planning-public/wfs?request=GetFeature&typeName=article_4&outputFormat=application%2Fjson,2025-07-25,ogl3
+organisation,pipelines,documentation-url,endpoint-url,start-date,licence,plugin
+local-authority:NBL,tree,https://beta.northumberland.gov.uk/planning-and-building/trees-works-and-preservation,https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Tree_Preservation_Orders_Public/FeatureServer/2/,2025-09-11,ogl3,arcgis
