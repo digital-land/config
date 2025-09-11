@@ -708,3 +708,4 @@ c58f7288d13de644a97a5121abe789c61b41fc3bf44c1dd3a34a9913c9b1ff39,https://www.sef
 5d87ec5e5e94871bab15c8d91c68ded7770fe91762e834948b89f3514a06317c,https://adur-worthing.statmap.co.uk/map/webservice.svc/query?script=%5cAurora%5cOpen+Digital+Web+Service%5cOpen+Digital+Planning.AuroraScript%24&taskId=WorthingCAs,,,2025-08-27,2025-08-20,
 25b2983e22933b03c94a7c45bf8e488269f7b7ae90b9b066a0e601eabc46050e,https://www.sefton.gov.uk/media/1y3nrlup/conservationareas.csv,,,2025-08-27,2025-08-20,
 64af8ec220eff244a57b2e9a9f08af968bed8575dd4c7fe9882e4108f3bc2b02,https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/Conservation_Areas/FeatureServer/0/,,arcgis,2025-09-05,2025-09-05,
+534daf5c312b34db4b439125efc22894849092669e967166f3ac1c79535484cc,https://miltonkeynes.statmap.co.uk/map/wfs.svc/MKCC_ODPwfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=statmap:conserv_area&SRSNAME=EPSG:27700&COUNT=1000&STARTINDEX=0,,,2025-09-11,2025-09-11,
