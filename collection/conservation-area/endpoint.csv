@@ -679,7 +679,7 @@ ecfa45056a6d985f618bf8affd225f2efadcf17605e46e83255f9ce353c420ba,https://www.sou
 634b2ec784396bb1610247f5d039ef0e7b163e21737396267863872591c2abdc,https://www.southnorfolkandbroadland.gov.uk/asset-library/south-norfolk-conservation-area-dataset.json,,,2025-03-24,2025-03-21,
 95faa3cc94575e5305c159700c457e98d2b97ab4534f711b94a88db675f04d3f,https://services7.arcgis.com/Mz44joHFNpdc7JeO/arcgis/rest/services/ASLP_Conservation_areas_Public/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-03-26,2025-03-26,2025-04-28
 a111fac5edeb8aeaa67d85ed6d16d6d4287e4f4f2e6b3572c36595668cee6dd6,https://www.sandwell.gov.uk/downloads/file/3923/conservation-area-documents-dataset-march25,,,2025-03-27,2025-03-27,
-d62d69ea43174f00f29d1503164d35bc4c67dacfb1902f37abfdfcf5ec9d3244,https://www.ashford.gov.uk/media/oatln00s/conservationarea_26_03_25.csv,,,2025-04-07,2025-04-07,
+d62d69ea43174f00f29d1503164d35bc4c67dacfb1902f37abfdfcf5ec9d3244,https://www.ashford.gov.uk/media/oatln00s/conservationarea_26_03_25.csv,,,2025-04-07,2025-04-07,2025-09-12
 bedbe0ddf018bb6adffacbd186ce29b693493b22e03f85b88b1e621e10eaf114,https://www.walthamforest.gov.uk/sites/default/files/2025-03/Waltham_Forest_Conservation_Areas.gpkg,,,2025-04-07,2025-04-07,
 f988f08cbd646fbacbfcb9acd8cc9a7a4d9d093131b61e1b550c42a1a656f574,https://www.centralbedfordshire.gov.uk/download/downloads/id/188/conservation_area_dataset_csv.csv,,,2025-04-08,2025-04-04,
 534f36b110b88ee558285fb5e4fb05a450533a26814b36219966a7dbaa42313f,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/Conservation_Areas_documents_dataset/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-04-22,2025-04-10,
@@ -706,6 +706,8 @@ c58f7288d13de644a97a5121abe789c61b41fc3bf44c1dd3a34a9913c9b1ff39,https://www.sef
 4666701e6f78fd205b38b29a4eb10f656e1b0434f352b8c5273d50d17d7700e2,https://mapsdata.midkent.gov.uk/geoserver/Planning_gov/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Planning_gov%3AMaidstone_Borough_Council_-_Conservation_Area,,,2025-08-27,2025-08-13,
 587460c9d80e64d7aaa89ebf5a0b7571981d1443835edb4960da21c92a095dbb,https://adur-worthing.statmap.co.uk/map/webservice.svc/query?script=%5cAurora%5cOpen+Digital+Web+Service%5cOpen+Digital+Planning.AuroraScript%24&taskId=AdurCAs,,,2025-08-27,2025-08-20,
 5d87ec5e5e94871bab15c8d91c68ded7770fe91762e834948b89f3514a06317c,https://adur-worthing.statmap.co.uk/map/webservice.svc/query?script=%5cAurora%5cOpen+Digital+Web+Service%5cOpen+Digital+Planning.AuroraScript%24&taskId=WorthingCAs,,,2025-08-27,2025-08-20,
-25b2983e22933b03c94a7c45bf8e488269f7b7ae90b9b066a0e601eabc46050e,https://www.sefton.gov.uk/media/1y3nrlup/conservationareas.csv,,,2025-08-27,2025-08-20,
+25b2983e22933b03c94a7c45bf8e488269f7b7ae90b9b066a0e601eabc46050e,https://www.sefton.gov.uk/media/1y3nrlup/conservationareas.csv,,,2025-08-27,2025-08-20,2025-09-12
 64af8ec220eff244a57b2e9a9f08af968bed8575dd4c7fe9882e4108f3bc2b02,https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/Conservation_Areas/FeatureServer/0/,,arcgis,2025-09-05,2025-09-05,
 534daf5c312b34db4b439125efc22894849092669e967166f3ac1c79535484cc,https://miltonkeynes.statmap.co.uk/map/wfs.svc/MKCC_ODPwfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=statmap:conserv_area&SRSNAME=EPSG:27700&COUNT=1000&STARTINDEX=0,,,2025-09-11,2025-09-11,
+866c72941d7dabcd090440dc957ec6ff8abd48dbe18b6b20c7b346f10aa99f3b,https://www.sefton.gov.uk/media/skll0was/conservationareas.csv,,,2025-09-12,2025-09-12,
+805156ef0829af7a4d5270e3c2777327ba46f08e625cf21e778120c864e4c943,https://www.ashford.gov.uk/media/oatln00s/conservationarea_sept.csv,,,2025-09-12,2025-09-12,
