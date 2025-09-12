@@ -55,7 +55,7 @@ d3cafd03dbd7a0d307725e8fa0c5900d67f0e70527af5a6635013d938b20197d,https://service
 986ca81a3137e7a09a761db13c0f9cd846056cbe11d2fc1bd3bf3ae478654fc3,https://services7.arcgis.com/Mz44joHFNpdc7JeO/arcgis/rest/services/IHM_ListedBuildings_view/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-03-26,2025-03-26,2025-04-28
 0be0fbb21262c23dc3ca3270bb4beeb8cdb11f76bd99c0b47dcd01ea9f9c881f,https://eastcambs.gov.uk/sites/default/files/2025-03/Listed%20building%20dataset.csv,,,2025-03-31,2025-03-31,2025-08-05
 f838255604dd6b7196c805bd295aca3a04b1eb4ab2f3a9c2cdcf49522eae639a,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20Listed%20Building%20Curtilages%20dataset.geojson,,,2025-04-02,2025-04-01,
-df00c46a5ace79c05ac5aa7e6dd631d54c920569f4a4f2ffbe982ce141d6d6a7,https://liverpool.gov.uk/media/xfso5wvm/lb-csv.csv,,,2025-04-08,2025-04-04,
+df00c46a5ace79c05ac5aa7e6dd631d54c920569f4a4f2ffbe982ce141d6d6a7,https://liverpool.gov.uk/media/xfso5wvm/lb-csv.csv,,,2025-04-08,2025-04-04,2025-09-12
 3208d1b3c19d2e3ddc979a249ef9c36150926cc2b655743134dcda0a5a4e83e1,https://www.centralbedfordshire.gov.uk/download/downloads/id/190/listed_building_dataset_wkt.csv,,,2025-04-14,2025-04-11,2025-06-19
 07635003cdde6cc590a70206f07d9899fa90d08688f0669becd7326902568f5c,https://geoserver.leicester.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3AODP_LISTED_BUILDING_OUTLINE&outputFormat=application%2Fjson,,,2025-04-11,2025-04-08,
 8f83ab5f46febfbd9364dfd418a13d87fa99131be7bb6f7194a40deae52ea98f,https://www.westminster.gov.uk/media/document/wcc-listed-building-outline-dataset-mar-2025,,,2025-04-28,2025-04-08,
@@ -80,3 +80,5 @@ aa1b3db1ff880075539718575896013fd2bc93bf54c425ab60a50b051d66e9e9,https://service
 71690f93d17f36ab5b7c17525c2aae07741537b4676cb49ac781595deb12d6ce,https://www.ashford.gov.uk/media/a41bdwuu/listedbuilding_abc.csv,,,2025-08-28,2025-08-27,
 dc8c5b70d258dae09068a430238ce0dfd0819708654ec730f1ea2e4be10ab267,https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/National_Heritage_List_for_England_NHLE_v02_VIEW/FeatureServer/0/,,arcgis,2025-09-04,2025-08-29,
 11f92a65f2c5963326433aef82d6f9a66e2f5031bd5f48a3cf55749a289a4e0a,https://www.ashford.gov.uk/media/qxgbarwo/listedbuilding_abc_september.csv,,,2025-09-12,2025-09-12,
+cc8329f79e7a92db582099f429f879ac3c4024ec477c10d3a735b9b0b636f061,https://liverpool.gov.uk/media/xfso5wvm/listed-buildings.csv,,,2025-09-12,2025-09-12,
+8fa22f492c39e2b8b702e69f172e089a39c112e10946dcd9d35fb91e60d941a4,https://miltonkeynes.statmap.co.uk/map/wfs.svc/MKCC_ODPwfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=statmap:list_build_outline&SRSNAME=EPSG:27700&COUNT=1000&STARTINDEX=0,,,2025-09-12,2025-09-12,
