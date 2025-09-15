@@ -1,2 +1,10 @@
 resource,field,pattern,value,dataset,entry-number,start-date,end-date,entry-date,endpoint
 ,organisation,Westminster,local-authority:WSM,central-activities-zone,,,,,7bc8a737cf2fc696b33985d1112421cbf09eb8236192f298d971ab01808f8378
+,organisation,lambeth,local-authority:LBH,central-activities-zone,,,,,7bc8a737cf2fc696b33985d1112421cbf09eb8236192f298d971ab01808f8378
+,organisation,southwark,local-authority:SWK,central-activities-zone,,,,,7bc8a737cf2fc696b33985d1112421cbf09eb8236192f298d971ab01808f8378
+,organisation,wandsworth,local-authority:WND,central-activities-zone,,,,,7bc8a737cf2fc696b33985d1112421cbf09eb8236192f298d971ab01808f8378
+,organisation,kensington and chelsea,local-authority:KEC,central-activities-zone,,,,,7bc8a737cf2fc696b33985d1112421cbf09eb8236192f298d971ab01808f8378
+,organisation,city of london,local-authority:LND,central-activities-zone,,,,,7bc8a737cf2fc696b33985d1112421cbf09eb8236192f298d971ab01808f8378
+,organisation,tower hamlets,local-authority:TWH,central-activities-zone,,,,,7bc8a737cf2fc696b33985d1112421cbf09eb8236192f298d971ab01808f8378
+,organisation,islington,local-authority:ISL,central-activities-zone,,,,,7bc8a737cf2fc696b33985d1112421cbf09eb8236192f298d971ab01808f8378
+,organisation,hackney,local-authority:HCK,central-activities-zone,,,,,7bc8a737cf2fc696b33985d1112421cbf09eb8236192f298d971ab01808f8378
