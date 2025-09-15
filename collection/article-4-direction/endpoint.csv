@@ -129,7 +129,7 @@ fa43f1424a3c39642ff4664068da6432efd8f5ab7c81d702cea8fe95e4532d8c,https://www.wal
 2620f29e9c5e65c0e0b711c015c5d3e88edf11a33365dc3da381d9c77d16b3e7,https://www.newforestnpa.gov.uk/app/uploads/2025/01/Article-4-Area-Dataset-.csv,,,2025-04-30,2025-04-30,
 5bf106eb6a9025d0bc88f0f92373cef3c4a617e9f10777686c0d90232b17e6dc,https://www.newforestnpa.gov.uk/app/uploads/2025/01/NFNPA-article-4-direction-dataset.xlsx,,,2025-04-30,2025-04-30,
 bd5862c4d77269173be9f1bdd58ecd8e608dbd16618331b3b08d43ddd610d241,https://www.ashford.gov.uk/media/dsplmr5a/article4_spatial_07_04_25.csv,,,2025-05-02,2025-05-01,2025-08-28
-ab1b0920799bc382b3d8c43f674b06dc4602be18fed7874bdb93206a977b74b7,https://www.centralbedfordshire.gov.uk/download/downloads/id/194/article_4_direction_area_dataset_csv.csv,,,2025-05-23,2025-05-22,
+ab1b0920799bc382b3d8c43f674b06dc4602be18fed7874bdb93206a977b74b7,https://www.centralbedfordshire.gov.uk/download/downloads/id/194/article_4_direction_area_dataset_csv.csv,,,2025-05-23,2025-05-22,2025-09-15
 be557dcef843918934b9216fd597a70b02cc5546a9bee9366985340bb3269045,https://services.southwark.gov.uk/assets/attach/194785/Article-4-direction-area.geojson,,,2025-05-28,2025-05-28,2025-06-17
 335edaa894f86d147315401bb213efeac85451189588a5223e50fcf4b7a1973a,https://maps.3csharedservices.org/arcgis/rest/services/GCSPArticle4Directions_OpenData/MapServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-05-29,2025-05-27,2025-08-27
 852e9800875c35e5b5653c078bedbb4a247418faf173f407020df8f687af760a,https://data.leicester.gov.uk/api/explore/v2.1/catalog/datasets/article_4_direction/exports/json?lang=en&timezone=Europe%2FLondon,,,2025-06-09,2025-06-06,
@@ -152,3 +152,4 @@ dae5ec3fd6800e678e699771e876c7a3608d2d95405fe1d3f328780a5deea2a4,https://mapsdat
 4263c7ffebf8087c801bb18bb71649d913c241746952e697d5f5b0c3dae03fb1,https://maps.3csharedservices.org/arcgis/rest/services/GCSP/GCSPArticle4Directions_OpenData/MapServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-08-27,2025-08-26,
 b679effe880ae1a9c239775b705ee74561731703229a647738d2d5ca34c26119,https://www.ashford.gov.uk/media/vlymbjea/article4.csv,,,2025-08-28,2025-08-27,
 6a7128a02e70386c3576e1d54dbc46a0948e1325c595b54ff52e3c4315ba65e0,https://www.centralbedfordshire.gov.uk/download/downloads/id/201/article_4_data_csv.csv,,,2025-09-15,2025-09-15,
+96f7742d903467f2e234a50baf72dfab220b847570291f154af03f9e25180b91,https://www.centralbedfordshire.gov.uk/download/downloads/id/205/article_4_direction_area_dataset_csv.csv,,,2025-09-15,2025-09-15,
