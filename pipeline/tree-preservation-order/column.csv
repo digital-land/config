@@ -464,4 +464,5 @@ tree,d0b3cca538f9691bee12461b6aa57573f4122fc9e9eda32adf89e77cec2e0cf6,,WKT,geome
 tree-preservation-order,d56085492d6911fb4904ad3e9cb5ca61a61a9027d39c63c0e6cb4051ec76d855,,TREE_PRESERVATION_ORDER,reference,,,
 tree-preservation-order,d56085492d6911fb4904ad3e9cb5ca61a61a9027d39c63c0e6cb4051ec76d855,,Documentation_URL,IGNORE,,,
 tree,d56085492d6911fb4904ad3e9cb5ca61a61a9027d39c63c0e6cb4051ec76d855,,WKT,geometry,,,
-tree,d56085492d6911fb4904ad3e9cb5ca61a61a9027d39c63c0e6cb4051ec76d855,,TREE_PRESERVATION_ZONE_TYPE,tree-preservation-order-tree,,,
+tree,02b7f5e685be3fedc7145c397927bccb4c4c8d660e8eebb4e9f0b917bee9ce82,,REF,reference,,,
+tree,02b7f5e685be3fedc7145c397927bccb4c4c8d660e8eebb4e9f0b917bee9ce82,,TREE_PRESERVATION_ORDER,reference,,,
