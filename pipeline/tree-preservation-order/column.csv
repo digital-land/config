@@ -465,3 +465,5 @@ tree-preservation-order,d56085492d6911fb4904ad3e9cb5ca61a61a9027d39c63c0e6cb4051
 tree-preservation-order,d56085492d6911fb4904ad3e9cb5ca61a61a9027d39c63c0e6cb4051ec76d855,,Documentation_URL,IGNORE,,,
 tree,d56085492d6911fb4904ad3e9cb5ca61a61a9027d39c63c0e6cb4051ec76d855,,WKT,geometry,,,
 tree,d56085492d6911fb4904ad3e9cb5ca61a61a9027d39c63c0e6cb4051ec76d855,,TREE_PRESERVATION_ZONE_TYPE,tree-preservation-order-tree,,,
+tree-preservation-zone,6478f837887a0285b0191a154b114f79c2d010a29133d9e9585140fd62acae29,,REF,reference,,,
+tree-preservation-zone,6478f837887a0285b0191a154b114f79c2d010a29133d9e9585140fd62acae29,,TREE_PRESERVATION_ORDER,reference,,,
