@@ -4,3 +4,6 @@ tree,a993375ec694f798bbfacff2a8553141a537436d017c6f30e161c6c4b55b5292,reference,
 tree-preservation-zone,,tree-preservation-zone-type,A,area,,,,,
 tree-preservation-zone,,tree-preservation-zone-type,G,group,,,,,
 tree-preservation-zone,,tree-preservation-zone-type,W,woodland,,,,,
+tree-preservation-zone,,tree-preservation-zone-type,^W,woodland,,,,,8aa207a3d81a8fb327763abd85ca810e6cd5e32f6745037f0d07cb29cf0f6a31
+tree-preservation-zone,,tree-preservation-zone-type,^A,area,,,,,8aa207a3d81a8fb327763abd85ca810e6cd5e32f6745037f0d07cb29cf0f6a31
+tree-preservation-zone,,tree-preservation-zone-type,^G,group,,,,,8aa207a3d81a8fb327763abd85ca810e6cd5e32f6745037f0d07cb29cf0f6a31
