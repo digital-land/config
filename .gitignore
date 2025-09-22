@@ -40,3 +40,5 @@ performance/
 # ignore specific files
 pipeline/title-boundary/lookup.csv
 /*.csv
+# ignore the import.csv but leave one in there as an example
+import.csv
