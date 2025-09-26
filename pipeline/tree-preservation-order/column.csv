@@ -477,3 +477,5 @@ tree,8aa207a3d81a8fb327763abd85ca810e6cd5e32f6745037f0d07cb29cf0f6a31,,species,t
 tree,8aa207a3d81a8fb327763abd85ca810e6cd5e32f6745037f0d07cb29cf0f6a31,,tree_group,tree-preservation-order-tree,,,
 tree-preservation-order,8aa207a3d81a8fb327763abd85ca810e6cd5e32f6745037f0d07cb29cf0f6a31,,Name,reference,,,
 tree,8f51a5631fff52eaa920a053649866336839bfb4a385dfcb0b7cf5fba977588e,,WKT,geometry,,,
+tree-preservation-order,e1a8ddd5c0318a2a685430ece7c5e08ea45bb4ed974734e94e4ed062d1f357f5,,TREE_PRESERVATION_ORDER,reference,,,
+tree-preservation-order,e1a8ddd5c0318a2a685430ece7c5e08ea45bb4ed974734e94e4ed062d1f357f5,,Documentation_URL,IGNORE,,,
