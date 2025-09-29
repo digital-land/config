@@ -1,3 +1,4 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-ffced0fab18bf0d23cb58e47f85a1032f6cf8fa738b5d0d694e8f2c0bd77c87c,https://opendata.arcgis.com/datasets/f10cbb4425154bfda349ccf493487a80_0.geojson,,,2021-05-27T00:00:00Z,,
+ffced0fab18bf0d23cb58e47f85a1032f6cf8fa738b5d0d694e8f2c0bd77c87c,https://opendata.arcgis.com/datasets/f10cbb4425154bfda349ccf493487a80_0.geojson,,,2021-05-27T00:00:00Z,,2025-09-29
 7c0fea5253191d3b770ae5410440ba06b89a8a3c2bf334dc6e8cc141274d78f6,https://services.arcgis.com/JJzESW51TqeY9uat/arcgis/rest/services/SSSI_England/FeatureServer/0,,arcgis,2024-11-21,,
+
