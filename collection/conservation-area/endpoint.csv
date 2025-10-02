@@ -9,7 +9,7 @@ f1c0048a9dbf0c716bfdbaba9e4da19870a59d95507aaa046824fcba01064a25,http://essex.as
 5c32ce2a1c89b1f91b7c6ebca6c01aaff88797917d42c637732b5ef8a026d099,http://mydistrict.chichester.gov.uk/getows.ashx?mapsource=Chichester/Inspire&TypeName=aonb&version=1.1.0&request=GetFeature&service=WFS,,wfs,2020-09-05T17:40:33Z,2020-10-01,
 f6b468c84948ec43983f7dda486b3f224735e2889f94f69cd83ddf0db9b35e19,http://www.southampton.gov.uk/geoserver/Inspire/wfs?service=wfs&version=1.1.0&request=GetFeature&TypeName=Inspire:CONSERVATION_AREAS,,wfs,2020-09-05T18:17:20Z,2020-10-01,
 5d1d938d712dc3c3e094f070581466f89e397e1669655850b6caf7d3b643cfed,https://data.london.gov.uk/download/conservation_areas/b38eae6d-10db-4c79-afdd-dd97ae367b8b/Conservation_Areas.gpkg,,,2020-09-04T15:11:53Z,2020-10-01,2024-02-14
-a910b126bd355f5cdd90e37e657780087d2be5ecde52ba2e76bd0ed471ee7762,http://data-gedlingbc.opendata.arcgis.com/datasets/4913c7aaea034ca38382c164952ac026_0.geojson,,,2020-09-15T07:29:21Z,2020-10-01,2024-09-05
+a910b126bd355f5cdd90e37e657780087d2be5ecde52ba2e76bd0ed471ee7762,http://data-gedlingbc.opendata.arcgis.com/datasets/4913c7aaea034ca38382c164952ac026_0.geojson,,,2020-09-15T07:29:21Z,2020-10-01,
 985c16bc25453fd0649f2e03b4901ee882fd008b06d25cd2ed2f2272e8bc8990,http://inspire.sthelens.gov.uk/geoserver/wfs?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAME=INSPIRE:conservation_areas,,wfs,2020-09-14T18:27:59Z,2020-10-01,2024-09-05
 d74730ad1ef0a9baefea7d86e5175c81752896a5cdaf2e28b88027dce9b27317,http://maps.southoxon.gov.uk/arcgis/services/Open_data_southoxon/MapServer/WFSServer?request=GetFeature&service=WFS&TypeName=conservation_areas,,wfs,2020-09-05T17:40:33Z,2020-10-01,
 e6a63c92987299ca1409660135ab597f51b13f8c050421e7602c8f01054205f9,http://inspire.misoportal.com/geoserver/babergh_district_council_conservation_areas_msdc_bdc/wfs?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAME=babergh_district_council_conservation_areas_msdc_bdc,,wfs,2020-09-11T17:07:11Z,2020-10-01,2024-09-05
@@ -715,3 +715,4 @@ c58f7288d13de644a97a5121abe789c61b41fc3bf44c1dd3a34a9913c9b1ff39,https://www.sef
 341a14d01f13823402bdb6c77281cfa0dbaec9e3d4476fa4a89577cc18791523,https://www.wealden.gov.uk/UploadedFiles/wdc-conservation-area-dataset.csv,,,2025-09-19,2025-09-16,
 5acb85e04037c98e6a7e6fd3f06d43d1d0526573b9b2c5073172c8b3da4c041b,https://www.waverley.gov.uk/portals/0/documents/services/planning-and-building/planning%20policy/article%204%20direction/wbc_conservation_area_geometry.geojson,,,2025-09-19,2025-09-18,
 e7f70e63cc8037096e37359ce1bc82cbdc9e1e8e9460021622214a16e8ba76e4,https://www.waverley.gov.uk/portals/0/documents/services/planning-and-building/planning%20policy/article%204%20direction/wbc_conservation_area.geojson,,,2025-09-19,2025-09-18,
+
