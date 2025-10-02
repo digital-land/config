@@ -1,3 +1,4 @@
 dataset,resource,column,field,start-date,end-date,entry-date,endpoint
 site-of-special-scientific-interest,,REF_CODE,IGNORE,,,,
 site-of-special-scientific-interest,,HYPERLINK,reference,,,,
+site-of-special-scientific-interest,,WKT,geometry,,,,
