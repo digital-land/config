@@ -33,8 +33,8 @@ dedddf78a549787ce0b004820332355926317d0f05fdbf81d17a716a78864e7f,https://www.sta
 3008744aaf73204606f72c826ae9846dc6b24530796029630452dc092ad82a6b,https://www.stalbans.gov.uk/sites/default/files/documents/publications/planning-building-control/Agile/Tree_Preservation_Order_Dataset_Individual.csv,,,2024-02-02,2023-12-18,2025-06-16
 fc49c6b6d4caad5daab9fc4af9876cc92aa722cafb3ac620c82cc45428ce7a63,https://www.stalbans.gov.uk/sites/default/files/documents/publications/planning-building-control/Agile/Tree_Dataset.json,,,2024-02-02,2023-12-18,
 aee249ffed25eb657d38dcfe41cebf6d7f2d3464f07b367d17898d71e3646591,https://www.stalbans.gov.uk/sites/default/files/documents/publications/planning-building-control/Agile/Tree_Preservation_Zone_Dataset.json,,,2024-02-02,2023-12-18,
-124dc88d5839fa63b5802abe2847e3bf959b3052a3dcd126f362f78e5342df33,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/ArcGIS/rest/services/Layers/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-02-06,,
-588e4f0dfb29a0181a302b8c9785abb24d881ae8cab1226914bb5896813c5ac4,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/ArcGIS/rest/services/Layers/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2024-02-06,,
+124dc88d5839fa63b5802abe2847e3bf959b3052a3dcd126f362f78e5342df33,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/ArcGIS/rest/services/Layers/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-02-06,,2025-10-07
+588e4f0dfb29a0181a302b8c9785abb24d881ae8cab1226914bb5896813c5ac4,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/ArcGIS/rest/services/Layers/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2024-02-06,,2025-10-07
 18ade76faa742c056050a7ce72cc84abdb1736e2fba32928fa3f5e5653bdb099,https://tewkesburybc.s3.eu-west-2.amazonaws.com/geojson/tree-preservation-order-dataset.geojson,,,2024-02-06,2023-11-03,
 e759e9dc3c4d471843da916f063ea08283230fb15d49c0724e8bd5c73833d983,https://maps.epsom-ewell.gov.uk/getOWS.ashx?MapSource=EEBC/planx&service=WFS&version=1.1.0&request=GetFeature&Typename=tpo_zones,,,2024-03-01,,
 7bf054cee55381acc0791faad8598585cfde03ecc22421e4e9f953651de6cea3,https://maps.epsom-ewell.gov.uk/getOWS.ashx?MapSource=EEBC/planx&service=WFS&version=1.1.0&request=GetFeature&Typename=tpo_trees,,,2024-03-01,,
@@ -156,3 +156,5 @@ f85e9ca1ebb8188188bd454f47cd9c0dcc2311dfba32bd91164619e5fd9d4a4f,https://www.sef
 e1a8ddd5c0318a2a685430ece7c5e08ea45bb4ed974734e94e4ed062d1f357f5,https://www.walthamforest.gov.uk/Waltham_Forest_TPO_Polygons,,,2025-09-29,2025-09-25,
 4ac87bfbd29d3fd8d52297c65a5385ae867e1e15ba7ed629217ff3013aeb5c28,https://www.walthamforest.gov.uk/Waltham_Forest_TPO_Points,,,2025-09-29,2025-09-25,
 c8879bbc91846cece3a730bb382f4b08de507d496c3e937b2ad694ae663cd06e,https://www.salford.gov.uk/media/newaf4uc/tree-preservation-order-dataset.csv,,,2025-10-06,2025-09-30,
+52960d61887f4ad2844ff881aa91b6a80876b8c18fde6b965d0b65228fea2ee0,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/arcgis/rest/services/TPO_Data/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-10-07,2025-10-06,
+45dabefbd774406a5e0b49ba97f58203dca52bf7b7f9a34ecbd8e894fc72d465,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/arcgis/rest/services/TPO_Data/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-10-07,2025-10-06,
