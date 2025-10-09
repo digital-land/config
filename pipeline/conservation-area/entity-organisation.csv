@@ -1194,4 +1194,5 @@ conservation-area,local-authority:BRO,44013357,44013357
 conservation-area,local-authority:CAR,44009143,44009143
 conservation-area,local-authority:EHA,44012758,44012758
 conservation-area,local-authority:WEA,44014215,44014246
-conservation-area,local-authority:LIV,6314027,6314062
+conservation-area-document,local-authority:LIV,6314027,6314062
+conservation-area,local-authority:LIV,44014307,44014342
