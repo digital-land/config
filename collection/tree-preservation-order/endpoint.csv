@@ -96,14 +96,14 @@ c41f81efa3f22a7ff86fab951b31f462ef71282aed2ee869bfc6fa437428178d,https://www.sou
 083bfb0b5defa06b4f877cbda4768dd72cd06eb22edd1471e08d410cfb150e66,https://www.southnorfolkandbroadland.gov.uk/asset-library/broadland-tree-preservation-order.json,,,2025-03-20,2025-03-20,
 d0f1de9d149de6d0576abc6d9707f4d80c6da8d804e66a70c7f531e316b57498,https://www.ashford.gov.uk/media/jksbvxwz/tpo_points_17_03_2025.csv,,,2025-04-03,2025-04-03,
 856a3529d072a1a68c16a401f8498bb643e0c115a27c2413f81e75eb888ea572,https://www.ashford.gov.uk/media/44vltouz/tpo_zones_17_03_2025.csv,,,2025-04-03,2025-04-03,2025-09-05
-6b0c845c3d7c312bde434700152f2bfa5c58b0bd722c1ba74f5f29b92fcbefdd,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20TPO%20zone%20April%202025.geojson,,,2025-04-22,2025-04-22,
+6b0c845c3d7c312bde434700152f2bfa5c58b0bd722c1ba74f5f29b92fcbefdd,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20TPO%20zone%20April%202025.geojson,,,2025-04-22,2025-04-22,2025-10-17
 6db8ebe08279160b83b66f1d83fd57efe7de92344d8f0e026953fc41487954e9,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Dataset.csv,,,2025-04-29,2025-04-14,2025-08-06
 e207dd3168f5ef12cff098ba3a9f7bc99d5457ffc6c8d8165035d7ba2961f340,https://www.sandwell.gov.uk/downloads/file/4015/tree-preservation-order-dataset,,,2025-04-29,2025-04-28,
 7a5dab0b90510d47356b8a3f5bc9d617156fea0c26c5c732afc2c09bbd2ec426,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Preservation%20Zone%20Dataset.csv,,,2025-04-30,2025-04-14,2025-08-07
 e7d5f94460a8cf677ff3b754c3ccf5fa9b032f4d204d44f3d110ce06e13dd1e3,https://eastcambs.gov.uk/sites/default/files/2025-04/Tree%20Preservation%20Order.csv,,,2025-04-30,2025-04-14,2025-08-06
 728873ef348b582eeb078281819c2fb41e180ec1c32b2f07214d44e661962630,https://www.centralbedfordshire.gov.uk/download/downloads/id/191/tree_preservation_order_dataset_csv.xlsx,,,2025-04-30,2025-04-30,2025-05-28
 a00b30a6d130c841338f3152868501ae7ea577bf3b76b42a993f6e40fa513b15,https://dataset-editor.planning.data.gov.uk/dataset/tree-preservation-zone-type.csv,,,2025-05-01,2023-09-11,
-f59e8ab0f427a9e36635f185c0a2b8123fac7a19c70bf38bc6d250b65cb57150,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20TPO%20Tree%20April%202025%20v1_0.geojson,,,2025-05-07,2025-05-01,
+f59e8ab0f427a9e36635f185c0a2b8123fac7a19c70bf38bc6d250b65cb57150,https://www.sstaffs.gov.uk/sites/default/files/2025-04/South%20Staffordshire%20TPO%20Tree%20April%202025%20v1_0.geojson,,,2025-05-07,2025-05-01,2025-10-17
 8768653a0477c932562fa1c796d3c09f31b7b1c6fa1b87725e87362324e30b27,https://www.centralbedfordshire.gov.uk/download/downloads/id/195/tree_preservation_order_dataset_csv.csv,,,2025-05-28,2025-05-22,
 96442538fd7aaf994ce97cb2744b4914fb758b42a67c0f04e31c887cd28a695e,https://hosted.southglos.gov.uk/OpenData/TPO/TreePreservationZones.json.txt,,,2025-06-09,2025-06-06,
 7a75a2b71a6ec94c928c998d91d92edd0d987fa2477e34e03df50ef4a26090f9,https://hosted.southglos.gov.uk/OpenData/TPO/TreePreservationOrder.json.txt,,,2025-06-09,2025-06-06,
@@ -133,7 +133,7 @@ d2fadce9d3d3cfbbae81ef088c8128160b57dfd8a500c140ec3eecefd5c116f5,https://www.new
 44d96c72c0fdb12528e1cf1bd1a370c811a853df1bda14921a9c2f8e003fd5dd,https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Tree_Preservation_Orders_Public/FeatureServer/1/query?f=pjson&where=1=1&outFields=*,,,2025-08-19,2025-08-18,
 d0b3cca538f9691bee12461b6aa57573f4122fc9e9eda32adf89e77cec2e0cf6,https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Tree_Preservation_Orders_Public/FeatureServer/2/query?f=pjson&where=1=1&outFields=*,,,2025-08-19,2025-08-18,2025-09-22
 7b97d49f5afd043f8745bd6afdf3bca586bda28ebb783ce65a0bc1d3e5445479,https://www.newforest.gov.uk/media/4554/NFDC-tree.geojson/json/NFDC_tree.geojson,,,2025-08-20,2025-08-20,
-2aa01967ba7a54d5bb23e1f4ff7a1e6a92d84649e48c211197c3763454275400,https://www.sstaffs.gov.uk/sites/default/files/2025-08/TPO%20Order%20ODP%20Live%20Aug%2025%20csv.csv,,,2025-08-22,2025-08-20,
+2aa01967ba7a54d5bb23e1f4ff7a1e6a92d84649e48c211197c3763454275400,https://www.sstaffs.gov.uk/sites/default/files/2025-08/TPO%20Order%20ODP%20Live%20Aug%2025%20csv.csv,,,2025-08-22,2025-08-20,2025-10-17
 017a9a42408141cfba13d4e1f8a0887a91a4e79110e3e5a990c1cf09f4239775,https://www.ashford.gov.uk/media/oi1e4x4w/tpo_zones.csv,,,2025-09-05,2025-08-27,
 8aa207a3d81a8fb327763abd85ca810e6cd5e32f6745037f0d07cb29cf0f6a31,https://services3.arcgis.com/HbafpLvwgoBYdsFH/arcgis/rest/services/Tree_Preservation_Orders/FeatureServer/0/,,arcgis,2025-09-08,2025-08-06,
 c23f1ed08f1b3b8037060f6778e9dcc1f24a53d7d416bc57e9d27bec961b06ab,https://www.newforestnpa.gov.uk/app/uploads/2025/08/TPO-Dataset.csv,,,2025-09-12,2025-09-12,
