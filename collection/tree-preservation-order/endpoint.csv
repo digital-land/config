@@ -158,3 +158,6 @@ e1a8ddd5c0318a2a685430ece7c5e08ea45bb4ed974734e94e4ed062d1f357f5,https://www.wal
 c8879bbc91846cece3a730bb382f4b08de507d496c3e937b2ad694ae663cd06e,https://www.salford.gov.uk/media/newaf4uc/tree-preservation-order-dataset.csv,,,2025-10-06,2025-09-30,
 236e026d5a3ddde23fe12020816b54f2ba62d38d6ef0455e096c927df7addeda,https://services-eu1.arcgis.com/kkZ3q6EOlzIRG0yO/arcgis/rest/services/ENV_TPO_Tree_Preservation_Zone_Public/FeatureServer/0/,,arcgis,2025-10-08,2025-10-08,
 8171edd1c90c4a4ac2d209832e674d681859d5f341b7893309dd8fabed97e393,https://services-eu1.arcgis.com/kkZ3q6EOlzIRG0yO/arcgis/rest/services/ENV_TPO_Tree_Public/FeatureServer/0/,,arcgis,2025-10-08,2025-10-08,
+6763becc38f5358b5eb120cb6cf9e91af6c8c41f04181a81c75e101bf82af696,https://trees.sstaffs.gov.uk/TPOs/Data/Trees,,,2025-10-21,2025-10-03,
+6f1153f4415c2b9d030cb850d120b0077267464191c241fe1d856b8195ed08e6,https://trees.sstaffs.gov.uk/TPOs/Data/Dataset,,,2025-10-21,2025-10-03,
+5ebd33916a25b777c47ecc4339af5b6a24926c6782489614f4d70a1246f509ab,https://trees.sstaffs.gov.uk/TPOs/Data/Zones,,,2025-10-21,2025-10-03,
