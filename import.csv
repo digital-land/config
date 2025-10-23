@@ -1,2 +1,2 @@
 organisation,pipelines,documentation-url,endpoint-url,start-date,licence
-local-authority:SND,brownfield-land,https://www.sunderland.gov.uk/brownfield-land-register,https://www.sunderland.gov.uk/media/37360/Brownfield-Land-Register-2025-Submission-CSV-Version/CSV/Brownfield_Register_2025_Submission_CSV_version.csv?m=1760702481823,2025-10-23,ogl3
+local-authority:DST,article-4-direction-area,https://gi.dorsetcouncil.gov.uk/dorsetexplorer/planning/public#map=10.35/50.79582/-2.31339/0&basemap=1/100/100,https://gi.dorsetcouncil.gov.uk/geoserver/planning-public/wfs?request=GetFeature&typeName=article_4&outputFormat=application%2Fjson,2025-07-25,ogl3
