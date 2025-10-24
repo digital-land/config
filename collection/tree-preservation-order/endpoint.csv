@@ -27,8 +27,8 @@ ff199b1dc647436cb33b44f767c27b282ac993f2c0b8b8e9e5158774d1d5824a,https://service
 9240f1ca39efc8880a909f92bd0613c9dbd6cf1990217a95af35a57e176ab2e4,https://services7.arcgis.com/NXULfNGIlsKmpCJD/ArcGIS/rest/services/Tree_Preservation_Zone/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-01-02,2023-09-25,
 18b8591914390e3b482e630ca800ab90e75f1022406ed23d04db54b5c481493c,https://tewkesburybc.s3.eu-west-2.amazonaws.com/geojson/tree-preservation-order-dataset.csv,,,2024-01-16,2023-11-03,2024-02-29
 7e6f645c62de982f0dc14414618cfa541ec2e0983cfe4567246bf01ec5f00273,https://tewkesburybc.s3.eu-west-2.amazonaws.com/geojson/tree-preservation-zone.geojson,,,2024-01-22,2023-11-03,
-bc931f92317d0ed738079632e507f3b58976fe0826c733c1e3a3a7f72fa65624,https://gis.westberks.gov.uk/server/rest/services/Layers/LPA_TREE_PRESERVATION_ORDERS/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2024-01-23,2023-12-18,
-c3b09959756401a0a1e9a3b75e34fe60dcf48c91b3b1b7802beb4d8ba8957445,https://gis.westberks.gov.uk/server/rest/services/Layers/LPA_TREE_PRESERVATION_ZONES/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-01-24,2023-12-18,
+bc931f92317d0ed738079632e507f3b58976fe0826c733c1e3a3a7f72fa65624,https://gis.westberks.gov.uk/server/rest/services/Layers/LPA_TREE_PRESERVATION_ORDERS/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2024-01-23,2023-12-18,2025-10-24
+c3b09959756401a0a1e9a3b75e34fe60dcf48c91b3b1b7802beb4d8ba8957445,https://gis.westberks.gov.uk/server/rest/services/Layers/LPA_TREE_PRESERVATION_ZONES/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-01-24,2023-12-18,2025-10-24
 dedddf78a549787ce0b004820332355926317d0f05fdbf81d17a716a78864e7f,https://www.stalbans.gov.uk/sites/default/files/documents/publications/planning-building-control/Agile/Tree_Preservation_Order_Dataset_Areas.csv,,,2024-02-02,2023-12-18,2025-03-27
 3008744aaf73204606f72c826ae9846dc6b24530796029630452dc092ad82a6b,https://www.stalbans.gov.uk/sites/default/files/documents/publications/planning-building-control/Agile/Tree_Preservation_Order_Dataset_Individual.csv,,,2024-02-02,2023-12-18,2025-06-16
 fc49c6b6d4caad5daab9fc4af9876cc92aa722cafb3ac620c82cc45428ce7a63,https://www.stalbans.gov.uk/sites/default/files/documents/publications/planning-building-control/Agile/Tree_Dataset.json,,,2024-02-02,2023-12-18,
@@ -161,3 +161,5 @@ c8879bbc91846cece3a730bb382f4b08de507d496c3e937b2ad694ae663cd06e,https://www.sal
 6763becc38f5358b5eb120cb6cf9e91af6c8c41f04181a81c75e101bf82af696,https://trees.sstaffs.gov.uk/TPOs/Data/Trees,,,2025-10-21,2025-10-03,
 6f1153f4415c2b9d030cb850d120b0077267464191c241fe1d856b8195ed08e6,https://trees.sstaffs.gov.uk/TPOs/Data/Dataset,,,2025-10-21,2025-10-03,
 5ebd33916a25b777c47ecc4339af5b6a24926c6782489614f4d70a1246f509ab,https://trees.sstaffs.gov.uk/TPOs/Data/Zones,,,2025-10-21,2025-10-03,
+1586c4a118d9d17388fc2a3ce16e88c6ae98b0028684c67c2fb87ef8de849950,https://gis.westberks.gov.uk/server/rest/services/Digital_Planning/LPA_TREE_PRESERVATION_ORDERS/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2025-10-24,2025-10-22,
+09cd050449f4bf734b8ca76fa4660e2e87873d26276f1e6df271fe2a79791338,https://gis.westberks.gov.uk/server/rest/services/Digital_Planning/LPA_TREE_PRESERVATION_ZONES/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2025-10-24,2025-10-22,
