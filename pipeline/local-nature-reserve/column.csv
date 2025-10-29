@@ -1,7 +1,5 @@
 dataset,resource,column,field,start-date,end-date,entry-date,endpoint
 local-nature-reserve,,wkt,geometry,,,,
-local-nature-reserve,,REFERENCE,reference,,,,
-local-nature-reserve,,LNR_NAME,name,,,,
-local-nature-reserve,,STATUS,nature-reserve-status,,,,
+local-nature-reserve,,REF_CODE,reference,,,,
+local-nature-reserve,,NAME,name,,,,
 local-nature-reserve,,GEOMETRY,geometry,,,,
-local-nature-reserve,,GIS_DATE,entry-date,,,,
