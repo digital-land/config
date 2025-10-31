@@ -482,3 +482,5 @@ tree-preservation-zone,236e026d5a3ddde23fe12020816b54f2ba62d38d6ef0455e096c927df
 tree,8171edd1c90c4a4ac2d209832e674d681859d5f341b7893309dd8fabed97e393,,REF,reference,,,
 tree,8171edd1c90c4a4ac2d209832e674d681859d5f341b7893309dd8fabed97e393,,reference,tree-preservation-order,,,
 tree,8171edd1c90c4a4ac2d209832e674d681859d5f341b7893309dd8fabed97e393,,WKT,geometry,,,
+tree-preservation-order,e1a8ddd5c0318a2a685430ece7c5e08ea45bb4ed974734e94e4ed062d1f357f5,,tree_preservation_order,reference,,,
+tree-preservation-order,4ac87bfbd29d3fd8d52297c65a5385ae867e1e15ba7ed629217ff3013aeb5c28,,tree_preservation_order,reference,,,
