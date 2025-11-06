@@ -220,9 +220,9 @@ if __name__ == "__main__":
     df.to_csv("issue_summary.csv", index=False)
     print("issue_summary.csv downloaded successfully")
 
-    if not  ask_yes_no(prompt="Do you wish to continue? (y/n): "):
-     print("Operation cancelled by user.")
-     sys.exit(0)
+    if not ask_yes_no(prompt="Do you wish to continue? (y/n): "):
+        print("Operation cancelled by user.")
+        sys.exit(0)
 
     scope = input("Enter scope (odp/mandated/single-source): ").strip().lower()
     if scope not in ["odp", "mandated", "single-source"]:
