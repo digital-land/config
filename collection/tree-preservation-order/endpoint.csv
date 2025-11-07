@@ -34,7 +34,7 @@ dedddf78a549787ce0b004820332355926317d0f05fdbf81d17a716a78864e7f,https://www.sta
 fc49c6b6d4caad5daab9fc4af9876cc92aa722cafb3ac620c82cc45428ce7a63,https://www.stalbans.gov.uk/sites/default/files/documents/publications/planning-building-control/Agile/Tree_Dataset.json,,,2024-02-02,2023-12-18,
 aee249ffed25eb657d38dcfe41cebf6d7f2d3464f07b367d17898d71e3646591,https://www.stalbans.gov.uk/sites/default/files/documents/publications/planning-building-control/Agile/Tree_Preservation_Zone_Dataset.json,,,2024-02-02,2023-12-18,
 124dc88d5839fa63b5802abe2847e3bf959b3052a3dcd126f362f78e5342df33,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/ArcGIS/rest/services/Layers/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-02-06,,
-588e4f0dfb29a0181a302b8c9785abb24d881ae8cab1226914bb5896813c5ac4,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/ArcGIS/rest/services/Layers/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2024-02-06,,
+588e4f0dfb29a0181a302b8c9785abb24d881ae8cab1226914bb5896813c5ac4,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/ArcGIS/rest/services/Layers/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2024-02-06,,2025-11-07
 18ade76faa742c056050a7ce72cc84abdb1736e2fba32928fa3f5e5653bdb099,https://tewkesburybc.s3.eu-west-2.amazonaws.com/geojson/tree-preservation-order-dataset.geojson,,,2024-02-06,2023-11-03,
 e759e9dc3c4d471843da916f063ea08283230fb15d49c0724e8bd5c73833d983,https://maps.epsom-ewell.gov.uk/getOWS.ashx?MapSource=EEBC/planx&service=WFS&version=1.1.0&request=GetFeature&Typename=tpo_zones,,,2024-03-01,,
 7bf054cee55381acc0791faad8598585cfde03ecc22421e4e9f953651de6cea3,https://maps.epsom-ewell.gov.uk/getOWS.ashx?MapSource=EEBC/planx&service=WFS&version=1.1.0&request=GetFeature&Typename=tpo_trees,,,2024-03-01,,
@@ -163,3 +163,4 @@ c8879bbc91846cece3a730bb382f4b08de507d496c3e937b2ad694ae663cd06e,https://www.sal
 5ebd33916a25b777c47ecc4339af5b6a24926c6782489614f4d70a1246f509ab,https://trees.sstaffs.gov.uk/TPOs/Data/Zones,,,2025-10-21,2025-10-03,
 1586c4a118d9d17388fc2a3ce16e88c6ae98b0028684c67c2fb87ef8de849950,https://gis.westberks.gov.uk/server/rest/services/Digital_Planning/LPA_TREE_PRESERVATION_ORDERS/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2025-10-24,2025-10-22,
 09cd050449f4bf734b8ca76fa4660e2e87873d26276f1e6df271fe2a79791338,https://gis.westberks.gov.uk/server/rest/services/Digital_Planning/LPA_TREE_PRESERVATION_ZONES/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2025-10-24,2025-10-22,
+52960d61887f4ad2844ff881aa91b6a80876b8c18fde6b965d0b65228fea2ee0,https://services7.arcgis.com/gTvs0fY5s2kJG3gO/arcgis/rest/services/TPO_Data/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-11-07,2025-11-04,
