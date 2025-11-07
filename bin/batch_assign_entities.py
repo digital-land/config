@@ -11,6 +11,16 @@ from digital_land.commands import check_and_assign_entities
 from digital_land.collection import Collection
 from digital_land.utils.add_data_utils import get_user_response
 
+def ask_yes_no(prompt="Continue? (y/n): "):
+    """Ask the user a yes/no question and return True for yes, False for no."""
+    while True:
+        answer = input(prompt).strip().lower()
+        if answer in ("y", "yes"):
+            return True
+        elif answer in ("n", "no"):
+            return False
+        else:
+            print("Please answer with 'y' or 'n'.")
 
 def get_old_resource_df(endpoint, collection_name, dataset):
     """
@@ -210,8 +220,7 @@ if __name__ == "__main__":
     df.to_csv("issue_summary.csv", index=False)
     print("issue_summary.csv downloaded successfully")
 
-    user_response = input("Do you want to continue? (yes/no): ").strip().lower()
-    if user_response != "yes":
+    if not ask_yes_no(prompt="Do you wish to continue? (y/n): "):
         print("Operation cancelled by user.")
         sys.exit(0)
 
