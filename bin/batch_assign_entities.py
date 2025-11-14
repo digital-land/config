@@ -72,7 +72,6 @@ def process_csv(scope):
                     row["issue_type"].lower() != "unknown entity"
                     or row["scope"].lower() != scope
                     or row["dataset"].lower() == "title-boundary"
-                    or row["dataset"].lower() != "listed-building-outline"
                 ):
                     continue
                 collection_name = row["collection"]
@@ -146,7 +145,7 @@ def process_csv(scope):
                         if duplicate_entity:
                             print("Matching entities found (new_entity:matched_current_entity):",duplicate_entity)
                             if not get_user_response(
-                                "Do you want to still assign entities for this resource? (yes/no): "
+                                "You should not add this resource until doing analysis on why there's duplicate entities. Do you want to still assign entities for this resource? (yes/no): "
                             ):
                                 successful_resources.append(resource_path)
                                 continue
