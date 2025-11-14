@@ -72,7 +72,6 @@ def process_csv(scope):
                     row["issue_type"].lower() != "unknown entity"
                     or row["scope"].lower() != scope
                     or row["dataset"].lower() == "title-boundary"
-                    or row["dataset"].lower() != "listed-building-outline"
                 ):
                     continue
                 collection_name = row["collection"]
