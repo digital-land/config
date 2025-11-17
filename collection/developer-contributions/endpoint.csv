@@ -406,9 +406,9 @@ b48a51ff297fdeb150d291f04242607568a8b9dce9206b2064921c8b265480d1,https://tewkesb
 0aa53b664303664819038e51e858be0ca2ffecfe5c37cf00a07aa2d2bc6a2fab,https://tewkesburyborough-my.sharepoint.com/:x:/g/personal/website_tewkesburyborough_onmicrosoft_com/Ecs25tej9AdDgv7Qoj9Iwv8BqszcqbPPP2m2LEGaNsUqUA?e=zu4xcg&download=1,,,2024-04-22,,2025-07-07
 fdcfae2d43c52aee7e282d5e0bea6a7372dd758533b1ce47f50a2971445d3635,https://tewkesburyborough-my.sharepoint.com/:x:/g/personal/website_tewkesburyborough_onmicrosoft_com/EbWXjbgBxIJCluJlp6h40MQBIv5GeJ4H6EHEP89o3awW_w?e=Th2hK0&download=1,,,2024-04-22,,2025-03-27
 a95e81c23497a91cc3f962f56f6e4ad8e68970835eb565c31e7ec7e9b6a6d6b5,https://tewkesburyborough-my.sharepoint.com/:x:/g/personal/website_tewkesburyborough_onmicrosoft_com/EUtZYznG_r9DmnRTN2GJFywBQDyfS9oWczBkcHk6DEqj5A?e=V8myPt&download=1,,,2024-04-22,,2025-07-07
-ae6aa732266aa20fab0545185b9fc1e2580c45a97170636b392335c559b1efe9,https://www.dover.gov.uk/Planning/Planning-Policy/PDF/IFS/CSV1-New-S106-Agreements-2023-2024.csv,,,2024-10-22,,
-50cefa665260fde45b3e83eeffcd907837d667d9c14e521a4398dfb5a231cf84,https://www.dover.gov.uk/Planning/Planning-Policy/PDF/IFS/CSV3-Contribution-Transactions-23-24.csv,,,2024-10-22,,
-030c42549fd37d59f6b37ee1e60de2e1fc1a6c3daccdabd01bb9afc775d22154,https://www.dover.gov.uk/Planning/Planning-Policy/PDF/IFS/CSV2-Agreed-Contributions-23-24.csv,,,2024-10-23,,
+ae6aa732266aa20fab0545185b9fc1e2580c45a97170636b392335c559b1efe9,https://www.dover.gov.uk/Planning/Planning-Policy/PDF/IFS/CSV1-New-S106-Agreements-2023-2024.csv,,,2024-10-22,,2025-11-17
+50cefa665260fde45b3e83eeffcd907837d667d9c14e521a4398dfb5a231cf84,https://www.dover.gov.uk/Planning/Planning-Policy/PDF/IFS/CSV3-Contribution-Transactions-23-24.csv,,,2024-10-22,,2025-11-17
+030c42549fd37d59f6b37ee1e60de2e1fc1a6c3daccdabd01bb9afc775d22154,https://www.dover.gov.uk/Planning/Planning-Policy/PDF/IFS/CSV2-Agreed-Contributions-23-24.csv,,,2024-10-23,,2025-11-17
 49b9003ab2a4672c36877588ee08c23477e9755e714fe77930ebd902baebfe3c,https://www.charnwood.gov.uk/files/documents/developer_agreement_2023_24/Developer%20Agreement%202023-24.xlsx,,,2024-11-11,,
 a8a5d2934b5b081a843703bde3d4f579a093079dead391ab7c55c9ff483882c6,https://www.charnwood.gov.uk/files/documents/developer_agreement_transaction_2023_24/Developer%20agreement%20Transaction%202023-24.xlsx,,,2024-11-11,,
 7755cd6bc8cfd4e3e3e8b1a8050fcdc81a78b992eea5670e23c3a18483f19df4,https://www.charnwood.gov.uk/files/documents/developer_agreement_contribution_2023_24/Developer%20Agreement%20Contribution%202023-24.xlsx,,,2024-11-11,,
@@ -448,3 +448,6 @@ a471f1fc443d9d5e58872f9fc39fa73759f314ace9ae8e05b6622c6cc4229f5c,https://www.nor
 2bc43ef2a1cbe24934c109d2e6e3a02d8297098454b784faa4b40b9a8ce26518,https://dataset-editor.planning.data.gov.uk/dataset/contribution-purpose.csv,,,2025-04-30,2025-02-27,
 40481c1ece6c0aa40ac976462cc721e6cc80febf4917f97d6e0c258b54d679b6,https://dataset-editor.planning.data.gov.uk/dataset/developer-agreement-type.csv,,,2025-04-30,2025-02-27,
 101a94d5dc32590a4ea8472286016183fa3016993cbec7ab3d887a6360486705,https://dataset-editor.planning.data.gov.uk/dataset/contribution-funding-status.csv,,,2025-04-30,2025-02-27,
+6941b89a45cb9ef2b2c8ac5a6b78b22f27efbe26ec7a58d7cc88503dd7d6df45,https://www.dover.gov.uk/Planning/Planning-Policy/PDF/IFS/developer-agreement-20251009.csv,,,2025-11-17,2025-11-17,
+35cd42365e2a2c76bb92f7cce28fc931189929b1147937d9d2bd72b74ca993d8,https://www.dover.gov.uk/Planning/Planning-Policy/PDF/IFS/developer-agreement-transaction-20251009.csv,,,2025-11-17,2025-11-17,
+0026eb730b51a71826f9c7183da30ab4ce6a04f0530a3ce4d3cd3a1688b635d4,https://www.dover.gov.uk/Planning/Planning-Policy/PDF/IFS/developer-agreement-contribution-20251009.csv,,,2025-11-17,2025-11-17,
