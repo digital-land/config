@@ -4,6 +4,7 @@ import sys
 import pandas as pd
 import os
 import shutil
+import logging
 
 from pathlib import Path
 from io import StringIO
@@ -32,7 +33,11 @@ def get_old_resource_df(endpoint, collection_name, dataset):
     )
     response = requests.get(url)
     response.raise_for_status()
-    old_resource_hash = pd.read_csv(StringIO(response.text))['resource'][0]
+    previous_resource_df = pd.read_csv(StringIO(response.text))
+    if len(previous_resource_df) == 0:
+        return None
+
+    old_resource_hash = previous_resource_df['resource'][0]
 
     transformed_url = (
         f"https://files.planning.data.gov.uk/{collection_name}-collection/transformed/{dataset}/{old_resource_hash}.csv"
@@ -112,44 +117,47 @@ def process_csv(scope):
                     #get old transformed resource
                     old_resource_df = get_old_resource_df(endpoint,collection_name,dataset)
 
-                    # get current transformed resource
-                    current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
-                    
-                    current_entities = set(current_resource_df['entity'])
-                    old_entities = set(old_resource_df['entity'])
+                    if old_resource_df is not None:
+                        # get current transformed resource
+                        current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
+                        
+                        current_entities = set(current_resource_df['entity'])
+                        old_entities = set(old_resource_df['entity'])
 
-                    # store new entities in current_resource_df
-                    new_entities = list(current_entities - old_entities)
-                    current_resource_df = current_resource_df[current_resource_df['entity'].isin(new_entities)]
-               
-                    duplicate_entity = {}
+                        # store new entities in current_resource_df
+                        new_entities = list(current_entities - old_entities)
+                        current_resource_df = current_resource_df[current_resource_df['entity'].isin(new_entities)]
+                
+                        duplicate_entity = {}
 
-                    # store old entity field maps
-                    field_map_to_old_entity = {}
-                    for old_entity in old_resource_df["entity"].unique():
-                        field_map = tuple(sorted(get_field_value_map(old_resource_df, old_entity).items()))
-                        field_map_to_old_entity[field_map] = old_entity
+                        # store old entity field maps
+                        field_map_to_old_entity = {}
+                        for old_entity in old_resource_df["entity"].unique():
+                            field_map = tuple(sorted(get_field_value_map(old_resource_df, old_entity).items()))
+                            field_map_to_old_entity[field_map] = old_entity
 
-                    # compare new entity field maps using dict lookup
-                    for entity in new_entities:
-                        current_fields = tuple(sorted(get_field_value_map(current_resource_df, entity).items()))
-                        if current_fields in field_map_to_old_entity:
-                            duplicate_entity[entity] = field_map_to_old_entity[current_fields]
+                        # compare new entity field maps using dict lookup
+                        for entity in new_entities:
+                            current_fields = tuple(sorted(get_field_value_map(current_resource_df, entity).items()))
+                            if current_fields in field_map_to_old_entity:
+                                duplicate_entity[entity] = field_map_to_old_entity[current_fields]
 
-                    if duplicate_entity:
-                        print("Matching entities found (new_entity:matched_current_entity):",duplicate_entity)
-                        if not get_user_response(
-                            "Do you want to still assign entities for this resource? (yes/no): "
-                        ):
-                            successful_resources.append(resource_path)
-                            continue
+                        if duplicate_entity:
+                            print("Matching entities found (new_entity:matched_current_entity):",duplicate_entity)
+                            if not get_user_response(
+                                "You should not add this resource until doing analysis on why there's duplicate entities. Do you want to still assign entities for this resource? (yes/no): "
+                            ):
+                                successful_resources.append(resource_path)
+                                continue
+                    else:
+                        print(f"No previous transformed resource found for endpoint: {endpoint}")
 
                     shutil.copy(cache_dir / "assign_entities" / collection_name / "pipeline" / "lookup.csv", Path("pipeline") / collection_name / "lookup.csv")
                     print(f"\nEntities assigned successfully for resource: {resource}")
                     successful_resources.append(resource_path)
                 except Exception as e:
                     print(f"Failed to assign entities for resource: {resource}")
-                    print(f"Error: {str(e)}")
+                    logging.error(f"Error: {str(e)}",exc_info=True)
                     failed_assignments.append(
                         (row_number, resource, "AssignmentError", str(e))
                     )

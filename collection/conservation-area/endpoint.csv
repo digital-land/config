@@ -718,3 +718,7 @@ e7f70e63cc8037096e37359ce1bc82cbdc9e1e8e9460021622214a16e8ba76e4,https://www.wav
 33913c70f6f3649cdf826e0d12a893d69ad245fec81f28346644c41f8bc443a3,https://cdn.prod.website-files.com/632ad0b0bd0c12a4380d150f/68dce52ed61d4385497fc42e_CAD%20csv.csv,,,2025-10-06,2025-10-01,
 7d390abb6efc4ef7d58794b0190701ec923bf325cb4ab42feef36ce62fed8224,https://gis.westberks.gov.uk/server/rest/services/Digital_Planning/LPA_CONSERVATION_AREAS/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2025-10-24,2025-10-22,
 7594d27768a84bdec51c58aff05c48f4234a74dd793922c21f79f0e111d16e02,https://maps.3csharedservices.org/arcgis/rest/services/GCSP/GCSPConservationAreas_OpenData/MapServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-10-29,2025-10-28,
+9623d837c0692b737d0c4b638c61c97a41696dd213371d9b130ebfdd166624da,https://haringey.gov.uk/sites/default/files/2025-11/conservation_area_dataset_final.csv,,,2025-11-13,2025-11-13,
+3780df541c45580a0df3dc1f7954895ee2ef70dd4af4661d537aa6cf7e4526a8,https://ntcouncil.maps.arcgis.com/sharing/rest/content/items/82e12fd54bf5408b83a1e5acbf149e96/data,,,2025-11-13,2025-11-13,
+29936f35ec2b7b1dd91164345f4be46c89eaaefb03e1576217c42da8027d034a,https://www.spelthorne.gov.uk/sites/default/files/2025-10/Conservation%20Area%20Document%20Dataset%20131025.xlsx,,,2025-11-13,2025-11-11,
+48db68441903c304a6740748e3f4dbb1d3884c634e34ffc1f4210f61c64f3674,https://ntcouncil.maps.arcgis.com/sharing/rest/content/items/98015fd15fef4e57b43d8ca302c52017/data,,,2025-11-17,2025-11-13,
