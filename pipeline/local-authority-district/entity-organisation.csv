@@ -1,2 +1,3 @@
 dataset,entity-minimum,entity-maximum,organisation
-local-authority-district,8600000,8699999,government-organisation:D303
+statistical-geography,8600000,8600316,nan
+statistical-geography,8600318,8600724,nan
