@@ -61,7 +61,12 @@ def main():
         "--root",
         type=str,
         default=".",
-        help="Folder containing pipeline directories (eg config/pipeline/)",
+        help="Folder containing pipeline directories (eg pipeline/)",
+    )
+    parser.add_argument(
+        "--only",
+        nargs="+",
+        help="Only process specific pipeline directory names (eg --only listed-building).",
     )
     args = parser.parse_args()
 
@@ -70,6 +75,12 @@ def main():
 
     # Only match root/*/lookup.csv (one folder deep)
     lookup_files = sorted(root.glob("*/lookup.csv"))
+
+    # If --only is supplied, filter to those pipeline names
+    if args.only:
+        wanted = set(args.only)
+        lookup_files = [p for p in lookup_files if p.parent.name in wanted]
+
     if not lookup_files:
         print("No lookup.csv files found.")
         return
