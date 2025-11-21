@@ -1,6 +1,4 @@
 dataset,entity-minimum,entity-maximum,organisation
-contribution-funding-status,16900000,16900004,nan
-contribution-purpose,16200000,16200021,nan
 developer-agreement,4600000,4600016,local-authority:NFK
 developer-agreement,4600017,4600036,local-authority:TON
 developer-agreement,4600037,4600109,local-authority:NFK
@@ -569,4 +567,3 @@ developer-agreement-transaction,4429340,4429359,national-park-authority:Q7261766
 developer-agreement-transaction,4429360,4429726,local-authority:BRE
 developer-agreement-transaction,4429727,4429761,local-authority:EXE
 developer-agreement-transaction,4429762,4429839,local-authority:DOV
-developer-agreement-type,4500000,4500002,nan

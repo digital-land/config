@@ -49,7 +49,6 @@ brownfield-land,1702208,1702232,local-authority:SAL
 brownfield-land,1702233,1702247,local-authority:RUS
 brownfield-land,1702248,1702270,local-authority:SNO
 brownfield-land,1702271,1702290,local-authority:HUN
-brownfield-land,1702291,1702297,nan
 brownfield-land,1702298,1702356,local-authority:BDF
 brownfield-land,1702357,1702453,local-authority:CMD
 brownfield-land,1702454,1702610,local-authority:NGM
@@ -228,7 +227,6 @@ brownfield-land,1711005,1711049,local-authority:PEN
 brownfield-land,1711050,1711087,local-authority:NEC
 brownfield-land,1711088,1711137,local-authority:MDW
 brownfield-land,1711138,1711150,local-authority:SST
-brownfield-land,1711151,1711177,nan
 brownfield-land,1711178,1711181,local-authority:HAE
 brownfield-land,1711182,1711186,local-authority:ROT
 brownfield-land,1711187,1711330,local-authority:WKF
@@ -252,7 +250,6 @@ brownfield-land,1712513,1712536,local-authority:HPL
 brownfield-land,1712537,1712546,local-authority:TON
 brownfield-land,1712547,1712565,local-authority:WKF
 brownfield-land,1712566,1712572,local-authority:WAT
-brownfield-land,1712573,1712592,nan
 brownfield-land,1712593,1712618,local-authority:HAT
 brownfield-land,1712619,1712661,local-authority:RCC
 brownfield-land,1712662,1712663,local-authority:MAL
@@ -877,7 +874,6 @@ brownfield-land,1724318,1724633,local-authority:LIV
 brownfield-land,1724634,1724647,local-authority:PEN
 brownfield-land,1724648,1724662,local-authority:DOV
 brownfield-land,1724663,1724667,local-authority:SNO
-brownfield-land,1724668,1724704,nan
 brownfield-land,1724705,1724705,local-authority:BRW
 brownfield-land,1724706,1724709,local-authority:BEN
 brownfield-land,1724710,1724720,local-authority:CHW
@@ -915,7 +911,6 @@ brownfield-land,1725124,1725135,local-authority:CHE
 brownfield-land,1725136,1725149,local-authority:BNH
 brownfield-land,1725150,1725151,local-authority:TUN
 brownfield-land,1725152,1725175,local-authority:SNO
-brownfield-land,1725176,1725177,nan
 brownfield-land,1725178,1725182,local-authority:FAR
 brownfield-land,1725183,1725200,local-authority:MAS
 brownfield-land,1725201,1725235,local-authority:GED
@@ -1018,7 +1013,6 @@ brownfield-land,1727573,1727581,local-authority:WEW
 brownfield-land,1727582,1727753,local-authority:WLV
 brownfield-land,1727754,1727755,local-authority:EPS
 brownfield-land,1727756,1727774,local-authority:NOR
-brownfield-land,1727775,1727775,nan
 brownfield-land,1727776,1727874,local-authority:ERY
 brownfield-land,1727875,1727896,local-authority:SGC
 brownfield-land,1727897,1727905,local-authority:DER
@@ -1716,6 +1710,3 @@ brownfield-land,1740874,1740878,local-authority:ADU
 brownfield-land,1740879,1740882,local-authority:WOT
 brownfield-land,1740883,1740889,local-authority:NEA
 brownfield-land,1740890,1740898,local-authority:STA
-ownership-status,10900000,10900002,nan
-planning-permission-type,11900000,11900001,nan
-planning-permission-type,11900001,11900001,nan
