@@ -10,47 +10,38 @@ def build_entity_organisation(df: pd.DataFrame) -> pd.DataFrame:
     dataset, entity-minimum, entity-maximum, organisation
     """
 
-    # Expected columns: prefix, entity, organisation
+    # Rename prefix → dataset (matches your existing logic)
     df = df.rename(columns={"prefix": "dataset"})
 
-    # Drop blank organisation rows
+    # Ensure organisation is not blank
     df["organisation"] = df["organisation"].astype(str)
-    df = df[df["organisation"].notna() & (df["organisation"].str.strip() != "")].copy()
+    df = df[df["organisation"].str.strip() != ""].copy()
 
-    # Require entities and cast to int
+    # Require valid entity numbers
     df = df[df["entity"].notna()].copy()
     df["entity"] = df["entity"].astype(int)
 
-    # Sort by dataset then entity (not org)
-    df = df.sort_values(["dataset", "entity"])
+    # Sort for deterministic grouping
+    df = df.sort_values(["dataset", "organisation", "entity"])
 
-    rows = []
-    start = prev = None
-    current_org = current_ds = None
-
-    # Collapse consecutive entities into ranges per dataset + organisation
-    for ds, org, ent in df[["dataset", "organisation", "entity"]].itertuples(index=False):
-        if (
-            org != current_org
-            or ds != current_ds
-            or prev is None
-            or ent != prev + 1
-        ):
-            if start is not None:
-                rows.append([current_ds, start, prev, current_org])
-            start = ent
-            current_org = org
-            current_ds = ds
-        prev = ent
-
-    if start is not None:
-        rows.append([current_ds, start, prev, current_org])
-
-    out = pd.DataFrame(
-        rows,
-        columns=["dataset", "entity-minimum", "entity-maximum", "organisation"],
+    # -------------------------------------------------------
+    # Improved automatic contiguous range grouping
+    # -------------------------------------------------------
+    df["range_group"] = (
+        df.groupby(["dataset", "organisation"])["entity"]
+          .apply(lambda s: (s.diff() != 1).cumsum())
+          .astype(int)
     )
-    return out.sort_values(["dataset", "entity-minimum"]).reset_index(drop=True)
+
+    # Compute min/max per range
+    out = (
+        df.groupby(["dataset", "organisation", "range_group"])
+          .agg(entity_minimum=("entity", "min"),
+               entity_maximum=("entity", "max"))
+          .reset_index(drop=True)
+    )
+
+    return out.sort_values(["dataset", "organisation", "entity_minimum"]).reset_index(drop=True)
 
 
 def main():
@@ -66,7 +57,7 @@ def main():
     root = Path(args.root).resolve()
     print(f"Searching for lookup.csv under: {root}")
 
-    # Only match root/*/lookup.csv (one folder deep)
+    # Only match root/*/lookup.csv
     lookup_files = sorted(root.glob("*/lookup.csv"))
     if not lookup_files:
         print("No lookup.csv files found.")
