@@ -86,3 +86,4 @@ cc8329f79e7a92db582099f429f879ac3c4024ec477c10d3a735b9b0b636f061,https://liverpo
 1ecc19859b740936d8a9a033157b90ca6f2e4099f21125398362450b58dacb7a,https://services.arcgis.com/kpKmjwOZyXMs3vON/arcgis/rest/services/hdc_3825_LB_OGL_WGS84/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-10-03,2025-10-01,
 a8a7d80742c269d8ff76f8f10139ea8dafb49b92c14f6d40ef00cc4c851569b4,https://xmap-hub.s3.eu-west-2.amazonaws.com/public-sector/surreyheath/digital_planning_data/Listed_buildings.gpkg,,,2025-10-29,2025-10-24,
 89912cb444868adcff4163d80006f8901634a548d16c0ba907d4e92cff8e87c1,https://mapsdata.midkent.gov.uk/geoserver/Planning_gov/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Planning_gov%3AMaidstone_Borough_Council_-_Listed_building,,,2025-11-13,2025-11-12,
+4203e7fbc0f0040e7b53c8237b097f7e88057ec8da866f2c33cf681cbb95bfac,https://www.coventry.gov.uk/downloads/file/46045/listed-building-outline,,,2025-11-24,2025-11-20,
