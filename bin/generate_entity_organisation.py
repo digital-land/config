@@ -41,8 +41,10 @@ def build_entity_organisation(df: pd.DataFrame) -> pd.DataFrame:
           .reset_index()
     )
 
-    # Build output in required column order / names
-    out = grouped[["dataset", "entity_minimum", "entity_maximum", "organisation"]].rename(
+    # Build output
+    out = grouped[
+        ["dataset", "entity_minimum", "entity_maximum", "organisation"]
+    ].rename(
         columns={
             "entity_minimum": "entity-minimum",
             "entity_maximum": "entity-maximum",
@@ -50,6 +52,7 @@ def build_entity_organisation(df: pd.DataFrame) -> pd.DataFrame:
     )
 
     return out.sort_values(["dataset", "organisation", "entity-minimum"]).reset_index(drop=True)
+
 
 def detect_overlapping_ranges(entity_ranges: pd.DataFrame) -> pd.DataFrame:
     """
@@ -59,17 +62,7 @@ def detect_overlapping_ranges(entity_ranges: pd.DataFrame) -> pd.DataFrame:
     Return a DataFrame listing any overlapping ranges per dataset.
     """
     if entity_ranges.empty:
-        return pd.DataFrame(
-            columns=[
-                "dataset",
-                "current-entity-minimum",
-                "current-entity-maximum",
-                "current-organisation",
-                "previous-entity-minimum",
-                "previous-entity-maximum",
-                "previous-organisation",
-            ]
-        )
+        return pd.DataFrame()
 
     df = entity_ranges.copy()
     df = df.sort_values(["dataset", "entity-minimum"])
@@ -79,7 +72,7 @@ def detect_overlapping_ranges(entity_ranges: pd.DataFrame) -> pd.DataFrame:
 
     for _, row in df.iterrows():
         if prev is not None and row["dataset"] == prev["dataset"]:
-            # Overlap if the next range starts at or before the previous range ends
+            # Overlap when the next range starts before (or on) the previous max
             if int(row["entity-minimum"]) <= int(prev["entity-maximum"]):
                 overlaps.append(
                     {
@@ -95,6 +88,7 @@ def detect_overlapping_ranges(entity_ranges: pd.DataFrame) -> pd.DataFrame:
         prev = row
 
     return pd.DataFrame(overlaps)
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -114,10 +108,9 @@ def main():
     root = Path(args.root).resolve()
     print(f"Searching for lookup.csv under: {root}")
 
-    # Only match root/*/lookup.csv
     lookup_files = sorted(root.glob("*/lookup.csv"))
 
-    # If --only is supplied, filter to those pipeline names
+    # Only process those specified with --only
     if args.only:
         wanted = set(args.only)
         lookup_files = [p for p in lookup_files if p.parent.name in wanted]
@@ -130,32 +123,33 @@ def main():
 
     for lookup in lookup_files:
         pipeline = lookup.parent.name
-        print(f"Processing {pipeline}...")
+        print(f"\nProcessing {pipeline}...")
 
         try:
-            # Read as strings to avoid mixed-type warnings
             df = pd.read_csv(lookup, dtype=str)
             out = build_entity_organisation(df)
 
-            # Write entity-organisation.csv
-            output_path = lookup.with_name("entity-organisation.csv")
-            out.to_csv(output_path, index=False)
-            print(f"  ✓ Wrote {len(out)} rows → {output_path.name}")
-
-            # Detect overlaps for this pipeline
+            # ----------------------------------------
+            # Detect overlaps BEFORE writing the file
+            # ----------------------------------------
             overlaps = detect_overlapping_ranges(out)
 
             if not overlaps.empty:
                 overlaps.insert(0, "pipeline", pipeline)
                 all_overlaps.append(overlaps)
-                print(f"  ⚠ Found {len(overlaps)} overlapping ranges")
-            else:
-                print("  ✓ No overlaps found.")
+                print(f"  ⚠ Overlaps detected — NOT writing entity-organisation.csv for {pipeline}")
+                continue  # Skip producing entity-organisation.csv
+
+            # No overlaps → Safe to write file
+            output_path = lookup.with_name("entity-organisation.csv")
+            out.to_csv(output_path, index=False)
+            print(f"  ✓ Wrote {len(out)} rows → {output_path.name}")
+            print("  ✓ No overlaps found.")
 
         except Exception as e:
             print(f"  ✗ Failed for {pipeline}: {e}")
 
-    # After processing all pipelines, write a single combined overlaps CSV (if any)
+    # After all pipelines, write combined overlaps file
     if all_overlaps:
         combined = pd.concat(all_overlaps, ignore_index=True)
         script_dir = Path(__file__).resolve().parent
@@ -166,6 +160,7 @@ def main():
         print("\n✓ No overlapping ranges found in any pipeline.")
 
     print("\nDone.")
+
 
 if __name__ == "__main__":
     main()
