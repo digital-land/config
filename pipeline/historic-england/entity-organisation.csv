@@ -1,1 +1,8 @@
 dataset,entity-minimum,entity-maximum,organisation
+building-preservation-notice,2000007,2000013,government-organisation:PB1164
+certificate-of-immunity,2300212,2300397,government-organisation:PB1164
+heritage-at-risk,7505023,7505489,government-organisation:PB1164
+park-and-garden,11101699,11101719,government-organisation:PB1164
+protected-wreck-site,12800054,12800056,government-organisation:PB1164
+scheduled-monument,13919935,13920019,government-organisation:PB1164
+world-heritage-site-buffer-zone,16110009,16110009,government-organisation:PB1164
