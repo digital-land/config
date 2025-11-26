@@ -1,1 +1,10 @@
 dataset,entity-minimum,entity-maximum,organisation
+infrastructure-project,11100000000,11100000232,government-organisation:EA39
+infrastructure-project-decision,11010000000,11010000000,government-organisation:EA39
+infrastructure-project-decision,11010000254,11010000256,government-organisation:EA39
+infrastructure-project-document-type,11010000250,11010000253,government-organisation:EA39
+infrastructure-project-document-type,11040000000,11040000000,government-organisation:EA39
+infrastructure-project-event,11010000242,11010000249,government-organisation:EA39
+infrastructure-project-event,11030000000,11030000000,government-organisation:EA39
+infrastructure-project-type,11010000001,11010000009,government-organisation:EA39
+infrastructure-project-type,11020000000,11020000000,government-organisation:EA39
