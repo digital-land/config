@@ -1,5 +1,4 @@
 dataset,entity-minimum,entity-maximum,organisation
-brownfield-land,1730674,1730674,2local-authority:CHL
 brownfield-land,1717268,1717308,development-corporation:Q20648596
 brownfield-land,1727382,1727419,development-corporation:Q20648596
 brownfield-land,1712722,1712724,development-corporation:Q6670544
@@ -374,8 +373,7 @@ brownfield-land,1737284,1737286,local-authority:CHI
 brownfield-land,1711333,1711443,local-authority:CHL
 brownfield-land,1712367,1712401,local-authority:CHL
 brownfield-land,1712856,1712939,local-authority:CHL
-brownfield-land,1730586,1730673,local-authority:CHL
-brownfield-land,1730675,1730682,local-authority:CHL
+brownfield-land,1730586,1730682,local-authority:CHL
 brownfield-land,1735670,1735720,local-authority:CHL
 brownfield-land,1740639,1740682,local-authority:CHL
 brownfield-land,1704848,1704880,local-authority:CHN
@@ -481,6 +479,7 @@ brownfield-land,1726841,1726850,local-authority:DUD
 brownfield-land,1733715,1733736,local-authority:DUD
 brownfield-land,1734755,1734769,local-authority:DUD
 brownfield-land,1736852,1737013,local-authority:DUD
+brownfield-land,1740946,1740984,local-authority:DUD
 brownfield-land,1722337,1722365,local-authority:DUR
 brownfield-land,1725055,1725093,local-authority:DUR
 brownfield-land,1740367,1740367,local-authority:DUR
@@ -541,6 +540,7 @@ brownfield-land,1729292,1729295,local-authority:EST
 brownfield-land,1730499,1730519,local-authority:EST
 brownfield-land,1738784,1738799,local-authority:EST
 brownfield-land,1722439,1722461,local-authority:EXE
+brownfield-land,1740899,1740945,local-authority:EXE
 brownfield-land,1713633,1713665,local-authority:FAR
 brownfield-land,1721133,1721133,local-authority:FAR
 brownfield-land,1723434,1723444,local-authority:FAR
