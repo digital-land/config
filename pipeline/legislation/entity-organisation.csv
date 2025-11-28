@@ -1,1 +1,3 @@
 dataset,entity-minimum,entity-maximum,organisation
+permitted-development-right,11500001,11500210,government-organisation:D1342
+permitted-development-right-part,11400001,11400021,government-organisation:D1342
