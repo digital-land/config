@@ -1,1 +1,11 @@
 dataset,entity-minimum,entity-maximum,organisation
+central-activities-zone,2200001,2200001,local-organisation:LBH
+central-activities-zone,2200002,2200002,local-organisation:SWK
+central-activities-zone,2200003,2200003,local-organisation:WND
+central-activities-zone,2200004,2200004,local-organisation:KEC
+central-activities-zone,2200005,2200005,local-organisation:WSM
+central-activities-zone,2200006,2200006,local-organisation:LND
+central-activities-zone,2200007,2200007,local-organisation:CMD
+central-activities-zone,2200008,2200008,local-organisation:TWH
+central-activities-zone,2200009,2200009,local-organisation:ISL
+central-activities-zone,2200010,2200010,local-organisation:HCK

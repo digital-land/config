@@ -1,2 +1,3 @@
 dataset,entity-minimum,entity-maximum,organisation
-ancient-woodland,110044355,110044372,government-organisation:PB202
+ancient-woodland,110000000,110044372,government-organisation:PB202
+ancient-woodland-status,29100000,29100001,government-organisation:PB202
