@@ -169,3 +169,4 @@ b5d531fee233707acaf63f18922f91206e53d896f457bb33c74c1f543eec46f0,https://mapsdat
 cae64c5003f4e890b68ac112eefb44ec823b4b987bd7abfc0a0b846296a94b1e,https://mapsdata.midkent.gov.uk/geoserver/Planning_gov/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Planning_gov%3AMaidstone_Borough_Council_-_Tree,,,2025-11-17,2025-11-13,
 470ad6f8e88b999f564322b278e39343706ba81a1c136fe45c12501086c4049b,https://data.leicester.gov.uk/api/explore/v2.1/catalog/datasets/tree_preservation_order/exports/json?,,,2025-11-27,2025-11-24,
 0bcc3614dbb47c25286ff9cb8dc79f5032f97517558a9427b2ec67dfe0e6d80b,https://geoserver.leicester.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3AODP_TREE&outputFormat=application%2Fjson,,,2025-11-28,2025-11-26,
+fac1eb5008234c6dfb09cba6a3b15c9599946affcc09f0f43fb8f64124938575,https://www.arcgis.com/sharing/rest/content/items/9fe50747b96e4316b28d16461d0a27e6/data,,,2025-12-02,2025-12-01,
