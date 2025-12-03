@@ -74,7 +74,7 @@ jobs:
       # Step 8: Create Pull Request only if there are changes
       - name: Create Pull Request
         if: env.changes == 'true'
-        uses: peter-evans/create-pull-request@v5
+        uses: swati-dash/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Automated batch assign entities update"
