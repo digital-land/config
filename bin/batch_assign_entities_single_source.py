@@ -12,6 +12,39 @@ from digital_land.commands import check_and_assign_entities
 from digital_land.collection import Collection
 from digital_land.utils.add_data_utils import get_user_response
 
+# ------------------------------------------------------
+# NEW BLOCK — AUTO-CREATE / DOWNLOAD provision-rule.csv
+# ------------------------------------------------------
+
+# Ensure specification directory exists
+os.makedirs("specification", exist_ok=True)
+
+SPEC_PATH = "specification/provision-rule.csv"
+
+if not os.path.isfile(SPEC_PATH):
+    print(f"{SPEC_PATH} not found. Attempting to download default version...")
+    try:
+        url = "https://datasette.planning.data.gov.uk/specification/provision-rule.csv"
+        response = requests.get(url)
+        response.raise_for_status()
+
+        with open(SPEC_PATH, "w", encoding="utf-8") as f:
+            f.write(response.text)
+
+        print("Downloaded provision-rule.csv successfully.")
+
+    except Exception as e:
+        print(f"Download failed ({e}). Creating minimal placeholder CSV...")
+        placeholder_df = pd.DataFrame({
+            "project": [],
+            "dataset": [],
+            "provision-reason": [],
+            "role": []
+        })
+        placeholder_df.to_csv(SPEC_PATH, index=False)
+        print("Created placeholder provision-rule.csv")
+
+
 # ----------------------------
 # CONFIGURATION FOR GITHUB ACTIONS
 # ----------------------------
@@ -159,7 +192,6 @@ def process_csv(scope):
                         if duplicate_entity:
                             print("Matching entities found:", duplicate_entity)
                             print("AUTO-CONTINUE: yes (GitHub Action)")
-                            # No skipping — continue execution
 
                     shutil.copy(cache_dir / "assign_entities" / collection_name / "pipeline" / "lookup.csv",
                                 Path("pipeline") / collection_name / "lookup.csv")
