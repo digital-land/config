@@ -19,17 +19,22 @@ AUTO_CONTINUE = True      # auto-answer yes to all prompts
 
 # Disable interactive user input
 def ask_yes_no(prompt="Continue? (y/n): "):
-    """Auto-return Yes for GitHub Actions."""
     print(f"{prompt} AUTO-ANSWERED: yes")
     return True
 
 def get_user_response(prompt):
-    """Auto-return Yes for GitHub Actions."""
     print(f"{prompt} AUTO-ANSWERED: yes")
     return True
 
+def download_file(url, dest_path):
+    """Download a file from a URL to a local path."""
+    dest_path.parent.mkdir(parents=True, exist_ok=True)
+    print(f"Downloading {url} -> {dest_path}")
+    response = requests.get(url)
+    response.raise_for_status()
+    dest_path.write_bytes(response.content)
+
 def get_old_resource_df(endpoint, collection_name, dataset):
-    """Return transformed file for second latest resource using endpoint hash from CDN."""
     url = (
         f"https://datasette.planning.data.gov.uk/performance/reporting_historic_endpoints.csv"
         f"?_sort=rowid&resource_end_date__notblank=1&endpoint__exact={endpoint}&_size=1"
@@ -48,12 +53,10 @@ def get_old_resource_df(endpoint, collection_name, dataset):
     return pd.read_csv(StringIO(transformed_response.text))
 
 def get_field_value_map(df, entity_number):
-    """Return a dict of field-value pairs for a given entity from transformed file."""
     sub_df = df[(df['entity'] == entity_number) & (df['field'] != 'reference') & (df['field'] != 'entry-date')]
     return dict(zip(sub_df['field'], sub_df['value']))
 
 def process_csv(scope):
-    """Automatically process and assign unknown entities for given scope."""
     failed_downloads = []
     failed_assignments = []
     successful_resources = []
@@ -171,34 +174,32 @@ def process_csv(scope):
 
     return failed_downloads, failed_assignments
 
+
 if __name__ == "__main__":
+
+    # Ensure specification folder exists and download provision-rule.csv
+    spec_file = Path("specification/provision-rule.csv")
+    if not spec_file.exists():
+        download_file(
+            "https://raw.githubusercontent.com/digital-land/config/main/specification/provision-rule.csv",
+            spec_file
+        )
 
     endpoint_issue_summary_path = (
         "https://datasette.planning.data.gov.uk/performance/"
         "endpoint_dataset_issue_type_summary.csv?_sort=rowid&issue_type__exact=unknown+entity&_size=max"
     )
-
     response = requests.get(endpoint_issue_summary_path)
     df = pd.read_csv(StringIO(response.text))
 
-    provision_rule_df = pd.read_csv("specification/provision-rule.csv")
+    # Determine scope for datasets, only process 'single-source'
+    df["scope"] = SCOPE
 
-    # Determine scope for each dataset but only process 'single-source'
-    scope_dict = {
-        "odp": provision_rule_df.loc[provision_rule_df["project"] == "open-digital-planning", "dataset"].tolist(),
-        "mandated": provision_rule_df.loc[
-            (provision_rule_df["provision-reason"] == "statutory") |
-            ((provision_rule_df["provision-reason"] == "encouraged") & (provision_rule_df["role"] == "local-planning-authority")),
-            "dataset"
-        ].tolist(),
-    }
-
-    df["scope"] = df["dataset"].apply(lambda x: "single-source" if x not in scope_dict["odp"] + scope_dict["mandated"] else df["dataset"])
-
+    # Save issue summary
     df.to_csv("issue_summary.csv", index=False)
     print("issue_summary.csv downloaded successfully")
 
-    # Directly run single-source without user prompts
+    # Directly run single-source scope without prompts
     failed_downloads, failed_assignments = process_csv(SCOPE)
     print(f"Failed downloads: {len(failed_downloads)}")
     print(f"Failed assign-entities operations: {len(failed_assignments)}")
