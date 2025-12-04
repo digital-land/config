@@ -1153,7 +1153,7 @@ ed05bdd6bd6259da18e7569907f1d1391266d09452c8122160bea706d82dfcee,http://www.fare
 fe9222c54ee1dd5358f1224a885ea7b37253d38d60861ce05b473ec5de6285ac,https://chorley.gov.uk/media/1658/Brownfield-Register-2021/Excel/brownfield-sites_Chorley_December_2021.csv?m=637758733960500000,,,2023-07-21T07:07:58:19Z,,2024-09-26
 537816edee34873a5b83ed85a0462b214a99365d561e3cd07b29c0e79a442524,https://www.dartford.gov.uk/downloads/file/1921/brownfield-land-register-2022,,,2023-07-21T08:08:00:04Z,,2024-05-20
 dea132b0fec14e6845dc99dad772c1d1f132a22bf7ab98d2b79c738c3df9c26c,https://www.dover.gov.uk/Planning/Planning-Policy/Regeneration-and-Development-Opportunities/Brownfield-Register/Brownfield-Register-2023-update.csv,,,2023-07-21T08:08:00:18Z,,2025-02-28
-b7f0e2e36564d0bf7405025918ab42e859e41343e920b82a533915750a2898d1,https://www.guildford.gov.uk/media/33945/Guildford-Borough-Council-Brownfield-Land-Register-2021-csv-format/CSV/guildford_brownfieldregister_2022_11_30_rev1.csv,,,2023-07-21T08:08:01:14Z,,
+b7f0e2e36564d0bf7405025918ab42e859e41343e920b82a533915750a2898d1,https://www.guildford.gov.uk/media/33945/Guildford-Borough-Council-Brownfield-Land-Register-2021-csv-format/CSV/guildford_brownfieldregister_2022_11_30_rev1.csv,,,2023-07-21T08:08:01:14Z,,2025-12-04
 18bc27869e4444c2c00330b8dc81b0b4bf0a0f40e9df45258a4845fe57d470b4,https://www.harborough.gov.uk/download/downloads/id/7794/brownfield_land_register.csv,,,2023-07-21T08:08:01:27Z,,
 82861c88e8a80b31bc23e367923e7cb3800188c8879caff455aa192d60966bdc,https://www.hart.gov.uk/sites/default/files/2023-02/BLR_2022_Final_CSV.csv,,,2023-07-21T08:08:01:40Z,,2024-05-20
 fb28ccf9d03817eec4b1ce8048426c42f65169c903f7084da7b7aee7f6bf58f9,https://www.havering.gov.uk/download/downloads/id/2976/brownfield_land_register.xlsx,,,2023-07-21T08:08:01:54Z,,2024-11-18
@@ -1429,7 +1429,7 @@ ddc8de44f4b7a63b92f3609a3438593a098f475b18282ed7f00cd84ebdda6fe7,https://plymout
 8b630f1e5bd42ea20c6ce89c639ee434b1879b4a6f976e157b23e5cfdc47ed6e,https://www.hull.gov.uk/downloads/file/4343/brownfield-land.csv,,,2024-10-29,,
 4cb47513a32560c858ae371fd21bd50d3b800b3bfd2f9cb9c13071a6fe174274,https://cms.northnorthants.gov.uk/media/8379/download,,,2024-11-05,,
 691e4df1005545b429c10cfb09daae0e93e169b152911cdcb0c7ebb19dd67e59,https://www.oldham.gov.uk/downloads/file/7569/oldham_brownfield_register_2023_csv,,,2024-11-05,,2025-09-03
-afeedf64adda8a28f44f726f46a28a46241bef247bd80166af6059636586311e,https://guildford.gbc2-prd.gosshosted.com/media/35723/Guildford-Brownfield-Register-2024/CSV/guildford_brownfieldregister_2024_11_04_rev1.csv?m=1730893478053,,,2024-11-07,,
+afeedf64adda8a28f44f726f46a28a46241bef247bd80166af6059636586311e,https://guildford.gbc2-prd.gosshosted.com/media/35723/Guildford-Brownfield-Register-2024/CSV/guildford_brownfieldregister_2024_11_04_rev1.csv?m=1730893478053,,,2024-11-07,,2025-12-04
 25f30994ef42979d3343a0e57947804554a987b54bfa8c4dde731ca6cb67ddb6,https://plymouth.thedata.place/dataset/ece0ce26-9d4f-4ee8-b054-783d6097a250/resource/7b2a5885-a89f-477e-b538-f36326250f60/download/bfr-2024.csv,,,2024-11-13,,2025-10-07
 66c64790857c1f8cd4309705d5b970d1a658e35442b9678fb41cedd8b82d7cc3,https://services.southwark.gov.uk/assets/attach/194797/Brownfield-Land.geojson,,,2024-11-15,,2025-06-06
 0a2fa05e29fa0a27682d343bde5714bdd3a8185f815ddaae08b7ceabacb7dc40,https://www.barnsley.gov.uk/media/xgcnier0/brownfield-land.csv,,,2024-12-02,,
@@ -1553,3 +1553,4 @@ df26ef6a61929f02fc8962a4984acc0376c6aeaa3628805ad9f4b0ac01bccbdc,https://plymout
 4ace3e47aa0e2c7b9af32d467684ecfc16b2352334cf5e3a8d82dd0af10f4cef,https://www.spelthorne.gov.uk/sites/default/files/migration/media/27426/Brownfield-Land-Register-2024/csv/Brownfield-Land-Register-2024.csv,,,2025-10-21,2025-10-13,
 96797ba449a743e890d395d43b112500105a9e7f1627ae3798093793eb952c07,https://maps.strata.solutions/arcgis/rest/services/ecc/Brownfield_Land_Register_2025/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-11-27,2025-11-24,
 abc37026ec7b90cd951097bff6e90ef50d0808dea9e86eccea3e964693283c05,https://www.dudley.gov.uk/media/toyhbu0q/brownfield-land-november-2025.csv,,,2025-11-27,2025-11-24,
+ba2054a425e60a00df97d6f57a6dea4333a0e8c49b3c9320a1a99d05e56ac4a6,https://www.guildford.gov.uk/media/35723/Guildford-Brownfield-Register/CSV/brownfield-land.csv,,,2025-12-04,2025-12-02,
