@@ -181,7 +181,7 @@ if __name__ == "__main__":
     spec_file = Path("specification/provision-rule.csv")
     if not spec_file.exists():
         download_file(
-            "https://raw.githubusercontent.com/digital-land/config/main/specification/provision-rule.csv",
+            "https://raw.githubusercontent.com/digital-land/specification/refs/heads/main/content/provision-rule.csv",
             spec_file
         )
 
