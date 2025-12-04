@@ -2,8 +2,6 @@ name: Run Batch Assign, Create PR, Upload Artifacts, Cleanup
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 3 * * *"  # optional: daily at 03:00 UTC
 
 jobs:
   run-and-pr:
@@ -34,12 +32,8 @@ jobs:
       # Step 5: Clean up temporary resource files
       - name: Clean up resource files
         run: |
-          if [ -d resource ]; then
-            rm -rf resource
-          fi
-          if [ -d var/cache ]; then
-            rm -rf var/cache
-          fi
+          rm -rf resource || true
+          rm -rf var/cache || true
 
       # Step 6: Upload generated CSVs and logs as artifacts
       - name: Upload generated outputs
@@ -51,34 +45,39 @@ jobs:
             pipeline/**/*.csv
             **/*.log
 
-      # Step 7: Commit changes only if there are changes
+      # Step 7: Commit changes only if any
       - name: Commit changes if any
         id: git-check
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
+          # Generate branch name
           BRANCH_NAME="batch-assign-update-$(date +%Y%m%d%H%M%S)"
+          echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+
           git checkout -b $BRANCH_NAME
 
           git add .
 
           if git diff --cached --quiet; then
-            echo "No changes detected, skipping commit and PR."
+            echo "No changes found."
             echo "changes=false" >> $GITHUB_ENV
           else
             git commit -m "Automated batch assign entities update"
             git push origin $BRANCH_NAME
             echo "changes=true" >> $GITHUB_ENV
+          fi
 
-      # Step 8: Create Pull Request only if there are changes
+      # Step 8: Create Pull Request (only if changes exist)
       - name: Create Pull Request
         if: env.changes == 'true'
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          branch: ${{ steps.git-check.outputs.branch_name }}
           commit-message: "Automated batch assign entities update"
-          branch: ${{ github.head_ref }}
           title: "Automated batch assign entities update"
           body: "This PR was created automatically by GitHub Actions."
           labels: automated-pr
