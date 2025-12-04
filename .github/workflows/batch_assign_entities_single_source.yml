@@ -2,8 +2,6 @@ name: Run Batch Assign, Create PR, Upload Artifacts, Cleanup
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 3 * * *"  # optional: daily at 03:00 UTC
 
 jobs:
   run-and-pr:
