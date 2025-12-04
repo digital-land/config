@@ -32,12 +32,8 @@ jobs:
       # Step 5: Clean up temporary resource files
       - name: Clean up resource files
         run: |
-          if [ -d resource ]; then
-            rm -rf resource
-          fi
-          if [ -d var/cache ]; then
-            rm -rf var/cache
-          fi
+          rm -rf resource || true
+          rm -rf var/cache || true
 
       # Step 6: Upload generated CSVs and logs as artifacts
       - name: Upload generated outputs
@@ -57,17 +53,23 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           BRANCH_NAME="batch-assign-update-$(date +%Y%m%d%H%M%S)"
-          git checkout -b $BRANCH_NAME
+          echo "branch=$BRANCH_NAME" >> $GITHUB_OUTPUT
+
+          git checkout -b "$BRANCH_NAME"
+
+          # Avoid accidentally committing nested git repo
+          git rm --cached -r src/digital-land || true
 
           git add .
 
           if git diff --cached --quiet; then
-            echo "No changes detected, skipping commit and PR."
+            echo "No changes detected."
             echo "changes=false" >> $GITHUB_ENV
           else
             git commit -m "Automated batch assign entities update"
-            git push origin $BRANCH_NAME
+            git push origin "$BRANCH_NAME"
             echo "changes=true" >> $GITHUB_ENV
+          fi
 
       # Step 8: Create Pull Request only if there are changes
       - name: Create Pull Request
@@ -75,8 +77,8 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ steps.git-check.outputs.branch }}
           commit-message: "Automated batch assign entities update"
-          branch: ${{ github.head_ref }}
           title: "Automated batch assign entities update"
           body: "This PR was created automatically by GitHub Actions."
           labels: automated-pr
