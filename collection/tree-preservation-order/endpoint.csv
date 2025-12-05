@@ -155,7 +155,7 @@ f85e9ca1ebb8188188bd454f47cd9c0dcc2311dfba32bd91164619e5fd9d4a4f,https://www.sef
 381e46f1261f1edd7d67238973f01c8021cf675f65f493fd7dacc12df9632a2d,https://geoserver.leicester.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3AODP_TREE_PRESERVATION_ZONE&outputFormat=application%2Fjson,,,2025-09-29,2025-09-26,
 e1a8ddd5c0318a2a685430ece7c5e08ea45bb4ed974734e94e4ed062d1f357f5,https://www.walthamforest.gov.uk/Waltham_Forest_TPO_Polygons,,,2025-09-29,2025-09-25,
 4ac87bfbd29d3fd8d52297c65a5385ae867e1e15ba7ed629217ff3013aeb5c28,https://www.walthamforest.gov.uk/Waltham_Forest_TPO_Points,,,2025-09-29,2025-09-25,
-c8879bbc91846cece3a730bb382f4b08de507d496c3e937b2ad694ae663cd06e,https://www.salford.gov.uk/media/newaf4uc/tree-preservation-order-dataset.csv,,,2025-10-06,2025-09-30,
+c8879bbc91846cece3a730bb382f4b08de507d496c3e937b2ad694ae663cd06e,https://www.salford.gov.uk/media/newaf4uc/tree-preservation-order-dataset.csv,,,2025-10-06,2025-09-30,2025-12-05
 236e026d5a3ddde23fe12020816b54f2ba62d38d6ef0455e096c927df7addeda,https://services-eu1.arcgis.com/kkZ3q6EOlzIRG0yO/arcgis/rest/services/ENV_TPO_Tree_Preservation_Zone_Public/FeatureServer/0/,,arcgis,2025-10-08,2025-10-08,
 8171edd1c90c4a4ac2d209832e674d681859d5f341b7893309dd8fabed97e393,https://services-eu1.arcgis.com/kkZ3q6EOlzIRG0yO/arcgis/rest/services/ENV_TPO_Tree_Public/FeatureServer/0/,,arcgis,2025-10-08,2025-10-08,
 6763becc38f5358b5eb120cb6cf9e91af6c8c41f04181a81c75e101bf82af696,https://trees.sstaffs.gov.uk/TPOs/Data/Trees,,,2025-10-21,2025-10-03,
@@ -170,3 +170,5 @@ cae64c5003f4e890b68ac112eefb44ec823b4b987bd7abfc0a0b846296a94b1e,https://mapsdat
 470ad6f8e88b999f564322b278e39343706ba81a1c136fe45c12501086c4049b,https://data.leicester.gov.uk/api/explore/v2.1/catalog/datasets/tree_preservation_order/exports/json?,,,2025-11-27,2025-11-24,
 0bcc3614dbb47c25286ff9cb8dc79f5032f97517558a9427b2ec67dfe0e6d80b,https://geoserver.leicester.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3AODP_TREE&outputFormat=application%2Fjson,,,2025-11-28,2025-11-26,
 fac1eb5008234c6dfb09cba6a3b15c9599946affcc09f0f43fb8f64124938575,https://www.arcgis.com/sharing/rest/content/items/9fe50747b96e4316b28d16461d0a27e6/data,,,2025-12-02,2025-12-01,
+9882b248957415f892d65e8ec1cf99f9f4e74f9211809917eeebff075903492c,https://maps.3csharedservices.org/arcgis/rest/services/GCSP/GCSPTPOs_OpenData/MapServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-12-05,2025-11-28,
+e9b9d398af10261b8dd82ba0ae18ee038e171e80ffeb3e3205cb7a6f07576856,https://www.arcgis.com/sharing/rest/content/items/09a1e18c9c134008a1b4ca00309aff6c/data,,,2025-12-05,2025-11-27,
