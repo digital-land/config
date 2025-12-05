@@ -1505,7 +1505,7 @@ fec7f031e6f35f1dc73d791046e6a18f46bcdc5b45ea2c2fd7d467a14a9aeed4,https://www.str
 e552ece9ba0a40d17e717182bc0015df827f6febd9ca5f5b6078bd184feb1fd9,https://www.babergh.gov.uk/documents/d/asset-library-54706/bmsdc-brownfield-land-register-2024-1-1,,,2025-01-23,,
 cab696af7747508641e5fbb6befe713bc1489eaac0d42daf2cee4c3ef7d09bbf,https://www.midsuffolk.gov.uk/documents/d/asset-library-54706/bmsdc-brownfield-land-register-2024-1-1,,,2025-01-23,,
 6edd2437485cfb1c6c9d93ae9a4fd86c7bfac6f389b36b5a15dec08aefa42b6d,https://www.lichfielddc.gov.uk/downloads/file/2709/brownfield-land-register-2024v2,,,2025-01-23,,
-bc8776fc5504ed3f4804597a0d90a92ff61fa5e245f19c6efe033b5d2c2e9b37,https://consult.cheshirewestandchester.gov.uk/resources/portal/supportingfiles/798742,,,2025-01-24,,
+bc8776fc5504ed3f4804597a0d90a92ff61fa5e245f19c6efe033b5d2c2e9b37,https://consult.cheshirewestandchester.gov.uk/resources/portal/supportingfiles/798742,,,2025-01-24,,2025-12-05
 cd63035bc983ee38754531030ef35f519f1f9e1e9aa5f55aebda90b32bc09c53,https://hub.arcgis.com/api/v3/datasets/797b7c92787a4dc899faf11464c897b7_0/downloads/data?format=csv&spatialRefId=3857&where=1%3D1,,,2025-01-24,,
 b1df055cbc39b9f65fa6cd1fd741b67b58dc8188d40232c0ab0632c07b47ae2d,https://www.wandsworth.gov.uk/media/2wfbqrjm/brownfield-land.csv,,,2025-01-24,,
 b2734a5f4e6682b6850e70eefe442a41d0d72ca44a7b3cd9226a464f7f4cedf0,https://www.derbyshiredales.gov.uk/documents/please-download-the-brownfield-land-register-2024-csv-file/download,,,2025-01-28,,
@@ -1535,7 +1535,7 @@ a230ea1164b53401396f6c2aff6b84fc868dc5c346d3ef852196c56bfd1e7b81,https://www.ros
 4bda68a008d71503304f6c0316e84c02135132728eaadf5bdebd0e6c8c7d4fc1,https://eastcambs.gov.uk/sites/default/files/2025-05/BrownfieldLandRegisterDataset.csv,,,2025-05-22,2025-05-20,
 37861d5af8f7140e97e5c5a14f4789407decb2e7c769bc000c1fb6219e48201e,https://www.newforestnpa.gov.uk/app/uploads/2025/01/download.csv,,,2025-05-30,2025-05-30,
 ae90daf8e0a26b0b9854af870ebdb293cca9b958246c8d83a7246cf504a4f271,https://www.southwark.gov.uk/sites/default/files/2025-06/Brownfield%20Land.geojson,,,2025-06-06,2025-06-06,
-4f323c428e3461e8dc2fe98d59620bc4407d2fc74f6d91d8656eaf91dad145bd,https://www.coventry.gov.uk/downloads/file/44973/brownfield-land-register,,,2025-06-10,2025-06-10,
+4f323c428e3461e8dc2fe98d59620bc4407d2fc74f6d91d8656eaf91dad145bd,https://www.coventry.gov.uk/downloads/file/44973/brownfield-land-register,,,2025-06-10,2025-06-10,2025-12-05
 8aaf98fe6667a1f006a4abd3684f2cac5482d924c7643a3cfdc9811d62683939,https://consult.rbwm.gov.uk/file/6507697?_gl=1*1jorn55*_ga*MTM5MDQ3MTI2Mi4xNzUwMDY2NzQ2*_ga_B1S76ZFQXK*czE3NTAwNjY3NDUkbzEkZzAkdDE3NTAwNjY3NDUkajYwJGwwJGgw,,,2025-06-16,2025-06-10,
 88d86c0ff2b5693448f73ca43a7a59a88b17ec718f82d4ba3ebb6d7dbedcbefe,https://consult.rbwm.gov.uk/file/6507697?_gl=1*18hh898*_ga*MTM5MDQ3MTI2Mi4xNzUwMDY2NzQ2*_ga_B1S76ZFQXK*czE3NTAyNDEwMzYkbzIkZzAkdDE3NTAyNDEwMzYkajYwJGwwJGgw,,,2025-06-18,2025-06-10,
 a4942cbb7a50eda9a365494c917fb627510cd60b38348f3875c4d3d5e43af73d,https://www.dartford.gov.uk/downloads/file/2662/brownfield-land-register,,,2025-07-11,2025-07-10,
@@ -1554,3 +1554,5 @@ df26ef6a61929f02fc8962a4984acc0376c6aeaa3628805ad9f4b0ac01bccbdc,https://plymout
 96797ba449a743e890d395d43b112500105a9e7f1627ae3798093793eb952c07,https://maps.strata.solutions/arcgis/rest/services/ecc/Brownfield_Land_Register_2025/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-11-27,2025-11-24,
 abc37026ec7b90cd951097bff6e90ef50d0808dea9e86eccea3e964693283c05,https://www.dudley.gov.uk/media/toyhbu0q/brownfield-land-november-2025.csv,,,2025-11-27,2025-11-24,
 ba2054a425e60a00df97d6f57a6dea4333a0e8c49b3c9320a1a99d05e56ac4a6,https://www.guildford.gov.uk/media/35723/Guildford-Brownfield-Register/CSV/brownfield-land.csv,,,2025-12-04,2025-12-02,
+53c5731ff1d6067a76fcf6299575b8c3437c109faff52a94ee39013c0cbd7737,https://www.coventry.gov.uk/downloads/file/44973/brownfield-land-register-current,,,2025-12-05,2025-12-05,
+0b9cd8335a14a4655897fe49160e7a882671284e751c1d92b8f76542334c19ef,https://planningpolicy.cheshirewestandchester.gov.uk/sites/planningpolicy-cheshirewestandchester/files/2025-12/brownfield-land.csv,,,2025-12-05,2025-12-03,
