@@ -98,6 +98,7 @@ developer-agreement,4602764,4602860,local-authority:SND
 developer-agreement,4608471,4608576,local-authority:SND
 developer-agreement,4602275,4602278,local-authority:SNR
 developer-agreement,4608780,4608851,local-authority:STO
+developer-agreement,4610118,4611468,local-authority:STO
 developer-agreement,4605676,4605752,local-authority:TEW
 developer-agreement,4600017,4600036,local-authority:TON
 developer-agreement,4605578,4605591,local-authority:TON
@@ -219,6 +220,7 @@ developer-agreement-contribution,4305984,4306417,local-authority:SND
 developer-agreement-contribution,4321516,4322176,local-authority:SND
 developer-agreement-contribution,4303056,4303081,local-authority:SNR
 developer-agreement-contribution,4322715,4322786,local-authority:STO
+developer-agreement-contribution,4328003,4331303,local-authority:STO
 developer-agreement-contribution,4315928,4316062,local-authority:TEW
 developer-agreement-contribution,4304554,4304729,local-authority:TON
 developer-agreement-contribution,4315815,4315927,local-authority:TON
@@ -322,6 +324,7 @@ developer-agreement-transaction,4402757,4403465,local-authority:SND
 developer-agreement-transaction,4422476,4424563,local-authority:SND
 developer-agreement-transaction,4404515,4404583,local-authority:SNR
 developer-agreement-transaction,4424838,4424890,local-authority:STO
+developer-agreement-transaction,4430546,4434083,local-authority:STO
 developer-agreement-transaction,4418439,4418717,local-authority:TEW
 developer-agreement-transaction,4405566,4405568,local-authority:TON
 developer-agreement-transaction,4418287,4418438,local-authority:TON
