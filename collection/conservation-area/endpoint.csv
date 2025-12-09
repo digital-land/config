@@ -698,7 +698,7 @@ aa67584401834fb9fd88d755e045440f5865d52b4d01df685a228f0db0e67542,https://www.new
 e3a2411b19c7b7f14a23043e3bf21e48417d1aeeb1a699c63882488f96d40377,https://services3.arcgis.com/HbafpLvwgoBYdsFH/arcgis/rest/services/Conservation_Areas/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-08-19,2025-08-06,
 67d4003400f387d5c01087186669d9b1a189469f454eaf6043129b237e2ed525,https://www.salford.gov.uk/media/en1l5rku/conservation-area-documents.csv,,,2025-08-19,2025-08-12,2025-08-21
 b1286b258bb7943f459ba2c30b0016bdeca49e6739a80885515d604c317f10be,https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Conservation_Areas_Public/FeatureServer/1/query?f=pjson&outFields=*&where=1=1,,,2025-08-19,2025-08-15,
-1f598957ea63069daca29685c4f8b46484bae08a9da9519b409ddda174ecfedd,https://www.salford.gov.uk/media/lsxnfa2q/conservation-area-document-data.csv,,,2025-08-21,2025-08-20,
+1f598957ea63069daca29685c4f8b46484bae08a9da9519b409ddda174ecfedd,https://www.salford.gov.uk/media/lsxnfa2q/conservation-area-document-data.csv,,,2025-08-21,2025-08-20,2025-12-09
 e26ee87c1bf9274e8c99d14abae1687a07c880ab4a45a5177e2d27fb70ed1979,https://xmap-hub.s3.eu-west-2.amazonaws.com/public-sector/surreyheath/digital_planning_data/conservation_area_documentation.csv,,,2025-08-21,2025-08-20,
 c58f7288d13de644a97a5121abe789c61b41fc3bf44c1dd3a34a9913c9b1ff39,https://www.sefton.gov.uk/media/zsnoiedt/conservationareasdocuments.csv,,,2025-08-21,2025-08-20,
 7418a91a37991ce7eb679adb65b0adb21f7fda310fae134af3d4ed30382a84c4,https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Conservation_Areas_Public/FeatureServer/0/query?f=pjson&outFields=*&where=1=1,,,2025-08-26,2025-08-26,
@@ -725,3 +725,4 @@ e7f70e63cc8037096e37359ce1bc82cbdc9e1e8e9460021622214a16e8ba76e4,https://www.wav
 c6e5c2e4b368eeebfe7ba99475ec5b0d46f1f164ea02cea7f7e47066c0b78df0,https://www.spelthorne.gov.uk/sites/default/files/2025-11/Conservation%20Area%20Document%20Dataset%20171125.csv,,,2025-11-24,2025-11-24,
 e244aa6a66e6cc0f88652b7a751e2618d9c4ab519cc08a59e5a520159464061c,https://haringey.gov.uk/sites/default/files/2025-11/conservation_area_documents_dataset_final.csv,,,2025-11-24,2025-11-24,
 ff0ec4133dd341ca1d7697965a38df29406ce3e1a34d39137c7d3f1e062d5fe3,https://data.bassetlaw.gov.uk/media/9940/conservation-areas.csv,,,2025-12-02,2025-12-01,
+05bd8052991c6f0745cb36aa40887bd292d8a5862bd315f8eda68854d3970073,https://www.arcgis.com/sharing/rest/content/items/c0f59ec08b4d48dca8cf1fad8e8996d0/data,,,2025-12-09,2025-12-09,
