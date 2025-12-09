@@ -1187,7 +1187,7 @@ conservation-area,local-authority:EHE,44014173,44014214
 conservation-area,local-authority:GRY,44009682,44009682
 conservation-area,local-authority:SNO,44013373,44013441
 conservation-area,local-authority:WAE,44014249,44014288
-conservation-area,local-authority:BKM,44009433,44010553
+conservation-area,local-authority:BUC,44009433,44010553
 conservation-area,local-authority:MIK,44014121,44014131
 conservation-area,local-authority:SEG,44007872,44007872
 conservation-area,local-authority:MAL,44007825,44007825
@@ -1519,4 +1519,5 @@ conservation-area-document,national-park-authority:Q72617158,6313894,6314026
 conservation-area-document,national-park-authority:Q72617669,6310267,6310283
 conservation-area-document,national-park-authority:Q72617784,6310487,6310520
 conservation-area-document,national-park-authority:Q72617988,6310521,6310738
+
 
