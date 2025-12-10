@@ -1,87 +1,89 @@
 import csv
 import requests
+import sys
 import pandas as pd
+import os
 import shutil
 import logging
+
 from pathlib import Path
 from io import StringIO
-
 from digital_land.commands import check_and_assign_entities
 
 # ----------------------------
 # CONFIG
 # ----------------------------
+
 SCOPE = "single-source"
-SPEC_REPO_RAW_BASE = "https://raw.githubusercontent.com/digital-land/specification/main"
 
-TMP_ROOT = Path("var/tmp")
-CACHE_ROOT = Path("var/cache")
+BASE_DIR = Path.cwd()
+CACHE_ROOT = BASE_DIR / "var" / "cache"
+PIPELINE_TMP = BASE_DIR / "var" / "tmp" / "pipeline"
+RESOURCE_DIR = BASE_DIR / "resource"
+SPEC_DIR = BASE_DIR / "specification"
 
-RESOURCE_TMP = TMP_ROOT / "resource"
-PIPELINE_TMP = TMP_ROOT / "pipeline"
-
-RESOURCE_TMP.mkdir(parents=True, exist_ok=True)
+CACHE_ROOT.mkdir(parents=True, exist_ok=True)
 PIPELINE_TMP.mkdir(parents=True, exist_ok=True)
+RESOURCE_DIR.mkdir(parents=True, exist_ok=True)
+SPEC_DIR.mkdir(parents=True, exist_ok=True)
 
 # ----------------------------
-# UTILS
+# DOWNLOAD UTILITY
 # ----------------------------
+
 def download_file(url, local_path):
     local_path = Path(local_path)
     if not local_path.exists():
         local_path.parent.mkdir(parents=True, exist_ok=True)
-        print(f"Downloading {url} -> {local_path}")
+        print(f"Downloading {url}")
         r = requests.get(url)
         r.raise_for_status()
         local_path.write_bytes(r.content)
 
+# ----------------------------
+# LOAD PREVIOUS RESOURCE FOR DEDUPE
+# ----------------------------
 
-def ensure_specification_files():
-    spec_files = {
-        "specification/dataset.csv": f"{SPEC_REPO_RAW_BASE}/specification/dataset.csv",
-        "specification/field.csv": f"{SPEC_REPO_RAW_BASE}/specification/field.csv",
-        "specification/dataset-field.csv": f"{SPEC_REPO_RAW_BASE}/specification/dataset-field.csv",
-        "specification/typology.csv": f"{SPEC_REPO_RAW_BASE}/specification/typology.csv",
-        "specification/datatype.csv": f"{SPEC_REPO_RAW_BASE}/specification/datatype.csv",
-        "specification/provision-rule.csv": f"{SPEC_REPO_RAW_BASE}/content/provision-rule.csv",
-    }
+def get_old_resource_df(endpoint, collection_name, dataset):
+    url = (
+        f"https://datasette.planning.data.gov.uk/performance/reporting_historic_endpoints.csv"
+        f"?_sort=rowid&resource_end_date__notblank=1&endpoint__exact={endpoint}&_size=1"
+    )
+    r = requests.get(url)
+    r.raise_for_status()
+    df = pd.read_csv(StringIO(r.text))
 
-    for local_path, url in spec_files.items():
-        download_file(url, local_path)
+    if df.empty:
+        return None
 
+    old_hash = df["resource"][0]
 
-def find_latest_lookup(collection_name):
-    root = CACHE_ROOT / "assign_entities"
-    candidates = []
+    transformed_url = (
+        f"https://files.planning.data.gov.uk/"
+        f"{collection_name}-collection/transformed/{dataset}/{old_hash}.csv"
+    )
 
-    if root.exists():
-        for p in root.rglob("lookup.csv"):
-            if collection_name in p.parts:
-                candidates.append(p)
-
-    if not candidates:
-        raise FileNotFoundError(f"No lookup.csv found for {collection_name}")
-
-    return sorted(candidates, key=lambda p: len(p.parts))[-1]
-
+    r2 = requests.get(transformed_url)
+    r2.raise_for_status()
+    return pd.read_csv(StringIO(r2.text))
 
 # ----------------------------
-# MAIN PROCESS
+# MAIN PROCESSOR
 # ----------------------------
+
 def process_csv(scope):
-
-    failed = []
+    failures = []
 
     with open("issue_summary.csv", "r") as f:
         reader = csv.DictReader(f)
 
-        for i, row in enumerate(reader, start=1):
+        for row_number, row in enumerate(reader, start=1):
 
-            if str(row["issue_type"]).lower().strip() != "unknown entity":
-                continue
-            if str(row["scope"]).lower().strip() != scope:
-                continue
-            if str(row["dataset"]).lower().strip() == "title-boundary":
+            if (
+                row["issue_type"].lower() != "unknown entity"
+                or row["scope"].lower() != scope
+                or row["dataset"].lower() == "title-boundary"
+            ):
                 continue
 
             collection_name = row["collection"]
@@ -90,89 +92,112 @@ def process_csv(scope):
             dataset = row["pipeline"]
             organisation_name = row["organisation"]
 
-            download_url = (
+            # ✅ SAFE TEMP PIPELINE DIR
+            pipeline_work_dir = PIPELINE_TMP / collection_name
+            pipeline_work_dir.mkdir(parents=True, exist_ok=True)
+
+            resource_url = (
                 f"https://files.planning.data.gov.uk/"
                 f"{collection_name}-collection/collection/resource/{resource}"
             )
 
-            resource_path = RESOURCE_TMP / resource
+            resource_path = RESOURCE_DIR / resource
 
             try:
-                r = requests.get(download_url)
+                r = requests.get(resource_url)
                 r.raise_for_status()
                 resource_path.write_bytes(r.content)
 
+            except Exception as e:
+                failures.append((row_number, resource, str(e)))
+                continue
+
+            transformed_output = (
+                CACHE_ROOT
+                / "assign_entities"
+                / "transformed"
+                / f"{resource}.csv"
+            )
+
+            try:
                 success = check_and_assign_entities(
                     [resource_path],
                     [endpoint],
                     collection_name,
                     dataset,
                     [organisation_name],
-
-                    # ✅ REAL collection directory (REQUIRED)
                     Path(f"collection/{collection_name}"),
-
                     CACHE_ROOT / "organisation.csv",
-                    Path("specification"),
-
-                    # ✅ TEMP pipeline output
-                    PIPELINE_TMP / collection_name,
-
-                    CACHE_ROOT / "assign_entities" / "transformed" / f"{resource}.csv",
+                    SPEC_DIR,
+                    pipeline_work_dir,
+                    transformed_output,
                 )
 
                 if not success:
-                    raise RuntimeError("check_and_assign_entities returned False")
+                    continue
 
-                # ✅ ONLY COPY lookup.csv INTO GIT
-                src_lookup = find_latest_lookup(collection_name)
-                dest_lookup = Path("pipeline") / collection_name / "lookup.csv"
-                dest_lookup.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy(src_lookup, dest_lookup)
+                # ✅ COPY LOOKUP ONLY (NOT ENTIRE PIPELINE)
+                generated_lookup = (
+                    pipeline_work_dir / "pipeline" / "lookup.csv"
+                )
 
-                print(f"✅ lookup.csv updated for {collection_name}")
+                final_lookup = (
+                    BASE_DIR / "pipeline" / collection_name / "lookup.csv"
+                )
+
+                if generated_lookup.exists():
+                    final_lookup.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(generated_lookup, final_lookup)
+                    print(f"Updated lookup.csv → {final_lookup}")
+
+                else:
+                    print(f"⚠️ lookup.csv not produced for {collection_name}")
 
             except Exception as e:
-                failed.append((i, resource, str(e)))
-                logging.error(str(e), exc_info=True)
+                logging.exception("Assignment failed")
+                failures.append((row_number, resource, str(e)))
+
+            finally:
+                # ✅ CLEAN TEMP FILES
+                if resource_path.exists():
+                    resource_path.unlink()
 
     print("\n--- Summary ---")
-    if failed:
-        print("Failures:", failed)
+    if failures:
+        print("Failures:", failures)
     else:
-        print("✅ All assignments successful")
-
-    return failed
-
+        print("✅ All entity assignment operations completed successfully")
 
 # ----------------------------
-# MAIN
+# MAIN ENTRY
 # ----------------------------
+
 if __name__ == "__main__":
 
-    ensure_specification_files()
+    # ✅ REQUIRED SPEC FILE
+    download_file(
+        "https://raw.githubusercontent.com/digital-land/specification/main/content/provision-rule.csv",
+        SPEC_DIR / "provision-rule.csv",
+    )
 
+    # ✅ ISSUE SUMMARY
     issue_url = (
         "https://datasette.planning.data.gov.uk/performance/"
         "endpoint_dataset_issue_type_summary.csv"
         "?_sort=rowid&issue_type__exact=unknown+entity&_size=max"
     )
 
-    df = pd.read_csv(StringIO(requests.get(issue_url).text))
+    df = pd.read_csv(issue_url)
 
-    provision_rule_df = pd.read_csv("specification/provision-rule.csv")
+    provision_df = pd.read_csv(SPEC_DIR / "provision-rule.csv")
 
     scope_dict = {
-        "odp": provision_rule_df.loc[
-            provision_rule_df["project"] == "open-digital-planning", "dataset"
-        ].tolist(),
-        "mandated": provision_rule_df.loc[
-            (provision_rule_df["provision-reason"] == "statutory")
-            | (
-                (provision_rule_df["provision-reason"] == "encouraged")
-                & (provision_rule_df["role"] == "local-planning-authority")
-            ),
-            "dataset",
+        "odp": provision_df.loc[provision_df["project"] == "open-digital-planning", "dataset"].tolist(),
+        "mandated": provision_df.loc[
+            (provision_df["provision-reason"] == "statutory") |
+            ((provision_df["provision-reason"] == "encouraged") &
+             (provision_df["role"] == "local-planning-authority")),
+            "dataset"
         ].tolist(),
     }
 
@@ -181,10 +206,10 @@ if __name__ == "__main__":
             return "odp"
         elif dataset in scope_dict["mandated"]:
             return "mandated"
-        else:
-            return "single-source"
+        return "single-source"
 
     df["scope"] = df["dataset"].apply(determine_scope)
     df.to_csv("issue_summary.csv", index=False)
+    print("✅ issue_summary.csv generated")
 
     process_csv(SCOPE)
