@@ -42,6 +42,7 @@ jobs:
             issue_summary.csv
             pipeline/**/*.csv
             **/*.log
+            find var/cache/assign_entities -name "lookup.csv" -print
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
