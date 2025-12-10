@@ -3,18 +3,20 @@ name: Run Batch Assign, Create PR, Upload Artifacts, Cleanup
 on:
   workflow_dispatch:
 
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   run-and-pr:
     runs-on: ubuntu-latest
 
     steps:
+      # ------------------------------------------------------------
+      # CHECKOUT REPO
+      # ------------------------------------------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # ------------------------------------------------------------
+      # PYTHON SETUP
+      # ------------------------------------------------------------
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -25,15 +27,16 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
+      # ------------------------------------------------------------
+      # RUN BATCH ASSIGN SCRIPT
+      # ------------------------------------------------------------
       - name: Run batch assign entities
         run: |
           python bin/batch_assign_entities_single_source.py
 
-      - name: Clean up resource files
-        run: |
-          rm -rf resource || true
-          rm -rf var/cache || true
-
+      # ------------------------------------------------------------
+      # UPLOAD OUTPUT ARTIFACTS
+      # ------------------------------------------------------------
       - name: Upload generated outputs
         uses: actions/upload-artifact@v4
         with:
@@ -42,14 +45,59 @@ jobs:
             issue_summary.csv
             pipeline/**/*.csv
             **/*.log
-        
+          if-no-files-found: ignore
+
+      # ------------------------------------------------------------
+      # COMMIT ONLY lookup.csv + issue_summary.csv
+      # ------------------------------------------------------------
+      - name: Commit lookup changes only
+        id: git-check
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          BRANCH_NAME="batch-assign-update-$(date +%Y%m%d%H%M%S)"
+          echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+
+          git checkout -b $BRANCH_NAME
+
+          # 🔒 Stage ONLY lookup.csv and issue_summary.csv
+          git add pipeline/**/lookup.csv || true
+          git add issue_summary.csv || true
+
+          # 🚫 ENSURE unwanted dirs never get committed
+          git restore --staged resource/ || true
+          git restore --staged scr/ || true
+          git restore --staged var/ || true
+          git restore --staged pipeline/**/* || true
+
+          # Stage lookup.csv again after cleaning staging area
+          git add pipeline/**/lookup.csv || true
+
+          # Check whether anything meaningful changed
+          if git diff --cached --quiet; then
+            echo "No lookup changes found."
+            echo "changes=false" >> $GITHUB_ENV
+          else
+            git commit -m "Automated batch assign entities update (lookup only)"
+            git push origin $BRANCH_NAME
+            echo "changes=true" >> $GITHUB_ENV
+          fi
+
+      # ------------------------------------------------------------
+      # CREATE PR ONLY IF LOOKUP FILES CHANGED
+      # ------------------------------------------------------------
       - name: Create Pull Request
+        if: env.changes == 'true'
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: main
-          branch: batch-assign-update
-          commit-message: "Automated batch assign entities update"
+          branch: ${{ steps.git-check.outputs.branch_name }}
+          commit-message: "Automated batch assign entities update (lookup only)"
           title: "Automated batch assign entities update"
-          body: "This PR was created automatically by GitHub Actions."
+          body: |
+            This PR was created automatically by GitHub Actions.
+            - Only lookup.csv files were committed
+            - No resources/scr/pipeline working files included
           labels: automated-pr
