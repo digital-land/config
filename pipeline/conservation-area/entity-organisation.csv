@@ -509,18 +509,6 @@ conservation-area,national-park-authority:Q72617988,44005284,44005284
 conservation-area,national-park-authority:Q72617988,44005810,44005906
 conservation-area,national-park-authority:Q72617988,44006364,44006367
 conservation-area,national-park-authority:Q72617988,44007421,44007439
-conservation-area-document,local-authority:BIR,6300438,6300479
-conservation-area-document,local-authority:BNE,6303262,6303301
-conservation-area-document,local-authority:BST,6300480,6300513
-conservation-area-document,local-authority:CAS,6300230,6300231
-conservation-area-document,local-authority:CMD,6300096,6300157
-conservation-area-document,local-authority:NLN,6300045,6300061
-conservation-area-document,local-authority:PLY,6303302,6303316
-conservation-area-document,local-authority:PTE,6300158,6300213
-conservation-area-document,local-authority:ROH,6300214,6300229
-conservation-area-document,local-authority:ROS,6300062,6300095
-conservation-area-document,local-authority:SAL,6300000,6300044
-conservation-area-document,local-authority:WRL,6303118,6303261
 conservation-area,local-authority:SLF,44012726,44012731
 conservation-area,local-authority:SLF,44012734,44012739
 conservation-area,local-authority:SLF,44005149,44005149
@@ -1172,7 +1160,6 @@ conservation-area,local-authority:TWH,6313836,6313893
 conservation-area,national-park-authority:Q72617158,44005377,44005393
 conservation-area,national-park-authority:Q72617158,44006961,44006961
 conservation-area,national-park-authority:Q72617158,44007335,44007336
-conservation-area-document,national-park-authority:Q72617158,6313894,6314026
 conservation-area,local-authority:WRL,44013322,44013322
 conservation-area,local-authority:SPE,44013556,44013563
 conservation-area,local-authority:NBL,44013564,44013633
@@ -1195,7 +1182,6 @@ conservation-area,local-authority:BRO,44013357,44013357
 conservation-area,local-authority:CAR,44009143,44009143
 conservation-area,local-authority:EHA,44012758,44012758
 conservation-area,local-authority:WEA,44014215,44014246
-conservation-area-document,local-authority:LIV,6314027,6314062
 conservation-area,local-authority:LIV,44014307,44014342
 conservation-area,local-authority:BUC,44009470,44012804
 conservation-area,government-organisation:PB1164,44003758,44014067
