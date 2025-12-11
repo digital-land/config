@@ -8,6 +8,8 @@ assignees: ''
 ---
 [Adding a new dataset and collection guidance](https://digital-land.github.io/technical-documentation/data-operations-manual/How-To-Guides/Adding/Add-a-new-dataset-and-collection/)
 
+**Link to initial data to be added:**
+
 **New Dataset Onboarding Checklist**
 
 *Please tick off the steps as they are completed.*
