@@ -2,7 +2,7 @@
 name: Add New Dataset or Collection
 about: For adding new datasets and collections
 title: '[New Dataset]'
-labels: 'New-Dataset'
+labels: 'New Dataset'
 assignees: ''
 
 ---
