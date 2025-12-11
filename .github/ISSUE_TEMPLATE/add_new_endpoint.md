@@ -2,7 +2,7 @@
 name: Add New Endpoint
 about: For adding new data provided by LPAs or single-source datasets
 title: 'Dataset URL request:'
-labels: 'add-data'
+labels: 'Add Data'
 assignees: ''
 
 ---
