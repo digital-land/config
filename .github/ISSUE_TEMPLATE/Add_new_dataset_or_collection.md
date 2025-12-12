@@ -18,6 +18,7 @@ assignees: ''
 - [ ] Data Manager reviews the dataset, specification and confirm this is ready to be added
 - [ ] Create the Collection and Pipeline created in the Config Repo (only if a new collection)
 - [ ] Add the initial endpoint for the dataset using the add-data process
+- [ ] Add the dataset to the [provision rule](https://github.com/digital-land/specification/blob/main/content/provision-rule.csv) table
 - [ ] Update the specification to include the collection in the Markdown file (this adds it to Airflow)
 - [ ] Confirm the new collection is visible in Airflow
 - [ ] Run Airflow dag in development and validate a successful run
