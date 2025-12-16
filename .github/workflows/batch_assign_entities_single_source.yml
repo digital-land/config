@@ -46,15 +46,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-
-          # Install Digital Land library (non-editable, CI-safe)
           pip install git+https://github.com/digital-land/digital-land-python.git
-
-          # Install remaining repo requirements (excluding editable install)
           grep -v '^.*digital-land-python.*$' requirements.txt > /tmp/requirements-ci.txt
           pip install -r /tmp/requirements-ci.txt
-
-          # Explicit runtime dependency
           pip install pandas
 
       # Run batch entity assignment (force non-interactive)
@@ -65,21 +59,26 @@ jobs:
         run: |
           yes | python bin/batch_assign_entities_single_source.py
 
-      # Keep ONLY lookup.csv changes (ignore resource output)
+      # Keep ONLY lookup.csv changes
       - name: Keep only lookup.csv changes
         run: |
-          git restore .
-          git add -N lookup.csv || true
-          git add lookup.csv || true
+          # Stage everything so lookup.csv is captured
+          git add -A
+
+          # Restore everything except lookup.csv (both index and working tree)
+          git restore --staged --worktree --source=HEAD -- . ':(exclude)lookup.csv'
+
+          # Ensure lookup.csv is staged if it exists
+          git add lookup.csv 2>/dev/null || true
 
       # Detect whether lookup.csv changed
       - name: Check for lookup.csv changes
         id: lookup_diff
         run: |
-          if git diff --cached --quiet -- lookup.csv; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          else
+          if git diff --name-only --cached -- lookup.csv | grep -q .; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
 
       # Create PR only if lookup.csv changed
