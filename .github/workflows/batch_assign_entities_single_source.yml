@@ -57,7 +57,7 @@ jobs:
           # Explicit runtime dependency
           pip install pandas
 
-      # Run batch entity assignment (non-interactive)
+      # Run batch entity assignment (force non-interactive)
       - name: Run batch entities
         env:
           DIGITAL_LAND_ASSUME_YES: "1"
@@ -65,18 +65,18 @@ jobs:
         run: |
           yes | python bin/batch_assign_entities_single_source.py
 
-      # Keep ONLY lookup.csv changes
+      # Keep ONLY lookup.csv changes (ignore resource output)
       - name: Keep only lookup.csv changes
         run: |
-          git reset
-          git checkout -- .
-          git add lookup.csv
+          git restore .
+          git add -N lookup.csv || true
+          git add lookup.csv || true
 
       # Detect whether lookup.csv changed
       - name: Check for lookup.csv changes
         id: lookup_diff
         run: |
-          if git diff --cached --quiet; then
+          if git diff --cached --quiet -- lookup.csv; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
