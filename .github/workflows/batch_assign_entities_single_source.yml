@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout config repo (no submodules)
+      # Checkout config repo
       - name: Checkout config
         uses: actions/checkout@v4
         with:
@@ -47,25 +47,25 @@ jobs:
         run: |
           python -m pip install --upgrade pip
 
-          # Remove editable digital-land install (breaks CI)
-          grep -v '^.*digital-land-python.*$' requirements.txt > /tmp/requirements-ci.txt
+          # Install Digital Land library (non-editable, CI-safe)
+          pip install git+https://github.com/digital-land/digital-land-python.git
 
-          # Install remaining deps
+          # Install remaining repo requirements (excluding editable install)
+          grep -v '^.*digital-land-python.*$' requirements.txt > /tmp/requirements-ci.txt
           pip install -r /tmp/requirements-ci.txt
 
-          # Explicit runtime deps required by the script
+          # Explicit runtime dependency
           pip install pandas
 
       # Run batch entity assignment (non-interactive)
       - name: Run batch entities
         env:
-          PYTHONPATH: ${{ github.workspace }}/src/digital-land
           DIGITAL_LAND_ASSUME_YES: "1"
           DIGITAL_LAND_NON_INTERACTIVE: "1"
         run: |
           python bin/batch_assign_entities_single_source.py
 
-      # Ensure ONLY lookup.csv is committed
+      # Keep ONLY lookup.csv changes
       - name: Keep only lookup.csv changes
         run: |
           git reset
