@@ -8,22 +8,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout config repo
       - name: Checkout config
         uses: actions/checkout@v4
 
-      # Checkout specification repo (REQUIRED)
       - name: Checkout specification
         uses: actions/checkout@v4
         with:
           repository: digital-land/specification
           path: specification
 
-      # Put dataset.csv where the code expects it
+      # ✅ FIXED PATH
       - name: Prepare specification dataset
         run: |
           mkdir -p specification
-          cp https://raw.githubusercontent.com/digital-land/specification/main/specification/dataset.csv
+          cp specification/specification/dataset.csv specification/dataset.csv
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -35,12 +33,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Run the batch entity assignment
       - name: Run batch entities
         run: |
           python bin/batch_assign_entities_single_source.py
 
-      # Create PR if there are changes
       - name: Create pull request
         uses: peter-evans/create-pull-request@v6
         with:
