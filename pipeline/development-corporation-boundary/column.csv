@@ -1,2 +1,2 @@
 column,dataset,end-date,endpoint,entry-date,field,resource,start-date
-WKT,development-corporation-boundary,,,,reference,,
+WKT,development-corporation-boundary,,,,geometry,,
