@@ -63,7 +63,7 @@ jobs:
           DIGITAL_LAND_ASSUME_YES: "1"
           DIGITAL_LAND_NON_INTERACTIVE: "1"
         run: |
-          python bin/batch_assign_entities_single_source.py
+          yes | python bin/batch_assign_entities_single_source.py
 
       # Keep ONLY lookup.csv changes
       - name: Keep only lookup.csv changes
