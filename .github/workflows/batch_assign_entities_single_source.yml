@@ -14,7 +14,7 @@ jobs:
         with:
           submodules: false
 
-      # Checkout specification repo
+      # Checkout specification repo (temporary working copy only)
       - name: Checkout specification
         uses: actions/checkout@v4
         with:
@@ -27,6 +27,7 @@ jobs:
         run: |
           rm -rf specification
           cp -r specification-src/specification specification
+          rm -rf specification-src
 
       # Prepare organisation cache
       - name: Prepare organisation cache
@@ -46,9 +47,15 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+
+          # Install Digital Land library (non-editable)
           pip install git+https://github.com/digital-land/digital-land-python.git
+
+          # Install repo requirements without editable installs
           grep -v '^.*digital-land-python.*$' requirements.txt > /tmp/requirements-ci.txt
           pip install -r /tmp/requirements-ci.txt
+
+          # Explicit runtime dependency
           pip install pandas
 
       # Run batch entity assignment (force non-interactive)
@@ -59,16 +66,16 @@ jobs:
         run: |
           yes | python bin/batch_assign_entities_single_source.py
 
-      # Keep ONLY lookup.csv changes
+      # Stage everything, then keep ONLY lookup.csv
       - name: Keep only lookup.csv changes
         run: |
-          # Stage everything so lookup.csv is captured
+          # Stage everything first
           git add -A
 
-          # Restore everything except lookup.csv (both index and working tree)
+          # Restore everything except lookup.csv (index + working tree)
           git restore --staged --worktree --source=HEAD -- . ':(exclude)lookup.csv'
 
-          # Ensure lookup.csv is staged if it exists
+          # Ensure lookup.csv is staged if present
           git add lookup.csv 2>/dev/null || true
 
       # Detect whether lookup.csv changed
