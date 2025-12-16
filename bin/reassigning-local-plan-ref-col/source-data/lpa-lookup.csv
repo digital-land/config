@@ -1,0 +1,311 @@
+rowid,end_date,entry_date,cohort,cohort_label,notes,organisation,organisation_label,role,role_label,start_date
+4,,,,,,development-corporation:Q117149370,Middlesbrough Development Corporation,local-planning-authority,Local Planning Authority,2023-02-27
+5,,,,,,development-corporation:Q124604981,Hartlepool Development Corporation,local-planning-authority,Local Planning Authority,2023-02-27
+6,,,,,,development-corporation:Q20648596,Old Oak and Park Royal Development Corporation,local-planning-authority,Local Planning Authority,2015-04-01
+18,,,,,,development-corporation:Q72463795,Ebbsfleet Development Corporation,local-planning-authority,Local Planning Authority,2015-04-20
+24,,,,,,local-authority:ADU,Adur District Council,local-planning-authority,Local Planning Authority,
+26,,,,,,local-authority:AMB,Amber Valley Borough Council,local-planning-authority,Local Planning Authority,
+27,,,,,,local-authority:ARU,Arun District Council,local-planning-authority,Local Planning Authority,
+28,,,,,,local-authority:ASF,Ashford Borough Council,local-planning-authority,Local Planning Authority,
+29,,,,,,local-authority:ASH,Ashfield District Council,local-planning-authority,Local Planning Authority,
+31,,,,,,local-authority:BAB,Babergh District Council,local-planning-authority,Local Planning Authority,
+32,,,,,,local-authority:BAE,Bassetlaw District Council,local-planning-authority,Local Planning Authority,
+33,,,,,,local-authority:BAI,Basildon Borough Council,local-planning-authority,Local Planning Authority,
+34,,,,,,local-authority:BAN,Basingstoke and Deane Borough Council,local-planning-authority,Local Planning Authority,
+36,,,,,,local-authority:BAS,Bath and North East Somerset Council,local-planning-authority,Local Planning Authority,1996-04-01
+37,,,,,,local-authority:BBD,Blackburn with Darwen Borough Council,local-planning-authority,Local Planning Authority,1998-04-01
+38,,,,,,local-authority:BDF,Bedford Borough Council,local-planning-authority,Local Planning Authority,2009-04-01
+39,,,,,,local-authority:BDG,London Borough of Barking and Dagenham,local-planning-authority,Local Planning Authority,
+40,,,,,,local-authority:BEN,London Borough of Brent,local-planning-authority,Local Planning Authority,
+41,,,,,,local-authority:BEX,London Borough of Bexley,local-planning-authority,Local Planning Authority,
+42,,,,,,local-authority:BIR,Birmingham City Council,local-planning-authority,Local Planning Authority,1986-07-01
+43,,,,,,local-authority:BLA,Blaby District Council,local-planning-authority,Local Planning Authority,
+45,,,,,,local-authority:BNE,London Borough of Barnet,local-planning-authority,Local Planning Authority,
+46,,,,,,local-authority:BNH,Brighton and Hove City Council,local-planning-authority,Local Planning Authority,1905-06-19
+47,,,,,,local-authority:BNS,Barnsley Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+48,,,,,,local-authority:BOL,Bolton Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+49,,,,,,local-authority:BOS,Bolsover District Council,local-planning-authority,Local Planning Authority,
+50,,,,,,local-authority:BOT,Boston Borough Council,local-planning-authority,Local Planning Authority,
+51,,,,,,local-authority:BPC,"Bournemouth, Christchurch and Poole Council",local-planning-authority,Local Planning Authority,2019-04-01
+52,,,,,,local-authority:BPL,Blackpool Borough Council,local-planning-authority,Local Planning Authority,1905-06-20
+53,,,,,,local-authority:BRA,Braintree District Council,local-planning-authority,Local Planning Authority,
+54,,,,,,local-authority:BRC,Bracknell Forest Council,local-planning-authority,Local Planning Authority,1998-04-01
+55,,,,,,local-authority:BRD,City of Bradford Metropolitan District Council,local-planning-authority,Local Planning Authority,1974-04-01
+56,,,,,,local-authority:BRE,Breckland District Council,local-planning-authority,Local Planning Authority,
+57,,,,,,local-authority:BRM,Bromsgrove District Council,local-planning-authority,Local Planning Authority,
+58,,,,,,local-authority:BRO,Broadland District Council,local-planning-authority,Local Planning Authority,
+59,,,,,,local-authority:BRT,Broxtowe Borough Council,local-planning-authority,Local Planning Authority,
+60,,,,,,local-authority:BRW,Brentwood Borough Council,local-planning-authority,Local Planning Authority,
+61,,,,,,local-authority:BRX,Broxbourne Borough Council,local-planning-authority,Local Planning Authority,
+62,,,,,,local-authority:BRY,London Borough of Bromley,local-planning-authority,Local Planning Authority,
+63,,,,,,local-authority:BST,Bristol City Council,local-planning-authority,Local Planning Authority,1905-06-18
+64,,,,,,local-authority:BUC,Buckinghamshire Council,local-planning-authority,Local Planning Authority,2020-04-01
+65,,,,,,local-authority:BUN,Burnley Borough Council,local-planning-authority,Local Planning Authority,
+66,,,,,,local-authority:BUR,Bury Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+67,,,,,,local-authority:CAB,Cambridge City Council,local-planning-authority,Local Planning Authority,
+68,,,,,,local-authority:CAN,Cannock Chase District Council,local-planning-authority,Local Planning Authority,
+70,,,,,,local-authority:CAS,Castle Point Borough Council,local-planning-authority,Local Planning Authority,
+71,,,,,,local-authority:CAT,Canterbury City Council,local-planning-authority,Local Planning Authority,
+72,,,,,,local-authority:CBF,Central Bedfordshire Council,local-planning-authority,Local Planning Authority,2009-04-01
+73,,,,,,local-authority:CHA,Charnwood Borough Council,local-planning-authority,Local Planning Authority,
+75,,,,,,local-authority:CHE,Cheshire East Council,local-planning-authority,Local Planning Authority,2009-04-01
+76,,,,,,local-authority:CHI,Chichester District Council,local-planning-authority,Local Planning Authority,1974-04-01
+77,,,,,,local-authority:CHL,Chelmsford City Council,local-planning-authority,Local Planning Authority,
+79,,,,,,local-authority:CHO,Chorley Borough Council,local-planning-authority,Local Planning Authority,
+80,,,,,,local-authority:CHR,Cherwell District Council,local-planning-authority,Local Planning Authority,
+81,,,,,,local-authority:CHS,Chesterfield Borough Council,local-planning-authority,Local Planning Authority,
+82,,,,,,local-authority:CHT,Cheltenham Borough Council,local-planning-authority,Local Planning Authority,
+83,,,,,,local-authority:CHW,Cheshire West and Chester Council,local-planning-authority,Local Planning Authority,2009-04-01
+84,,,,,,local-authority:CLD,Calderdale Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+85,,,,,,local-authority:CMD,London Borough of Camden,local-planning-authority,Local Planning Authority,
+86,,,,,,local-authority:COL,Colchester City Council,local-planning-authority,Local Planning Authority,
+87,,,,,,local-authority:CON,Cornwall Council,local-planning-authority,Local Planning Authority,2009-04-01
+90,,,,,,local-authority:COT,Cotswold District Council,local-planning-authority,Local Planning Authority,
+91,,,,,,local-authority:COV,Coventry City Council,local-planning-authority,Local Planning Authority,1974-04-01
+93,,,,,,local-authority:CRW,Crawley Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+94,,,,,,local-authority:CRY,London Borough of Croydon,local-planning-authority,Local Planning Authority,1965-04-01
+95,,,,,,local-authority:CUA,Cumberland Unitary Authority,local-planning-authority,Local Planning Authority,2023-04-01
+96,,,,,,local-authority:DAC,Dacorum Borough Council,local-planning-authority,Local Planning Authority,
+97,,,,,,local-authority:DAL,Darlington Borough Council,local-planning-authority,Local Planning Authority,1997-04-01
+98,,,,,,local-authority:DAR,Dartford Borough Council,local-planning-authority,Local Planning Authority,
+100,,,,,,local-authority:DEB,Derbyshire Dales District Council,local-planning-authority,Local Planning Authority,
+101,,,,,,local-authority:DER,Derby City Council,local-planning-authority,Local Planning Authority,
+102,,,,,,local-authority:DNC,Doncaster Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+103,,,,,,local-authority:DOV,Dover District Council,local-planning-authority,Local Planning Authority,
+104,,,,,,local-authority:DST,Dorset Council,local-planning-authority,Local Planning Authority,2019-04-01
+105,,,,,,local-authority:DUD,Dudley Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+106,,,,,,local-authority:DUR,Durham County Council,local-planning-authority,Local Planning Authority,2009-04-01
+107,,,,,,local-authority:EAL,London Borough of Ealing,local-planning-authority,Local Planning Authority,
+108,,,,,,local-authority:EAS,Eastbourne Borough Council,local-planning-authority,Local Planning Authority,
+109,,,,,,local-authority:EAT,Eastleigh Borough Council,local-planning-authority,Local Planning Authority,
+110,,,,,,local-authority:ECA,East Cambridgeshire District Council,local-planning-authority,Local Planning Authority,
+111,,,,,,local-authority:EDE,East Devon District Council,local-planning-authority,Local Planning Authority,
+114,,,,,,local-authority:EHA,East Hampshire District Council,local-planning-authority,Local Planning Authority,
+115,,,,,,local-authority:EHE,East Hertfordshire District Council,local-planning-authority,Local Planning Authority,
+116,,,,,,local-authority:ELI,East Lindsey District Council,local-planning-authority,Local Planning Authority,
+117,,,,,,local-authority:ELM,Elmbridge Borough Council,local-planning-authority,Local Planning Authority,
+118,,,,,,local-authority:ENF,London Borough of Enfield,local-planning-authority,Local Planning Authority,1965-04-01
+120,,,,,,local-authority:EPP,Epping Forest District Council,local-planning-authority,Local Planning Authority,
+121,,,,,,local-authority:EPS,Epsom and Ewell Borough Council,local-planning-authority,Local Planning Authority,
+122,,,,,,local-authority:ERE,Erewash Borough Council,local-planning-authority,Local Planning Authority,
+123,,,,,,local-authority:ERY,East Riding of Yorkshire Council,local-planning-authority,Local Planning Authority,1996-04-01
+124,,,,,,local-authority:ESK,East Suffolk Council,local-planning-authority,Local Planning Authority,2019-04-01
+125,,,,,,local-authority:EST,East Staffordshire Borough Council,local-planning-authority,Local Planning Authority,
+126,,,,,,local-authority:EXE,Exeter City Council,local-planning-authority,Local Planning Authority,
+127,,,,,,local-authority:FAR,Fareham Borough Council,local-planning-authority,Local Planning Authority,
+128,,,,,,local-authority:FEN,Fenland District Council,local-planning-authority,Local Planning Authority,
+129,,,,,,local-authority:FOE,Forest of Dean District Council,local-planning-authority,Local Planning Authority,
+131,,,,,,local-authority:FYL,Fylde Borough Council,local-planning-authority,Local Planning Authority,
+132,,,,,,local-authority:GAT,Gateshead Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+133,,,,,,local-authority:GED,Gedling Borough Council,local-planning-authority,Local Planning Authority,
+134,,,,,,local-authority:GLO,Gloucester City Council,local-planning-authority,Local Planning Authority,
+135,,,,,,local-authority:GOS,Gosport Borough Council,local-planning-authority,Local Planning Authority,
+136,,,,,,local-authority:GRA,Gravesham Borough Council,local-planning-authority,Local Planning Authority,
+137,,,,,,local-authority:GRE,Royal Borough of Greenwich,local-planning-authority,Local Planning Authority,
+138,,,,,,local-authority:GRT,Guildford Borough Council,local-planning-authority,Local Planning Authority,
+139,,,,,,local-authority:GRY,Great Yarmouth Borough Council,local-planning-authority,Local Planning Authority,
+140,,,,,,local-authority:HAA,Havant Borough Council,local-planning-authority,Local Planning Authority,
+143,,,,,,local-authority:HAL,Halton Borough Council,local-planning-authority,Local Planning Authority,1998-04-01
+144,,,,,,local-authority:HAO,Harborough District Council,local-planning-authority,Local Planning Authority,
+145,,,,,,local-authority:HAR,Harlow District Council,local-planning-authority,Local Planning Authority,
+146,,,,,,local-authority:HAS,Hastings Borough Council,local-planning-authority,Local Planning Authority,
+147,,,,,,local-authority:HAT,Hart District Council,local-planning-authority,Local Planning Authority,
+148,,,,,,local-authority:HAV,London Borough of Havering,local-planning-authority,Local Planning Authority,
+149,,,,,,local-authority:HCK,London Borough of Hackney,local-planning-authority,Local Planning Authority,
+150,,,,,,local-authority:HEF,Herefordshire Council,local-planning-authority,Local Planning Authority,1998-04-01
+151,,,,,,local-authority:HER,Hertsmere Borough Council,local-planning-authority,Local Planning Authority,
+152,,,,,,local-authority:HIG,High Peak Borough Council,local-planning-authority,Local Planning Authority,
+153,,,,,,local-authority:HIL,London Borough of Hillingdon,local-planning-authority,Local Planning Authority,
+154,,,,,,local-authority:HIN,Hinckley and Bosworth Borough Council,local-planning-authority,Local Planning Authority,
+155,,,,,,local-authority:HMF,London Borough of Hammersmith & Fulham,local-planning-authority,Local Planning Authority,
+156,,,,,,local-authority:HNS,London Borough of Hounslow,local-planning-authority,Local Planning Authority,
+157,,,,,,local-authority:HOR,Horsham District Council,local-planning-authority,Local Planning Authority,1974-04-01
+158,,,,,,local-authority:HPL,Hartlepool Borough Council,local-planning-authority,Local Planning Authority,1905-06-18
+159,,,,,,local-authority:HRW,London Borough of Harrow,local-planning-authority,Local Planning Authority,
+160,,,,,,local-authority:HRY,London Borough of Haringey,local-planning-authority,Local Planning Authority,1965-04-01
+161,,,,,,local-authority:HUN,Huntingdonshire District Council,local-planning-authority,Local Planning Authority,
+162,,,,,,local-authority:HYN,Hyndburn Borough Council,local-planning-authority,Local Planning Authority,
+163,,,,,,local-authority:IOS,Council of the Isles of Scilly,local-planning-authority,Local Planning Authority,1974-04-01
+164,,,,,,local-authority:IOW,Isle of Wight Council,local-planning-authority,Local Planning Authority,1905-06-17
+165,,,,,,local-authority:IPS,Ipswich Borough Council,local-planning-authority,Local Planning Authority,
+166,,,,,,local-authority:ISL,London Borough of Islington,local-planning-authority,Local Planning Authority,
+167,,,,,,local-authority:KEC,Royal Borough of Kensington and Chelsea,local-planning-authority,Local Planning Authority,
+169,,,,,,local-authority:KHL,Hull City Council,local-planning-authority,Local Planning Authority,1996-04-01
+170,,,,,,local-authority:KIN,Borough Council of King's Lynn and West Norfolk,local-planning-authority,Local Planning Authority,
+171,,,,,,local-authority:KIR,Kirklees Council,local-planning-authority,Local Planning Authority,1974-04-01
+172,,,,,,local-authority:KTT,Royal Borough of Kingston upon Thames,local-planning-authority,Local Planning Authority,
+173,,,,,,local-authority:KWL,Knowsley Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+174,,,,,,local-authority:LAC,Lancaster City Council,local-planning-authority,Local Planning Authority,
+175,,,,,,local-authority:LBH,London Borough of Lambeth,local-planning-authority,Local Planning Authority,
+176,,,,,,local-authority:LCE,Leicester City Council,local-planning-authority,Local Planning Authority,1905-06-19
+177,,,,,,local-authority:LDS,Leeds City Council,local-planning-authority,Local Planning Authority,1905-06-08
+178,,,,,,local-authority:LEE,Lewes District Council,local-planning-authority,Local Planning Authority,
+179,,,,,,local-authority:LEW,London Borough of Lewisham,local-planning-authority,Local Planning Authority,
+180,,,,,,local-authority:LIC,City of Lincoln Council,local-planning-authority,Local Planning Authority,
+181,,,,,,local-authority:LIF,Lichfield District Council,local-planning-authority,Local Planning Authority,
+182,,,,,,local-authority:LIV,Liverpool City Council,local-planning-authority,Local Planning Authority,1905-06-08
+183,,,,,,local-authority:LND,City of London Corporation,local-planning-authority,Local Planning Authority,1905-06-28
+184,,,,,,local-authority:LUT,Luton Borough Council,local-planning-authority,Local Planning Authority,1905-06-19
+185,,,,,,local-authority:MAI,Maidstone Borough Council,local-planning-authority,Local Planning Authority,
+186,,,,,,local-authority:MAL,Maldon District Council,local-planning-authority,Local Planning Authority,
+187,,,,,,local-authority:MAN,Manchester City Council,local-planning-authority,Local Planning Authority,1974-04-01
+188,,,,,,local-authority:MAS,Mansfield District Council,local-planning-authority,Local Planning Authority,
+189,,,,,,local-authority:MAV,Malvern Hills District Council,local-planning-authority,Local Planning Authority,
+190,,,,,,local-authority:MDB,Middlesbrough Borough Council,local-planning-authority,Local Planning Authority,1905-06-18
+191,,,,,,local-authority:MDE,Mid Devon District Council,local-planning-authority,Local Planning Authority,
+192,,,,,,local-authority:MDW,Medway Council,local-planning-authority,Local Planning Authority,1998-04-01
+193,,,,,,local-authority:MEL,Melton Borough Council,local-planning-authority,Local Planning Authority,
+195,,,,,,local-authority:MIK,Milton Keynes City Council,local-planning-authority,Local Planning Authority,1905-06-19
+196,,,,,,local-authority:MOL,Mole Valley District Council,local-planning-authority,Local Planning Authority,
+197,,,,,,local-authority:MRT,London Borough of Merton,local-planning-authority,Local Planning Authority,
+198,,,,,,local-authority:MSS,Mid Sussex District Council,local-planning-authority,Local Planning Authority,1974-04-01
+199,,,,,,local-authority:MSU,Mid Suffolk District Council,local-planning-authority,Local Planning Authority,
+200,,,,,,local-authority:NBL,Northumberland County Council,local-planning-authority,Local Planning Authority,2009-04-01
+201,,,,,,local-authority:NDE,North Devon District Council,local-planning-authority,Local Planning Authority,
+203,,,,,,local-authority:NEA,Newark and Sherwood District Council,local-planning-authority,Local Planning Authority,
+204,,,,,,local-authority:NEC,Newcastle-under-Lyme Borough Council,local-planning-authority,Local Planning Authority,
+205,,,,,,local-authority:NED,North East Derbyshire District Council,local-planning-authority,Local Planning Authority,
+206,,,,,,local-authority:NEL,North East Lincolnshire Council,local-planning-authority,Local Planning Authority,1996-04-01
+207,,,,,,local-authority:NET,Newcastle City Council,local-planning-authority,Local Planning Authority,1974-04-01
+208,,,,,,local-authority:NEW,New Forest District Council,local-planning-authority,Local Planning Authority,
+209,,,,,,local-authority:NGM,Nottingham City Council,local-planning-authority,Local Planning Authority,1905-06-20
+210,,,,,,local-authority:NHE,North Hertfordshire District Council,local-planning-authority,Local Planning Authority,
+211,,,,,,local-authority:NKE,North Kesteven District Council,local-planning-authority,Local Planning Authority,
+212,,,,,,local-authority:NLN,North Lincolnshire Council,local-planning-authority,Local Planning Authority,1996-04-01
+213,,,,,,local-authority:NNO,North Norfolk District Council,local-planning-authority,Local Planning Authority,
+214,,,,,,local-authority:NNUA,North Northamptonshire Council,local-planning-authority,Local Planning Authority,2020-04-01
+216,,,,,,local-authority:NOW,Norwich City Council,local-planning-authority,Local Planning Authority,
+217,,,,,,local-authority:NSM,North Somerset Council,local-planning-authority,Local Planning Authority,1996-04-01
+218,,,,,,local-authority:NTY,North Tyneside Council,local-planning-authority,Local Planning Authority,1974-04-01
+219,,,,,,local-authority:NUN,Nuneaton and Bedworth Borough Council,local-planning-authority,Local Planning Authority,
+220,,,,,,local-authority:NWA,North Warwickshire Borough Council,local-planning-authority,Local Planning Authority,
+221,,,,,,local-authority:NWL,North West Leicestershire District Council,local-planning-authority,Local Planning Authority,
+222,,,,,,local-authority:NWM,London Borough of Newham,local-planning-authority,Local Planning Authority,
+223,,,,,,local-authority:NYUA,North Yorkshire Council,local-planning-authority,Local Planning Authority,2023-04-01
+224,,,,,,local-authority:OAD,Oadby and Wigston Borough Council,local-planning-authority,Local Planning Authority,
+225,,,,,,local-authority:OLD,Oldham Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1905-06-07
+226,,,,,,local-authority:OXO,Oxford City Council,local-planning-authority,Local Planning Authority,
+227,,,,,,local-authority:PEN,Pendle Borough Council,local-planning-authority,Local Planning Authority,
+228,,,,,,local-authority:PLY,Plymouth City Council,local-planning-authority,Local Planning Authority,1998-04-01
+230,,,,,,local-authority:POR,Portsmouth City Council,local-planning-authority,Local Planning Authority,1905-06-20
+231,,,,,,local-authority:PRE,Preston City Council,local-planning-authority,Local Planning Authority,
+232,,,,,,local-authority:PTE,Peterborough City Council,local-planning-authority,Local Planning Authority,1905-06-20
+234,,,,,,local-authority:RCC,Redcar and Cleveland Borough Council,local-planning-authority,Local Planning Authority,1996-04-01
+235,,,,,,local-authority:RCH,Rochdale Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1905-05-27
+236,,,,,,local-authority:RDB,London Borough of Redbridge,local-planning-authority,Local Planning Authority,
+237,,,,,,local-authority:RDG,Reading Borough Council,local-planning-authority,Local Planning Authority,1905-05-27
+238,,,,,,local-authority:RED,Redditch Borough Council,local-planning-authority,Local Planning Authority,
+239,,,,,,local-authority:REI,Reigate and Banstead Borough Council,local-planning-authority,Local Planning Authority,
+240,,,,,,local-authority:RIB,Ribble Valley Borough Council,local-planning-authority,Local Planning Authority,
+241,,,,,,local-authority:RIC,London Borough of Richmond upon Thames,local-planning-authority,Local Planning Authority,
+243,,,,,,local-authority:ROC,Rochford District Council,local-planning-authority,Local Planning Authority,
+244,,,,,,local-authority:ROH,Rother District Council,local-planning-authority,Local Planning Authority,
+245,,,,,,local-authority:ROS,Rossendale Borough Council,local-planning-authority,Local Planning Authority,
+246,,,,,,local-authority:ROT,Rotherham Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1905-05-27
+247,,,,,,local-authority:RUG,Rugby Borough Council,local-planning-authority,Local Planning Authority,
+248,,,,,,local-authority:RUH,Rushmoor Borough Council,local-planning-authority,Local Planning Authority,
+249,,,,,,local-authority:RUN,Runnymede Borough Council,local-planning-authority,Local Planning Authority,
+250,,,,,,local-authority:RUS,Rushcliffe Borough Council,local-planning-authority,Local Planning Authority,
+251,,,,,,local-authority:RUT,Rutland County Council,local-planning-authority,Local Planning Authority,1997-04-01
+253,,,,,,local-authority:SAL,St Albans City and District Council,local-planning-authority,Local Planning Authority,1974-04-01
+254,,,,,,local-authority:SAW,Sandwell Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1905-06-07
+256,,,,,,local-authority:SCA,South Cambridgeshire District Council,local-planning-authority,Local Planning Authority,
+258,,,,,,local-authority:SDE,South Derbyshire District Council,local-planning-authority,Local Planning Authority,
+262,,,,,,local-authority:SEV,Sevenoaks District Council,local-planning-authority,Local Planning Authority,
+263,,,,,,local-authority:SFT,Sefton Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1905-06-08
+264,,,,,,local-authority:SGC,South Gloucestershire Council,local-planning-authority,Local Planning Authority,1905-06-18
+265,,,,,,local-authority:SHA,South Hams District Council,local-planning-authority,Local Planning Authority,
+266,,,,,,local-authority:SHE,Folkestone and Hythe Council,local-planning-authority,Local Planning Authority,
+267,,,,,,local-authority:SHF,Sheffield City Council,local-planning-authority,Local Planning Authority,1905-06-08
+268,,,,,,local-authority:SHN,St Helens Council,local-planning-authority,Local Planning Authority,1905-06-08
+269,,,,,,local-authority:SHO,South Holland District Council,local-planning-authority,Local Planning Authority,
+270,,,,,,local-authority:SHR,Shropshire Council,local-planning-authority,Local Planning Authority,2009-04-01
+271,,,,,,local-authority:SKE,South Kesteven District Council,local-planning-authority,Local Planning Authority,
+272,,,,,,local-authority:SKP,Stockport Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1905-05-27
+274,,,,,,local-authority:SLF,Salford City Council,local-planning-authority,Local Planning Authority,1905-05-27
+275,,,,,,local-authority:SLG,Slough Borough Council,local-planning-authority,Local Planning Authority,1998-04-01
+276,,,,,,local-authority:SND,Sunderland City Council,local-planning-authority,Local Planning Authority,1905-05-27
+277,,,,,,local-authority:SNO,South Norfolk District Council,local-planning-authority,Local Planning Authority,
+279,,,,,,local-authority:SOL,Solihull Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1905-05-27
+280,,,,,,local-authority:SOS,Southend-on-Sea Borough Council,local-planning-authority,Local Planning Authority,1905-06-20
+281,,,,,,local-authority:SOX,South Oxfordshire District Council,local-planning-authority,Local Planning Authority,
+282,,,,,,local-authority:SPE,Spelthorne Borough Council,local-planning-authority,Local Planning Authority,
+283,,,,,,local-authority:SRI,South Ribble Borough Council,local-planning-authority,Local Planning Authority,
+285,,,,,,local-authority:SST,South Staffordshire Council,local-planning-authority,Local Planning Authority,
+286,,,,,,local-authority:STA,Stafford Borough Council,local-planning-authority,Local Planning Authority,
+287,,,,,,local-authority:STE,Stoke-on-Trent City Council,local-planning-authority,Local Planning Authority,1905-06-20
+288,,,,,,local-authority:STF,Staffordshire Moorlands District Council,local-planning-authority,Local Planning Authority,
+289,,,,,,local-authority:STH,Southampton City Council,local-planning-authority,Local Planning Authority,1905-06-19
+290,,,,,,local-authority:STN,London Borough of Sutton,local-planning-authority,Local Planning Authority,
+291,,,,,,local-authority:STO,Stroud District Council,local-planning-authority,Local Planning Authority,
+292,,,,,,local-authority:STR,Stratford-on-Avon District Council,local-planning-authority,Local Planning Authority,
+293,,,,,,local-authority:STT,Stockton-on-Tees Borough Council,local-planning-authority,Local Planning Authority,1905-06-18
+294,,,,,,local-authority:STV,Stevenage Borough Council,local-planning-authority,Local Planning Authority,
+295,,,,,,local-authority:STY,South Tyneside Council,local-planning-authority,Local Planning Authority,1974-04-01
+296,,,,,,local-authority:SUA,Somerset Council,local-planning-authority,Local Planning Authority,2023-04-01
+298,,,,,,local-authority:SUR,Surrey Heath Borough Council,local-planning-authority,Local Planning Authority,
+299,,,,,,local-authority:SWD,Swindon Borough Council,local-planning-authority,Local Planning Authority,1905-06-20
+300,,,,,,local-authority:SWK,London Borough of Southwark,local-planning-authority,Local Planning Authority,
+301,,,,,,local-authority:SWL,Swale Borough Council,local-planning-authority,Local Planning Authority,
+303,,,,,,local-authority:TAM,Tameside Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+304,,,,,,local-authority:TAN,Tandridge District Council,local-planning-authority,Local Planning Authority,
+306,,,,,,local-authority:TAW,Tamworth Borough Council,local-planning-authority,Local Planning Authority,
+307,,,,,,local-authority:TEI,Teignbridge District Council,local-planning-authority,Local Planning Authority,
+308,,,,,,local-authority:TEN,Tendring District Council,local-planning-authority,Local Planning Authority,
+309,,,,,,local-authority:TES,Test Valley Borough Council,local-planning-authority,Local Planning Authority,
+310,,,,,,local-authority:TEW,Tewkesbury Borough Council,local-planning-authority,Local Planning Authority,
+311,,,,,,local-authority:TFW,Telford & Wrekin Council,local-planning-authority,Local Planning Authority,1905-06-20
+312,,,,,,local-authority:THA,Thanet District Council,local-planning-authority,Local Planning Authority,
+313,,,,,,local-authority:THE,Three Rivers District Council,local-planning-authority,Local Planning Authority,1974-04-01
+314,,,,,,local-authority:THR,Thurrock Council,local-planning-authority,Local Planning Authority,1905-06-20
+315,,,,,,local-authority:TOB,Torbay Council,local-planning-authority,Local Planning Authority,1905-06-20
+316,,,,,,local-authority:TON,Tonbridge and Malling Borough Council,local-planning-authority,Local Planning Authority,
+317,,,,,,local-authority:TOR,Torridge District Council,local-planning-authority,Local Planning Authority,
+318,,,,,,local-authority:TRF,Trafford Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+319,,,,,,local-authority:TUN,Tunbridge Wells Borough Council,local-planning-authority,Local Planning Authority,
+320,,,,,,local-authority:TWH,London Borough of Tower Hamlets,local-planning-authority,Local Planning Authority,
+321,,,,,,local-authority:UTT,Uttlesford District Council,local-planning-authority,Local Planning Authority,
+322,,,,,,local-authority:VAL,Vale of White Horse District Council,local-planning-authority,Local Planning Authority,
+323,,,,,,local-authority:WAE,Waverley Borough Council,local-planning-authority,Local Planning Authority,
+324,,,,,,local-authority:WAT,Watford Borough Council,local-planning-authority,Local Planning Authority,
+326,,,,,,local-authority:WAW,Warwick District Council,local-planning-authority,Local Planning Authority,
+327,,,,,,local-authority:WBK,West Berkshire Council,local-planning-authority,Local Planning Authority,1905-06-20
+328,,,,,,local-authority:WDE,West Devon Borough Council,local-planning-authority,Local Planning Authority,
+330,,,,,,local-authority:WEA,Wealden District Council,local-planning-authority,Local Planning Authority,
+332,,,,,,local-authority:WEW,Welwyn Hatfield Borough Council,local-planning-authority,Local Planning Authority,
+334,,,,,,local-authority:WFT,London Borough of Waltham Forest,local-planning-authority,Local Planning Authority,
+335,,,,,,local-authority:WFUA,Westmorland and Furness Council,local-planning-authority,Local Planning Authority,2023-04-01
+336,,,,,,local-authority:WGN,Wigan Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+337,,,,,,local-authority:WIL,Wiltshire Council,local-planning-authority,Local Planning Authority,2009-04-01
+338,,,,,,local-authority:WIN,Winchester City Council,local-planning-authority,Local Planning Authority,
+339,,,,,,local-authority:WKF,Wakefield Metropolitan District Council,local-planning-authority,Local Planning Authority,1974-04-01
+340,,,,,,local-authority:WLA,West Lancashire Borough Council,local-planning-authority,Local Planning Authority,
+341,,,,,,local-authority:WLI,West Lindsey District Council,local-planning-authority,Local Planning Authority,
+342,,,,,,local-authority:WLL,Walsall Metropolitan Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+343,,,,,,local-authority:WLV,City of Wolverhampton Council,local-planning-authority,Local Planning Authority,1974-04-01
+344,,,,,,local-authority:WND,London Borough of Wandsworth,local-planning-authority,Local Planning Authority,
+345,,,,,,local-authority:WNM,Royal Borough of Windsor and Maidenhead,local-planning-authority,Local Planning Authority,1905-06-20
+346,,,,,,local-authority:WNUA,West Northamptonshire Council,local-planning-authority,Local Planning Authority,2020-04-01
+347,,,,,,local-authority:WOC,Worcester City Council,local-planning-authority,Local Planning Authority,
+348,,,,,,local-authority:WOI,Woking Borough Council,local-planning-authority,Local Planning Authority,
+349,,,,,,local-authority:WOK,Wokingham Borough Council,local-planning-authority,Local Planning Authority,1905-06-20
+350,,,,,,local-authority:WOT,Worthing Borough Council,local-planning-authority,Local Planning Authority,1905-06-25
+351,,,,,,local-authority:WOX,West Oxfordshire District Council,local-planning-authority,Local Planning Authority,
+352,,,,,,local-authority:WRL,Wirral Borough Council,local-planning-authority,Local Planning Authority,1974-04-01
+353,,,,,,local-authority:WRT,Warrington Borough Council,local-planning-authority,Local Planning Authority,1905-06-20
+354,,,,,,local-authority:WSK,West Suffolk Council,local-planning-authority,Local Planning Authority,2019-04-01
+355,,,,,,local-authority:WSM,City of Westminster,local-planning-authority,Local Planning Authority,
+357,,,,,,local-authority:WYC,Wychavon District Council,local-planning-authority,Local Planning Authority,
+358,,,,,,local-authority:WYE,Wyre Forest District Council,local-planning-authority,Local Planning Authority,
+360,,,,,,local-authority:WYR,Wyre Borough Council,local-planning-authority,Local Planning Authority,
+361,,,,,,local-authority:YOR,City of York Council,local-planning-authority,Local Planning Authority,1905-06-18
+362,,,,,,national-park-authority:Q20198711,South Downs National Park Authority,local-planning-authority,Local Planning Authority,
+363,,,,,,national-park-authority:Q27159704,Lake District National Park Authority,local-planning-authority,Local Planning Authority,
+364,,,,,,national-park-authority:Q27178932,Yorkshire Dales National Park Authority,local-planning-authority,Local Planning Authority,
+365,,,,,,national-park-authority:Q4972284,Broads Authority,local-planning-authority,Local Planning Authority,1978-01-01
+366,,,,,,national-park-authority:Q5225646,Dartmoor National Park Authority,local-planning-authority,Local Planning Authority,
+367,,,,,,national-park-authority:Q72617158,New Forest National Park Authority,local-planning-authority,Local Planning Authority,
+368,,,,,,national-park-authority:Q72617669,North York Moors National Park Authority,local-planning-authority,Local Planning Authority,
+369,,,,,,national-park-authority:Q72617784,Exmoor National Park Authority,local-planning-authority,Local Planning Authority,
+370,,,,,,national-park-authority:Q72617890,Northumberland National Park Authority,local-planning-authority,Local Planning Authority,
+371,,,,,,national-park-authority:Q72617988,Peak District National Park Authority,local-planning-authority,Local Planning Authority,
