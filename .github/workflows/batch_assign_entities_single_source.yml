@@ -59,6 +59,7 @@ jobs:
       # Run batch entity assignment (non-interactive)
       - name: Run batch entities
         env:
+          PYTHONPATH: ${{ github.workspace }}/src
           DIGITAL_LAND_ASSUME_YES: "1"
           DIGITAL_LAND_NON_INTERACTIVE: "1"
         run: |
