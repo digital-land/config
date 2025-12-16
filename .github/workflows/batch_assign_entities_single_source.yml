@@ -23,7 +23,7 @@ jobs:
       - name: Prepare specification dataset
         run: |
           mkdir -p specification
-          cp specification/content/dataset.csv specification/dataset.csv
+          cp https://raw.githubusercontent.com/digital-land/specification/main/specification/dataset.csv
 
       - name: Set up Python
         uses: actions/setup-python@v5
