@@ -140,28 +140,29 @@ def process_csv(scope):
                 Check if resource hash file already exists in resource_path?
                 """
 
-                print("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
-                path_to_file = resource
-                print (f"file is: {path_to_file}" )
+              # print("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+              # path_to_file = resource
+              #  print (f"file is: {path_to_file}" )
                    
-                path = Path(path_to_file)
-                print (f"Path is: {Path}" )
-                print("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+               # path = Path(path_to_file)
+               # print (f"Path is: {Path}" )
+               # print("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                     
                     
-                if path.is_file():
-                        print(f"Resource  exists in the Path : {resource}")
-                try:
-                    response = requests.get(download_link)
-                    response.raise_for_status()
-                    resource_path.write_bytes(response.content)
-                    print(f"Downloaded: {resource}")
-                except requests.RequestException as e:
-                    print(f"Failed to download: {resource}")
-                    print(f"Error: {e}")
-                    failed_downloads.append((row_number, resource, str(e)))
-                    continue
+                if resource_path.is_file():
+                    print(f"Resource  exists in the Path : {resource}")
                 else:
+                    try:
+                        response = requests.get(download_link)
+                        response.raise_for_status()
+                        resource_path.write_bytes(response.content)
+                        print(f"Downloaded: {resource}")
+                    except requests.RequestException as e:
+                        print(f"Failed to download: {resource}")
+                        print(f"Error: {e}")
+                        failed_downloads.append((row_number, resource, str(e)))
+                    #continue
+
                     print(f"Successfully downloaded resource: {resource}")
                 collection_path = Path(f"collection/{collection_name}")
 
