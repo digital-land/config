@@ -1,1 +1,10 @@
 dataset,entity-minimum,entity-maximum,organisation
+development-corporation-boundary,560001,560003,local-authority:GMCA
+development-corporation-boundary,560004,560004,local-authority:GLA
+development-corporation-boundary,560005,560005,development-corporation:Q124604981
+development-corporation-boundary,560006,560006,development-corporation:Q72456968
+development-corporation-boundary,560007,560007,development-corporation:Q117149370
+development-corporation-boundary,560008,560008,development-corporation:Q115585981
+development-corporation-boundary,560009,560009,development-corporation:Q72463795
+development-corporation-boundary,560010,560010,development-corporation:Q6670544
+development-corporation-boundary,560011,560011,development-corporation:Q20648596
