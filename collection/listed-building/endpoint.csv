@@ -63,7 +63,7 @@ f5b539072135c427d5599292bf2fff6cb7658c9f7dcbf174784a933b217c575c,https://service
 a166aaa131624be30689b7fa5f49214a768c0b190ae92916b1bd7ea30a59f59e,https://www.newforestnpa.gov.uk/app/uploads/2025/02/Listed-Building-Dataset.csv,,,2025-04-30,2025-04-30,2025-05-29
 ff3c20c9755186b32bc942e92462c5c6e4076763da016c83363c2aaa3026bdce,https://dataset-editor.planning.data.gov.uk/dataset/listed-building-grade.csv,,,2025-05-01,2021-11-22,
 f2f6ba1ef1abd09469dd5192b8f8fb6a1362d83436df7ebb05ae937eacec664a,https://haringey.gov.uk/sites/default/files/2025-04/listed_building.csv,,,2025-05-06,2025-04-29,
-8f94660fa9138984b4e2e6a1bf4b72a2ce2c28f427282d157400a281ec9d4f17,https://www.walthamforest.gov.uk/listed-buildings,,,2025-05-28,2025-05-28,
+8f94660fa9138984b4e2e6a1bf4b72a2ce2c28f427282d157400a281ec9d4f17,https://www.walthamforest.gov.uk/listed-buildings,,,2025-05-28,2025-05-28,2025-12-18
 7b13ce8da491b54eb7b267bc632bb1e393177fba079d6fc81847d90ba53be6a3,https://www.newforestnpa.gov.uk/app/uploads/2025/05/Listed-Building-Dataset-.csv,,,2025-05-29,2025-05-27,
 56da082a91b8cb569f1742e010b0ccfa9b308508600564e32a37ae763f1f59b5,https://smbc-opendata.s3.eu-west-1.amazonaws.com/Listed_Buildings_Stockport.csv,,,2025-06-06,2025-06-04,
 8dfc6c57ae80d2a656650e64e9e36b8de1cffb4100dbde28aca0475adb1967bd,https://www.southwark.gov.uk/sites/default/files/2025-06/Listed%20buildings%20outlines.geojson,,,2025-06-17,2025-06-17,
@@ -90,3 +90,4 @@ a8a7d80742c269d8ff76f8f10139ea8dafb49b92c14f6d40ef00cc4c851569b4,https://xmap-hu
 4518033f3d1a97d784f094ac3a096a0852a62032ce1b3784bc56a42ce122749e,https://data.bassetlaw.gov.uk/media/9920/listedbuilding.csv,,,2025-11-27,2025-11-25,2025-12-04
 3da95e36b0c049a66afc06990be03fb14cf070a24ae89fed7903b1c5f5818013,https://www.rossendale.gov.uk/downloads/file/19315/listed-building-outline-dataset,,,2025-12-01,2025-11-28,
 00c428874b04941ce97491ed2db961a1651c00d42f0d79efa2ca7dc70999cb6a,https://data.bassetlaw.gov.uk/media/9941/listed-building.csv,,,2025-12-04,2025-12-01,
+37519cb4a8bc6465d0420eb36f5a17aa13b9bd039ee357ab362bf117e6cad32e,https://walthamforest.statmap.co.uk/map/wfs.svc/External_OpenDigitalPlanning?service=WFS&version=2.0.0&request=GetFeature&typeName=statmap:Listed_Buildings&SRSNAME=EPSG:27700,,,2025-12-18,2025-12-16,
