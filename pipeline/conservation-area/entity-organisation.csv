@@ -1008,8 +1008,6 @@ conservation-area,44012568,44012650,local-authority:SCA
 conservation-area,44012805,44012805,local-authority:SCA
 conservation-area,44002561,44002578,local-authority:SDE
 conservation-area,44005062,44005065,local-authority:SDE
-conservation-area,44005083,44005083,local-authority:SEL
-conservation-area,44006151,44006173,local-authority:SEL
 conservation-area,44010972,44011012,local-authority:SEV
 conservation-area,44000174,44000174,local-authority:SFT
 conservation-area,44014032,44014056,local-authority:SFT
@@ -1210,10 +1208,6 @@ conservation-area,44002308,44002308,local-authority:SWL
 conservation-area,44002311,44002311,local-authority:SWL
 conservation-area,44004188,44004188,local-authority:SWL
 conservation-area,44013221,44013221,local-authority:SWL
-conservation-area,44006985,44007022,local-authority:SWT
-conservation-area,44007039,44007039,local-authority:SWT
-conservation-area,44007099,44007100,local-authority:SWT
-conservation-area,44007129,44007139,local-authority:SWT
 conservation-area,44012222,44012230,local-authority:TAM
 conservation-area,44001839,44001839,local-authority:TAN
 conservation-area,44001885,44001885,local-authority:TAN
@@ -1672,7 +1666,6 @@ conservation-area-document,6303641,6303697,local-authority:AMB
 conservation-area-document,6306689,6306720,local-authority:ARU
 conservation-area-document,6314063,6314106,local-authority:ASF
 conservation-area-document,6302937,6302980,local-authority:ASH
-conservation-area-document,6306806,6306922,local-authority:AYL
 conservation-area-document,6303568,6303594,local-authority:BAB
 conservation-area-document,6302685,6302750,local-authority:BAE
 conservation-area-document,6306721,6306805,local-authority:BAN
@@ -1702,6 +1695,7 @@ conservation-area-document,6303721,6303746,local-authority:BRW
 conservation-area-document,6303783,6303789,local-authority:BRX
 conservation-area-document,6307309,6307402,local-authority:BRY
 conservation-area-document,6300480,6300513,local-authority:BST
+conservation-area-document,6306806,6306922,local-authority:BUC
 conservation-area-document,6307628,6307646,local-authority:BUC
 conservation-area-document,6310771,6310812,local-authority:BUC
 conservation-area-document,6313425,6313502,local-authority:BUC
@@ -1831,7 +1825,7 @@ conservation-area-document,6304859,6304911,local-authority:NYUA
 conservation-area-document,6308677,6308725,local-authority:NYUA
 conservation-area-document,6310813,6310895,local-authority:NYUA
 conservation-area-document,6310896,6310936,local-authority:NYUA
-conservation-area-document,6311172,6311201,local-authority:NYUA
+conservation-area-document,6311124,6311201,local-authority:NYUA
 conservation-area-document,6305384,6305401,local-authority:OAD
 conservation-area-document,6310163,6310198,local-authority:OLD
 conservation-area-document,6310089,6310112,local-authority:OXO
@@ -1861,7 +1855,6 @@ conservation-area-document,6300000,6300044,local-authority:SAL
 conservation-area-document,6313739,6313759,local-authority:SAW
 conservation-area-document,6314530,6314613,local-authority:SCA
 conservation-area-document,6305693,6305714,local-authority:SDE
-conservation-area-document,6311124,6311171,local-authority:SEL
 conservation-area-document,6300758,6300831,local-authority:SEV
 conservation-area-document,6314394,6314467,local-authority:SFT
 conservation-area-document,6313593,6313622,local-authority:SGC
@@ -1893,13 +1886,13 @@ conservation-area-document,6311937,6312088,local-authority:STR
 conservation-area-document,6306022,6306032,local-authority:STT
 conservation-area-document,6306033,6306039,local-authority:STV
 conservation-area-document,6306168,6306178,local-authority:STY
+conservation-area-document,6306055,6306153,local-authority:SUA
 conservation-area-document,6309510,6309512,local-authority:SUA
 conservation-area-document,6311223,6311309,local-authority:SUA
 conservation-area-document,6311782,6311902,local-authority:SUA
 conservation-area-document,6314383,6314393,local-authority:SUR
 conservation-area-document,6311726,6311781,local-authority:SWD
 conservation-area-document,6312159,6312239,local-authority:SWL
-conservation-area-document,6306055,6306153,local-authority:SWT
 conservation-area-document,6301346,6301363,local-authority:TAM
 conservation-area-document,6306154,6306167,local-authority:TAW
 conservation-area-document,6312124,6312158,local-authority:TEI
