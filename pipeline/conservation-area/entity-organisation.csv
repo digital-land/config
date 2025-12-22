@@ -1008,8 +1008,6 @@ conservation-area,44012568,44012650,local-authority:SCA
 conservation-area,44012805,44012805,local-authority:SCA
 conservation-area,44002561,44002578,local-authority:SDE
 conservation-area,44005062,44005065,local-authority:SDE
-conservation-area,44005083,44005083,local-authority:NYUA
-conservation-area,44006151,44006173,local-authority:NYUA
 conservation-area,44010972,44011012,local-authority:SEV
 conservation-area,44000174,44000174,local-authority:SFT
 conservation-area,44014032,44014056,local-authority:SFT
@@ -1210,10 +1208,6 @@ conservation-area,44002308,44002308,local-authority:SWL
 conservation-area,44002311,44002311,local-authority:SWL
 conservation-area,44004188,44004188,local-authority:SWL
 conservation-area,44013221,44013221,local-authority:SWL
-conservation-area,44006985,44007022,local-authority:SUA
-conservation-area,44007039,44007039,local-authority:SUA
-conservation-area,44007099,44007100,local-authority:SUA
-conservation-area,44007129,44007139,local-authority:SUA
 conservation-area,44012222,44012230,local-authority:TAM
 conservation-area,44001839,44001839,local-authority:TAN
 conservation-area,44001885,44001885,local-authority:TAN
@@ -1962,4 +1956,5 @@ conservation-area-document,6313894,6314026,national-park-authority:Q72617158
 conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
+
 
