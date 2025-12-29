@@ -1,6 +1,5 @@
 dataset,entity-minimum,entity-maximum,organisation
 developer-agreement,4600475,4600482,local-authority:ADU
-developer-agreement,4602649,4602659,local-authority:ALL
 developer-agreement,4602118,4602131,local-authority:AMB
 developer-agreement,4600909,4601017,local-authority:ARU
 developer-agreement,4605753,4607202,local-authority:ARU
@@ -9,7 +8,6 @@ developer-agreement,4604873,4604881,local-authority:ASF
 developer-agreement,4609772,4609776,local-authority:ASF
 developer-agreement,4601745,4601804,local-authority:ASH
 developer-agreement,4604938,4605559,local-authority:BAE
-developer-agreement,4600509,4600521,local-authority:BAR
 developer-agreement,4602132,4602142,local-authority:BLA
 developer-agreement,4607203,4607209,local-authority:BLA
 developer-agreement,4601134,4601219,local-authority:BNH
@@ -26,7 +24,6 @@ developer-agreement,4604760,4604761,local-authority:BRM
 developer-agreement,4604763,4604763,local-authority:BRM
 developer-agreement,4603007,4603056,local-authority:BRX
 developer-agreement,4607327,4607566,local-authority:BRX
-developer-agreement,4600630,4600687,local-authority:CAR
 developer-agreement,4602143,4602163,local-authority:CHA
 developer-agreement,4605560,4605577,local-authority:CHA
 developer-agreement,4608716,4608744,local-authority:CHA
@@ -37,6 +34,8 @@ developer-agreement,4608877,4609096,local-authority:CHT
 developer-agreement,4601119,4601133,local-authority:CMA
 developer-agreement,4601082,4601105,local-authority:COL
 developer-agreement,4600110,4600312,local-authority:COV
+developer-agreement,4600630,4600687,local-authority:CUA
+developer-agreement,4602649,4602659,local-authority:CUA
 developer-agreement,4600609,4600629,local-authority:DOV
 developer-agreement,4604772,4604791,local-authority:DOV
 developer-agreement,4608687,4608715,local-authority:DOV
@@ -90,13 +89,10 @@ developer-agreement,4609277,4609765,local-authority:SGC
 developer-agreement,4603057,4603069,local-authority:SHA
 developer-agreement,4608410,4608434,local-authority:SHA
 developer-agreement,4608745,4608767,local-authority:SHA
-developer-agreement,4602720,4602763,local-authority:SLA
-developer-agreement,4608435,4608470,local-authority:SLA
 developer-agreement,4601031,4601052,local-authority:SLF
 developer-agreement,4605623,4605675,local-authority:SLF
 developer-agreement,4602764,4602860,local-authority:SND
 developer-agreement,4608471,4608576,local-authority:SND
-developer-agreement,4602275,4602278,local-authority:SNR
 developer-agreement,4608780,4608851,local-authority:STO
 developer-agreement,4610118,4611468,local-authority:STO
 developer-agreement,4605676,4605752,local-authority:TEW
@@ -110,7 +106,11 @@ developer-agreement,4608591,4608610,local-authority:TUN
 developer-agreement,4601024,4601030,local-authority:WDE
 developer-agreement,4608611,4608623,local-authority:WDE
 developer-agreement,4608768,4608779,local-authority:WDE
+developer-agreement,4600509,4600521,local-authority:WFUA
+developer-agreement,4602720,4602763,local-authority:WFUA
+developer-agreement,4608435,4608470,local-authority:WFUA
 developer-agreement,4601315,4601568,local-authority:WIL
+developer-agreement,4602275,4602278,local-authority:WNUA
 developer-agreement,4601569,4601620,local-authority:WOT
 developer-agreement,4604762,4604762,local-authority:WYC
 developer-agreement,4604766,4604767,local-authority:WYC
@@ -125,7 +125,6 @@ developer-agreement,4608624,4608631,national-park-authority:Q72617669
 developer-agreement,4609766,4609771,national-park-authority:Q72617669
 developer-agreement,4611469,4611483,national-park-authority:Q27178932
 developer-agreement-contribution,4306989,4307010,local-authority:ADU
-developer-agreement-contribution,4304206,4304219,local-authority:ALL
 developer-agreement-contribution,4304333,4304395,local-authority:AMB
 developer-agreement-contribution,4302610,4303041,local-authority:ARU
 developer-agreement-contribution,4316063,4318121,local-authority:ARU
@@ -134,7 +133,6 @@ developer-agreement-contribution,4315407,4315494,local-authority:ASF
 developer-agreement-contribution,4323612,4323710,local-authority:ASF
 developer-agreement-contribution,4303290,4303587,local-authority:ASH
 developer-agreement-contribution,4314787,4315406,local-authority:BAE
-developer-agreement-contribution,4303042,4303055,local-authority:BAR
 developer-agreement-contribution,4305285,4305439,local-authority:BLA
 developer-agreement-contribution,4318122,4318129,local-authority:BLA
 developer-agreement-contribution,4300073,4300211,local-authority:BNH
@@ -147,7 +145,6 @@ developer-agreement-contribution,4303082,4303272,local-authority:BRE
 developer-agreement-contribution,4318193,4318365,local-authority:BRE
 developer-agreement-contribution,4326577,4326974,local-authority:BRE
 developer-agreement-contribution,4304407,4304464,local-authority:BRX
-developer-agreement-contribution,4305230,4305284,local-authority:CAR
 developer-agreement-contribution,4305069,4305082,local-authority:CHA
 developer-agreement-contribution,4315714,4315814,local-authority:CHA
 developer-agreement-contribution,4322587,4322615,local-authority:CHA
@@ -158,6 +155,8 @@ developer-agreement-contribution,4322923,4323611,local-authority:CHT
 developer-agreement-contribution,4303647,4303678,local-authority:CMA
 developer-agreement-contribution,4303273,4303289,local-authority:COL
 developer-agreement-contribution,4307259,4307319,local-authority:COV
+developer-agreement-contribution,4304206,4304219,local-authority:CUA
+developer-agreement-contribution,4305230,4305284,local-authority:CUA
 developer-agreement-contribution,4300000,4300072,local-authority:DOV
 developer-agreement-contribution,4314254,4314527,local-authority:DOV
 developer-agreement-contribution,4322460,4322586,local-authority:DOV
@@ -212,14 +211,11 @@ developer-agreement-contribution,4324453,4326564,local-authority:SGC
 developer-agreement-contribution,4304125,4304137,local-authority:SHA
 developer-agreement-contribution,4321412,4321468,local-authority:SHA
 developer-agreement-contribution,4322616,4322681,local-authority:SHA
-developer-agreement-contribution,4304507,4304553,local-authority:SLA
-developer-agreement-contribution,4321469,4321514,local-authority:SLA
 developer-agreement-contribution,4300276,4300331,local-authority:SLF
 developer-agreement-contribution,4315495,4315635,local-authority:SLF
 developer-agreement-contribution,4321515,4321515,local-authority:SLF
 developer-agreement-contribution,4305984,4306417,local-authority:SND
 developer-agreement-contribution,4321516,4322176,local-authority:SND
-developer-agreement-contribution,4303056,4303081,local-authority:SNR
 developer-agreement-contribution,4322715,4322786,local-authority:STO
 developer-agreement-contribution,4328003,4331303,local-authority:STO
 developer-agreement-contribution,4315928,4316062,local-authority:TEW
@@ -233,7 +229,11 @@ developer-agreement-contribution,4322299,4322419,local-authority:TUN
 developer-agreement-contribution,4304329,4304332,local-authority:WDE
 developer-agreement-contribution,4322420,4322444,local-authority:WDE
 developer-agreement-contribution,4322682,4322711,local-authority:WDE
+developer-agreement-contribution,4303042,4303055,local-authority:WFUA
+developer-agreement-contribution,4304507,4304553,local-authority:WFUA
+developer-agreement-contribution,4321469,4321514,local-authority:WFUA
 developer-agreement-contribution,4303759,4303888,local-authority:WIL
+developer-agreement-contribution,4303056,4303081,local-authority:WNUA
 developer-agreement-contribution,4300212,4300275,local-authority:WOT
 developer-agreement-contribution,4307040,4307239,national-park-authority:Q20198711
 developer-agreement-contribution,4305981,4305981,national-park-authority:Q4972284
@@ -242,7 +242,6 @@ developer-agreement-contribution,4322445,4322459,national-park-authority:Q726176
 developer-agreement-contribution,4326565,4326576,national-park-authority:Q72617669
 developer-agreement-contribution,4331304,4331318,national-park-authority:Q27178932
 developer-agreement-transaction,4405557,4405565,local-authority:ADU
-developer-agreement-transaction,4406209,4406219,local-authority:ALL
 developer-agreement-transaction,4402647,4402709,local-authority:AMB
 developer-agreement-transaction,4406758,4407326,local-authority:ARU
 developer-agreement-transaction,4418718,4419520,local-authority:ARU
@@ -251,7 +250,6 @@ developer-agreement-transaction,4416620,4417219,local-authority:ASF
 developer-agreement-transaction,4425392,4425591,local-authority:ASF
 developer-agreement-transaction,4404861,4405158,local-authority:ASH
 developer-agreement-transaction,4417768,4418286,local-authority:BAE
-developer-agreement-transaction,4404370,4404375,local-authority:BAR
 developer-agreement-transaction,4406220,4406470,local-authority:BLA
 developer-agreement-transaction,4419521,4419608,local-authority:BLA
 developer-agreement-transaction,4400042,4400142,local-authority:BNH
@@ -263,7 +261,6 @@ developer-agreement-transaction,4401532,4401574,local-authority:BRE
 developer-agreement-transaction,4419612,4419701,local-authority:BRE
 developer-agreement-transaction,4429360,4429726,local-authority:BRE
 developer-agreement-transaction,4406059,4406140,local-authority:BRX
-developer-agreement-transaction,4400516,4400548,local-authority:CAR
 developer-agreement-transaction,4404645,4404658,local-authority:CHA
 developer-agreement-transaction,4424805,4424834,local-authority:CHA
 developer-agreement-transaction,4419702,4419902,local-authority:CHR
@@ -272,6 +269,8 @@ developer-agreement-transaction,4419903,4420018,local-authority:CHT
 developer-agreement-transaction,4425110,4425391,local-authority:CHT
 developer-agreement-transaction,4404376,4404510,local-authority:CMA
 developer-agreement-transaction,4407397,4407528,local-authority:COV
+developer-agreement-transaction,4400516,4400548,local-authority:CUA
+developer-agreement-transaction,4406209,4406219,local-authority:CUA
 developer-agreement-transaction,4405882,4405916,local-authority:DOV
 developer-agreement-transaction,4416487,4416619,local-authority:DOV
 developer-agreement-transaction,4424618,4424804,local-authority:DOV
@@ -319,12 +318,9 @@ developer-agreement-transaction,4400595,4400835,local-authority:NTY
 developer-agreement-transaction,4426788,4429339,local-authority:SGC
 developer-agreement-transaction,4402710,4402756,local-authority:SHA
 developer-agreement-transaction,4422350,4422382,local-authority:SHA
-developer-agreement-transaction,4401205,4401308,local-authority:SLA
-developer-agreement-transaction,4422383,4422475,local-authority:SLA
 developer-agreement-transaction,4417289,4417739,local-authority:SLF
 developer-agreement-transaction,4402757,4403465,local-authority:SND
 developer-agreement-transaction,4422476,4424563,local-authority:SND
-developer-agreement-transaction,4404515,4404583,local-authority:SNR
 developer-agreement-transaction,4424838,4424890,local-authority:STO
 developer-agreement-transaction,4430546,4434083,local-authority:STO
 developer-agreement-transaction,4418439,4418717,local-authority:TEW
@@ -338,7 +334,11 @@ developer-agreement-transaction,4424573,4424584,local-authority:TUN
 developer-agreement-transaction,4407327,4407337,local-authority:WDE
 developer-agreement-transaction,4424585,4424608,local-authority:WDE
 developer-agreement-transaction,4424835,4424837,local-authority:WDE
+developer-agreement-transaction,4401205,4401308,local-authority:WFUA
+developer-agreement-transaction,4404370,4404375,local-authority:WFUA
+developer-agreement-transaction,4422383,4422475,local-authority:WFUA
 developer-agreement-transaction,4404246,4404358,local-authority:WIL
+developer-agreement-transaction,4404515,4404583,local-authority:WNUA
 developer-agreement-transaction,4406149,4406208,local-authority:WOT
 developer-agreement-transaction,4405159,4405369,national-park-authority:Q20198711
 developer-agreement-transaction,4401339,4401468,national-park-authority:Q72617158
