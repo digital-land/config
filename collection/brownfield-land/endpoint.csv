@@ -119,7 +119,7 @@ cd11a0daec5ec86adae6f34ee831af06d1a32235466fa32aa6a6949cab17ed88,https://www.cra
 06f5b803a7b11465293da23304c89217103f87054f24838d95bd0e6cf11a0b2c,http://www.cheshireeast.gov.uk/docs/planning/spatial-planning-ldo-pages/brownfield-register/cheshireeast-brownfieldregister-2017-12-31-rev1.csv,,,2018-05-22,2017-12-31,
 ba973a5d5a0e1b75eea7e25cc2328e2fc542f29da9d717ad436aa78e5313bd06,https://www.worcester.gov.uk/documents/10499/8864076/Worcester+City+Council%27s+Brownfield+Land+Register.csv/ca3998dd-73ea-a77d-38df-abd18c162fe4,,,2018-05-22,,2019-12-10
 3af97effd69f3f6c09be41d35c5e92ce45c016de0a0896b193e6d57132e98481,https://www.ealing.gov.uk/download/downloads/id/12723/ealings_brownfield_land_register_version_1.csv,,,2018-05-22,,
-41c6f5b8827fbd4a23949e9a354c5d527b14b978734e7af3c858ae9df840719d,https://www.birmingham.gov.uk/download/downloads/id/9037/brownfield_register.csv,,,2018-05-22,2018-01-30,
+41c6f5b8827fbd4a23949e9a354c5d527b14b978734e7af3c858ae9df840719d,https://www.birmingham.gov.uk/download/downloads/id/9037/brownfield_register.csv,,,2018-05-22,2018-01-30,2025-12-30
 3a458f58528d13af08cc342933943fd04cee1cc2a437a2140bcb612898243188,https://www.broadland.gov.uk/download/downloads/id/3836/broadland_brownfield_sites_register.csv,,,2018-05-22,,2019-12-11
 4e64ce2b041bf35fd0368226ff323579ec85b031e8adb6356bbcf364d339f2ed,http://www.testvalley.gov.uk/assets/attach/5653/Test%20Valley%20Borough%20Council%20Brownfield%20Register.csv,,,2018-05-22,,2023-09-05
 3113804a57d33834a8252682098ed73645ba392530a6e795db17fee93c912224,http://www.wealden.gov.uk/nmsruntime/saveasdialog.aspx?lID=23503&sID=6536,,,2018-05-22,,2019-11-01
@@ -1072,7 +1072,6 @@ c78c84a3bde8a5ea9bad3faa9e9a1146679975a454eb84710eb45626547f6ab9,https://www.bar
 c618cc6e158b44a78bcab28f07508182b8af75e818e075ac1f4ec50dd6e6c5f1,https://blackburn-darwen.org.uk/wp-content/uploads/brownfield-land.csv,,,2023-07-04T07:07:29:38Z,,
 2d4bee3ace07e537a3dc44610fd48fed3c629f69b70ff4b04cd345fc3695a460,https://legacy.brent.gov.uk/media/16420302/brownfield-land-register-2022.xlsx?_ga=2.202054929.1277631222.1684239394-1206133772.1684239394,,,2023-07-04T07:07:30:27Z,,
 06aee45c3ecbb755ddf3a2184a3858308163456238d88eafd4c97562f7314cde,https://www.bexley.gov.uk/sites/default/files/2020-12/bexley-brownfield-register-2020-03-31-rev4.csv,,,2023-07-04T07:07:30:47Z,,
-41c6f5b8827fbd4a23949e9a354c5d527b14b978734e7af3c858ae9df840719d,https://www.birmingham.gov.uk/download/downloads/id/9037/brownfield_register.csv,,,2023-07-04T07:07:31:10Z,,
 d356abab0a6be7608ca62b57c8898444c2ec79498c98caac83cfe90a8b55d272,https://www.buckinghamshire.gov.uk/documents/20675/Buckinghamshire_Brownfield_Register_2022.csv,,,2023-07-04T07:07:31:51Z,,
 6b00487d6258bffd58dc54266fbc8d2426b4b5551e5ceb702ca5018b61e525e8,https://www.blaby.gov.uk/media/1757/brownfield-land.csv,,,2023-07-04T07:07:32:26Z,,2025-03-27
 ea98ea4d156ee47ff09af98d96d09951395b58e66d8b5fff55f50e3a537ff753,"https://www.adur-worthing.gov.uk/media/Media,146509,smxx.csv",,,2023-07-06T11:11:52:52Z,2023-07-06,
@@ -1567,4 +1566,5 @@ a50f5a0a364b981e3f618eaee67cec9f71975576a0ffb94810fc69abe6803159,https://volunte
 c39540c6e924b2ed252e78fa6d67a097c145b87530ba3fc36fe6565afe45c406,https://www.erewash.gov.uk/sites/default/files/2025-12/Brownfield%20Land%20Register%202025.csv,,,2025-12-18,2025-12-18,
 809e05cfeb1a89c5b13122764e92492cd8d23b63edf808337d4fc63be69e4d7c,https://www.westberks.gov.uk/media/60822/Brownfield-Land-Register-Part-1-2025-update/csv/2025_Part_1_Brownfield_Land_Register_updated_as_at_December_2025.csv?m=1765903632437,,,2025-12-19,2025-12-18,
 4446591be5d23aa9688136a0c751292e0016be7e83e96e051df66872233a198d,https://planningpolicy.cheshirewestandchester.gov.uk/document/712,,,2025-12-19,2025-12-18,
+
 
