@@ -1069,6 +1069,7 @@ brownfield-land,1728597,1728598,local-authority:NUN
 brownfield-land,1734664,1734664,local-authority:NUN
 brownfield-land,1735148,1735181,local-authority:NUN
 brownfield-land,1735183,1735208,local-authority:NUN
+brownfield-land,1741191,1741262,local-authority:NUN
 brownfield-land,1716661,1716696,local-authority:NWA
 brownfield-land,1737709,1737709,local-authority:NWA
 brownfield-land,1701685,1701702,local-authority:NWL
@@ -1716,4 +1717,3 @@ brownfield-land,1721369,1721369,national-park-authority:Q72617890
 brownfield-land,1722291,1722294,national-park-authority:Q72617988
 ownership-status,10900000,10900003,government-organisation:D1342
 planning-permission-type,11900000,10900006,government-organisation:D1342
-brownfield-land,1741191,1741262,local-authority:NUN
