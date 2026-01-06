@@ -11,3 +11,7 @@ assignees: ''
 Jira Ticket: 
 
 Make sure the JIRA ticket is resolved once endpoint has been added successfully
+
+- [ ] Config files updated (endpoint.csv, source.csv, lookup.csv, entity-org.csv)
+- [ ] String/plugin required? WFS etc
+- [ ] Retire old endpoint required? (ODP datasets only!)
