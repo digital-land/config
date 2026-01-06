@@ -81,6 +81,7 @@ developer-agreement,4600589,4600608,local-authority:NEA
 developer-agreement,4608375,4608409,local-authority:NEA
 developer-agreement,4600000,4600016,local-authority:NFK
 developer-agreement,4600037,4600109,local-authority:NFK
+developer-agreement,4611484,4611491,local-authority:NHE
 developer-agreement,4601220,4601314,local-authority:NLN
 developer-agreement,4604792,4604846,local-authority:NLN
 developer-agreement,4608854,4608859,local-authority:NLN
@@ -202,6 +203,7 @@ developer-agreement-contribution,4307031,4307039,local-authority:NEA
 developer-agreement-contribution,4321378,4321411,local-authority:NEA
 developer-agreement-contribution,4314007,4314211,local-authority:NEW
 developer-agreement-contribution,4303679,4303758,local-authority:NFK
+developer-agreement-contribution,4331319,4331349,local-authority:NHE
 developer-agreement-contribution,4302237,4302515,local-authority:NLN
 developer-agreement-contribution,4314543,4314776,local-authority:NLN
 developer-agreement-contribution,4322712,4322714,local-authority:NLN
@@ -311,6 +313,7 @@ developer-agreement-transaction,4404659,4404860,local-authority:NEA
 developer-agreement-transaction,4422225,4422349,local-authority:NEA
 developer-agreement-transaction,4415906,4416121,local-authority:NEW
 developer-agreement-transaction,4401575,4401833,local-authority:NFK
+developer-agreement-transaction,4434085,4434254,local-authority:NHE
 developer-agreement-transaction,4407338,4407395,local-authority:NLN
 developer-agreement-transaction,4416194,4416285,local-authority:NLN
 developer-agreement-transaction,4424908,4424944,local-authority:NLN
