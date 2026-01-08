@@ -22,7 +22,6 @@ infrastructure-funding-statement,,,,local-authority:ALL,16fa70abec2eb985141ed00f
 infrastructure-funding-statement,,,,local-authority:HAA,185739feb057a64f4eb1d67d517fa0a4cd536bb8193443571cec9831fbb60e73,8100020,,,
 infrastructure-funding-statement,,,,local-authority:DNC,18cd32c8a0a3769fd005819320145d71fda95f4ce7fec230494b2f4f55bbfaa7,8100021,,,
 infrastructure-funding-statement,,,,local-authority:LDS,1a12a30f86f0eca7344d939a52d94728dc47a7bdefec0e63112cf9167cea7dc8,8100022,,,
-infrastructure-funding-statement,,,,government-organisation:D4,1b70255ed4436e67e6c7a805c58eeaa1d941ce5cbb1a52ba3ce6dcd3d5ea6481,8100023,,,
 infrastructure-funding-statement,,,,local-authority:CHS,1cec396c0ea7a162dc7d3ab591112b2de0a370355d362bfeca481db9549dc673,8100024,,,
 infrastructure-funding-statement,,,,local-authority:KIN,1f1cd2dba43c064b5e3ebae59e2e0119545f2e873030079b6a2098c41d5a78cb,8100025,,,
 infrastructure-funding-statement,,,,local-authority:BNH,20263be3973e460fe07eb1f9d7f963dba8954cf8528954b647681ba01c39f5c7,8100026,,,
@@ -197,3 +196,7 @@ infrastructure-funding-statement,,,,local-authority:CHR,fd10411ca1265ebfaa179d3b
 infrastructure-funding-statement,,,,local-authority:HIL,fdfc2251542931a81591d966323552bf19dd36d01de289ebb3a7c704a870b94a,8100195,,,
 infrastructure-funding-statement,,,,local-authority:HER,ffc092b516f472b16145decf240675a3199df30d9629b5f324ae2f5fe902ff9f,8100196,,,
 infrastructure-funding-statement,,,,local-authority:KIN,d1456fe4a701b9b70f5e094141285eb43c8436c177934da091f4d22670f04a61,8100197,,,
+infrastructure-funding-statement,,,,local-authority:SUA,somerset-council-IFS-2024-25,8100198,,,
+infrastructure-funding-statement,,,,local-authority:BRM,bromsgrove-council-IFS-2024-25,8100199,,,
+infrastructure-funding-statement,,,,local-authority:RED,redditch-council-IFS-2024-25,8100200,,,
+

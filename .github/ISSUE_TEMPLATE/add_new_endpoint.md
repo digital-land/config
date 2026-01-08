@@ -11,3 +11,8 @@ assignees: ''
 Jira Ticket: 
 
 Make sure the JIRA ticket is resolved once endpoint has been added successfully
+
+- [ ]Update entity-organisation.csv for all datasets except conservation-area
+- [ ]Update entity-organisation.csv for conservation-area after deduplication
+- [ ]String/plugin required? WFS, ArcGIS etc
+- [ ] Retire old endpoint required? (ODP datasets only!)
