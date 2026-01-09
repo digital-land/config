@@ -1,6 +1,7 @@
 dataset,entity-minimum,entity-maximum,organisation
 local-plan,4220000,4220151,government-organisation:D1342
 local-plan-boundary,4211000,4211062,government-organisation:D1342
+local-plan-boundary,4211087,4211363,government-organisation:D1342
 local-plan-document,3800000,3800396,government-organisation:D1342
 local-plan-timetable,4230000,4230528,government-organisation:D1342
 local-plan-timetable,4230595,4230595,local-authority:ADU
