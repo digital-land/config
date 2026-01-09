@@ -176,3 +176,5 @@ da64f72f166ca868820912083c8676ac22b3cb1345050b9d8ad9bf9bab5ffe5b,https://haringe
 dd146c9d9a592f82e791748afd15f02f6182c3dc347724ee6e0e00f0cb893213,https://www.arcgis.com/sharing/rest/content/items/1111e4dba4244b8caf539dc6844da9f0/data,,,2025-12-09,2025-12-09,
 2acde7e65ae26502b774b5c8a7785a4dcc2b96f9130908031ed37e45c3f8acc4,https://maps.3csharedservices.org/arcgis/rest/services/GCSP/GCSPArticle4Directions_OpenData/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-12-29,2025-12-19,
 22315c9b87efad5eb741898c47dc22eba4cfd3fede17768d95c73f772bd5f9bf,https://walthamforest.statmap.co.uk/map/wfs.svc/External_OpenDigitalPlanning?service=WFS&version=2.0.0&request=GetFeature&typeName=statmap:Article_4_Directions&SRSNAME=EPSG:27700,,,2025-12-29,2025-12-23,
+9f899dd5fa38241e35df60c98fe585e822bf149c4ad966ab55ec508cf5e5a7a8,https://www.stoke.gov.uk/download/downloads/id/2909/article_4_direction_csv_file.csv,,,2026-01-08,2026-01-06,
+6b6341828a9c4e8e34295873a6e8885b391ce7a52d286e31b89a5a1a5dd8ee09,https://www.stoke.gov.uk/download/downloads/id/2907/article_4_direction_geojson_file.json,,,2026-01-08,2026-01-06,
