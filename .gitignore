@@ -40,3 +40,7 @@ performance/
 # ignore specific files
 pipeline/title-boundary/lookup.csv
 /*.csv
+
+
+# ignore batch resource porcessing
+resource/
