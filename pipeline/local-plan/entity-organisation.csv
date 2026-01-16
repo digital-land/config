@@ -300,6 +300,7 @@ local-plan-document,3800397,3800405,local-authority:BNE
 local-plan-document,3800406,3800417,local-authority:BDG
 local-plan-document,3800418,3800418,local-planning-group:BAB-MSU
 local-plan-document,3800419,3800432,local-authority:ADU
+local-plan-document-type,5280000,5280015,government-organisation:D1342
 local-plan-event,2950000,2950021,government-organisation:D1342
 local-plan-housing,1100000,1100000,local-authority:ARU
 local-plan-housing,1100001,1100001,local-authority:BNE
