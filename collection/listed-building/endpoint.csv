@@ -91,3 +91,5 @@ a8a7d80742c269d8ff76f8f10139ea8dafb49b92c14f6d40ef00cc4c851569b4,https://xmap-hu
 3da95e36b0c049a66afc06990be03fb14cf070a24ae89fed7903b1c5f5818013,https://www.rossendale.gov.uk/downloads/file/19315/listed-building-outline-dataset,,,2025-12-01,2025-11-28,
 00c428874b04941ce97491ed2db961a1651c00d42f0d79efa2ca7dc70999cb6a,https://data.bassetlaw.gov.uk/media/9941/listed-building.csv,,,2025-12-04,2025-12-01,
 37519cb4a8bc6465d0420eb36f5a17aa13b9bd039ee357ab362bf117e6cad32e,https://walthamforest.statmap.co.uk/map/wfs.svc/External_OpenDigitalPlanning?service=WFS&version=2.0.0&request=GetFeature&typeName=statmap:Listed_Buildings&SRSNAME=EPSG:27700,,,2025-12-18,2025-12-16,
+01bc94541fb93073696b49e74461b0b7b97c15843b7358e8435f529c6c7d2924,https://www.stoke.gov.uk/download/downloads/id/2911/listed_building_dataset.json,,,2026-01-16,2026-01-06,
+19cd2f6424a6135f988018015860bfc89d9652463580ae887a3180152908f18f,https://lewisham.gov.uk/-/media/services/planning/conservation/listed-buildings/listed_buildings.csv,,,2026-01-16,2026-01-16,
