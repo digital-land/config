@@ -39,7 +39,7 @@ c2aa5fe7f3050a4a2b4f5114bed6e5d6b4b492297e4d7e19bc760e11210231b6,https://inspire
 5004df3c9fc27706191d116c528a6e4c114f1bffb5b1ad92848946cd81844548,http://maps.durham.gov.uk/inspire/GML/GB-DHM-147.gml,,,2020-09-06T11:53:13Z,2020-10-01,
 64a4cd872a5044d008ca4c1afcb391eb08b32f604f73e21fb5e704bf196a41c1,https://www.rbkc.gov.uk/arcgis/services//LBHF/INSPIRE/MapServer/WFSServer?request=GetFeature&service=WFS&TypeName=Conservation_Areas,,wfs,2020-09-06T10:40:41Z,2020-10-01,
 68c91b80f9c894423201b4d90c171d5cc0479ef2e0cc7630e0a4c85df56a8688,http://geowessex.astuntechnology.com/getows.ashx?mapsource=GeoWessex/northdorset&TypeName=conservation_areas&version=1.1.0&request=GetFeature&service=WFS,,wfs,2020-09-06T08:57:14Z,2020-10-01,2024-09-05
-c89258d2677ecee8125a4258ebc3d7cc794d21bd626a33c5ef05312e5e92ce29,http://data.cyc.opendata.arcgis.com/datasets/3282e030bf2b4768a05984de8d3a9204_2.geojson,,,2020-09-06T12:05:52Z,2020-10-01,2022-05-01
+c89258d2677ecee8125a4258ebc3d7cc794d21bd626a33c5ef05312e5e92ce29,http://data.cyc.opendata.arcgis.com/datasets/3282e030bf2b4768a05984de8d3a9204_2.geojson,,,2020-09-06T12:05:52Z,2020-10-01,2026-01-16
 5d141ba07b62c506302430c5ceaa4468c8579538752f7f261ab10fb229f8c4df,http://maps.kettering.gov.uk/inspirewfs/wfs.impl?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=KBC:Conservation_Areas&TYPENAME=KBC:Conservation_Areas,,wfs,2020-09-06T16:17:16Z,2020-10-01,2024-09-05
 b9613a49ae549aefc90774f71cda0c99c11814f5d3b7c5da6ade6b2893b277b6,http://kgeo.knowsley.gov.uk:8080/geoserver/Inspire/wfs?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAME=Inspire:inspire_conservationarea,,wfs,2020-09-07T08:04:22Z,2020-10-01,2024-09-05
 3e7bcbc7b099c29cf896423408043fdbd7e74e3a590fd41cec2bef02cbf65b71,https://opendata.camden.gov.uk/api/geospatial/hcxu-iumk?method=export&format=KML,,,2020-09-12T18:13:42Z,2020-10-01,2022-09-27
@@ -730,3 +730,5 @@ ff0ec4133dd341ca1d7697965a38df29406ce3e1a34d39137c7d3f1e062d5fe3,https://data.ba
 f4389b8a05f29fffc5ecc37e4902be2fb6fa7e917b288ec85462f2edbb04e35b,https://www.stoke.gov.uk/download/downloads/id/2908/conservation_areas_geojson_file.json,,,2026-01-08,2026-01-06,
 0ba04bef23f7c049c813b49260d8901b88c395d9ae7a4ffb4e65584fbb4f0904,https://www.westoxon.gov.uk/media/mewfrtz2/wodc-conservation-area-documents.csv,,,2026-01-12,2026-01-09,
 045e888fce333e150d15d88102d430f9f5a0e64e0a3a386a9de6119370e43805,https://www.stoke.gov.uk/download/downloads/id/2910/conservation_areas_csv_file.csv,,,2026-01-12,2026-01-06,
+3411c9124fd44226a480ccc1185d6751493900e4661d35ee05a22cb87fee6b5e,https://opendata.arcgis.com/datasets/3282e030bf2b4768a05984de8d3a9204_47.geojson,,,2026-01-16,2026-01-12,
+adbaf79263b5f53a6fec33ae25067bbf1bdc2f5a8e90db7848f07076fc62a40d,https://www.coventry.gov.uk/downloads/file/46325/conservation-area,,,2026-01-16,2026-01-14,
