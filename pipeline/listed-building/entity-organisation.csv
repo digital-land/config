@@ -2,6 +2,7 @@ dataset,entity-minimum,entity-maximum,organisation
 listed-building,31864000,31864062,government-organisation:PB1164
 listed-building,31860570,31861455,local-authority:SWK
 listed-building,31858679,31860569,local-authority:WBK
+listed-building-outline,42189480,42189596,local-authority:ADU
 listed-building-outline,42136638,42139047,local-authority:ASF
 listed-building-outline,42187510,42188625,local-authority:BAE
 listed-building-outline,42120505,42120552,local-authority:BDG
@@ -247,6 +248,7 @@ listed-building-outline,42128852,42128853,local-authority:WBK
 listed-building-outline,42146764,42146765,local-authority:WBK
 listed-building-outline,42158615,42158730,local-authority:WFT
 listed-building-outline,42172682,42172726,local-authority:WFT
+listed-building-outline,42189597,42189813,local-authority:WOT
 listed-building-outline,42139053,42140877,local-authority:WRL
 listed-building-outline,42150200,42150201,local-authority:WRL
 listed-building-outline,42164635,42168089,local-authority:WSM
