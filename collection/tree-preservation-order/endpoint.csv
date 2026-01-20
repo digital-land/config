@@ -153,8 +153,8 @@ f85e9ca1ebb8188188bd454f47cd9c0dcc2311dfba32bd91164619e5fd9d4a4f,https://www.sef
 3af43fa41e5aafa60dd727a0f1f107f9ffe3253abe3bebdec319d90bf5ebd2a0,https://www.sefton.gov.uk/media/xl5e2uyt/odptreepoints.csv,,,2025-09-24,2025-09-23,
 009039e25e90c730f5b5d429b0bfb5da8be452c009992c702d14362ea8b2053d,https://liverpool.gov.uk/media/znjpzku0/tpo-groups.csv,,,2025-09-24,2025-09-23,
 381e46f1261f1edd7d67238973f01c8021cf675f65f493fd7dacc12df9632a2d,https://geoserver.leicester.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3AODP_TREE_PRESERVATION_ZONE&outputFormat=application%2Fjson,,,2025-09-29,2025-09-26,
-e1a8ddd5c0318a2a685430ece7c5e08ea45bb4ed974734e94e4ed062d1f357f5,https://www.walthamforest.gov.uk/Waltham_Forest_TPO_Polygons,,,2025-09-29,2025-09-25,
-4ac87bfbd29d3fd8d52297c65a5385ae867e1e15ba7ed629217ff3013aeb5c28,https://www.walthamforest.gov.uk/Waltham_Forest_TPO_Points,,,2025-09-29,2025-09-25,
+e1a8ddd5c0318a2a685430ece7c5e08ea45bb4ed974734e94e4ed062d1f357f5,https://www.walthamforest.gov.uk/Waltham_Forest_TPO_Polygons,,,2025-09-29,2025-09-25,2026-01-20
+4ac87bfbd29d3fd8d52297c65a5385ae867e1e15ba7ed629217ff3013aeb5c28,https://www.walthamforest.gov.uk/Waltham_Forest_TPO_Points,,,2025-09-29,2025-09-25,2026-01-20
 c8879bbc91846cece3a730bb382f4b08de507d496c3e937b2ad694ae663cd06e,https://www.salford.gov.uk/media/newaf4uc/tree-preservation-order-dataset.csv,,,2025-10-06,2025-09-30,2025-12-05
 236e026d5a3ddde23fe12020816b54f2ba62d38d6ef0455e096c927df7addeda,https://services-eu1.arcgis.com/kkZ3q6EOlzIRG0yO/arcgis/rest/services/ENV_TPO_Tree_Preservation_Zone_Public/FeatureServer/0/,,arcgis,2025-10-08,2025-10-08,
 8171edd1c90c4a4ac2d209832e674d681859d5f341b7893309dd8fabed97e393,https://services-eu1.arcgis.com/kkZ3q6EOlzIRG0yO/arcgis/rest/services/ENV_TPO_Tree_Public/FeatureServer/0/,,arcgis,2025-10-08,2025-10-08,
@@ -172,3 +172,5 @@ cae64c5003f4e890b68ac112eefb44ec823b4b987bd7abfc0a0b846296a94b1e,https://mapsdat
 fac1eb5008234c6dfb09cba6a3b15c9599946affcc09f0f43fb8f64124938575,https://www.arcgis.com/sharing/rest/content/items/9fe50747b96e4316b28d16461d0a27e6/data,,,2025-12-02,2025-12-01,
 9882b248957415f892d65e8ec1cf99f9f4e74f9211809917eeebff075903492c,https://maps.3csharedservices.org/arcgis/rest/services/GCSP/GCSPTPOs_OpenData/MapServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-12-05,2025-11-28,
 e9b9d398af10261b8dd82ba0ae18ee038e171e80ffeb3e3205cb7a6f07576856,https://www.arcgis.com/sharing/rest/content/items/09a1e18c9c134008a1b4ca00309aff6c/data,,,2025-12-05,2025-11-27,
+c18514d51a4072b1fa0eceb0e390e65555bfcc93135b37c0b367d45bac3a5ae3,https://walthamforest.statmap.co.uk/map/wfs.svc/External_OpenDigitalPlanning?service=WFS&version=2.0.0&request=GetFeature&typeName=statmap:TPOPolygons&SRSNAME=EPSG:27700,,,2026-01-20,2026-01-15,
+88e9e4aebf3e09b64430391fa2cf486c8a502765b9e96f790633e64baa4f40d9,https://walthamforest.statmap.co.uk/map/wfs.svc/External_OpenDigitalPlanning?service=WFS&version=2.0.0&request=GetFeature&typeName=statmap:TPOPoints&SRSNAME=EPSG:27700,,,2026-01-20,2026-01-20,
