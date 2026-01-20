@@ -2807,5 +2807,4 @@ old-entity,status,entity,end-date,notes,entry-date,start-date
 44006270,301,44014430,,redirect HE duplicate entity to STE,2026-01-13,
 44006271,301,44014441,,redirect HE duplicate entity to STE,2026-01-13,
 44006272,301,44014427,,redirect HE duplicate entity to STE,2026-01-13,
-
-
+44012481,410,,,Removal of incorrect HE entity with 0 reference,2026-01-20

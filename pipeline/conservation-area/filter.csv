@@ -2,4 +2,6 @@ dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-d
 conservation-area,,6cc963eed60a955c0012a61481010d5cc0fbfb595e5d0670c09756540f22cf4d,,,name,(?!No data available for publication by HE),,
 conservation-area,,d027bc3baf8f1bdf299797a1c368c1144fd19cf431e30214baa5f92e1f6ab5c6,,,name,(?!No data available for publication by HE),,
 conservation-area,,e80d93bfad63dea0f692c2889a26c285458f6456014811be525693f59f76d266,,,name,(?!No data available for publication by HE),,
+conservation-area,,64af8ec220eff244a57b2e9a9f08af968bed8575dd4c7fe9882e4108f3bc2b02,,,name,(?!No data available for publication by HE),,
 conservation-area,,7cb1692a54e5a767247f2539cc65d2f02c0d0e47f81aef5d67db0363709a99b5,,,notes,Conservation Area,,
+conservation-area,,64af8ec220eff244a57b2e9a9f08af968bed8575dd4c7fe9882e4108f3bc2b02,,,reference,^(?!0$).+,,
