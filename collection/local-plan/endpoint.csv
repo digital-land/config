@@ -4,7 +4,7 @@ endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
 291304123a698c9e4ba674a1ee21611827b08b0d9c6a52eae58a1ba2146d49e4,https://raw.githubusercontent.com/digital-land/local-plans-explorer/refs/heads/main/data/export/local-plan-document.csv,,,2024-10-15,,
 a2e53a9581245c3e83bb3294c71bbe1741691056afc99f6265252a6ec363c982,https://dluhc-datasets.planning-data.dev/dataset/local-plan-event.csv,,,2024-10-29,,2025-02-26
 306b632d1b2cb712fccdbb5b7b39ec978fd9a5c0f3df4b8a54ce946b3b6b30bd,https://dluhc-datasets.planning-data.dev/dataset/local-plan-document-type.csv,,,2024-10-29,,2025-02-26
-6c806302524eebcbfc9c34f89adf97ffcc75c66f53b08d79a8e3f2c685075148,https://raw.githubusercontent.com/digital-land/local-plans-explorer/refs/heads/main/data/export/local-plan-timetable.csv,,,2024-11-12,,
+6c806302524eebcbfc9c34f89adf97ffcc75c66f53b08d79a8e3f2c685075148,https://raw.githubusercontent.com/digital-land/local-plans-explorer/refs/heads/main/data/export/local-plan-timetable.csv,,,2024-11-12,,2026-01-22
 e54f0daef3a45e9cde25f9c0758cd95ad1d34e8a05a33060201e9e7aa04e9e01,https://dataset-editor.development.planning.data.gov.uk/dataset/local-plan-event.csv,,,2025-02-26,2025-02-26,2025-05-01
 741ca0d214de4a35f76b9bf833c11c6e93c7698b9e2c7a09e6f31cdd37bb3066,https://dataset-editor.development.planning.data.gov.uk/dataset/local-plan-document-type.csv,,,2025-02-26,2025-02-26,2025-05-01
 9973e869654370d5759e14e5a200727b1e980cc54ff7e3c49713d8e2c671d679,https://dataset-editor.planning.data.gov.uk/dataset/document-type.csv,,,2025-05-01,2025-02-26,2025-07-08
@@ -15,3 +15,4 @@ d6e639cca40cae931f6cae5ec5db1e3642a4048126a29af2777513b347e6e9d1,https://raw.git
 bd4ab171614b55994f2c1508279511ebe03a6ab773f3b4a326d107037d8f329f,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/local-plan-housing.csv,,,2025-12-19,2025-12-18,
 e382354decf3c559c6955aa2a943d930c1ebf7135bc7abff5105d002ab6f19b0,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/local-planning-group-boundary.csv,,,2025-12-29,2025-12-29,2026-01-09
 61a41e60d3a8bfa03c2a457911cd04258a8c23097545f4d540f041334cfd260d,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/local-plan-boundary.csv,,,2026-01-09,2026-01-09,
+a3eeea309518c84d560c2583374888cb90173672530877009d31de26589623dd,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/local-plan-timetable.csv,,,2026-01-22,2026-01-22,
