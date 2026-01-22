@@ -180,3 +180,8 @@ dd146c9d9a592f82e791748afd15f02f6182c3dc347724ee6e0e00f0cb893213,https://www.arc
 6b6341828a9c4e8e34295873a6e8885b391ce7a52d286e31b89a5a1a5dd8ee09,https://www.stoke.gov.uk/download/downloads/id/2907/article_4_direction_geojson_file.json,,,2026-01-08,2026-01-06,
 5a762b7a74f89910bb2f3afabf06410827b52428f21a592b758dc5efdb3ea50b,https://services5.arcgis.com/z8GJkxrWic0alJoM/arcgis/rest/services/WODC_Article_4_Directions/FeatureServer/10,,arcgis,2026-01-16,2026-01-14,
 42131d84543ad864ed9d306eedf3efa33003302d7c4398b193e22adb731863a1,https://www.westoxon.gov.uk/media/vgtiuf5r/wodc-article-4.csv,,,2026-01-19,2026-01-15,
+b80488cc0792c31d78f9597875abaa548691bec3f4961de94775437b1cc611b7,https://www.kingston.gov.uk/sites/default/files/2026-01/RBK%20Article%204%20Direction%20-%20Sheet1.csv,,,2026-01-22,2026-01-20,
+fcc00cdd82fa5a5d042e40a49da6826f1cbb026d9fd03c10825658247817a620,https://adur-worthing.statmap.co.uk/map/webservice.svc/query?script=%5cAurora%5cOpen+Digital+Web+Service%5cOpen+Digital+Planning.AuroraScript%24&taskId=WorthingArticle4sDocs,,,2026-01-22,2026-01-22,
+e5c89f829f8a759fa60df01a40adcf8a2535794040474c40ff4e74b1ac5f0e2d,https://adur-worthing.statmap.co.uk/map/webservice.svc/query?script=%5cAurora%5cOpen+Digital+Web+Service%5cOpen+Digital+Planning.AuroraScript%24&taskId=AdurArticle4sDocs,,,2026-01-22,2026-01-22,
+b03a22ccc8e1b3e98f81fd528407b79a18fe72b786e37cb29d9a382f770df370,https://smbc-opendata.s3.eu-west-1.amazonaws.com/Article4/Article4_Dataset_Stockport.csv,,,2026-01-22,2026-01-22,
+2dcc4e59bfa98a3a85079e9200d23716fe5d654e145298a3c3c2f89005160030,https://smbc-opendata.s3.eu-west-1.amazonaws.com/Article4/Article4_Areas_Stockport.csv,,,2026-01-22,2026-01-22,
