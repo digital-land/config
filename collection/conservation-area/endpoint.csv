@@ -732,3 +732,7 @@ f4389b8a05f29fffc5ecc37e4902be2fb6fa7e917b288ec85462f2edbb04e35b,https://www.sto
 045e888fce333e150d15d88102d430f9f5a0e64e0a3a386a9de6119370e43805,https://www.stoke.gov.uk/download/downloads/id/2910/conservation_areas_csv_file.csv,,,2026-01-12,2026-01-06,
 3411c9124fd44226a480ccc1185d6751493900e4661d35ee05a22cb87fee6b5e,https://opendata.arcgis.com/datasets/3282e030bf2b4768a05984de8d3a9204_47.geojson,,,2026-01-16,2026-01-12,
 adbaf79263b5f53a6fec33ae25067bbf1bdc2f5a8e90db7848f07076fc62a40d,https://www.coventry.gov.uk/downloads/file/46325/conservation-area,,,2026-01-16,2026-01-14,
+b9326ef7dda2f35b898f741087415083a2e20ef86cf952d23c33f00c28faca98,https://smbc-opendata.s3.eu-west-1.amazonaws.com/Conservation_Areas_Stockport.csv,,,2026-01-23,2026-01-22,
+899950a04408e283d223281d29e80cd880d95ada9b62c0c21141a9ef7056c573,https://services-eu1.arcgis.com/OrZ7pO8Ag7olNJcC/ArcGIS/rest/services/ODP_Conservation_Areas/FeatureServer/0//query?where=1%3D1&f=geojson&outFields=*,,,2026-01-23,2026-01-20,
+733557ed044adc19a7f35b997890483040907b7116e771e87b23049009a384a9,https://services-eu1.arcgis.com/U9TdzyuSbEnjj4tz/arcgis/rest/services/FOD_Conservation_Areas/FeatureServer/0,,arcgis,2026-01-23,2026-01-16,
+80a67bba05bf699ced1834e9b32dab52c472199abd6ddd0144028f33f07a01ea,https://adur-worthing.statmap.co.uk/map/webservice.svc/query?script=%5cAurora%5cOpen+Digital+Web+Service%5cOpen+Digital+Planning.AuroraScript%24&taskId=WorthingCAsDocs,,,2026-01-23,2026-01-22,

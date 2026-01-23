@@ -331,6 +331,7 @@ conservation-area,44004803,44004804,local-authority:DAL
 conservation-area,44006807,44006810,local-authority:DAL
 conservation-area,44001817,44001817,local-authority:DAR
 conservation-area,44004094,44004098,local-authority:DAR
+conservation-area,44014533,44014538,local-authority:DAR
 conservation-area,44000191,44000191,local-authority:DEB
 conservation-area,44000977,44000995,local-authority:DEB
 conservation-area,44004716,44004721,local-authority:DEB
@@ -447,6 +448,7 @@ conservation-area,44000821,44000833,local-authority:FAR
 conservation-area,44002579,44002588,local-authority:FEN
 conservation-area,44000780,44000780,local-authority:FOE
 conservation-area,44006640,44006665,local-authority:FOE
+conservation-area,44014539,44014565,local-authority:FOE
 conservation-area,44011685,44011694,local-authority:FYL
 conservation-area,44009857,44009877,local-authority:GAT
 conservation-area,44010270,44010270,local-authority:GAT
@@ -1043,6 +1045,7 @@ conservation-area,44006496,44006496,local-authority:SHR
 conservation-area,44013128,44013129,local-authority:SHR
 conservation-area,44011392,44011439,local-authority:SKE
 conservation-area,44004838,44004874,local-authority:SKP
+conservation-area,44014496,44014532,local-authority:SKP
 conservation-area,44004019,44004019,local-authority:SLF
 conservation-area,44005149,44005163,local-authority:SLF
 conservation-area,44008200,44008215,local-authority:SLF
@@ -1940,6 +1943,7 @@ conservation-area-document,6312879,6312932,local-authority:WOI
 conservation-area-document,6301364,6301417,local-authority:WOK
 conservation-area-document,6314676,6314769,local-authority:WOX
 conservation-area-document,6302448,6302473,local-authority:WOT
+conservation-area-document,6314792,6314818,local-authority:WOT
 conservation-area-document,6306463,6306564,local-authority:WOX
 conservation-area-document,6303118,6303261,local-authority:WRL
 conservation-area-document,6313503,6313503,local-authority:WRL
