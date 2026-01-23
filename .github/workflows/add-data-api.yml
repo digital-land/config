@@ -1,0 +1,166 @@
+name: Add Data via API
+
+on:
+  workflow_dispatch:
+    inputs:
+      collection_name:
+        description: 'Collection name (e.g., article-4-direction)'
+        required: true
+        type: string
+      import_csv_content:
+        description: 'Content of import.csv (CSV format with headers)'
+        required: true
+        type: string
+      accept_run:
+        description: 'Accept processing the resource'
+        required: false
+        type: boolean
+        default: true
+      accept_assign_entities:
+        description: 'Accept assigning entities'
+        required: false
+        type: boolean
+        default: true
+      accept_save:
+        description: 'Accept saving changes'
+        required: false
+        type: boolean
+        default: true
+      accept_retire:
+        description: 'Accept retiring old endpoints'
+        required: false
+        type: boolean
+        default: false
+      accept_update:
+        description: 'Accept viewing updated dataset'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  add-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # requirements.txt currently points to automate-workflow branch for testing
+          pip install -r requirements.txt
+      
+      - name: Create import.csv
+        run: |
+          echo "${{ github.event.inputs.import_csv_content }}" > import.csv
+      
+      - name: Setup cache directories
+        run: |
+          mkdir -p var/${{ github.event.inputs.collection_name }}/cache
+      
+      - name: Download organisation.csv
+        run: |
+          make COLLECTION=${{ github.event.inputs.collection_name }} var/${{ github.event.inputs.collection_name }}/cache/organisation.csv
+      
+      - name: Build input-dict JSON
+        id: build-json
+        run: |
+          INPUT_DICT=$(jq -n \
+            --argjson acceptRun ${{ github.event.inputs.accept_run }} \
+            --argjson acceptAssignEntities ${{ github.event.inputs.accept_assign_entities }} \
+            --argjson acceptSave ${{ github.event.inputs.accept_save }} \
+            --argjson acceptRetire ${{ github.event.inputs.accept_retire }} \
+            --argjson acceptUpdate ${{ github.event.inputs.accept_update }} \
+            '{
+              acceptRun: $acceptRun,
+              acceptAssignEntities: $acceptAssignEntities,
+              acceptSave: $acceptSave,
+              acceptRetire: $acceptRetire,
+              acceptUpdate: $acceptUpdate
+            }')
+          echo "input_dict=$INPUT_DICT" >> $GITHUB_OUTPUT
+      
+      - name: Run add-data command
+        env:
+          COLLECTION: ${{ github.event.inputs.collection_name }}
+          INPUT_CSV: import.csv
+        run: |
+          digital-land add-data \
+            import.csv \
+            ${{ github.event.inputs.collection_name }} \
+            -c collection/${{ github.event.inputs.collection_name }}/ \
+            -p pipeline/${{ github.event.inputs.collection_name }}/ \
+            -o var/${{ github.event.inputs.collection_name }}/cache/organisation.csv \
+            --input-dict '${{ steps.build-json.outputs.input_dict }}'
+      
+      - name: Commit and create PR
+        if: github.event.inputs.accept_save == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH_NAME="add-data/${{ github.event.inputs.collection_name }}-$(date +%Y%m%d-%H%M%S)"
+          
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git checkout -b "$BRANCH_NAME"
+          git add collection/${{ github.event.inputs.collection_name }}/
+          git add pipeline/${{ github.event.inputs.collection_name }}/
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          git commit -m "Add data for ${{ github.event.inputs.collection_name }} via API
+
+          Collection: ${{ github.event.inputs.collection_name }}
+          Triggered by: ${{ github.actor }}
+          
+          Input parameters:
+          - Accept assign entities: ${{ github.event.inputs.accept_assign_entities }}
+          - Accept retire: ${{ github.event.inputs.accept_retire }}
+          - Accept update: ${{ github.event.inputs.accept_update }}"
+          
+          git push origin "$BRANCH_NAME"
+          
+          gh pr create \
+            --title "Add data for ${{ github.event.inputs.collection_name }}" \
+            --body "## Automated data addition
+
+          **Collection:** ${{ github.event.inputs.collection_name }}
+          **Triggered by:** @${{ github.actor }}
+          **Workflow run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          
+          ### Input parameters
+          - Accept assign entities: ${{ github.event.inputs.accept_assign_entities }}
+          - Accept retire: ${{ github.event.inputs.accept_retire }}
+          - Accept update: ${{ github.event.inputs.accept_update }}
+          
+          ### Import CSV content
+          \`\`\`csv
+          ${{ github.event.inputs.import_csv_content }}
+          \`\`\`
+          
+          Please review the changes before merging." \
+            --base main \
+            --head "$BRANCH_NAME"
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: add-data-results-${{ github.event.inputs.collection_name }}
+          path: |
+            collection/${{ github.event.inputs.collection_name }}/
+            pipeline/${{ github.event.inputs.collection_name }}/
+            var/${{ github.event.inputs.collection_name }}/
+          retention-days: 7
