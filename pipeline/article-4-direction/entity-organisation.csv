@@ -1,4 +1,5 @@
 dataset,entity-minimum,entity-maximum,organisation
+article-4-direction,6102302,6102310,local-authority:ADU
 article-4-direction,6100940,6101014,local-authority:ASF
 article-4-direction,6100879,6100881,local-authority:BDG
 article-4-direction,6100340,6100352,local-authority:BIR
@@ -22,6 +23,7 @@ article-4-direction,6100874,6100878,local-authority:GAT
 article-4-direction,6101864,6102013,local-authority:HIL
 article-4-direction,6102136,6102160,local-authority:HRY
 article-4-direction,6100545,6100628,local-authority:KEC
+article-4-direction,6102291,6102293,local-authority:KTT
 article-4-direction,6100326,6100334,local-authority:LBH
 article-4-direction,6100406,6100408,local-authority:LBH
 article-4-direction,6101500,6101730,local-authority:LCE
@@ -47,6 +49,7 @@ article-4-direction,6101491,6101499,local-authority:SCA
 article-4-direction,6101801,6101809,local-authority:SCA
 article-4-direction,6101795,6101800,local-authority:SFT
 article-4-direction,6100872,6100873,local-authority:SGC
+article-4-direction,6102311,6102340,local-authority:SKP
 article-4-direction,6101792,6101794,local-authority:SLF
 article-4-direction,6100817,6100871,local-authority:SNO
 article-4-direction,6100371,6100386,local-authority:SST
@@ -58,6 +61,7 @@ article-4-direction,6100492,6100493,local-authority:TOB
 article-4-direction,6100743,6100806,local-authority:TWH
 article-4-direction,6101810,6101838,local-authority:WAE
 article-4-direction,6100899,6100913,local-authority:WFT
+article-4-direction,6102294,6102301,local-authority:WOT
 article-4-direction,6102207,6102290,local-authority:WOX
 article-4-direction,6100387,6100399,local-authority:WRL
 article-4-direction,6100882,6100891,local-authority:WSM
@@ -135,6 +139,7 @@ article-4-direction-area,7010003896,7010003907,local-authority:SAW
 article-4-direction-area,7010005101,7010005109,local-authority:SCA
 article-4-direction-area,7010007518,7010007523,local-authority:SFT
 article-4-direction-area,7010005129,7010005130,local-authority:SGC
+article-4-direction-area,7010009205,7010009234,local-authority:SKP
 article-4-direction-area,7010007430,7010007432,local-authority:SLF
 article-4-direction-area,7010005046,7010005100,local-authority:SNO
 article-4-direction-area,7010007426,7010007429,local-authority:SPE
