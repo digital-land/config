@@ -3,9 +3,10 @@ import csv
 import requests
 import sys
 import pandas as pd
+import os
 import shutil
 import logging
-import os
+import builtins
 
 from pathlib import Path
 from io import StringIO
@@ -14,30 +15,42 @@ from digital_land.commands import check_and_assign_entities
 # ----------------------------
 # CONFIGURATION FOR GITHUB ACTIONS
 # ----------------------------
-SCOPE = "single-source"  # hard-coded
-AUTO_CONTINUE = True     # auto-answer yes to all prompts (CI)
+SCOPE = "single-source"   # hard-coded
+AUTO_CONTINUE = True      # auto-answer yes to all prompts (CI)
 
 # ----------------------------
-# FORCE NON-INTERACTIVE "YES" FOR DIGITAL-LAND PROMPTS (e.g. click.confirm)
+# FORCE NON-INTERACTIVE "YES" IN CI
+#   - digital_land sometimes uses click.confirm()
+#   - and sometimes uses plain input() via digital_land.utils.add_data_utils.get_user_response
+# This patch covers BOTH, preventing EOFError in GitHub Actions.
 # ----------------------------
 if AUTO_CONTINUE and (os.environ.get("CI") or os.environ.get("GITHUB_ACTIONS")):
+    # Patch Python input() to always return "yes"
+    def _auto_yes_input(prompt=""):
+        try:
+            print(f"{prompt}yes")
+        except Exception:
+            pass
+        return "yes"
+
+    builtins.input = _auto_yes_input
+
+    # Patch click.confirm() to always confirm
     try:
         import click
 
-        _real_confirm = click.confirm
-
         def _auto_confirm(text, *args, **kwargs):
-            t = str(text).lower()
-            # Only auto-confirm the prompt that is blocking CI
-            if "continue processing this resource" in t:
+            try:
                 click.echo(f"{text} yes")
-                return True
-            return _real_confirm(text, *args, **kwargs)
+            except Exception:
+                pass
+            return True
 
         click.confirm = _auto_confirm
-        print("CI mode: auto-confirm enabled for 'continue processing this resource' prompts.")
-    except Exception as e:
-        print(f"CI mode: could not patch click.confirm ({e}). Will proceed without patch.")
+    except Exception:
+        pass
+
+    print("CI mode: auto-answer YES enabled for prompts (input() + click.confirm).")
 
 # ----------------------------
 # UTILITY FUNCTIONS
@@ -59,8 +72,8 @@ def get_old_resource_df(endpoint, collection_name, dataset):
     """
     Return transformed file for a previous ended resource using endpoint hash from CDN.
 
-    NOTE: Original code said 'second latest' but fetched only 1 row.
-    This fetches up to 2 ended resources and uses the most recent one returned.
+    NOTE: The original code said "second latest" but used _size=1.
+    This uses _size=2 and picks the most recent row returned.
     """
     url = (
         "https://datasette.planning.data.gov.uk/performance/reporting_historic_endpoints.csv"
@@ -153,15 +166,19 @@ def process_csv(scope):
                 )
 
                 if not success:
-                    # In CI this often means a prompt was triggered and couldn't be answered.
-                    print(f"Entity assignment for resource '{resource}' was cancelled/returned False.")
-                    failed_assignments.append((row_number, resource, "Cancelled", "check_and_assign_entities returned False"))
+                    # In CI, success=False often means "cancelled" (prompt path).
+                    print(f"Entity assignment for resource '{resource}' returned False.")
+                    failed_assignments.append(
+                        (row_number, resource, "Cancelled", "check_and_assign_entities returned False")
+                    )
                     continue
 
                 old_resource_df = get_old_resource_df(endpoint, collection_name, dataset)
 
                 if old_resource_df is not None:
-                    current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
+                    current_resource_df = pd.read_csv(
+                        cache_dir / "assign_entities" / "transformed" / f"{resource}.csv"
+                    )
                     current_entities = set(current_resource_df["entity"])
                     old_entities = set(old_resource_df["entity"])
                     new_entities = list(current_entities - old_entities)
