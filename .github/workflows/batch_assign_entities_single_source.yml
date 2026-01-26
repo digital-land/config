@@ -1,4 +1,4 @@
-name: Batch assign entities (single source)
+name: Run Batch Assign (single-source), Upload Artifacts, Create PR
 
 on:
   workflow_dispatch:
@@ -8,29 +8,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout config repo
-      - name: Checkout config
+      # Step 1: Checkout config repo
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: false
           fetch-depth: 0
 
-      # Checkout specification repo (NOT tracked by git)
+      # Step 2: Checkout specification repo (not tracked by git in this repo)
       - name: Checkout specification
         uses: actions/checkout@v4
         with:
           repository: digital-land/specification
           path: specification-src
+          fetch-depth: 1
           submodules: false
 
-      # Prepare specification directory
+      # Step 3: Prepare specification directory expected by the script
       - name: Prepare specification
         run: |
           rm -rf specification
           cp -r specification-src/specification specification
           rm -rf specification-src
 
-      # Prepare organisation cache
+      # Step 4: Prepare organisation cache expected by the script
       - name: Prepare organisation cache
         run: |
           mkdir -p var/cache
@@ -38,70 +38,87 @@ jobs:
             https://raw.githubusercontent.com/digital-land/organisation-dataset/main/organisation.csv \
             -o var/cache/organisation.csv
 
-      # Set up Python
+      # Step 5: Set up Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
-      # Install dependencies (CI-safe)
+      # Step 6: Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          # Ensure digital-land-python is available (check_and_assign_entities)
           pip install git+https://github.com/digital-land/digital-land-python.git
-          grep -v '^.*digital-land-python.*$' requirements.txt > /tmp/requirements-ci.txt
-          pip install -r /tmp/requirements-ci.txt
-          pip install pandas
+          # Install repo deps (avoid re-installing digital-land-python if pinned)
+          if [ -f requirements.txt ]; then
+            grep -v '^.*digital-land-python.*$' requirements.txt > /tmp/requirements-ci.txt || true
+            pip install -r /tmp/requirements-ci.txt
+          fi
+          pip install pandas requests
 
-      # Run batch entity assignment (force non-interactive)
-      - name: Run batch entities
+      # Step 7: Run batch assign (non-interactive handled in script via click.confirm patch)
+      - name: Run batch assign entities (single-source)
         env:
-          DIGITAL_LAND_ASSUME_YES: "1"
-          DIGITAL_LAND_NON_INTERACTIVE: "1"
+          CI: "true"
+          GITHUB_ACTIONS: "true"
         run: |
-          yes | python bin/batch_assign_entities_single_source.py
+          python bin/batch_assign_entities_single_source.py
 
-      # Reset everything and stage ONLY lookup.csv
+      # Step 8: Upload artifacts (always, even if the script fails)
+      - name: Upload outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch-assign-outputs
+          path: |
+            issue_summary.csv
+            reports/**
+            pipeline/**/lookup.csv
+            var/cache/assign_entities/**/log/**
+            **/*.log
+          if-no-files-found: ignore
+
+      # Step 9: Stage ONLY lookup.csv changes under pipeline/, discard everything else
       - name: Stage lookup.csv only
         run: |
-          git reset --hard HEAD
-          if [ -f lookup.csv ]; then
-            git add lookup.csv
-          fi
+          git add pipeline/**/lookup.csv || true
+          git restore --worktree -- . || true
 
-      # Debug (can remove later)
-      - name: Debug staged files
-        run: |
-          echo "STAGED FILES:"
-          git diff --cached --name-only
-
-      # Detect whether lookup.csv changed
+      # Step 10: Check whether any lookup.csv changes are staged
       - name: Check for lookup.csv changes
         id: lookup_diff
         run: |
-          if git diff --name-only --cached -- lookup.csv | grep -q .; then
+          if git diff --cached --name-only -- 'pipeline/**/lookup.csv' | grep -q .; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
 
-      # Create PR only if lookup.csv changed
+      # Step 11: Create PR only if lookup.csv changed
       - name: Create pull request
         if: steps.lookup_diff.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: "Update lookup.csv"
-          title: "Update lookup.csv"
+          commit-message: "Update pipeline lookup.csv"
+          title: "Update pipeline lookup.csv"
           body: |
-            Automated update of `lookup.csv` generated by
+            Automated update of `pipeline/**/lookup.csv` generated by
             `bin/batch_assign_entities_single_source.py`.
 
             - Non-interactive CI run
-            - Uses Digital Land specification
-            - Commits lookup changes only
+            - Uses Digital Land specification (checked out during workflow)
           branch: batch-assign-entities-single-source
           delete-branch: true
           labels: |
-            automated
+            automated-pr
             data
             lookup
+
+      # Step 12: Cleanup (always) - remove temporary resource/cache/spec dirs
+      - name: Cleanup temp files
+        if: always()
+        run: |
+          rm -rf resource || true
+          rm -rf var/cache || true
+          rm -rf specification || true
