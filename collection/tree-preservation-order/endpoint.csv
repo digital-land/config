@@ -175,3 +175,4 @@ e9b9d398af10261b8dd82ba0ae18ee038e171e80ffeb3e3205cb7a6f07576856,https://www.arc
 c18514d51a4072b1fa0eceb0e390e65555bfcc93135b37c0b367d45bac3a5ae3,https://walthamforest.statmap.co.uk/map/wfs.svc/External_OpenDigitalPlanning?service=WFS&version=2.0.0&request=GetFeature&typeName=statmap:TPOPolygons&SRSNAME=EPSG:27700,,,2026-01-20,2026-01-15,
 88e9e4aebf3e09b64430391fa2cf486c8a502765b9e96f790633e64baa4f40d9,https://walthamforest.statmap.co.uk/map/wfs.svc/External_OpenDigitalPlanning?service=WFS&version=2.0.0&request=GetFeature&typeName=statmap:TPOPoints&SRSNAME=EPSG:27700,,,2026-01-20,2026-01-20,
 ac5aa528f830246be01391cd0dc2631325a7cde7a20de900890ad9ae3fae0cbf,https://services8.arcgis.com/DOopK66xzdr2Avop/arcgis/rest/services/TreePreservationOrder_forODP/FeatureServer/0,,arcgis,2026-01-20,2026-01-19,
+56267a98e4e03e8aaaa796603b87680d3ba69aa2414df4a5ad6dd226ef6001ff,https://www.coventry.gov.uk/downloads/file/46397/tree-preservation-order,,,2026-01-26,2026-01-21,
