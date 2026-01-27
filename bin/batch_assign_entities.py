@@ -37,7 +37,6 @@ def download_file(url, output_path, raise_error=False, max_retries=5):
 
 def download_urls(url_map, max_threads=4):
     """Downloads multiple files concurrently using threads. msj151225" """
-    print("XXXXXXX          MULTI THREADING           XXXXXXXXXXXXXXXXXXXX")
     with ThreadPoolExecutor(max_threads) as executor:
         futures = {
             executor.submit(download_file, url, output_path): url
@@ -129,25 +128,12 @@ def process_csv(scope):
                 print(f"Collection_name > {collection_name}")
                 print(f"Resource hash > {resource}")
                 print(f"Endpoint hash > {endpoint}")
-                    #print(f"dataset {pipeline}")
-                    #print(f"organisation_name {organisation}")
                 print(f"Download_link > {download_link }")
                 print(f"Resource path > {resource_path}")
-                print("********************************************************************************************************************************")
-                print("********************************************************************************************************************************")
 
                 """
                 Check if resource hash file already exists in resource_path?
                 """
-
-              # print("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
-              # path_to_file = resource
-              #  print (f"file is: {path_to_file}" )
-                   
-               # path = Path(path_to_file)
-               # print (f"Path is: {Path}" )
-               # print("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
-                    
                     
                 if resource_path.is_file():
                     print(f"Resource  exists in the Path : {resource}")
@@ -275,7 +261,6 @@ def get_scope(value, scope_dict):
 
 if __name__ == "__main__":
     
-    debug=True
 
     endpoint_issue_summary_path = "https://datasette.planning.data.gov.uk/performance/endpoint_dataset_issue_type_summary.csv?_sort=rowid&issue_type__exact=unknown+entity&_size=max"
 
@@ -331,9 +316,8 @@ if __name__ == "__main__":
                 download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
                 resource_path = resources_dir / resource
                 url_map[download_link] = str(resource_path)
-        print (f"url_map: {url_map}")
-        if ask_yes_no(prompt="Do you wish to multi threading? (y/n): "):
-            print("Downloading multiple threaded resource files")
+        if ask_yes_no(prompt="Do you wish to batch download the resources? (y/n): "):
+            print("Downloading resources")
             download_urls(url_map, max_threads=4)
         else: 
             print("Downloading individual resource files at a time")
