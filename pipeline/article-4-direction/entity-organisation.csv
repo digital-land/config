@@ -13,6 +13,7 @@ article-4-direction,6102099,6102099,local-authority:CLD
 article-4-direction,6100032,6100047,local-authority:CMD
 article-4-direction,6101839,6101842,local-authority:CMD
 article-4-direction,6102107,6102119,local-authority:COV
+article-4-direction,6102341,6102341,local-authority:COV
 article-4-direction,6100171,6100225,local-authority:DOV
 article-4-direction,6102021,6102098,local-authority:DST
 article-4-direction,6100400,6100402,local-authority:ECA
@@ -88,6 +89,7 @@ article-4-direction-area,7010009031,7010009038,local-authority:CLD
 article-4-direction-area,7010002599,7010002615,local-authority:CMD
 article-4-direction-area,7010007553,7010007555,local-authority:CMD
 article-4-direction-area,7010009010,7010009022,local-authority:COV
+article-4-direction-area,7010009235,7010009235,local-authority:COV
 article-4-direction-area,7010002598,7010002598,local-authority:DNC
 article-4-direction-area,7010002616,7010002617,local-authority:DNC
 article-4-direction-area,7010004759,7010004759,local-authority:DNC
@@ -159,6 +161,7 @@ article-4-direction-area,7010005191,7010006804,local-authority:WFT
 article-4-direction-area,7010009023,7010009030,local-authority:WOT
 article-4-direction-area,7010009121,7010009204,local-authority:WOX
 article-4-direction-area,7010004760,7010004772,local-authority:WRL
+article-4-direction-area,7010009237,7010009245,local-authority:WRL
 article-4-direction-area,7010005181,7010005190,local-authority:WSM
 article-4-direction-area,7010009089,7010009092,local-authority:YOR
 article-4-direction-area,7010006887,7010006912,national-park-authority:Q72617158
