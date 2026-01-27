@@ -72,6 +72,7 @@ tree,7002158372,7002160848,local-authority:SCA
 tree,7002133733,7002138526,local-authority:SFT
 tree,7002100716,7002101488,local-authority:SGC
 tree,7002118169,7002123481,local-authority:SGC
+tree,7002163141,7002171317,local-authority:SKP
 tree,7002130912,7002132150,local-authority:SLF
 tree,7002140598,7002140626,local-authority:SLF
 tree,7002083107,7002087725,local-authority:SST
@@ -185,6 +186,7 @@ tree-preservation-order,7001068671,7001068671,local-authority:SCA
 tree-preservation-order,7001066043,7001066315,local-authority:SFT
 tree-preservation-order,7001067887,7001067888,local-authority:SFT
 tree-preservation-order,7001055060,7001056068,local-authority:SGC
+tree-preservation-order,7001077494,7001078364,local-authority:SKP
 tree-preservation-order,7001067894,7001068400,local-authority:SLF
 tree-preservation-order,7001076214,7001076221,local-authority:SLF
 tree-preservation-order,7001051485,7001053767,local-authority:SNO
@@ -299,6 +301,7 @@ tree-preservation-zone,19163136,19163345,local-authority:SCA
 tree-preservation-zone,19158151,19158628,local-authority:SFT
 tree-preservation-zone,19150455,19150815,local-authority:SGC
 tree-preservation-zone,19156240,19156963,local-authority:SGC
+tree-preservation-zone,19167056,19168415,local-authority:SKP
 tree-preservation-zone,19158631,19159573,local-authority:SLF
 tree-preservation-zone,19160845,19161554,local-authority:SLF
 tree-preservation-zone,19165567,19165587,local-authority:SLF
