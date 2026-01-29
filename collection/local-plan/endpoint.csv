@@ -16,3 +16,9 @@ bd4ab171614b55994f2c1508279511ebe03a6ab773f3b4a326d107037d8f329f,https://raw.git
 e382354decf3c559c6955aa2a943d930c1ebf7135bc7abff5105d002ab6f19b0,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/local-planning-group-boundary.csv,,,2025-12-29,2025-12-29,2026-01-09
 61a41e60d3a8bfa03c2a457911cd04258a8c23097545f4d540f041334cfd260d,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/local-plan-boundary.csv,,,2026-01-09,2026-01-09,
 a3eeea309518c84d560c2583374888cb90173672530877009d31de26589623dd,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/local-plan-timetable.csv,,,2026-01-22,2026-01-22,
+3eadc1f4f1700f36c1d01d094df707088efce3cb65351c4d2a6d9d2d5e18fe2a,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/mineral-plan.csv,,,2026-01-28,2026-01-28,
+f2b9ceb518962d77dc589f7af6010129a0075b9b9e0c499b62de2108f61487af,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/mineral-plan-boundary.csv,,,2026-01-28,2026-01-28,
+c018455fc6ffab549850de58c6e6521bd9ced39e060595fab4961342ed492573,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/waste-plan.csv,,,2026-01-28,2026-01-28,
+bf5009a6a963b7bab131bccb5648bca46c65bca5383999eabec8131265365594,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/waste-plan-boundary.csv,,,2026-01-28,2026-01-28,
+6bab5e99b83f62c52acfeafd1eebe904608ee9d3e7174afe3905e9626035cabd,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/mineral-plan-timetable.csv,,,2026-01-29,2026-01-29,
+062b4d4a293fb723593d8d2e0064de09cc6530190364f5662f766b32be5a3034,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/waste-plan-timetable.csv,,,2026-01-29,2026-01-29,
