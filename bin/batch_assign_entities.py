@@ -281,7 +281,50 @@ if __name__ == "__main__":
     }
 
     df["scope"] = df["dataset"].apply(lambda x: get_scope(x, scope_dict))
+    df.to_csv("issue_summary.csv", index=False)
+    print("issue_summary.csv downloaded successfully")
 
+    if not ask_yes_no(prompt="Do you wish to continue? (y/n): "):
+        print("Operation cancelled by user.")
+        sys.exit(0)
+
+    scope = input("Enter scope (odp/mandated/single-source): ").strip().lower()
+    if scope not in ["odp", "mandated", "single-source"]:
+        raise ValueError(f"'{scope}' isn't a valid scope. Please enter a valid scope.")
+
+    print("READY to PROCESS")
+    # Build url_map from the CSV data
+    url_map = {}
+    resources_dir = Path("./resource")
+    resources_dir.mkdir(exist_ok=True)
+    
+    with open("issue_summary.csv", "r") as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            if (
+                row["issue_type"].lower() != "unknown entity"
+                or row["scope"].lower() != scope
+                or row["dataset"].lower() == "title-boundary"
+            ):
+                continue
+            collection_name = row["collection"]
+            resource = row["resource"]
+            download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
+            resource_path = resources_dir / resource
+            url_map[download_link] = str(resource_path)
+    
+    if ask_yes_no(prompt="Do you wish to batch download the resources? (y/n): "):
+        print("Downloading resources")
+        download_urls(url_map, max_threads=4)
+    else: 
+        print("Downloading individual resource files at a time")
+
+    try:
+        failed_downloads, failed_assignments = process_csv(scope, resources_dir)
+        print(f"\nTotal failed downloads: {len(failed_downloads)}")
+        print(f"Total failed assign-entities operations: {len(failed_assignments)}")
+    except Exception as e:
+        print(f"An error occurred while processing the CSV file: {e}")
     df.to_csv("issue_summary.csv", index=False)
     print("issue_summary.csv downloaded successfully")
 
