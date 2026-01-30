@@ -20,6 +20,8 @@ article-4-direction,6100400,6100402,local-authority:ECA
 article-4-direction,6100494,6100544,local-authority:EHA
 article-4-direction,6100126,6100155,local-authority:EPS
 article-4-direction,6100335,6100335,local-authority:EPS
+article-4-direction,6102342,6102344,local-authority:FEN
+article-4-direction,6102345,6102346,local-authority:FEN
 article-4-direction,6100874,6100878,local-authority:GAT
 article-4-direction,6101864,6102013,local-authority:HIL
 article-4-direction,6102136,6102160,local-authority:HRY
@@ -98,6 +100,7 @@ article-4-direction-area,7010007348,7010007425,local-authority:DST
 article-4-direction-area,7010002972,7010003263,local-authority:ECA
 article-4-direction-area,7010003978,7010004010,local-authority:ENF
 article-4-direction-area,7010002696,7010002725,local-authority:EPS
+article-4-direction-area,7010009246,7010009248,local-authority:FEN
 article-4-direction-area,7010002635,7010002639,local-authority:GAT
 article-4-direction-area,7010002257,7010002272,local-authority:GLO
 article-4-direction-area,7010002833,7010002871,local-authority:GLO
