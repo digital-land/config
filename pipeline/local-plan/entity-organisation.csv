@@ -956,6 +956,16 @@ local-plan-housing,1100000,1100000,local-authority:ARU
 local-plan-housing,1100002,1100002,local-authority:BDG
 local-plan-housing,1100001,1100001,local-authority:BNE
 local-plan-housing,1100003,1100003,local-planning-group:BAB-MSU
+local-plan-housing,1100005,1100005,local-planning-group:CHI
+local-plan-housing,1100008,1100008,local-planning-group:EPS
+local-plan-housing,1100007,1100007,local-planning-group:ERY
+local-plan-housing,1100009,1100009,local-planning-group:HOR
+local-plan-housing,1100010,1100010,local-planning-group:SAW
+local-plan-housing,1100011,1100011,local-planning-group:SST
+local-plan-housing,1100012,1100012,local-planning-group:WBK
+local-plan-housing,1100014,1100014,local-planning-group:WOK
+local-plan-housing,1100006,1100006,local-planning-group:WLV
+local-plan-housing,1100013,1100013,local-planning-group:WRL
 minerals-plan,530001,530002,local-authority:BKM
 minerals-plan,530008,530010,local-authority:CMA
 minerals-plan,530011,530011,local-authority:CON
