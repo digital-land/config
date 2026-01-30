@@ -93,15 +93,13 @@ def get_field_value_map(df, entity_number):
     return dict(zip(sub_df['field'], sub_df['value']))
 
 
-def process_csv(scope):
+def process_csv(scope, resource_dir):
     """
     Uses provided file path to automatically process and assign unknown entities
     """
     failed_downloads = []
     failed_assignments = []
     successful_resources = []
-    resources_dir = Path("./resource")
-    resources_dir.mkdir(exist_ok=True)
 
     try:
         with open("issue_summary.csv", "r") as file:
@@ -119,7 +117,7 @@ def process_csv(scope):
                 dataset = row["pipeline"]
                 organisation_name = row["organisation"]
                 download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
-                resource_path = resources_dir / resource
+                resource_path = resource_dir / resource
                 cache_dir=Path("var/cache/")
                 
                 
@@ -321,9 +319,8 @@ if __name__ == "__main__":
             download_urls(url_map, max_threads=4)
         else: 
             print("Downloading individual resource files at a time")
-        #sys.exit(0)
         
-        failed_downloads, failed_assignments = process_csv(scope)
+        failed_downloads, failed_assignments = process_csv(scope, resources_dir)
         print(f"\nTotal failed downloads: {len(failed_downloads)}")
         print(f"Total failed assign-entities operations: {len(failed_assignments)}")
     except Exception as e:
