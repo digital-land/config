@@ -521,3 +521,5 @@ d694229302b5a965e1e45dbebcee4ec6,,article-4-direction,https://www.westoxon.gov.u
 a181cc016be8ad9a07fe9ffc54b3e79f,,article-4-direction,https://www.fenland.gov.uk/article/18757/Planning-datasets,b57fc684ad64521d290ac6618a63b3dc412641e61378f9b2b4e6abfb6d9f2bc0,ogl3,local-authority:FEN,article-4-direction-area,2026-01-30,2026-01-26,
 8a85fcd828e2b3774e397dbc227a3fb7,,article-4-direction,https://www.fenland.gov.uk/article/18757/Planning-datasets,e87ee8a5f6a1d928c27f303f314f1b1f665933a0988dcc0043cba7882d791cfd,ogl3,local-authority:FEN,article-4-direction,2026-01-30,2026-01-26,
 291c285a430413c4533a6c405c28454c,,article-4-direction,https://www.fdean.gov.uk/planning-and-building/digital-planning-data/,0f044a01cc900bb0acc2a1f926a6924c5383527fb6c9bcedfc16a0d0c229472f,ogl3,local-authority:FOE,article-4-direction,2026-01-30,2026-01-28,
+source,attribution,collection,documentation-url,endpoint,licence,organisation,pipelines
+a3b3f7bfeca7e058436c319b1dfbd9a3,,article-4-direction,https://www.stockport.gov.uk/planning-development-open-datasets,fc506934d0ccc949f0f1ecd12ff8992587598e40950b067f2e1fc874b260a17a,ogl3,local-authority:SKP,article-4-direction-area

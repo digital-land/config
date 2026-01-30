@@ -10102,3 +10102,7 @@ article-4-direction,,,,local-authority:FEN,13362,6102343,,,
 article-4-direction,,,,local-authority:FEN,13361,6102344,,,
 article-4-direction,,,,local-authority:FOE,ART4/001,6102345,,,
 article-4-direction,,,,local-authority:FOE,ART4/002,6102346,,,
+prefix,resource,entity,reference
+article-4-direction-area,,7010009249,A4a-14-test
+article-4-direction-area,,7010009250,A4a-18-test
+article-4-direction-area,,7010009251,A4a-19-test
