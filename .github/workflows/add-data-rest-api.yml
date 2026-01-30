@@ -1,0 +1,132 @@
+name: Add Data via REST API
+
+on:
+  repository_dispatch:
+    types: [add-data-via-api]
+
+jobs:
+  append-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate inputs
+        id: validate
+        run: |
+          COLLECTION="${{ github.event.client_payload.collection }}"
+
+          if [ -z "$COLLECTION" ]; then
+            echo "Error: collection name is required"
+            exit 1
+          fi
+
+          # Check if collection directory exists
+          if [ ! -d "collection/$COLLECTION" ]; then
+            echo "Error: collection/$COLLECTION does not exist"
+            exit 1
+          fi
+
+          if [ ! -d "pipeline/$COLLECTION" ]; then
+            echo "Error: pipeline/$COLLECTION does not exist"
+            exit 1
+          fi
+
+          echo "collection=$COLLECTION" >> $GITHUB_OUTPUT
+
+      - name: Append to endpoint.csv
+        if: github.event.client_payload.endpoint_csv_rows != ''
+        run: |
+          COLLECTION="${{ steps.validate.outputs.collection }}"
+          ENDPOINT_FILE="collection/$COLLECTION/endpoint.csv"
+
+          # Parse the JSON array and append each row
+          echo '${{ toJSON(github.event.client_payload.endpoint_csv_rows) }}' | \
+          jq -r '.[]' | while IFS= read -r row; do
+            if [ -n "$row" ]; then
+              echo "$row" >> "$ENDPOINT_FILE"
+              echo "Added to endpoint.csv: $row"
+            fi
+          done
+
+      - name: Append to source.csv
+        if: github.event.client_payload.source_csv_rows != ''
+        run: |
+          COLLECTION="${{ steps.validate.outputs.collection }}"
+          SOURCE_FILE="collection/$COLLECTION/source.csv"
+
+          # Parse the JSON array and append each row
+          echo '${{ toJSON(github.event.client_payload.source_csv_rows) }}' | \
+          jq -r '.[]' | while IFS= read -r row; do
+            if [ -n "$row" ]; then
+              echo "$row" >> "$SOURCE_FILE"
+              echo "Added to source.csv: $row"
+            fi
+          done
+
+      - name: Append to lookup.csv
+        if: github.event.client_payload.lookup_csv_rows != ''
+        run: |
+          COLLECTION="${{ steps.validate.outputs.collection }}"
+          LOOKUP_FILE="pipeline/$COLLECTION/lookup.csv"
+
+          # Parse the JSON array and append each row
+          echo '${{ toJSON(github.event.client_payload.lookup_csv_rows) }}' | \
+          jq -r '.[]' | while IFS= read -r row; do
+            if [ -n "$row" ]; then
+              echo "$row" >> "$LOOKUP_FILE"
+              echo "Added to lookup.csv: $row"
+            fi
+          done
+
+      - name: Append to column.csv
+        if: github.event.client_payload.column_csv_rows != ''
+        run: |
+          COLLECTION="${{ steps.validate.outputs.collection }}"
+          COLUMN_FILE="pipeline/$COLLECTION/column.csv"
+
+          # Parse the JSON array and append each row
+          echo '${{ toJSON(github.event.client_payload.column_csv_rows) }}' | \
+          jq -r '.[]' | while IFS= read -r row; do
+            if [ -n "$row" ]; then
+              echo "$row" >> "$COLUMN_FILE"
+              echo "Added to column.csv: $row"
+            fi
+          done
+
+      - name: Commit and create PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          COLLECTION="${{ steps.validate.outputs.collection }}"
+          BRANCH_NAME="add-data-api/$COLLECTION-$(date +%Y%m%d-%H%M%S)"
+
+          git config user.name "github-actions-add-data-bot"
+          git config user.email "matthew.poole@communities.gov.uk"
+
+          git checkout -b "$BRANCH_NAME"
+          git add collection/$COLLECTION/
+          git add pipeline/$COLLECTION/
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "$COLLECTION updated"
+          git push origin "$BRANCH_NAME"
+
+          gh pr create \
+            --title "$COLLECTION updated" \
+            --body "$COLLECTION updated" \
+            --base main \
+            --head "$BRANCH_NAME"
+
+      - name: Summary
+        run: |
+          echo "### Workflow Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "${{ steps.validate.outputs.collection }} updated" >> $GITHUB_STEP_SUMMARY
