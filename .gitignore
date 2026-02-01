@@ -38,5 +38,4 @@ performance/
 /makerules/
 
 # ignore specific files
-pipeline/title-boundary/lookup.csv
 /*.csv
