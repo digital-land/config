@@ -64,3 +64,6 @@ test-unit:
 
 test-integration:
 	pytest tests/integration/
+
+test-acceptance:
+	pytest tests/acceptance/
