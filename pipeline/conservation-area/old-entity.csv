@@ -3034,7 +3034,7 @@ old-entity,status,entity,end-date,notes,entry-date,start-date
 44006072,301,44014490,,redirect HE duplicate entity to COV,2026-01-27,
 44006073,301,44014487,,redirect HE duplicate entity to COV,2026-01-27,
 44006074,301,44014492,,redirect HE duplicate entity to COV,2026-01-27,
-44012336,301,44014499,,redirect HE duplicate entity to WOX,2026-01-27,
+44002256,301,44014499,,redirect HE duplicate entity to WOX,2026-01-27,
 6304514,410,,,Removal of FEN cad as MHCLG Seeded data ,2026-01-29,
 6304515,410,,,Removal of FEN cad as MHCLG Seeded data ,2026-01-29,
 6304516,410,,,Removal of FEN cad as MHCLG Seeded data ,2026-01-29,
@@ -3273,4 +3273,3 @@ old-entity,status,entity,end-date,notes,entry-date,start-date
 44004874,301,44014598,,redirect HE duplicate entity to SKP,2026-01-29,
 44006068,301,44014483,,redirect HE duplicate entity to COV,2026-01-29,
 44007670,301,44014452,,redirect HE duplicate entity to YOR,2026-01-29,
-44012336,301,44014499,,redirect HE duplicate entity to WOX,2026-01-29,
