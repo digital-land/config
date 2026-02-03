@@ -171,7 +171,7 @@ jobs:
 
           # Create PR
           if [ -n "$TRIGGERED_BY" ]; then
-            gh pr create --title "$PR_TITLE" --body "$(cat <<'PRBODY'
+            gh pr create --title "$PR_TITLE" --body "$(cat <<PRBODY
           Collection: $COLLECTION
           Triggered by: $TRIGGERED_BY
 
@@ -179,7 +179,7 @@ jobs:
           PRBODY
           )" --base main --head "$BRANCH_NAME"
           else
-            gh pr create --title "$PR_TITLE" --body "$(cat <<'PRBODY'
+            gh pr create --title "$PR_TITLE" --body "$(cat <<PRBODY
           Collection: $COLLECTION
 
           This PR was automatically created via the REST API.
