@@ -43,6 +43,13 @@ jobs:
           COLLECTION="${{ steps.validate.outputs.collection }}"
           ENDPOINT_FILE="collection/$COLLECTION/endpoint.csv"
 
+          # Ensure file ends with newline before appending
+          if [ -s "$ENDPOINT_FILE" ] && [ -z "$(tail -c 1 "$ENDPOINT_FILE")" ]; then
+            :
+          elif [ -s "$ENDPOINT_FILE" ]; then
+            echo "" >> "$ENDPOINT_FILE"
+          fi
+
           # Parse the JSON array and append each row
           echo '${{ toJSON(github.event.client_payload.endpoint_csv_rows) }}' | \
           jq -r '.[]' | while IFS= read -r row; do
@@ -57,6 +64,13 @@ jobs:
         run: |
           COLLECTION="${{ steps.validate.outputs.collection }}"
           SOURCE_FILE="collection/$COLLECTION/source.csv"
+
+          # Ensure file ends with newline before appending
+          if [ -s "$SOURCE_FILE" ] && [ -z "$(tail -c 1 "$SOURCE_FILE")" ]; then
+            :
+          elif [ -s "$SOURCE_FILE" ]; then
+            echo "" >> "$SOURCE_FILE"
+          fi
 
           # Parse the JSON array and append each row
           echo '${{ toJSON(github.event.client_payload.source_csv_rows) }}' | \
@@ -73,6 +87,13 @@ jobs:
           COLLECTION="${{ steps.validate.outputs.collection }}"
           LOOKUP_FILE="pipeline/$COLLECTION/lookup.csv"
 
+          # Ensure file ends with newline before appending
+          if [ -s "$LOOKUP_FILE" ] && [ -z "$(tail -c 1 "$LOOKUP_FILE")" ]; then
+            :
+          elif [ -s "$LOOKUP_FILE" ]; then
+            echo "" >> "$LOOKUP_FILE"
+          fi
+
           # Parse the JSON array and append each row
           echo '${{ toJSON(github.event.client_payload.lookup_csv_rows) }}' | \
           jq -r '.[]' | while IFS= read -r row; do
@@ -87,6 +108,13 @@ jobs:
         run: |
           COLLECTION="${{ steps.validate.outputs.collection }}"
           COLUMN_FILE="pipeline/$COLLECTION/column.csv"
+
+          # Ensure file ends with newline before appending
+          if [ -s "$COLUMN_FILE" ] && [ -z "$(tail -c 1 "$COLUMN_FILE")" ]; then
+            :
+          elif [ -s "$COLUMN_FILE" ]; then
+            echo "" >> "$COLUMN_FILE"
+          fi
 
           # Parse the JSON array and append each row
           echo '${{ toJSON(github.event.client_payload.column_csv_rows) }}' | \
