@@ -44,10 +44,13 @@ jobs:
           ENDPOINT_FILE="collection/$COLLECTION/endpoint.csv"
 
           # Ensure file ends with newline before appending
-          if [ -s "$ENDPOINT_FILE" ] && [ -z "$(tail -c 1 "$ENDPOINT_FILE")" ]; then
-            :
-          elif [ -s "$ENDPOINT_FILE" ]; then
-            echo "" >> "$ENDPOINT_FILE"
+          if [ -s "$ENDPOINT_FILE" ]; then
+            # Check if last character is NOT a newline (0a in hex)
+            LAST_CHAR=$(tail -c 1 "$ENDPOINT_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$ENDPOINT_FILE"
+              echo "Added missing newline to endpoint.csv"
+            fi
           fi
 
           # Parse the JSON array and append each row
@@ -66,10 +69,13 @@ jobs:
           SOURCE_FILE="collection/$COLLECTION/source.csv"
 
           # Ensure file ends with newline before appending
-          if [ -s "$SOURCE_FILE" ] && [ -z "$(tail -c 1 "$SOURCE_FILE")" ]; then
-            :
-          elif [ -s "$SOURCE_FILE" ]; then
-            echo "" >> "$SOURCE_FILE"
+          if [ -s "$SOURCE_FILE" ]; then
+            # Check if last character is NOT a newline (0a in hex)
+            LAST_CHAR=$(tail -c 1 "$SOURCE_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$SOURCE_FILE"
+              echo "Added missing newline to source.csv"
+            fi
           fi
 
           # Parse the JSON array and append each row
@@ -88,10 +94,13 @@ jobs:
           LOOKUP_FILE="pipeline/$COLLECTION/lookup.csv"
 
           # Ensure file ends with newline before appending
-          if [ -s "$LOOKUP_FILE" ] && [ -z "$(tail -c 1 "$LOOKUP_FILE")" ]; then
-            :
-          elif [ -s "$LOOKUP_FILE" ]; then
-            echo "" >> "$LOOKUP_FILE"
+          if [ -s "$LOOKUP_FILE" ]; then
+            # Check if last character is NOT a newline (0a in hex)
+            LAST_CHAR=$(tail -c 1 "$LOOKUP_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$LOOKUP_FILE"
+              echo "Added missing newline to lookup.csv"
+            fi
           fi
 
           # Parse the JSON array and append each row
@@ -110,10 +119,13 @@ jobs:
           COLUMN_FILE="pipeline/$COLLECTION/column.csv"
 
           # Ensure file ends with newline before appending
-          if [ -s "$COLUMN_FILE" ] && [ -z "$(tail -c 1 "$COLUMN_FILE")" ]; then
-            :
-          elif [ -s "$COLUMN_FILE" ]; then
-            echo "" >> "$COLUMN_FILE"
+          if [ -s "$COLUMN_FILE" ]; then
+            # Check if last character is NOT a newline (0a in hex)
+            LAST_CHAR=$(tail -c 1 "$COLUMN_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$COLUMN_FILE"
+              echo "Added missing newline to column.csv"
+            fi
           fi
 
           # Parse the JSON array and append each row
@@ -130,6 +142,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           COLLECTION="${{ steps.validate.outputs.collection }}"
+          TRIGGERED_BY="${{ github.event.client_payload.triggered_by }}"
           BRANCH_NAME="add-data-api/$COLLECTION-$(date +%Y%m%d-%H%M%S)"
 
           git config user.name "github-actions-add-data-bot"
@@ -144,14 +157,35 @@ jobs:
             exit 0
           fi
 
-          git commit -m "$COLLECTION updated"
+          # Build commit message and PR title
+          if [ -n "$TRIGGERED_BY" ]; then
+            COMMIT_MSG="$COLLECTION updated by $TRIGGERED_BY"
+            PR_TITLE="$COLLECTION updated by $TRIGGERED_BY"
+          else
+            COMMIT_MSG="$COLLECTION updated"
+            PR_TITLE="$COLLECTION updated"
+          fi
+
+          git commit -m "$COMMIT_MSG"
           git push origin "$BRANCH_NAME"
 
-          gh pr create \
-            --title "$COLLECTION updated" \
-            --body "$COLLECTION updated" \
-            --base main \
-            --head "$BRANCH_NAME"
+          # Create PR
+          if [ -n "$TRIGGERED_BY" ]; then
+            gh pr create --title "$PR_TITLE" --body "$(cat <<'PRBODY'
+          Collection: $COLLECTION
+          Triggered by: $TRIGGERED_BY
+
+          This PR was automatically created via the REST API.
+          PRBODY
+          )" --base main --head "$BRANCH_NAME"
+          else
+            gh pr create --title "$PR_TITLE" --body "$(cat <<'PRBODY'
+          Collection: $COLLECTION
+
+          This PR was automatically created via the REST API.
+          PRBODY
+          )" --base main --head "$BRANCH_NAME"
+          fi
 
       - name: Summary
         run: |
