@@ -53,6 +53,7 @@ developer-agreement,4607610,4607745,local-authority:ERY
 developer-agreement,4603096,4603102,local-authority:EST
 developer-agreement,4608657,4608686,local-authority:EXE
 developer-agreement,4609968,4609997,local-authority:EXE
+developer-agreement,4611492,4611521,local-authority:EXE
 developer-agreement,4601741,4601744,local-authority:GAT
 developer-agreement,4607746,4607756,local-authority:GAT
 developer-agreement,4602713,4602719,local-authority:GLO
@@ -94,6 +95,7 @@ developer-agreement,4601031,4601052,local-authority:SLF
 developer-agreement,4605623,4605675,local-authority:SLF
 developer-agreement,4602764,4602860,local-authority:SND
 developer-agreement,4608471,4608576,local-authority:SND
+developer-agreement,4611522,4611552,local-authority:SND
 developer-agreement,4608780,4608851,local-authority:STO
 developer-agreement,4610118,4611468,local-authority:STO
 developer-agreement,4605676,4605752,local-authority:TEW
@@ -175,6 +177,7 @@ developer-agreement-contribution,4318568,4318939,local-authority:ERY
 developer-agreement-contribution,4303939,4303944,local-authority:EST
 developer-agreement-contribution,4318940,4319057,local-authority:EXE
 developer-agreement-contribution,4326975,4327092,local-authority:EXE
+developer-agreement-contribution,4331350,4331467,local-authority:EXE
 developer-agreement-contribution,4304465,4304469,local-authority:GAT
 developer-agreement-contribution,4327217,4327251,local-authority:GAT
 developer-agreement-contribution,4304396,4304406,local-authority:GLO
@@ -288,6 +291,7 @@ developer-agreement-transaction,4424891,4424907,local-authority:ERE
 developer-agreement-transaction,4401469,4401531,local-authority:EST
 developer-agreement-transaction,4420019,4420053,local-authority:EXE
 developer-agreement-transaction,4429727,4429761,local-authority:EXE
+developer-agreement-transaction,4434255,4434289,local-authority:EXE
 developer-agreement-transaction,4420054,4420103,local-authority:GAT
 developer-agreement-transaction,4406141,4406148,local-authority:GLO
 developer-agreement-transaction,4417220,4417288,local-authority:GLO
