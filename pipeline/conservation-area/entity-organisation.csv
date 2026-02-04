@@ -1271,7 +1271,7 @@ conservation-area,44001292,44001297,local-authority:TFW
 conservation-area,44006089,44006089,local-authority:TFW
 conservation-area,44013225,44013225,local-authority:TFW
 conservation-area,44010672,44010698,local-authority:THA
-conservation-area,44014885,44014885,local-authority:THA
+conservation-area,44014859,44014885,local-authority:THA
 conservation-area,44009325,44009329,local-authority:THE
 conservation-area,44009331,44009343,local-authority:THE
 conservation-area,44013226,44013226,local-authority:THE
@@ -1456,6 +1456,7 @@ conservation-area,44004421,44004422,local-authority:WOX
 conservation-area,44005536,44005536,local-authority:WOX
 conservation-area,44006679,44006680,local-authority:WOX
 conservation-area,44012336,44012336,local-authority:WOX
+conservation-area,44014496,44014545,local-authority:WOX
 conservation-area,44000662,44000662,local-authority:WRL
 conservation-area,44013301,44013301,local-authority:WRL
 conservation-area,44013307,44013331,local-authority:WRL
@@ -1973,3 +1974,4 @@ conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
 
 conservation-area-document,6314792,6314818,local-authority:WOT
+
