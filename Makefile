@@ -57,7 +57,7 @@ ifeq ($(INPUT_CSV),)
 endif
 	digital-land add-data $(INPUT_CSV) $(COLLECTION) -c $(COLLECTION_DIR) -p $(PIPELINE_DIR) -o $(CACHE_DIR)organisation.csv
 
-test:: test-unit test-integration
+test:: test-unit test-integration test-acceptance
 
 test-unit:
 	pytest tests/unit/
