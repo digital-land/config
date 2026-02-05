@@ -1,3 +1,7 @@
+"""
+Module to run dataset expectations for configuration files. this ensure data quality before upload to s3
+"""
+
 from pathlib import Path
 from glob import glob
 
@@ -59,3 +63,27 @@ old_entity_files = _collect_files("old-entity.csv")
 )
 def test_old_entity(file_path):
     _run_checkpoint(dataset="old-entity", file_path=file_path, rules=OLD_ENTITY_RULES)
+
+
+# TEST ENTITY-ORGANISATION.CSV
+ENTITY_ORGANISATION_RULES = [
+    {
+        "name": "entity-minimum and entity-maximum ranges do not overlap",
+        "operation": "check_no_overlapping_ranges",
+        "parameters": {"min_field": "entity-minimum", "max_field": "entity-maximum"},
+        "severity": "error",
+    },
+]
+
+entity_organisation_files = _collect_files("entity-organisation.csv")
+
+
+@pytest.mark.parametrize(
+    "file_path",
+    entity_organisation_files,
+    ids=[_test_id(f) for f in entity_organisation_files],
+)
+def test_entity_organisation(file_path):
+    _run_checkpoint(
+        dataset="entity-organisation", file_path=file_path, rules=ENTITY_ORGANISATION_RULES
+    )
