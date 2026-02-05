@@ -2,6 +2,7 @@
 Module to run dataset expectations for configuration files. this ensure data quality before upload to s3
 """
 
+import json
 from pathlib import Path
 from glob import glob
 
@@ -34,9 +35,16 @@ def _run_checkpoint(dataset, file_path, rules):
     checkpoint.run()
 
     failed = [entry for entry in checkpoint.log.entries if not entry["passed"]]
-    assert not failed, "\n".join(
-        f"  - {entry['name']}: {entry['message']}" for entry in failed
-    )
+    if failed:
+        messages = []
+        for entry in failed:
+            messages.append(f"  - {entry['name']}: {entry['message']}")
+            details = entry.get("details")
+            if details:
+                if isinstance(details, str):
+                    details = json.loads(details)
+                messages.append(f"    {json.dumps(details, indent=4)}")
+        assert False, "\n".join(messages)
 
 # TEST OLD_ENTITY.CSV
 OLD_ENTITY_RULES = [
