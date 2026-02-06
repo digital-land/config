@@ -137,6 +137,31 @@ jobs:
             fi
           done
 
+      - name: Append to entity-organisation.csv
+        if: github.event.client_payload.entity_organisation_csv_rows != ''
+        run: |
+          COLLECTION="${{ steps.validate.outputs.collection }}"
+          ENTITY_ORG_FILE="pipeline/$COLLECTION/entity-organisation.csv"
+
+          # Ensure file ends with newline before appending
+          if [ -s "$ENTITY_ORG_FILE" ]; then
+            # Check if last character is NOT a newline (0a in hex)
+            LAST_CHAR=$(tail -c 1 "$ENTITY_ORG_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$ENTITY_ORG_FILE"
+              echo "Added missing newline to entity-organisation.csv"
+            fi
+          fi
+
+          # Parse the JSON array and append each row
+          echo '${{ toJSON(github.event.client_payload.entity_organisation_csv_rows) }}' | \
+          jq -r '.[]' | while IFS= read -r row; do
+            if [ -n "$row" ]; then
+              echo "$row" >> "$ENTITY_ORG_FILE"
+              echo "Added to entity-organisation.csv: $row"
+            fi
+          done
+
       - name: Commit and create PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
