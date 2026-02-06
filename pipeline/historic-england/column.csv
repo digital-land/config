@@ -18,6 +18,7 @@ certificate-of-immunity,,AmendDate,entry-date,,,,
 certificate-of-immunity,,Hyperlink,documentation-url,,,,
 certificate-of-immunity,,WKT,point,,,,16755b56fee278ad8a16c602fff7661eaeeb1f817cb072a0b07033ac2eee5bf3
 certificate-of-immunity,,WKT,geometry,,,,d1d7af74b909fbe2cea3994dd628106c64509c960fb51556d468b92b7be4c5f3
+certificate-of-immunity,,WKT,geometry,,,,
 heritage-at-risk,,Assessment,reference,,,,
 heritage-at-risk,,ListEntry,reference,,,,
 heritage-at-risk,,List_Entry,reference,,,,
