@@ -192,3 +192,4 @@ e87ee8a5f6a1d928c27f303f314f1b1f665933a0988dcc0043cba7882d791cfd,https://fenland
 
 c3a349110b51900819c7ac64740c69e79a902798d0753cd1d6a42f43bb6ea64c,https://services1.arcgis.com/vBu1s2ZA7rxzmHBD/arcgis/rest/services/2025_Article4_view/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2026-02-05,2026-02-03,
 e4c832436e9ab319a51d42e8c6a2b76c55175b7e1d3140c63c41b5aa70f1d5db,https://lbhillingdon.maps.arcgis.com/sharing/rest/content/items/ba8acb55071d4e5483b5ce4ec4a88ebb/data,,,2026-02-05,2026-02-03,
+fc506934d0ccc949f0f1ecd12ff8992587598e40950b067f2e1fc874b260a17a,https://raw.githubusercontent.com/digital-land/PublishExamples/refs/heads/main/Article4Direction/Files/Article4DirectionArea/articel4directionareas-(wrongColName-NewRefs).csv,,,2026-02-06,2026-01-22,
