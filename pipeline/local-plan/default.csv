@@ -1,1 +1,4 @@
-dataset,default-field,end-date,endpoint,entry-date,entry-number,field,resource,start-date
+dataset,resource,field,default-field,entry-date,start-date,end-date,entry-number,endpoint
+local-plan,,local-plan-boundary,local-planning-authorities,,,,,
+minerals-plan,,minerals-plan-boundary,mineral-planning-authorities,,,,,
+waste-plan,,waste-plan-boundary,waste-planning-authorities,,,,,
