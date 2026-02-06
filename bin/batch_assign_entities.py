@@ -229,8 +229,8 @@ def process_csv(scope, resource_dir):
             except OSError as e:
                 print(f"Failed to remove {resource_path} or its .gfs file: {e}")
         try:
-            if not any(resources_dir.iterdir()):
-                resources_dir.rmdir()
+            if not any(resource_dir.iterdir()):
+                resource_dir.rmdir()
         except OSError as e:
             print(f"Failed to remove the resources directory: {e}")
     # Summary of results
@@ -295,8 +295,8 @@ if __name__ == "__main__":
     print("READY to PROCESS")
     # Build url_map from the CSV data
     url_map = {}
-    resources_dir = Path("./resource")
-    resources_dir.mkdir(exist_ok=True)
+    resource_dir = Path("./resource")
+    resource_dir.mkdir(exist_ok=True)
     
     with open("issue_summary.csv", "r") as file:
         csv_reader = csv.DictReader(file)
@@ -310,7 +310,7 @@ if __name__ == "__main__":
             collection_name = row["collection"]
             resource = row["resource"]
             download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
-            resource_path = resources_dir / resource
+            resource_path = resource_dir / resource
             url_map[download_link] = str(resource_path)
     
     if ask_yes_no(prompt="Do you wish to batch download the resources? (y/n): "):
@@ -320,7 +320,7 @@ if __name__ == "__main__":
         print("Downloading individual resource files at a time")
 
     try:
-        failed_downloads, failed_assignments = process_csv(scope, resources_dir)
+        failed_downloads, failed_assignments = process_csv(scope, resource_dir)
         print(f"\nTotal failed downloads: {len(failed_downloads)}")
         print(f"Total failed assign-entities operations: {len(failed_assignments)}")
     except Exception as e:
@@ -340,8 +340,8 @@ if __name__ == "__main__":
         print("READY to PROCESS")
         # Build url_map from the CSV data
         url_map = {}
-        resources_dir = Path("./resource")
-        resources_dir.mkdir(exist_ok=True)
+        resource_dir = Path("./resource")
+        resource_dir.mkdir(exist_ok=True)
         
         with open("issue_summary.csv", "r") as file:
             csv_reader = csv.DictReader(file)
@@ -355,7 +355,7 @@ if __name__ == "__main__":
                 collection_name = row["collection"]
                 resource = row["resource"]
                 download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
-                resource_path = resources_dir / resource
+                resource_path = resource_dir / resource
                 url_map[download_link] = str(resource_path)
         if ask_yes_no(prompt="Do you wish to batch download the resources? (y/n): "):
             print("Downloading resources")
@@ -363,7 +363,7 @@ if __name__ == "__main__":
         else: 
             print("Downloading individual resource files at a time")
         
-        failed_downloads, failed_assignments = process_csv(scope, resources_dir)
+        failed_downloads, failed_assignments = process_csv(scope, resource_dir)
         print(f"\nTotal failed downloads: {len(failed_downloads)}")
         print(f"Total failed assign-entities operations: {len(failed_assignments)}")
     except Exception as e:
