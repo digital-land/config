@@ -1200,7 +1200,7 @@ local-plan,4220126,4220126,local-authority:BRE
 local-plan,4220203,4220204,local-authority:BRE
 local-plan,4220115,4220115,local-authority:BRM
 local-plan,4220118,4220118,local-authority:BRM
-local-plan,4220209,4220210,local-authority:BRO
+local-plan,4220209,4220209,local-authority:BRO
 local-plan,4220109,4220109,local-authority:BRT
 local-plan,4220113,4220114,local-authority:BRT
 local-plan,4220212,4220212,local-authority:BRT
@@ -1866,6 +1866,7 @@ local-plan-housing,1100286,1100286,local-planning-group:BAB-MSU
 local-plan-housing,1100202,1100210,local-planning-group:BOL-BUR-MAN-OLD-RCH-SLF-TAM-TRF-WGN
 local-plan-housing,1100247,1100248,local-planning-group:BOT-SHO
 local-plan-housing,1100281,1100283,local-planning-group:BRA-COL-TEN
+local-plan-housing,1100317,1100317,local-planning-group:BRO-NOW-SNO
 local-plan-housing,1100015,1100017,local-planning-group:BRT-GED-NGM
 local-plan-housing,1100053,1100055,local-planning-group:CHO-PRE-SRI
 local-plan-housing,1100102,1100104,local-planning-group:CHT-GLO-TEW
