@@ -194,3 +194,4 @@ c3a349110b51900819c7ac64740c69e79a902798d0753cd1d6a42f43bb6ea64c,https://service
 e4c832436e9ab319a51d42e8c6a2b76c55175b7e1d3140c63c41b5aa70f1d5db,https://lbhillingdon.maps.arcgis.com/sharing/rest/content/items/ba8acb55071d4e5483b5ce4ec4a88ebb/data,,,2026-02-05,2026-02-03,
 07976646eeb7459944f5e8eb0c4835b4a9e775afa80d59047e3579bccedb40ff,https://lewisham.gov.uk/-/media/services/planning/articles/class-e-article-4.csv,,,2026-02-06,2026-02-04,
 3dc447e9934913808aa3c47de60bc28a06ca9b7153b613afc08bb5cef3096b51,https://services-eu1.arcgis.com/OrZ7pO8Ag7olNJcC/ArcGIS/rest/services/ODP_Article4/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2026-02-09,2026-02-06,
+fb8cb00a25c63e85feb00a711e9c6eef43cd549fcc26c2fe18dae52192267fb0,https://lakedistrict.statmap.co.uk/map/wfs.svc/c8c7a0da_8065_469f_b0ea_80fbb53a426a?service=WFS&version=2.0.0&request=GetFeature&typeNames=statmap:ART4&outputFormat=application/json,,,2026-02-09,2026-02-06,
