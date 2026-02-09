@@ -1081,8 +1081,8 @@ development-plan-timetable,5102716,5102719,local-planning-group:BOL-BUR-MAN-OLD-
 development-plan-timetable,5103051,5103054,local-planning-group:BOL-BUR-MAN-OLD-RCH-SKP-SLF-TAM-TRF-WGN
 development-plan-timetable,5101045,5101048,local-planning-group:BOL-BUR-MAN-OLD-RCH-SLF-TAM-TRF-WGN
 development-plan-timetable,5101380,5101383,local-planning-group:BOT-SHO
-development-plan-timetable,5102780,5102785,local-planning-group:BPC-DOR
-development-plan-timetable,5103114,5103119,local-planning-group:BPC-DOR
+development-plan-timetable,5102780,5102785,local-planning-group:BCP-DOR
+development-plan-timetable,5103114,5103119,local-planning-group:BCP-DOR
 development-plan-timetable,5102720,5102725,local-planning-group:BRC-RDG-WBK-WOK
 development-plan-timetable,5103055,5103060,local-planning-group:BRC-RDG-WBK-WOK
 development-plan-timetable,5100429,5100432,local-planning-group:BRO-NOW-SNO
@@ -1200,7 +1200,7 @@ local-plan,4220126,4220126,local-authority:BRE
 local-plan,4220203,4220204,local-authority:BRE
 local-plan,4220115,4220115,local-authority:BRM
 local-plan,4220118,4220118,local-authority:BRM
-local-plan,4220209,4220210,local-authority:BRO
+local-plan,4220209,4220209,local-authority:BRO
 local-plan,4220109,4220109,local-authority:BRT
 local-plan,4220113,4220114,local-authority:BRT
 local-plan,4220212,4220212,local-authority:BRT
@@ -1866,6 +1866,7 @@ local-plan-housing,1100286,1100286,local-planning-group:BAB-MSU
 local-plan-housing,1100202,1100210,local-planning-group:BOL-BUR-MAN-OLD-RCH-SLF-TAM-TRF-WGN
 local-plan-housing,1100247,1100248,local-planning-group:BOT-SHO
 local-plan-housing,1100281,1100283,local-planning-group:BRA-COL-TEN
+local-plan-housing,1100317,1100317,local-planning-group:BRO-NOW-SNO
 local-plan-housing,1100015,1100017,local-planning-group:BRT-GED-NGM
 local-plan-housing,1100053,1100055,local-planning-group:CHO-PRE-SRI
 local-plan-housing,1100102,1100104,local-planning-group:CHT-GLO-TEW
@@ -1954,7 +1955,7 @@ waste-plan,540059,540059,local-authority:SOM
 waste-plan,540060,540061,local-authority:SRY
 waste-plan,540063,540063,local-authority:WAR
 waste-plan,540064,540064,local-authority:WBK
-waste-plan,540068,540068,local-authority:WFK
+waste-plan,540068,540068,local-authority:WKF
 waste-plan,540069,540069,local-authority:WOR
 waste-plan,540000,540000,local-planning-group:BAS-BST-NSM-SGC
 waste-plan,540024,540024,local-planning-group:BCP-DOR
