@@ -177,7 +177,6 @@ old-entity,status,entity,end-date,notes,entry-date,start-date
 44004192,301,44010076,,,,
 44004387,301,44009140,,,,
 44004943,301,44007677,,,,
-44005106,301,44007670,,,,
 44005108,301,44007671,,,,
 44005422,301,44009012,,,,
 44005823,301,44007426,,,,
@@ -3706,3 +3705,4 @@ old-entity,status,entity,end-date,notes,entry-date,start-date
 44006256,410,,,Removal of HE CA single-match-name not matching,2026-02-11,
 44004991,301,44014906,,redirect HE single-match to LPA entity,2026-02-11,
 44009483,301,44010462,,redirect HE single-match to LPA entity,2026-02-11,
+
