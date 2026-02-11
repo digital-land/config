@@ -1,0 +1,334 @@
+name: Add Data via Async API
+
+on:
+  repository_dispatch:
+    types: [add-data-async]
+
+jobs:
+  fetch-and-append:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate inputs
+        id: validate
+        run: |
+          REQUEST_ID="${{ github.event.client_payload.request_id }}"
+
+          if [ -z "$REQUEST_ID" ]; then
+            echo "Error: request_id is required"
+            exit 1
+          fi
+
+          echo "request_id=$REQUEST_ID" >> $GITHUB_OUTPUT
+
+      - name: Fetch request data
+        id: fetch
+        run: |
+          REQUEST_ID="${{ steps.validate.outputs.request_id }}"
+          API_BASE_URL="${{ vars.ASYNC_API_BASE_URL }}"
+          API_BASE_URL="${API_BASE_URL:-http://development-pub-async-api-lb-69142969.eu-west-2.elb.amazonaws.com}"
+
+          echo "Fetching request data from $API_BASE_URL/requests/$REQUEST_ID"
+
+          RESPONSE=$(curl -sf "$API_BASE_URL/requests/$REQUEST_ID")
+
+          if [ $? -ne 0 ]; then
+            echo "Error: Failed to fetch request data for $REQUEST_ID"
+            exit 1
+          fi
+
+          # Check status is COMPLETE
+          STATUS=$(echo "$RESPONSE" | jq -r '.status')
+          if [ "$STATUS" != "COMPLETE" ]; then
+            echo "Error: Request status is '$STATUS', expected 'COMPLETE'"
+            exit 1
+          fi
+
+          # Check for errors
+          ERROR=$(echo "$RESPONSE" | jq -r '.response.error // empty')
+          if [ -n "$ERROR" ]; then
+            echo "Error: Request has error: $ERROR"
+            exit 1
+          fi
+
+          # Extract collection from params
+          COLLECTION=$(echo "$RESPONSE" | jq -r '.params.collection')
+          if [ -z "$COLLECTION" ] || [ "$COLLECTION" = "null" ]; then
+            echo "Error: collection not found in request params"
+            exit 1
+          fi
+
+          # Check directories exist
+          if [ ! -d "collection/$COLLECTION" ]; then
+            echo "Error: collection/$COLLECTION does not exist"
+            exit 1
+          fi
+
+          if [ ! -d "pipeline/$COLLECTION" ]; then
+            echo "Error: pipeline/$COLLECTION does not exist"
+            exit 1
+          fi
+
+          echo "collection=$COLLECTION" >> $GITHUB_OUTPUT
+
+          # Save response to file for subsequent steps
+          echo "$RESPONSE" > /tmp/async_response.json
+          echo "Successfully fetched request data for collection: $COLLECTION"
+
+      - name: Append to endpoint.csv
+        run: |
+          COLLECTION="${{ steps.fetch.outputs.collection }}"
+          ENDPOINT_FILE="collection/$COLLECTION/endpoint.csv"
+          RESPONSE=$(cat /tmp/async_response.json)
+
+          # Check if endpoint already exists
+          ENDPOINT_EXISTS=$(echo "$RESPONSE" | jq -r '.response.data["endpoint-summary"].endpoint_url_in_endpoint_csv')
+          if [ "$ENDPOINT_EXISTS" = "true" ]; then
+            echo "Endpoint already exists in endpoint.csv, skipping"
+            exit 0
+          fi
+
+          # Check if there's a new endpoint entry
+          HAS_ENTRY=$(echo "$RESPONSE" | jq 'if .response.data["endpoint-summary"]["new_endpoint_entry"] then "yes" else "" end' -r)
+          if [ -z "$HAS_ENTRY" ]; then
+            echo "No new endpoint entry found, skipping"
+            exit 0
+          fi
+
+          # Ensure file ends with newline
+          if [ -s "$ENDPOINT_FILE" ]; then
+            LAST_CHAR=$(tail -c 1 "$ENDPOINT_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$ENDPOINT_FILE"
+            fi
+          fi
+
+          # Build CSV row: endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
+          ROW=$(echo "$RESPONSE" | jq -r '
+            .response.data["endpoint-summary"]["new_endpoint_entry"] |
+            [.endpoint, .["endpoint-url"], .parameters, .plugin, .["entry-date"], .["start-date"], .["end-date"]] |
+            map(. // "") |
+            join(",")
+          ')
+
+          echo "$ROW" >> "$ENDPOINT_FILE"
+          echo "Added to endpoint.csv: $ROW"
+
+      - name: Append to source.csv
+        run: |
+          COLLECTION="${{ steps.fetch.outputs.collection }}"
+          SOURCE_FILE="collection/$COLLECTION/source.csv"
+          RESPONSE=$(cat /tmp/async_response.json)
+
+          # Check if source already exists
+          SOURCE_EXISTS=$(echo "$RESPONSE" | jq -r '.response.data["source-summary"].documentation_url_in_source_csv')
+          if [ "$SOURCE_EXISTS" = "true" ]; then
+            echo "Source already exists in source.csv, skipping"
+            exit 0
+          fi
+
+          HAS_ENTRY=$(echo "$RESPONSE" | jq 'if .response.data["source-summary"]["new_source_entry"] then "yes" else "" end' -r)
+          if [ -z "$HAS_ENTRY" ]; then
+            echo "No new source entry found, skipping"
+            exit 0
+          fi
+
+          # Ensure file ends with newline
+          if [ -s "$SOURCE_FILE" ]; then
+            LAST_CHAR=$(tail -c 1 "$SOURCE_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$SOURCE_FILE"
+            fi
+          fi
+
+          # Build CSV row: source,attribution,collection,documentation-url,endpoint,licence,organisation,pipelines,entry-date,start-date,end-date
+          ROW=$(echo "$RESPONSE" | jq -r '
+            .response.data["source-summary"]["new_source_entry"] |
+            [.source, .attribution, .collection, .["documentation-url"], .endpoint, .licence, .organisation, .pipelines, .["entry-date"], .["start-date"], .["end-date"]] |
+            map(. // "") |
+            join(",")
+          ')
+
+          echo "$ROW" >> "$SOURCE_FILE"
+          echo "Added to source.csv: $ROW"
+
+      - name: Append to lookup.csv
+        run: |
+          COLLECTION="${{ steps.fetch.outputs.collection }}"
+          LOOKUP_FILE="pipeline/$COLLECTION/lookup.csv"
+          RESPONSE=$(cat /tmp/async_response.json)
+
+          # Check if there are new entities
+          ENTITY_COUNT=$(echo "$RESPONSE" | jq '.response.data["pipeline-summary"]["new-entities"] | length')
+          if [ "$ENTITY_COUNT" = "0" ] || [ -z "$ENTITY_COUNT" ]; then
+            echo "No new entities found, skipping lookup.csv"
+            exit 0
+          fi
+
+          # Ensure file ends with newline
+          if [ -s "$LOOKUP_FILE" ]; then
+            LAST_CHAR=$(tail -c 1 "$LOOKUP_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$LOOKUP_FILE"
+            fi
+          fi
+
+          # Build CSV rows: prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date
+          echo "$RESPONSE" | jq -r '
+            .response.data["pipeline-summary"]["new-entities"][] |
+            [.prefix, .resource, .endpoint, (.["entry-number"] | tostring), .organisation, .reference, (.entity | tostring), .["entry-date"], .["start-date"], .["end-date"]] |
+            map(. // "") |
+            join(",")
+          ' | while IFS= read -r row; do
+            if [ -n "$row" ]; then
+              echo "$row" >> "$LOOKUP_FILE"
+              echo "Added to lookup.csv: $row"
+            fi
+          done
+
+      - name: Append to column.csv
+        run: |
+          COLLECTION="${{ steps.fetch.outputs.collection }}"
+          COLUMN_FILE="pipeline/$COLLECTION/column.csv"
+          RESPONSE=$(cat /tmp/async_response.json)
+
+          # Check if there's a column mapping in params
+          HAS_MAPPING=$(echo "$RESPONSE" | jq 'if .params.column_mapping and (.params.column_mapping | length > 0) then "yes" else "" end' -r)
+          if [ -z "$HAS_MAPPING" ]; then
+            echo "No column mapping found, skipping column.csv"
+            exit 0
+          fi
+
+          # Ensure file ends with newline
+          if [ -s "$COLUMN_FILE" ]; then
+            LAST_CHAR=$(tail -c 1 "$COLUMN_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$COLUMN_FILE"
+            fi
+          fi
+
+          # Build CSV rows: dataset,endpoint,resource,column,field,start-date,end-date,entry-date
+          DATASET=$(echo "$RESPONSE" | jq -r '.params.dataset // ""')
+          ENDPOINT=$(echo "$RESPONSE" | jq -r '.response.data["endpoint-summary"]["new_endpoint_entry"].endpoint // ""')
+          ENTRY_DATE=$(echo "$RESPONSE" | jq -r '.response.data["endpoint-summary"]["new_endpoint_entry"]["entry-date"] // ""')
+          START_DATE=$(echo "$RESPONSE" | jq -r '.response.data["endpoint-summary"]["new_endpoint_entry"]["start-date"] // ""')
+
+          echo "$RESPONSE" | jq -r \
+            --arg dataset "$DATASET" \
+            --arg endpoint "$ENDPOINT" \
+            --arg entry_date "$ENTRY_DATE" \
+            --arg start_date "$START_DATE" '
+            .params.column_mapping | to_entries[] |
+            [$dataset, $endpoint, "", .key, .value, $start_date, "", $entry_date] |
+            join(",")
+          ' | while IFS= read -r row; do
+            if [ -n "$row" ]; then
+              echo "$row" >> "$COLUMN_FILE"
+              echo "Added to column.csv: $row"
+            fi
+          done
+
+      - name: Append to entity-organisation.csv
+        run: |
+          COLLECTION="${{ steps.fetch.outputs.collection }}"
+          ENTITY_ORG_FILE="pipeline/$COLLECTION/entity-organisation.csv"
+          RESPONSE=$(cat /tmp/async_response.json)
+
+          # Skip if authoritative is false
+          AUTHORITATIVE=$(echo "$RESPONSE" | jq -r '.params.authoritative // false')
+          if [ "$AUTHORITATIVE" != "true" ]; then
+            echo "authoritative is not true, skipping entity-organisation.csv"
+            exit 0
+          fi
+
+          # Check if there are entity-organisation entries
+          ENTRY_COUNT=$(echo "$RESPONSE" | jq '.response.data["pipeline-summary"]["entity-organisation"] | length')
+          if [ "$ENTRY_COUNT" = "0" ] || [ -z "$ENTRY_COUNT" ]; then
+            echo "No entity-organisation entries found, skipping"
+            exit 0
+          fi
+
+          # Ensure file ends with newline
+          if [ -s "$ENTITY_ORG_FILE" ]; then
+            LAST_CHAR=$(tail -c 1 "$ENTITY_ORG_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$ENTITY_ORG_FILE"
+            fi
+          fi
+
+          # Build CSV rows: dataset,entity-minimum,entity-maximum,organisation
+          echo "$RESPONSE" | jq -r '
+            .response.data["pipeline-summary"]["entity-organisation"][] |
+            [.dataset, (.["entity-minimum"] | tostring), (.["entity-maximum"] | tostring), .organisation] |
+            map(. // "") |
+            join(",")
+          ' | while IFS= read -r row; do
+            if [ -n "$row" ]; then
+              echo "$row" >> "$ENTITY_ORG_FILE"
+              echo "Added to entity-organisation.csv: $row"
+            fi
+          done
+
+      - name: Commit and create PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          COLLECTION="${{ steps.fetch.outputs.collection }}"
+          REQUEST_ID="${{ steps.validate.outputs.request_id }}"
+          TRIGGERED_BY="${{ github.event.client_payload.triggered_by }}"
+          BRANCH_NAME="add-data-async/$COLLECTION-$(date +%Y%m%d-%H%M%S)"
+
+          git config user.name "github-actions-add-data-bot"
+          git config user.email "matthew.poole@communities.gov.uk"
+
+          git checkout -b "$BRANCH_NAME"
+          git add collection/$COLLECTION/
+          git add pipeline/$COLLECTION/
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          # Build commit message and PR title
+          if [ -n "$TRIGGERED_BY" ]; then
+            COMMIT_MSG="$COLLECTION updated by $TRIGGERED_BY (request: $REQUEST_ID)"
+            PR_TITLE="$COLLECTION updated by $TRIGGERED_BY"
+          else
+            COMMIT_MSG="$COLLECTION updated (request: $REQUEST_ID)"
+            PR_TITLE="$COLLECTION updated"
+          fi
+
+          git commit -m "$COMMIT_MSG"
+          git push origin "$BRANCH_NAME"
+
+          # Create PR
+          if [ -n "$TRIGGERED_BY" ]; then
+            gh pr create --title "$PR_TITLE" --body "$(cat <<PRBODY
+          Collection: $COLLECTION
+          Request ID: $REQUEST_ID
+          Triggered by: $TRIGGERED_BY
+
+          This PR was automatically created via the Async API.
+          PRBODY
+          )" --base main --head "$BRANCH_NAME"
+          else
+            gh pr create --title "$PR_TITLE" --body "$(cat <<PRBODY
+          Collection: $COLLECTION
+          Request ID: $REQUEST_ID
+
+          This PR was automatically created via the Async API.
+          PRBODY
+          )" --base main --head "$BRANCH_NAME"
+          fi
+
+      - name: Summary
+        run: |
+          echo "### Workflow Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "${{ steps.fetch.outputs.collection }} updated via async request ${{ steps.validate.outputs.request_id }}" >> $GITHUB_STEP_SUMMARY
