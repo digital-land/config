@@ -43,6 +43,16 @@ jobs:
           COLLECTION="${{ steps.validate.outputs.collection }}"
           ENDPOINT_FILE="collection/$COLLECTION/endpoint.csv"
 
+          # Ensure file ends with newline before appending
+          if [ -s "$ENDPOINT_FILE" ]; then
+            # Check if last character is NOT a newline (0a in hex)
+            LAST_CHAR=$(tail -c 1 "$ENDPOINT_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$ENDPOINT_FILE"
+              echo "Added missing newline to endpoint.csv"
+            fi
+          fi
+
           # Parse the JSON array and append each row
           echo '${{ toJSON(github.event.client_payload.endpoint_csv_rows) }}' | \
           jq -r '.[]' | while IFS= read -r row; do
@@ -57,6 +67,16 @@ jobs:
         run: |
           COLLECTION="${{ steps.validate.outputs.collection }}"
           SOURCE_FILE="collection/$COLLECTION/source.csv"
+
+          # Ensure file ends with newline before appending
+          if [ -s "$SOURCE_FILE" ]; then
+            # Check if last character is NOT a newline (0a in hex)
+            LAST_CHAR=$(tail -c 1 "$SOURCE_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$SOURCE_FILE"
+              echo "Added missing newline to source.csv"
+            fi
+          fi
 
           # Parse the JSON array and append each row
           echo '${{ toJSON(github.event.client_payload.source_csv_rows) }}' | \
@@ -73,6 +93,16 @@ jobs:
           COLLECTION="${{ steps.validate.outputs.collection }}"
           LOOKUP_FILE="pipeline/$COLLECTION/lookup.csv"
 
+          # Ensure file ends with newline before appending
+          if [ -s "$LOOKUP_FILE" ]; then
+            # Check if last character is NOT a newline (0a in hex)
+            LAST_CHAR=$(tail -c 1 "$LOOKUP_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$LOOKUP_FILE"
+              echo "Added missing newline to lookup.csv"
+            fi
+          fi
+
           # Parse the JSON array and append each row
           echo '${{ toJSON(github.event.client_payload.lookup_csv_rows) }}' | \
           jq -r '.[]' | while IFS= read -r row; do
@@ -88,6 +118,16 @@ jobs:
           COLLECTION="${{ steps.validate.outputs.collection }}"
           COLUMN_FILE="pipeline/$COLLECTION/column.csv"
 
+          # Ensure file ends with newline before appending
+          if [ -s "$COLUMN_FILE" ]; then
+            # Check if last character is NOT a newline (0a in hex)
+            LAST_CHAR=$(tail -c 1 "$COLUMN_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$COLUMN_FILE"
+              echo "Added missing newline to column.csv"
+            fi
+          fi
+
           # Parse the JSON array and append each row
           echo '${{ toJSON(github.event.client_payload.column_csv_rows) }}' | \
           jq -r '.[]' | while IFS= read -r row; do
@@ -97,11 +137,37 @@ jobs:
             fi
           done
 
+      - name: Append to entity-organisation.csv
+        if: github.event.client_payload.entity_organisation_csv_rows != ''
+        run: |
+          COLLECTION="${{ steps.validate.outputs.collection }}"
+          ENTITY_ORG_FILE="pipeline/$COLLECTION/entity-organisation.csv"
+
+          # Ensure file ends with newline before appending
+          if [ -s "$ENTITY_ORG_FILE" ]; then
+            # Check if last character is NOT a newline (0a in hex)
+            LAST_CHAR=$(tail -c 1 "$ENTITY_ORG_FILE" | od -An -tx1 | tr -d ' ')
+            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
+              printf '\n' >> "$ENTITY_ORG_FILE"
+              echo "Added missing newline to entity-organisation.csv"
+            fi
+          fi
+
+          # Parse the JSON array and append each row
+          echo '${{ toJSON(github.event.client_payload.entity_organisation_csv_rows) }}' | \
+          jq -r '.[]' | while IFS= read -r row; do
+            if [ -n "$row" ]; then
+              echo "$row" >> "$ENTITY_ORG_FILE"
+              echo "Added to entity-organisation.csv: $row"
+            fi
+          done
+
       - name: Commit and create PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           COLLECTION="${{ steps.validate.outputs.collection }}"
+          TRIGGERED_BY="${{ github.event.client_payload.triggered_by }}"
           BRANCH_NAME="add-data-api/$COLLECTION-$(date +%Y%m%d-%H%M%S)"
 
           git config user.name "github-actions-add-data-bot"
@@ -116,14 +182,35 @@ jobs:
             exit 0
           fi
 
-          git commit -m "$COLLECTION updated"
+          # Build commit message and PR title
+          if [ -n "$TRIGGERED_BY" ]; then
+            COMMIT_MSG="$COLLECTION updated by $TRIGGERED_BY"
+            PR_TITLE="$COLLECTION updated by $TRIGGERED_BY"
+          else
+            COMMIT_MSG="$COLLECTION updated"
+            PR_TITLE="$COLLECTION updated"
+          fi
+
+          git commit -m "$COMMIT_MSG"
           git push origin "$BRANCH_NAME"
 
-          gh pr create \
-            --title "$COLLECTION updated" \
-            --body "$COLLECTION updated" \
-            --base main \
-            --head "$BRANCH_NAME"
+          # Create PR
+          if [ -n "$TRIGGERED_BY" ]; then
+            gh pr create --title "$PR_TITLE" --body "$(cat <<PRBODY
+          Collection: $COLLECTION
+          Triggered by: $TRIGGERED_BY
+
+          This PR was automatically created via the REST API.
+          PRBODY
+          )" --base main --head "$BRANCH_NAME"
+          else
+            gh pr create --title "$PR_TITLE" --body "$(cat <<PRBODY
+          Collection: $COLLECTION
+
+          This PR was automatically created via the REST API.
+          PRBODY
+          )" --base main --head "$BRANCH_NAME"
+          fi
 
       - name: Summary
         run: |

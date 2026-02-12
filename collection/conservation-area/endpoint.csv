@@ -748,3 +748,7 @@ ffa09cf08c4c5085c98287cb1927d77d6db80690492290625a7e2bc3e257fa4f,https://fenland
 fbb49b30cd42a556b2ec6665ae3de72fa51f3366c33f78e9a46186d7dd95a570,https://www.cotswold.gov.uk/media/vwmdr4kw/conservation-area-documents-cdc.csv,,,2026-01-29,2026-01-28,
 dce13f0be1a7b3a09b64e657216149418bc41dbd0f6c8aaf861391e6131b192c,https://bmaps.brent.gov.uk/geoserver/ldf/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ldf:conservation_areas_latest&OUTPUTFORMAT=application/json,,,2026-01-30,2026-01-29,
 83b62000a02ccd6102c698139983995e989a28cbbc65302f0c75c47b6031a6a8,https://www.hart.gov.uk/sites/default/files/2026-01/Conservation-areas-dataset.csv,,,2026-01-30,2026-01-29,
+3f913d3f6f47ad9fdd395a2e9b8aade05377e42f1824674b725028c7fc05aef5,https://services.arcgis.com/frayuCBtE5O8qDk4/arcgis/rest/services/TDC_Conservation_Areas/FeatureServer/0,,arcgis,2026-02-02,2026-01-29,
+0be6febed7270a3fca05b0e585be3231ffb386deabff193b427a90937dbafb17,https://mapservices.leeds.gov.uk/arcgis/rest/services/Public/Strategic_Planning/MapServer/64,,arcgis,2026-02-03,2026-02-03,
+6d0efeea2638110397807b5ce4d4c6ddc8124b73797bf00ea9ea4f25db221eb5,https://lewisham.gov.uk/-/media/services/planning/lewisham-conservation-area-data-set.csv,,,2026-02-05,2026-02-04,
+c999c871b5d0888ab5f5e43a34767d283e0c7e256af77fd0e5360f01b2a2e9b5,https://services8.arcgis.com/DOopK66xzdr2Avop/arcgis/rest/services/ConservationArea_document/FeatureServer/0,,arcgis,2026-02-09,2026-02-06,

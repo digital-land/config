@@ -435,10 +435,10 @@ local-planning-group,62000,62000,local-planning-group:BAB-MSU
 local-planning-group,62001,62001,local-planning-group:BLA-CHA-HAO-HIN-LCE-MEL-NWL-OAD
 local-planning-group,62002,62002,local-planning-group:BOL-BUR-MAN-OLD-RCH-SLF-TAM-TRF-WGN
 local-planning-group,62003,62003,local-planning-group:BOT-SHO
-local-planning-group,62004,62004,local-planning-group:BRA-TEN
-local-planning-group,62005,62005,local-planning-group:BRO-SNO
-local-planning-group,62006,62006,local-planning-group:BRT-ERE-GED-NGM
-local-planning-group,62007,62007,local-planning-group:BRT-GED-NGM
+local-planning-group,62004,62004,local-planning-group:BRA-COL-TEN
+local-planning-group,62005,62005,local-planning-group:BRO-NOW-SNO
+local-planning-group,62006,62006,local-planning-group:BRT-GED-NGM
+local-planning-group,62007,62007,local-planning-group:BRT-NGM-RUS
 local-planning-group,62008,62008,local-planning-group:BRX-EHE-NHE-STV-WEW
 local-planning-group,62009,62009,local-planning-group:CAB-SCA
 local-planning-group,62010,62010,local-planning-group:CHC-EDO

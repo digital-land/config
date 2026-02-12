@@ -30,6 +30,8 @@ article-4-direction,6102291,6102293,local-authority:KTT
 article-4-direction,6100326,6100334,local-authority:LBH
 article-4-direction,6100406,6100408,local-authority:LBH
 article-4-direction,6101500,6101730,local-authority:LCE
+article-4-direction,6102377,6102377,local-authority:LDS
+article-4-direction,6102378,6102434,local-authority:LEW
 article-4-direction,6100369,6100369,local-authority:LND
 article-4-direction,6102120,6102135,local-authority:MIK
 article-4-direction,6101858,6101863,local-authority:NBL
@@ -53,6 +55,7 @@ article-4-direction,6101801,6101809,local-authority:SCA
 article-4-direction,6101795,6101800,local-authority:SFT
 article-4-direction,6100872,6100873,local-authority:SGC
 article-4-direction,6102311,6102340,local-authority:SKP
+article-4-direction,6102347,6102376,local-authority:SKP
 article-4-direction,6101792,6101794,local-authority:SLF
 article-4-direction,6100817,6100871,local-authority:SNO
 article-4-direction,6100371,6100386,local-authority:SST
@@ -107,6 +110,7 @@ article-4-direction-area,7010002833,7010002871,local-authority:GLO
 article-4-direction-area,7010002917,7010002971,local-authority:GLO
 article-4-direction-area,7010002618,7010002634,local-authority:GRY
 article-4-direction-area,7010002695,7010002695,local-authority:GRY
+article-4-direction-area,7010009249,7010009398,local-authority:HIL
 article-4-direction-area,7010004012,7010004064,local-authority:HOR
 article-4-direction-area,7010009064,7010009088,local-authority:HRY
 article-4-direction-area,7010004790,7010004873,local-authority:KEC
@@ -168,4 +172,5 @@ article-4-direction-area,7010009237,7010009245,local-authority:WRL
 article-4-direction-area,7010005181,7010005190,local-authority:WSM
 article-4-direction-area,7010009089,7010009092,local-authority:YOR
 article-4-direction-area,7010006887,7010006912,national-park-authority:Q72617158
-
+article-4-direction-area,7010009399,7010009404,local-authority:DAR
+article-4-direction-area,7010009405,7010009434,national-park-authority:Q27159704
