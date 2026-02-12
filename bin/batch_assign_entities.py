@@ -129,12 +129,9 @@ def process_csv(scope, resource_dir):
                 print(f"Download_link > {download_link }")
                 print(f"Resource path > {resource_path}")
 
-                """
-                Check if resource hash file already exists in resource_path?
-                """
                     
                 if resource_path.is_file():
-                    print(f"Resource  exists in the Path : {resource}")
+                    print(f"Resource  exists in the Path : {resource_path}")
                 else:
                     try:
                         response = requests.get(download_link)
