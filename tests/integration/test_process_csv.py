@@ -2,7 +2,6 @@ import requests
 import pytest
 import bin.batch_assign_entities as batch_assign_entities
 
-
 @pytest.fixture
 def setup_test_path(monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)
@@ -106,17 +105,16 @@ def test_process_csv_match_entities(
 
     monkeypatch.setattr(batch_assign_entities.requests, "get", mock_get_match_entities)
     monkeypatch.setattr(batch_assign_entities, "check_and_assign_entities", lambda *args, **kwargs: True)
-
-    failed_downloads, failed_assignments = batch_assign_entities.process_csv(scope="odp")
+    resource_dir = tmp_path / "resource"
+    resource_dir.mkdir(parents=True,exist_ok=True)
+    failed_downloads, failed_assignments = batch_assign_entities.process_csv(scope="odp",resource_dir=resource_dir)
     out, err = capfd.readouterr()
 
     assert failed_downloads == []
     assert failed_assignments == []
     assert "Downloaded: test-resource" in out
     assert "Matching entities found (new_entity:matched_current_entity): {10: 1}" in out
-
-    resources_dir = tmp_path / "resource"
-    assert not any(resources_dir.glob("*")), "Resource file still exists"
+    assert not any(resource_dir.glob("*")), "Resource file still exists"
 
 
 def test_process_csv_success(
@@ -141,8 +139,9 @@ def test_process_csv_success(
 
     monkeypatch.setattr(batch_assign_entities.requests, "get", mock_get_success)
     monkeypatch.setattr(batch_assign_entities, "check_and_assign_entities", lambda *args, **kwargs: True)
-
-    failed_downloads, failed_assignments = batch_assign_entities.process_csv(scope="odp")
+    resource_dir = tmp_path / "resource"
+    resource_dir.mkdir(parents=True,exist_ok=True)
+    failed_downloads, failed_assignments = batch_assign_entities.process_csv(scope="odp",resource_dir=resource_dir)
     out, err = capfd.readouterr()
 
     assert failed_downloads == []

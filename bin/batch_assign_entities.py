@@ -12,6 +12,45 @@ from digital_land.commands import check_and_assign_entities
 from digital_land.collection import Collection
 from digital_land.utils.add_data_utils import get_user_response
 
+from tqdm import tqdm
+from urllib.request import urlretrieve
+from concurrent.futures import ThreadPoolExecutor
+
+logger = logging.getLogger("__name__")
+
+def download_file(url, output_path, raise_error=False, max_retries=5):
+    """Downloads a file using urllib and saves it to the output directory. msj151225"""
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    retries = 0
+    while retries < max_retries:
+        try:
+            urlretrieve(url, output_path)
+            break
+        except Exception as e:
+            if raise_error:
+                raise e
+            else:
+                logger.error(f"error downloading file from url {url}: {e}")
+        retries += 1
+
+
+def download_urls(url_map, max_threads=4):
+    """Downloads multiple files concurrently using threads. msj151225" """
+    with ThreadPoolExecutor(max_threads) as executor:
+        futures = {
+            executor.submit(download_file, url, output_path): url
+            for url, output_path in url_map.items()
+        }
+        results = []
+        for future in tqdm(futures, desc="Downloading files"):
+            try:
+                results.append(future.result())
+            except Exception as e:
+                logger.errors(f"Error during download: {e}")
+        return results
+
+
 def ask_yes_no(prompt="Continue? (y/n): "):
     """Ask the user a yes/no question and return True for yes, False for no."""
     while True:
@@ -54,15 +93,13 @@ def get_field_value_map(df, entity_number):
     return dict(zip(sub_df['field'], sub_df['value']))
 
 
-def process_csv(scope):
+def process_csv(scope, resource_dir):
     """
     Uses provided file path to automatically process and assign unknown entities
     """
     failed_downloads = []
     failed_assignments = []
     successful_resources = []
-    resources_dir = Path("./resource")
-    resources_dir.mkdir(exist_ok=True)
 
     try:
         with open("issue_summary.csv", "r") as file:
@@ -80,18 +117,34 @@ def process_csv(scope):
                 dataset = row["pipeline"]
                 organisation_name = row["organisation"]
                 download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
-                resource_path = resources_dir / resource
+                resource_path = resource_dir / resource
                 cache_dir=Path("var/cache/")
-                try:
-                    response = requests.get(download_link)
-                    response.raise_for_status()
-                    resource_path.write_bytes(response.content)
-                    print(f"Downloaded: {resource}")
-                except requests.RequestException as e:
-                    print(f"Failed to download: {resource}")
-                    print(f"Error: {e}")
-                    failed_downloads.append((row_number, resource, str(e)))
-                    continue
+                
+                
+                print("********************************************************************************************************************************")
+                print("********************************************************************************************************************************")
+                print(f"Collection_name > {collection_name}")
+                print(f"Resource hash > {resource}")
+                print(f"Endpoint hash > {endpoint}")
+                print(f"Download_link > {download_link }")
+                print(f"Resource path > {resource_path}")
+
+                    
+                if resource_path.is_file():
+                    print(f"Resource  exists in the Path : {resource_path}")
+                else:
+                    try:
+                        response = requests.get(download_link)
+                        response.raise_for_status()
+                        resource_path.write_bytes(response.content)
+                        print(f"Downloaded: {resource}")
+                    except requests.RequestException as e:
+                        print(f"Failed to download: {resource}")
+                        print(f"Error: {e}")
+                        failed_downloads.append((row_number, resource, str(e)))
+                    #continue
+
+                    print(f"Successfully downloaded resource: {resource}")
                 collection_path = Path(f"collection/{collection_name}")
 
                 input_path = Path(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
@@ -173,8 +226,8 @@ def process_csv(scope):
             except OSError as e:
                 print(f"Failed to remove {resource_path} or its .gfs file: {e}")
         try:
-            if not any(resources_dir.iterdir()):
-                resources_dir.rmdir()
+            if not any(resource_dir.iterdir()):
+                resource_dir.rmdir()
         except OSError as e:
             print(f"Failed to remove the resources directory: {e}")
     # Summary of results
@@ -202,6 +255,7 @@ def get_scope(value, scope_dict):
 
 
 if __name__ == "__main__":
+    
 
     endpoint_issue_summary_path = "https://datasette.planning.data.gov.uk/performance/endpoint_dataset_issue_type_summary.csv?_sort=rowid&issue_type__exact=unknown+entity&_size=max"
 
@@ -224,7 +278,50 @@ if __name__ == "__main__":
     }
 
     df["scope"] = df["dataset"].apply(lambda x: get_scope(x, scope_dict))
+    df.to_csv("issue_summary.csv", index=False)
+    print("issue_summary.csv downloaded successfully")
 
+    if not ask_yes_no(prompt="Do you wish to continue? (y/n): "):
+        print("Operation cancelled by user.")
+        sys.exit(0)
+
+    scope = input("Enter scope (odp/mandated/single-source): ").strip().lower()
+    if scope not in ["odp", "mandated", "single-source"]:
+        raise ValueError(f"'{scope}' isn't a valid scope. Please enter a valid scope.")
+
+    print("READY to PROCESS")
+    # Build url_map from the CSV data
+    url_map = {}
+    resource_dir = Path("./resource")
+    resource_dir.mkdir(exist_ok=True)
+    
+    with open("issue_summary.csv", "r") as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            if (
+                row["issue_type"].lower() != "unknown entity"
+                or row["scope"].lower() != scope
+                or row["dataset"].lower() == "title-boundary"
+            ):
+                continue
+            collection_name = row["collection"]
+            resource = row["resource"]
+            download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
+            resource_path = resource_dir / resource
+            url_map[download_link] = str(resource_path)
+    
+    if ask_yes_no(prompt="Do you wish to batch download the resources? (y/n): "):
+        print("Downloading resources")
+        download_urls(url_map, max_threads=4)
+    else: 
+        print("Downloading individual resource files at a time")
+
+    try:
+        failed_downloads, failed_assignments = process_csv(scope, resource_dir)
+        print(f"\nTotal failed downloads: {len(failed_downloads)}")
+        print(f"Total failed assign-entities operations: {len(failed_assignments)}")
+    except Exception as e:
+        print(f"An error occurred while processing the CSV file: {e}")
     df.to_csv("issue_summary.csv", index=False)
     print("issue_summary.csv downloaded successfully")
 
@@ -237,8 +334,36 @@ if __name__ == "__main__":
         raise ValueError(f"'{scope}' isn't a valid scope. Please enter a valid scope.")
 
     try:
-        failed_downloads, failed_assignments = process_csv(scope)
+        print("READY to PROCESS")
+        # Build url_map from the CSV data
+        url_map = {}
+        resource_dir = Path("./resource")
+        resource_dir.mkdir(exist_ok=True)
+        
+        with open("issue_summary.csv", "r") as file:
+            csv_reader = csv.DictReader(file)
+            for row in csv_reader:
+                if (
+                    row["issue_type"].lower() != "unknown entity"
+                    or row["scope"].lower() != scope
+                    or row["dataset"].lower() == "title-boundary"
+                ):
+                    continue
+                collection_name = row["collection"]
+                resource = row["resource"]
+                download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
+                resource_path = resource_dir / resource
+                url_map[download_link] = str(resource_path)
+        if ask_yes_no(prompt="Do you wish to batch download the resources? (y/n): "):
+            print("Downloading resources")
+            download_urls(url_map, max_threads=4)
+        else: 
+            print("Downloading individual resource files at a time")
+        
+        failed_downloads, failed_assignments = process_csv(scope, resource_dir)
         print(f"\nTotal failed downloads: {len(failed_downloads)}")
         print(f"Total failed assign-entities operations: {len(failed_assignments)}")
     except Exception as e:
         print(f"An error occurred while processing the CSV file: {e}")
+
+
