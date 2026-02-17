@@ -1582,3 +1582,4 @@ b3b4db6d9aa6a050a44de3f9437f086b5ceae6e3ee68d134cc538989a2873516,https://www.rut
 ae7e8f4996ba326d3466b67c7839b5d9ba7f5dd28d5b0b3e0ff167710b101e04,https://www.eastsuffolk.gov.uk/sites/default/files/2026-02/Brownfield%20land%20register.csv,,,2026-02-05,2026-02-05,
 1d9f772f06ab27947ea129efe856f0b8f561b81974633e64c7ec183a120fc386,https://www.knowsley.gov.uk/sites/default/files/2026-02/Knowsley Metropoliton Borough Council - Brownfield Land.csv,,,2026-02-05,2026-02-03,
 ac42dfe8ae9eaf42318102e26bb120734cf6da8c4d1080b2a24c71d77b7fc394,https://maps.strata.solutions/arcgis/rest/services/ECCGIS_CD_Brownfield_Land_Register_2025_point/MapServer/2/query?outFields=*&where=1%3D1&f=geojson,,,2026-02-13,2026-02-10,
+94cc415c277d0e3ae03dd6cb475aefa1a2cca7fb02aa2922d09980b63c22cd1b,https://crawley.gov.uk/sites/default/files/brownfield/brownfield-land-register.csv,,,2026-02-17,2026-02-13,
