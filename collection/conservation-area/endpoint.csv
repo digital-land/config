@@ -758,3 +758,4 @@ e4a93d13101bee5f4c7206b79d7058e449a750ea61313875b27995397ed5785e,https://mapsdat
 4e6e2d20cc28ba65c014a5671c8b21c71a48e410ebbb9c4c72609b8796ff61cc,https://lewisham.gov.uk/-/media/services/planning/lewisham-conservation-area-data-set.geojson,,,2026-02-17,2026-02-16,
 
 1118e504e7b898ad4305184993dc2605bcad5d2ae6271c7cd19b0c1b27d70577,https://www.north-norfolk.gov.uk/media/ODP/NNDC_conservationareadoc.csv,,,2026-02-17,2026-02-12,
+35b8fdb325889630da2a3ad828f9d718f4dfac3d4decd5bcb46ab3b0aa282696,https://mapsdata.midkent.gov.uk/geoserver/Planning_gov/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Planning_gov%3ASwale_Borough_Council_-_Conservation_Area_Document,,,2026-02-17,2026-02-13,
