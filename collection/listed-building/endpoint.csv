@@ -99,3 +99,4 @@ cd4db0c6f3b61208d281915ec36419f18bb3209916203fe5dc8b5f80a56cdfef,https://adur-wo
 d6c96316e4d8172b3211b0811be49fd01419e4e6e307bb0dcf641ddc91928543,https://mapsdata.midkent.gov.uk/geoserver/Planning_gov/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Planning_gov%3ASwale_Borough_Council_-_Listed_building,,,2026-02-02,2026-01-28,
 dacda15d369fe8776aee3a62360b3421ea3c585c5ed1eb1d5d034a1be7070a7f,https://services.arcgis.com/frayuCBtE5O8qDk4/arcgis/rest/services/TDC_ListedBuilding/FeatureServer/0,,arcgis,2026-02-03,2026-01-29,
 07d41528e4b856980908a0dca2e2bd3969a963d1a060ea64c7881e7c1f1764fa,https://bmaps.brent.gov.uk/geoserver/planning/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=planning:statutory_listedb_polys_current&OUTPUTFORMAT=application/json,,,2026-02-05,2026-02-05,
+959f6463369a3cd05cc7a4a1948320495724b4a3f2eef5e4bc2f34a8a9d28ff8,https://www.north-norfolk.gov.uk/media/ODP/NNDC_listedbuildings.csv,,,2026-02-17,2026-02-12,
