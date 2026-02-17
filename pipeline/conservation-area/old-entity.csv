@@ -3682,7 +3682,6 @@ old-entity,status,entity,end-date,notes,entry-date,start-date
 44004991,301,44014906,,redirect HE single-match to LPA entity,2026-02-11,
 44009483,301,44010462,,redirect HE single-match to LPA entity,2026-02-11,
 44005106,301,44007670,,redirect HE to YOR entity,2026-02-17,
-44005106,301,44007670,,redirect HE to YOR entity,2026-02-17,
 44008713,301,44014982,,redirect GLA to LEW entity,2026-02-17,
 44008754,301,44014975,,redirect GLA to LEW entity,2026-02-17,
 44008766,301,44014969,,redirect GLA to LEW entity,2026-02-17,
@@ -3708,3 +3707,4 @@ old-entity,status,entity,end-date,notes,entry-date,start-date
 44008864,301,44014978,,redirect GLA to LEW entity,2026-02-17,
 44008865,301,44014983,,redirect GLA to LEW entity,2026-02-17,
 44009097,301,44014985,,redirect GLA to LEW entity,2026-02-17,
+
