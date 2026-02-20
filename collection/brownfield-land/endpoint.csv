@@ -1584,3 +1584,4 @@ ae7e8f4996ba326d3466b67c7839b5d9ba7f5dd28d5b0b3e0ff167710b101e04,https://www.eas
 ac42dfe8ae9eaf42318102e26bb120734cf6da8c4d1080b2a24c71d77b7fc394,https://maps.strata.solutions/arcgis/rest/services/ECCGIS_CD_Brownfield_Land_Register_2025_point/MapServer/2/query?outFields=*&where=1%3D1&f=geojson,,,2026-02-13,2026-02-10,
 94cc415c277d0e3ae03dd6cb475aefa1a2cca7fb02aa2922d09980b63c22cd1b,https://crawley.gov.uk/sites/default/files/brownfield/brownfield-land-register.csv,,,2026-02-17,2026-02-13,
 2920a2e0627602a4546642a4ff76c68a5973c772abec8bc91392dcbe47bbfeec,https://www.cannockchasedc.gov.uk/sites/default/files/document-library/brownfield-sites%20update%202025%20full%20register%20csv%20file.csv,,,2026-02-18,2026-02-17,
+5e22cb39454e96849461b08cd0fc717be8bdb92394fbf4ae3b9d0cb74538265e,https://maps.strata.solutions/arcgis/rest/services/ECCGIS_CD_Brownfield_Land_Register_2025_point/MapServer/2,,arcgis,2026-02-20,2026-02-20,
