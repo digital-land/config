@@ -1550,7 +1550,7 @@ a4e6c2f2be8b00e1b26b7191b16cb95ca4b244df34955c9f11e70e512e33d4cb,https://www.har
 df26ef6a61929f02fc8962a4984acc0376c6aeaa3628805ad9f4b0ac01bccbdc,https://plymouth.thedata.place/dataset/ece0ce26-9d4f-4ee8-b054-783d6097a250/resource/b22d7410-bfa6-426d-9bc6-29ff8e1f5df5/download/plymouth-brownfield-register-dec2018_2025-edits.csv,,,2025-10-21,2018-12-01,
 885dd1359beb6967f777dd5b75d2012254405c028b634313f6120122ff077eb8,https://plymouth.thedata.place/dataset/ece0ce26-9d4f-4ee8-b054-783d6097a250/resource/100ea7fc-fef3-41a5-9f1b-552aa613edc4/download/plymouth-brownfield-register_dec2017_2025-edits.csv,,,2025-10-21,2017-12-01,
 4ace3e47aa0e2c7b9af32d467684ecfc16b2352334cf5e3a8d82dd0af10f4cef,https://www.spelthorne.gov.uk/sites/default/files/migration/media/27426/Brownfield-Land-Register-2024/csv/Brownfield-Land-Register-2024.csv,,,2025-10-21,2025-10-13,
-96797ba449a743e890d395d43b112500105a9e7f1627ae3798093793eb952c07,https://maps.strata.solutions/arcgis/rest/services/ecc/Brownfield_Land_Register_2025/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-11-27,2025-11-24,
+96797ba449a743e890d395d43b112500105a9e7f1627ae3798093793eb952c07,https://maps.strata.solutions/arcgis/rest/services/ecc/Brownfield_Land_Register_2025/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-11-27,2025-11-24,2026-02-23
 abc37026ec7b90cd951097bff6e90ef50d0808dea9e86eccea3e964693283c05,https://www.dudley.gov.uk/media/toyhbu0q/brownfield-land-november-2025.csv,,,2025-11-27,2025-11-24,
 ba2054a425e60a00df97d6f57a6dea4333a0e8c49b3c9320a1a99d05e56ac4a6,https://www.guildford.gov.uk/media/35723/Guildford-Brownfield-Register/CSV/brownfield-land.csv,,,2025-12-04,2025-12-02,
 53c5731ff1d6067a76fcf6299575b8c3437c109faff52a94ee39013c0cbd7737,https://www.coventry.gov.uk/downloads/file/44973/brownfield-land-register-current,,,2025-12-05,2025-12-05,
@@ -1581,6 +1581,7 @@ b3b4db6d9aa6a050a44de3f9437f086b5ceae6e3ee68d134cc538989a2873516,https://www.rut
 991fa0d490a88426abe021ad963dbeaf6fae6a450c1f644347f97c3f9e0ab2ed,https://www.wigan.gov.uk/Docs/PDF/Council/Strategies-Plans-and-Policies/Planning/Environment/BrownfieldRegister2025.csv,,,2026-02-02,2026-02-02,
 ae7e8f4996ba326d3466b67c7839b5d9ba7f5dd28d5b0b3e0ff167710b101e04,https://www.eastsuffolk.gov.uk/sites/default/files/2026-02/Brownfield%20land%20register.csv,,,2026-02-05,2026-02-05,
 1d9f772f06ab27947ea129efe856f0b8f561b81974633e64c7ec183a120fc386,https://www.knowsley.gov.uk/sites/default/files/2026-02/Knowsley Metropoliton Borough Council - Brownfield Land.csv,,,2026-02-05,2026-02-03,
+
 ac42dfe8ae9eaf42318102e26bb120734cf6da8c4d1080b2a24c71d77b7fc394,https://maps.strata.solutions/arcgis/rest/services/ECCGIS_CD_Brownfield_Land_Register_2025_point/MapServer/2/query?outFields=*&where=1%3D1&f=geojson,,,2026-02-13,2026-02-10,
 94cc415c277d0e3ae03dd6cb475aefa1a2cca7fb02aa2922d09980b63c22cd1b,https://crawley.gov.uk/sites/default/files/brownfield/brownfield-land-register.csv,,,2026-02-17,2026-02-13,
 2920a2e0627602a4546642a4ff76c68a5973c772abec8bc91392dcbe47bbfeec,https://www.cannockchasedc.gov.uk/sites/default/files/document-library/brownfield-sites%20update%202025%20full%20register%20csv%20file.csv,,,2026-02-18,2026-02-17,
