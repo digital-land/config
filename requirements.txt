@@ -1,4 +1,5 @@
 -e git+https://github.com/digital-land/digital-land-python.git@feat/csv_expectations#egg=digital-land
+-e git+https://github.com/digital-land/digital-land-python.git@msj/dev-ent-org#egg=digital-land
 pytest
 pytest-mock
 requests
