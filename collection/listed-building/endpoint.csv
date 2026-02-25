@@ -103,3 +103,4 @@ dacda15d369fe8776aee3a62360b3421ea3c585c5ed1eb1d5d034a1be7070a7f,https://service
 ffbd37f09b328cb39b15ec8050421202cce3897cb5d5d661b3b9c3721b237db1,https://www.hart.gov.uk/sites/default/files/2026-02/Listed-buildings-data-set.csv,,,2026-02-18,2026-02-18,
 b8f11e388fd11dcd3fc455375b6e2f6b4063bf082c99ab9fc1438a642576a20c,https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/Delisted/FeatureServer/0,,arcgis,2026-02-18,2026-02-18,
 11f530e362091506d04059a515900f630f7e25e36a11754472c97e41bfb5969f,https://services-eu1.arcgis.com/U9TdzyuSbEnjj4tz/arcgis/rest/services/FoD_Listed_Buildings/FeatureServer/0,,arcgis,2026-02-20,2026-02-20,
+6d4a00124b38892360a73f975342a315fceb586c1b4c771ed15b2e67fff07e8f,https://maps.calderdale.gov.uk/map/wfs.svc/ODP_Listed_Buildings?service=WFS&version=1.1.0&request=GetFeature&TYPENAME=statmap:OD_Listed_Buildings&outputFormat=application/json,,,2026-02-25,2026-02-25,
