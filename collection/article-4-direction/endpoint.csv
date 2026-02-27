@@ -208,3 +208,4 @@ a0ec97fd3e082f30a148aa5d5ac606bda5ba2e0ba8372bd4120156e46a6536d7,https://lewisha
 f3fc11016ee50f1c1c57a2e4c031cda638eff613379cf886b5d3a5094c13194b,https://www.cotswold.gov.uk/media/31gmd2fz/article-4-areas-cdc.csv,,,2026-02-24,2026-02-24,
 48ede191b82c811be25256c6d3789ad439f150b1f290142481243a305d80d6ca,https://bmaps.brent.gov.uk/geoserver/ldf/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ldf:a4_hmo_latest&OUTPUTFORMAT=application/json,,,2026-02-27,2026-02-26,
 b2078ceecfe19a22c554bd9cc0f9af7d9e3bfb15b45dc0bff65be6fbe8c5ce5a,https://bmaps.brent.gov.uk/geoserver/ldf/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ldf:a4_directions_merged_latest&OUTPUTFORMAT=application/json,,,2026-02-27,2026-02-26,
+505d53a7e71a87d10b24a1a61a6cc5ad134e21e4fe9e7a7f86ffc02d2e923c32,https://www.havant.gov.uk/media/10801/download?inline,,,2026-02-27,2026-02-27,
