@@ -23,7 +23,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Run deduplicate script
         run: python bin/deduplicate-ca-geogs.py
@@ -52,9 +52,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Deduplicate conservation area geographies
-
-Updated old-entity.csv with automatic redirects for complete and single match duplicates."
+          git commit -m "Deduplicate conservation area geographies"
 
           git push origin "$BRANCH_NAME"
 
@@ -62,16 +60,16 @@ Updated old-entity.csv with automatic redirects for complete and single match du
           gh pr create --title "Deduplicate conservation area geographies" \
             --body "This PR contains automatic redirects for conservation area duplicates.
 
-- Complete matches (100% geometry overlap)
-- Single matches with >80% name similarity
+          - Complete matches (100% geometry overlap)
+          - Single matches with >80% name similarity
 
-This PR was automatically created via the Deduplicate Conservation Area Geographies workflow.
+          This PR was automatically created via the Deduplicate Conservation Area Geographies workflow.
 
-**Triggered by:** @${{ github.actor }}
+          **Triggered by:** @${{ github.actor }}
 
-Please review and merge if appropriate." \
-            --base main \
-            --head "$BRANCH_NAME"
+          Please review and merge if appropriate." \
+                      --base main \
+                      --head "$BRANCH_NAME"
 
       - name: Summary
         run: |
