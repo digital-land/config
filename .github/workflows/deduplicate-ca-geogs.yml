@@ -1,0 +1,78 @@
+name: Deduplicate Conservation Area Geographies
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deduplicate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Run deduplicate script
+        run: python .github/scripts/deduplicate-ca-geogs.py
+
+      - name: Commit and create PR
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          BRANCH_NAME="deduplicate-ca-geogs-$(date +%Y%m%d-%H%M)"
+
+          git config user.name "github-actions-bot"
+          git config user.email "noreply@github.com"
+
+          # Check if there are changes
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git checkout -b "$BRANCH_NAME"
+          git add pipeline/conservation-area/old-entity.csv
+
+          # Double-check there are staged changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Deduplicate conservation area geographies"
+
+          git push origin "$BRANCH_NAME"
+
+          # Create PR
+          gh pr create --title "Deduplicate conservation area geographies" \
+            --body "This PR contains automatic redirects for conservation area duplicates.
+
+          - Complete matches (100% geometry overlap)
+          - Single matches with >80% name similarity
+
+          This PR was automatically created via the Deduplicate Conservation Area Geographies workflow.
+
+          **Triggered by:** @${{ github.actor }}
+
+          Please review and merge if appropriate." \
+                      --base main \
+                      --head "$BRANCH_NAME"
+
+      - name: Summary
+        run: |
+          echo "### Deduplicate Conservation Area Geographies" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Script execution completed. Check above for PR creation details." >> $GITHUB_STEP_SUMMARY

@@ -1,3 +1,4 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
 6d5d9c21798ed37a7549ff16b0122d488316a54094ba54d4d37aded7de148e21,https://raw.githubusercontent.com/digital-land/collection-datastore/refs/heads/main/development-corporation-boundary/devco_attributes.csv,,,2025-12-16,2025-12-16,
 a31ae6567dc9b9347199bdfa0ca287ec129c1c3d803076cbe9226139cbce9faf,https://raw.githubusercontent.com/digital-land/collection-datastore/refs/heads/main/development-corporation-boundary/development-corporation-boundaries.geojson,,,2025-12-16,2025-12-16,
+43fd6ba2185cf2e00e83e4fb55dc97850b7ec8dc2ccaa8c8f254847b19ced074,https://services-eu1.arcgis.com/TSkUZPV4pvisWowL/arcgis/rest/services/Mayoral_Development_Corporations/FeatureServer/0/,,arcgis,2026-02-26,2026-02-26,
