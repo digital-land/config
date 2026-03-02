@@ -87,6 +87,45 @@ jobs:
           echo "$RESPONSE" > /tmp/async_response.json
           echo "Successfully fetched request data for collection: $COLLECTION"
 
+      - name: Resolve branch
+        id: branch
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          BRANCH_PARAM="${{ github.event.client_payload.branch }}"
+          COLLECTION="${{ steps.fetch.outputs.collection }}"
+
+          if [ -n "$BRANCH_PARAM" ]; then
+            # Check if branch has an open PR
+            PR_NUMBER=$(gh pr list --head "$BRANCH_PARAM" --state open --json number --jq '.[0].number // empty')
+            if [ -n "$PR_NUMBER" ]; then
+              echo "Found open PR #$PR_NUMBER for branch $BRANCH_PARAM, checking out"
+              git fetch origin "$BRANCH_PARAM"
+              git checkout "$BRANCH_PARAM"
+              echo "branch_name=$BRANCH_PARAM" >> $GITHUB_OUTPUT
+              echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
+              echo "mode=append" >> $GITHUB_OUTPUT
+            else
+              # No open PR — check if the branch already exists in git
+              if git ls-remote --exit-code --heads origin "$BRANCH_PARAM" > /dev/null 2>&1; then
+                echo "Branch $BRANCH_PARAM exists but has no open PR, checking out"
+                git fetch origin "$BRANCH_PARAM"
+                git checkout "$BRANCH_PARAM"
+              else
+                echo "Branch $BRANCH_PARAM does not exist, will create it"
+              fi
+              echo "branch_name=$BRANCH_PARAM" >> $GITHUB_OUTPUT
+              echo "pr_number=" >> $GITHUB_OUTPUT
+              echo "mode=create" >> $GITHUB_OUTPUT
+            fi
+          else
+            NEW_BRANCH="add-data-async/$COLLECTION-$(date +%Y%m%d-%H%M%S)"
+            echo "No branch specified, will create new branch: $NEW_BRANCH"
+            echo "branch_name=$NEW_BRANCH" >> $GITHUB_OUTPUT
+            echo "pr_number=" >> $GITHUB_OUTPUT
+            echo "mode=new" >> $GITHUB_OUTPUT
+          fi
+
       - name: Append to endpoint.csv
         run: |
           COLLECTION="${{ steps.fetch.outputs.collection }}"
@@ -288,12 +327,17 @@ jobs:
           COLLECTION="${{ steps.fetch.outputs.collection }}"
           REQUEST_ID="${{ steps.validate.outputs.request_id }}"
           TRIGGERED_BY="${{ github.event.client_payload.triggered_by }}"
-          BRANCH_NAME="add-data-async/$COLLECTION-$(date +%Y%m%d-%H%M%S)"
+          BRANCH_NAME="${{ steps.branch.outputs.branch_name }}"
+          PR_NUMBER="${{ steps.branch.outputs.pr_number }}"
+          MODE="${{ steps.branch.outputs.mode }}"
+
+          DATASET=$(jq -r '.params.dataset // ""' /tmp/async_response.json)
+          ORG=$(jq -r '.params.organisation // ""' /tmp/async_response.json)
+          COMMIT_LABEL="add-${DATASET}-${ORG}-${TRIGGERED_BY}"
 
           git config user.name "github-actions-add-data-bot"
           git config user.email "matthew.poole@communities.gov.uk"
 
-          git checkout -b "$BRANCH_NAME"
           git add collection/$COLLECTION/
           git add pipeline/$COLLECTION/
 
@@ -302,36 +346,26 @@ jobs:
             exit 0
           fi
 
-          # Build commit message and PR title
-          if [ -n "$TRIGGERED_BY" ]; then
-            COMMIT_MSG="$COLLECTION updated by $TRIGGERED_BY (request: $REQUEST_ID)"
-            PR_TITLE="$COLLECTION updated by $TRIGGERED_BY"
+          if [ "$MODE" = "append" ]; then
+            # Commit and push to existing branch
+            git commit -m "$COMMIT_LABEL"
+            git push origin "$BRANCH_NAME"
+
+            # Append new label to existing PR body
+            CURRENT_BODY=$(gh pr view "$PR_NUMBER" --json body --jq '.body')
+            NEW_BODY=$(printf '%s\n%s' "$CURRENT_BODY" "$COMMIT_LABEL")
+            gh pr edit "$PR_NUMBER" --body "$NEW_BODY"
+            echo "Appended to PR #$PR_NUMBER on branch $BRANCH_NAME"
+
           else
-            COMMIT_MSG="$COLLECTION updated (request: $REQUEST_ID)"
-            PR_TITLE="$COLLECTION updated"
-          fi
+            # Create new branch (mode=new or mode=create)
+            git checkout -b "$BRANCH_NAME"
+            git commit -m "$COMMIT_LABEL"
+            git push origin "$BRANCH_NAME"
 
-          git commit -m "$COMMIT_MSG"
-          git push origin "$BRANCH_NAME"
-
-          # Create PR
-          if [ -n "$TRIGGERED_BY" ]; then
-            gh pr create --title "$PR_TITLE" --body "$(cat <<PRBODY
-          Collection: $COLLECTION
-          Request ID: $REQUEST_ID
-          Triggered by: $TRIGGERED_BY
-
-          This PR was automatically created via the Async API.
-          PRBODY
-          )" --base main --head "$BRANCH_NAME"
-          else
-            gh pr create --title "$PR_TITLE" --body "$(cat <<PRBODY
-          Collection: $COLLECTION
-          Request ID: $REQUEST_ID
-
-          This PR was automatically created via the Async API.
-          PRBODY
-          )" --base main --head "$BRANCH_NAME"
+            PR_BODY=$(printf 'Collection: %s\nRequest ID: %s\nTriggered by: %s\n\n%s\n\nThis PR was automatically created via the Async API.' \
+              "$COLLECTION" "$REQUEST_ID" "$TRIGGERED_BY" "$COMMIT_LABEL")
+            gh pr create --title "$COMMIT_LABEL" --body "$PR_BODY" --base main --head "$BRANCH_NAME"
           fi
 
       - name: Summary
