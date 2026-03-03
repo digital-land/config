@@ -217,6 +217,8 @@ def check_and_assign_entities(
 
     if "No issues found" not in issue_summary:
         if not get_user_response(
+            "\033[1m\n"
+            "\033[93mN.B. Check if authoritive data is being used and note conservation areas from historic England will auto disable\033[0m\n"
             "Do you want to continue processing this resource? (yes/no): "
         ):
             return False
@@ -351,7 +353,7 @@ def process_csv(scope, resource_dir):
                             writer = csv.writer(f)
                             writer.writerow([dataset, min_entity, max_entity, organisation_name])
                         
-                        print(f"Appended entity range {min_entity}-{max_entity} for {organisation_name} to {entity_org_file}")
+                        print(f"\033[95mAppended entity range {min_entity}-{max_entity} for {organisation_name} to {entity_org_file}\033[0m")
                 except Exception as e:
                     print(f"Failed to assign entities for resource: {resource}")
                     logging.error(f"Error: {str(e)}",exc_info=True)
