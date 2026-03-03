@@ -195,7 +195,6 @@ e4c832436e9ab319a51d42e8c6a2b76c55175b7e1d3140c63c41b5aa70f1d5db,https://lbhilli
 3dc447e9934913808aa3c47de60bc28a06ca9b7153b613afc08bb5cef3096b51,https://services-eu1.arcgis.com/OrZ7pO8Ag7olNJcC/ArcGIS/rest/services/ODP_Article4/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2026-02-09,2026-02-06,
 fb8cb00a25c63e85feb00a711e9c6eef43cd549fcc26c2fe18dae52192267fb0,https://lakedistrict.statmap.co.uk/map/wfs.svc/c8c7a0da_8065_469f_b0ea_80fbb53a426a?service=WFS&version=2.0.0&request=GetFeature&typeNames=statmap:ART4&outputFormat=application/json,,,2026-02-09,2026-02-06,
 41ab959c6d28ba9078a3cd1a5f197f0ef8b54a70c90e6a72d3bb30d344f27992,https://maps.strata.solutions/arcgis/rest/services/Article_4_Proposed_2023/MapServer/2/query?outFields=*&where=1%3D1&f=geojson,,,2026-02-13,2026-02-10,
-
 b1a309644afd70df2160e6071d5dadcc321ca0f20138198ae9bf2026ea47debe,https://www.north-norfolk.gov.uk/media/ODP/NNDC_article4.csv,,,2026-02-17,2026-02-12,
 d022e3082ddf2adb71a0de230150381fe259f073f8dca35c072d01a9b10feaaa,https://www.north-norfolk.gov.uk/media/ODP/NNDC_article4area.csv,,,2026-02-17,2026-02-12,
 65e0f035f66ff6e7e005b89169b474d53ff739a3a8ab5b4e7d58d2f3f7e14c3a,https://data.yorkopendata.org/dataset/acf842cf-2251-4b69-a151-504f1dd2bfda/resource/8258d5fc-3304-4309-a3ae-2da7bff52349/download/article4-direction.csv,,,2026-02-17,2026-02-12,
@@ -211,3 +210,4 @@ f3fc11016ee50f1c1c57a2e4c031cda638eff613379cf886b5d3a5094c13194b,https://www.cot
 b2078ceecfe19a22c554bd9cc0f9af7d9e3bfb15b45dc0bff65be6fbe8c5ce5a,https://bmaps.brent.gov.uk/geoserver/ldf/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ldf:a4_directions_merged_latest&OUTPUTFORMAT=application/json,,,2026-02-27,2026-02-26,
 505d53a7e71a87d10b24a1a61a6cc5ad134e21e4fe9e7a7f86ffc02d2e923c32,https://www.havant.gov.uk/media/10801/download?inline,,,2026-02-27,2026-02-27,
 05d517c5058a37a7681b456152800dc87822e94257c241c71c2676895bd27669,https://www.havant.gov.uk/media/10800/download?inline,,,2026-02-27,2026-02-27,
+
