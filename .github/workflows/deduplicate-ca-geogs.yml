@@ -1,10 +1,10 @@
-name: Deduplicate Conservation Area Geographies
+name: Manage Conservation Area Data
 
 on:
   workflow_dispatch:
 
 jobs:
-  deduplicate:
+  manage-ca-data:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,14 +25,17 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Run deduplicate script
+      - name: Run deduplicate CA geographies script
         run: python .github/scripts/deduplicate-ca-geogs.py
+
+      - name: Run retire MHCLG CA data script
+        run: python .github/scripts/retire-mhclg-ca-data.py
 
       - name: Commit and create PR
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          BRANCH_NAME="deduplicate-ca-geogs-$(date +%Y%m%d-%H%M)"
+          BRANCH_NAME="manage-ca-data-$(date +%Y%m%d-%H%M)"
 
           git config user.name "github-actions-bot"
           git config user.email "noreply@github.com"
@@ -44,7 +47,10 @@ jobs:
           fi
 
           git checkout -b "$BRANCH_NAME"
-          git add pipeline/conservation-area/old-entity.csv
+          git add pipeline/conservation-area/old-entity.csv \
+                  collection/conservation-area/endpoint.csv \
+                  collection/conservation-area/source.csv \
+                  collection/conservation-area/old-resource.csv
 
           # Double-check there are staged changes
           if git diff --staged --quiet; then
@@ -52,27 +58,38 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Deduplicate conservation area geographies"
+          git commit -m "Manage conservation area data"
 
           git push origin "$BRANCH_NAME"
 
           # Create PR
-          gh pr create --title "Deduplicate conservation area geographies" \
-            --body "This PR contains automatic redirects for conservation area duplicates.
+          gh pr create --title "Manage conservation area data" \
+            --body "This PR contains automatic updates to conservation area data:
 
+          ## Changes
+
+          **Deduplicate Conservation Area Geographies:**
           - Complete matches (100% geometry overlap)
           - Single matches with >80% name similarity
 
-          This PR was automatically created via the Deduplicate Conservation Area Geographies workflow.
+          **Retire MHCLG Conservation Area Data:**
+          - Mark endpoints and sources as retired
+          - Track retired resources
+
+          This PR was automatically created via the Manage Conservation Area Data workflow.
 
           **Triggered by:** @${{ github.actor }}
 
           Please review and merge if appropriate." \
-                      --base main \
-                      --head "$BRANCH_NAME"
+                                --base main \
+                                --head "$BRANCH_NAME"
 
       - name: Summary
         run: |
-          echo "### Deduplicate Conservation Area Geographies" >> $GITHUB_STEP_SUMMARY
+          echo "### Manage Conservation Area Data" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Script execution completed. Check above for PR creation details." >> $GITHUB_STEP_SUMMARY
+          echo "Scripts executed:" >> $GITHUB_STEP_SUMMARY
+          echo "- Deduplicate CA geographies" >> $GITHUB_STEP_SUMMARY
+          echo "- Retire MHCLG CA data" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Check above for PR creation details." >> $GITHUB_STEP_SUMMARY
