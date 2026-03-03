@@ -14,25 +14,45 @@ from datetime import datetime
 from pathlib import Path
 from io import StringIO
 from difflib import SequenceMatcher
+import time
 
 CHECKS_URL = 'https://files.planning.data.gov.uk/reporting/duplicate_entity_expectation.csv'
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 OLD_ENTITY_PATH = REPO_ROOT / 'pipeline' / 'conservation-area' / 'old-entity.csv'
 
+# Network retry configuration
+MAX_RETRIES = 3
+TIMEOUT_SECONDS = 120  # 120 seconds for GitHub Actions environment
+INITIAL_BACKOFF = 2  # seconds
+
 
 def load_checks_data():
-    """Load the duplicate checks data from URL."""
+    """Load the duplicate checks data from URL with retry logic."""
     print("Loading duplicate geometry checks...")
     # Increase field size limit for large geometry fields
     csv.field_size_limit(int(1e8))
 
-    with urllib.request.urlopen(CHECKS_URL) as response:
-        data = response.read().decode('utf-8')
-
-    reader = csv.DictReader(StringIO(data))
-    rows = list(reader)
-    print(f"Loaded {len(rows)} records")
-    return rows
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            print(f"Attempt {attempt}/{MAX_RETRIES} to download duplicate checks data...")
+            with urllib.request.urlopen(CHECKS_URL, timeout=TIMEOUT_SECONDS) as response:
+                data = response.read().decode('utf-8')
+            
+            reader = csv.DictReader(StringIO(data))
+            rows = list(reader)
+            print(f"Successfully loaded {len(rows)} records")
+            return rows
+        except urllib.error.URLError as e:
+            if attempt == MAX_RETRIES:
+                print(f"Error: Failed to download after {MAX_RETRIES} attempts: {e}")
+                raise
+            backoff = INITIAL_BACKOFF * (2 ** (attempt - 1))
+            print(f"Network error (attempt {attempt}): {e}")
+            print(f"Retrying in {backoff} seconds...")
+            time.sleep(backoff)
+        except Exception as e:
+            print(f"Error loading checks data: {e}")
+            raise
 
 
 def load_old_entity():
