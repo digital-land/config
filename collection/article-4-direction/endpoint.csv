@@ -119,7 +119,7 @@ ca7ca40185bbb4e749a42747e64978cdb051508c602c47b2c8ef521314defcaa,https://www.wes
 8cde78952a39adf332bf729c3706cfd74deb8378db82c513b3066aa09f28354c,https://www.walthamforest.gov.uk/sites/default/files/2025-02/Waltham_Forest_Article_4_Directions_0.gpkg,,,2025-02-14,,2025-03-04
 55887033cb022c028233b66145bd047e26b5eb98d8931b5a26d721ff925ea605,https://services8.arcgis.com/DOopK66xzdr2Avop/arcgis/rest/services/article_4_area_wgs_84/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-02-17,,
 95f83343461284d9520c7c2a426253cbac94694e9222d938d10cf10f0b0b082f,https://www.walthamforest.gov.uk/sites/default/files/2025-03/Waltham_Forest_Article_4_Directions_4.gpkg,,,2025-03-04,,2025-03-25
-8250a923ab931a7929bee8fb7723b95621fd90219f7db552802a5be9f54dc3ae,https://www.southnorfolkandbroadland.gov.uk/asset-library/broadland-article-4-direction.csv,,,2025-03-19,2025-03-19,2025-06-16
+8250a923ab931a7929bee8fb7723b95621fd90219f7db552802a5be9f54dc3ae,https://www.southnorfolkandbroadland.gov.uk/asset-library/broadland-article-4-direction.csv,,,2025-03-19,2025-03-19,
 e935a753199dad133aadb816f708e306b63f4e05b5023aa35cd0831a2f26fde5,https://www.southnorfolkandbroadland.gov.uk/asset-library/broadland-article-4-direction-area.json,,,2025-03-19,2025-03-19,
 e39266bac01dbab994ca26bc062b8ce4a54dc7b2fbcd07cd5b122184a541715d,https://www.southnorfolkandbroadland.gov.uk/asset-library/south-norfolk-article-4-direction.csv,,,2025-03-19,2025-03-19,
 322bdce2e259ff31893d75b9d065de9d268df028ab209838f11c9e4a4c5d0ab1,https://www.southnorfolkandbroadland.gov.uk/asset-library/south-norfolk-article-4-direction-area.json,,,2025-03-19,2025-03-19,
@@ -195,6 +195,7 @@ e4c832436e9ab319a51d42e8c6a2b76c55175b7e1d3140c63c41b5aa70f1d5db,https://lbhilli
 3dc447e9934913808aa3c47de60bc28a06ca9b7153b613afc08bb5cef3096b51,https://services-eu1.arcgis.com/OrZ7pO8Ag7olNJcC/ArcGIS/rest/services/ODP_Article4/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2026-02-09,2026-02-06,
 fb8cb00a25c63e85feb00a711e9c6eef43cd549fcc26c2fe18dae52192267fb0,https://lakedistrict.statmap.co.uk/map/wfs.svc/c8c7a0da_8065_469f_b0ea_80fbb53a426a?service=WFS&version=2.0.0&request=GetFeature&typeNames=statmap:ART4&outputFormat=application/json,,,2026-02-09,2026-02-06,
 41ab959c6d28ba9078a3cd1a5f197f0ef8b54a70c90e6a72d3bb30d344f27992,https://maps.strata.solutions/arcgis/rest/services/Article_4_Proposed_2023/MapServer/2/query?outFields=*&where=1%3D1&f=geojson,,,2026-02-13,2026-02-10,
+
 b1a309644afd70df2160e6071d5dadcc321ca0f20138198ae9bf2026ea47debe,https://www.north-norfolk.gov.uk/media/ODP/NNDC_article4.csv,,,2026-02-17,2026-02-12,
 d022e3082ddf2adb71a0de230150381fe259f073f8dca35c072d01a9b10feaaa,https://www.north-norfolk.gov.uk/media/ODP/NNDC_article4area.csv,,,2026-02-17,2026-02-12,
 65e0f035f66ff6e7e005b89169b474d53ff739a3a8ab5b4e7d58d2f3f7e14c3a,https://data.yorkopendata.org/dataset/acf842cf-2251-4b69-a151-504f1dd2bfda/resource/8258d5fc-3304-4309-a3ae-2da7bff52349/download/article4-direction.csv,,,2026-02-17,2026-02-12,
