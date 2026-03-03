@@ -26,10 +26,18 @@ jobs:
           python-version: "3.11"
 
       - name: Run deduplicate CA geographies script
-        run: python .github/scripts/deduplicate-ca-geogs.py
+        timeout-minutes: 10
+        run: |
+          echo "Starting deduplicate script..."
+          python .github/scripts/deduplicate-ca-geogs.py
+          echo "Deduplicate script completed"
 
       - name: Run retire MHCLG CA data script
-        run: python .github/scripts/retire-mhclg-ca-data.py
+        timeout-minutes: 10
+        run: |
+          echo "Starting retire script..."
+          python .github/scripts/retire-mhclg-ca-data.py
+          echo "Retire script completed"
 
       - name: Commit and create PR
         env:

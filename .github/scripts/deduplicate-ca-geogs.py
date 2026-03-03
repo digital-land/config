@@ -12,9 +12,9 @@ import csv
 import urllib.request
 from datetime import datetime
 from pathlib import Path
-from io import StringIO
 from difflib import SequenceMatcher
 import time
+import tempfile
 
 CHECKS_URL = 'https://files.planning.data.gov.uk/reporting/duplicate_entity_expectation.csv'
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -24,25 +24,73 @@ OLD_ENTITY_PATH = REPO_ROOT / 'pipeline' / 'conservation-area' / 'old-entity.csv
 MAX_RETRIES = 3
 TIMEOUT_SECONDS = 120  # 120 seconds for GitHub Actions environment
 INITIAL_BACKOFF = 2  # seconds
+CHUNK_SIZE = 104857600  # 100MB chunks
 
 
-def load_checks_data():
-    """Load the duplicate checks data from URL with retry logic."""
+def stream_checks_data():
+    """Download and stream the duplicate checks data from URL with retry logic."""
     print("Loading duplicate geometry checks...")
     # Increase field size limit for large geometry fields
     csv.field_size_limit(int(1e8))
 
     for attempt in range(1, MAX_RETRIES + 1):
+        temp_file = None
         try:
             print(f"Attempt {attempt}/{MAX_RETRIES} to download duplicate checks data...")
+            bytes_downloaded = 0
+
+            # Download to a temporary file instead of memory
+            temp_file = tempfile.NamedTemporaryFile(mode='wb', delete=False, suffix='.csv')
+            temp_path = temp_file.name
+
             with urllib.request.urlopen(CHECKS_URL, timeout=TIMEOUT_SECONDS) as response:
-                data = response.read().decode('utf-8')
-            
-            reader = csv.DictReader(StringIO(data))
-            rows = list(reader)
-            print(f"Successfully loaded {len(rows)} records")
+                while True:
+                    chunk = response.read(CHUNK_SIZE)
+                    if not chunk:
+                        break
+                    temp_file.write(chunk)
+                    bytes_downloaded += len(chunk)
+                    if bytes_downloaded % (500 * 1024 * 1024) == 0:  # Log every ~500MB
+                        print(f"  Downloaded {bytes_downloaded / 1024 / 1024:.1f} MB...")
+
+            temp_file.close()
+            print(f"Successfully downloaded {bytes_downloaded / 1024 / 1024:.1f} MB to disk")
+
+            # Now read the file and parse rows, keeping only needed columns
+            print("Parsing records...")
+            rows = []
+            rows_processed = 0
+
+            # Columns we actually need for deduplication
+            needed_columns = {
+                'message', 'dataset', 'entity_a', 'entity_b',
+                'entity_a_name', 'entity_b_name', 'lookup-org-a', 'in-odp'
+            }
+
+            with open(temp_path, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    # Filter to only keep needed columns (excludes geometry fields)
+                    filtered_row = {k: v for k, v in row.items() if k in needed_columns}
+                    rows.append(filtered_row)
+                    rows_processed += 1
+                    if rows_processed % 10000 == 0:
+                        print(f"  Processed {rows_processed} records...")
+
+            print(f"Loaded {len(rows)} records")
+
+            # Clean up temp file
+            Path(temp_path).unlink()
+
             return rows
+
         except urllib.error.URLError as e:
+            if temp_file:
+                try:
+                    temp_file.close()
+                    Path(temp_file.name).unlink()
+                except:
+                    pass
             if attempt == MAX_RETRIES:
                 print(f"Error: Failed to download after {MAX_RETRIES} attempts: {e}")
                 raise
@@ -51,6 +99,12 @@ def load_checks_data():
             print(f"Retrying in {backoff} seconds...")
             time.sleep(backoff)
         except Exception as e:
+            if temp_file:
+                try:
+                    temp_file.close()
+                    Path(temp_file.name).unlink()
+                except:
+                    pass
             print(f"Error loading checks data: {e}")
             raise
 
@@ -180,7 +234,7 @@ def save_output(data):
 def main():
     """Main execution function."""
     try:
-        checks_data = load_checks_data()
+        checks_data = stream_checks_data()
         old_entity = load_old_entity()
 
         # Extract both complete and single matches
