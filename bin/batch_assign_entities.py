@@ -208,6 +208,18 @@ def process_csv(scope, resource_dir):
                     shutil.copy(cache_dir / "assign_entities" / collection_name / "pipeline" / "lookup.csv", Path("pipeline") / collection_name / "lookup.csv")
                     print(f"\nEntities assigned successfully for resource: {resource}")
                     successful_resources.append(resource_path)
+
+                    # After successful entity assignment and duplicate checks append entity range to entity-organisation.csv
+                    if new_entities:
+                        min_entity = min(new_entities)
+                        max_entity = max(new_entities)
+                        entity_org_file = Path("pipeline") / collection_name / "entity-organisation.csv"
+                        # Hard code single exception for conservation-area dataset org HE
+                        if not (dataset == "conservation-area" and organisation_name == "government-organisation:PB1164"):
+                            with open(entity_org_file, "a", newline="") as f:
+                                writer = csv.writer(f)
+                                writer.writerow([dataset, min_entity, max_entity, organisation_name])
+                            print(f"\033[95mAppended entity range {min_entity}-{max_entity} for {organisation_name} to {entity_org_file}\033[0m")
                 except Exception as e:
                     print(f"Failed to assign entities for resource: {resource}")
                     logging.error(f"Error: {str(e)}",exc_info=True)
@@ -322,48 +334,3 @@ if __name__ == "__main__":
         print(f"Total failed assign-entities operations: {len(failed_assignments)}")
     except Exception as e:
         print(f"An error occurred while processing the CSV file: {e}")
-    df.to_csv("issue_summary.csv", index=False)
-    print("issue_summary.csv downloaded successfully")
-
-    if not ask_yes_no(prompt="Do you wish to continue? (y/n): "):
-        print("Operation cancelled by user.")
-        sys.exit(0)
-
-    scope = input("Enter scope (odp/mandated/single-source): ").strip().lower()
-    if scope not in ["odp", "mandated", "single-source"]:
-        raise ValueError(f"'{scope}' isn't a valid scope. Please enter a valid scope.")
-
-    try:
-        print("READY to PROCESS")
-        # Build url_map from the CSV data
-        url_map = {}
-        resource_dir = Path("./resource")
-        resource_dir.mkdir(exist_ok=True)
-        
-        with open("issue_summary.csv", "r") as file:
-            csv_reader = csv.DictReader(file)
-            for row in csv_reader:
-                if (
-                    row["issue_type"].lower() != "unknown entity"
-                    or row["scope"].lower() != scope
-                    or row["dataset"].lower() == "title-boundary"
-                ):
-                    continue
-                collection_name = row["collection"]
-                resource = row["resource"]
-                download_link = f"https://files.planning.data.gov.uk/{collection_name}-collection/collection/resource/{resource}"
-                resource_path = resource_dir / resource
-                url_map[download_link] = str(resource_path)
-        if ask_yes_no(prompt="Do you wish to batch download the resources? (y/n): "):
-            print("Downloading resources")
-            download_urls(url_map, max_threads=4)
-        else: 
-            print("Downloading individual resource files at a time")
-        
-        failed_downloads, failed_assignments = process_csv(scope, resource_dir)
-        print(f"\nTotal failed downloads: {len(failed_downloads)}")
-        print(f"Total failed assign-entities operations: {len(failed_assignments)}")
-    except Exception as e:
-        print(f"An error occurred while processing the CSV file: {e}")
-
-
