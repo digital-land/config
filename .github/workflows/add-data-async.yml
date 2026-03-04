@@ -333,7 +333,7 @@ jobs:
 
           DATASET=$(jq -r '.params.dataset // ""' /tmp/async_response.json)
           ORG=$(jq -r '.params.organisation // ""' /tmp/async_response.json)
-          COMMIT_LABEL="add-${DATASET}-${ORG}-${TRIGGERED_BY}"
+          COMMIT_LABEL="add ${DATASET} ${ORG} ${TRIGGERED_BY}"
 
           git config user.name "github-actions-add-data-bot"
           git config user.email "matthew.poole@communities.gov.uk"
@@ -354,7 +354,7 @@ jobs:
             # Append new label to existing PR body
             CURRENT_BODY=$(gh pr view "$PR_NUMBER" --json body --jq '.body')
             NEW_BODY=$(printf '%s\n%s' "$CURRENT_BODY" "$COMMIT_LABEL")
-            gh pr edit "$PR_NUMBER" --body "$NEW_BODY"
+            gh pr edit "$PR_NUMBER" --title "Manage Service Update" --body "$NEW_BODY"
             echo "Appended to PR #$PR_NUMBER on branch $BRANCH_NAME"
 
           else
@@ -363,9 +363,7 @@ jobs:
             git commit -m "$COMMIT_LABEL"
             git push origin "$BRANCH_NAME"
 
-            PR_BODY=$(printf 'Collection: %s\nRequest ID: %s\nTriggered by: %s\n\n%s\n\nThis PR was automatically created via the Async API.' \
-              "$COLLECTION" "$REQUEST_ID" "$TRIGGERED_BY" "$COMMIT_LABEL")
-            gh pr create --title "$COMMIT_LABEL" --body "$PR_BODY" --base main --head "$BRANCH_NAME"
+            gh pr create --title "$COMMIT_LABEL" --body "$COMMIT_LABEL" --base main --head "$BRANCH_NAME"
           fi
 
       - name: Summary
