@@ -93,8 +93,6 @@ def get_field_value_map(df, entity_number):
     return dict(zip(sub_df['field'], sub_df['value']))
 
 
-
-
 def process_csv(scope, resource_dir):
     """
     Uses provided file path to automatically process and assign unknown entities
@@ -266,8 +264,6 @@ def get_scope(value, scope_dict):
         if value in datasets:
             return scope
     return "single-source"
-
-
 
 
 if __name__ == "__main__":
