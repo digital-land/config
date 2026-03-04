@@ -107,3 +107,4 @@ b8f11e388fd11dcd3fc455375b6e2f6b4063bf082c99ab9fc1438a642576a20c,https://service
 e5d79f4188020018b0d0c5a66ef53f56b7ce8d6ce12e049585b2f199f987c709,https://gi.dorsetcouncil.gov.uk/geoserver/planning-mastergov-public/wfs?request=GetFeature&version=2.0.0&outputFormat=application%2Fjson&typename=v_spatial_listedbuildings&CQL_FILTER=grade%20%3C%3E%27DLIST%27,,,2026-03-03,2026-03-03,
 2647c528a873cea4da2920e9cccb1bda7279c71a52123bdda3f8811de8271bba,https://www.hart.gov.uk/sites/default/files/2026-02/Listed-buildings-dataset.csv,,,2026-03-03,2026-03-03,
 
+04cf83f83e0848e059f0cd6c17f61ac4630743782d615af34f57de61bed83d8a,https://gis.lambeth.gov.uk/arcgis/rest/services/LambethListedBuildings/MapServer/0,,arcgis,2026-03-04,2026-03-04,
