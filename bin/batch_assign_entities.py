@@ -8,19 +8,13 @@ import logging
 
 from pathlib import Path
 from io import StringIO
-
-
 from digital_land.commands import check_and_assign_entities
-
-
 from digital_land.collection import Collection
 from digital_land.utils.add_data_utils import get_user_response
 
 from tqdm import tqdm
 from urllib.request import urlretrieve
 from concurrent.futures import ThreadPoolExecutor
-
-from distutils.dir_util import copy_tree
 
 logger = logging.getLogger("__name__")
 
@@ -218,24 +212,16 @@ def process_csv(scope, resource_dir):
                     successful_resources.append(resource_path)
 
                     # After successful entity assignment and duplicate checks append entity range to entity-organisation.csv
-                    if new_entities:  
+                    if new_entities:
                         min_entity = min(new_entities)
                         max_entity = max(new_entities)
-                        
                         entity_org_file = Path("pipeline") / collection_name / "entity-organisation.csv"
-                    if dataset != "conservation-area" and organisation_name != "government-organisation:PB1164":
-                        if get_user_response(
-                             "\033[1m\n"
-                           "\033[93mN.B. Is this authoritive data \033[0m\n"
-                              "Do you want to create entity-organisation.csv entry? (yes/no): "
-                                ):
-
-                        # Append the new entity range
+                        # Hard code single exception for conservation-area dataset org HE
+                        if not (dataset == "conservation-area" and organisation_name == "government-organisation:PB1164"):
                             with open(entity_org_file, "a", newline="") as f:
-                             writer = csv.writer(f)
-                             writer.writerow([dataset, min_entity, max_entity, organisation_name])
-                        
-                        print(f"\033[95mAppended entity range {min_entity}-{max_entity} for {organisation_name} to {entity_org_file}\033[0m")
+                                writer = csv.writer(f)
+                                writer.writerow([dataset, min_entity, max_entity, organisation_name])
+                            print(f"\033[95mAppended entity range {min_entity}-{max_entity} for {organisation_name} to {entity_org_file}\033[0m")
                 except Exception as e:
                     print(f"Failed to assign entities for resource: {resource}")
                     logging.error(f"Error: {str(e)}",exc_info=True)
