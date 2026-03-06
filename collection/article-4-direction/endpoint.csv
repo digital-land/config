@@ -189,7 +189,7 @@ b57fc684ad64521d290ac6618a63b3dc412641e61378f9b2b4e6abfb6d9f2bc0,https://fenland
 e87ee8a5f6a1d928c27f303f314f1b1f665933a0988dcc0043cba7882d791cfd,https://fenland.maps.arcgis.com/sharing/rest/content/items/ca78d814022e4b1dbcbc756dd26432f0/data,,,2026-01-30,2026-01-26,
 0f044a01cc900bb0acc2a1f926a6924c5383527fb6c9bcedfc16a0d0c229472f,https://www.fdean.gov.uk/media/smod3gr1/article-4-directions-fod.csv,,,2026-01-30,2026-01-28,
 3f25ac7deb2f431278c39734fcf43109d33ca25eec5bd9b9c17a5542080c8892,https://mapservices.leeds.gov.uk/arcgis/rest/services/Public/Strategic_Planning/MapServer/65,,arcgis,2026-02-03,2026-02-03,
-c3a349110b51900819c7ac64740c69e79a902798d0753cd1d6a42f43bb6ea64c,https://services1.arcgis.com/vBu1s2ZA7rxzmHBD/arcgis/rest/services/2025_Article4_view/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2026-02-05,2026-02-03,
+c3a349110b51900819c7ac64740c69e79a902798d0753cd1d6a42f43bb6ea64c,https://services1.arcgis.com/vBu1s2ZA7rxzmHBD/arcgis/rest/services/2025_Article4_view/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2026-02-05,2026-02-03,2026-03-06
 e4c832436e9ab319a51d42e8c6a2b76c55175b7e1d3140c63c41b5aa70f1d5db,https://lbhillingdon.maps.arcgis.com/sharing/rest/content/items/ba8acb55071d4e5483b5ce4ec4a88ebb/data,,,2026-02-05,2026-02-03,
 07976646eeb7459944f5e8eb0c4835b4a9e775afa80d59047e3579bccedb40ff,https://lewisham.gov.uk/-/media/services/planning/articles/class-e-article-4.csv,,,2026-02-06,2026-02-04,
 3dc447e9934913808aa3c47de60bc28a06ca9b7153b613afc08bb5cef3096b51,https://services-eu1.arcgis.com/OrZ7pO8Ag7olNJcC/ArcGIS/rest/services/ODP_Article4/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2026-02-09,2026-02-06,
@@ -210,6 +210,7 @@ f3fc11016ee50f1c1c57a2e4c031cda638eff613379cf886b5d3a5094c13194b,https://www.cot
 b2078ceecfe19a22c554bd9cc0f9af7d9e3bfb15b45dc0bff65be6fbe8c5ce5a,https://bmaps.brent.gov.uk/geoserver/ldf/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ldf:a4_directions_merged_latest&OUTPUTFORMAT=application/json,,,2026-02-27,2026-02-26,
 505d53a7e71a87d10b24a1a61a6cc5ad134e21e4fe9e7a7f86ffc02d2e923c32,https://www.havant.gov.uk/media/10801/download?inline,,,2026-02-27,2026-02-27,
 05d517c5058a37a7681b456152800dc87822e94257c241c71c2676895bd27669,https://www.havant.gov.uk/media/10800/download?inline,,,2026-02-27,2026-02-27,
+
 
 5db3f062a17d3c0a7ec3220125fc0c1402f1b4ce7fd88d4c6a972edc8af29ef8,https://services1.arcgis.com/vBu1s2ZA7rxzmHBD/ArcGIS/rest/services/Article4_2026_view/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2026-03-03,2026-03-03,
 c3ed4ac9b5212b7dd2a233b52e6fb4dbcb9c4c134a34b9709e7ee86945672192,https://services-eu1.arcgis.com/U9TdzyuSbEnjj4tz/arcgis/rest/services/FOD_Article_4_Directions/FeatureServer/0,,arcgis,2026-03-03,2026-03-03,
