@@ -150,7 +150,7 @@ jobs:
           if [ -s "$ENDPOINT_FILE" ]; then
             LAST_CHAR=$(tail -c 1 "$ENDPOINT_FILE" | od -An -tx1 | tr -d ' ')
             if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
-              printf '\n' >> "$ENDPOINT_FILE"
+              printf '\r\n' >> "$ENDPOINT_FILE"
             fi
           fi
 
@@ -162,7 +162,7 @@ jobs:
             join(",")
           ')
 
-          echo "$ROW" >> "$ENDPOINT_FILE"
+          printf "%s\r\n" "$ROW" >> "$ENDPOINT_FILE"
           echo "Added to endpoint.csv: $ROW"
 
       - name: Append to source.csv
@@ -188,7 +188,7 @@ jobs:
           if [ -s "$SOURCE_FILE" ]; then
             LAST_CHAR=$(tail -c 1 "$SOURCE_FILE" | od -An -tx1 | tr -d ' ')
             if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
-              printf '\n' >> "$SOURCE_FILE"
+              printf '\r\n' >> "$SOURCE_FILE"
             fi
           fi
 
@@ -200,7 +200,7 @@ jobs:
             join(",")
           ')
 
-          echo "$ROW" >> "$SOURCE_FILE"
+          printf "%s\r\n" "$ROW" >> "$SOURCE_FILE"
           echo "Added to source.csv: $ROW"
 
       - name: Append to lookup.csv
@@ -220,7 +220,7 @@ jobs:
           if [ -s "$LOOKUP_FILE" ]; then
             LAST_CHAR=$(tail -c 1 "$LOOKUP_FILE" | od -An -tx1 | tr -d ' ')
             if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
-              printf '\n' >> "$LOOKUP_FILE"
+              printf '\r\n' >> "$LOOKUP_FILE"
             fi
           fi
 
@@ -232,7 +232,7 @@ jobs:
             join(",")
           ' | while IFS= read -r row; do
             if [ -n "$row" ]; then
-              echo "$row" >> "$LOOKUP_FILE"
+              printf "%s\r\n" "$row" >> "$LOOKUP_FILE"
               echo "Added to lookup.csv: $row"
             fi
           done
@@ -254,7 +254,7 @@ jobs:
           if [ -s "$COLUMN_FILE" ]; then
             LAST_CHAR=$(tail -c 1 "$COLUMN_FILE" | od -An -tx1 | tr -d ' ')
             if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
-              printf '\n' >> "$COLUMN_FILE"
+              printf '\r\n' >> "$COLUMN_FILE"
             fi
           fi
 
@@ -274,7 +274,7 @@ jobs:
             join(",")
           ' | while IFS= read -r row; do
             if [ -n "$row" ]; then
-              echo "$row" >> "$COLUMN_FILE"
+              printf "%s\r\n" "$row" >> "$COLUMN_FILE"
               echo "Added to column.csv: $row"
             fi
           done
@@ -303,7 +303,7 @@ jobs:
           if [ -s "$ENTITY_ORG_FILE" ]; then
             LAST_CHAR=$(tail -c 1 "$ENTITY_ORG_FILE" | od -An -tx1 | tr -d ' ')
             if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
-              printf '\n' >> "$ENTITY_ORG_FILE"
+              printf '\r\n' >> "$ENTITY_ORG_FILE"
             fi
           fi
 
@@ -315,7 +315,7 @@ jobs:
             join(",")
           ' | while IFS= read -r row; do
             if [ -n "$row" ]; then
-              echo "$row" >> "$ENTITY_ORG_FILE"
+              printf "%s\r\n" "$row" >> "$ENTITY_ORG_FILE"
               echo "Added to entity-organisation.csv: $row"
             fi
           done

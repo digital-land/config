@@ -148,7 +148,16 @@ def process_csv(scope, resource_dir):
                 collection_path = Path(f"collection/{collection_name}")
 
                 input_path = Path(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
+                lookup_path = Path("pipeline") / collection_name / "lookup.csv"
                 try:
+                    # Snapshot existing entities for this org before assignment
+                    pre_lookup_df = pd.read_csv(lookup_path)
+                    pre_org_entities = set(
+                        pre_lookup_df[
+                            (pre_lookup_df["prefix"] == dataset) &
+                            (pre_lookup_df["organisation"] == organisation_name)
+                        ]["entity"].dropna().astype(int)
+                    )
                     success = check_and_assign_entities(
                         [resource_path],
                         [endpoint],
@@ -210,16 +219,24 @@ def process_csv(scope, resource_dir):
                     successful_resources.append(resource_path)
 
                     # After successful entity assignment and duplicate checks append entity range to entity-organisation.csv
-                    if new_entities:
-                        min_entity = min(new_entities)
-                        max_entity = max(new_entities)
+                    post_lookup_df = pd.read_csv(lookup_path)
+                    post_org_entities = set(
+                        post_lookup_df[
+                            (post_lookup_df["prefix"] == dataset) &
+                            (post_lookup_df["organisation"] == organisation_name)
+                        ]["entity"].dropna().astype(int)
+                    )
+                    org_new_entities = post_org_entities - pre_org_entities
+                    if org_new_entities:
+                        min_entity = min(org_new_entities)
+                        max_entity = max(org_new_entities)
                         entity_org_file = Path("pipeline") / collection_name / "entity-organisation.csv"
                         # Hard code single exception for conservation-area dataset org HE
                         if not (dataset == "conservation-area" and organisation_name == "government-organisation:PB1164"):
                             with open(entity_org_file, "a", newline="") as f:
                                 writer = csv.writer(f)
                                 writer.writerow([dataset, min_entity, max_entity, organisation_name])
-                            print(f"\033[95mAppended entity range {min_entity}-{max_entity} for {organisation_name} to {entity_org_file}\033[0m")
+                                print(f"\033[95mAppended entity range {min_entity}-{max_entity} for {organisation_name} to {entity_org_file}\033[0m")
                 except Exception as e:
                     print(f"Failed to assign entities for resource: {resource}")
                     logging.error(f"Error: {str(e)}",exc_info=True)

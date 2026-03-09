@@ -8,11 +8,12 @@ def setup_test_path(monkeypatch, tmp_path):
     (tmp_path / "collection/test-collection").mkdir(parents=True, exist_ok=True)
     (tmp_path / "specification").mkdir(parents=True, exist_ok=True)
     (tmp_path / "pipeline/test-collection").mkdir(parents=True, exist_ok=True)
+    (tmp_path / "pipeline/test-collection/lookup.csv").write_text("prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date\n")
     (tmp_path / "var/cache/organisation.csv").parent.mkdir(parents=True, exist_ok=True)
     (tmp_path / "var/cache/organisation.csv").write_text("organisation\n")
 
     (tmp_path / "var/cache/assign_entities/test-collection/pipeline").mkdir(parents=True, exist_ok=True)
-    (tmp_path / "var/cache/assign_entities/test-collection/pipeline/lookup.csv").write_text("lookups")
+    (tmp_path / "var/cache/assign_entities/test-collection/pipeline/lookup.csv").write_text("prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date\n")
 
     # mock check_and_assign_entities
     monkeypatch.setattr(batch_assign_entities, "check_and_assign_entities", lambda *args, **kwargs: None)
