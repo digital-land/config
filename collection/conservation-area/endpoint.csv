@@ -762,3 +762,4 @@ f122b2fd59d18803d25bcdd39472926498bf2dc582cb90d70e2d123496bfed5e,https://mapsdat
 4309f5ba4cb27c9a58469be22e1f986628548f9b0120b84c9672754fc0dc5fc2,https://maps.strata.solutions/arcgis/rest/services/Conservation_Area_Document/MapServer/2,,arcgis,2026-02-20,2026-02-20,
 25273390440d33b9267ed43d6a0c2a165690bec66e4a07977c1855e8c1a7b0c0,https://maps.wiltshire.gov.uk/arcgis/rest/services/OpenData/ConservationAreas/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2026-03-02,2026-03-02,
 
+991715ccf313ab1bc092b5ef07622479a4caf3669bfdbda7e728e7bc78f8f000,https://services6.arcgis.com/Qptn479QktK11k72/arcgis/rest/services/ODP_Conservation_Areas/FeatureServer/0,,arcgis,2026-03-09,2026-03-06,
