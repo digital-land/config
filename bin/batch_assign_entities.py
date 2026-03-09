@@ -234,7 +234,7 @@ def process_csv(scope, resource_dir):
                         # Hard code single exception for conservation-area dataset org HE
                         if not (dataset == "conservation-area" and organisation_name == "government-organisation:PB1164"):
                             with open(entity_org_file, "a", newline="") as f:
-                                writer = csv.writer(f, lineterminator='\n')
+                                writer = csv.writer(f)
                                 writer.writerow([dataset, min_entity, max_entity, organisation_name])
                                 print(f"\033[95mAppended entity range {min_entity}-{max_entity} for {organisation_name} to {entity_org_file}\033[0m")
                 except Exception as e:
