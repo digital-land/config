@@ -93,7 +93,7 @@ entity_organisation_files = _collect_files("entity-organisation.csv")
 )
 def test_entity_organisation(file_path, tmp_path):
     normalised = tmp_path / Path(file_path).name
-    normalised.write_bytes(Path(file_path).read_bytes().replace(b'\r\n', b'\n'))
+    normalised.write_bytes(Path(file_path).read_bytes().replace(b'\r\n', b'\n').replace(b',\n', b'\n'))
     _run_checkpoint(
         dataset="entity-organisation", file_path=str(normalised), rules=ENTITY_ORGANISATION_RULES
     )
