@@ -765,3 +765,4 @@ f122b2fd59d18803d25bcdd39472926498bf2dc582cb90d70e2d123496bfed5e,https://mapsdat
 3ff00a95a65db65ee7c713482fbdbb7196155cec9e2fcee405314abf0c3808c5,https://crawley.gov.uk/sites/default/files/conservation_area_document/conservation_area_document.csv,,,2026-03-11,2026-03-11,
 1ad4f09c74c5686893b3bf5d202ede4da45d081b041647a983e7a494ecc3f280,https://pre.hillingdon.gov.uk/downloads/file/2618/conservation-area-data,,,2026-03-11,2026-03-11,
 551a0ecf344c5159d94094d339adf23474b5296ee0ef75a53c80d615b96d6be9,https://services1.arcgis.com/vBu1s2ZA7rxzmHBD/arcgis/rest/services/CA_ASLC_10326/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2026-03-11,2026-03-11,
+31313d048a31b25ff01bb5b2a44f3e797c95b8929d8fd7d30b7479ad4505ed80,https://maps.harlow.gov.uk/isharelive.web/getdata.aspx?requesttype=json&Type=data&ds=public.conservation_areas_document,,,2026-03-12,2026-03-12,
