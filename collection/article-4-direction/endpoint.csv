@@ -220,3 +220,4 @@ c3ed4ac9b5212b7dd2a233b52e6fb4dbcb9c4c134a34b9709e7ee86945672192,https://service
 d2720ede90eb895fb4245c28d0dc01d4439363e60038833168acb027a3516b13,https://www.hart.gov.uk/sites/default/files/2026-03/article-4-direction-area.csv,,,2026-03-10,2026-03-06,
 327db473648eff2327fe78940213fbcb7f0786bc8f68b938a9aba5de89f2c180,https://crawley.gov.uk/sites/default/files/article4_direction/article4_direction.csv,,,2026-03-11,2026-03-11,
 d6df67c29b87896111f97fa788acc69c52182cabe62fc701a426be6ee90976e9,https://maps.fareham.gov.uk/server/services/Corporate/Article_4_Direction/MapServer/WFSServer?request=getcapabilities&service=wfs,,,2026-03-12,2026-03-12,
+94275632fe91df0dc4781a850085980bcfaa202cdfddf5ee0b645913b7e0a58c,https://maps.harlow.gov.uk/isharelive.web/getows.ashx?mapsource=mapsources/wfs_wms&service=WFS&version=1.1.0&request=GetFeature&typename=article4_direction_areas&srsname=EPSG:27700&bbox=533000,203000,557000,216000,,,2026-03-12,2026-03-12,
