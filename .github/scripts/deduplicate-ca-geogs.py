@@ -248,6 +248,65 @@ def combine_data(old_entity, new_matches):
     return combined
 
 
+def resolve_redirect_chains(data):
+    """Detect and flatten redirect chains to prevent entities appearing twice.
+
+    If entity A redirects to B, and B redirects to C, add a direct A->C redirect
+    to avoid B appearing as both a target and a source.
+    """
+    print("\nResolving redirect chains...")
+
+    # Build a map of old-entity -> entity for status 301 redirects
+    redirect_map = {}
+    for row in data:
+        if row['status'] == '301' and row['entity']:
+            old_entity = row['old-entity']
+            target_entity = row['entity']
+            redirect_map[old_entity] = target_entity
+
+    # Find entities that are both targets and sources
+    target_entities = set(redirect_map.values())
+    chained_entities = set(redirect_map.keys()) & target_entities
+
+    if not chained_entities:
+        print("No redirect chains found")
+        return data
+
+    print(f"Found {len(chained_entities)} entities in redirect chains")
+
+    # Create transitive redirects
+    transitive_redirects = []
+    today = datetime.now().strftime('%Y-%m-%d')
+
+    for source in redirect_map:
+        current = source
+        visited = set()
+
+        # Follow the chain to find the final destination
+        while current in redirect_map and current not in visited:
+            visited.add(current)
+            current = redirect_map[current]
+
+        # If we followed a chain, add a transitive redirect
+        if current != redirect_map[source]:
+            transitive_redirects.append({
+                'old-entity': source,
+                'status': '301',
+                'entity': current,
+                'end-date': '',
+                'notes': 'Transitive redirect to final entity',
+                'entry-date': today,
+                'start-date': ''
+            })
+
+    # Add transitive redirects to data
+    data.extend(transitive_redirects)
+
+    print(f"Added {len(transitive_redirects)} transitive redirects")
+    print(f"Total records after chain resolution: {len(data)}")
+    return data
+
+
 def save_output(data):
     """Save the updated data to CSV."""
     print(f"\nSaving to {OLD_ENTITY_PATH}...")
@@ -283,6 +342,7 @@ def main():
         print(f"\nTotal new redirects to add: {len(all_new_matches)}")
 
         combined = combine_data(old_entity, all_new_matches)
+        combined = resolve_redirect_chains(combined)
         save_output(combined)
     except Exception as e:
         print(f"Error: {e}")
