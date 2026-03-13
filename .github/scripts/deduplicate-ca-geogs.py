@@ -224,6 +224,41 @@ def extract_single_matches(df):
     return formatted
 
 
+def filter_conflicting_matches(old_entity, new_matches):
+    """Filter out new matches that would create circular references with existing redirects.
+
+    If a new redirect A -> B would be added, but A is already a target of an
+    existing redirect in old-entity, skip it to preserve the existing A->B, C->B pattern.
+    """
+    print("\nFiltering for conflicts with existing redirects...")
+
+    # Build set of existing target entities (entities that are already targets of 301 redirects)
+    existing_targets = set()
+    for row in old_entity:
+        if row.get('status') == '301' and row.get('entity'):
+            existing_targets.add(row['entity'])
+
+    # Filter new matches: skip if the old-entity is already a target
+    filtered = []
+    skipped_count = 0
+    skipped_matches = []
+
+    for match in new_matches:
+        old_ent = match['old-entity']
+        if old_ent in existing_targets:
+            skipped_count += 1
+            skipped_matches.append((old_ent, match['entity']))
+        else:
+            filtered.append(match)
+
+    if skipped_count > 0:
+        print(f"Skipped {skipped_count} new matches to avoid conflicts:")
+        for old_ent, target in skipped_matches:
+            print(f"  {old_ent} → {target} (already a target in existing redirects)")
+
+    return filtered
+
+
 def combine_data(old_entity, new_matches):
     """Combine old and new data."""
     print("\nCombining data...")
@@ -249,22 +284,26 @@ def combine_data(old_entity, new_matches):
 
 
 def resolve_redirect_chains(data):
-    """Detect and flatten redirect chains to prevent entities appearing twice.
+    """Resolve redirect chains by consolidating to final destinations.
 
-    If entity A redirects to B, and B redirects to C, add a direct A->C redirect
-    to avoid B appearing as both a target and a source.
+    If entity A redirects to B, and B redirects to C, modify A to point
+    directly to C. This results in the A->B, C->B pattern where multiple
+    sources point to the same final destination.
+    Circular references are skipped to avoid self-loops.
     """
     print("\nResolving redirect chains...")
 
-    # Build a map of old-entity -> entity for status 301 redirects
+    # Build a map of old-entity -> entity for status 301 redirects with row indices
     redirect_map = {}
-    for row in data:
+    row_indices = {}
+    for idx, row in enumerate(data):
         if row['status'] == '301' and row['entity']:
             old_entity = row['old-entity']
             target_entity = row['entity']
             redirect_map[old_entity] = target_entity
+            row_indices[old_entity] = idx
 
-    # Find entities that are both targets and sources
+    # Find entities involved in chains (both source and target)
     target_entities = set(redirect_map.values())
     chained_entities = set(redirect_map.keys()) & target_entities
 
@@ -274,35 +313,30 @@ def resolve_redirect_chains(data):
 
     print(f"Found {len(chained_entities)} entities in redirect chains")
 
-    # Create transitive redirects
-    transitive_redirects = []
     today = datetime.now().strftime('%Y-%m-%d')
+    modifications_count = 0
 
+    # For each source, follow the chain to find the final destination
     for source in redirect_map:
         current = source
         visited = set()
 
-        # Follow the chain to find the final destination
+        # Follow the chain to find where it ends
         while current in redirect_map and current not in visited:
             visited.add(current)
             current = redirect_map[current]
 
-        # If we followed a chain, add a transitive redirect
-        if current != redirect_map[source]:
-            transitive_redirects.append({
-                'old-entity': source,
-                'status': '301',
-                'entity': current,
-                'end-date': '',
-                'notes': 'Transitive redirect to final entity',
-                'entry-date': today,
-                'start-date': ''
-            })
+        # Modify only if:
+        # 1. We followed a chain (current != immediate target)
+        # 2. The final destination is not the source itself (no self-loops)
+        if current != redirect_map[source] and current != source:
+            idx = row_indices[source]
+            data[idx]['entity'] = current
+            data[idx]['notes'] = 'Consolidated redirect to final entity'
+            data[idx]['entry-date'] = today
+            modifications_count += 1
 
-    # Add transitive redirects to data
-    data.extend(transitive_redirects)
-
-    print(f"Added {len(transitive_redirects)} transitive redirects")
+    print(f"Consolidated {modifications_count} redirects to final destinations")
     print(f"Total records after chain resolution: {len(data)}")
     return data
 
@@ -341,8 +375,12 @@ def main():
         all_new_matches = complete_matches + single_matches
         print(f"\nTotal new redirects to add: {len(all_new_matches)}")
 
+        # Filter out matches that would conflict with existing redirects
+        all_new_matches = filter_conflicting_matches(old_entity, all_new_matches)
+        print(f"After filtering conflicts: {len(all_new_matches)} matches remain")
+
         combined = combine_data(old_entity, all_new_matches)
-        #combined = resolve_redirect_chains(combined)
+        combined = resolve_redirect_chains(combined)
         save_output(combined)
     except Exception as e:
         print(f"Error: {e}")
