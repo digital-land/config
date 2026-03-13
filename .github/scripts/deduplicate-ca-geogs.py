@@ -342,7 +342,7 @@ def main():
         print(f"\nTotal new redirects to add: {len(all_new_matches)}")
 
         combined = combine_data(old_entity, all_new_matches)
-        combined = resolve_redirect_chains(combined)
+        #combined = resolve_redirect_chains(combined)
         save_output(combined)
     except Exception as e:
         print(f"Error: {e}")
