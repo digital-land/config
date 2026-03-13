@@ -164,10 +164,11 @@ def extract_single_matches(df):
     print(f"Found {len(single_matches)} single matches meeting criteria")
 
     # Calculate name similarity and filter for high matches
-    formatted = []
     today = datetime.now().strftime('%Y-%m-%d')
     threshold = 85  # Similarity threshold (0-100)
 
+    # First pass: collect all matches above threshold with similarity scores
+    high_similarity_matches = []
     for row in single_matches:
         entity_a_name = str(row.get('entity_a_name', '')).lower()
         entity_b_name = str(row.get('entity_b_name', '')).lower()
@@ -177,8 +178,38 @@ def extract_single_matches(df):
 
         # Only include if similarity is above threshold
         if similarity > threshold:
+            high_similarity_matches.append(row)
+
+    # Identify which entity_a values appear multiple times (splits)
+    entity_a_counts = {}
+    for row in high_similarity_matches:
+        entity_a = row['entity_a']
+        entity_a_counts[entity_a] = entity_a_counts.get(entity_a, 0) + 1
+
+    # Second pass: separate into regular redirects and split cases
+    formatted = []
+    split_entities = set()
+
+    for row in high_similarity_matches:
+        entity_a = row['entity_a']
+
+        if entity_a_counts[entity_a] > 1:
+            # This entity_a splits into multiple entity_b - only add once
+            if entity_a not in split_entities:
+                formatted.append({
+                    'old-entity': entity_a,
+                    'status': '410',
+                    'entity': '',
+                    'end-date': '',
+                    'notes': 'Matches with multiple entities',
+                    'entry-date': today,
+                    'start-date': ''
+                })
+                split_entities.add(entity_a)
+        else:
+            # Regular single match - add as 301 redirect
             formatted.append({
-                'old-entity': row['entity_a'],
+                'old-entity': entity_a,
                 'status': '301',
                 'entity': row['entity_b'],
                 'end-date': '',
@@ -187,7 +218,9 @@ def extract_single_matches(df):
                 'start-date': ''
             })
 
-    print(f"Found {len(formatted)} single matches with >{threshold}% name similarity")
+    print(f"Found {len(high_similarity_matches)} single matches with >{threshold}% name similarity")
+    print(f"  - {len([x for x in formatted if x['status'] == '301'])} regular redirects (status 301)")
+    print(f"  - {len([x for x in formatted if x['status'] == '410'])} split cases (status 410)")
     return formatted
 
 
