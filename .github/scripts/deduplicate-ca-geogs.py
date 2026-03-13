@@ -5,14 +5,14 @@ Deduplicate conservation area geographies.
 Processes duplicate geometry checks and generates old-entity redirects
 for conservation areas with:
 - Complete matches (100% geometry overlap)
-- Single matches with high name similarity (>80%)
+- Single matches with high name similarity (>85%)
 """
 
 import csv
 import urllib.request
 from datetime import datetime
 from pathlib import Path
-from difflib import SequenceMatcher
+from rapidfuzz import fuzz
 import time
 import tempfile
 
@@ -166,14 +166,14 @@ def extract_single_matches(df):
     # Calculate name similarity and filter for high matches
     formatted = []
     today = datetime.now().strftime('%Y-%m-%d')
-    threshold = 80  # Similarity threshold (0-100)
+    threshold = 85  # Similarity threshold (0-100)
 
     for row in single_matches:
         entity_a_name = str(row.get('entity_a_name', '')).lower()
         entity_b_name = str(row.get('entity_b_name', '')).lower()
 
-        # Calculate similarity score
-        similarity = SequenceMatcher(None, entity_a_name, entity_b_name).ratio() * 100
+        # Calculate similarity score using partial ratio (more lenient with additions/variations)
+        similarity = fuzz.partial_ratio(entity_a_name, entity_b_name)
 
         # Only include if similarity is above threshold
         if similarity > threshold:
