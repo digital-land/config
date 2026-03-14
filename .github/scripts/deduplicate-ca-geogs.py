@@ -5,14 +5,14 @@ Deduplicate conservation area geographies.
 Processes duplicate geometry checks and generates old-entity redirects
 for conservation areas with:
 - Complete matches (100% geometry overlap)
-- Single matches with high name similarity (>80%)
+- Single matches with high name similarity (>85%)
 """
 
 import csv
 import urllib.request
 from datetime import datetime
 from pathlib import Path
-from difflib import SequenceMatcher
+from rapidfuzz import fuzz
 import time
 import tempfile
 
@@ -64,7 +64,7 @@ def stream_checks_data():
             # Columns we actually need for deduplication
             needed_columns = {
                 'message', 'dataset', 'entity_a', 'entity_b',
-                'entity_a_name', 'entity_b_name', 'lookup-org-a', 'in-odp'
+                'entity_a_name', 'entity_b_name', 'lookup-org-a', 'lookup-org-b', 'in-odp'
             }
 
             with open(temp_path, 'r', encoding='utf-8') as f:
@@ -126,7 +126,10 @@ def extract_complete_matches(df):
     """Extract complete match duplicates and format for old-entity.csv."""
     print("\nFiltering for complete matches...")
 
-    complete_matches = [row for row in df if row['message'] == 'complete_match' and row['dataset'] == 'conservation-area']
+    complete_matches = [row for row in df if row['message'] == 'complete_match'
+                        and row['dataset'] == 'conservation-area'
+                        and row.get('lookup-org-a') == 'government-organisation:PB1164'
+                        and row.get('lookup-org-b') != 'government-organisation:PB1164']
     print(f"Found {len(complete_matches)} complete matches")
 
     # Format for old-entity.csv
@@ -155,26 +158,58 @@ def extract_single_matches(df):
     single_matches = [row for row in df if row['message'] == 'single_match'
                       and row['dataset'] == 'conservation-area'
                       and row.get('lookup-org-a') == 'government-organisation:PB1164'
+                      and row.get('lookup-org-b') != 'government-organisation:PB1164'
                       and row.get('in-odp', '').lower() == 'true']
 
     print(f"Found {len(single_matches)} single matches meeting criteria")
 
     # Calculate name similarity and filter for high matches
-    formatted = []
     today = datetime.now().strftime('%Y-%m-%d')
-    threshold = 80  # Similarity threshold (0-100)
+    threshold = 85  # Similarity threshold (0-100)
 
+    # First pass: collect all matches above threshold with similarity scores
+    high_similarity_matches = []
     for row in single_matches:
         entity_a_name = str(row.get('entity_a_name', '')).lower()
         entity_b_name = str(row.get('entity_b_name', '')).lower()
 
-        # Calculate similarity score
-        similarity = SequenceMatcher(None, entity_a_name, entity_b_name).ratio() * 100
+        # Calculate similarity score using partial ratio (more lenient with additions/variations)
+        similarity = fuzz.partial_ratio(entity_a_name, entity_b_name)
 
         # Only include if similarity is above threshold
         if similarity > threshold:
+            high_similarity_matches.append(row)
+
+    # Identify which entity_a values appear multiple times (splits)
+    entity_a_counts = {}
+    for row in high_similarity_matches:
+        entity_a = row['entity_a']
+        entity_a_counts[entity_a] = entity_a_counts.get(entity_a, 0) + 1
+
+    # Second pass: separate into regular redirects and split cases
+    formatted = []
+    split_entities = set()
+
+    for row in high_similarity_matches:
+        entity_a = row['entity_a']
+
+        if entity_a_counts[entity_a] > 1:
+            # This entity_a splits into multiple entity_b - only add once
+            if entity_a not in split_entities:
+                formatted.append({
+                    'old-entity': entity_a,
+                    'status': '410',
+                    'entity': '',
+                    'end-date': '',
+                    'notes': 'Matches with multiple entities',
+                    'entry-date': today,
+                    'start-date': ''
+                })
+                split_entities.add(entity_a)
+        else:
+            # Regular single match - add as 301 redirect
             formatted.append({
-                'old-entity': row['entity_a'],
+                'old-entity': entity_a,
                 'status': '301',
                 'entity': row['entity_b'],
                 'end-date': '',
@@ -183,8 +218,45 @@ def extract_single_matches(df):
                 'start-date': ''
             })
 
-    print(f"Found {len(formatted)} single matches with >{threshold}% name similarity")
+    print(f"Found {len(high_similarity_matches)} single matches with >{threshold}% name similarity")
+    print(f"  - {len([x for x in formatted if x['status'] == '301'])} regular redirects (status 301)")
+    print(f"  - {len([x for x in formatted if x['status'] == '410'])} split cases (status 410)")
     return formatted
+
+
+def filter_conflicting_matches(old_entity, new_matches):
+    """Filter out new matches that would create circular references with existing redirects.
+
+    If a new redirect A -> B would be added, but A is already a target of an
+    existing redirect in old-entity, skip it to preserve the existing A->B, C->B pattern.
+    """
+    print("\nFiltering for conflicts with existing redirects...")
+
+    # Build set of existing target entities (entities that are already targets of 301 redirects)
+    existing_targets = set()
+    for row in old_entity:
+        if row.get('status') == '301' and row.get('entity'):
+            existing_targets.add(row['entity'])
+
+    # Filter new matches: skip if the old-entity is already a target
+    filtered = []
+    skipped_count = 0
+    skipped_matches = []
+
+    for match in new_matches:
+        old_ent = match['old-entity']
+        if old_ent in existing_targets:
+            skipped_count += 1
+            skipped_matches.append((old_ent, match['entity']))
+        else:
+            filtered.append(match)
+
+    if skipped_count > 0:
+        print(f"Skipped {skipped_count} new matches to avoid conflicts:")
+        for old_ent, target in skipped_matches:
+            print(f"  {old_ent} → {target} (already a target in existing redirects)")
+
+    return filtered
 
 
 def combine_data(old_entity, new_matches):
@@ -209,6 +281,64 @@ def combine_data(old_entity, new_matches):
 
     print(f"Total records after merge: {len(combined)}")
     return combined
+
+
+def resolve_redirect_chains(data):
+    """Resolve redirect chains by consolidating to final destinations.
+
+    If entity A redirects to B, and B redirects to C, modify A to point
+    directly to C. This results in the A->B, C->B pattern where multiple
+    sources point to the same final destination.
+    Circular references are skipped to avoid self-loops.
+    """
+    print("\nResolving redirect chains...")
+
+    # Build a map of old-entity -> entity for status 301 redirects with row indices
+    redirect_map = {}
+    row_indices = {}
+    for idx, row in enumerate(data):
+        if row['status'] == '301' and row['entity']:
+            old_entity = row['old-entity']
+            target_entity = row['entity']
+            redirect_map[old_entity] = target_entity
+            row_indices[old_entity] = idx
+
+    # Find entities involved in chains (both source and target)
+    target_entities = set(redirect_map.values())
+    chained_entities = set(redirect_map.keys()) & target_entities
+
+    if not chained_entities:
+        print("No redirect chains found")
+        return data
+
+    print(f"Found {len(chained_entities)} entities in redirect chains")
+
+    today = datetime.now().strftime('%Y-%m-%d')
+    modifications_count = 0
+
+    # For each source, follow the chain to find the final destination
+    for source in redirect_map:
+        current = source
+        visited = set()
+
+        # Follow the chain to find where it ends
+        while current in redirect_map and current not in visited:
+            visited.add(current)
+            current = redirect_map[current]
+
+        # Modify only if:
+        # 1. We followed a chain (current != immediate target)
+        # 2. The final destination is not the source itself (no self-loops)
+        if current != redirect_map[source] and current != source:
+            idx = row_indices[source]
+            data[idx]['entity'] = current
+            data[idx]['notes'] = 'Consolidated redirect to final entity'
+            data[idx]['entry-date'] = today
+            modifications_count += 1
+
+    print(f"Consolidated {modifications_count} redirects to final destinations")
+    print(f"Total records after chain resolution: {len(data)}")
+    return data
 
 
 def save_output(data):
@@ -245,7 +375,12 @@ def main():
         all_new_matches = complete_matches + single_matches
         print(f"\nTotal new redirects to add: {len(all_new_matches)}")
 
+        # Filter out matches that would conflict with existing redirects
+        all_new_matches = filter_conflicting_matches(old_entity, all_new_matches)
+        print(f"After filtering conflicts: {len(all_new_matches)} matches remain")
+
         combined = combine_data(old_entity, all_new_matches)
+        combined = resolve_redirect_chains(combined)
         save_output(combined)
     except Exception as e:
         print(f"Error: {e}")
