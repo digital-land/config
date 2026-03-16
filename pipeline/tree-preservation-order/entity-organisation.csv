@@ -427,3 +427,8 @@ tree,7002186860,7002186892,local-authority:SST
 tree-preservation-order,7001089163,7001089163,local-authority:SST
 tree-preservation-zone,19181700,19181704,local-authority:SST
 tree-preservation-zone,19181705,19181705,local-authority:TOB
+tree-preservation-order,7001089164,7001089277,local-authority:HAL
+tree-preservation-zone,19181706,19181973,local-authority:HAL
+tree-preservation-order,7001089164,7001089503,local-authority:DAR
+tree-preservation-zone,19181974,19183301,local-authority:ERY
+tree,7002186893,7002190368,local-authority:ERY
