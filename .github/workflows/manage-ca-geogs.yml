@@ -83,7 +83,7 @@ jobs:
 
           **Deduplicate Conservation Area Geographies:**
           - Complete matches (100% geometry overlap)
-          - Single matches with >80% name similarity
+          - Single matches with >85% name similarity
 
           **Retire MHCLG Conservation Area Data:**
           - Mark endpoints and sources as retired
