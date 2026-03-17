@@ -25,11 +25,10 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install system dependencies
-        run: sudo apt-get update && sudo apt-get install -y build-essential python3-dev
-
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install rapidfuzz
 
       - name: Run deduplicate CA geographies script
         timeout-minutes: 10
@@ -84,7 +83,7 @@ jobs:
 
           **Deduplicate Conservation Area Geographies:**
           - Complete matches (100% geometry overlap)
-          - Single matches with >80% name similarity
+          - Single matches with >85% name similarity
 
           **Retire MHCLG Conservation Area Data:**
           - Mark endpoints and sources as retired
