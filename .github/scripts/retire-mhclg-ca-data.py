@@ -183,7 +183,7 @@ def update_csv_with_end_dates(file_path, endpoints_to_retire):
         rows = []
         with open(file_path, 'r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
-            fieldnames = reader.fieldnames
+            fieldnames = [f for f in reader.fieldnames if f is not None]
             rows = list(reader)
 
         # Update end-dates for matching endpoints that haven't been retired yet
