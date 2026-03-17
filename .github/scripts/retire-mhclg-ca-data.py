@@ -200,7 +200,9 @@ def update_csv_with_end_dates(file_path, endpoints_to_retire):
         with open(file_path, 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
-            writer.writerows(rows)
+            # Remove None keys that can appear from malformed CSV rows
+            cleaned_rows = [{k: v for k, v in row.items() if k is not None} for row in rows]
+            writer.writerows(cleaned_rows)
 
         return updated_count
     except Exception as e:
