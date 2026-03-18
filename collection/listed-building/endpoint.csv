@@ -111,3 +111,4 @@ e5d79f4188020018b0d0c5a66ef53f56b7ce8d6ce12e049585b2f199f987c709,https://gi.dors
 bf0257563f3d85ae261d01aa159b67f05883ebd92561c6497c836834a20d825a,https://services-eu1.arcgis.com/OrZ7pO8Ag7olNJcC/arcgis/rest/services/Listed_Buildings_ODP/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2026-03-10,2026-03-09,
 e41974d689948539e4a5f492646ae0e5eb1895134328dbd0186574613c234936,https://services-eu1.arcgis.com/OrZ7pO8Ag7olNJcC/arcgis/rest/services/Listed_Buildings_ODP/FeatureServer/1/query?where=1%3D1&f=geojson&outFields=*,,,2026-03-16,2026-03-16,
 5a4571b94ee31e82917f4dc4619f7b6215c57b9605dbd923c3ecf2d802f9d7f1,https://geodata.halton.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3Alisted_building&outputFormat=application%2Fjson,,,2026-03-18,2026-03-17,
+4bd57a7a9d880048f310229d123942a33a338dfd01807f8b3f65a95c9f14aa7e,https://files.planning.data.gov.uk/reporting/listed-building-end-date.csv,,,2026-03-18,2026-03-18,
