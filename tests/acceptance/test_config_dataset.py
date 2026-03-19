@@ -4,7 +4,10 @@ Module to run dataset expectations for configuration files. this ensure data qua
 
 import json
 import csv
+import io
 import os
+import urllib.parse
+import urllib.request
 from pathlib import Path
 from glob import glob
 
@@ -14,6 +17,8 @@ from digital_land.expectations.checkpoints.csv import CsvCheckpoint
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SEARCH_DIRS = ["pipeline", "collection"]
+DATASETTE_BASE_URL = "https://datasette.planning.data.gov.uk"
+DATASETTE_DB = "digital-land"
 
 def _collect_files(pattern, search_dirs=None):
     search_dirs = search_dirs or SEARCH_DIRS
@@ -64,6 +69,47 @@ def _run_checkpoint(dataset, file_path, rules):
                     details = json.loads(details)
                 messages.append(f"    {json.dumps(details, indent=4)}")
         assert False, "\n".join(messages)
+
+
+def _datasette_query_csv(db, sql):
+    params = urllib.parse.urlencode({"sql": sql, "_size": "max"})
+    query_url = f"{DATASETTE_BASE_URL}/{db}.csv?{params}"
+
+    try:
+        with urllib.request.urlopen(query_url, timeout=30) as response:
+            content = response.read().decode("utf-8")
+    except Exception as exc:
+        pytest.skip(f"Could not load Datasette query from {query_url}: {exc}")
+
+    return list(csv.DictReader(io.StringIO(content)))
+
+
+def _ranges_for_collection_from_datasette(collection_name):
+    escaped_collection = collection_name.replace("'", "''")
+    sql = (
+        "select dataset, collection, entity_minimum, entity_maximum "
+        "from dataset "
+        f"where collection = '{escaped_collection}'"
+    )
+
+    rows = _datasette_query_csv(DATASETTE_DB, sql)
+
+    ranges = []
+
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+
+        try:
+            min_val = int(row.get("entity_minimum"))
+            max_val = int(row.get("entity_maximum"))
+        except (TypeError, ValueError):
+            continue
+
+        dataset_name = (row.get("collection") or "").strip()
+        ranges.append((dataset_name, min_val, max_val))
+
+    return ranges
 
 # TEST OLD_ENTITY.CSV
 OLD_ENTITY_RULES = [
@@ -171,6 +217,88 @@ def test_old_entity_status_is_only_301_or_410(file_path):
 
 
 @pytest.mark.parametrize(
+    "old_entity_file",
+    old_entity_files,
+    ids=[_test_id(f) for f in old_entity_files],
+)
+def test_old_entity_entities_are_within_datasette_ranges(old_entity_file):
+    collection_name = Path(old_entity_file).parent.name
+    ranges = _ranges_for_collection_from_datasette(collection_name)
+
+    if not ranges:
+        pytest.skip(
+            f"No Datasette entity ranges found for collection '{collection_name}' in {DATASETTE_DB}"
+        )
+
+    out_of_range = []
+
+    def _parse_int(value):
+        value = (value or "").strip()
+        if not value:
+            return None
+        try:
+            return int(value)
+        except ValueError:
+            return None
+
+    def _in_any_range(entity_value):
+        return any(min_val <= entity_value <= max_val for _, min_val, max_val in ranges)
+
+    with open(old_entity_file, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for line_number, row in enumerate(reader, start=2):
+            entity_value = _parse_int(row.get("entity"))
+            old_entity_value = _parse_int(row.get("old-entity"))
+
+            present_values = []
+            if entity_value is not None:
+                present_values.append(("entity", entity_value))
+            if old_entity_value is not None:
+                present_values.append(("old-entity", old_entity_value))
+
+            if not present_values:
+                continue
+
+            checks = [(name, value, _in_any_range(value)) for name, value in present_values]
+            # If both columns are present, both must be in range.
+            # If only one is present, that one must be in range.
+            row_passes = all(in_range for _, _, in_range in checks)
+
+            if not row_passes:
+                out_of_range.append((line_number, checks))
+
+    invalid_values = sorted(
+        {
+            value
+            for _, checks in out_of_range
+            for _, value, in_range in checks
+            if not in_range
+        }
+    )
+    invalid_lines = [line_number for line_number, _ in out_of_range]
+    invalid_refs = [
+        _format_line_reference(old_entity_file, line_number)
+        for line_number in invalid_lines[:50]
+    ]
+    ranges_summary = [f"{min_val}-{max_val}" for name, min_val, max_val in ranges[:50]]
+
+    assert not out_of_range, (
+        f"Entities in {old_entity_file} are outside Datasette ranges for collection '{collection_name}'. "
+        + f"Ranges: {ranges_summary}"
+        + ("..." if len(ranges) > 50 else "")
+        + ". "
+        + f"Invalid values: {invalid_values[:50]}"
+        + ("..." if len(invalid_values) > 50 else "")
+        + ". "
+        + f"Line numbers: {invalid_lines[:50]}"
+        + ("..." if len(invalid_lines) > 50 else "")
+        + ". "
+        + f"References: {invalid_refs}"
+        + ("..." if len(invalid_lines) > 50 else "")
+    )
+
+
+@pytest.mark.parametrize(
     "file_path",
     pipeline_csv_files,
     ids=[_test_id(f) for f in pipeline_csv_files],
@@ -224,6 +352,7 @@ ENTITY_ORGANISATION_RULES = [
 ]
 
 entity_organisation_files = _collect_files("entity-organisation.csv")
+lookup_files = _collect_files("lookup.csv")
 
 
 @pytest.mark.parametrize(
@@ -236,4 +365,64 @@ def test_entity_organisation(file_path, tmp_path):
     normalised.write_bytes(Path(file_path).read_bytes().replace(b'\r\n', b'\n').replace(b',\n', b'\n'))
     _run_checkpoint(
         dataset="entity-organisation", file_path=str(normalised), rules=ENTITY_ORGANISATION_RULES
+    )
+
+
+
+@pytest.mark.parametrize(
+    "lookup_file",
+    lookup_files,
+    ids=[_test_id(f) for f in lookup_files],
+)
+def test_lookup_entities_within_organisation_ranges(lookup_file):
+    lookup_dir = Path(lookup_file).parent
+    entity_org_file = lookup_dir / "entity-organisation.csv"
+
+    if not entity_org_file.exists():
+        pytest.skip(f"No entity-organisation.csv found for {_test_id(lookup_file)}")
+
+    ranges = []
+    with open(entity_org_file, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            try:
+                min_val = int((row.get("entity-minimum") or "").strip())
+                max_val = int((row.get("entity-maximum") or "").strip())
+                ranges.append((min_val, max_val))
+            except ValueError:
+                continue
+
+    if not ranges:
+        pytest.skip(f"No valid ranges found in {entity_org_file}")
+
+    out_of_range_entities = []
+    with open(lookup_file, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for line_number, row in enumerate(reader, start=2):
+            entity_str = (row.get("entity") or "").strip()
+            if not entity_str:
+                continue
+
+            try:
+                entity = int(entity_str)
+            except ValueError:
+                continue
+
+            if not any(min_val <= entity <= max_val for min_val, max_val in ranges):
+                out_of_range_entities.append((line_number, entity))
+
+    unique_entities = sorted({entity for _, entity in out_of_range_entities})
+    out_of_range_lines = [line_number for line_number, _ in out_of_range_entities]
+    out_of_range_refs = [
+        _format_line_reference(lookup_file, line_number)
+        for line_number in out_of_range_lines[:50]
+    ]
+
+    assert not out_of_range_entities, (
+        f"Entities in {lookup_file} are outside ranges in {entity_org_file} for {_test_id(lookup_file)}. "
+        f"Invalid entity values: {unique_entities[:50]}"
+        + ("..." if len(unique_entities) > 50 else "")
+        + ". "
+        + f"References: {out_of_range_refs}"
+        + ("..." if len(out_of_range_lines) > 50 else "")
     )
