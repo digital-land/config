@@ -176,16 +176,29 @@ def test_old_entity_status_is_only_301_or_410(file_path):
     ids=[_test_id(f) for f in pipeline_csv_files],
 )
 def test_pipeline_csv_has_no_blank_rows(file_path):
-    blank_line_numbers = []
+    blank_rows = []
+    last_non_empty_line = 0
 
     def _is_blank_row(row):
         return not row or all(not (cell or "").strip() for cell in row)
+
+    def _is_truly_empty_line(row):
+        return not row or (len(row) == 1 and not (row[0] or "").strip())
 
     with open(file_path, newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
         for line_number, row in enumerate(reader, start=1):
             if _is_blank_row(row):
-                blank_line_numbers.append(line_number)
+                blank_rows.append((line_number, row))
+            if not _is_truly_empty_line(row):
+                last_non_empty_line = line_number
+
+    # Ignore truly empty lines at the end of the file. Rows with commas are not ignored.
+    blank_line_numbers = [
+        line_number
+        for line_number, row in blank_rows
+        if line_number <= last_non_empty_line or not _is_truly_empty_line(row)
+    ]
 
     blank_refs = [
         _format_line_reference(file_path, line_number)
