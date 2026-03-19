@@ -4,6 +4,7 @@ Module to run dataset expectations for configuration files. this ensure data qua
 
 import json
 import csv
+import os
 from pathlib import Path
 from glob import glob
 
@@ -24,6 +25,23 @@ def _collect_files(filename):
 def _test_id(file_path):
     path = Path(file_path)
     return f"{path.parts[-3]}/{path.parts[-2]}"
+
+
+def _format_line_reference(file_path, line_number):
+    path = Path(file_path).resolve()
+    try:
+        relative_path = path.relative_to(REPO_ROOT).as_posix()
+    except ValueError:
+        return f"{file_path}:{line_number}"
+
+    repository = os.getenv("GITHUB_REPOSITORY")
+    server_url = os.getenv("GITHUB_SERVER_URL", "https://github.com")
+    branch = os.getenv("GITHUB_HEAD_REF") or os.getenv("GITHUB_REF_NAME")
+
+    if repository and branch:
+        return f"{server_url}/{repository}/blob/{branch}/{relative_path}#L{line_number}"
+
+    return f"{relative_path}:{line_number}"
 
 
 def _run_checkpoint(dataset, file_path, rules):
@@ -81,20 +99,30 @@ def test_old_entity(file_path):
 )
 def test_old_entity_status_is_only_301_or_410(file_path):
     allowed_statuses = {"301", "410"}
-    invalid_statuses = set()
+    invalid_statuses = []
 
     with open(file_path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        for row in reader:
+        for line_number, row in enumerate(reader, start=2):
             if not any((value or "").strip() for value in row.values()):
                 continue
 
             status = (row.get("status") or "").strip()
             if status not in allowed_statuses:
-                invalid_statuses.add(status)
+                invalid_statuses.append((line_number, status))
+
+    invalid_values = sorted({status for _, status in invalid_statuses})
+    invalid_lines = [line_number for line_number, _ in invalid_statuses]
+    invalid_refs = [_format_line_reference(file_path, line_number) for line_number in invalid_lines]
 
     assert not invalid_statuses, (
-        f"Invalid status values in {file_path}: {sorted(invalid_statuses)}. "
+        f"Invalid status values in {file_path}: {invalid_values}. "
+        f"References: {invalid_refs[:50]}"
+        + ("..." if len(invalid_refs) > 50 else "")
+        + ". "
+        f"Line numbers: {invalid_lines[:50]}"
+        + ("..." if len(invalid_lines) > 50 else "")
+        + ". "
         "Expected only 301 or 410."
     )
 
