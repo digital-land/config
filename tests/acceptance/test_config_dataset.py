@@ -3,6 +3,8 @@ Module to run dataset expectations for configuration files. this ensure data qua
 """
 
 import json
+import csv
+import os
 from pathlib import Path
 from glob import glob
 
@@ -23,6 +25,22 @@ def _collect_files(filename):
 def _test_id(file_path):
     path = Path(file_path)
     return f"{path.parts[-3]}/{path.parts[-2]}"
+
+def _format_line_reference(file_path, line_number):
+    path = Path(file_path).resolve()
+    try:
+        relative_path = path.relative_to(REPO_ROOT).as_posix()
+    except ValueError:
+        return f"{file_path}:{line_number}"
+
+    repository = os.getenv("GITHUB_REPOSITORY")
+    server_url = os.getenv("GITHUB_SERVER_URL", "https://github.com")
+    branch = os.getenv("GITHUB_HEAD_REF") or os.getenv("GITHUB_REF_NAME")
+
+    if repository and branch:
+        return f"{server_url}/{repository}/blob/{branch}/{relative_path}#L{line_number}"
+
+    return f"{relative_path}:{line_number}"
 
 
 def _run_checkpoint(dataset, file_path, rules):
@@ -63,6 +81,7 @@ OLD_ENTITY_RULES = [
 ]
 
 old_entity_files = _collect_files("old-entity.csv")
+all_config_csv_files = _collect_files("*.csv")
 
 @pytest.mark.parametrize(
     "file_path",
@@ -72,6 +91,46 @@ old_entity_files = _collect_files("old-entity.csv")
 def test_old_entity(file_path):
     _run_checkpoint(dataset="old-entity", file_path=file_path, rules=OLD_ENTITY_RULES)
 
+@pytest.mark.parametrize(
+    "file_path",
+    all_config_csv_files,
+    ids=[_test_id(f) for f in all_config_csv_files],
+)
+def test_pipeline_csv_row_length_matches_header(file_path):
+    mismatched_rows = []
+
+    with open(file_path, newline="", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        header = next(reader, None)
+
+        if header is None:
+            pytest.fail(f"CSV file is empty: {file_path}")
+
+        expected_columns = len(header)
+        entity_index = header.index("entity") if "entity" in header else None
+        for line_number, row in enumerate(reader, start=2):
+            if not any((cell or "").strip() for cell in row):
+                continue
+
+            if len(row) != expected_columns:
+                if entity_index is not None:
+                    entity = row[entity_index].strip() if entity_index < len(row) else ""
+                    mismatched_rows.append((line_number, len(row), entity))
+                else:
+                    mismatched_rows.append((line_number, len(row)))
+
+    mismatch_refs = [
+        _format_line_reference(file_path, line_number)
+        for line_number, *_ in mismatched_rows[:50]
+    ]
+
+    assert not mismatched_rows, (
+        f"Row length mismatch in {file_path}. Header has {expected_columns} columns; "
+        f"mismatched rows (line, columns{', entity' if entity_index is not None else ''}): {mismatched_rows[:50]}"
+        + ". "
+        + f"References: {mismatch_refs}"
+        + ("..." if len(mismatched_rows) > 50 else "")
+    )
 
 # TEST ENTITY-ORGANISATION.CSV
 ENTITY_ORGANISATION_RULES = [
