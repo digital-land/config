@@ -132,6 +132,42 @@ def test_pipeline_csv_row_length_matches_header(file_path):
         + ("..." if len(mismatched_rows) > 50 else "")
     )
 
+@pytest.mark.parametrize(
+    "file_path",
+    old_entity_files,
+    ids=[_test_id(f) for f in old_entity_files],
+)
+def test_old_entity_status_is_only_301_or_410(file_path):
+    allowed_statuses = {"301", "410"}
+    invalid_statuses = []
+
+    with open(file_path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for line_number, row in enumerate(reader, start=2):
+            if not any((value or "").strip() for value in row.values()):
+                continue
+
+            status = (row.get("status") or "").strip()
+            if status not in allowed_statuses:
+                entity = (row.get("old-entity") or "").strip()
+                invalid_statuses.append((line_number, status, entity))
+
+    invalid_values = sorted({status for _, status, _ in invalid_statuses})
+    invalid_entities = [entity for _, _, entity in invalid_statuses]
+    invalid_lines = [line_number for line_number, _, _ in invalid_statuses]
+
+    assert not invalid_statuses, (
+        f"Invalid status values in {file_path}: {invalid_values}. "
+        f"Old Entity numbers: {invalid_entities[:50]}"
+        + ("..." if len(invalid_entities) > 50 else "")
+        + ". "
+        f"Line numbers in file: {invalid_lines[:50]}"
+        + ("..." if len(invalid_lines) > 50 else "")
+        + ". "
+        "Expected only 301 or 410."
+    )
+
+
 # TEST ENTITY-ORGANISATION.CSV
 ENTITY_ORGANISATION_RULES = [
     {
