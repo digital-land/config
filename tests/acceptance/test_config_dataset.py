@@ -3,6 +3,7 @@ Module to run dataset expectations for configuration files. this ensure data qua
 """
 
 import json
+import csv
 from pathlib import Path
 from glob import glob
 
@@ -71,6 +72,31 @@ old_entity_files = _collect_files("old-entity.csv")
 )
 def test_old_entity(file_path):
     _run_checkpoint(dataset="old-entity", file_path=file_path, rules=OLD_ENTITY_RULES)
+
+
+@pytest.mark.parametrize(
+    "file_path",
+    old_entity_files,
+    ids=[_test_id(f) for f in old_entity_files],
+)
+def test_old_entity_status_is_only_301_or_410(file_path):
+    allowed_statuses = {"301", "410"}
+    invalid_statuses = set()
+
+    with open(file_path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            if not any((value or "").strip() for value in row.values()):
+                continue
+
+            status = (row.get("status") or "").strip()
+            if status not in allowed_statuses:
+                invalid_statuses.add(status)
+
+    assert not invalid_statuses, (
+        f"Invalid status values in {file_path}: {sorted(invalid_statuses)}. "
+        "Expected only 301 or 410."
+    )
 
 
 # TEST ENTITY-ORGANISATION.CSV
