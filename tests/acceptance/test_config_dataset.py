@@ -117,11 +117,11 @@ def test_old_entity_status_is_only_301_or_410(file_path):
 
     assert not invalid_statuses, (
         f"Invalid status values in {file_path}: {invalid_values}. "
-        f"References: {invalid_refs[:50]}"
-        + ("..." if len(invalid_refs) > 50 else "")
-        + ". "
         f"Line numbers: {invalid_lines[:50]}"
         + ("..." if len(invalid_lines) > 50 else "")
+        + ". "
+        f"References: {invalid_refs[:50]}"
+        + ("..." if len(invalid_refs) > 50 else "")
         + ". "
         "Expected only 301 or 410."
     )
