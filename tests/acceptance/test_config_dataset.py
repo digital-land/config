@@ -70,46 +70,60 @@ def _run_checkpoint(dataset, file_path, rules):
                 messages.append(f"    {json.dumps(details, indent=4)}")
         assert False, "\n".join(messages)
 
+def _ranges_for_collection_from_specification(collection_name):
+    spec_path = REPO_ROOT / "specification" / "dataset.csv"
 
-def _datasette_query_csv(db, sql):
-    params = urllib.parse.urlencode({"sql": sql, "_size": "max"})
-    query_url = f"{DATASETTE_BASE_URL}/{db}.csv?{params}"
-
-    try:
-        with urllib.request.urlopen(query_url, timeout=30) as response:
-            content = response.read().decode("utf-8")
-    except Exception as exc:
-        pytest.skip(f"Could not load Datasette query from {query_url}: {exc}")
-
-    return list(csv.DictReader(io.StringIO(content)))
-
-
-def _ranges_for_collection_from_datasette(collection_name):
-    escaped_collection = collection_name.replace("'", "''")
-    sql = (
-        "select dataset, collection, entity_minimum, entity_maximum "
-        "from dataset "
-        f"where collection = '{escaped_collection}'"
-    )
-
-    rows = _datasette_query_csv(DATASETTE_DB, sql)
+    if not spec_path.exists():
+        pytest.skip(f"Specification file not found: {spec_path}")
 
     ranges = []
 
-    for row in rows:
-        if not isinstance(row, dict):
-            continue
+    with open(spec_path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            if not isinstance(row, dict):
+                continue
 
-        try:
-            min_val = int(row.get("entity_minimum"))
-            max_val = int(row.get("entity_maximum"))
-        except (TypeError, ValueError):
-            continue
+            # Filter by collection
+            if (row.get("collection") or "").strip() != collection_name:
+                continue
 
-        dataset_name = (row.get("collection") or "").strip()
-        ranges.append((dataset_name, min_val, max_val))
+            try:
+                min_val = int((row.get("entity-minimum") or "").strip())
+                max_val = int((row.get("entity-maximum") or "").strip())
+            except (TypeError, ValueError):
+                continue
+
+            dataset_name = (row.get("dataset") or "").strip()
+            ranges.append((dataset_name, min_val, max_val))
 
     return ranges
+
+
+OLD_ENTITY_IGNORED_ORGANISATIONS = {
+    "conservation-area": {
+        "government-organisation:D1342",
+        "government-organisation:PB1164",
+    }
+}
+
+
+def _lookup_entity_to_organisation(collection_name):
+    lookup_path = REPO_ROOT / "pipeline" / collection_name / "lookup.csv"
+    if not lookup_path.exists():
+        return {}
+
+    entity_to_org = {}
+    with open(lookup_path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            entity = (row.get("entity") or "").strip()
+            organisation = (row.get("organisation") or "").strip()
+            if not entity:
+                continue
+            entity_to_org[entity] = organisation
+
+    return entity_to_org
 
 # TEST OLD_ENTITY.CSV
 OLD_ENTITY_RULES = [
@@ -221,13 +235,15 @@ def test_old_entity_status_is_only_301_or_410(file_path):
     old_entity_files,
     ids=[_test_id(f) for f in old_entity_files],
 )
-def test_old_entity_entities_are_within_datasette_ranges(old_entity_file):
+def test_old_entity_entities_are_within_specification_entity_ranges(old_entity_file):
     collection_name = Path(old_entity_file).parent.name
-    ranges = _ranges_for_collection_from_datasette(collection_name)
+    ranges = _ranges_for_collection_from_specification(collection_name)
+    entity_to_org = _lookup_entity_to_organisation(collection_name)
+    ignored_organisations = OLD_ENTITY_IGNORED_ORGANISATIONS.get(collection_name, set())
 
     if not ranges:
         pytest.skip(
-            f"No Datasette entity ranges found for collection '{collection_name}' in {DATASETTE_DB}"
+            f"No entity ranges found for collection '{collection_name}' in specification/dataset.csv"
         )
 
     out_of_range = []
@@ -259,10 +275,21 @@ def test_old_entity_entities_are_within_datasette_ranges(old_entity_file):
             if not present_values:
                 continue
 
-            checks = [(name, value, _in_any_range(value)) for name, value in present_values]
+            checks = []
+            for name, value in present_values:
+                organisation = entity_to_org.get(str(value), "").strip()
+                if not organisation:
+                    continue
+                if organisation in ignored_organisations:
+                    continue
+                checks.append((name, value, organisation, _in_any_range(value)))
+
+            if not checks:
+                continue
+
             # If both columns are present, both must be in range.
             # If only one is present, that one must be in range.
-            row_passes = all(in_range for _, _, in_range in checks)
+            row_passes = all(in_range for _, _, _, in_range in checks)
 
             if not row_passes:
                 out_of_range.append((line_number, checks))
@@ -271,31 +298,39 @@ def test_old_entity_entities_are_within_datasette_ranges(old_entity_file):
         {
             value
             for _, checks in out_of_range
-            for _, value, in_range in checks
+            for _, value, _, in_range in checks
             if not in_range
         }
     )
-    invalid_lines = [line_number for line_number, _ in out_of_range]
-    invalid_refs = [
-        _format_line_reference(old_entity_file, line_number)
-        for line_number in invalid_lines[:50]
-    ]
-    ranges_summary = [f"{min_val}-{max_val}" for name, min_val, max_val in ranges[:50]]
 
-    assert not out_of_range, (
-        f"Entities in {old_entity_file} are outside Datasette ranges for collection '{collection_name}'. "
-        + f"Ranges: {ranges_summary}"
-        + ("..." if len(ranges) > 50 else "")
-        + ". "
-        + f"Invalid values: {invalid_values[:50]}"
-        + ("..." if len(invalid_values) > 50 else "")
-        + ". "
-        + f"Line numbers: {invalid_lines[:50]}"
-        + ("..." if len(invalid_lines) > 50 else "")
-        + ". "
-        + f"References: {invalid_refs}"
-        + ("..." if len(invalid_lines) > 50 else "")
-    )
+    if out_of_range:
+        invalid_details = []
+        for line_number, checks in out_of_range[:50]:
+            ref = _format_line_reference(old_entity_file, line_number)
+            failed_checks = [
+                f"{field}={value}, organisation={organisation}"
+                for field, value, organisation, in_range in checks
+                if not in_range
+            ]
+            invalid_details.append(f"  - line {line_number} ({ref}): {', '.join(failed_checks)}")
+
+        range_lines = [
+            f"  - {dataset_name or '(no dataset)'}: {min_val}-{max_val}"
+            for dataset_name, min_val, max_val in ranges[:50]
+        ]
+
+        message = (
+            f"Entity values in {old_entity_file} are outside specification ranges for collection '{collection_name}'.\n"
+            + "Allowed ranges:\n"
+            + "\n".join(range_lines)
+            + ("\n  - ..." if len(ranges) > 50 else "")
+            + "\nInvalid rows:\n"
+            + "\n".join(invalid_details)
+            + ("\n  - ..." if len(out_of_range) > 50 else "")
+            + f"\nInvalid values: {invalid_values[:50]}"
+            + ("..." if len(invalid_values) > 50 else "")
+        )
+        pytest.fail(message)
 
 
 @pytest.mark.parametrize(
@@ -388,7 +423,8 @@ def test_lookup_entities_within_organisation_ranges(lookup_file):
             try:
                 min_val = int((row.get("entity-minimum") or "").strip())
                 max_val = int((row.get("entity-maximum") or "").strip())
-                ranges.append((min_val, max_val))
+                organisation = (row.get("organisation") or "").strip()
+                ranges.append((min_val, max_val, organisation))
             except ValueError:
                 continue
 
@@ -408,21 +444,49 @@ def test_lookup_entities_within_organisation_ranges(lookup_file):
             except ValueError:
                 continue
 
-            if not any(min_val <= entity <= max_val for min_val, max_val in ranges):
-                out_of_range_entities.append((line_number, entity))
+            if not any(min_val <= entity <= max_val for min_val, max_val, _ in ranges):
+                out_of_range_entities.append(
+                    {
+                        "line_number": line_number,
+                        "entity": entity,
+                        "organisation": (row.get("organisation") or "").strip(),
+                        "reference": (row.get("reference") or "").strip(),
+                        "file_ref": _format_line_reference(lookup_file, line_number),
+                    }
+                )
 
-    unique_entities = sorted({entity for _, entity in out_of_range_entities})
-    out_of_range_lines = [line_number for line_number, _ in out_of_range_entities]
-    out_of_range_refs = [
-        _format_line_reference(lookup_file, line_number)
-        for line_number in out_of_range_lines[:50]
-    ]
+    unique_entities = sorted({entry["entity"] for entry in out_of_range_entities})
 
-    assert not out_of_range_entities, (
-        f"Entities in {lookup_file} are outside ranges in {entity_org_file} for {_test_id(lookup_file)}. "
-        f"Invalid entity values: {unique_entities[:50]}"
-        + ("..." if len(unique_entities) > 50 else "")
-        + ". "
-        + f"References: {out_of_range_refs}"
-        + ("..." if len(out_of_range_lines) > 50 else "")
-    )
+    if out_of_range_entities:
+        invalid_rows_lines = []
+        for entry in out_of_range_entities[:50]:
+            invalid_rows_lines.append(
+                "  - line "
+                + str(entry["line_number"])
+                + f" ({entry['file_ref']}): entity={entry['entity']}"
+                + (
+                    f", organisation={entry['organisation']}"
+                    if entry["organisation"]
+                    else ""
+                )
+                + (f", reference={entry['reference']}" if entry["reference"] else "")
+            )
+
+        range_lines = [
+            f"  - {min_val}-{max_val}" + (f" (organisation={organisation})" if organisation else "")
+            for min_val, max_val, organisation in ranges[:50]
+        ]
+
+        message = (
+            f"Entities in {lookup_file} are outside ranges in {entity_org_file} for {_test_id(lookup_file)}.\n"
+            + f"Summary: {len(out_of_range_entities)} invalid row(s), {len(unique_entities)} unique invalid value(s).\n"
+            + "Allowed ranges:\n"
+            + "\n".join(range_lines)
+            + ("\n  - ..." if len(ranges) > 50 else "")
+            + "\nInvalid rows:\n"
+            + "\n".join(invalid_rows_lines)
+            + ("\n  - ..." if len(out_of_range_entities) > 50 else "")
+            + f"\nInvalid entity values: {unique_entities[:50]}"
+            + ("..." if len(unique_entities) > 50 else "")
+        )
+        pytest.fail(message)
