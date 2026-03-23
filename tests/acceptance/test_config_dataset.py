@@ -17,6 +17,7 @@ from digital_land.expectations.checkpoints.csv import CsvCheckpoint
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SEARCH_DIRS = ["pipeline", "collection"]
+SPECIFICATION_DATASET_URL = "https://raw.githubusercontent.com/digital-land/specification/refs/heads/main/specification/dataset.csv"
 
 def _collect_files(pattern, search_dirs=None):
     search_dirs = search_dirs or SEARCH_DIRS
@@ -69,31 +70,29 @@ def _run_checkpoint(dataset, file_path, rules):
         assert False, "\n".join(messages)
 
 def _ranges_for_collection_from_specification(collection_name):
-    spec_path = REPO_ROOT / "specification" / "dataset.csv"
-
-    if not spec_path.exists():
-        pytest.skip(f"Specification file not found: {spec_path}")
+    try:
+        with urllib.request.urlopen(SPECIFICATION_DATASET_URL, timeout=30) as response:
+            content = response.read().decode("utf-8")
+    except Exception as exc:
+        pytest.fail(f"Could not load specification dataset from {SPECIFICATION_DATASET_URL}: {exc}")
 
     ranges = []
+    reader = csv.DictReader(io.StringIO(content))
+    for row in reader:
+        if not isinstance(row, dict):
+            continue
 
-    with open(spec_path, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            if not isinstance(row, dict):
-                continue
+        if (row.get("collection") or "").strip() != collection_name:
+            continue
 
-            # Filter by collection
-            if (row.get("collection") or "").strip() != collection_name:
-                continue
+        try:
+            min_val = int((row.get("entity-minimum") or "").strip())
+            max_val = int((row.get("entity-maximum") or "").strip())
+        except (TypeError, ValueError):
+            continue
 
-            try:
-                min_val = int((row.get("entity-minimum") or "").strip())
-                max_val = int((row.get("entity-maximum") or "").strip())
-            except (TypeError, ValueError):
-                continue
-
-            dataset_name = (row.get("dataset") or "").strip()
-            ranges.append((dataset_name, min_val, max_val))
+        dataset_name = (row.get("dataset") or "").strip()
+        ranges.append((dataset_name, min_val, max_val))
 
     return ranges
 
