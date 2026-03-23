@@ -772,3 +772,4 @@ e508086f629be7e3135e7b46031f7a107f24858e054d4e99e3190449c195b613,https://dartfor
 eb96a57b99fb7023959f7b2ac86a79a4f0b9e737b59c7738b4f4b3b8297e5ff4,https://geodata.halton.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3Aconservation_area_documents&outputFormat=application%2Fjson,,,2026-03-16,2026-03-13,
 a79eae34ebc0022de7fca3f2873f88acb847fbfc49838a233211fc22ae969d5c,https://maps.harlow.gov.uk/isharelive.web/getows.ashx?mapsource=mapsources/wfs_wms&service=WFS&version=1.1.0&request=GetFeature&typename=conservation_areas&srsname=EPSG:27700,,,2026-03-18,2026-03-17,
 7269fc36e2537b0f0c27c02b55d8ac7d4b6b8803305078a565a3855dc34e37ca,https://www.hounslow.gov.uk/downloads/file/13471/conservation-areas,,,2026-03-19,2026-03-19,
+41c16726894892a2b15b22d734e99081f187916026f2fe64595de58c454c88f9,https://volunteering.lake-district.gov.uk/PublishedGIS/ConservationAreaDocuments.csv,,,2026-03-23,2026-03-23,
