@@ -111,3 +111,4 @@ bf0257563f3d85ae261d01aa159b67f05883ebd92561c6497c836834a20d825a,https://service
 e41974d689948539e4a5f492646ae0e5eb1895134328dbd0186574613c234936,https://services-eu1.arcgis.com/OrZ7pO8Ag7olNJcC/arcgis/rest/services/Listed_Buildings_ODP/FeatureServer/1/query?where=1%3D1&f=geojson&outFields=*,,,2026-03-16,2026-03-16,
 5a4571b94ee31e82917f4dc4619f7b6215c57b9605dbd923c3ecf2d802f9d7f1,https://geodata.halton.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3Alisted_building&outputFormat=application%2Fjson,,,2026-03-18,2026-03-17,
 4bd57a7a9d880048f310229d123942a33a338dfd01807f8b3f65a95c9f14aa7e,https://files.planning.data.gov.uk/reporting/listed-building-end-date.csv,,,2026-03-18,2026-03-18,
+27eb53c260c57eef91a78bb6e60321072d4b8b33b18aa445b5b6f07fcc7f4a65,https://lakedistrict.statmap.co.uk/map/wfs.svc/c8c7a0da_8065_469f_b0ea_80fbb53a426a?service=WFS&version=2.0.0&request=GetFeature&typeNames=statmap:LBUILD,,,2026-03-23,2026-03-23,
