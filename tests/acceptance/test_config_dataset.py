@@ -17,8 +17,6 @@ from digital_land.expectations.checkpoints.csv import CsvCheckpoint
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SEARCH_DIRS = ["pipeline", "collection"]
-DATASETTE_BASE_URL = "https://datasette.planning.data.gov.uk"
-DATASETTE_DB = "digital-land"
 
 def _collect_files(pattern, search_dirs=None):
     search_dirs = search_dirs or SEARCH_DIRS
