@@ -1374,7 +1374,7 @@ f418979b27b576f82e11598edcbaf13c902dd46f73ed81934adb20dcd005d2ab,https://data.le
 e16fe5ad2a8019f9b91a95a9d7410057201b613a3349eb29287deb619f811a30,https://somersetcc.sharepoint.com/:x:/s/SCCPublic/EbPIsKdxkclNptDBnz7rF58B0oBmICWRqzzasokZpts5_A?e=9JWdiw,,,2023-10-29,2022-12-31,2025-08-28
 d83e48b87ae9a78ee7d8501bb1a82e237c0fc680cd209d763968fa8599ce73f3,https://www.nuneatonandbedworth.gov.uk/download/downloads/id/4108/brownfield_land_register_2020.csv,,,2023-10-31,2022-11-25,2024-05-20
 4358caaebc2c113629ccfc13c003f8618a8ae85afde71ab0de281e181e04a68a,https://www.salford.gov.uk/media/398951/salford-2022-brownfield-register.csv,,,2023-10-31,2022-03-31,2025-01-23
-3cee4eb9a89953edb04a6857891ad7f53258c1d7009b9ba4e9829f56322afc2c,https://www.staffordbc.gov.uk/brownfield-land-register-csv-format,,,2023-10-31,2021-11-12,
+3cee4eb9a89953edb04a6857891ad7f53258c1d7009b9ba4e9829f56322afc2c,https://www.staffordbc.gov.uk/brownfield-land-register-csv-format,,,2023-10-31,2021-11-12,2026-03-20
 2c8447be98843e5a45d403cde391fcf8ff2ff60a6930b9e289639be15a1dd572,https://www.stevenage.gov.uk/documents/planning-policy/brownfield-land-register/brownfield-land-register-2021-2022.xlsx,,,2023-10-31,2021-11-12,
 59196599f38b5d27d0dede243e6bdcbd3ba19c20ce006bcd50ccb3667571deca,https://www.westberks.gov.uk/media/53964/Brownfield-Land-Register-Part-1-2022-update/csv/Part_1_Brownfield_Land_Register_2022.csv?m=638146777601700000,,,2023-11-01,2023-03-31,2025-03-27
 e487ad6bda11bbae08518a86014ba4c6549ebf71f6f55e0debdf1f0ed686a5f4,https://www.wealden.gov.uk/UploadedFiles/Brownfield-Land-2.csv,,,2023-11-01,2023-12-31,2025-03-27
@@ -1400,7 +1400,7 @@ a48c7c41698943b588046fbcc8c64a296e3dd9a433b4a56cc4e5a61afaa0df67,https://www.bol
 77fd223d1eb151905f0f06a5794c5e7512dcbb1a23fb0ddf08ba744d5631c1ed,https://cdn.threerivers.gov.uk/files/2024/01/097a6320-abda-11ee-b20b-f5e0dc691cc7-brownfield-land.csv_nZzKHDbLsd3dGs0OIl-Urw_harmonised.xlsx,,,2024-01-12,2024-01-05,
 a0ebdf7dae9ef38404598c18c80530015f1f034c421b0524eb339f6710f1e421,https://molevalleydc.sharepoint.com/:x:/s/MVDCDocumentLibrary/Ef_QIKlMYEdIuvN6MGVtsmcBo9pNhMKVIufZR-mzYx0FXA?download=1,,,2024-01-12,2024-01-05,
 850cfa575bdd00c3fd0c69908b78b18cc1fbd6a83046e2eb48d889aedc97e9dd,https://www.huntingdonshire.gov.uk/media/nx0o35dy/brownfield-land.csv,,,2024-01-16,2024-01-10,
-8fadeaff4d034e49f155bcf95562bab0657b40256a5afaffe152f498b8790555,https://www4.halton.gov.uk/Documents/planning/brownfieldregisters/brownfield-sites.csv,,,2024-01-16,2024-01-09,
+8fadeaff4d034e49f155bcf95562bab0657b40256a5afaffe152f498b8790555,https://www4.halton.gov.uk/Documents/planning/brownfieldregisters/brownfield-sites.csv,,,2024-01-16,2024-01-09,2026-03-20
 eedca3f7642b7e59f8030b734b93f95d8807c4843f327471e0e3483ad7e55740,https://www.northumberland.gov.uk/NorthumberlandCountyCouncil/media/Planning-and-Building/planning%20policy/Studies%20and%20Evidence%20Reports/Housing%20Studies/7.%20Brownfield/Northumberland_Brownfield_Register_2023_csv.csv,,,2024-01-16,2024-01-09,2026-01-16
 a9f60d8290d44b2e1360b177252f9092a2e08156d49012460d396ce81ab78b9b,https://www.blackpool.gov.uk/Residents/Planning-environment-and-community/Documents/2023-Brownfield-register.csv,,,2024-01-16,2024-01-12,2025-03-27
 86e393d39e585f3c4f3f1b13a51c3942ee311386101ab34da55df8c20d400abd,https://www.lakedistrict.gov.uk/planning/planningpolicies/brownfield-land-register2/ldnpa_brownfieldregister_2023-12-11_rev6.csv,,,2024-01-17,2024-01-17,2025-09-01
@@ -1592,3 +1592,4 @@ fa04ac96f7e6980d6d1ef4a718eae0ea1fa9ac3dff99fdf46363b91595db8661,https://www.bri
 00fb10076d88aa91fb5166cc3cda58f93d452955d1db4884d77c0b203521301f,https://services6.arcgis.com/Qptn479QktK11k72/arcgis/rest/services/East_Riding_Brownfield_Register/FeatureServer/0,,arcgis,2026-03-16,2026-03-16,
 923cfc1b2d043b4138169ff32f777428adcd189d09e89e95c946fea39c0c2dc8,https://ccs.maps.xmap.cloud/ccs_public/sbc_brownfieldregister/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=public:sbc_brownfieldregister&OUTPUTFORMAT=application/json,,,2026-03-19,2026-03-19,
 c9d20941cee3c8601162d6ae2aa6606bdf7e80b41ebd418c0fcac4fa6ddf6002,https://geodata.halton.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3Abrownfield_land&outputFormat=application%2Fjson,,,2026-03-19,2026-03-19,
+1a2b41530c3ad4c1e7885a3ab87263c06f442f0c10a76652e6be9d9b3b4e4de1,https://www.chesterfield.gov.uk/media/qdyl2wrm/brownfield-land-register-april-2023-csv.csv,,,2026-03-20,2023-04-01,
