@@ -436,3 +436,6 @@ tree,7002190369,7002191835,local-authority:HAR
 tree-preservation-zone,19183302,19183427,local-authority:HAR
 tree,7002191836,7002192284,local-authority:HAL
 tree-preservation-order,7001089618,7001090020,national-park-authority:Q27159704
+tree-preservation-order,7001090021,7001090238,local-authority:HAR
+tree-preservation-zone,19183428,19184248,local-authority:HUN
+tree,7002192285,7002194516,local-authority:COV
