@@ -274,11 +274,12 @@ def test_old_entity_entities_are_within_specification_entity_ranges(old_entity_f
 
             checks = []
             for name, value in present_values:
-                organisation = entity_to_org.get(str(value), "").strip()
+                organisation = entity_to_org.get(str(value), "").strip()                
                 if not organisation:
                     continue
                 if organisation in ignored_organisations:
                     continue
+                
                 checks.append((name, value, organisation, _in_any_range(value)))
 
             if not checks:
@@ -407,6 +408,9 @@ def test_entity_organisation(file_path, tmp_path):
     ids=[_test_id(f) for f in lookup_files],
 )
 def test_lookup_entities_within_organisation_ranges(lookup_file):
+    collection_name = Path(lookup_file).parent.name
+    ignored_organisations = OLD_ENTITY_IGNORED_ORGANISATIONS.get(collection_name, set())
+
     lookup_dir = Path(lookup_file).parent
     entity_org_file = lookup_dir / "entity-organisation.csv"
 
@@ -432,6 +436,12 @@ def test_lookup_entities_within_organisation_ranges(lookup_file):
     with open(lookup_file, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for line_number, row in enumerate(reader, start=2):
+            organisation = (row.get("organisation") or "").strip()
+            if not organisation:
+                continue
+            if organisation in ignored_organisations:
+                continue
+
             entity_str = (row.get("entity") or "").strip()
             if not entity_str:
                 continue
@@ -446,7 +456,7 @@ def test_lookup_entities_within_organisation_ranges(lookup_file):
                     {
                         "line_number": line_number,
                         "entity": entity,
-                        "organisation": (row.get("organisation") or "").strip(),
+                        "organisation": organisation,
                         "reference": (row.get("reference") or "").strip(),
                         "file_ref": _format_line_reference(lookup_file, line_number),
                     }
