@@ -1,2 +1,2 @@
 dataset,resource,field,default-field,entry-date,start-date,end-date,entry-number,endpoint
-development-plan-timetable,,start-date,actual-date,,,,,
+plan-timetable,,start-date,actual-date,,,,,
