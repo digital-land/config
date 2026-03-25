@@ -98,7 +98,11 @@ def _is_valid_datetime_value(value):
 
 
 def _is_valid_integer_value(value):
-    return bool(re.fullmatch(r"[-+]?\d+", value))
+    try:
+        num = float(value)
+        return num == int(num)
+    except (ValueError, OverflowError):
+        return False
 
 
 def _is_valid_decimal_value(value):
