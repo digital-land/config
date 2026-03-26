@@ -1,2 +1,3 @@
 dataset,entity-minimum,entity-maximum,organisation
 planning-condition,73000000,73010968,local-authority:DNC
+planning-application-condition,71000000,71012994,local-authority:DNC
