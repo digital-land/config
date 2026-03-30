@@ -776,3 +776,4 @@ a79eae34ebc0022de7fca3f2873f88acb847fbfc49838a233211fc22ae969d5c,https://maps.ha
 72be41020d3b7b31fe690d602ab5e873a1921f54829cea37830d17816d47685c,https://maps.3csharedservices.org/arcgis/rest/services/HDC/Huntingdonshire_District_Council_ODP_Data/MapServer/5/query?outFields=*&where=1%3D1&f=geojson,,,2026-03-23,2026-03-23,
 c851083fb8648bad9f182ab626f545c8c1a14fe9aeea248e31da2e5b8f1bf48b,https://lakedistrict.statmap.co.uk/map/wfs.svc/c8c7a0da_8065_469f_b0ea_80fbb53a426a?service=WFS&version=2.0.0&request=GetFeature&typeNames=statmap:CONS,,,2026-03-23,2026-03-23,
 cbbc100b81696b10ee14e872b30d82280763c2f7ffde7a8f358431cae5498f46,https://www.havant.gov.uk/sites/default/files/2026-03/Conservation-area-document_0.csv,,,2026-03-30,2026-03-27,
+1a672d206d59b334b7f793c0be40946db47d4a1cdf69717421d4b0c294653446,https://www.havant.gov.uk/sites/default/files/2026-03/Conservation-area.csv,,,2026-03-30,2026-03-27,
