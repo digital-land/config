@@ -65,18 +65,77 @@ def _run_checkpoint(dataset, file_path, rules):
                 messages.append(f"    {json.dumps(details, indent=4)}")
         assert False, "\n".join(messages)
 
+
+def _check_old_entity_shared_values_with_status(file_path):
+    """
+    Check that old-entity and entity have no conflicting shared values.
+    Allows shared values only when BOTH conditions are true:
+    - ID appears in entity column with status "301" (redirect target)
+    - ID appears in old-entity column with status "410" (being retired)
+    Fails on any other shared values.
+    """
+    all_rows = []
+    old_entities_dict = {}  # {id: [line_numbers]}
+    entity_targets_dict = {}  # {id: [line_numbers]}
+
+    with open(file_path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for line_number, row in enumerate(reader, start=2):
+            if not any((value or "").strip() for value in row.values()):
+                continue
+
+            old_entity_id = (row.get("old-entity") or "").strip()
+            entity_id = (row.get("entity") or "").strip()
+            status = (row.get("status") or "").strip()
+
+            all_rows.append({
+                "line": line_number,
+                "old_entity": old_entity_id,
+                "entity": entity_id,
+                "status": status,
+            })
+
+            if old_entity_id:
+                old_entities_dict.setdefault(old_entity_id, []).append(line_number)
+            if entity_id:
+                entity_targets_dict.setdefault(entity_id, []).append(line_number)
+
+    # Find shared values and check if they're allowed
+    shared_values = set(old_entities_dict.keys()) & set(entity_targets_dict.keys())
+    conflicts = []
+
+    for shared_id in shared_values:
+        # Both conditions must be true to allow the shared value
+        has_entity_301 = any(row["entity"] == shared_id and row["status"] == "301" for row in all_rows)
+        has_old_entity_410 = any(row["old_entity"] == shared_id and row["status"] == "410" for row in all_rows)
+
+        is_allowed = has_entity_301 and has_old_entity_410
+
+        if not is_allowed:
+            conflicts.append({
+                "shared_id": shared_id,
+                "old_entity_rows": old_entities_dict[shared_id],
+                "entity_target_rows": entity_targets_dict[shared_id],
+            })
+
+    if conflicts:
+        details = []
+        for conflict in conflicts:
+            details.append(
+                f"  - Entity '{conflict['shared_id']}' appears in both columns "
+                f"(old-entity row {conflict['old_entity_rows']}, "
+                f"entity row {conflict['entity_target_rows']})"
+            )
+        pytest.fail(
+            f"Conflicting shared entities across 'old-entity' and 'entity' columns in {file_path}:\n" + "\n".join(details)
+        )
+
 # TEST OLD_ENTITY.CSV
 OLD_ENTITY_RULES = [
     {
         "name": "old-entity values are unique",
         "operation": "check_unique",
         "parameters": {"field": "old-entity"},
-        "severity": "error",
-    },
-    {
-        "name": "old-entity and entity have no shared values",
-        "operation": "check_no_shared_values",
-        "parameters": {"field_1": "old-entity", "field_2": "entity"},
         "severity": "error",
     },
 ]
@@ -92,6 +151,7 @@ pipeline_csv_files = _collect_files("*.csv", search_dirs=["pipeline"])
 )
 def test_old_entity(file_path):
     _run_checkpoint(dataset="old-entity", file_path=file_path, rules=OLD_ENTITY_RULES)
+    _check_old_entity_shared_values_with_status(file_path)
 
 @pytest.mark.parametrize(
     "file_path",
