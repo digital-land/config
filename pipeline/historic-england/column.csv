@@ -66,3 +66,15 @@ world-heritage-site-buffer-zone,,WKT,geometry,,,,
 building-preservation-notice,,"Building Preservation Notice start date",start-date,,,,
 building-preservation-notice,,"Building Preservation Notice expiry date",end-date,,,,
 building-preservation-notice,,"NHLE link",documentation-url,,,,
+scheduled-monument,c3582d79b9eb9132b9d22f61ee9790e4c63380246b50b01226d48bd3c2f4db2e,,DecisionText,notes,2026-03-31,,2026-03-31
+scheduled-monument,c3582d79b9eb9132b9d22f61ee9790e4c63380246b50b01226d48bd3c2f4db2e,,ARTICLEVERSIONNAME,name,2026-03-31,,2026-03-31
+scheduled-monument,c3582d79b9eb9132b9d22f61ee9790e4c63380246b50b01226d48bd3c2f4db2e,,DateRemovedFromList,end-date,2026-03-31,,2026-03-31
+scheduled-monument,c3582d79b9eb9132b9d22f61ee9790e4c63380246b50b01226d48bd3c2f4db2e,,OriginalListEntryNumber,reference,2026-03-31,,2026-03-31
+park-and-garden,5d0006316598d391a96b438be3de6734766f442102dce1d8f2ebf3c1690b99f2,,DecisionText,notes,2026-03-31,,2026-03-31
+park-and-garden,5d0006316598d391a96b438be3de6734766f442102dce1d8f2ebf3c1690b99f2,,ARTICLEVERSIONNAME,name,2026-03-31,,2026-03-31
+park-and-garden,5d0006316598d391a96b438be3de6734766f442102dce1d8f2ebf3c1690b99f2,,DateRemovedFromList,end-date,2026-03-31,,2026-03-31
+park-and-garden,5d0006316598d391a96b438be3de6734766f442102dce1d8f2ebf3c1690b99f2,,OriginalListEntryNumber,reference,2026-03-31,,2026-03-31
+protected-wreck-site,eec35b7da9b9a2d16f8947341363fe465cc3590db12665c263a25f7dc31ec0c3,,DecisionText,notes,2026-03-31,,2026-03-31
+protected-wreck-site,eec35b7da9b9a2d16f8947341363fe465cc3590db12665c263a25f7dc31ec0c3,,ARTICLEVERSIONNAME,name,2026-03-31,,2026-03-31
+protected-wreck-site,eec35b7da9b9a2d16f8947341363fe465cc3590db12665c263a25f7dc31ec0c3,,DateRemovedFromList,end-date,2026-03-31,,2026-03-31
+protected-wreck-site,eec35b7da9b9a2d16f8947341363fe465cc3590db12665c263a25f7dc31ec0c3,,OriginalListEntryNumber,reference,2026-03-31,,2026-03-31
