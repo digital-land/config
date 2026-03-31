@@ -114,8 +114,8 @@ def _check_old_entity_shared_values_with_status(file_path):
         if not is_allowed:
             conflicts.append({
                 "shared_id": shared_id,
-                "old_entity_lines": old_entities_dict[shared_id],
-                "entity_target_lines": entity_targets_dict[shared_id],
+                "old_entity_rows": old_entities_dict[shared_id],
+                "entity_target_rows": entity_targets_dict[shared_id],
             })
 
     if conflicts:
@@ -123,8 +123,8 @@ def _check_old_entity_shared_values_with_status(file_path):
         for conflict in conflicts:
             details.append(
                 f"  - Entity '{conflict['shared_id']}' appears in both columns "
-                f"(old-entity lines {conflict['old_entity_lines']}, "
-                f"entity lines {conflict['entity_target_lines']})"
+                f"(old-entity row {conflict['old_entity_rows']}, "
+                f"entity row {conflict['entity_target_rows']})"
             )
         pytest.fail(
             f"Conflicting shared entities across 'old-entity' and 'entity' columns in {file_path}:\n" + "\n".join(details)
