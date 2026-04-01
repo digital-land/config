@@ -111,6 +111,23 @@ def _field_to_datatype(specification_dir):
 
     return field_to_datatype
 
+def _normalise_file(file_path, tmp_path):
+    """Normalise line endings and remove trailing commas to 
+    ensure consistent processing across environments and tools that may 
+    introduce variations in CSV formatting."""
+    src = Path(file_path)
+    tmp = Path(tmp_path) / src.name
+    tmp.parent.mkdir(parents=True, exist_ok=True)
+
+    with src.open("r", encoding="utf-8-sig", newline="") as fin, \
+        tmp.open("w", encoding="utf-8", newline="") as fout:
+        reader = csv.reader(fin)
+        writer = csv.writer(fout, lineterminator="\n")
+        for row in reader:
+            writer.writerow(row)
+
+    return str(tmp)
+
 
 # TEST lookup.csv
 
@@ -122,9 +139,11 @@ lookup_files = _collect_files("lookup.csv")
     lookup_files,
     ids=[_test_id(f) for f in lookup_files],
 )
-def test_lookup(file_path):
+def test_lookup(file_path, tmp_path):
     lookup_dir = Path(file_path).parent
     entity_org_file = str(lookup_dir / "entity-organisation.csv")
+    entity_org_file = _normalise_file(entity_org_file, tmp_path)
+    file_path = _normalise_file(file_path, tmp_path)
     lookup_rules = [
         {
             "name": "lookup entities are within organisation ranges",
@@ -165,7 +184,8 @@ all_config_csv_files = _collect_files("*.csv")
     all_config_csv_files,
     ids=[_test_id(f) for f in all_config_csv_files],
 )
-def test_all_csv(file_path,specification_dir):
+def test_all_csv(file_path,specification_dir, tmp_path):
+    file_path = _normalise_file(file_path, tmp_path)
     field_datatype = _field_to_datatype(specification_dir)
     
     all_csv_rules = [
@@ -196,6 +216,7 @@ old_entity_files = _collect_files("old-entity.csv")
     ids=[_test_id(f) for f in old_entity_files],
 )
 def test_old_entity(file_path,specification_dir):
+    
     old_entity_rules = [
     {
         "name": "old-entity values are unique",
