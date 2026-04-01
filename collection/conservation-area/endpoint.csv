@@ -780,3 +780,4 @@ cbbc100b81696b10ee14e872b30d82280763c2f7ffde7a8f358431cae5498f46,https://www.hav
 3bf2ffdf18c0eb3bcdd373a46c851b494ea10333fe4288ad736695b957754d5c,https://www.northwarks.gov.uk/downloads/file/2531/conservation-area-documents-dataset,,,2026-03-31,2026-03-30,
 b382218b1603f40c99cb700882fdc5eb8a6d01924009c3de03de94e7509e853a,https://www.stevenage.gov.uk/documents/data.gov/conservation-areas.json,,,2026-03-31,2026-03-31,
 44b80d3f3b154ce6411816b8ed564cdac624f30013e24f9bf943a13d884e63fc,https://maps.northwarks.gov.uk/wfs_ca/wfs.exe?service=WFS&version=2.0.0&request=GetFeature&TypeNames=ns:Conservation_Area&srsName=EPSG:4326,,,2026-03-31,2026-03-30,
+65b32c328813a08a4384ef4712228f31f6adb3c3b2ceaa792fed201a0f2d5fad,https://services.arcgis.com/wDcUiJYKtMulHM03/ArcGIS/rest/services/Conservation_Areas/FeatureServer/0,,arcgis,2026-04-01,2026-04-01,
