@@ -566,3 +566,7 @@ conservation-area-document,317466bbfe5bf26ba6d76230134c777b294edecb6a003cae42b65
 conservation-area-document,317466bbfe5bf26ba6d76230134c777b294edecb6a003cae42b65aecbccc1cd1,,Conservation_area,conservation-area,,,
 conservation-area,991715ccf313ab1bc092b5ef07622479a4caf3669bfdbda7e728e7bc78f8f000,,conservation_area,reference,,,
 conservation-area,44b80d3f3b154ce6411816b8ed564cdac624f30013e24f9bf943a13d884e63fc,,odp_name,name,2026-03-30,,2026-03-31
+conservation-area,65b32c328813a08a4384ef4712228f31f6adb3c3b2ceaa792fed201a0f2d5fad,,STARTD,start-date,2026-04-01,,2026-04-01
+conservation-area,65b32c328813a08a4384ef4712228f31f6adb3c3b2ceaa792fed201a0f2d5fad,,CEASEDD,end-date,2026-04-01,,2026-04-01
+conservation-area,65b32c328813a08a4384ef4712228f31f6adb3c3b2ceaa792fed201a0f2d5fad,,DATE_MODIF,entry-date,2026-04-01,,2026-04-01
+conservation-area,f18ad8b1d52eb0badf19c7f636f3915b14ffcefe61dcb20b2c2c62eb25525c78,,Name_,name,2026-03-31,,2026-04-01

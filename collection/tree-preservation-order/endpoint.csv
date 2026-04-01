@@ -210,3 +210,5 @@ b1de5408a5645d1974713f412932189c0baff0aa136ff71b9b6f8f5d11e72658,https://volunte
 e1d02a30d4b922b7bf395f74fa09188fdcbcd02134f881948e89702dc4c088d2,https://maps.harlow.gov.uk/isharelive.web/getdata.aspx?requesttype=json&Type=data&ds=public.tptree_document,,,2026-03-24,2026-03-24,
 cd709feaa862981a61baac63e5eb42a930c553f8ae82ce451426f3efa4e74f7b,https://maps.3csharedservices.org/arcgis/rest/services/HDC/Huntingdonshire_District_Council_ODP_Data/MapServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2026-03-24,2026-03-23,
 fdfa77961a88d014e6f5b048366b87975f249ca5b946e059786c4a6290765423,https://www.coventry.gov.uk/downloads/file/46690/trees,,,2026-03-25,2026-03-24,
+4d406bc3ba343d52ce6dc6233fa1dd535afafebf66a328fd03bf05833c1f476c,https://maps.3csharedservices.org/arcgis/rest/services/HDC/Huntingdonshire_District_Council_ODP_Data/MapServer/2/query?outFields=*&where=1%3D1&f=geojson,,,2026-04-01,2026-03-31,
+1cd13aebff7b5792b8d4f551911add1f44584096d1f7d6dc614cbf4d1fb4774c,https://maps.3csharedservices.org/arcgis/rest/services/HDC/Huntingdonshire_District_Council_ODP_Data/MapServer/3/query?outFields=*&where=1%3D1&f=json,,,2026-04-01,2026-03-31,
