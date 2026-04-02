@@ -24,20 +24,20 @@ def create_project_structure(name):
             "old-resource.csv": "old-resource,status,resource,notes"
         },
         "./pipeline": {
-            "column.csv": "column,dataset,end-date,endpoint,entry-date,field,resource,start-date",
-            "combine.csv": "dataset,end-date,endpoint,entry-date,field,resource,separator,start-date",
-            "concat.csv": "end-date,entry-date,endpoint,field,fields,dataset,resource,separator,start-date",
-            "convert.csv": "end-date,endpoint,entry-date,parameters,dataset,plugin,resource,start-date",
+            "column.csv": "dataset,endpoint,resource,column,field,start-date,end-date,entry-date",
+            "combine.csv": "dataset,endpoint,field,separator,entry-date,start-date,end-date,resource",
+            "concat.csv": "dataset,resource,field,fields,separator,entry-date,start-date,end-date,endpoint",
+            "convert.csv": "dataset,resource,plugin,start-date,end-date,entry-date,endpoint,parameters",
             "default-value.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,resource,start-date,value",
-            "default.csv": "dataset,default-field,end-date,endpoint,entry-date,entry-number,field,resource,start-date",
+            "default.csv": "dataset,resource,field,default-field,entry-date,start-date,end-date,entry-number,endpoint",
             "entity-organisation.csv":"dataset,entity-minimum,entity-maximum,organisation",
-            "expect.csv":"datasets,organisations,operation,parameters,name,description,notes,severity,responsibility,end-date,entry-date,start,date",
+            "expect.csv":"datasets,organisations,operation,parameters,name,description,notes,severity,responsibility,end-date,entry-date,start-date",
             "filter.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date",
-            "lookup.csv": "prefix,resource,entry-number,organisation,reference,entity",
+            "lookup.csv": "prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date",
             "old-entity.csv" : "old-entity,status,entity,notes,end-date,entry-date,start-date",
-            "patch.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date,value",
-            "skip.csv": "dataset,end-date,endpoint,entry-date,entry-number,pattern,resource,start-date",
-            "transform.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,replacement-field,resource,start-date"
+            "patch.csv": "dataset,resource,field,pattern,value,entry-number,start-date,end-date,entry-date,endpoint",
+            "skip.csv": "dataset,resource,pattern,entry-number,start-date,end-date,entry-date,endpoint",
+            "transform.csv": "dataset,field,replacement-field,entry-number,resource,start-date,end-date,entry-date,endpoint"
         }
     }
 
