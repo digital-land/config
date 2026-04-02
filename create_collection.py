@@ -1,6 +1,7 @@
 import os
 import sys
 
+# Define column mappings (and their ordering) for collection and pipeline CSVs
 COLUMN_MAPPINGS = {
     "collection": {
         "endpoint.csv": "endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date",
