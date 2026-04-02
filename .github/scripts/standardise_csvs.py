@@ -6,7 +6,7 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 from create_collection import COLUMN_MAPPINGS
 
-def standardize_csv(file_path, expected_columns):
+def standardise_csv(file_path, expected_columns):
     """Reorder and add missing columns to a CSV file, preserving line endings."""
     expected_cols = expected_columns.split(',')
 
@@ -34,8 +34,8 @@ def standardize_csv(file_path, expected_columns):
     except Exception as e:
         return f"✗ {file_path}: {e}"
 
-def standardize_folder(folder_type, folder_path):
-    """Standardize all CSVs in a folder (collection or pipeline)."""
+def standardise_folder(folder_type, folder_path):
+    """Standardise all CSVs in a folder (collection or pipeline)."""
     if folder_type not in COLUMN_MAPPINGS:
         print(f"Unknown folder type: {folder_type}")
         return
@@ -43,14 +43,14 @@ def standardize_folder(folder_type, folder_path):
     for filename, expected_columns in COLUMN_MAPPINGS[folder_type].items():
         file_path = os.path.join(folder_path, filename)
         if os.path.exists(file_path):
-            result = standardize_csv(file_path, expected_columns)
+            result = standardise_csv(file_path, expected_columns)
             if result:
                 print(result)
         else:
             print(f"⊘ {file_path} (not found)")
 
 def main():
-    """Standardize all CSVs in all datasets across pipeline and collection."""
+    """Standardise all CSVs in all datasets across pipeline and collection."""
     # Get the root directory (two levels up from this script)
     base_dir = os.path.join(os.path.dirname(__file__), '../..')
 
@@ -67,12 +67,12 @@ def main():
 
         for dataset in dataset_folders:
             dataset_path = os.path.join(folder_path, dataset)
-            print(f"\nStandardizing {folder_type}/{dataset}...")
+            print(f"\nStandardising {folder_type}/{dataset}...")
 
             for filename, expected_columns in COLUMN_MAPPINGS[folder_type].items():
                 file_path = os.path.join(dataset_path, filename)
                 if os.path.exists(file_path):
-                    result = standardize_csv(file_path, expected_columns)
+                    result = standardise_csv(file_path, expected_columns)
                     if result:
                         print(result)
                 else:
