@@ -29,8 +29,8 @@ def standardize_csv(file_path, expected_columns):
             writer = csv.DictWriter(f, fieldnames=expected_cols, restval='', lineterminator=line_ending)
             writer.writeheader()
             writer.writerows(rows)
-
-        return f"✓ {file_path}"
+        return None
+    
     except Exception as e:
         return f"✗ {file_path}: {e}"
 
@@ -40,11 +40,12 @@ def standardize_folder(folder_type, folder_path):
         print(f"Unknown folder type: {folder_type}")
         return
 
-    print(f"\nStandardizing {folder_type}...")
     for filename, expected_columns in COLUMN_MAPPINGS[folder_type].items():
         file_path = os.path.join(folder_path, filename)
         if os.path.exists(file_path):
-            print(standardize_csv(file_path, expected_columns))
+            result = standardize_csv(file_path, expected_columns)
+            if result:
+                print(result)
         else:
             print(f"⊘ {file_path} (not found)")
 
@@ -71,7 +72,9 @@ def main():
             for filename, expected_columns in COLUMN_MAPPINGS[folder_type].items():
                 file_path = os.path.join(dataset_path, filename)
                 if os.path.exists(file_path):
-                    print(standardize_csv(file_path, expected_columns))
+                    result = standardize_csv(file_path, expected_columns)
+                    if result:
+                        print(result)
                 else:
                     print(f"⊘ {filename} (not found)")
 
