@@ -1,2 +1,2 @@
-dataset,resource,field,pattern,entry-number,start-date,end-date,entry-date,endpoint
-national-park,,reference,^E,,,,,
+dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date
+national-park,,,,,reference,^E,,

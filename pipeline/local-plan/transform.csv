@@ -1,2 +1,2 @@
-dataset,end-date,endpoint,entry-date,entry-number,field,replacement-field,resource,start-date
-plan-timetable,,,,,development-plan-event,plan-event,,
+dataset,field,replacement-field,entry-number,resource,start-date,end-date,entry-date,endpoint
+plan-timetable,development-plan-event,plan-event,,,,,,

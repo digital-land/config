@@ -1,4 +1,4 @@
-dataset,resource,column,field
-built-up-area,,WKT,geometry
-built-up-area,,BUA24CD,reference
-built-up-area,,BUA24NM,name
+dataset,endpoint,resource,column,field,start-date,end-date,entry-date
+built-up-area,,,WKT,geometry,,,
+built-up-area,,,BUA24CD,reference,,,
+built-up-area,,,BUA24NM,name,,,

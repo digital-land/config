@@ -1,2 +1,2 @@
-dataset,endpoint,resource,entry-number,field,value,start-date,end-date,entry-date
-nature-improvement-area,,,,organisation,government-organisation:PB202,,,
+dataset,end-date,endpoint,entry-date,entry-number,field,resource,start-date,value
+nature-improvement-area,,,,,organisation,,,government-organisation:PB202
