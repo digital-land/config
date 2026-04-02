@@ -38,7 +38,7 @@ jobs:
         run: |
           REQUEST_ID="${{ steps.validate.outputs.request_id }}"
           API_BASE_URL="${{ vars.ASYNC_API_BASE_URL }}"
-          API_BASE_URL="${API_BASE_URL:-http://development-pub-async-api-lb-69142969.eu-west-2.elb.amazonaws.com}"
+          API_BASE_URL="${API_BASE_URL:-http://staging-pub-async-api-lb-12493311.eu-west-2.elb.amazonaws.com}"
 
           echo "Fetching request data from $API_BASE_URL/requests/$REQUEST_ID"
 
