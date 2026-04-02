@@ -11,6 +11,7 @@ from glob import glob
 import pytest
 
 from digital_land.expectations.checkpoints.csv import CsvCheckpoint
+from digital_land.specification import Specification
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SEARCH_DIRS = ["pipeline", "collection"]
@@ -96,25 +97,10 @@ def _run_checkpoint(dataset, file_path, rules):
                     ]
                     messages.append(f"    references: {line_refs}")
         assert False, "\n".join(messages)
-
-
-
-def _field_to_datatype(specification_dir):
-    field_rows = csv.DictReader(f"{specification_dir}/field.csv")
-
-    field_to_datatype = {}
-    for row in field_rows:
-        field_name = (row.get("field") or "").strip()
-        datatype = (row.get("datatype") or "").strip()
-        if field_name and datatype:
-            field_to_datatype[field_name] = datatype
-
-    return field_to_datatype
+        
 
 def _normalise_file(file_path, tmp_path):
-    """Normalise line endings and remove trailing commas to 
-    ensure consistent processing across environments and tools that may 
-    introduce variations in CSV formatting."""
+    """Normalise line endings and encoding for consistent CSV parsing."""
     src = Path(file_path)
     tmp = Path(tmp_path) / src.name
     tmp.parent.mkdir(parents=True, exist_ok=True)
@@ -184,9 +170,10 @@ all_config_csv_files = _collect_files("*.csv")
     all_config_csv_files,
     ids=[_test_id(f) for f in all_config_csv_files],
 )
-def test_all_csv(file_path,specification_dir, tmp_path):
+def test_all_csv(file_path, tmp_path):
     file_path = _normalise_file(file_path, tmp_path)
-    field_datatype = _field_to_datatype(specification_dir)
+    specification = Specification()
+    field_datatype = specification.get_field_datatype_map() 
     
     all_csv_rules = [
         {
@@ -194,16 +181,48 @@ def test_all_csv(file_path,specification_dir, tmp_path):
             "operation": "check_no_blank_rows",
             "parameters": {},
             "severity": "error",
-        },
-        
-        {
-            "name": "all csv have correct datatypes",
-            "operation": "check_values_have_the_correct_datatype",
-            "parameters": {"field_datatype": field_datatype},
-            "severity": "error",
-        },
+        }
     ]
-    _run_checkpoint(dataset="all-csv", file_path=file_path, rules=all_csv_rules)
+
+    # get all columns in the csv file
+    with open(file_path, "r", encoding="utf-8-sig") as f:
+        reader = csv.reader(f)
+        header = next(reader)
+        columns = [col.strip() for col in header]
+    
+    datatype_checkpoint = {
+        "integer": "expect_column_to_be_integer",
+        "decimal": "expect_column_to_be_decimal",
+        "flag": "expect_column_to_be_flag",
+        "latitude": "expect_column_to_be_latitude",
+        "longitude": "expect_column_to_be_longitude",
+        "hash": "expect_column_to_be_hash",
+        "curie": "expect_column_to_be_curie",
+        "curie-list": "expect_column_to_be_curie_list",
+        "json": "expect_column_to_be_json",
+        "url": "expect_column_to_be_url",
+        "date": "expect_column_to_be_date",
+        "datetime": "expect_column_to_be_datetime",
+        "pattern": "expect_column_to_be_pattern",
+        "multipolygon": "expect_column_to_be_multipolygon",
+        "point": "expect_column_to_be_point",
+    }
+
+    datatype_rules = []
+    for column in columns:
+        datatype = field_datatype.get(column)
+        operation = datatype_checkpoint.get(datatype)
+        if operation:
+            datatype_rules.append(
+                {
+                    "name": f"column '{column}' has valid {datatype} values",
+                    "operation": operation,
+                    "parameters": {"field": column },
+                    "severity": "error",
+                }
+            )
+
+    _run_checkpoint(dataset="all-csv", file_path=file_path, rules=all_csv_rules + datatype_rules)
 
 
 # TEST OLD_ENTITY.CSV
