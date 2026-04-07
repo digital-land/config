@@ -1,4 +1,4 @@
 dataset,endpoint,resource,column,field,start-date,end-date,entry-date
 border,,,WKT,geometry,,,
-border,,,CTRY23CD,reference,,,
 border,,,CTRY23NM,name,,,
+border,,,CTRY23CD,reference,,,
