@@ -782,3 +782,6 @@ b382218b1603f40c99cb700882fdc5eb8a6d01924009c3de03de94e7509e853a,https://www.ste
 44b80d3f3b154ce6411816b8ed564cdac624f30013e24f9bf943a13d884e63fc,https://maps.northwarks.gov.uk/wfs_ca/wfs.exe?service=WFS&version=2.0.0&request=GetFeature&TypeNames=ns:Conservation_Area&srsName=EPSG:4326,,,2026-03-31,2026-03-30,
 65b32c328813a08a4384ef4712228f31f6adb3c3b2ceaa792fed201a0f2d5fad,https://services.arcgis.com/wDcUiJYKtMulHM03/ArcGIS/rest/services/Conservation_Areas/FeatureServer/0,,arcgis,2026-04-01,2026-04-01,
 f18ad8b1d52eb0badf19c7f636f3915b14ffcefe61dcb20b2c2c62eb25525c78,https://map.bury.gov.uk/OpenDigitalPlanningWFS/WFS.exe?service=WFS&request=GetFeature&version=2.0.0&typenames=ns:ConservationAreas,,,2026-04-01,2026-03-31,
+89ed2548747e1bfdb580674b59da2f9da5405797e6e7ea8732a7fc6f3225ec9e,https://www.easthants.gov.uk/sites/default/files/2026-04/conservation-areas-document-dataset.csv,,,2026-04-02,2026-04-01,
+e95debe7c35380e1fb6181a81764e818e8c56cb62ba64810b6821d205c19990f,https://www.ipswich.gov.uk/sites/ipswich/files/2026-04/ConservationAreaDocumentIpswich.csv,,,2026-04-02,2026-04-02,
+961c521d3270883002f2087dd59dfa72115a631ee92a3ba917d27bf81a314a9f,https://www.ipswich.gov.uk/sites/ipswich/files/2026-04/conservationareasipswichspatial.csv,,,2026-04-02,2026-04-02,
