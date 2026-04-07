@@ -171,7 +171,6 @@ all_config_csv_files = _collect_files("*.csv")
     all_config_csv_files,
     ids=[_test_id(f) for f in all_config_csv_files],
 )
-@pytest.mark.skip(reason="Temporarily skipping test")
 def test_all_csv(file_path, tmp_path,specification_dir):
     file_path = _normalise_file(file_path, tmp_path)
     specification = Specification(specification_dir)
