@@ -1,6 +1,31 @@
 import os
 import sys
 
+# Define column mappings (and their ordering) for collection and pipeline CSVs
+COLUMN_MAPPINGS = {
+    "collection": {
+        "endpoint.csv": "endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date",
+        "source.csv": "source,attribution,collection,documentation-url,endpoint,licence,organisation,pipelines,entry-date,start-date,end-date",
+        "old-resource.csv": "old-resource,status,resource,notes"
+    },
+    "pipeline": {
+        "column.csv": "dataset,endpoint,resource,column,field,start-date,end-date,entry-date",
+        "combine.csv": "dataset,endpoint,field,separator,entry-date,start-date,end-date,resource",
+        "concat.csv": "dataset,resource,field,fields,separator,entry-date,start-date,end-date,endpoint,prepend,append",
+        "convert.csv": "dataset,resource,plugin,start-date,end-date,entry-date,endpoint,parameters",
+        "default-value.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,resource,start-date,value",
+        "default.csv": "dataset,resource,field,default-field,entry-date,start-date,end-date,entry-number,endpoint",
+        "entity-organisation.csv": "dataset,entity-minimum,entity-maximum,organisation",
+        "expect.csv": "datasets,organisations,operation,parameters,name,description,notes,severity,responsibility,end-date,entry-date,start-date",
+        "filter.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date",
+        "lookup.csv": "prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date",
+        "old-entity.csv": "old-entity,status,entity,notes,end-date,entry-date,start-date",
+        "patch.csv": "dataset,resource,field,pattern,value,entry-number,start-date,end-date,entry-date,endpoint",
+        "skip.csv": "dataset,resource,pattern,entry-number,start-date,end-date,entry-date,endpoint",
+        "transform.csv": "dataset,field,replacement-field,entry-number,resource,start-date,end-date,entry-date,endpoint"
+    }
+}
+
 def create_folders_and_files(base_dir, name, files_headers):
     """
     Create folders and files with headers for a specific project component.
@@ -18,27 +43,8 @@ def create_folders_and_files(base_dir, name, files_headers):
 
 def create_project_structure(name):
     files_structure = {
-        "./collection": {
-            "endpoint.csv": "endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date",
-            "source.csv": "source,attribution,collection,documentation-url,endpoint,licence,organisation,pipelines,entry-date,start-date,end-date",
-            "old-resource.csv": "old-resource,status,resource,notes"
-        },
-        "./pipeline": {
-            "column.csv": "column,dataset,end-date,endpoint,entry-date,field,resource,start-date",
-            "combine.csv": "dataset,end-date,endpoint,entry-date,field,resource,separator,start-date",
-            "concat.csv": "end-date,entry-date,endpoint,field,fields,dataset,resource,separator,start-date",
-            "convert.csv": "end-date,endpoint,entry-date,parameters,dataset,plugin,resource,start-date",
-            "default-value.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,resource,start-date,value",
-            "default.csv": "dataset,default-field,end-date,endpoint,entry-date,entry-number,field,resource,start-date",
-            "entity-organisation.csv":"dataset,entity-minimum,entity-maximum,organisation",
-            "expect.csv":"datasets,organisations,operation,parameters,name,description,notes,severity,responsibility,end-date,entry-date,start,date",
-            "filter.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date",
-            "lookup.csv": "prefix,resource,entry-number,organisation,reference,entity",
-            "old-entity.csv" : "old-entity,status,entity,notes,end-date,entry-date,start-date",
-            "patch.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date,value",
-            "skip.csv": "dataset,end-date,endpoint,entry-date,entry-number,pattern,resource,start-date",
-            "transform.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,replacement-field,resource,start-date"
-        }
+        "./collection": COLUMN_MAPPINGS["collection"],
+        "./pipeline": COLUMN_MAPPINGS["pipeline"]
     }
 
     for base_dir, headers in files_structure.items():

@@ -1,6 +1,6 @@
-dataset,resource,column,field,start-date,end-date,entry-date,endpoint
-ancient-woodland,,WKT,geometry,,,,
-ancient-woodland,,THEMID,reference,,,,
-ancient-woodland,,NAME,name,,,,
-ancient-woodland,,STATUS,ancient-woodland-status,,,,
-ancient-woodland-status,,ancient-woodland-status,reference,,,,f22b13c88a6c367b06e4c80aa61cb1620d7ca03193daeb6c5f65d014d16c6d2e
+dataset,endpoint,resource,column,field,start-date,end-date,entry-date
+ancient-woodland,,,WKT,geometry,,,
+ancient-woodland,,,THEMID,reference,,,
+ancient-woodland,,,NAME,name,,,
+ancient-woodland,,,STATUS,ancient-woodland-status,,,
+ancient-woodland-status,f22b13c88a6c367b06e4c80aa61cb1620d7ca03193daeb6c5f65d014d16c6d2e,,ancient-woodland-status,reference,,,
