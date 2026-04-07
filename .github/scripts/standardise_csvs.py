@@ -41,14 +41,6 @@ def standardise_csv(file_path, expected_columns, sort_cols=None):
     expected_cols = expected_columns.split(',')
 
     try:
-        # Detect original line ending
-        with open(file_path, 'rb') as f:
-            content = f.read()
-            if b'\r\n' in content:
-                line_ending = '\r\n'  # CRLF (Windows)
-            else:
-                line_ending = '\n'    # LF (Unix)
-
         # Read existing data
         with open(file_path, 'r', encoding='utf-8', newline='') as f:
             reader = csv.DictReader(f)
@@ -58,9 +50,9 @@ def standardise_csv(file_path, expected_columns, sort_cols=None):
         if sort_cols:
             rows.sort(key=lambda row: _sort_key(row, sort_cols))
 
-        # Write back with standard column order and preserved line ending
+        # Write back with standard column order, row order, and CRLF line endings
         with open(file_path, 'w', encoding='utf-8', newline='') as f:
-            writer = csv.DictWriter(f, fieldnames=expected_cols, restval='', lineterminator=line_ending)
+            writer = csv.DictWriter(f, fieldnames=expected_cols, restval='', lineterminator='\r\n')
             writer.writeheader()
             writer.writerows(rows)
         return None
