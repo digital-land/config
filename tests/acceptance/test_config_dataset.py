@@ -170,9 +170,9 @@ all_config_csv_files = _collect_files("*.csv")
     all_config_csv_files,
     ids=[_test_id(f) for f in all_config_csv_files],
 )
-def test_all_csv(file_path, tmp_path):
+def test_all_csv(file_path, tmp_path,specification_dir):
     file_path = _normalise_file(file_path, tmp_path)
-    specification = Specification()
+    specification = Specification(specification_dir)
     field_datatype = specification.get_field_datatype_map() 
     
     all_csv_rules = [
