@@ -6,7 +6,37 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 from create_collection import COLUMN_MAPPINGS
 
-def standardise_csv(file_path, expected_columns):
+SORT_MAPPINGS = {
+    "collection": {
+        "endpoint.csv":     ["entry-date", "endpoint"],
+        "source.csv":       ["entry-date", "endpoint"],
+    },
+    "pipeline": {
+        "column.csv":              ["dataset", "endpoint", "resource", "field"],
+        "combine.csv":             ["dataset", "endpoint", "field"],
+        "concat.csv":              ["dataset", "endpoint", "resource", "field"],
+        "default-value.csv":       ["dataset", "field"],
+        "default.csv":             ["dataset", "field", "default-field"],
+        "entity-organisation.csv": ["dataset", "organisation", "entity-minimum"],
+        "expect.csv":              ["datasets", "operation", "organisations"],
+        "filter.csv":              ["dataset", "endpoint", "field"],
+        "lookup.csv":              ["prefix", "entity"],
+        "old-entity.csv":          ["old-entity"],
+        "patch.csv":               ["dataset", "endpoint", "field"],
+        "skip.csv":                ["dataset", "endpoint", "pattern"],
+        "transform.csv":           ["dataset", "replacement-field"],
+    }
+}
+
+def _sort_key(row, sort_cols):
+    """Sort key that puts empty values last."""
+    return tuple(
+        (0, (row.get(col) or "").strip().lower()) if (row.get(col) or "").strip()
+        else (1, "")
+        for col in sort_cols
+    )
+
+def standardise_csv(file_path, expected_columns, sort_cols=None):
     """Reorder and add missing columns to a CSV file, preserving line endings."""
     expected_cols = expected_columns.split(',')
 
@@ -23,6 +53,10 @@ def standardise_csv(file_path, expected_columns):
         with open(file_path, 'r', encoding='utf-8', newline='') as f:
             reader = csv.DictReader(f)
             rows = list(reader)
+
+        # Sort rows if sort columns are specified
+        if sort_cols:
+            rows.sort(key=lambda row: _sort_key(row, sort_cols))
 
         # Write back with standard column order and preserved line ending
         with open(file_path, 'w', encoding='utf-8', newline='') as f:
@@ -43,7 +77,8 @@ def standardise_folder(folder_type, folder_path):
     for filename, expected_columns in COLUMN_MAPPINGS[folder_type].items():
         file_path = os.path.join(folder_path, filename)
         if os.path.exists(file_path):
-            result = standardise_csv(file_path, expected_columns)
+            sort_cols = SORT_MAPPINGS.get(folder_type, {}).get(filename)
+            result = standardise_csv(file_path, expected_columns, sort_cols)
             if result:
                 print(result)
         else:
@@ -72,7 +107,8 @@ def main():
             for filename, expected_columns in COLUMN_MAPPINGS[folder_type].items():
                 file_path = os.path.join(dataset_path, filename)
                 if os.path.exists(file_path):
-                    result = standardise_csv(file_path, expected_columns)
+                    sort_cols = SORT_MAPPINGS.get(folder_type, {}).get(filename)
+                    result = standardise_csv(file_path, expected_columns, sort_cols)
                     if result:
                         print(result)
                 else:
