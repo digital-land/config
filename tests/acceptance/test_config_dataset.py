@@ -46,7 +46,8 @@ def _format_line_reference(file_path, line_number):
     return f"{relative_path}:{line_number}"
 
 
-def _run_checkpoint(dataset, file_path, rules):
+def _run_checkpoint(dataset, file_path, rules, reference_file_path=None):
+    reference_file_path = reference_file_path or file_path
     try:
         checkpoint = CsvCheckpoint(dataset=dataset, file_path=file_path)
     except Exception as e:
@@ -92,8 +93,8 @@ def _run_checkpoint(dataset, file_path, rules):
                 line_numbers = _extract_line_numbers(details)
                 if line_numbers:
                     line_refs = [
-                        _format_line_reference(file_path, line_number)
-                        for line_number in line_numbers[:20]
+                        _format_line_reference(reference_file_path, line_number)
+                        for line_number in line_numbers[:50]
                     ]
                     messages.append(f"    references: {line_refs}")
         assert False, "\n".join(messages)
@@ -127,6 +128,7 @@ lookup_files = _collect_files("lookup.csv")
 )
 @pytest.mark.skip(reason="Temporarily skipping  test")
 def test_lookup(file_path, tmp_path):
+    source_file_path = file_path
     lookup_dir = Path(file_path).parent
     entity_org_file = str(lookup_dir / "entity-organisation.csv")
     entity_org_file = _normalise_file(entity_org_file, tmp_path)
@@ -159,7 +161,12 @@ def test_lookup(file_path, tmp_path):
             "severity": "error",
         },
     ]
-    _run_checkpoint(dataset="lookup", file_path=file_path, rules=lookup_rules)
+    _run_checkpoint(
+        dataset="lookup",
+        file_path=file_path,
+        rules=lookup_rules,
+        reference_file_path=source_file_path,
+    )
 
 
 # TEST All CSVs
@@ -172,6 +179,7 @@ all_config_csv_files = _collect_files("*.csv")
     ids=[_test_id(f) for f in all_config_csv_files],
 )
 def test_all_csv(file_path, tmp_path,specification_dir):
+    source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     specification = Specification(specification_dir)
     field_datatype = specification.get_field_datatype_map() 
@@ -223,7 +231,12 @@ def test_all_csv(file_path, tmp_path,specification_dir):
                 }
             )
 
-    _run_checkpoint(dataset="all-csv", file_path=file_path, rules=all_csv_rules + datatype_rules)
+    _run_checkpoint(
+        dataset="all-csv",
+        file_path=file_path,
+        rules=all_csv_rules + datatype_rules,
+        reference_file_path=source_file_path,
+    )
 
 
 # TEST OLD_ENTITY.CSV
@@ -299,6 +312,9 @@ def test_entity_organisation(file_path, tmp_path):
     normalised = tmp_path / Path(file_path).name
     normalised.write_bytes(Path(file_path).read_bytes().replace(b'\r\n', b'\n').replace(b',\n', b'\n'))
     _run_checkpoint(
-        dataset="entity-organisation", file_path=str(normalised), rules=ENTITY_ORGANISATION_RULES
+        dataset="entity-organisation",
+        file_path=str(normalised),
+        rules=ENTITY_ORGANISATION_RULES,
+        reference_file_path=file_path,
     )
 
