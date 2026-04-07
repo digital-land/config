@@ -230,3 +230,5 @@ e5423a0f0be3aadf219d32fe175cf47450161751726391bc3750079e599651f3,https://geodata
 7bbff00be0028a6167f30225b49122ae4987713d011311915f76ee50330f1d96,https://maps.northwarks.gov.uk/wfs_a4da/wfs.exe?service=WFS&version=2.0.0&request=GetFeature&TypeNames=ns:Article_4_Direction_Area&srsName=EPSG:4326,,,2026-03-31,2026-03-31,
 401c5cf9097e2df01ce6755f5092529e3bef7800270913efd5433fc6f0232474,https://www.northwarks.gov.uk/downloads/file/2928/article-4-direction-dataset,,,2026-03-31,2026-03-31,
 6d1f1434c3f7344529ca84153f34cf7b3e14e07bd6f01419c74e478425851b18,https://map.bury.gov.uk/OpenDigitalPlanningWFS/WFS.exe?service=WFS&request=GetFeature&version=2.0.0&typenames=ns:Article4,,,2026-04-01,2026-03-31,
+928fcc02c07e9345e9de8e21e029ee44858b3c4842a022655b6bf5ce390d101b,https://www.ipswich.gov.uk/sites/ipswich/files/2026-04/Article4DirectionDataIpswich.csv,,,2026-04-02,2026-04-02,
+c05a380020639d95ce6c45412d0f7d9cc31abfe792811cd7e1e5d524c2490dda,https://www.ipswich.gov.uk/sites/ipswich/files/2026-04/article4directionareasipswichspatial.csv,,,2026-04-02,2026-04-02,
