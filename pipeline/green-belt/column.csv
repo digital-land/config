@@ -1,5 +1,6 @@
 dataset,endpoint,resource,column,field,start-date,end-date,entry-date
 green-belt,,,WKT,geometry,,,
+green-belt,,,GB_Name,green-belt-core,,,
 green-belt,,,lad11cd,local-authority-district,,,
 green-belt,,,ons_code,local-authority-district,,,
 green-belt,,,la_code,local-authority-district,,,
@@ -19,4 +20,3 @@ green-belt,,,lad18nm,name,,,
 green-belt,,,lad19nm,name,,,
 green-belt,,,lad20nm,name,,,
 green-belt,,,LAD_NM,name,,,
-green-belt,,,GB_Name,green-belt-core,,,
