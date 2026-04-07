@@ -1,2 +1,2 @@
-dataset,resource,field,fields,separator,entry-date,start-date,end-date,endpoint
-agricultural-land-classification,,reference,GEOGEXT;ALC_GRADE,/,,,,
+dataset,resource,field,fields,separator,entry-date,start-date,end-date,endpoint,prepend,append
+agricultural-land-classification,,reference,GEOGEXT;ALC_GRADE,/,,,,,,

@@ -1,1 +1,1 @@
-resource,field,pattern,dataset,entry-number,start-date,end-date,entry-date,endpoint
+dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date
