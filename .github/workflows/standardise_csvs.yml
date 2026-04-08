@@ -1,0 +1,87 @@
+name: Standardise CSVs
+
+on:
+  schedule:
+    - cron: "00 22 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: standardise-csvs
+  cancel-in-progress: true
+
+jobs:
+  standardise:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions-bot"
+          git config user.email "noreply@github.com"
+
+      - name: Run standardise script
+        run: python .github/scripts/standardise_csvs.py
+
+      - name: Commit and push if changed
+        run: |
+          git add collection/ pipeline/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Standardise row ordering and line endings in CSVs"
+          git push origin main
+
+  check-standardise-failure:
+    runs-on: ubuntu-latest
+    needs:
+      - standardise
+    if: github.event_name == 'schedule' && contains(join(needs.*.result, ','), 'failure')
+    steps:
+      - name: Send failure notification
+        uses: slackapi/slack-github-action@v1
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        with:
+          channel-id: "planning-data-alerts"
+          payload: |
+            {
+              "text": "Standardise CSVs has failed",
+              "icon_emoji": ":warning:",
+              "username": "Standardise CSVs",
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Standardise CSVs has failed"
+                  }
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "The report is available on <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|GitHub>"
+                  }
+                }
+              ]
+            }
