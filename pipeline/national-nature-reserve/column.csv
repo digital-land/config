@@ -1,8 +1,8 @@
 dataset,endpoint,resource,column,field,start-date,end-date,entry-date
-national-nature-reserve,,,REFERENCE,reference,,,
-national-nature-reserve,,,NNR_NAME,name,,,
-national-nature-reserve,,,STATUS,nature-reserve-status,,,
-national-nature-reserve,,,WKT,geometry,,,
 national-nature-reserve,,,GIS_DATE,entry-date,,,
-national-nature-reserve,,,REF_CODE,reference,,,
+national-nature-reserve,,,WKT,geometry,,,
+national-nature-reserve,,,NNR_NAME,name,,,
 national-nature-reserve,,,NAME,name,,,
+national-nature-reserve,,,STATUS,nature-reserve-status,,,
+national-nature-reserve,,,REFERENCE,reference,,,
+national-nature-reserve,,,REF_CODE,reference,,,

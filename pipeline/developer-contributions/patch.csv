@@ -1,4 +1,56 @@
 dataset,resource,field,pattern,value,entry-number,start-date,end-date,entry-date,endpoint
+developer-agreement,,organisation,CDC,http://opendatacommunities.org/id/district-council/cherwell,,,,,2c2b48e6720e529fec1895a0e308db7d95f7c152a65d85dfafb8efa08ec6ecb4
+developer-agreement,,organisation,HAO,http://opendatacommunities.org/id/district-council/harborough,,,,,2e4c62e01f5ac1903659f0837b9950c0e13c5a50f0a1a43f2cd9687ea9b7cb36
+developer-agreement,,developer-agreement-type,CIL,community-infrastructure-levy,,,,,
+developer-agreement,,developer-agreement-type,Deed of variation,deed-of-variation,,,,,
+developer-agreement,,developer-agreement-type,Deed of Variation,deed-of-variation,,,,,
+developer-agreement,,developer-agreement-type,DOV,deed-of-variation,,,,,
+developer-agreement,,developer-agreement-type,s106 agreement,section-106,,,,,
+developer-agreement,,developer-agreement-type,S106,section-106,,,,,
+developer-agreement,,developer-agreement-type,Section 106 agreement,section-106,,,,,
+developer-agreement,,developer-agreement-type,Section 106 Agreement,section-106,,,,,
+developer-agreement,,developer-agreement-type,section -106,section-106,,,,,
+developer-agreement,,developer-agreement-type,Section -106,section-106,,,,,
+developer-agreement,,developer-agreement-type,Section-106,section-106,,,,,
+developer-agreement,,developer-agreement-type,.*106$,section-106,,,,,
+developer-agreement,,developer-agreement-type,.*278$,section-278,,,,,
+developer-agreement,,organisation,Boston Borough Council,local-authority:BOT,,,,,
+developer-agreement,,organisation,ECA,local-authority:ECA,,,,,
+developer-agreement,,organisation,SLF,local-authority:SLF,,,,,
+developer-agreement,,organisation,TBMC,local-authority:TON,,,,,
+developer-agreement,,organisation,GRE,local-authority:GRE,,,,,
+developer-agreement,,organisation,HRT,local-authority:HRT,,,,,
+developer-agreement,,organisation,local-authority:ash,local-authority:ASH,,,,,
+developer-agreement,,organisation,local-authority:wot,local-authority:WOT,,,,,
+developer-agreement,,organisation,national-park:10,national-park-authority:Q20198711,,,,,
+developer-agreement-contribution,,contribution-purpose,community-facilties,community-facilities,,,,,1ded2d38b58e6288e3272c42945cdf69626125c02c5691dc24a486b3934210ff
+developer-agreement-contribution,,contribution-purpose,other-allotments,other,,,,,3c6e01bbf35f5618601873d4025c1d3abae976b24dd58bd41611feea56f7d84e
+developer-agreement-contribution,,contribution-purpose,other-ecology,other,,,,,3c6e01bbf35f5618601873d4025c1d3abae976b24dd58bd41611feea56f7d84e
+developer-agreement-contribution,,contribution-purpose,other-HRA,other,,,,,3c6e01bbf35f5618601873d4025c1d3abae976b24dd58bd41611feea56f7d84e
+developer-agreement-contribution,,contribution-purpose,Open Space,open-space,,,,,616902e1261ef646b23e8b4dd8e82bbc853489c90e575a9a096161c2d163a2dc
+developer-agreement-contribution,,contribution-purpose,Public Open Space,open-space,,,,,616902e1261ef646b23e8b4dd8e82bbc853489c90e575a9a096161c2d163a2dc
+developer-agreement-contribution,,contribution-purpose,open-spaces-and-leisure,open-space,,,,,914e84dd87312abf478d67da171e8dc5c8e6946ce7ad0d32737dab75f5530698
+developer-agreement-contribution,,contribution-purpose,other-allotments,other,,,,,91f67ff8088b672bc8171a630ee63ce650e6b35e299c9588b196c51d9a05ba2e
+developer-agreement-contribution,,contribution-purpose,other-ecology,other,,,,,91f67ff8088b672bc8171a630ee63ce650e6b35e299c9588b196c51d9a05ba2e
+developer-agreement-contribution,,contribution-purpose,other-HRA,other,,,,,91f67ff8088b672bc8171a630ee63ce650e6b35e299c9588b196c51d9a05ba2e
+developer-agreement-contribution,,contribution-purpose,Economic Developent (Local Employment),economic-development,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
+developer-agreement-contribution,,contribution-purpose,Education - Secondary,education,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
+developer-agreement-contribution,,contribution-purpose,Green Infrastructure - Public Realm,green-infrastructure,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
+developer-agreement-contribution,,contribution-purpose,Open Space and Leisure,open-space,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
+developer-agreement-contribution,,contribution-purpose,other - Ecological Monitoring,other,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
+developer-agreement-contribution,,contribution-purpose,Transport and Travel,transport,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
+developer-agreement-contribution,,contribution-purpose,other-police,other,,,,,afd5f4176bb544595dc93a119751dedb714cdc8ca9888515710ef6cc5f2d4a8f
+developer-agreement-contribution,,contribution-purpose,open-space-and-lesiure,open-space,,,,,c5401ba0e9229a1c91e81ca4c0112baf9e6008371442b1d3731be26dd33cc8fd
+developer-agreement-contribution,,contribution-purpose,education-primary,education,,,,,df74cf1c725e3d723dd0b700f99e5234d248f4ff58cb3bed32ba2c424026028f
+developer-agreement-contribution,,contribution-purpose,Amended -Affordable- Housing- plan- locations,affordable-housing,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-contribution,,contribution-purpose,Initial off -site- affordable- housing -contribution,affordable-housing,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-contribution,,contribution-purpose,Off -site- affordable- housing -contribution,affordable-housing,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-contribution,,contribution-purpose,Parking spaces contribution,transport,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-contribution,,contribution-purpose,To provide £50 of free travel to one user of each dwelling using the car club,transport,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-contribution,,contribution-purpose,Traffic signal contribution,transport,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-contribution,,contribution-purpose,Travel plan auditing contribution,transport,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
+developer-agreement-contribution,,contribution-purpose,digtial-infrastructure,digital-infrastructure,,,,,e80e128827994e3997e8bffb1550b1cbeefac08f7e598ffc082d7ab86527948d
+developer-agreement-contribution,,contribution-purpose,Transport and travel,transport,,,,,e80e128827994e3997e8bffb1550b1cbeefac08f7e598ffc082d7ab86527948d
 developer-agreement-contribution,,contribution-purpose,Affordable-housing,affordable-housing,,,,,
 developer-agreement-contribution,,contribution-purpose,Affordable Housing,affordable-housing,,,,,
 developer-agreement-contribution,,contribution-purpose,Affordable Housing - Financial Contribution,affordable-housing,,,,,
@@ -13,6 +65,12 @@ developer-agreement-contribution,,contribution-purpose,Monitoring,monitoring-fee
 developer-agreement-contribution,,contribution-purpose,open-space-and -leisure,open-space-and-leisure,,,,,
 developer-agreement-contribution,,contribution-purpose,open-space-and leisure,open-space-and-leisure,,,,,
 developer-agreement-contribution,,contribution-purpose,s106 Monitoring,monitoring-fees,,,,,
+developer-agreement-contribution,,contribution-purpose,(?i)green.*infrastructure|infrastructure.*green,green-infrastructure,,,,,
+developer-agreement-contribution,,contribution-purpose,(?i)digital.*infrastructure|infrastructure.*digital,digital-infrastructure,,,,,
+developer-agreement-contribution,,contribution-purpose,(?i)economic.*develop|develop.*economic,economic-development,,,,,
+developer-agreement-contribution,,contribution-purpose,(?i)transport.*travel|travel.*transport,transport-and-travel,,,,,
+developer-agreement-contribution,,contribution-purpose,(?i)health,health,,,,,
+developer-agreement-contribution,,contribution-purpose,(?i)education,education,,,,,
 developer-agreement-contribution,,organisation,Boston Borough Council,local-authority:BOT,,,,,
 developer-agreement-contribution,,organisation,ECA,local-authority:ECA,,,,,
 developer-agreement-contribution,,organisation,SLF,local-authority:SLF,,,,,
@@ -21,26 +79,8 @@ developer-agreement-contribution,,organisation,GRE,local-authority:GRE,,,,,
 developer-agreement-contribution,,organisation,local-authority:ash,local-authority:ASH,,,,,
 developer-agreement-contribution,,organisation,local-authority:wot,local-authority:WOT,,,,,
 developer-agreement-contribution,,organisation,national-park:10,national-park-authority:Q20198711,,,,,
-developer-agreement,,developer-agreement-type,CIL,community-infrastructure-levy,,,,,
-developer-agreement,,developer-agreement-type,Deed of variation,deed-of-variation,,,,,
-developer-agreement,,developer-agreement-type,Deed of Variation,deed-of-variation,,,,,
-developer-agreement,,developer-agreement-type,DOV,deed-of-variation,,,,,
-developer-agreement,,developer-agreement-type,s106 agreement,section-106,,,,,
-developer-agreement,,developer-agreement-type,S106,section-106,,,,,
-developer-agreement,,developer-agreement-type,Section 106 agreement,section-106,,,,,
-developer-agreement,,developer-agreement-type,Section 106 Agreement,section-106,,,,,
-developer-agreement,,developer-agreement-type,section -106,section-106,,,,,
-developer-agreement,,developer-agreement-type,Section -106,section-106,,,,,
-developer-agreement,,developer-agreement-type,Section-106,section-106,,,,,
-developer-agreement,,organisation,Boston Borough Council,local-authority:BOT,,,,,
-developer-agreement,,organisation,ECA,local-authority:ECA,,,,,
-developer-agreement,,organisation,SLF,local-authority:SLF,,,,,
-developer-agreement,,organisation,TBMC,local-authority:TON,,,,,
-developer-agreement,,organisation,GRE,local-authority:GRE,,,,,
-developer-agreement,,organisation,HRT,local-authority:HRT,,,,,
-developer-agreement,,organisation,local-authority:ash,local-authority:ASH,,,,,
-developer-agreement,,organisation,local-authority:wot,local-authority:WOT,,,,,
-developer-agreement,,organisation,national-park:10,national-park-authority:Q20198711,,,,,
+developer-agreement-transaction,,contribution-funding-status,receieved,received,,,,,c404f16827cf6292298c70779fd3601066c2aa1850f3109ac647a129a126051c
+developer-agreement-transaction,,contribution-funding-status,recieved,received,,,,,c404f16827cf6292298c70779fd3601066c2aa1850f3109ac647a129a126051c
 developer-agreement-transaction,,contribution-funding-status,Allocated,allocated,,,,,
 developer-agreement-transaction,,contribution-funding-status,ALLOCATED:.*,allocated,,,,,
 developer-agreement-transaction,,contribution-funding-status,Invoice raised,,,,,,
@@ -50,6 +90,9 @@ developer-agreement-transaction,,contribution-funding-status,Secured,secured,,,,
 developer-agreement-transaction,,contribution-funding-status,SECURED:,secured,,,,,
 developer-agreement-transaction,,contribution-funding-status,Spent,spent,,,,,
 developer-agreement-transaction,,contribution-funding-status,SPENT:,spent,,,,,
+developer-agreement-transaction,,contribution-funding-status,(?i)recevied,received,,,,,
+developer-agreement-transaction,,contribution-funding-status,(?i)recieved,received,,,,,
+developer-agreement-transaction,,contribution-funding-status,(?i)transferred,transferred,,,,,
 developer-agreement-transaction,,organisation,Boston Borough Council,local-authority:BOT,,,,,
 developer-agreement-transaction,,organisation,ECA,local-authority:ECA,,,,,
 developer-agreement-transaction,,organisation,SLF,local-authority:SLF,,,,,
@@ -58,46 +101,3 @@ developer-agreement-transaction,,organisation,GRE,local-authority:GRE,,,,,
 developer-agreement-transaction,,organisation,local-authority:ash,local-authority:ASH,,,,,
 developer-agreement-transaction,,organisation,local-authority:wot,local-authority:WOT,,,,,
 developer-agreement-transaction,,organisation,national-park:10,national-park-authority:Q20198711,,,,,
-developer-agreement-contribution,,contribution-purpose,Amended -Affordable- Housing- plan- locations,affordable-housing,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
-developer-agreement-contribution,,contribution-purpose,community-facilties,community-facilities,,,,,1ded2d38b58e6288e3272c42945cdf69626125c02c5691dc24a486b3934210ff
-developer-agreement-contribution,,contribution-purpose,digtial-infrastructure,digital-infrastructure,,,,,e80e128827994e3997e8bffb1550b1cbeefac08f7e598ffc082d7ab86527948d
-developer-agreement-contribution,,contribution-purpose,Economic Developent (Local Employment),economic-development,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
-developer-agreement-contribution,,contribution-purpose,Education - Secondary,education,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
-developer-agreement-contribution,,contribution-purpose,education-primary,education,,,,,df74cf1c725e3d723dd0b700f99e5234d248f4ff58cb3bed32ba2c424026028f
-developer-agreement-contribution,,contribution-purpose,Green Infrastructure - Public Realm,green-infrastructure,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
-developer-agreement-contribution,,contribution-purpose,Initial off -site- affordable- housing -contribution,affordable-housing,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
-developer-agreement-contribution,,contribution-purpose,Off -site- affordable- housing -contribution,affordable-housing,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
-developer-agreement-contribution,,contribution-purpose,Open Space,open-space,,,,,616902e1261ef646b23e8b4dd8e82bbc853489c90e575a9a096161c2d163a2dc
-developer-agreement-contribution,,contribution-purpose,Open Space and Leisure,open-space,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
-developer-agreement-contribution,,contribution-purpose,open-space-and-lesiure,open-space,,,,,c5401ba0e9229a1c91e81ca4c0112baf9e6008371442b1d3731be26dd33cc8fd
-developer-agreement-contribution,,contribution-purpose,open-spaces-and-leisure,open-space,,,,,914e84dd87312abf478d67da171e8dc5c8e6946ce7ad0d32737dab75f5530698
-developer-agreement-contribution,,contribution-purpose,other - Ecological Monitoring,other,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
-developer-agreement-contribution,,contribution-purpose,other-allotments,other,,,,,3c6e01bbf35f5618601873d4025c1d3abae976b24dd58bd41611feea56f7d84e
-developer-agreement-contribution,,contribution-purpose,other-allotments,other,,,,,91f67ff8088b672bc8171a630ee63ce650e6b35e299c9588b196c51d9a05ba2e
-developer-agreement-contribution,,contribution-purpose,other-ecology,other,,,,,3c6e01bbf35f5618601873d4025c1d3abae976b24dd58bd41611feea56f7d84e
-developer-agreement-contribution,,contribution-purpose,other-ecology,other,,,,,91f67ff8088b672bc8171a630ee63ce650e6b35e299c9588b196c51d9a05ba2e
-developer-agreement-contribution,,contribution-purpose,other-HRA,other,,,,,3c6e01bbf35f5618601873d4025c1d3abae976b24dd58bd41611feea56f7d84e
-developer-agreement-contribution,,contribution-purpose,other-HRA,other,,,,,91f67ff8088b672bc8171a630ee63ce650e6b35e299c9588b196c51d9a05ba2e
-developer-agreement-contribution,,contribution-purpose,other-police,other,,,,,afd5f4176bb544595dc93a119751dedb714cdc8ca9888515710ef6cc5f2d4a8f
-developer-agreement-contribution,,contribution-purpose,Parking spaces contribution,transport,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
-developer-agreement-contribution,,contribution-purpose,Public Open Space,open-space,,,,,616902e1261ef646b23e8b4dd8e82bbc853489c90e575a9a096161c2d163a2dc
-developer-agreement-contribution,,contribution-purpose,To provide £50 of free travel to one user of each dwelling using the car club,transport,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
-developer-agreement-contribution,,contribution-purpose,Traffic signal contribution,transport,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
-developer-agreement-contribution,,contribution-purpose,Transport and Travel,transport,,,,,a54f2b079838979c3fc00056be124dfa0a34fb3ac6a0e213bb24965996b03a27
-developer-agreement-contribution,,contribution-purpose,Transport and travel,transport,,,,,e80e128827994e3997e8bffb1550b1cbeefac08f7e598ffc082d7ab86527948d
-developer-agreement-contribution,,contribution-purpose,Travel plan auditing contribution,transport,,,,,e08f600e90eb62a72fe50b79d49681b2d64a966df97fc77dc6c20a8a8a09f43e
-developer-agreement-transaction,,contribution-funding-status,receieved,received,,,,,c404f16827cf6292298c70779fd3601066c2aa1850f3109ac647a129a126051c
-developer-agreement-transaction,,contribution-funding-status,recieved,received,,,,,c404f16827cf6292298c70779fd3601066c2aa1850f3109ac647a129a126051c
-developer-agreement,,developer-agreement-type,.*106$,section-106,,,,,
-developer-agreement,,developer-agreement-type,.*278$,section-278,,,,,
-developer-agreement-contribution,,contribution-purpose,(?i)green.*infrastructure|infrastructure.*green,green-infrastructure,,,,,
-developer-agreement-contribution,,contribution-purpose,(?i)digital.*infrastructure|infrastructure.*digital,digital-infrastructure,,,,,
-developer-agreement-contribution,,contribution-purpose,(?i)economic.*develop|develop.*economic,economic-development,,,,,
-developer-agreement-contribution,,contribution-purpose,(?i)transport.*travel|travel.*transport,transport-and-travel,,,,,
-developer-agreement-contribution,,contribution-purpose,(?i)health,health,,,,,
-developer-agreement-contribution,,contribution-purpose,(?i)education,education,,,,,
-developer-agreement-transaction,,contribution-funding-status,(?i)recevied,received,,,,,
-developer-agreement-transaction,,contribution-funding-status,(?i)recieved,received,,,,,
-developer-agreement-transaction,,contribution-funding-status,(?i)transferred,transferred,,,,,
-developer-agreement,,organisation,CDC,http://opendatacommunities.org/id/district-council/cherwell,,,,,2c2b48e6720e529fec1895a0e308db7d95f7c152a65d85dfafb8efa08ec6ecb4
-developer-agreement,,organisation,HAO,http://opendatacommunities.org/id/district-council/harborough,,,,,2e4c62e01f5ac1903659f0837b9950c0e13c5a50f0a1a43f2cd9687ea9b7cb36
