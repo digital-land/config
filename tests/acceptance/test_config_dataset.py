@@ -211,7 +211,7 @@ def test_all_csv(file_path, tmp_path,specification_dir):
         "json": "expect_column_to_be_json",
         "url": "expect_column_to_be_url",
         "date": "expect_column_to_be_date",
-        # "datetime": "expect_column_to_be_datetime", # Temporarily disabled due to timestamp format inconsistencies that require further investigation
+        "datetime": "expect_column_to_be_date",
         "pattern": "expect_column_to_be_pattern",
         "multipolygon": "expect_column_to_be_multipolygon",
         "point": "expect_column_to_be_point",
