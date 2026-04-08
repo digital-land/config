@@ -46,6 +46,17 @@ def standardise_csv(file_path, expected_columns, sort_cols=None):
             reader = csv.DictReader(f)
             rows = list(reader)
 
+        # Check for unexpected columns
+        actual_cols = list(reader.fieldnames or [])
+        unexpected = [col for col in actual_cols if col not in expected_cols]
+        if unexpected:
+            return f"✗ {file_path}: unexpected column(s) found that would be removed: {', '.join(unexpected)}"
+
+        # Check for extra values beyond the header (e.g. stray trailing commas)
+        for row in rows:
+            if None in row:
+                return f"✗ {file_path}: one or more rows have more values than columns in the header"
+
         # Sort rows if sort columns are specified
         if sort_cols:
             rows.sort(key=lambda row: _sort_key(row, sort_cols))
@@ -80,6 +91,7 @@ def main():
     """Standardise all CSVs in all datasets across pipeline and collection."""
     # Get the root directory (two levels up from this script)
     base_dir = os.path.join(os.path.dirname(__file__), '../..')
+    errors = []
 
     for folder_type in ["collection", "pipeline"]:
         folder_path = os.path.join(base_dir, folder_type)
@@ -103,8 +115,12 @@ def main():
                     result = standardise_csv(file_path, expected_columns, sort_cols)
                     if result:
                         print(result)
+                        errors.append(result)
                 else:
                     print(f"⊘ {filename} (not found)")
+
+    if errors:
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
