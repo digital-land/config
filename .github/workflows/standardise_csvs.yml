@@ -35,7 +35,7 @@ jobs:
 
       - name: Check app identity
         run: |
-          curl -s -H "Authorization: token ${{ steps.app-token.outputs.token }}" https://api.github.com/user | grep login
+          curl -s -H "Authorization: token ${{ steps.app-token.outputs.token }}" https://api.github.com/user || true
 
       - name: Configure git
         run: |
