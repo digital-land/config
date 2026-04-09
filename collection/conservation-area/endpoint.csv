@@ -785,7 +785,7 @@ f18ad8b1d52eb0badf19c7f636f3915b14ffcefe61dcb20b2c2c62eb25525c78,https://map.bur
 89ed2548747e1bfdb580674b59da2f9da5405797e6e7ea8732a7fc6f3225ec9e,https://www.easthants.gov.uk/sites/default/files/2026-04/conservation-areas-document-dataset.csv,,,2026-04-02,2026-04-01,
 961c521d3270883002f2087dd59dfa72115a631ee92a3ba917d27bf81a314a9f,https://www.ipswich.gov.uk/sites/ipswich/files/2026-04/conservationareasipswichspatial.csv,,,2026-04-02,2026-04-02,
 e95debe7c35380e1fb6181a81764e818e8c56cb62ba64810b6821d205c19990f,https://www.ipswich.gov.uk/sites/ipswich/files/2026-04/ConservationAreaDocumentIpswich.csv,,,2026-04-02,2026-04-02,
-b96bafd683042b5db2141d097f1dd007e0d52040404e690ecf9bc668a7c580da,https://maps.calderdale.gov.uk/map/wfs.svc/ODP_CONAREA?service=WFS&version=1.1.0&request=GetFeature&TYPENAME=statmap:ODP_MV_CONAREA&outputFormat=GML3,,,2026-04-08,2026-04-08,
 0c4e152fbf7cfd7213d7589b4a89d09ca2c8eb5e13f95d5c809b180907c52cf8,https://smbc-opendata.s3.eu-west-1.amazonaws.com/Conservation+Area+Documents.csv,,,2026-04-08,2026-04-07,
 2c21738e39d6ef74c0e7beb72a8c88ef4145b0e5fe439cfcd3f5024f717d0b8d,https://www.hull.gov.uk/downloads/file/5290/conservation-area-document-planning,,,2026-04-08,2026-04-07,
 40403d81520a77801180302cce8caaccc99cc0efa29d9e439fb194a690b20561,https://www.hull.gov.uk/downloads/file/5291/conservation-area-planning,,,2026-04-08,2026-04-07,
+b96bafd683042b5db2141d097f1dd007e0d52040404e690ecf9bc668a7c580da,https://maps.calderdale.gov.uk/map/wfs.svc/ODP_CONAREA?service=WFS&version=1.1.0&request=GetFeature&TYPENAME=statmap:ODP_MV_CONAREA&outputFormat=GML3,,,2026-04-08,2026-04-08,
