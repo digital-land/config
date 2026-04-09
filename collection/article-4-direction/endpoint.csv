@@ -232,3 +232,4 @@ f3b4dc7dfbd973e1db97c5db36b831d9cbd68fe693eae243c4284ac70cb3cb57,https://dartfor
 6d1f1434c3f7344529ca84153f34cf7b3e14e07bd6f01419c74e478425851b18,https://map.bury.gov.uk/OpenDigitalPlanningWFS/WFS.exe?service=WFS&request=GetFeature&version=2.0.0&typenames=ns:Article4,,,2026-04-01,2026-03-31,
 928fcc02c07e9345e9de8e21e029ee44858b3c4842a022655b6bf5ce390d101b,https://www.ipswich.gov.uk/sites/ipswich/files/2026-04/Article4DirectionDataIpswich.csv,,,2026-04-02,2026-04-02,
 c05a380020639d95ce6c45412d0f7d9cc31abfe792811cd7e1e5d524c2490dda,https://www.ipswich.gov.uk/sites/ipswich/files/2026-04/article4directionareasipswichspatial.csv,,,2026-04-02,2026-04-02,
+fc506934d0ccc949f0f1ecd12ff8992587598e40950b067f2e1fc874b260a17a,https://raw.githubusercontent.com/digital-land/PublishExamples/refs/heads/main/Article4Direction/Files/Article4DirectionArea/articel4directionareas-(wrongColName-NewRefs).csv,,,2026-04-09,2026-01-22,
