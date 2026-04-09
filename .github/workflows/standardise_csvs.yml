@@ -53,7 +53,7 @@ jobs:
             exit 0
           fi
           git commit -m "Standardise row ordering and line endings in CSVs"
-          git push origin main
+          git push origin HEAD:main
 
       - name: Notify slack failure
         if: failure() && github.ref == 'refs/heads/main'
