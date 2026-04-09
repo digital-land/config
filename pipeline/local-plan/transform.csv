@@ -1,2 +1,4 @@
 dataset,field,replacement-field,entry-number,resource,start-date,end-date,entry-date,endpoint
 plan-timetable,development-plan-event,plan-event,,,,,,
+minerals-plan,mineral-planning-authority,minerals-and-waste-planning-authorities,,,,,,
+waste-plan,waste-planning-authority,minerals-and-waste-planning-authorities,,,,,,
