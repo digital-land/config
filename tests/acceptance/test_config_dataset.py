@@ -282,7 +282,6 @@ entity_organisation_files = _collect_files("entity-organisation.csv")
     entity_organisation_files,
     ids=[_test_id(f) for f in entity_organisation_files],
 )
-@pytest.mark.skip(reason="Temporarily skipping  test to allow merging in bits. Should be re-enabled")
 def test_entity_organisation(file_path, tmp_path):
     normalised = tmp_path / Path(file_path).name
     normalised.write_bytes(Path(file_path).read_bytes().replace(b'\r\n', b'\n').replace(b',\n', b'\n'))
