@@ -33,6 +33,10 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Check app identity
+        run: |
+          curl -s -H "Authorization: token ${{ steps.app-token.outputs.token }}" https://api.github.com/user | grep login
+
       - name: Configure git
         run: |
           git config user.name "github-actions-bot"
@@ -49,7 +53,7 @@ jobs:
             exit 0
           fi
           git commit -m "Standardise row ordering and line endings in CSVs"
-          git push origin main
+          git push origin HEAD:main
 
       - name: Notify slack failure
         if: failure() && github.ref == 'refs/heads/main'
