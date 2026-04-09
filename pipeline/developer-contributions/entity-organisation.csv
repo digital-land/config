@@ -55,6 +55,7 @@ developer-agreement,4603096,4603102,local-authority:EST
 developer-agreement,4608657,4608686,local-authority:EXE
 developer-agreement,4609968,4609997,local-authority:EXE
 developer-agreement,4611492,4611521,local-authority:EXE
+developer-agreement,4611705,4611734,local-authority:EXE
 developer-agreement,4601741,4601744,local-authority:GAT
 developer-agreement,4607746,4607756,local-authority:GAT
 developer-agreement,4602713,4602719,local-authority:GLO
@@ -67,6 +68,7 @@ developer-agreement,4607757,4607773,local-authority:GOS
 developer-agreement,4602279,4602648,local-authority:GRE
 developer-agreement,4607774,4608374,local-authority:HAA
 developer-agreement,4602660,4602712,local-authority:HAL
+developer-agreement,4611765,4611835,local-authority:HAL
 developer-agreement,4600688,4600710,local-authority:HAO
 developer-agreement,4608632,4608644,local-authority:HAO
 developer-agreement,4601018,4601023,local-authority:HAT
@@ -125,12 +127,12 @@ developer-agreement,4604770,4604771,local-authority:WYC
 developer-agreement,4604764,4604764,local-authority:WYE
 developer-agreement,4604768,4604768,local-authority:WYE
 developer-agreement,4602907,4602986,national-park-authority:Q20198711
+developer-agreement,4611469,4611483,national-park-authority:Q27178932
 developer-agreement,4601648,4601648,national-park-authority:Q4972284
 developer-agreement,4601954,4602030,national-park-authority:Q72617158
 developer-agreement,4604882,4604937,national-park-authority:Q72617158
 developer-agreement,4608624,4608631,national-park-authority:Q72617669
 developer-agreement,4609766,4609771,national-park-authority:Q72617669
-developer-agreement,4611469,4611483,national-park-authority:Q27178932
 developer-agreement-contribution,4306989,4307010,local-authority:ADU
 developer-agreement-contribution,4304333,4304395,local-authority:AMB
 developer-agreement-contribution,4302610,4303041,local-authority:ARU
@@ -183,6 +185,7 @@ developer-agreement-contribution,4303939,4303944,local-authority:EST
 developer-agreement-contribution,4318940,4319057,local-authority:EXE
 developer-agreement-contribution,4326975,4327092,local-authority:EXE
 developer-agreement-contribution,4331350,4331467,local-authority:EXE
+developer-agreement-contribution,4332052,4332169,local-authority:EXE
 developer-agreement-contribution,4304465,4304469,local-authority:GAT
 developer-agreement-contribution,4327217,4327251,local-authority:GAT
 developer-agreement-contribution,4304396,4304406,local-authority:GLO
@@ -195,6 +198,7 @@ developer-agreement-contribution,4300764,4302161,local-authority:GRE
 developer-agreement-contribution,4319058,4321377,local-authority:HAA
 developer-agreement-contribution,4327296,4327334,local-authority:HAA
 developer-agreement-contribution,4304138,4304205,local-authority:HAL
+developer-agreement-contribution,4332288,4332413,local-authority:HAL
 developer-agreement-contribution,4303889,4303938,local-authority:HAO
 developer-agreement-contribution,4327093,4327093,local-authority:HAO
 developer-agreement-contribution,4307242,4307258,local-authority:HAT
@@ -248,11 +252,11 @@ developer-agreement-contribution,4303056,4303081,local-authority:WNUA
 developer-agreement-contribution,4331468,4331504,local-authority:WOC
 developer-agreement-contribution,4300212,4300275,local-authority:WOT
 developer-agreement-contribution,4307040,4307239,national-park-authority:Q20198711
+developer-agreement-contribution,4331304,4331318,national-park-authority:Q27178932
 developer-agreement-contribution,4305981,4305981,national-park-authority:Q4972284
 developer-agreement-contribution,4304002,4304124,national-park-authority:Q72617158
 developer-agreement-contribution,4322445,4322459,national-park-authority:Q72617669
 developer-agreement-contribution,4326565,4326576,national-park-authority:Q72617669
-developer-agreement-contribution,4331304,4331318,national-park-authority:Q27178932
 developer-agreement-transaction,4405557,4405565,local-authority:ADU
 developer-agreement-transaction,4402647,4402709,local-authority:AMB
 developer-agreement-transaction,4406758,4407326,local-authority:ARU
@@ -300,6 +304,7 @@ developer-agreement-transaction,4401469,4401531,local-authority:EST
 developer-agreement-transaction,4420019,4420053,local-authority:EXE
 developer-agreement-transaction,4429727,4429761,local-authority:EXE
 developer-agreement-transaction,4434255,4434289,local-authority:EXE
+developer-agreement-transaction,4435172,4435206,local-authority:EXE
 developer-agreement-transaction,4420054,4420103,local-authority:GAT
 developer-agreement-transaction,4406141,4406148,local-authority:GLO
 developer-agreement-transaction,4417220,4417288,local-authority:GLO
@@ -311,6 +316,7 @@ developer-agreement-transaction,4420104,4420183,local-authority:GOS
 developer-agreement-transaction,4401834,4402646,local-authority:GRE
 developer-agreement-transaction,4420184,4422224,local-authority:HAA
 developer-agreement-transaction,4404094,4404243,local-authority:HAL
+developer-agreement-transaction,4435242,4435616,local-authority:HAL
 developer-agreement-transaction,4405932,4406058,local-authority:HAT
 developer-agreement-transaction,4403466,4404093,local-authority:HRT
 developer-agreement-transaction,4400373,4400515,local-authority:IOW
@@ -358,13 +364,7 @@ developer-agreement-transaction,4404515,4404583,local-authority:WNUA
 developer-agreement-transaction,4434290,4434410,local-authority:WOC
 developer-agreement-transaction,4406149,4406208,local-authority:WOT
 developer-agreement-transaction,4405159,4405369,national-park-authority:Q20198711
+developer-agreement-transaction,4434084,4434084,national-park-authority:Q27178932
 developer-agreement-transaction,4401339,4401468,national-park-authority:Q72617158
 developer-agreement-transaction,4424609,4424617,national-park-authority:Q72617669
 developer-agreement-transaction,4429340,4429359,national-park-authority:Q72617669
-developer-agreement-transaction,4434084,4434084,national-park-authority:Q27178932
-developer-agreement,4611705,4611734,local-authority:EXE
-developer-agreement-contribution,4332052,4332169,local-authority:EXE
-developer-agreement-transaction,4435172,4435206,local-authority:EXE
-developer-agreement,4611765,4611835,local-authority:HAL
-developer-agreement-contribution,4332288,4332413,local-authority:HAL
-developer-agreement-transaction,4435242,4435616,local-authority:HAL

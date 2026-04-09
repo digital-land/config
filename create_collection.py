@@ -36,8 +36,8 @@ def create_folders_and_files(base_dir, name, files_headers):
     for file_name, headers in files_headers.items():
         file_path = os.path.join(dir_path, file_name)
         try:
-            with open(file_path, 'w') as file:
-                file.write(headers + "\n")
+            with open(file_path, 'w', newline='') as file:
+                file.write(headers + "\r\n")
         except IOError as e:
             return f"Error writing to {file_path}: {e}"
 

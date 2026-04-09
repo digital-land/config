@@ -1,6 +1,6 @@
 dataset,endpoint,resource,column,field,start-date,end-date,entry-date
 parish,,,WKT,geometry,,,
-parish,,,par19cd,reference,,,
 parish,,,par19nm,name,,,
-parish,,,par24cd,reference,,,
 parish,,,par24nm,name,,,
+parish,,,par19cd,reference,,,
+parish,,,par24cd,reference,,,
