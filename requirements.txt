@@ -4,4 +4,3 @@ pytest-mock
 requests
 tqdm
 rapidfuzz
-shapely

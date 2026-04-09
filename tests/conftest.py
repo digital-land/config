@@ -21,7 +21,6 @@ def specification_dir(tmp_path_factory):
         "field.csv",
         "datatype.csv",
         "prefix.csv",
-        # deprecated .. THESE ARE NOT DEPRECCIATED YET STILL USED BY PACKAGES
         "pipeline.csv",
         "dataset-schema.csv",
         "provision-rule.csv",
