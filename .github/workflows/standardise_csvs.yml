@@ -5,6 +5,9 @@ on:
     - cron: "00 22 * * *"
   workflow_dispatch:
 
+env:
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
 concurrency:
   group: standardise-csvs
   cancel-in-progress: true
@@ -46,42 +49,12 @@ jobs:
             exit 0
           fi
           git commit -m "Standardise row ordering and line endings in CSVs"
-          git push origin main
+          git push origin HEAD:main
 
-  check-standardise-failure:
-    runs-on: ubuntu-latest
-    needs:
-      - standardise
-    if: github.event_name == 'schedule' && contains(join(needs.*.result, ','), 'failure')
-    steps:
-      - name: Send failure notification
-        uses: slackapi/slack-github-action@v1
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Notify slack failure
+        if: failure() && github.ref == 'refs/heads/main'
+        uses: digital-land/github-action-slack-notify-build@main
         with:
-          channel-id: "planning-data-alerts"
-          payload: |
-            {
-              "text": "Standardise CSVs has failed",
-              "icon_emoji": ":warning:",
-              "username": "Standardise CSVs",
-              "blocks": [
-                {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "Standardise CSVs has failed"
-                  }
-                },
-                {
-                  "type": "divider"
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "The report is available on <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|GitHub>"
-                  }
-                }
-              ]
-            }
+          channel: planning-data-alerts
+          status: FAILED
+          color: danger
