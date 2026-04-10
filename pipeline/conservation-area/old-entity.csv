@@ -2586,6 +2586,7 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 44012706,301,44010309,,,,
 44012707,301,44010310,,,,
 44012758,301,44006677,redirect Historic England duplicate to LPA entity,,2025-09-26,
+44013318,410,,WRL asked to remove this entity-DLSD 2561,,2025-10-09,
 44013322,410,,Wirral council donot want to keep old CA as confusing for users,,2026-03-30,
 44013327,410,,Wirral council donot want to keep old CA as confusing for users,,2026-03-30,
 44014029,301,44014120,redirect Historic England duplicate to LPA entity,,2025-11-10,
@@ -2693,4 +2694,3 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 6314060,410,,Data added to wrong dataset,,2025-10-09,
 6314061,410,,Data added to wrong dataset,,2025-10-09,
 6314062,410,,Data added to wrong dataset,,2025-10-09,
-44013318,410,,WRL asked to remove this entity-DLSD 2561,,2025-10-09,
