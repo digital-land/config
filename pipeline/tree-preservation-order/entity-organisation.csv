@@ -80,6 +80,7 @@ tree,7002064753,7002064753,local-authority:NSM
 tree,7002101548,7002101548,local-authority:NSM
 tree,7002118118,7002118161,local-authority:NSM
 tree,7002160878,7002160880,local-authority:NSM
+tree,7002207599,7002208948,local-authority:OXO
 tree,7002069635,7002070886,local-authority:PLY
 tree,7002094532,7002096856,local-authority:PTE
 tree,7002096859,7002096863,local-authority:PTE
@@ -371,6 +372,7 @@ tree-preservation-zone,19130760,19130763,local-authority:NSM
 tree-preservation-zone,19135846,19135851,local-authority:NSM
 tree-preservation-zone,19151110,19151110,local-authority:NSM
 tree-preservation-zone,19156215,19156237,local-authority:NSM
+tree-preservation-zone,19184249,19184531,local-authority:OXO
 tree-preservation-zone,19135353,19135839,local-authority:PLY
 tree-preservation-zone,19141859,19142254,local-authority:PTE
 tree-preservation-zone,19151111,19151112,local-authority:PTE
@@ -444,5 +446,3 @@ tree-preservation-zone,19153301,19153564,local-authority:WSM
 tree-preservation-zone,19168416,19169313,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002207599,7002208948,local-authority:OXO
-tree-preservation-zone,19184249,19184531,local-authority:OXO

@@ -101,6 +101,7 @@ article-4-direction-area,7010009611,7010009611,local-authority:BEN
 article-4-direction-area,7010009612,7010009772,local-authority:BEN
 article-4-direction-area,7010002534,7010002546,local-authority:BIR
 article-4-direction-area,7010002550,7010002597,local-authority:BNE
+article-4-direction-area,7010009955,7010009960,local-authority:BPL
 article-4-direction-area,7010005018,7010005045,local-authority:BRO
 article-4-direction-area,7010004280,7010004295,local-authority:BST
 article-4-direction-area,7010002001,7010002216,local-authority:BUC
@@ -177,6 +178,7 @@ article-4-direction-area,7010002879,7010002916,local-authority:NSM
 article-4-direction-area,7010007569,7010007581,local-authority:NTY
 article-4-direction-area,7010009003,7010009009,local-authority:NTY
 article-4-direction-area,7010009936,7010009945,local-authority:NWA
+article-4-direction-area,7010009961,7010009964,local-authority:OXO
 article-4-direction-area,7010004296,7010004296,local-authority:PLY
 article-4-direction-area,7010004874,7010004981,local-authority:PTE
 article-4-direction-area,7010004982,7010004987,local-authority:RCH
@@ -214,5 +216,3 @@ article-4-direction-area,7010005181,7010005190,local-authority:WSM
 article-4-direction-area,7010009089,7010009092,local-authority:YOR
 article-4-direction-area,7010009405,7010009434,national-park-authority:Q27159704
 article-4-direction-area,7010006887,7010006912,national-park-authority:Q72617158
-article-4-direction-area,7010009955,7010009960,local-authority:BPL
-article-4-direction-area,7010009961,7010009964,local-authority:OXO
