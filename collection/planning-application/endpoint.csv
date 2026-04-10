@@ -1,7 +1,7 @@
 endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-187856599a692015ae73ed2a40444f4230830bd65b16d5609cd92404b105bc71,https://geoserver.nottinghamcity.gov.uk/opendata/csv/attribute/ncc_PlanningApplications.csv,,,2022-03-21T17:17:16:28Z,2021-10-25,2025-04-10
-c167254a596bb25b28e08eae99cb57b01d254b871ed809657cf3dcd192273781,https://opendata.camden.gov.uk/resource/2eiu-s2cw.geojson,,,2023-06-23T10:10:11:49Z,,2025-04-10
-1a9dcdd88f72c5e2907b3adf3a1ca8d206b99924499112d6a250a99eca1b59a0,https://geoserver.nottinghamcity.gov.uk/opendata/geojson/ncc_Planning_Polygons.json?t=638230459394925678,,,2023-06-23T10:10:15:03Z,,2025-04-10
+187856599a692015ae73ed2a40444f4230830bd65b16d5609cd92404b105bc71,https://geoserver.nottinghamcity.gov.uk/opendata/csv/attribute/ncc_PlanningApplications.csv,,,2022-03-21T17:17:16.280Z,2021-10-25,2025-04-10
+c167254a596bb25b28e08eae99cb57b01d254b871ed809657cf3dcd192273781,https://opendata.camden.gov.uk/resource/2eiu-s2cw.geojson,,,2023-06-23T10:10:11.490Z,,2025-04-10
+1a9dcdd88f72c5e2907b3adf3a1ca8d206b99924499112d6a250a99eca1b59a0,https://geoserver.nottinghamcity.gov.uk/opendata/geojson/ncc_Planning_Polygons.json?t=638230459394925678,,,2023-06-23T10:10:15.030Z,,2025-04-10
 5dcb21663a114436c7a4fa557643000548d8b63ba4d0458c18360e942f5c4b59,https://raw.githubusercontent.com/digital-land/planning-condition-data/refs/heads/main/data/doncaster-conditions-data-2023-planning-application.csv,,,2025-02-21,,2025-06-20
 243421f06736bbfd943277196603d48fb95096d0106332b888cfd523a03a4d6f,https://www.adur-worthing.gov.uk/datasets/planning/adur-planning.csv,,,2025-03-31,,
 ad136cda0146efe5f810a5ae83ae276f91cab89b528233e73068459383f03fa3,https://www.adur-worthing.gov.uk/datasets/planning/worthing-planning.csv,,,2025-03-31,,
