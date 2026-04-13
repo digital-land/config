@@ -197,13 +197,13 @@ def test_lookup(file_path, tmp_path,specification_dir):
                 "rules": 
                     {
                         "lookup_rules": [
-                            {"prefix": {"op": "!=", "value": "conservation-area"}},
-                            {
-                                "organisation": {
-                                    "op": "not in",
-                                    "value": ["government-organisation:D1342", "government-organisation:PB1164"],
-                                }
-                            },
+                            {"prefix": {"op": "==", "value": "local-plan"}},
+                            # {
+                            #     "organisation": {
+                            #         "op": "not in",
+                            #         "value": ["government-organisation:D1342", "government-organisation:PB1164"],
+                            #     }
+                            # },
                         ],
                     },
             
