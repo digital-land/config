@@ -177,8 +177,7 @@ lookup_files = _collect_files("lookup.csv")
     lookup_files,
     ids=[_test_id(f) for f in lookup_files],
 )
-@pytest.mark.skip(reason="Temporarily skipping  test")
-def test_lookup(file_path, tmp_path):
+def test_lookup(file_path, tmp_path,specification_dir):
     source_file_path = file_path
     lookup_dir = Path(file_path).parent
     entity_org_file = str(lookup_dir / "entity-organisation.csv")
@@ -212,7 +211,7 @@ def test_lookup(file_path, tmp_path):
             "severity": "error",
         },
     ]
-    all_csv_rules = _build_all_csv_rules(file_path, tmp_path)
+    all_csv_rules = _build_all_csv_rules(file_path, specification_dir)
     _run_checkpoint(
         dataset="lookup",
         file_path=file_path,
@@ -234,7 +233,7 @@ def test_column_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="column-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -252,7 +251,7 @@ def test_combine_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="combine-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -288,7 +287,7 @@ def test_convert_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="convert-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -306,7 +305,7 @@ def test_default_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="default-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -324,7 +323,7 @@ def test_default_value_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="default-value-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -342,7 +341,7 @@ def test_endpoint_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="endpoint-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -360,7 +359,7 @@ def test_expect_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="expect-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -378,7 +377,7 @@ def test_filter_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="filter-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -396,7 +395,7 @@ def test_old_entity_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="old-entity-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -414,7 +413,7 @@ def test_old_resource_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="old-resource-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -432,7 +431,7 @@ def test_patch_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="patch-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -449,7 +448,7 @@ def test_skip_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="skip-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -467,7 +466,7 @@ def test_source_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="source-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -485,7 +484,7 @@ def test_transform_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="transform-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
