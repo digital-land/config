@@ -1399,6 +1399,7 @@ brownfield-land,1728007,1728023,local-authority:SUA
 brownfield-land,1728293,1728335,local-authority:SUA
 brownfield-land,1728973,1728978,local-authority:SUA
 brownfield-land,1739692,1739831,local-authority:SUA
+brownfield-land,1700331,1700346,local-authority:SNR
 brownfield-land,1703707,1703718,local-authority:SUF
 brownfield-land,1709564,1709569,local-authority:SUF
 brownfield-land,1719068,1719142,local-authority:SUR
@@ -1769,3 +1770,5 @@ brownfield-land,1721369,1721369,national-park-authority:Q72617890
 brownfield-land,1722291,1722294,national-park-authority:Q72617988
 ownership-status,10900000,10900003,government-organisation:D1342
 planning-permission-type,11900000,10900006,government-organisation:D1342
+brownfield-land,1703237,1703281,local-authority:HAG
+brownfield-land,1700342,1700346,local-authority:SNR
