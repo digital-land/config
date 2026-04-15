@@ -207,6 +207,7 @@ def test_lookup(file_path, tmp_path, specification_dir):
                                 "op": "!=",
                                 "value": "government-organisation:D1342",
                             },
+                            "end-date": {"op": "!=", "value": ""}
                         },
                         # {
                         #     "prefix": {"op": "==", "value": "conservation-area"},
