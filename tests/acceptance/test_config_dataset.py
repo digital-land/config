@@ -200,34 +200,24 @@ def test_lookup(file_path, tmp_path, specification_dir):
                     "lookup_rules": [
                         {
                             "prefix": {
-                                "op": "not in",
-                                "value": [
-                                    "statistical-geography",
-                                    "conservation-area",
-                                    "planning-condition",
-                                    "battlefield",
-                                    "planning-application-condition",
-                                    "certificate-of-immunity",
-                                    "heritage-at-risk",
-                                    "scheduled-monument",
-                                    "world-heritage-site"
-                                ],
+                                "op": "==",
+                                "value": "brownfield-land",
                             },
                             "organisation": {
                                 "op": "!=",
                                 "value": "government-organisation:D1342",
                             },
                         },
-                        {
-                            "prefix": {"op": "==", "value": "conservation-area"},
-                            "organisation": {
-                                "op": "not in",
-                                "value": [
-                                    "government-organisation:D1342",
-                                    "government-organisation:PB1164",
-                                ],
-                            },
-                        },
+                        # {
+                        #     "prefix": {"op": "==", "value": "conservation-area"},
+                        #     "organisation": {
+                        #         "op": "not in",
+                        #         "value": [
+                        #             "government-organisation:D1342",
+                        #             "government-organisation:PB1164",
+                        #         ],
+                        #     },
+                        # },
                     ]
                 },
             },
