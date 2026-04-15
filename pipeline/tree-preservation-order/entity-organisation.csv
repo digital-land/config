@@ -47,6 +47,7 @@ tree,7002180222,7002180222,local-authority:EPS
 tree,7002186893,7002190368,local-authority:ERY
 tree,7002029961,7002031960,local-authority:GAT
 tree,7002051964,7002052679,local-authority:GAT
+tree,7002208949,7002211102,local-authority:GAT
 tree,7002050606,7002051963,local-authority:GLO
 tree,7002191836,7002192284,local-authority:HAL
 tree,7002190369,7002191835,local-authority:HAR
@@ -233,6 +234,7 @@ tree-preservation-order,7001025265,7001025265,local-authority:NSM
 tree-preservation-order,7001056112,7001056113,local-authority:NSM
 tree-preservation-order,7001064274,7001064340,local-authority:NSM
 tree-preservation-order,7001077463,7001077465,local-authority:NSM
+tree-preservation-order,7001091926,7001093275,local-authority:OXO
 tree-preservation-order,7001030151,7001030482,local-authority:PLY
 tree-preservation-order,7001046117,7001046554,local-authority:PTE
 tree-preservation-order,7001053769,7001053769,local-authority:PTE
@@ -321,6 +323,7 @@ tree-preservation-zone,19113431,19114781,local-authority:DOV
 tree-preservation-zone,19121282,19121595,local-authority:DOV
 tree-preservation-zone,19149881,19150443,local-authority:ECA
 tree-preservation-zone,19165809,19165810,local-authority:ECA
+tree-preservation-zone,19184532,19185856,local-authority:EHA
 tree-preservation-zone,19119963,19120901,local-authority:EPS
 tree-preservation-zone,19161555,19161556,local-authority:EPS
 tree-preservation-zone,19176379,19176379,local-authority:EPS
