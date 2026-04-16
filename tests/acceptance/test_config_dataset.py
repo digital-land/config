@@ -128,16 +128,23 @@ DATATYPE_CHECKPOINTS = {
     "curie-list": "expect_column_to_be_curie_list",
     "json": "expect_column_to_be_json",
     "date": "expect_column_to_be_date",
-    "datetime": "expect_column_to_be_date",
+    "datetime": "expect_column_to_match_pattern",
     "pattern": "expect_column_to_be_pattern",
     "multipolygon": "expect_column_to_be_multipolygon",
     "point": "expect_column_to_be_point",
+    "url":"expect_column_to_match_pattern"
 }
 
 
 def _build_all_csv_rules(file_path, specification_dir):
     specification = Specification(specification_dir)
     field_datatype = specification.get_field_datatype_map()
+    
+    datatype_pattern = {
+        "url": r"^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d+)?(\/[^\n]*)?$",
+        # Accepts ISO 8601 date with optional time and timezone, e.g. "2024-01-01", "2024-01-01T12:00:00Z", "2024-01-01T12:00:00.123Z"
+        "datetime": r"^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}:\d{2}(\.\d+)?Z)?$", 
+    }
 
     rules = [
         {
@@ -157,11 +164,17 @@ def _build_all_csv_rules(file_path, specification_dir):
         datatype = field_datatype.get(column)
         operation = DATATYPE_CHECKPOINTS.get(datatype)
         if operation:
+            parameters = {"field": column}
+            if operation == "expect_column_to_match_pattern":
+                pattern = datatype_pattern.get(datatype)
+                if pattern:
+                    parameters["pattern"] = pattern
+            
             rules.append(
                 {
                     "name": f"column '{column}' has valid {datatype} values",
                     "operation": operation,
-                    "parameters": {"field": column},
+                    "parameters": parameters,
                     "severity": "error",
                 }
             )
