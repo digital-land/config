@@ -16,6 +16,7 @@ from digital_land.specification import Specification
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SEARCH_DIRS = ["pipeline", "collection"]
 
+
 def _collect_files(pattern, search_dirs=None):
     search_dirs = search_dirs or SEARCH_DIRS
     files = []
@@ -98,7 +99,7 @@ def _run_checkpoint(dataset, file_path, rules, reference_file_path=None):
                     ]
                     messages.append(f"    references: {line_refs}")
         assert False, "\n".join(messages)
-        
+
 
 def _normalise_file(file_path, tmp_path):
     """Normalise line endings and encoding for consistent CSV parsing."""
@@ -106,8 +107,9 @@ def _normalise_file(file_path, tmp_path):
     tmp = Path(tmp_path) / src.name
     tmp.parent.mkdir(parents=True, exist_ok=True)
 
-    with src.open("r", encoding="utf-8-sig", newline="") as fin, \
-        tmp.open("w", encoding="utf-8", newline="") as fout:
+    with src.open("r", encoding="utf-8-sig", newline="") as fin, tmp.open(
+        "w", encoding="utf-8", newline=""
+    ) as fout:
         reader = csv.reader(fin)
         writer = csv.writer(fout, lineterminator="\n")
         for row in reader:
@@ -177,8 +179,7 @@ lookup_files = _collect_files("lookup.csv")
     lookup_files,
     ids=[_test_id(f) for f in lookup_files],
 )
-@pytest.mark.skip(reason="Temporarily skipping  test")
-def test_lookup(file_path, tmp_path):
+def test_lookup(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     lookup_dir = Path(file_path).parent
     entity_org_file = str(lookup_dir / "entity-organisation.csv")
@@ -193,30 +194,42 @@ def test_lookup(file_path, tmp_path):
                 "external_file": entity_org_file,
                 "min_field": "entity-minimum",
                 "max_field": "entity-maximum",
-                "lookup_dataset_field":"prefix",
-                "range_dataset_field":"dataset",
-                "rules": 
-                    {
-                        "lookup_rules": [
-                            {"prefix": {"op": "!=", "value": "conservation-area"}},
-                            {
-                                "organisation": {
-                                    "op": "not in",
-                                    "value": ["government-organisation:D1342", "government-organisation:PB1164"],
-                                }
+                "lookup_dataset_field": "prefix",
+                "range_dataset_field": "dataset",
+                "rules": {
+                    "lookup_rules": [
+                        {
+                            "prefix": {
+                                "op": "==",
+                                "value": "brownfield-land",
                             },
-                        ],
-                    },
-            
+                            "organisation": {
+                                "op": "!=",
+                                "value": "government-organisation:D1342",
+                            },
+                            "end-date": {"op": "!=", "value": ""}
+                        },
+                        # {
+                        #     "prefix": {"op": "==", "value": "conservation-area"},
+                        #     "organisation": {
+                        #         "op": "not in",
+                        #         "value": [
+                        #             "government-organisation:D1342",
+                        #             "government-organisation:PB1164",
+                        #         ],
+                        #     },
+                        # },
+                    ]
+                },
             },
             "severity": "error",
         },
     ]
-    all_csv_rules = _build_all_csv_rules(file_path, tmp_path)
+    all_csv_rules = _build_all_csv_rules(file_path, specification_dir)
     _run_checkpoint(
         dataset="lookup",
         file_path=file_path,
-        rules=lookup_rules+all_csv_rules,
+        rules=lookup_rules + all_csv_rules,
         reference_file_path=source_file_path,
     )
 
@@ -224,6 +237,7 @@ def test_lookup(file_path, tmp_path):
 # TEST CSV GROUPS
 
 column_csv_files = _collect_files("column.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -234,7 +248,7 @@ def test_column_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="column-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -242,6 +256,7 @@ def test_column_csv(file_path, tmp_path, specification_dir):
 
 
 combine_csv_files = _collect_files("combine.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -252,7 +267,7 @@ def test_combine_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="combine-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -260,6 +275,7 @@ def test_combine_csv(file_path, tmp_path, specification_dir):
 
 
 concat_csv_files = _collect_files("concat.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -279,6 +295,7 @@ def test_concat_csv(file_path, tmp_path, specification_dir):
 
 convert_csv_files = _collect_files("convert.csv")
 
+
 @pytest.mark.parametrize(
     "file_path",
     convert_csv_files,
@@ -288,7 +305,7 @@ def test_convert_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="convert-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -296,6 +313,7 @@ def test_convert_csv(file_path, tmp_path, specification_dir):
 
 
 default_csv_files = _collect_files("default.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -306,7 +324,7 @@ def test_default_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="default-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -314,6 +332,7 @@ def test_default_csv(file_path, tmp_path, specification_dir):
 
 
 default_value_csv_files = _collect_files("default-value.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -324,7 +343,7 @@ def test_default_value_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="default-value-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -332,6 +351,7 @@ def test_default_value_csv(file_path, tmp_path, specification_dir):
 
 
 endpoint_csv_files = _collect_files("endpoint.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -342,7 +362,7 @@ def test_endpoint_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="endpoint-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -350,6 +370,7 @@ def test_endpoint_csv(file_path, tmp_path, specification_dir):
 
 
 expect_csv_files = _collect_files("expect.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -360,7 +381,7 @@ def test_expect_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="expect-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -368,6 +389,7 @@ def test_expect_csv(file_path, tmp_path, specification_dir):
 
 
 filter_csv_files = _collect_files("filter.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -378,7 +400,7 @@ def test_filter_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="filter-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -386,6 +408,7 @@ def test_filter_csv(file_path, tmp_path, specification_dir):
 
 
 old_entity_csv_files = _collect_files("old-entity.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -396,7 +419,7 @@ def test_old_entity_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="old-entity-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -404,6 +427,7 @@ def test_old_entity_csv(file_path, tmp_path, specification_dir):
 
 
 old_resource_csv_files = _collect_files("old-resource.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -414,7 +438,7 @@ def test_old_resource_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="old-resource-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -422,6 +446,7 @@ def test_old_resource_csv(file_path, tmp_path, specification_dir):
 
 
 patch_csv_files = _collect_files("patch.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -432,13 +457,15 @@ def test_patch_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="patch-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
     )
 
+
 skip_csv_files = _collect_files("skip.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -449,7 +476,7 @@ def test_skip_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="skip-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -457,6 +484,7 @@ def test_skip_csv(file_path, tmp_path, specification_dir):
 
 
 source_csv_files = _collect_files("source.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -467,7 +495,7 @@ def test_source_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="source-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -475,6 +503,7 @@ def test_source_csv(file_path, tmp_path, specification_dir):
 
 
 transform_csv_files = _collect_files("transform.csv")
+
 
 @pytest.mark.parametrize(
     "file_path",
@@ -485,7 +514,7 @@ def test_transform_csv(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     file_path = _normalise_file(file_path, tmp_path)
     _run_checkpoint(
-        dataset="all-csv",
+        dataset="transform-csv",
         file_path=file_path,
         rules=_build_all_csv_rules(file_path, specification_dir),
         reference_file_path=source_file_path,
@@ -496,32 +525,33 @@ def test_transform_csv(file_path, tmp_path, specification_dir):
 
 old_entity_files = _collect_files("old-entity.csv")
 
+
 @pytest.mark.parametrize(
     "file_path",
     old_entity_files,
     ids=[_test_id(f) for f in old_entity_files],
 )
-def test_old_entity(file_path,specification_dir):
+def test_old_entity(file_path, specification_dir):
     source_file_path = file_path
-    all_csv_rules= _build_all_csv_rules(file_path, specification_dir)
+    all_csv_rules = _build_all_csv_rules(file_path, specification_dir)
     old_entity_rules = [
-    {
-        "name": "old-entity values are unique",
-        "operation": "check_unique",
-        "parameters": {"field": "old-entity"},
-        "severity": "error",
-    },
-    {
-        "name": "old-entity statuses only contains 301 or 410",
-        "operation": "check_allowed_values",
-        "parameters": {"field": "status", "allowed_values": ["301", "410"]},
-        "severity": "error",
-    },
+        {
+            "name": "old-entity values are unique",
+            "operation": "check_unique",
+            "parameters": {"field": "old-entity"},
+            "severity": "error",
+        },
+        {
+            "name": "old-entity statuses only contains 301 or 410",
+            "operation": "check_allowed_values",
+            "parameters": {"field": "status", "allowed_values": ["301", "410"]},
+            "severity": "error",
+        },
     ]
     _run_checkpoint(
         dataset="old-entity",
         file_path=file_path,
-        rules=old_entity_rules+all_csv_rules,
+        rules=old_entity_rules + all_csv_rules,
         reference_file_path=source_file_path,
     )
 
@@ -538,20 +568,22 @@ ENTITY_ORGANISATION_RULES = [
 
 entity_organisation_files = _collect_files("entity-organisation.csv")
 
+
 @pytest.mark.parametrize(
     "file_path",
     entity_organisation_files,
     ids=[_test_id(f) for f in entity_organisation_files],
 )
-def test_entity_organisation(file_path, tmp_path,specification_dir):
+def test_entity_organisation(file_path, tmp_path, specification_dir):
     source_file_path = file_path
     normalised = tmp_path / Path(file_path).name
-    normalised.write_bytes(Path(file_path).read_bytes().replace(b'\r\n', b'\n').replace(b',\n', b'\n'))
+    normalised.write_bytes(
+        Path(file_path).read_bytes().replace(b"\r\n", b"\n").replace(b",\n", b"\n")
+    )
     all_csv_rules = _build_all_csv_rules(file_path, specification_dir)
     _run_checkpoint(
         dataset="entity-organisation",
         file_path=str(normalised),
-        rules=ENTITY_ORGANISATION_RULES+all_csv_rules,
+        rules=ENTITY_ORGANISATION_RULES + all_csv_rules,
         reference_file_path=source_file_path,
     )
-
