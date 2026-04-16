@@ -1252,6 +1252,7 @@ brownfield-land,1732718,1732781,local-authority:SAW
 brownfield-land,1735279,1735288,local-authority:SAW
 brownfield-land,1739910,1739933,local-authority:SAW
 brownfield-land,1740419,1740419,local-authority:SAW
+brownfield-land,1741626,1741630,local-authority:SAW
 brownfield-land,1700048,1700069,local-authority:SBU
 brownfield-land,1727277,1727291,local-authority:SBU
 brownfield-land,1715722,1715771,local-authority:SCA
@@ -1328,6 +1329,7 @@ brownfield-land,1724663,1724667,local-authority:SNO
 brownfield-land,1725152,1725175,local-authority:SNO
 brownfield-land,1731155,1731175,local-authority:SNO
 brownfield-land,1736403,1736407,local-authority:SNO
+brownfield-land,1700331,1700346,local-authority:SNR
 brownfield-land,1706705,1706813,local-authority:SOL
 brownfield-land,1726734,1726741,local-authority:SOL
 brownfield-land,1732389,1732425,local-authority:SOL
@@ -1346,6 +1348,7 @@ brownfield-land,1728979,1728982,local-authority:SRI
 brownfield-land,1731200,1731204,local-authority:SRI
 brownfield-land,1735500,1735503,local-authority:SRI
 brownfield-land,1740438,1740442,local-authority:SRI
+brownfield-land,1700163,1700209,local-authority:SSO
 brownfield-land,1700571,1700578,local-authority:SST
 brownfield-land,1711138,1711150,local-authority:SST
 brownfield-land,1739642,1739687,local-authority:SST
@@ -1388,7 +1391,6 @@ brownfield-land,1718033,1718053,local-authority:STV
 brownfield-land,1710847,1710870,local-authority:STY
 brownfield-land,1731514,1731559,local-authority:STY
 brownfield-land,1737496,1737498,local-authority:STY
-brownfield-land,1700163,1700209,local-authority:SSO
 brownfield-land,1707379,1707404,local-authority:SUA
 brownfield-land,1716434,1716434,local-authority:SUA
 brownfield-land,1718571,1718581,local-authority:SUA
@@ -1399,7 +1401,6 @@ brownfield-land,1728007,1728023,local-authority:SUA
 brownfield-land,1728293,1728335,local-authority:SUA
 brownfield-land,1728973,1728978,local-authority:SUA
 brownfield-land,1739692,1739831,local-authority:SUA
-brownfield-land,1700331,1700346,local-authority:SNR
 brownfield-land,1703707,1703718,local-authority:SUF
 brownfield-land,1709564,1709569,local-authority:SUF
 brownfield-land,1719068,1719142,local-authority:SUR
@@ -1770,4 +1771,3 @@ brownfield-land,1721369,1721369,national-park-authority:Q72617890
 brownfield-land,1722291,1722294,national-park-authority:Q72617988
 ownership-status,10900000,10900003,government-organisation:D1342
 planning-permission-type,11900000,10900006,government-organisation:D1342
-brownfield-land,1741626,1741630,local-authority:SAW
