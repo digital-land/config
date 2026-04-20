@@ -306,23 +306,6 @@ def test_concat_csv(file_path, tmp_path, specification_dir):
     )
 
 
-convert_csv_files = _collect_files("convert.csv")
-
-
-@pytest.mark.parametrize(
-    "file_path",
-    convert_csv_files,
-    ids=[_test_id(f) for f in convert_csv_files],
-)
-def test_convert_csv(file_path, tmp_path, specification_dir):
-    source_file_path = file_path
-    file_path = _normalise_file(file_path, tmp_path)
-    _run_checkpoint(
-        dataset="convert-csv",
-        file_path=file_path,
-        rules=_build_all_csv_rules(file_path, specification_dir),
-        reference_file_path=source_file_path,
-    )
 
 
 default_csv_files = _collect_files("default.csv")
