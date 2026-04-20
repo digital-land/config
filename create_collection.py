@@ -12,7 +12,6 @@ COLUMN_MAPPINGS = {
         "column.csv": "dataset,endpoint,resource,column,field,start-date,end-date,entry-date",
         "combine.csv": "dataset,endpoint,field,separator,entry-date,start-date,end-date,resource",
         "concat.csv": "dataset,resource,field,fields,separator,entry-date,start-date,end-date,endpoint,prepend,append",
-        "convert.csv": "dataset,resource,plugin,start-date,end-date,entry-date,endpoint,parameters",
         "default-value.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,resource,start-date,value",
         "default.csv": "dataset,resource,field,default-field,entry-date,start-date,end-date,entry-number,endpoint",
         "entity-organisation.csv": "dataset,entity-minimum,entity-maximum,organisation",
