@@ -227,6 +227,7 @@ def test_lookup(file_path, tmp_path, specification_dir):
                                     "government-organisation:PB1164",
                                 ],
                             },
+                             "end-date": {"op": "!=", "value": ""}
                         },
                     ]
                 },
