@@ -237,3 +237,4 @@ e728feaf64002b26b62ee995f91c3e114ae38e5e20267ce15437c1627ccad72e,https://www.oxf
 f2fa8c559a0b34a6e225a3be85c418f545fe037709234ff1fee7046337bb37ad,https://www.oxford.gov.uk/downloads/file/4100/article-4-direction-data,,,2026-04-13,2026-04-13,
 fcb3af06f33437d01c865181528e97bdf078a6b9ce705fca08041b4696ea2ea7,https://ccs.maps.xmap.cloud/ccs_public/sbc_article4direction/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=public:sbc_article4direction&OUTPUTFORMAT=application/json,,,2026-04-13,2026-04-10,
 b2428774a13c84ce2202d666f6fb1bd27a399a10d9972646f4f78d10130aaaf6,https://maps.wiltshire.gov.uk/arcgis/rest/services/OpenData/Article4Directions/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2026-04-15,2026-04-15,
+27c349cd8afacb4a309ee73433f0c51e313d7a54ce936dd1e0ef5bbee44b4c0d,https://www.new.colchester.gov.uk/sites/default/files/2026-04/Article_4_Dir_ODP_Jan26.xlsx,,,2026-04-21,2026-04-20,
