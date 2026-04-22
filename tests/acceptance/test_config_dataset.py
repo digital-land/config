@@ -16,7 +16,6 @@ from digital_land.specification import Specification
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SEARCH_DIRS = ["pipeline", "collection"]
 
-
 def _collect_files(pattern, search_dirs=None):
     search_dirs = search_dirs or SEARCH_DIRS
     files = []
@@ -192,12 +191,14 @@ lookup_files = _collect_files("lookup.csv")
     lookup_files,
     ids=[_test_id(f) for f in lookup_files],
 )
-def test_lookup(file_path, tmp_path, specification_dir):
+def test_lookup(file_path, tmp_path, specification_dir,ended_organisations):
     source_file_path = file_path
     lookup_dir = Path(file_path).parent
     entity_org_file = str(lookup_dir / "entity-organisation.csv")
     entity_org_file = _normalise_file(entity_org_file, tmp_path)
+    
     file_path = _normalise_file(file_path, tmp_path)
+    print(f"Testing lookup file: {ended_organisations}")
     lookup_rules = [
         {
             "name": "lookup entities are within organisation ranges",
@@ -211,13 +212,12 @@ def test_lookup(file_path, tmp_path, specification_dir):
                 "range_dataset_field": "dataset",
                 "rules": {
                     "lookup_rules": [
-                        {
-                            "organisation": {
-                                "op": "!=",
-                                "value": "government-organisation:D1342",
-                            },
-                            "end-date": {"op": "!=", "value": ""}
-                        },
+                        # {
+                        #     "organisation": {
+                        #         "op": "not in",
+                        #         "value": ["government-organisation:D1342"] + ended_organisations,
+                        #     },
+                        # },
                         {
                             "prefix": {"op": "==", "value": "conservation-area"},
                             "organisation": {
@@ -225,9 +225,8 @@ def test_lookup(file_path, tmp_path, specification_dir):
                                 "value": [
                                     "government-organisation:D1342",
                                     "government-organisation:PB1164",
-                                ],
+                                ] + ended_organisations,
                             },
-                             "end-date": {"op": "!=", "value": ""}
                         },
                     ]
                 },
