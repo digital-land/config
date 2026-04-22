@@ -791,3 +791,5 @@ e95debe7c35380e1fb6181a81764e818e8c56cb62ba64810b6821d205c19990f,https://www.ips
 b96bafd683042b5db2141d097f1dd007e0d52040404e690ecf9bc668a7c580da,https://maps.calderdale.gov.uk/map/wfs.svc/ODP_CONAREA?service=WFS&version=1.1.0&request=GetFeature&TYPENAME=statmap:ODP_MV_CONAREA&outputFormat=GML3,,,2026-04-08,2026-04-08,
 a8a4318b363a3bf39dbe9d1efc680eb3cced85dcd70e8dc582351e1600954dff,https://www.oxford.gov.uk/downloads/file/4104/conservation-areas-data,,,2026-04-09,2026-04-09,
 85433a3065d9fb4115c7e382aa9523d0130d8a606e966faf5c82995d247cfea9,https://www.oxford.gov.uk/downloads/file/4102/conservation-area-documents-data,,,2026-04-16,2026-04-16,
+00cc367692b8d79c354e244432005886a59652a35336a781996966ce0f5cb602,https://www.coventry.gov.uk/downloads/file/46867/conservation-area-documents,,,2026-04-21,2026-04-17,
+a021b91c7bddb36ed4803484df7db998508da7f35e8d4e72c32989dded03e620,https://www.new.colchester.gov.uk/sites/default/files/2026-04/Conservation_Area_ODP_Jan26.xlsx,,,2026-04-21,2026-04-20,
