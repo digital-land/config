@@ -94,7 +94,6 @@ conservation-area,44004195,44004195,local-authority:BNH
 conservation-area,44006778,44006780,local-authority:BNH
 conservation-area,44012822,44012823,local-authority:BNH
 conservation-area,44000388,44000404,local-authority:BNS
-conservation-area,44005867,44005867,local-authority:BNS
 conservation-area,44009108,44009132,local-authority:BOL
 conservation-area,44012320,44012320,local-authority:BOL
 conservation-area,44001753,44001770,local-authority:BOS
@@ -250,7 +249,6 @@ conservation-area,44013495,44013555,local-authority:CBF
 conservation-area,44012447,44012449,local-authority:CHA
 conservation-area,44012537,44012558,local-authority:CHA
 conservation-area,44012708,44012721,local-authority:CHA
-conservation-area,44005887,44005887,local-authority:CHE
 conservation-area,44012880,44012954,local-authority:CHE
 conservation-area,44001796,44001796,local-authority:CHI
 conservation-area,44002015,44002015,local-authority:CHI
@@ -484,7 +482,6 @@ conservation-area,44001385,44001385,local-authority:GRY
 conservation-area,44001393,44001393,local-authority:GRY
 conservation-area,44004539,44004539,local-authority:GRY
 conservation-area,44009678,44009700,local-authority:GRY
-conservation-area,44009322,44009322,local-authority:HAA
 conservation-area,44015667,44015681,local-authority:HAA
 conservation-area,44000380,44000381,local-authority:HAL
 conservation-area,44000383,44000387,local-authority:HAL
@@ -522,9 +519,9 @@ conservation-area,44007108,44007116,local-authority:HER
 conservation-area,44012559,44012559,local-authority:HER
 conservation-area,44001365,44001381,local-authority:HIG
 conservation-area,44003140,44003141,local-authority:HIG
-conservation-area,44005806,44005815,local-authority:HIG
+conservation-area,44005806,44005809,local-authority:HIG
+conservation-area,44005811,44005815,local-authority:HIG
 conservation-area,44005817,44005818,local-authority:HIG
-conservation-area,44005903,44005903,local-authority:HIG
 conservation-area,44002425,44002428,local-authority:HIL
 conservation-area,44002431,44002435,local-authority:HIL
 conservation-area,44002437,44002449,local-authority:HIL
@@ -1606,9 +1603,8 @@ conservation-area,44006832,44006833,national-park-authority:Q20198711
 conservation-area,44006837,44006837,national-park-authority:Q20198711
 conservation-area,44006842,44006843,national-park-authority:Q20198711
 conservation-area,44009301,44009303,national-park-authority:Q20198711
-conservation-area,44009315,44009316,national-park-authority:Q20198711
-conservation-area,44009317,44009321,national-park-authority:Q20198711
-conservation-area,44009324,44009324,national-park-authority:Q20198711
+conservation-area,44009315,44009315,national-park-authority:Q20198711
+conservation-area,44009317,44009317,national-park-authority:Q20198711
 conservation-area,44012741,44012742,national-park-authority:Q20198711
 conservation-area,44014120,44014120,national-park-authority:Q20198711
 conservation-area,44005424,44005446,national-park-authority:Q27159704
