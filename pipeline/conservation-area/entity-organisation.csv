@@ -1,5 +1,4 @@
 dataset,entity-minimum,entity-maximum,organisation
-conservation-area,44002348,44002348,development-corporation:Q20648596
 conservation-area,44008744,44008744,development-corporation:Q20648596
 conservation-area,44008917,44008917,development-corporation:Q20648596
 conservation-area,44013076,44013076,development-corporation:Q20648596
@@ -2005,11 +2004,6 @@ conservation-area-document,6313894,6314026,national-park-authority:Q72617158
 conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
-conservation-area,44002411,44002411,local-authority:GLA
-conservation-area,44002414,44002417,local-authority:GLA
-conservation-area,44002420,44002424,local-authority:GLA
-conservation-area,44004082,44004082,local-authority:GLA
-conservation-area,44006529,44006529,local-authority:GLA
 conservation-area,44008380,44008380,local-authority:KEC
 conservation-area,44005392,44005392,local-authority:NEW
 conservation-area,44013372,44013372,local-authority:SNO
