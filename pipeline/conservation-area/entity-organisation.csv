@@ -281,6 +281,7 @@ conservation-area,44009885,44009885,local-authority:CMD
 conservation-area,44001140,44001149,local-authority:COL
 conservation-area,44001473,44001484,local-authority:COL
 conservation-area,44012955,44012956,local-authority:COL
+conservation-area,44015818,44015841,local-authority:COL
 conservation-area,44000193,44000194,local-authority:CON
 conservation-area,44000314,44000318,local-authority:CON
 conservation-area,44000374,44000377,local-authority:CON
@@ -1741,6 +1742,7 @@ conservation-area-document,6307667,6307714,local-authority:COL
 conservation-area-document,6308009,6308154,local-authority:CON
 conservation-area-document,6307723,6308008,local-authority:COT
 conservation-area-document,6314942,6315155,local-authority:COT
+conservation-area-document,6316016,6316028,local-authority:COV
 conservation-area-document,6307647,6307666,local-authority:CRW
 conservation-area-document,6315623,6315644,local-authority:CRW
 conservation-area-document,6303526,6303567,local-authority:CUA
