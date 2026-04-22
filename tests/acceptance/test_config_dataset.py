@@ -225,6 +225,7 @@ def test_lookup(file_path, tmp_path, specification_dir,ended_organisations):
                                 "value": [
                                     "government-organisation:D1342",
                                     "government-organisation:PB1164",
+                                    "local-authority:GLA"
                                 ] + ended_organisations,
                             },
                         },
