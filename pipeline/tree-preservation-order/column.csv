@@ -493,3 +493,5 @@ tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c04
 tree-preservation-zone,,,wkt,geometry,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
 tree,f61a07da4b753a80a47b9bf2b7be89619f9a5c8ecf7910922839ba3b216c76c8,,WKT,geometry,2026-04-23,,2026-04-23
+tree-preservation-zone,f8294dc2073afcce2db78da401e053e9b250e0a6a782955ca1392301829cdad0,,TPO,tree-preservation-order,2026-04-23,,2026-04-23
+tree-preservation-zone,f8294dc2073afcce2db78da401e053e9b250e0a6a782955ca1392301829cdad0,,TPO_ZONE_TYPE,tree-preservation-zone-type,2026-04-23,,2026-04-23
