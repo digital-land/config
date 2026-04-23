@@ -85,6 +85,7 @@ tree,d6abdbc3123bc4b60ee9d34ab1ec52dda34d67e6260802df6a944a5f7d09352b,,TREE_PRES
 tree,e89653123a38ddddfd70d71589c15d28ba2444ccefd5d7903e71ec762f2b4bd3,,WKT,geometry,,,
 tree,eaceade72cd00741743fba9921fb2ef764ed3363f882f420904cb96d20c44106,,Tree_Address,address-text,,,
 tree,f59e8ab0f427a9e36635f185c0a2b8123fac7a19c70bf38bc6d250b65cb57150,,WKT,geometry,,,
+tree,f61a07da4b753a80a47b9bf2b7be89619f9a5c8ecf7910922839ba3b216c76c8,,WKT,geometry,2026-04-23,,2026-04-23
 tree,f8d5163c023f27f599fee22535f5959e52f18313755fcb3243c78577985cda2d,,UPRN_1,address,,,
 tree,f8d5163c023f27f599fee22535f5959e52f18313755fcb3243c78577985cda2d,,UPRN_1,address,,,
 tree,f8d5163c023f27f599fee22535f5959e52f18313755fcb3243c78577985cda2d,,UPRN_1,address,,,
@@ -410,6 +411,8 @@ tree-preservation-zone,de1eb90a8b037292ef8ae14bfabd1184847ef99b7c6296bb6e75379e6
 tree-preservation-zone,de1eb90a8b037292ef8ae14bfabd1184847ef99b7c6296bb6e75379e6c1f9572,,Type,tree-preservation-zone-type,,,
 tree-preservation-zone,de1eb90a8b037292ef8ae14bfabd1184847ef99b7c6296bb6e75379e6c1f9572,,Species,tree-species-list,,,
 tree-preservation-zone,e6903f1549f02d4116085ad87189bc1505b43bc89f9d6171de7d48f4c79fb3e9,,species,tree-species-list,,,
+tree-preservation-zone,f8294dc2073afcce2db78da401e053e9b250e0a6a782955ca1392301829cdad0,,TPO,tree-preservation-order,2026-04-23,,2026-04-23
+tree-preservation-zone,f8294dc2073afcce2db78da401e053e9b250e0a6a782955ca1392301829cdad0,,TPO_ZONE_TYPE,tree-preservation-zone-type,2026-04-23,,2026-04-23
 tree-preservation-zone,,06b04d580c663b3be92b052f51c54f773cd1e10907fa34fee26e21f79f5fd146,address,address,,,
 tree-preservation-zone,,06b04d580c663b3be92b052f51c54f773cd1e10907fa34fee26e21f79f5fd146,objectid_1,reference,,,
 tree-preservation-zone,,06b04d580c663b3be92b052f51c54f773cd1e10907fa34fee26e21f79f5fd146,status,tree-preservation-zone-type,,,
@@ -492,6 +495,3 @@ tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c04
 tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c042efa34f8,tpo,tree-preservation-order,,,
 tree-preservation-zone,,,wkt,geometry,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
-tree,f61a07da4b753a80a47b9bf2b7be89619f9a5c8ecf7910922839ba3b216c76c8,,WKT,geometry,2026-04-23,,2026-04-23
-tree-preservation-zone,f8294dc2073afcce2db78da401e053e9b250e0a6a782955ca1392301829cdad0,,TPO,tree-preservation-order,2026-04-23,,2026-04-23
-tree-preservation-zone,f8294dc2073afcce2db78da401e053e9b250e0a6a782955ca1392301829cdad0,,TPO_ZONE_TYPE,tree-preservation-zone-type,2026-04-23,,2026-04-23
