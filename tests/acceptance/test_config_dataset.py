@@ -231,6 +231,7 @@ def test_lookup(file_path, tmp_path, specification_dir, ended_organisations):
                             "organisation": {
                                 "op": "not in",
                                 "value": [
+                                    "local-authority:GLA",
                                     "government-organisation:D1342",
                                     "government-organisation:PB1164",
                                     ""
