@@ -191,14 +191,13 @@ lookup_files = _collect_files("lookup.csv")
     lookup_files,
     ids=[_test_id(f) for f in lookup_files],
 )
-def test_lookup(file_path, tmp_path, specification_dir,ended_organisations):
+def test_lookup(file_path, tmp_path, specification_dir, ended_organisations):
     source_file_path = file_path
     lookup_dir = Path(file_path).parent
     entity_org_file = str(lookup_dir / "entity-organisation.csv")
     entity_org_file = _normalise_file(entity_org_file, tmp_path)
     
     file_path = _normalise_file(file_path, tmp_path)
-    print(f"Testing lookup file: {ended_organisations}")
     lookup_rules = [
         {
             "name": "lookup entities are within organisation ranges",
@@ -212,12 +211,21 @@ def test_lookup(file_path, tmp_path, specification_dir,ended_organisations):
                 "range_dataset_field": "dataset",
                 "rules": {
                     "lookup_rules": [
-                        # {
-                        #     "organisation": {
-                        #         "op": "not in",
-                        #         "value": ["government-organisation:D1342"] + ended_organisations,
-                        #     },
-                        # },
+                        {
+                            "prefix": {
+                                "op": "not in",
+                                "value": [
+                                    "conservation-area",
+                                    "planning-application-condition",
+                                    "planning-condition",
+                                    "statistical-geography"
+                                ],
+                            },
+                            "organisation": {
+                                "op": "not in",
+                                "value": ["government-organisation:D1342"] + ended_organisations,
+                            },
+                        },
                         {
                             "prefix": {"op": "==", "value": "conservation-area"},
                             "organisation": {
@@ -225,7 +233,6 @@ def test_lookup(file_path, tmp_path, specification_dir,ended_organisations):
                                 "value": [
                                     "government-organisation:D1342",
                                     "government-organisation:PB1164",
-                                    "local-authority:GLA"
                                 ] + ended_organisations,
                             },
                         },
