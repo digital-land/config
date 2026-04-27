@@ -1,2 +1,2 @@
 dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date
-educational-establishment,,,,,local-authority-district,"^E",,
+educational-establishment,,,,,local-authority-district,^E,,

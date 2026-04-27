@@ -102,7 +102,6 @@ PIPELINE_CONFIG_FILES=\
 	$(PIPELINE_DIR)column.csv\
 	$(PIPELINE_DIR)combine.csv\
 	$(PIPELINE_DIR)concat.csv\
-	$(PIPELINE_DIR)convert.csv\
 	$(PIPELINE_DIR)default.csv\
 	$(PIPELINE_DIR)default-value.csv\
 	$(PIPELINE_DIR)filter.csv\

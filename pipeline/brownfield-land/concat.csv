@@ -1,2 +1,2 @@
-dataset,resource,field,fields,separator,entry-date,start-date,end-date,endpoint
-brownfield-land,,Notes,DevelopmentDescription;SiteInformation,. ,2020-09-04,2020-09-04,,
+dataset,resource,field,fields,separator,entry-date,start-date,end-date,endpoint,prepend,append
+brownfield-land,,Notes,DevelopmentDescription;SiteInformation,. ,2020-09-04,2020-09-04,,,,

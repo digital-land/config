@@ -1,6 +1,6 @@
-dataset,resource,column,field,start-date,end-date,entry-date,endpoint
-ramsar,,WKT,geometry,,,,
-ramsar,,NAME,name,,,,
-ramsar,,CODE,reference,,,,
-ramsar,,GISDATE,entry-date,,,,
-ramsar,,GIS_DATE,entry-date,,,,
+dataset,endpoint,resource,column,field,start-date,end-date,entry-date
+ramsar,,,GISDATE,entry-date,,,
+ramsar,,,GIS_DATE,entry-date,,,
+ramsar,,,WKT,geometry,,,
+ramsar,,,NAME,name,,,
+ramsar,,,CODE,reference,,,

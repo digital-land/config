@@ -1,1 +1,2 @@
-datasets,organisations,operation,parameters,name,description,notes,severity,responsibility,end-date,entry-date,start,date
+datasets,organisations,operation,parameters,name,description,notes,severity,responsibility,end-date,entry-date,start-date
+asset-of-community-value,local-authority:CMD,count_deleted_entities,"{""organisation_entity"":{{ organisation.entity }},""expected"":0}",Check no entities are missing from the entities on the active resource,A test to check there are no asset-of-community-value entities missing from the entities on the active resource. It uses all active resource(s) from {{ organisation.name }}.,,notice,internal,,2026-04-08,2026-04-08

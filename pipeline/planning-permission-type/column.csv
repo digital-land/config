@@ -1,2 +1,2 @@
-dataset,resource,column,field,start-date,end-date,entry-date,endpoint
-planning-permission-type,,planning-permission-type,reference,,,,
+dataset,endpoint,resource,column,field,start-date,end-date,entry-date
+planning-permission-type,,,planning-permission-type,reference,,,
