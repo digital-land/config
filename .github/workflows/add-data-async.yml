@@ -2,7 +2,7 @@ name: Add Data From Async API
 
 on:
   repository_dispatch:
-    types: [add-data-async]
+    types: [add-data-async-new]
   workflow_dispatch:
     inputs:
       request_id:

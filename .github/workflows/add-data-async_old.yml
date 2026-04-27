@@ -2,7 +2,7 @@ name: Add Data via Async API
 
 on:
   repository_dispatch:
-    types: [add-data-async-old]
+    types: [add-data-async]
 
 jobs:
   fetch-and-append:
