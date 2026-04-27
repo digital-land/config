@@ -1,5 +1,6 @@
 import csv
 from pathlib import Path
+from typing import Optional
 
 from click.testing import CliRunner
 import pytest
@@ -12,6 +13,15 @@ class _CompletedProcess:
         self.returncode = returncode
         self.stdout = stdout
         self.stderr = stderr
+
+
+def _write_csv(path: Path, header: list[str], rows: Optional[list[list[str]]] = None) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f, lineterminator="\n")
+        writer.writerow(header)
+        if rows:
+            writer.writerows(rows)
 
 
 def test_get_commit_label_omits_empty_parts():
@@ -47,10 +57,9 @@ def test_ensure_file_ends_with_newline_appends_crlf(tmp_path):
 def test_append_endpoint_writes_new_row(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     endpoint_file = tmp_path / "collection/test-collection/endpoint.csv"
-    endpoint_file.parent.mkdir(parents=True, exist_ok=True)
-    endpoint_file.write_text(
-        "endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date",
-        encoding="utf-8",
+    _write_csv(
+        endpoint_file,
+        ["endpoint", "endpoint-url", "parameters", "plugin", "entry-date", "start-date", "end-date"],
     )
 
     response = {
@@ -90,9 +99,8 @@ def test_append_endpoint_writes_new_row(tmp_path, monkeypatch):
 def test_append_source_skips_when_documentation_url_exists(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     source_file = tmp_path / "collection/test-collection/source.csv"
-    source_file.parent.mkdir(parents=True, exist_ok=True)
-    original = "source,attribution\n"
-    source_file.write_text(original, encoding="utf-8")
+    _write_csv(source_file, ["source", "attribution"])
+    original = source_file.read_text(encoding="utf-8")
 
     response = {
         "response": {
@@ -117,19 +125,33 @@ def test_retire_endpoints_in_csv_updates_source_and_endpoint(tmp_path, monkeypat
 
     endpoint_file = tmp_path / "collection/test-collection/endpoint.csv"
     source_file = tmp_path / "collection/test-collection/source.csv"
-    endpoint_file.parent.mkdir(parents=True, exist_ok=True)
-
-    endpoint_file.write_text(
-        "endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date\n"
-        "endpoint-1,https://example.test/1,,,2026-01-01,,\n"
-        "endpoint-2,https://example.test/2,,,2026-01-01,,\n",
-        encoding="utf-8",
+    _write_csv(
+        endpoint_file,
+        ["endpoint", "endpoint-url", "parameters", "plugin", "entry-date", "start-date", "end-date"],
+        [
+            ["endpoint-1", "https://example.test/1", "", "", "2026-01-01", "", ""],
+            ["endpoint-2", "https://example.test/2", "", "", "2026-01-01", "", ""],
+        ],
     )
-    source_file.write_text(
-        "source,attribution,collection,documentation-url,endpoint,licence,organisation,pipelines,entry-date,start-date,end-date\n"
-        "source-1,,test-collection,,endpoint-1,,,,2026-01-01,,\n"
-        "source-2,,test-collection,,endpoint-2,,,,2026-01-01,,\n",
-        encoding="utf-8",
+    _write_csv(
+        source_file,
+        [
+            "source",
+            "attribution",
+            "collection",
+            "documentation-url",
+            "endpoint",
+            "licence",
+            "organisation",
+            "pipelines",
+            "entry-date",
+            "start-date",
+            "end-date",
+        ],
+        [
+            ["source-1", "", "test-collection", "", "endpoint-1", "", "", "", "2026-01-01", "", ""],
+            ["source-2", "", "test-collection", "", "endpoint-2", "", "", "", "2026-01-01", "", ""],
+        ],
     )
 
     add_data.retire_endpoints_in_csv("test-collection", ["endpoint-1"])

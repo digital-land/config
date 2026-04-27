@@ -15,7 +15,9 @@ class _CompletedProcess:
 
 def _write_csv(path: Path, header: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(f"{header}\n", encoding="utf-8")
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f, lineterminator="\n")
+        writer.writerow(header.split(","))
 
 
 def test_add_data_cli_creates_expected_files(tmp_path, monkeypatch):
@@ -421,3 +423,133 @@ def test_add_data_cli_test_mode_creates_draft_pr(tmp_path, monkeypatch):
         "--head",
         "test/feature/test",
     ] in commands
+
+
+def test_add_data_cli_retire_endpoint_updates_end_date(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("GITHUB_STEP_SUMMARY", str(tmp_path / "summary.md"))
+
+    collection_dir = tmp_path / "collection" / "test-collection"
+    pipeline_dir = tmp_path / "pipeline" / "test-collection"
+    collection_dir.mkdir(parents=True, exist_ok=True)
+    pipeline_dir.mkdir(parents=True, exist_ok=True)
+
+    endpoint_file = collection_dir / "endpoint.csv"
+    source_file = collection_dir / "source.csv"
+
+    with endpoint_file.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f, lineterminator="\n")
+        writer.writerow(["endpoint", "endpoint-url", "parameters", "plugin", "entry-date", "start-date", "end-date"])
+        writer.writerow(["endpoint-old", "https://example.test/old", "", "url", "2026-04-24", "2026-04-01", ""])
+        writer.writerow(["endpoint-keep", "https://example.test/keep", "", "url", "2026-04-24", "2026-04-01", ""])
+
+    with source_file.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f, lineterminator="\n")
+        writer.writerow([
+            "source",
+            "attribution",
+            "collection",
+            "documentation-url",
+            "endpoint",
+            "licence",
+            "organisation",
+            "pipelines",
+            "entry-date",
+            "start-date",
+            "end-date",
+        ])
+        writer.writerow([
+            "source-old",
+            "Example Org",
+            "test-collection",
+            "https://example.test/docs-old",
+            "endpoint-old",
+            "OGL",
+            "test-organisation",
+            "test-dataset",
+            "2026-04-24",
+            "2026-04-01",
+            "",
+        ])
+        writer.writerow([
+            "source-keep",
+            "Example Org",
+            "test-collection",
+            "https://example.test/docs-keep",
+            "endpoint-keep",
+            "OGL",
+            "test-organisation",
+            "test-dataset",
+            "2026-04-24",
+            "2026-04-01",
+            "",
+        ])
+
+    _write_csv(
+        pipeline_dir / "lookup.csv",
+        "prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date",
+    )
+    _write_csv(
+        pipeline_dir / "column.csv",
+        "dataset,endpoint,resource,column,field,start-date,end-date,entry-date",
+    )
+    _write_csv(
+        pipeline_dir / "entity-organisation.csv",
+        "dataset,entity-minimum,entity-maximum,organisation",
+    )
+
+    response = {
+        "status": "COMPLETE",
+        "params": {
+            "collection": "test-collection",
+            "dataset": "test-dataset",
+            "organisation": "test-organisation",
+            "authoritative": False,
+            "column_mapping": {},
+        },
+        "response": {
+            "data": {
+                "endpoint-summary": {},
+                "source-summary": {},
+                "pipeline-summary": {
+                    "new-entities": [],
+                    "entity-organisation": [],
+                },
+            }
+        },
+    }
+
+    monkeypatch.setattr(add_data, "fetch_request", lambda api_base_url, request_id: response)
+
+    def fake_run(cmd, text=True, capture_output=False, check=False):
+        if cmd[:3] == ["git", "diff", "--staged"]:
+            return _CompletedProcess(returncode=0)
+        return _CompletedProcess(returncode=0)
+
+    monkeypatch.setattr(add_data.subprocess, "run", fake_run)
+
+    runner = CliRunner()
+    result = runner.invoke(
+        add_data.main,
+        [
+            "--request-id",
+            "req-123",
+            "--triggered-by",
+            "integration-test",
+            "--api-base-url",
+            "https://example.test",
+            "--retire-endpoints",
+            "endpoint-old",
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+
+    endpoint_rows = list(csv.DictReader(endpoint_file.read_text(encoding="utf-8").splitlines()))
+    source_rows = list(csv.DictReader(source_file.read_text(encoding="utf-8").splitlines()))
+    today = add_data.datetime.now().strftime("%Y-%m-%d")
+
+    assert endpoint_rows[0]["end-date"] == today
+    assert endpoint_rows[1]["end-date"] == ""
+    assert source_rows[0]["end-date"] == today
+    assert source_rows[1]["end-date"] == ""
