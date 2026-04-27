@@ -56,6 +56,7 @@ developer-agreement,4608657,4608686,local-authority:EXE
 developer-agreement,4609968,4609997,local-authority:EXE
 developer-agreement,4611492,4611521,local-authority:EXE
 developer-agreement,4611705,4611734,local-authority:EXE
+developer-agreement,4611735,4611764,local-authority:EXE
 developer-agreement,4601741,4601744,local-authority:GAT
 developer-agreement,4607746,4607756,local-authority:GAT
 developer-agreement,4602713,4602719,local-authority:GLO
@@ -126,7 +127,6 @@ developer-agreement,4604766,4604767,local-authority:WYC
 developer-agreement,4604770,4604771,local-authority:WYC
 developer-agreement,4604764,4604764,local-authority:WYE
 developer-agreement,4604768,4604768,local-authority:WYE
-developer-agreement,4611735,4611764,local-authority:EXE
 developer-agreement,4602907,4602986,national-park-authority:Q20198711
 developer-agreement,4611469,4611483,national-park-authority:Q27178932
 developer-agreement,4601648,4601648,national-park-authority:Q4972284
@@ -143,7 +143,6 @@ developer-agreement-contribution,4315407,4315494,local-authority:ASF
 developer-agreement-contribution,4323612,4323710,local-authority:ASF
 developer-agreement-contribution,4303290,4303587,local-authority:ASH
 developer-agreement-contribution,4314787,4315406,local-authority:BAE
-developer-agreement-contribution,4332170,4332287,local-authority:EXE
 developer-agreement-contribution,4305285,4305439,local-authority:BLA
 developer-agreement-contribution,4318122,4318129,local-authority:BLA
 developer-agreement-contribution,4300073,4300211,local-authority:BNH
@@ -188,6 +187,7 @@ developer-agreement-contribution,4318940,4319057,local-authority:EXE
 developer-agreement-contribution,4326975,4327092,local-authority:EXE
 developer-agreement-contribution,4331350,4331467,local-authority:EXE
 developer-agreement-contribution,4332052,4332169,local-authority:EXE
+developer-agreement-contribution,4332170,4332287,local-authority:EXE
 developer-agreement-contribution,4304465,4304469,local-authority:GAT
 developer-agreement-contribution,4327217,4327251,local-authority:GAT
 developer-agreement-contribution,4304396,4304406,local-authority:GLO
@@ -307,6 +307,7 @@ developer-agreement-transaction,4420019,4420053,local-authority:EXE
 developer-agreement-transaction,4429727,4429761,local-authority:EXE
 developer-agreement-transaction,4434255,4434289,local-authority:EXE
 developer-agreement-transaction,4435172,4435206,local-authority:EXE
+developer-agreement-transaction,4435207,4435241,local-authority:EXE
 developer-agreement-transaction,4420054,4420103,local-authority:GAT
 developer-agreement-transaction,4406141,4406148,local-authority:GLO
 developer-agreement-transaction,4417220,4417288,local-authority:GLO
@@ -365,7 +366,6 @@ developer-agreement-transaction,4404246,4404358,local-authority:WIL
 developer-agreement-transaction,4404515,4404583,local-authority:WNUA
 developer-agreement-transaction,4434290,4434410,local-authority:WOC
 developer-agreement-transaction,4406149,4406208,local-authority:WOT
-developer-agreement-transaction,4435207,4435241,local-authority:EXE
 developer-agreement-transaction,4405159,4405369,national-park-authority:Q20198711
 developer-agreement-transaction,4434084,4434084,national-park-authority:Q27178932
 developer-agreement-transaction,4401339,4401468,national-park-authority:Q72617158

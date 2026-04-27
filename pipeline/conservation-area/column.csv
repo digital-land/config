@@ -187,8 +187,8 @@ conservation-area,833e2e15068ee0aa57d94513b1ec5035b681b22a626bb080749aa323391d2b
 conservation-area,858018ae43bf622afd12e02b98b7ab9ad02cdb6f7c57d01c47a9e3215f200292,,location,name,,,
 conservation-area,858018ae43bf622afd12e02b98b7ab9ad02cdb6f7c57d01c47a9e3215f200292,,fid,reference,,,
 conservation-area,89d2deb81ed1c1e943d9f3999c565100d22db04531761bf098ed05cabf8c8423,,organisation,IGNORE,,,
-conservation-area,8bb6411b1390f7cc8e4e4a4005eaf9da9f0952d88018e223c2d3a43df52aa877,,REFNUM,reference,,,
 conservation-area,8bb6411b1390f7cc8e4e4a4005eaf9da9f0952d88018e223c2d3a43df52aa877,,NAME_,name,,,
+conservation-area,8bb6411b1390f7cc8e4e4a4005eaf9da9f0952d88018e223c2d3a43df52aa877,,REFNUM,reference,,,
 conservation-area,8c9590f522967312915ccccb5f18bea70259dcb49dfe46ead7238948de866b08,,organisation,IGNORE,,,
 conservation-area,8d3d89c9e15c08e7891b73bd00eaa1de45ae3e9c9e54de934b9622c244c37f28,,organisation,IGNORE,,,
 conservation-area,8ddf05d55c4b353a5f08b62dd3f146ea022e85271e7ccd696024142d01a28fff,,reference,name,,,
@@ -221,6 +221,7 @@ conservation-area,ac19391810de7d9001f2c97fba43c3194c7d598b90277e47d8f5fa5a4babd4
 conservation-area,ac19391810de7d9001f2c97fba43c3194c7d598b90277e47d8f5fa5a4babd491,,conservati,name,,,
 conservation-area,ac19391810de7d9001f2c97fba43c3194c7d598b90277e47d8f5fa5a4babd491,,code,reference,,,
 conservation-area,ac19391810de7d9001f2c97fba43c3194c7d598b90277e47d8f5fa5a4babd491,,mi_prinx,reference,,,
+conservation-area,b17af08a8fdea828a51abe687139c0be499eb4e19e4ba165362bec7deff22688,,reference_new,reference,2026-04-24,,2026-04-27
 conservation-area,b93fbdc4382f1e085e730bcdf2b990245f1b6e651ee58e5dc29aa25c3b1198f9,,fid,reference,,,
 conservation-area,b9613a49ae549aefc90774f71cda0c99c11814f5d3b7c5da6ade6b2893b277b6,,conname,name,,,
 conservation-area,b9b5ea6bcbca02fbf560859045d78b5ef21b5dffbaa7d578b01e810e0572d6c6,,designated,entry-date,,,
@@ -572,4 +573,3 @@ conservation-area-document,f83b9f067c28765c7d7576ac51cef6a74017dcbb406e017cc9e59
 conservation-area-document,fb2653ce8185a2888ac99ae7f6f193c138bddfb066d48072a51492270dddf04a,,organisation,IGNORE,,,
 conservation-area-document,,,organisation,IGNORE,,,
 conservation-area-document,,,entity,IGNORE,,,
-conservation-area,b17af08a8fdea828a51abe687139c0be499eb4e19e4ba165362bec7deff22688,,reference_new,reference,2026-04-24,,2026-04-27
