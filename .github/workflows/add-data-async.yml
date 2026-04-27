@@ -1,8 +1,35 @@
-name: Add Data via Async API
+name: Add Data From Async API
 
 on:
   repository_dispatch:
     types: [add-data-async]
+  workflow_dispatch:
+    inputs:
+      request_id:
+        description: 'Request ID from async API'
+        required: true
+        type: string
+      branch:
+        description: 'Git branch to use (optional)'
+        required: false
+        type: string
+      api_base_url:
+        description: 'API environment'
+        required: false
+        type: choice
+        default: 'http://staging-pub-async-api-lb-12493311.eu-west-2.elb.amazonaws.com'
+        options:
+          - 'http://development-pub-async-api-lb-69142969.eu-west-2.elb.amazonaws.com'
+          - 'http://staging-pub-async-api-lb-12493311.eu-west-2.elb.amazonaws.com'
+      retire_endpoints:
+        description: 'Comma-separated endpoint strings to retire (optional)'
+        required: false
+        type: string
+      test:
+        description: 'Run in test mode (creates draft PR)'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   fetch-and-append:
@@ -21,353 +48,40 @@ jobs:
         with:
           token: ${{ steps.app-token.outputs.token }}
 
-      - name: Validate inputs
-        id: validate
-        run: |
-          REQUEST_ID="${{ github.event.client_payload.request_id }}"
-
-          if [ -z "$REQUEST_ID" ]; then
-            echo "Error: request_id is required"
-            exit 1
-          fi
-
-          echo "request_id=$REQUEST_ID" >> $GITHUB_OUTPUT
-
-      - name: Fetch request data
-        id: fetch
-        run: |
-          REQUEST_ID="${{ steps.validate.outputs.request_id }}"
-          API_BASE_URL="${{ vars.ASYNC_API_BASE_URL }}"
-          API_BASE_URL="${API_BASE_URL:-http://staging-pub-async-api-lb-12493311.eu-west-2.elb.amazonaws.com}"
-
-          echo "Fetching request data from $API_BASE_URL/requests/$REQUEST_ID"
-
-          RESPONSE=$(curl -sf "$API_BASE_URL/requests/$REQUEST_ID")
-
-          if [ $? -ne 0 ]; then
-            echo "Error: Failed to fetch request data for $REQUEST_ID"
-            exit 1
-          fi
-
-          # Check status is COMPLETE
-          STATUS=$(echo "$RESPONSE" | jq -r '.status')
-          if [ "$STATUS" != "COMPLETE" ]; then
-            echo "Error: Request status is '$STATUS', expected 'COMPLETE'"
-            exit 1
-          fi
-
-          # Check for errors
-          ERROR=$(echo "$RESPONSE" | jq -r '.response.error // empty')
-          if [ -n "$ERROR" ]; then
-            echo "Error: Request has error: $ERROR"
-            exit 1
-          fi
-
-          # Extract collection from params
-          COLLECTION=$(echo "$RESPONSE" | jq -r '.params.collection')
-          if [ -z "$COLLECTION" ] || [ "$COLLECTION" = "null" ]; then
-            echo "Error: collection not found in request params"
-            exit 1
-          fi
-
-          # Check directories exist
-          if [ ! -d "collection/$COLLECTION" ]; then
-            echo "Error: collection/$COLLECTION does not exist"
-            exit 1
-          fi
-
-          if [ ! -d "pipeline/$COLLECTION" ]; then
-            echo "Error: pipeline/$COLLECTION does not exist"
-            exit 1
-          fi
-
-          echo "collection=$COLLECTION" >> $GITHUB_OUTPUT
-
-          # Save response to file for subsequent steps
-          echo "$RESPONSE" > /tmp/async_response.json
-          echo "Successfully fetched request data for collection: $COLLECTION"
-
-      - name: Resolve branch
-        id: branch
+      - name: Run add-data script
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          REQUEST_ID: ${{ github.event.client_payload.request_id || github.event.inputs.request_id }}
+          BRANCH_PARAM: ${{ github.event.client_payload.branch || github.event.inputs.branch }}
+          TRIGGERED_BY: ${{ github.event.client_payload.triggered_by }}
+          API_BASE_URL: ${{ github.event.client_payload.api_base_url || github.event.inputs.api_base_url || vars.ASYNC_API_BASE_URL }}
+          RETIRE_ENDPOINTS: ${{ github.event.client_payload.retire_endpoints || github.event.inputs.retire_endpoints }}
+          TEST_MODE: ${{ github.event.inputs.test }}
         run: |
-          BRANCH_PARAM="${{ github.event.client_payload.branch }}"
-          COLLECTION="${{ steps.fetch.outputs.collection }}"
+          # Get user email for triggered_by if not provided via repository_dispatch
+          if [ -z "$TRIGGERED_BY" ]; then
+            TRIGGERED_BY=$(gh api user -q .email)
+          fi
+          
+          ARGS=(
+            --request-id "$REQUEST_ID"
+            --triggered-by "$TRIGGERED_BY"
+          )
 
           if [ -n "$BRANCH_PARAM" ]; then
-            # Check if branch has an open PR
-            PR_NUMBER=$(gh pr list --head "$BRANCH_PARAM" --state open --json number --jq '.[0].number // empty')
-            if [ -n "$PR_NUMBER" ]; then
-              echo "Found open PR #$PR_NUMBER for branch $BRANCH_PARAM, checking out"
-              git fetch origin "$BRANCH_PARAM"
-              git checkout "$BRANCH_PARAM"
-              echo "branch_name=$BRANCH_PARAM" >> $GITHUB_OUTPUT
-              echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
-              echo "mode=append" >> $GITHUB_OUTPUT
-            else
-              # No open PR — check if the branch already exists in git
-              if git ls-remote --exit-code --heads origin "$BRANCH_PARAM" > /dev/null 2>&1; then
-                echo "Branch $BRANCH_PARAM exists but has no open PR, checking out"
-                git fetch origin "$BRANCH_PARAM"
-                git checkout "$BRANCH_PARAM"
-              else
-                echo "Branch $BRANCH_PARAM does not exist, will create it"
-              fi
-              echo "branch_name=$BRANCH_PARAM" >> $GITHUB_OUTPUT
-              echo "pr_number=" >> $GITHUB_OUTPUT
-              echo "mode=create" >> $GITHUB_OUTPUT
-            fi
-          else
-            NEW_BRANCH="add-data-async/$COLLECTION-$(date +%Y%m%d-%H%M%S)"
-            echo "No branch specified, will create new branch: $NEW_BRANCH"
-            echo "branch_name=$NEW_BRANCH" >> $GITHUB_OUTPUT
-            echo "pr_number=" >> $GITHUB_OUTPUT
-            echo "mode=new" >> $GITHUB_OUTPUT
+            ARGS+=(--branch "$BRANCH_PARAM")
           fi
 
-      - name: Append to endpoint.csv
-        run: |
-          COLLECTION="${{ steps.fetch.outputs.collection }}"
-          ENDPOINT_FILE="collection/$COLLECTION/endpoint.csv"
-          RESPONSE=$(cat /tmp/async_response.json)
-
-          # Check if endpoint already exists
-          ENDPOINT_EXISTS=$(echo "$RESPONSE" | jq -r '.response.data["endpoint-summary"].endpoint_url_in_endpoint_csv')
-          if [ "$ENDPOINT_EXISTS" = "true" ]; then
-            echo "Endpoint already exists in endpoint.csv, skipping"
-            exit 0
+          if [ -n "$API_BASE_URL" ]; then
+            ARGS+=(--api-base-url "$API_BASE_URL")
           fi
 
-          # Check if there's a new endpoint entry
-          HAS_ENTRY=$(echo "$RESPONSE" | jq 'if .response.data["endpoint-summary"]["new_endpoint_entry"] then "yes" else "" end' -r)
-          if [ -z "$HAS_ENTRY" ]; then
-            echo "No new endpoint entry found, skipping"
-            exit 0
+          if [ -n "$RETIRE_ENDPOINTS" ]; then
+            ARGS+=(--retire-endpoints "$RETIRE_ENDPOINTS")
           fi
 
-          # Ensure file ends with newline
-          if [ -s "$ENDPOINT_FILE" ]; then
-            LAST_CHAR=$(tail -c 1 "$ENDPOINT_FILE" | od -An -tx1 | tr -d ' ')
-            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
-              printf '\r\n' >> "$ENDPOINT_FILE"
-            fi
+          if [ "$TEST_MODE" = "true" ]; then
+            ARGS+=(--test)
           fi
 
-          # Build CSV row: endpoint,endpoint-url,parameters,plugin,entry-date,start-date,end-date
-          ROW=$(echo "$RESPONSE" | jq -r '
-            .response.data["endpoint-summary"]["new_endpoint_entry"] |
-            [.endpoint, .["endpoint-url"], .parameters, .plugin, .["entry-date"], .["start-date"], .["end-date"]] |
-            map(. // "") |
-            join(",")
-          ')
-
-          printf "%s\r\n" "$ROW" >> "$ENDPOINT_FILE"
-          echo "Added to endpoint.csv: $ROW"
-
-      - name: Append to source.csv
-        run: |
-          COLLECTION="${{ steps.fetch.outputs.collection }}"
-          SOURCE_FILE="collection/$COLLECTION/source.csv"
-          RESPONSE=$(cat /tmp/async_response.json)
-
-          # Check if source already exists
-          SOURCE_EXISTS=$(echo "$RESPONSE" | jq -r '.response.data["source-summary"].documentation_url_in_source_csv')
-          if [ "$SOURCE_EXISTS" = "true" ]; then
-            echo "Source already exists in source.csv, skipping"
-            exit 0
-          fi
-
-          HAS_ENTRY=$(echo "$RESPONSE" | jq 'if .response.data["source-summary"]["new_source_entry"] then "yes" else "" end' -r)
-          if [ -z "$HAS_ENTRY" ]; then
-            echo "No new source entry found, skipping"
-            exit 0
-          fi
-
-          # Ensure file ends with newline
-          if [ -s "$SOURCE_FILE" ]; then
-            LAST_CHAR=$(tail -c 1 "$SOURCE_FILE" | od -An -tx1 | tr -d ' ')
-            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
-              printf '\r\n' >> "$SOURCE_FILE"
-            fi
-          fi
-
-          # Build CSV row: source,attribution,collection,documentation-url,endpoint,licence,organisation,pipelines,entry-date,start-date,end-date
-          ROW=$(echo "$RESPONSE" | jq -r '
-            .response.data["source-summary"]["new_source_entry"] |
-            [.source, .attribution, .collection, .["documentation-url"], .endpoint, .licence, .organisation, .pipelines, .["entry-date"], .["start-date"], .["end-date"]] |
-            map(. // "") |
-            join(",")
-          ')
-
-          printf "%s\r\n" "$ROW" >> "$SOURCE_FILE"
-          echo "Added to source.csv: $ROW"
-
-      - name: Append to lookup.csv
-        run: |
-          COLLECTION="${{ steps.fetch.outputs.collection }}"
-          LOOKUP_FILE="pipeline/$COLLECTION/lookup.csv"
-          RESPONSE=$(cat /tmp/async_response.json)
-
-          # Check if there are new entities
-          ENTITY_COUNT=$(echo "$RESPONSE" | jq '.response.data["pipeline-summary"]["new-entities"] | length')
-          if [ "$ENTITY_COUNT" = "0" ] || [ -z "$ENTITY_COUNT" ]; then
-            echo "No new entities found, skipping lookup.csv"
-            exit 0
-          fi
-
-          # Ensure file ends with newline
-          if [ -s "$LOOKUP_FILE" ]; then
-            LAST_CHAR=$(tail -c 1 "$LOOKUP_FILE" | od -An -tx1 | tr -d ' ')
-            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
-              printf '\r\n' >> "$LOOKUP_FILE"
-            fi
-          fi
-
-          # Build CSV rows: prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date
-          echo "$RESPONSE" | jq -r '
-            .response.data["pipeline-summary"]["new-entities"][] |
-            [.prefix, .resource, .endpoint, (.["entry-number"] | tostring), .organisation, .reference, (.entity | tostring), .["entry-date"], .["start-date"], .["end-date"]] |
-            map(. // "") |
-            join(",")
-          ' | while IFS= read -r row; do
-            if [ -n "$row" ]; then
-              printf "%s\r\n" "$row" >> "$LOOKUP_FILE"
-              echo "Added to lookup.csv: $row"
-            fi
-          done
-
-      - name: Append to column.csv
-        run: |
-          COLLECTION="${{ steps.fetch.outputs.collection }}"
-          COLUMN_FILE="pipeline/$COLLECTION/column.csv"
-          RESPONSE=$(cat /tmp/async_response.json)
-
-          # Check if there's a column mapping in params
-          HAS_MAPPING=$(echo "$RESPONSE" | jq 'if .params.column_mapping and (.params.column_mapping | length > 0) then "yes" else "" end' -r)
-          if [ -z "$HAS_MAPPING" ]; then
-            echo "No column mapping found, skipping column.csv"
-            exit 0
-          fi
-
-          # Ensure file ends with newline
-          if [ -s "$COLUMN_FILE" ]; then
-            LAST_CHAR=$(tail -c 1 "$COLUMN_FILE" | od -An -tx1 | tr -d ' ')
-            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
-              printf '\r\n' >> "$COLUMN_FILE"
-            fi
-          fi
-
-          # Build CSV rows: dataset,endpoint,resource,column,field,start-date,end-date,entry-date
-          DATASET=$(echo "$RESPONSE" | jq -r '.params.dataset // ""')
-          ENDPOINT=$(echo "$RESPONSE" | jq -r '.response.data["endpoint-summary"]["new_endpoint_entry"].endpoint // ""')
-          ENTRY_DATE=$(echo "$RESPONSE" | jq -r '.response.data["endpoint-summary"]["new_endpoint_entry"]["entry-date"] // ""')
-          START_DATE=$(echo "$RESPONSE" | jq -r '.response.data["endpoint-summary"]["new_endpoint_entry"]["start-date"] // ""')
-
-          echo "$RESPONSE" | jq -r \
-            --arg dataset "$DATASET" \
-            --arg endpoint "$ENDPOINT" \
-            --arg entry_date "$ENTRY_DATE" \
-            --arg start_date "$START_DATE" '
-            .params.column_mapping | to_entries[] |
-            [$dataset, $endpoint, "", .key, .value, $start_date, "", $entry_date] |
-            join(",")
-          ' | while IFS= read -r row; do
-            if [ -n "$row" ]; then
-              printf "%s\r\n" "$row" >> "$COLUMN_FILE"
-              echo "Added to column.csv: $row"
-            fi
-          done
-
-      - name: Append to entity-organisation.csv
-        run: |
-          COLLECTION="${{ steps.fetch.outputs.collection }}"
-          ENTITY_ORG_FILE="pipeline/$COLLECTION/entity-organisation.csv"
-          RESPONSE=$(cat /tmp/async_response.json)
-
-          # Skip if authoritative is false
-          AUTHORITATIVE=$(echo "$RESPONSE" | jq -r '.params.authoritative // false')
-          if [ "$AUTHORITATIVE" != "true" ]; then
-            echo "authoritative is not true, skipping entity-organisation.csv"
-            exit 0
-          fi
-
-          # Check if there are entity-organisation entries
-          ENTRY_COUNT=$(echo "$RESPONSE" | jq '.response.data["pipeline-summary"]["entity-organisation"] | length')
-          if [ "$ENTRY_COUNT" = "0" ] || [ -z "$ENTRY_COUNT" ]; then
-            echo "No entity-organisation entries found, skipping"
-            exit 0
-          fi
-
-          # Ensure file ends with newline
-          if [ -s "$ENTITY_ORG_FILE" ]; then
-            LAST_CHAR=$(tail -c 1 "$ENTITY_ORG_FILE" | od -An -tx1 | tr -d ' ')
-            if [ "$LAST_CHAR" != "0a" ] && [ -n "$LAST_CHAR" ]; then
-              printf '\r\n' >> "$ENTITY_ORG_FILE"
-            fi
-          fi
-
-          # Build CSV rows: dataset,entity-minimum,entity-maximum,organisation
-          echo "$RESPONSE" | jq -r '
-            .response.data["pipeline-summary"]["entity-organisation"][] |
-            [.dataset, (.["entity-minimum"] | tostring), (.["entity-maximum"] | tostring), .organisation] |
-            map(. // "") |
-            join(",")
-          ' | while IFS= read -r row; do
-            if [ -n "$row" ]; then
-              printf "%s\r\n" "$row" >> "$ENTITY_ORG_FILE"
-              echo "Added to entity-organisation.csv: $row"
-            fi
-          done
-
-      - name: Commit and create PR
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          COLLECTION="${{ steps.fetch.outputs.collection }}"
-          REQUEST_ID="${{ steps.validate.outputs.request_id }}"
-          TRIGGERED_BY="${{ github.event.client_payload.triggered_by }}"
-          BRANCH_NAME="${{ steps.branch.outputs.branch_name }}"
-          PR_NUMBER="${{ steps.branch.outputs.pr_number }}"
-          MODE="${{ steps.branch.outputs.mode }}"
-
-          DATASET=$(jq -r '.params.dataset // ""' /tmp/async_response.json)
-          ORG=$(jq -r '.params.organisation // ""' /tmp/async_response.json)
-          COMMIT_LABEL="add ${DATASET} ${ORG} ${TRIGGERED_BY}"
-
-          git config user.name "github-actions-add-data-bot"
-          git config user.email "matthew.poole@communities.gov.uk"
-
-          git add collection/$COLLECTION/
-          git add pipeline/$COLLECTION/
-
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
-
-          if [ "$MODE" = "append" ]; then
-            # Commit and push to existing branch
-            git commit -m "$COMMIT_LABEL"
-            git push origin "$BRANCH_NAME"
-
-            # Append new label to existing PR body
-            CURRENT_BODY=$(gh pr view "$PR_NUMBER" --json body --jq '.body')
-            NEW_BODY=$(printf '%s\n%s' "$CURRENT_BODY" "$COMMIT_LABEL")
-            gh pr edit "$PR_NUMBER" --title "Manage Service Update" --body "$NEW_BODY"
-            echo "Appended to PR #$PR_NUMBER on branch $BRANCH_NAME"
-
-          else
-            # Create new branch (mode=new or mode=create)
-            git checkout -b "$BRANCH_NAME"
-            git commit -m "$COMMIT_LABEL"
-            git push origin "$BRANCH_NAME"
-
-            gh pr create --title "$COMMIT_LABEL" --body "$COMMIT_LABEL" --base main --head "$BRANCH_NAME"
-          fi
-
-      - name: Summary
-        run: |
-          echo "### Workflow Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "${{ steps.fetch.outputs.collection }} updated via async request ${{ steps.validate.outputs.request_id }}" >> $GITHUB_STEP_SUMMARY
+          python3 bin/add_data_async.py "${ARGS[@]}"
