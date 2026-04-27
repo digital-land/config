@@ -138,7 +138,7 @@ def as_bool(value: object) -> bool:
     return str(value).lower() == "true"
 
 
-def encode_url_for_csv(value: object) -> str:
+def normalize_url(value: object) -> str:
     raw = "" if value is None else str(value).strip()
     if not raw:
         return ""
@@ -246,7 +246,7 @@ def append_endpoint(response: dict, collection: str) -> None:
 
     row = [
         new_entry.get("endpoint"),
-        encode_url_for_csv(new_entry.get("endpoint-url")),
+        normalize_url(new_entry.get("endpoint-url")),
         new_entry.get("parameters"),
         new_entry.get("plugin"),
         new_entry.get("entry-date"),
@@ -275,7 +275,7 @@ def append_source(response: dict, collection: str) -> None:
         new_entry.get("source"),
         new_entry.get("attribution"),
         new_entry.get("collection"),
-        encode_url_for_csv(new_entry.get("documentation-url")),
+        normalize_url(new_entry.get("documentation-url")),
         new_entry.get("endpoint"),
         new_entry.get("licence"),
         new_entry.get("organisation"),

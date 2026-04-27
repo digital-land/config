@@ -30,7 +30,7 @@ def test_get_commit_label_omits_empty_parts():
 def test_encode_url_for_csv_encodes_spaces_and_preserves_existing_encoding():
     url = "example.test/path with space/already%20encoded?a=a b&x=1,2#frag ment"
 
-    encoded = add_data.encode_url_for_csv(url)
+    encoded = add_data.normalize_url(url)
 
     assert encoded == "https://example.test/path%20with%20space/already%20encoded?a=a%20b&x=1%2C2#frag%20ment"
 
