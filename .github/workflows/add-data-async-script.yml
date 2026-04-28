@@ -1,0 +1,97 @@
+name: Add Data From Async API
+
+on:
+  repository_dispatch:
+    types: [add-data-async-script]
+  workflow_dispatch:
+    inputs:
+      request_id:
+        description: 'Request ID from async API'
+        required: true
+        type: string
+      branch:
+        description: 'Git branch to use (optional)'
+        required: false
+        type: string
+      environment:
+        description: 'Async API environment'
+        required: false
+        type: choice
+        default: 'staging'
+        options:
+          - 'development'
+          - 'staging'
+          - 'production'
+      retire_endpoints:
+        description: 'Comma-separated endpoint strings to retire (optional)'
+        required: false
+        type: string
+      test:
+        description: 'Run in test mode (creates draft PR)'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  fetch-and-append:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install click pandas
+
+      - name: Run add-data script
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          REQUEST_ID: ${{ github.event.client_payload.request_id || github.event.inputs.request_id }}
+          BRANCH_PARAM: ${{ github.event.client_payload.branch || github.event.inputs.branch }}
+          TRIGGERED_BY: ${{ github.event.client_payload.triggered_by }}
+          ENVIRONMENT: ${{ github.event.client_payload.environment || github.event.inputs.environment || 'staging' }}
+          RETIRE_ENDPOINTS: ${{ github.event.client_payload.retire_endpoints || github.event.inputs.retire_endpoints }}
+          TEST_MODE: ${{ github.event.inputs.test }}
+        run: |
+          # Get user email for triggered_by if not provided via repository_dispatch
+          if [ -z "$TRIGGERED_BY" ]; then
+            TRIGGERED_BY=$(gh api user -q .email)
+          fi
+          
+          ARGS=(
+            --request-id "$REQUEST_ID"
+            --triggered-by "$TRIGGERED_BY"
+          )
+
+          if [ -n "$BRANCH_PARAM" ]; then
+            ARGS+=(--branch "$BRANCH_PARAM")
+          fi
+
+          ARGS+=(--environment "$ENVIRONMENT")
+
+          if [ -n "$RETIRE_ENDPOINTS" ]; then
+            ARGS+=(--retire-endpoints "$RETIRE_ENDPOINTS")
+          fi
+
+          if [ "$TEST_MODE" = "true" ]; then
+            ARGS+=(--test)
+          fi
+
+          python3 bin/add_data.py "${ARGS[@]}"
