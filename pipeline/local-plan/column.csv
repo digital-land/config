@@ -12,3 +12,5 @@ plan-timetable,,,minerals-plan-event,plan-event,,,
 plan-timetable,,,waste-plan-event,plan-event,,,
 plan-timetable,,,development-plan-event,plan-event,,,
 waste-plan,,,waste-planning-authorities,minerals-and-waste-planning-authorities,,,
+plan-timetable,8183eeae79febe789982afdc090006300ee72487d9af7d37957d44e44e5082a0,,plan-event,plan-event,2026-04-28,,2026-04-28
+plan-timetable,a95fa3c165f510f0685116c72e0f6478ab2b7221efc6e13213e2589de6b8003c,,plan-event,plan-event,2026-04-17,,2026-04-28
