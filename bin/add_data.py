@@ -8,14 +8,25 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional
 from urllib.error import HTTPError, URLError
-from urllib.parse import quote, urlsplit, urlunsplit
 from urllib.request import urlopen
 
 import click
 import pandas as pd
 
 
-DEFAULT_API_BASE_URL = "http://staging-pub-async-api-lb-12493311.eu-west-2.elb.amazonaws.com"
+API_BASE_URL_BY_ENVIRONMENT = {
+    "development": "http://development-pub-async-api-lb-69142969.eu-west-2.elb.amazonaws.com",
+    "staging": "http://staging-pub-async-api-lb-12493311.eu-west-2.elb.amazonaws.com",
+    "production": "http://production-pub-async-api-lb-636110663.eu-west-2.elb.amazonaws.com",
+}
+DEFAULT_ENVIRONMENT = "staging"
+
+
+def resolve_api_base_url(environment: str) -> str:
+    env = str(environment).strip().lower() or DEFAULT_ENVIRONMENT
+    if env in API_BASE_URL_BY_ENVIRONMENT:
+        return API_BASE_URL_BY_ENVIRONMENT[env]
+    fail(f"Unsupported environment: {environment}")
 
 
 def fail(message: str) -> None:
@@ -138,26 +149,6 @@ def as_bool(value: object) -> bool:
     return str(value).lower() == "true"
 
 
-def normalize_url(value: object) -> str:
-    raw = "" if value is None else str(value).strip()
-    if not raw:
-        return ""
-
-    if raw.startswith("//"):
-        raw = f"https:{raw}"
-    elif "://" not in raw:
-        raw = f"https://{raw.lstrip('/')}"
-
-    parts = urlsplit(raw)
-    if not parts.scheme or not parts.netloc:
-        return raw
-
-    encoded_path = quote(parts.path, safe="/%")
-    encoded_query = quote(parts.query, safe="=&;%+:@/%")
-    encoded_fragment = quote(parts.fragment, safe="%")
-    return urlunsplit((parts.scheme, parts.netloc, encoded_path, encoded_query, encoded_fragment))
-
-
 def build_test_branch_name(branch_name: str, collection: str) -> str:
     if branch_name:
         return f"test/{branch_name}"
@@ -246,7 +237,7 @@ def append_endpoint(response: dict, collection: str) -> None:
 
     row = [
         new_entry.get("endpoint"),
-        normalize_url(new_entry.get("endpoint-url")),
+        new_entry.get("endpoint-url"),
         new_entry.get("parameters"),
         new_entry.get("plugin"),
         new_entry.get("entry-date"),
@@ -275,7 +266,7 @@ def append_source(response: dict, collection: str) -> None:
         new_entry.get("source"),
         new_entry.get("attribution"),
         new_entry.get("collection"),
-        normalize_url(new_entry.get("documentation-url")),
+        new_entry.get("documentation-url"),
         new_entry.get("endpoint"),
         new_entry.get("licence"),
         new_entry.get("organisation"),
@@ -419,13 +410,14 @@ def run_add_data_async(
     request_id: str,
     branch: str = "",
     triggered_by: str = "",
-    api_base_url: str = DEFAULT_API_BASE_URL,
+    environment: str = DEFAULT_ENVIRONMENT,
     test_mode: bool = False,
     retire_endpoints: Optional[list[str]] = None,
 ) -> None:
     if not request_id.strip():
         fail("request_id is required")
 
+    api_base_url = resolve_api_base_url(environment)
     response = fetch_request(api_base_url, request_id)
 
     status = response.get("status")
@@ -549,11 +541,11 @@ def run_add_data_async(
 @click.option("--branch", default="", type=click.STRING, help="Optional branch supplied by dispatch payload")
 @click.option("--triggered-by", default="", type=click.STRING, help="Identifier for the actor/system that triggered this run")
 @click.option(
-    "--api-base-url",
-    default=lambda: os.getenv("ASYNC_API_BASE_URL", DEFAULT_API_BASE_URL),
-    show_default=f"env ASYNC_API_BASE_URL or {DEFAULT_API_BASE_URL}",
-    type=click.STRING,
-    help="Async API base URL",
+    "--environment",
+    default=lambda: os.getenv("ASYNC_API_ENVIRONMENT", DEFAULT_ENVIRONMENT),
+    show_default=f"env ASYNC_API_ENVIRONMENT or {DEFAULT_ENVIRONMENT}",
+    type=click.Choice(["development", "staging", "production"], case_sensitive=False),
+    help="Async API environment",
 )
 @click.option(
     "--retire-endpoints",
@@ -566,7 +558,7 @@ def main(
     request_id: str,
     branch: str,
     triggered_by: str,
-    api_base_url: str,
+    environment: str,
     retire_endpoints: tuple[str, ...],
     test_mode: bool,
 ) -> None:
@@ -578,7 +570,7 @@ def main(
         request_id=request_id,
         branch=branch,
         triggered_by=triggered_by,
-        api_base_url=api_base_url,
+        environment=environment,
         test_mode=test_mode,
         retire_endpoints=retire_endpoint_values,
     )

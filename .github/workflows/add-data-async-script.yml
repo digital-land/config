@@ -13,14 +13,15 @@ on:
         description: 'Git branch to use (optional)'
         required: false
         type: string
-      api_base_url:
-        description: 'API environment'
+      environment:
+        description: 'Async API environment'
         required: false
         type: choice
-        default: 'http://staging-pub-async-api-lb-12493311.eu-west-2.elb.amazonaws.com'
+        default: 'staging'
         options:
-          - 'http://development-pub-async-api-lb-69142969.eu-west-2.elb.amazonaws.com'
-          - 'http://staging-pub-async-api-lb-12493311.eu-west-2.elb.amazonaws.com'
+          - 'development'
+          - 'staging'
+          - 'production'
       retire_endpoints:
         description: 'Comma-separated endpoint strings to retire (optional)'
         required: false
@@ -48,13 +49,24 @@ jobs:
         with:
           token: ${{ steps.app-token.outputs.token }}
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
       - name: Run add-data script
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           REQUEST_ID: ${{ github.event.client_payload.request_id || github.event.inputs.request_id }}
           BRANCH_PARAM: ${{ github.event.client_payload.branch || github.event.inputs.branch }}
           TRIGGERED_BY: ${{ github.event.client_payload.triggered_by }}
-          API_BASE_URL: ${{ github.event.client_payload.api_base_url || github.event.inputs.api_base_url || vars.ASYNC_API_BASE_URL }}
+          ENVIRONMENT: ${{ github.event.client_payload.environment || github.event.inputs.environment || 'staging' }}
           RETIRE_ENDPOINTS: ${{ github.event.client_payload.retire_endpoints || github.event.inputs.retire_endpoints }}
           TEST_MODE: ${{ github.event.inputs.test }}
         run: |
@@ -72,9 +84,7 @@ jobs:
             ARGS+=(--branch "$BRANCH_PARAM")
           fi
 
-          if [ -n "$API_BASE_URL" ]; then
-            ARGS+=(--api-base-url "$API_BASE_URL")
-          fi
+          ARGS+=(--environment "$ENVIRONMENT")
 
           if [ -n "$RETIRE_ENDPOINTS" ]; then
             ARGS+=(--retire-endpoints "$RETIRE_ENDPOINTS")
@@ -84,4 +94,4 @@ jobs:
             ARGS+=(--test)
           fi
 
-          python3 bin/add_data_async.py "${ARGS[@]}"
+          python3 bin/add_data.py "${ARGS[@]}"

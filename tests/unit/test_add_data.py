@@ -37,12 +37,22 @@ def test_get_commit_label_omits_empty_parts():
     assert label == "add brownfield-land local-authority:ABC github-user"
 
 
-def test_encode_url_for_csv_encodes_spaces_and_preserves_existing_encoding():
-    url = "example.test/path with space/already%20encoded?a=a b&x=1,2#frag ment"
-
-    encoded = add_data.normalize_url(url)
-
-    assert encoded == "https://example.test/path%20with%20space/already%20encoded?a=a%20b&x=1%2C2#frag%20ment"
+def test_csv_writer_quotes_urls_with_commas(tmp_path):
+    """Verify that URLs with commas are properly quoted when written to CSV."""
+    csv_file = tmp_path / "test.csv"
+    url_with_comma = "http://example.test/data?x=1,2,3"
+    
+    # Write a row with a URL containing commas
+    _write_csv(csv_file, ["id", "url"], [["test-id", url_with_comma]])
+    
+    # Read back and verify the URL is intact
+    csv_content = csv_file.read_text()
+    rows = list(csv.reader(csv_content.splitlines()))
+    
+    assert rows[1][0] == "test-id"
+    assert rows[1][1] == url_with_comma
+    # Verify the CSV text contains quotes around the URL (escaped with quotes)
+    assert f'"{url_with_comma}"' in csv_content
 
 
 def test_ensure_file_ends_with_newline_appends_crlf(tmp_path):
@@ -209,14 +219,20 @@ def test_write_summary_appends_markdown(tmp_path, monkeypatch):
     assert "brownfield-land updated via async request request-123" in body
 
 
+def test_resolve_api_base_url_by_environment():
+    assert add_data.resolve_api_base_url("development") == "http://development-pub-async-api-lb-69142969.eu-west-2.elb.amazonaws.com"
+    assert add_data.resolve_api_base_url("staging") == "http://staging-pub-async-api-lb-12493311.eu-west-2.elb.amazonaws.com"
+    assert add_data.resolve_api_base_url("production") == "http://production-pub-async-api-lb-636110663.eu-west-2.elb.amazonaws.com"
+
+
 def test_click_cli_wires_options_to_runner(monkeypatch):
     captured = {}
 
-    def fake_run(request_id, branch, triggered_by, api_base_url, test_mode, retire_endpoints):
+    def fake_run(request_id, branch, triggered_by, environment, test_mode, retire_endpoints):
         captured["request_id"] = request_id
         captured["branch"] = branch
         captured["triggered_by"] = triggered_by
-        captured["api_base_url"] = api_base_url
+        captured["environment"] = environment
         captured["test_mode"] = test_mode
         captured["retire_endpoints"] = retire_endpoints
 
@@ -232,8 +248,8 @@ def test_click_cli_wires_options_to_runner(monkeypatch):
             "feature/test",
             "--triggered-by",
             "bot",
-            "--api-base-url",
-            "https://example.test",
+            "--environment",
+            "development",
             "--retire-endpoints",
             "endpoint-a,endpoint-b",
             "--retire-endpoints",
@@ -247,7 +263,7 @@ def test_click_cli_wires_options_to_runner(monkeypatch):
         "request_id": "req-123",
         "branch": "feature/test",
         "triggered_by": "bot",
-        "api_base_url": "https://example.test",
+        "environment": "development",
         "test_mode": True,
         "retire_endpoints": ["endpoint-a", "endpoint-b", "endpoint-c"],
     }
@@ -332,7 +348,7 @@ def test_run_add_data_async_test_mode_creates_draft_pr(tmp_path, monkeypatch, ca
         branch="feature/test",
         triggered_by="bot",
         test_mode=True,
-        api_base_url="https://example.test",
+        environment="development",
     )
 
     out, err = capfd.readouterr()
@@ -413,7 +429,7 @@ def test_run_add_data_async_applies_retire_endpoints(tmp_path, monkeypatch):
         branch="",
         triggered_by="bot",
         test_mode=False,
-        api_base_url="https://example.test",
+        environment="development",
         retire_endpoints=["endpoint-old"],
     )
 
