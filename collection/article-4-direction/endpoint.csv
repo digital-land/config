@@ -180,7 +180,7 @@ dd146c9d9a592f82e791748afd15f02f6182c3dc347724ee6e0e00f0cb893213,https://www.arc
 9f899dd5fa38241e35df60c98fe585e822bf149c4ad966ab55ec508cf5e5a7a8,https://www.stoke.gov.uk/download/downloads/id/2909/article_4_direction_csv_file.csv,,,2026-01-08,2026-01-06,
 5a762b7a74f89910bb2f3afabf06410827b52428f21a592b758dc5efdb3ea50b,https://services5.arcgis.com/z8GJkxrWic0alJoM/arcgis/rest/services/WODC_Article_4_Directions/FeatureServer/10,,arcgis,2026-01-16,2026-01-14,
 42131d84543ad864ed9d306eedf3efa33003302d7c4398b193e22adb731863a1,https://www.westoxon.gov.uk/media/vgtiuf5r/wodc-article-4.csv,,,2026-01-19,2026-01-15,
-2dcc4e59bfa98a3a85079e9200d23716fe5d654e145298a3c3c2f89005160030,https://smbc-opendata.s3.eu-west-1.amazonaws.com/Article4/Article4_Areas_Stockport.csv,,,2026-01-22,2026-01-22,
+2dcc4e59bfa98a3a85079e9200d23716fe5d654e145298a3c3c2f89005160030,https://smbc-opendata.s3.eu-west-1.amazonaws.com/Article4/Article4_Areas_Stockport.csv,,,2026-01-22,2026-01-22,2026-04-28
 b03a22ccc8e1b3e98f81fd528407b79a18fe72b786e37cb29d9a382f770df370,https://smbc-opendata.s3.eu-west-1.amazonaws.com/Article4/Article4_Dataset_Stockport.csv,,,2026-01-22,2026-01-22,
 b80488cc0792c31d78f9597875abaa548691bec3f4961de94775437b1cc611b7,https://www.kingston.gov.uk/sites/default/files/2026-01/RBK%20Article%204%20Direction%20-%20Sheet1.csv,,,2026-01-22,2026-01-20,
 e5c89f829f8a759fa60df01a40adcf8a2535794040474c40ff4e74b1ac5f0e2d,https://adur-worthing.statmap.co.uk/map/webservice.svc/query?script=%5cAurora%5cOpen+Digital+Web+Service%5cOpen+Digital+Planning.AuroraScript%24&taskId=AdurArticle4sDocs,,,2026-01-22,2026-01-22,
@@ -238,3 +238,4 @@ f2fa8c559a0b34a6e225a3be85c418f545fe037709234ff1fee7046337bb37ad,https://www.oxf
 fcb3af06f33437d01c865181528e97bdf078a6b9ce705fca08041b4696ea2ea7,https://ccs.maps.xmap.cloud/ccs_public/sbc_article4direction/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=public:sbc_article4direction&OUTPUTFORMAT=application/json,,,2026-04-13,2026-04-10,
 b2428774a13c84ce2202d666f6fb1bd27a399a10d9972646f4f78d10130aaaf6,https://maps.wiltshire.gov.uk/arcgis/rest/services/OpenData/Article4Directions/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2026-04-15,2026-04-15,
 27c349cd8afacb4a309ee73433f0c51e313d7a54ce936dd1e0ef5bbee44b4c0d,https://www.new.colchester.gov.uk/sites/default/files/2026-04/Article_4_Dir_ODP_Jan26.xlsx,,,2026-04-21,2026-04-20,
+fc506934d0ccc949f0f1ecd12ff8992587598e40950b067f2e1fc874b260a17a,https://raw.githubusercontent.com/digital-land/PublishExamples/refs/heads/main/Article4Direction/Files/Article4DirectionArea/articel4directionareas-(wrongColName-NewRefs).csv,,,2026-04-28,2026-01-22,
