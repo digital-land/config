@@ -9,6 +9,10 @@ on:
         description: 'Request ID from async API'
         required: true
         type: string
+      triggered_by:
+        description: 'Identifier for the actor/system that triggered this run'
+        required: true
+        type: string
       branch:
         description: 'Git branch to use (optional)'
         required: false
@@ -65,16 +69,11 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           REQUEST_ID: ${{ github.event.client_payload.request_id || github.event.inputs.request_id }}
           BRANCH_PARAM: ${{ github.event.client_payload.branch || github.event.inputs.branch }}
-          TRIGGERED_BY: ${{ github.event.client_payload.triggered_by }}
+          TRIGGERED_BY: ${{ github.event.client_payload.triggered_by || github.event.inputs.triggered_by }}
           ENVIRONMENT: ${{ github.event.client_payload.environment || github.event.inputs.environment || 'staging' }}
           RETIRE_ENDPOINTS: ${{ github.event.client_payload.retire_endpoints || github.event.inputs.retire_endpoints }}
           TEST_MODE: ${{ github.event.inputs.test }}
         run: |
-          # Get user email for triggered_by if not provided via repository_dispatch
-          if [ -z "$TRIGGERED_BY" ]; then
-            TRIGGERED_BY=$(gh api user -q .email)
-          fi
-          
           ARGS=(
             --request-id "$REQUEST_ID"
             --triggered-by "$TRIGGERED_BY"

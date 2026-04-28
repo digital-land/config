@@ -1,8 +1,6 @@
 -e git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land
-click
 pytest
 pytest-mock
 requests
 tqdm
 rapidfuzz
-pandas
