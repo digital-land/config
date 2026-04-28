@@ -87,6 +87,9 @@ conservation-area,3e7bcbc7b099c29cf896423408043fdbd7e74e3a590fd41cec2bef02cbf65b
 conservation-area,3e7bcbc7b099c29cf896423408043fdbd7e74e3a590fd41cec2bef02cbf65b71,,name,reference,,,
 conservation-area,3f7f0b05151d0c7c01c526a07f324c6ee2bdc3ddf4e864aa899746eb696c256c,,organisation,IGNORE,,,
 conservation-area,41e3ecab1cf4ba1ea172674c5b39512cf8f915bf3c65172a05d08bf5cebc7b72,,organisation,IGNORE,,,
+conservation-area,43becd73996f7d17bf98fe2ab3add464cab8fe5d9c6c65ca0cd7a07021f38fba,,designationdate,designation-date,2026-04-28,,2026-04-28
+conservation-area,43becd73996f7d17bf98fe2ab3add464cab8fe5d9c6c65ca0cd7a07021f38fba,,enddate,end-date,2026-04-28,,2026-04-28
+conservation-area,43becd73996f7d17bf98fe2ab3add464cab8fe5d9c6c65ca0cd7a07021f38fba,,entrydate,entry-date,2026-04-28,,2026-04-28
 conservation-area,44b80d3f3b154ce6411816b8ed564cdac624f30013e24f9bf943a13d884e63fc,,odp_name,name,2026-03-30,,2026-03-31
 conservation-area,4513be9fb64f6480f555685d8483dae36b1952be67c9528c9cf0725c52770921,,organisation,IGNORE,,,
 conservation-area,45e9e05f5a691b949fc16524e773c1bf254b0c2c621833e9ea66bdf21fbbd382,,organisation,IGNORE,,,
@@ -573,6 +576,3 @@ conservation-area-document,f83b9f067c28765c7d7576ac51cef6a74017dcbb406e017cc9e59
 conservation-area-document,fb2653ce8185a2888ac99ae7f6f193c138bddfb066d48072a51492270dddf04a,,organisation,IGNORE,,,
 conservation-area-document,,,organisation,IGNORE,,,
 conservation-area-document,,,entity,IGNORE,,,
-conservation-area,43becd73996f7d17bf98fe2ab3add464cab8fe5d9c6c65ca0cd7a07021f38fba,,enddate,end-date,2026-04-28,,2026-04-28
-conservation-area,43becd73996f7d17bf98fe2ab3add464cab8fe5d9c6c65ca0cd7a07021f38fba,,entrydate,entry-date,2026-04-28,,2026-04-28
-conservation-area,43becd73996f7d17bf98fe2ab3add464cab8fe5d9c6c65ca0cd7a07021f38fba,,designationdate,designation-date,2026-04-28,,2026-04-28

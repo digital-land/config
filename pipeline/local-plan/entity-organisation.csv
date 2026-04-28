@@ -713,6 +713,7 @@ local-plan,4220728,4220728,local-authority:DUD
 local-plan,4220148,4220148,local-authority:DUR
 local-plan,4220280,4220281,local-authority:DUR
 local-plan,4220729,4220729,local-authority:DUR
+local-plan,4220967,4220969,local-authority:DUR
 local-plan,4220038,4220038,local-authority:EAL
 local-plan,4220076,4220076,local-authority:EAL
 local-plan,4220793,4220793,local-authority:EAL
@@ -1775,6 +1776,7 @@ plan-timetable,5100042,5100042,local-authority:CBF
 plan-timetable,5100253,5100259,local-authority:CBF
 plan-timetable,5100470,5100472,local-authority:CBF
 plan-timetable,5104282,5104304,local-authority:CBF
+plan-timetable,5109687,5109711,local-authority:CBF
 plan-timetable,5100477,5100482,local-authority:CHA
 plan-timetable,5104305,5104327,local-authority:CHA
 plan-timetable,5100498,5100501,local-authority:CHE
@@ -1857,6 +1859,7 @@ plan-timetable,5100634,5100636,local-authority:DUR
 plan-timetable,5102786,5102791,local-authority:DUR
 plan-timetable,5103120,5103125,local-authority:DUR
 plan-timetable,5104926,5104948,local-authority:DUR
+plan-timetable,5109687,5109701,local-authority:DUR
 plan-timetable,5100114,5100121,local-authority:EAL
 plan-timetable,5100283,5100283,local-authority:EAL
 plan-timetable,5100921,5100924,local-authority:EAL
@@ -2544,6 +2547,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4220967,4220969,local-authority:DUR
-plan-timetable,5109687,5109701,local-authority:DUR
-plan-timetable,5109687,5109711,local-authority:CBF
