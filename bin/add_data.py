@@ -57,7 +57,7 @@ def run_command(cmd: list[str], capture_output: bool = False, check: bool = True
 
 def fetch_request(api_base_url: str, request_id: str) -> dict:
     request_url = f"{api_base_url.rstrip('/')}/requests/{request_id}"
-    print(f"Fetching request data from {request_url}",flush=True)
+    print(f"Fetching request data from {request_url}")
 
     try:
         with urlopen(request_url) as response:  # nosec B310
@@ -123,23 +123,23 @@ def retire_endpoints_in_csv(collection: str, retire_endpoints: list[str]) -> Non
 
     def update_file(path: Path, file_label: str) -> None:
         if not path.exists():
-            print(f"{file_label} not found, skipping retire endpoints",flush=True)
+            print(f"{file_label} not found, skipping retire endpoints")
             return
 
         frame = pd.read_csv(path, dtype=str, keep_default_na=False)
         if "endpoint" not in frame.columns or "end-date" not in frame.columns:
-            print(f"{file_label} missing required columns, skipping retire endpoints",flush=True)
+            print(f"{file_label} missing required columns, skipping retire endpoints")
             return
 
         mask = frame["endpoint"].isin(retire_endpoints)
         updated_count = int(mask.sum())
         if updated_count == 0:
-            print(f"No matching endpoints found in {file_label}",flush=True)
+            print(f"No matching endpoints found in {file_label}")
             return
 
         frame.loc[mask, "end-date"] = today
         frame.to_csv(path, index=False, lineterminator="\r\n")
-        print(f"Retired {updated_count} row(s) in {file_label} with end-date {today}",flush=True)
+        print(f"Retired {updated_count} row(s) in {file_label} with end-date {today}")
 
     update_file(endpoint_file, "endpoint.csv")
     update_file(source_file, "source.csv")
@@ -563,7 +563,7 @@ def main(
     test_mode: bool,
 ) -> None:
     print(f"Executing add_data.py with request_id={request_id}, branch={branch}, triggered_by={triggered_by}, "
-          f"environment={environment}, retire_endpoints={retire_endpoints}, test_mode={test_mode}",flush=True)
+          f"environment={environment}, retire_endpoints={retire_endpoints}, test_mode={test_mode}")
     retire_endpoint_values: list[str] = []
     for value in retire_endpoints:
         retire_endpoint_values.extend(normalize_retire_endpoints(value))
