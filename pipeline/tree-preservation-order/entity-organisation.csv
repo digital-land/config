@@ -204,6 +204,7 @@ tree-preservation-order,7001056119,7001056536,local-authority:CAS
 tree-preservation-order,7001067889,7001067890,local-authority:CAS
 tree-preservation-order,7001000540,7001000843,local-authority:CAT
 tree-preservation-order,7001053771,7001054527,local-authority:CBF
+tree-preservation-order,7001094849,7001095398,local-authority:CLD
 tree-preservation-order,7001077014,7001077446,local-authority:COV
 tree-preservation-order,7001089278,7001089617,local-authority:DAR
 tree-preservation-order,7001003965,7001004396,local-authority:DOV
@@ -257,6 +258,7 @@ tree-preservation-order,7001064274,7001064340,local-authority:NSM
 tree-preservation-order,7001077463,7001077465,local-authority:NSM
 tree-preservation-order,7001093308,7001093311,local-authority:NSM
 tree-preservation-order,7001091926,7001093275,local-authority:OXO
+tree-preservation-order,7001094684,7001094848,local-authority:OXO
 tree-preservation-order,7001030151,7001030482,local-authority:PLY
 tree-preservation-order,7001046117,7001046554,local-authority:PTE
 tree-preservation-order,7001053769,7001053769,local-authority:PTE
@@ -495,5 +497,3 @@ tree-preservation-zone,19168416,19169313,national-park-authority:Q27159704
 tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-order,7001094684,7001094848,local-authority:OXO
-tree-preservation-order,7001094849,7001095398,local-authority:CLD
