@@ -1,1 +1,5 @@
 dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date
+local-plan,,,2026-04-30,,dataset,(?<=\b|^)local-plan(?=\b|$),,
+minerals-plan,,,2026-04-30,,dataset,(?<=\b|^)minerals-plan(?=\b|$),,
+waste-plan,,,2026-04-30,,dataset,(?<=\b|^)waste-plan(?=\b|$),,
+supplementary-plan,,,2026-04-30,,dataset,(?<=\b|^)supplementary-plan(?=\b|$),,
