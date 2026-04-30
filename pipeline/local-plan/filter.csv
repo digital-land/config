@@ -1,5 +1,5 @@
 dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date
-local-plan,,,2026-04-30,,dataset,local,,
-minerals-plan,,,2026-04-30,,dataset,minerals,,
-waste-plan,,,2026-04-30,,dataset,waste,,
-supplementary-plan,,,2026-04-30,,dataset,supplementary,,
+local-plan,,,2026-04-30,,dataset,.*local,,
+minerals-plan,,,2026-04-30,,dataset,.*minerals,,
+waste-plan,,,2026-04-30,,dataset,.*waste,,
+supplementary-plan,,,2026-04-30,,dataset,.*supplementary,,
