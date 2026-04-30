@@ -637,6 +637,7 @@ local-plan,4220694,4220694,local-authority:CAT
 local-plan,4220031,4220032,local-authority:CBF
 local-plan,4220226,4220226,local-authority:CBF
 local-plan,4220696,4220696,local-authority:CBF
+local-plan,4220970,4220971,local-authority:CBF
 local-plan,4220229,4220231,local-authority:CHA
 local-plan,4220697,4220697,local-authority:CHA
 local-plan,4220237,4220238,local-authority:CHE
@@ -1563,6 +1564,7 @@ minerals-plan,530011,530011,local-authority:CON
 minerals-plan,530015,530015,local-authority:DEV
 minerals-plan,530016,530016,local-authority:DOR
 minerals-plan,530018,530018,local-authority:DUR
+minerals-plan,530065,530065,local-authority:DUR
 minerals-plan,530019,530019,local-authority:ESS
 minerals-plan,530023,530023,local-authority:GLS
 minerals-plan,530024,530024,local-authority:HAM
@@ -2504,6 +2506,7 @@ waste-plan,540012,540012,local-authority:BRD
 waste-plan,540016,540018,local-authority:CMA
 waste-plan,540023,540023,local-authority:DEV
 waste-plan,540025,540025,local-authority:DUR
+waste-plan,540071,540071,local-authority:DUR
 waste-plan,540030,540030,local-authority:GLS
 waste-plan,540031,540031,local-authority:HAM
 waste-plan,540033,540033,local-authority:HEF
@@ -2547,6 +2550,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4220970,4220971,local-authority:CBF
-minerals-plan,530065,530065,local-authority:DUR
-waste-plan,540071,540071,local-authority:DUR
