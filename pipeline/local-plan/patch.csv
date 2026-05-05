@@ -1,1 +1,3 @@
 dataset,resource,field,pattern,value,entry-number,start-date,end-date,entry-date,endpoint
+minerals-plan,,dataset,minerals,minerals-plan,,,,2026-04-30,
+waste-plan,,dataset,waste,waste-plan,,,,2026-04-30,
