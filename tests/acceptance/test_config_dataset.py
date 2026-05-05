@@ -191,12 +191,12 @@ lookup_files = _collect_files("lookup.csv")
     lookup_files,
     ids=[_test_id(f) for f in lookup_files],
 )
-def test_lookup(file_path, tmp_path, specification_dir, ended_organisations):
+def test_lookup(file_path, tmp_path, specification_dir, ended_organisations,prefix_aliases):
     source_file_path = file_path
     lookup_dir = Path(file_path).parent
     entity_org_file = str(lookup_dir / "entity-organisation.csv")
     entity_org_file = _normalise_file(entity_org_file, tmp_path)
-    
+    prefix_aliases["statistical-geography"].append("statistical-geography")
     file_path = _normalise_file(file_path, tmp_path)
     lookup_rules = [
         {
@@ -209,16 +209,14 @@ def test_lookup(file_path, tmp_path, specification_dir, ended_organisations):
                 "max_field": "entity-maximum",
                 "lookup_dataset_field": "prefix",
                 "range_dataset_field": "dataset",
+                "dataset_aliases":prefix_aliases,
                 "rules": {
                     "lookup_rules": [
                         {
                             "prefix": {
                                 "op": "not in",
                                 "value": [
-                                    "conservation-area",
-                                    "planning-application-condition",
-                                    "planning-condition",
-                                    "statistical-geography"
+                                    "conservation-area"
                                 ],
                             },
                             "organisation": {
