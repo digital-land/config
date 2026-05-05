@@ -9,6 +9,7 @@ article-4-direction,6100353,6100368,local-authority:BST
 article-4-direction,6102161,6102179,local-authority:CAB
 article-4-direction,6100336,6100339,local-authority:CAS
 article-4-direction,6100892,6100898,local-authority:CBF
+article-4-direction,6102972,6102998,local-authority:CHL
 article-4-direction,6102099,6102099,local-authority:CLD
 article-4-direction,6100032,6100047,local-authority:CMD
 article-4-direction,6101839,6101842,local-authority:CMD
@@ -78,6 +79,7 @@ article-4-direction,6102347,6102376,local-authority:SKP
 article-4-direction,6101792,6101794,local-authority:SLF
 article-4-direction,6100817,6100871,local-authority:SNO
 article-4-direction,6100371,6100386,local-authority:SST
+article-4-direction,6102999,6103001,local-authority:STA
 article-4-direction,6102180,6102206,local-authority:STE
 article-4-direction,6100226,6100229,local-authority:SWK
 article-4-direction,6101015,6101490,local-authority:SWK
@@ -226,5 +228,3 @@ article-4-direction-area,7010005181,7010005190,local-authority:WSM
 article-4-direction-area,7010009089,7010009092,local-authority:YOR
 article-4-direction-area,7010009405,7010009434,national-park-authority:Q27159704
 article-4-direction-area,7010006887,7010006912,national-park-authority:Q72617158
-article-4-direction,6102972,6102998,local-authority:CHL
-article-4-direction,6102999,6103001,local-authority:STA

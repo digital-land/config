@@ -1107,6 +1107,7 @@ local-plan,4220558,4220558,local-authority:SUA
 local-plan,4220595,4220595,local-authority:SUA
 local-plan,4220639,4220639,local-authority:SUA
 local-plan,4220890,4220890,local-authority:SUA
+local-plan,4220972,4220980,local-authority:SUA
 local-plan,4220584,4220585,local-authority:SUR
 local-plan,4220918,4220918,local-authority:SUR
 local-plan,4220588,4220589,local-authority:SWD
@@ -1812,6 +1813,7 @@ plan-timetable,5104581,5104603,local-authority:COL
 plan-timetable,5100567,5100570,local-authority:CON
 plan-timetable,5102753,5102758,local-authority:CON
 plan-timetable,5104604,5104626,local-authority:CON
+plan-timetable,5109727,5109767,local-authority:CON
 plan-timetable,5100571,5100574,local-authority:COT
 plan-timetable,5104627,5104649,local-authority:COT
 plan-timetable,5100579,5100583,local-authority:COV
@@ -2294,6 +2296,7 @@ plan-timetable,5101407,5101410,local-authority:SUA
 plan-timetable,5101526,5101529,local-authority:SUA
 plan-timetable,5101646,5101649,local-authority:SUA
 plan-timetable,5108307,5108329,local-authority:SUA
+plan-timetable,5109712,5109726,local-authority:SUA
 plan-timetable,5101492,5101497,local-authority:SUF
 plan-timetable,5101501,5101506,local-authority:SUR
 plan-timetable,5102402,5102426,local-authority:SUR
@@ -2550,6 +2553,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5109712,5109726,local-authority:SUA
-local-plan,4220972,4220980,local-authority:SUA
-plan-timetable,5109727,5109767,local-authority:CON
