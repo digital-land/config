@@ -1,1 +1,5 @@
 dataset,endpoint,resource,column,field,start-date,end-date,entry-date
+nutrient-neutrality-catchment,859644c589c21216995b4c66fe3f6bf96617727d913ea1787363cbe805b2a014,,WKT,geometry,2026-05-07,,2026-05-07
+nutrient-neutrality-catchment,859644c589c21216995b4c66fe3f6bf96617727d913ea1787363cbe805b2a014,,Label,name,2026-05-07,,2026-05-07
+nutrient-neutrality-catchment,859644c589c21216995b4c66fe3f6bf96617727d913ea1787363cbe805b2a014,,OBJECTID,reference,2026-05-07,,2026-05-07
+nutrient-neutrality-catchment,859644c589c21216995b4c66fe3f6bf96617727d913ea1787363cbe805b2a014,,DateAmend,entry-date,2026-05-07,,2026-05-07
