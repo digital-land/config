@@ -68,6 +68,7 @@ tree,7002200984,7002207598,local-authority:LDS
 tree,7002129341,7002130911,local-authority:LIV
 tree,7002148325,7002153365,local-authority:MAI
 tree,7002180223,7002185307,local-authority:MAI
+tree,7002224426,7002226472,local-authority:MIK
 tree,7002109394,7002111393,local-authority:NBL
 tree,7002132151,7002133727,local-authority:NBL
 tree,7002140570,7002140597,local-authority:NBL
@@ -239,6 +240,7 @@ tree-preservation-order,7001039893,7001039894,local-authority:MDW
 tree-preservation-order,7001045931,7001045931,local-authority:MDW
 tree-preservation-order,7001056110,7001056110,local-authority:MDW
 tree-preservation-order,7001088866,7001088876,local-authority:MDW
+tree-preservation-order,7001095399,7001095475,local-authority:MIK
 tree-preservation-order,7001063526,7001063978,local-authority:NBL
 tree-preservation-order,7001067891,7001067891,local-authority:NBL
 tree-preservation-order,7001068405,7001068405,local-authority:NBL
@@ -498,5 +500,3 @@ tree-preservation-zone,19168416,19169313,national-park-authority:Q27159704
 tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002224426,7002226472,local-authority:MIK
-tree-preservation-order,7001095399,7001095475,local-authority:MIK
