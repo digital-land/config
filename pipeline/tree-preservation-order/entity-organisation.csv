@@ -214,6 +214,7 @@ tree-preservation-order,7001014331,7001014332,local-authority:DOV
 tree-preservation-order,7001054528,7001055059,local-authority:ECA
 tree-preservation-order,7001059531,7001059534,local-authority:ECA
 tree-preservation-order,7001077460,7001077461,local-authority:ECA
+tree-preservation-order,7001095476,7001099477,local-authority:EHA
 tree-preservation-order,7001014877,7001015291,local-authority:EPS
 tree-preservation-order,7001056537,7001056745,local-authority:GAT
 tree-preservation-order,7001002221,7001003249,local-authority:GRY
@@ -500,4 +501,3 @@ tree-preservation-zone,19168416,19169313,national-park-authority:Q27159704
 tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-order,7001095476,7001099477,local-authority:EHA
