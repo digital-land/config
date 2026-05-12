@@ -43,7 +43,7 @@ on:
 
 jobs:
   auto-batch-assign:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Generate GitHub App token
@@ -67,6 +67,8 @@ jobs:
       - name: Install dependencies
         run: |
           sudo add-apt-repository ppa:ubuntugis/ppa -y
+          sudo apt-get update
+          sudo apt-get install -y gdal-bin libgdal-dev
           python -m pip install --upgrade pip
           pip install click pandas tqdm
           pip install -e "git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land"
@@ -107,7 +109,7 @@ jobs:
           name: generated-files
           path: |
             resource/
-            var/cache/assign_entities/transformed/
+            var/cache/assign_entities/transformed/*.csv
             batch_assign_summary*.csv
             issue_summary.csv
             

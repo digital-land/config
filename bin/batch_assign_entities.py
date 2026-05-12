@@ -536,7 +536,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
             lookup_path = Path("pipeline") / collection_name / "lookup.csv"
             try:
                 # Snapshot existing entities for this org before assignment
-                pre_lookup_df = pd.read_csv(lookup_path)
+                pre_lookup_df = pd.read_csv(lookup_path,dtype=str)
                 pre_org_entities = set(
                     pre_lookup_df[
                         (pre_lookup_df["prefix"] == dataset) &
