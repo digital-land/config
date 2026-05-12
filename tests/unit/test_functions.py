@@ -1,23 +1,7 @@
 import pytest
 import pandas as pd
 
-from bin.batch_assign_entities import get_field_value_map, get_old_resource_df, get_scope
-
-
-def test_get_field_value_map():
-    data = {
-        'entity': [1, 1, 1, 1, 2, 2, 2, 2],
-        'field': ['name', 'geometry', 'reference', 'entry-date', 'name', 'geometry' , 'reference', 'entry-date'],
-        'value': ['CA1_name', 'POINT()', 'ref1', '2025-01-01', 'CA2_name', 'MULTIPOLYGON()', 'ref2', '2025-01-01']
-    }
-    df = pd.DataFrame(data)
-    result = get_field_value_map(df, 1)
-    assert result == {'name': 'CA1_name', 'geometry': 'POINT()'}
-    assert 'reference' and 'entry-date' not in result
-
-    result = get_field_value_map(df, 2)
-    assert result == {'name': 'CA2_name', 'geometry': 'MULTIPOLYGON()'}
-    assert 'reference' and 'entry-date' not in result
+from bin.batch_assign_entities import get_old_resource_df, get_scope
 
 
 def test_get_old_resource_df(mocker):

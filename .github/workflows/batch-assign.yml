@@ -3,6 +3,9 @@ name: Add Data From Async API
 on:
   repository_dispatch:
     types: [auto-batch-assign]
+  push:
+    branches:
+      - 144-refactor-batch-assign---moving-logic-to-digital-land-python-and-create-github-action
   workflow_dispatch:
     inputs:
       scope:
@@ -25,6 +28,7 @@ on:
       branch:
         description: 'Git branch to use (optional)'
         required: false
+        default: 'auto/batch-assign-entities'
         type: string
       skip_checks:
         description: 'Skip validation checks and directly assign entities (use with caution)'
@@ -42,12 +46,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - name: Generate GitHub App token
-      #   id: app-token
-      #   uses: actions/create-github-app-token@v1
-      #   with:
-      #     app-id: ${{ secrets.APP_ID }}
-      #     private-key: ${{ secrets.APP_PRIVATE_KEY }}
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -57,7 +61,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.9'
           cache: 'pip'
 
       - name: Install dependencies
@@ -65,7 +69,7 @@ jobs:
           add-apt-repository ppa:ubuntugis/ppa -y
           apt-get install libpq-dev gdal-bin libgdal-dev sqlite3 libsqlite3-mod-spatialite -y
           python -m pip install --upgrade pip
-          pip install click pandas
+          pip install click pandas tqdm
           pip install -e "git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land"
           
       - name: Run add-data script
@@ -92,9 +96,9 @@ jobs:
             ARGS+=(--skip-checks)
           fi
 
-            if [ -n "$NEW_ENTITIES_THRESHOLD" ]; then
-                ARGS+=(--new-entities-threshold "$NEW_ENTITIES_THRESHOLD")
-            fi
+          if [ -n "$NEW_ENTITIES_THRESHOLD" ]; then
+            ARGS+=(--new-entity-threshold "$NEW_ENTITIES_THRESHOLD")
+          fi
 
           python3 bin/batch_assign_entities.py "${ARGS[@]}"
 
@@ -104,5 +108,8 @@ jobs:
           name: generated-files
           path: |
             batch_assign_summary.csv
+            batch_assign_summary_odp.csv
+            batch_assign_summary_mandated.csv
+            batch_assign_summary_single-source.csv
             issue_summary.csv
             

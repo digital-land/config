@@ -293,28 +293,51 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                 )
                 issue_df = pd.read_csv(cache_dir / "assign_entities" /"issue" / f"{resource}.csv")
                 
-                validation_error_rows = []
+                output_rows = []
 
                 def add_output_log(rows):
                     if rows:
-                        validation_error_rows.extend(rows)
+                        output_rows.extend(rows)
 
                 # get old transformed resource
                 old_resource_df = get_old_resource_df(endpoint,collection_name,dataset)
-                past_entity_threshold = False
                 # get current transformed resource
                 current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
                 new_entities = set(current_resource_df['entity'])
+                current_entities = set(current_resource_df['entity'])
+                old_entities = set()
                 
-                if(old_resource_df is None):
-                    print(f"No previous transformed resource found for endpoint: {endpoint}")    
-                else:
-                    current_entities = set(current_resource_df['entity'])
+                if not skip_checks and len(current_resource_df) == 0:
+                    add_output_log([
+                            {
+                                "dataset": dataset,
+                                "resource": resource,
+                                "organisation": organisation_name,
+                                "reference": "",
+                                "status": "error",
+                                "error_code": "current_resource_empty",
+                                "message": f"Current resource has no entities for assignment."
+                            }
+                        ])
+                    output_df = pd.concat(
+                        [output_df, pd.DataFrame(output_rows)],
+                        ignore_index=True,
+                    )
+                        
+                    successful_resources.append(resource_path)
+                    continue
+                
+                
+                if(old_resource_df is not None):
+                    # we get the old entities from the old transformed resource to compare against new entities in current transformed resource for validation checks. 
                     old_entities = set(old_resource_df['entity'])
                     # store new entities in current_resource_df
                     new_entities = list(current_entities - old_entities)
                     
-                    if not skip_checks and len(old_resource_df) < 1:
+                
+                if not skip_checks:
+                    # There is a possibility that the previous resource had no entities. 
+                    if len(old_entities) < 1 and old_resource_df is not None:
                         add_output_log([
                                 {
                                     "dataset": dataset,
@@ -327,7 +350,9 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                                 }
                             ])
                     
-                    if not skip_checks and len(old_resource_df) > 0:
+
+                    # perform checks that require the previous resource or existing entities
+                    if len(old_entities) > 0 and len(new_entities) > 0:
                             
                         new_resource_only_df = current_resource_df[current_resource_df['entity'].isin(new_entities)]
                         
@@ -344,12 +369,11 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                                     }
                                 ]
                             )
-                            past_entity_threshold = True
                         
 
                         old_fp = _make_fingerprints(old_resource_df)
                         cur_fp = _make_fingerprints(new_resource_only_df)
-
+                        
                         # join on fingerprint to find exact content matches (many-to-many possible)
                         matches = cur_fp.merge(old_fp, on='fingerprint', how='inner', suffixes=('_new', '_old'))
                         if not matches.empty:
@@ -427,10 +451,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                                 }
                                 for _, match_row in matches.iterrows()
                             ])
-                      
-                
-                if not skip_checks:
-                    
+                        
                     # Duplicate reference for the same organisation in new entities only (not in old resource)
                     dup_ref_org_new_only_df = _make_fingerprints(current_resource_df, except_fields=[], only_fields=["organisation", "reference"])
                     dup_ref_org_new_only_df = dup_ref_org_new_only_df[
@@ -451,15 +472,15 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                             }
                             for _, dup_row in dup_ref_org_new_only_df.iterrows()
                         ])
-                    
-                    
+                        
                     field_values = current_resource_df[
                         current_resource_df['field'].isin(['organisation', 'reference', 'prefix'])
                     ][['entity', 'field', 'value']].drop_duplicates()
                     fp = field_values.pivot_table(index='entity', columns='field', values='value', aggfunc='first').reset_index()
-                   
+
                     # Missing organisation in current transformed rows
                     missing_organisation_df = fp[(fp['organisation'].isna()) | (fp['organisation'] == '')]
+                    
                     if not missing_organisation_df.empty:
                         add_output_log([
                             {
@@ -490,16 +511,14 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                             for _, missing_ref_row in missing_reference_df.iterrows()
                         ])
 
-                if validation_error_rows:
+                if output_rows:
                     output_df = pd.concat(
-                        [output_df, pd.DataFrame(validation_error_rows)],
+                        [output_df, pd.DataFrame(output_rows)],
                         ignore_index=True,
                     )
-                
-                    # If any of the above issues are detected, skip the resource to avoid processing resources with potentially critical issues in entity assignment
-                    if (past_entity_threshold or validation_error_rows):
-                        successful_resources.append(resource_path)
-                        continue
+                        
+                    successful_resources.append(resource_path)
+                    continue
                     
                 add_output_log(
                     [
@@ -515,11 +534,10 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                         }
                     ]
                 )
-                if validation_error_rows:
-                    output_df = pd.concat(
-                        [output_df, pd.DataFrame(validation_error_rows)],
-                        ignore_index=True,
-                    )
+                output_df = pd.concat(
+                    [output_df, pd.DataFrame(output_rows)],
+                    ignore_index=True,
+                )
                 shutil.copy(cache_dir / "assign_entities" / collection_name / "pipeline" / "lookup.csv", Path("pipeline") / collection_name / "lookup.csv")
                 print(f"\nEntities assigned successfully for")
                 successful_resources.append(resource_path)
@@ -555,7 +573,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                 }])], ignore_index=True)
     
     finally:
-        output_df.to_csv("batch_assign_summary.csv", index=False)
+        output_df.to_csv(f"batch_assign_summary_{scope}.csv", index=False)
         # Remove successfully processed resources
         for resource_path in successful_resources:
             try:
@@ -571,6 +589,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                 resource_dir.rmdir()
         except OSError as e:
             print(f"Failed to remove the resources directory: {e}")
+    
     # Summary of results
     print("\n--- Summary Report ---")
     if failed_downloads:
