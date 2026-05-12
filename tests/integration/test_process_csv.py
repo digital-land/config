@@ -110,8 +110,10 @@ def test_process_csv_match_entities(
     issue_summary_df = pd.read_csv(mock_issue_summary)
     issue_summary_df["download_link"] = "http://example.com/test-resource"
     issue_summary_df["resource_path"] = str(resource_file)
+    issue_summary_df["endpoint"] = "test-endpoint"
 
-    monkeypatch.setattr(batch_assign_entities, "get_old_resource_df", lambda *args, **kwargs: pd.DataFrame(
+    monkeypatch.setattr(batch_assign_entities, "get_old_resource_hashes_batch", lambda *args, **kwargs: {"test-endpoint": "test-hash"})
+    monkeypatch.setattr(batch_assign_entities, "get_old_resource_df_from_hash", lambda *args, **kwargs: pd.DataFrame(
         {
             "entity": [1, 1, 1, 1],
             "field": ["organisation", "name", "reference", "geometry"],
@@ -164,7 +166,7 @@ def test_process_csv_success(
     issue_summary_df["download_link"] = "http://example.com/test-resource"
     issue_summary_df["resource_path"] = str(resource_file)
 
-    monkeypatch.setattr(batch_assign_entities, "get_old_resource_df", lambda *args, **kwargs: None)
+    monkeypatch.setattr(batch_assign_entities, "get_old_resource_hashes_batch", lambda *args, **kwargs: {"test-endpoint": None})
     monkeypatch.setattr(batch_assign_entities, "check_and_assign_entities", lambda *args, **kwargs: True)
 
     failed_downloads, output_df = batch_assign_entities.process_csv(

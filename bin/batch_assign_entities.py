@@ -8,13 +8,14 @@ import traceback
 import subprocess
 
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict
 from io import StringIO
 from digital_land.commands import check_and_assign_entities
 from digital_land.specification import Specification
 
 from tqdm import tqdm
 from urllib.request import urlretrieve
+from urllib.parse import urlencode
 from concurrent.futures import ThreadPoolExecutor
 
 logger = logging.getLogger(__name__)
@@ -170,35 +171,71 @@ def download_urls(url_map, max_threads=4):
                 logger.error(f"Error during download: {e}")
         return results
 
-def get_old_resource_df(endpoint, collection_name, dataset):
+def get_old_resource_hashes_batch(endpoints: list) -> Dict[str, str]:
     """
-    returns transformed file for second latest resource using endpoint hash from CDN
+    Fetch old resource hashes for multiple endpoints at once using a single SQL query.
+    Returns a dictionary mapping endpoint -> resource_hash
     """
-    url = (
-        f"https://datasette.planning.data.gov.uk/performance/reporting_historic_endpoints.csv"
-        f"?_sort=rowid&resource_end_date__notblank=1&endpoint__exact={endpoint}&_size=1"
-    )
-    response = requests.get(url)
-    response.raise_for_status()
-    previous_resource_df = pd.read_csv(StringIO(response.text), dtype=str, low_memory=False)
-    if len(previous_resource_df) == 0:
-        return None
+    if not endpoints:
+        return {}
 
-    old_resource_hash = previous_resource_df['resource'][0]
-    print(f"=====")
-    print(f" collection || dataset || old_resource_hash")
-    print(f" {collection_name} || {dataset} || {old_resource_hash}")
-    transformed_url = (
-        f"https://files.planning.data.gov.uk/{collection_name}-collection/transformed/{dataset}/{old_resource_hash}.csv"
-    )
-    transformed_response = requests.get(transformed_url)
-    transformed_response.raise_for_status()
-    # Save the old transformed resource to resource/old before reading
-    old_resource_dir = Path("resource") / "old"
-    old_resource_dir.mkdir(parents=True, exist_ok=True)
-    old_file_path = old_resource_dir / f"{old_resource_hash}.csv"
-    old_file_path.write_bytes(transformed_response.content)
-    return pd.read_csv(old_file_path, dtype=str, low_memory=False)
+    DATASETTE_BASE_URL = "https://datasette.planning.data.gov.uk/digital-land.csv"
+    
+    # Build the endpoint list for the SQL query
+    endpoint_list = ', '.join([f"'{ep}'" for ep in endpoints])
+    
+    query = f"""SELECT endpoint, resource
+FROM (
+    SELECT endpoint, resource, resource_end_date,
+    ROW_NUMBER() OVER (
+        PARTITION BY endpoint
+        ORDER BY rowid
+    ) AS rn
+    FROM reporting_historic_endpoints
+    WHERE resource_end_date IS NOT NULL
+    AND endpoint IN ({endpoint_list})
+)
+WHERE rn = 1
+ORDER BY endpoint"""
+    
+    params = urlencode({"sql": query})
+    url = f"{DATASETTE_BASE_URL}?{params}"
+    
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        result_df = pd.read_csv(StringIO(response.text), dtype=str, low_memory=False)
+        
+        # Create a mapping of endpoint -> resource
+        endpoint_resource_map = dict(zip(result_df['endpoint'], result_df['resource']))
+        return endpoint_resource_map
+    except Exception as e:
+        logger.error(f"Error fetching old resource hashes: {e}")
+        return {}
+
+
+def get_old_resource_df_from_hash(resource_hash: str, collection_name: str, dataset: str):
+    """
+    Fetch the transformed CSV for an old resource given its hash.
+    """
+    try:
+        transformed_url = (
+            f"https://files.planning.data.gov.uk/{collection_name}-collection/transformed/{dataset}/{resource_hash}.csv"
+        )
+        transformed_response = requests.get(transformed_url)
+        transformed_response.raise_for_status()
+        
+        # Save the old transformed resource to resource/old before reading
+        old_resource_dir = Path("resource") / "old"
+        old_resource_dir.mkdir(parents=True, exist_ok=True)
+        old_file_path = old_resource_dir / f"{resource_hash}.csv"
+        old_file_path.write_bytes(transformed_response.content)
+        
+        
+        return pd.read_csv(old_file_path, dtype=str, low_memory=False)
+    except Exception as e:
+        logger.error(f"Error downloading old resource {resource_hash}: {e}")
+        return None
 
 
                             
@@ -454,6 +491,13 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
     failed_downloads = []
     successful_resources = []
     output_df = pd.DataFrame(columns=["dataset", "resource", "organisation", "reference", "status", "entities_created", "error_code", "message"])
+    
+    # Batch fetch all old resource hashes at once to reduce API calls
+    unique_endpoints = issue_summary_df['endpoint'].unique().tolist()
+    print(f"Fetching old resource hashes for {len(unique_endpoints)} unique endpoints...")
+    endpoint_resource_map = get_old_resource_hashes_batch(unique_endpoints)
+    print(f"Successfully retrieved {len(endpoint_resource_map)} old resource hashes")
+    
     try:
         pbar = tqdm(issue_summary_df.iterrows(), total=issue_summary_df.shape[0], desc="Processing resources")
         for row_number, row in pbar:
@@ -519,8 +563,16 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     if rows:
                         output_rows.extend(rows)
 
-                # get old transformed resource
-                old_resource_df = get_old_resource_df(endpoint, collection_name, dataset)
+                # get old transformed resource using pre-fetched resource hash
+                old_resource_df = None
+                if endpoint in endpoint_resource_map:
+                    old_resource_hash = endpoint_resource_map[endpoint]
+                    
+                    print(f"=====")
+                    print(f" collection || dataset || old_resource_hash || endpoint")
+                    print(f" {collection_name} || {dataset} || {old_resource_hash} || {endpoint}")
+                    old_resource_df = get_old_resource_df_from_hash(old_resource_hash, collection_name, dataset)
+                
                 # get current transformed resource
                 current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
 
@@ -540,7 +592,6 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                         [output_df, pd.DataFrame(output_rows)],
                         ignore_index=True,
                     )
-                    successful_resources.append(resource_path)
                     continue
 
                 validation_rows, old_entities, new_entities = _collect_validation_rows(
@@ -559,7 +610,6 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                         [output_df, pd.DataFrame(output_rows)],
                         ignore_index=True,
                     )
-                    successful_resources.append(resource_path)
                     continue
 
                 add_output_log(

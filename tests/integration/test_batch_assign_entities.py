@@ -8,7 +8,7 @@ from unittest.mock import MagicMock, Mock, patch
 import pandas as pd
 import pytest
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "bin"))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "bin"))
 
 from batch_assign_entities import (
     _collect_validation_rows,
@@ -16,7 +16,7 @@ from batch_assign_entities import (
     download_file,
     download_urls,
     ensure_specification_dir,
-    get_old_resource_df,
+    get_old_resource_hashes_batch,
     get_scope,
     process_csv,
     run_command,
@@ -184,82 +184,17 @@ def test_download_urls_empty_map(mock_tqdm, mock_download):
     mock_download.assert_not_called()
 
 
-@patch("batch_assign_entities.requests.get")
-def test_get_old_resource_success_returns_dataframe_with_entities(mock_get):
-    historic_response = Mock()
-    historic_response.text = "resource,endpoint\nhash123,endpoint456\n"
-
-    transformed_response = Mock()
-    transformed_response.text = (
-        "entity,field,value\n"
-        "1,organisation,org1\n"
-        "1,reference,ref1\n"
-        "2,organisation,org2\n"
-        "2,reference,ref2\n"
-    )
-    transformed_response.content = transformed_response.text.encode("utf-8")
-    transformed_response.raise_for_status = Mock()
-
-    mock_get.side_effect = [historic_response, transformed_response]
-
-    result = get_old_resource_df("endpoint456", "conservation-area", "conservation-area")
-
-    assert isinstance(result, pd.DataFrame)
-    assert "entity" in result.columns
-    assert len(result) == 4
-    assert "1" in result["entity"].values
-    assert "2" in result["entity"].values
-    assert "org1" in result["value"].values
-
-
-@patch("batch_assign_entities.pd.read_csv")
-@patch("batch_assign_entities.requests.get")
-def test_get_old_resource_no_previous_returns_none(mock_get, mock_read_csv):
-    historic_response = Mock()
-    historic_response.text = ""
-    mock_get.return_value = historic_response
-    mock_read_csv.return_value = pd.DataFrame()
-
-    result = get_old_resource_df("endpoint456", "conservation-area", "conservation-area")
-
-    assert result is None
-
-
-@patch("batch_assign_entities.requests.get")
-def test_get_old_resource_fetches_correct_url(mock_get):
-    historic_response = Mock()
-    historic_response.text = "resource,endpoint\nhash123,endpoint456\n"
-
-    transformed_response = Mock()
-    transformed_response.text = "entity,field,value\n1,organisation,org1\n"
-    transformed_response.content = transformed_response.text.encode("utf-8")
-    transformed_response.raise_for_status = Mock()
-
-    mock_get.side_effect = [historic_response, transformed_response]
-
-    get_old_resource_df("endpoint456", "conservation-area", "conservation-area")
-
-    first_call = mock_get.call_args_list[0]
-    assert "endpoint__exact=endpoint456" in first_call[0][0]
-    assert "performance/reporting_historic_endpoints.csv" in first_call[0][0]
-
-
-@patch("batch_assign_entities.requests.get")
-def test_get_old_resource_http_error_raises(mock_get):
-    mock_get.side_effect = Exception("HTTP 404")
-    with pytest.raises(Exception, match="HTTP 404"):
-        get_old_resource_df("endpoint456", "conservation-area", "conservation-area")
-
-
+@patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
-@patch("batch_assign_entities.get_old_resource_df")
+@patch("batch_assign_entities.get_old_resource_df_from_hash")
 @patch("batch_assign_entities.pd.read_csv")
 @patch("batch_assign_entities.shutil.copy")
 def test_process_csv_detects_duplicate_all_fields(
     mock_copy,
     mock_read_csv,
-    mock_get_old,
+    mock_get_old_hash,
     mock_check,
+    mock_batch_hashes,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -282,8 +217,9 @@ def test_process_csv_detects_duplicate_all_fields(
     )
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
+    mock_batch_hashes.return_value = {"endpoint456": "hash123"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
-    mock_get_old.return_value = old_resource_df
+    mock_get_old_hash.return_value = old_resource_df
 
     failed_downloads, output_df = process_csv(
         "odp",
@@ -301,15 +237,17 @@ def test_process_csv_detects_duplicate_all_fields(
     assert "Matches existing entity" in dup_rows.iloc[0]["message"]
 
 
+@patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
-@patch("batch_assign_entities.get_old_resource_df")
+@patch("batch_assign_entities.get_old_resource_df_from_hash")
 @patch("batch_assign_entities.pd.read_csv")
 @patch("batch_assign_entities.shutil.copy")
 def test_process_csv_detects_duplicate_prefix_reference_organisation(
     mock_copy,
     mock_read_csv,
-    mock_get_old,
+    mock_get_old_hash,
     mock_check,
+    mock_batch_hashes,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -332,8 +270,9 @@ def test_process_csv_detects_duplicate_prefix_reference_organisation(
     )
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
+    mock_batch_hashes.return_value = {"endpoint456": "hash123"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
-    mock_get_old.return_value = old_resource_df
+    mock_get_old_hash.return_value = old_resource_df
 
     _, output_df = process_csv(
         "odp",
@@ -348,15 +287,17 @@ def test_process_csv_detects_duplicate_prefix_reference_organisation(
     assert "duplicate_prefix_reference_organisation" in output_df["error_code"].values
 
 
+@patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
-@patch("batch_assign_entities.get_old_resource_df")
+@patch("batch_assign_entities.get_old_resource_df_from_hash")
 @patch("batch_assign_entities.pd.read_csv")
 @patch("batch_assign_entities.shutil.copy")
 def test_process_csv_detects_large_new_entities(
     mock_copy,
     mock_read_csv,
-    mock_get_old,
+    mock_get_old_hash,
     mock_check,
+    mock_batch_hashes,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -383,8 +324,9 @@ def test_process_csv_detects_large_new_entities(
         {"prefix": ["ca"] * 100, "organisation": [f"org{i}" for i in range(1, 101)], "entity": new_entities}
     )
 
+    mock_batch_hashes.return_value = {"endpoint456": "hash123"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
-    mock_get_old.return_value = old_resource_df
+    mock_get_old_hash.return_value = old_resource_df
 
     _, output_df = process_csv(
         "odp",
@@ -400,15 +342,17 @@ def test_process_csv_detects_large_new_entities(
     assert "large number of new entities" in large_new_rows.iloc[0]["message"].lower()
 
 
+@patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
-@patch("batch_assign_entities.get_old_resource_df")
+@patch("batch_assign_entities.get_old_resource_df_from_hash")
 @patch("batch_assign_entities.pd.read_csv")
 @patch("batch_assign_entities.shutil.copy")
 def test_process_csv_detects_duplicate_reference_organisation_in_new_resource(
     mock_copy,
     mock_read_csv,
-    mock_get_old,
+    mock_get_old_hash,
     mock_check,
+    mock_batch_hashes,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -424,8 +368,9 @@ def test_process_csv_detects_duplicate_reference_organisation_in_new_resource(
     )
     lookup_df = pd.DataFrame({"prefix": ["ca", "ca"], "organisation": ["org1", "org1"], "entity": [1, 2]})
 
+    mock_batch_hashes.return_value = {"endpoint456": None}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
-    mock_get_old.return_value = None
+    mock_get_old_hash.return_value = None
 
     _, output_df = process_csv(
         "odp",
@@ -439,15 +384,17 @@ def test_process_csv_detects_duplicate_reference_organisation_in_new_resource(
     assert "duplicate_reference_organisation_in_new_resource" in output_df["error_code"].values
 
 
+@patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
-@patch("batch_assign_entities.get_old_resource_df")
+@patch("batch_assign_entities.get_old_resource_df_from_hash")
 @patch("batch_assign_entities.pd.read_csv")
 @patch("batch_assign_entities.shutil.copy")
 def test_process_csv_detects_missing_organisation(
     mock_copy,
     mock_read_csv,
-    mock_get_old,
+    mock_get_old_hash,
     mock_check,
+    mock_batch_hashes,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -459,8 +406,9 @@ def test_process_csv_detects_missing_organisation(
     )
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
+    mock_batch_hashes.return_value = {"endpoint456": None}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
-    mock_get_old.return_value = None
+    mock_get_old_hash.return_value = None
 
     _, output_df = process_csv(
         "odp",
@@ -476,15 +424,17 @@ def test_process_csv_detects_missing_organisation(
     assert "Missing organisation" in missing_rows.iloc[0]["message"]
 
 
+@patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
-@patch("batch_assign_entities.get_old_resource_df")
+@patch("batch_assign_entities.get_old_resource_df_from_hash")
 @patch("batch_assign_entities.pd.read_csv")
 @patch("batch_assign_entities.shutil.copy")
 def test_process_csv_detects_missing_reference(
     mock_copy,
     mock_read_csv,
-    mock_get_old,
+    mock_get_old_hash,
     mock_check,
+    mock_batch_hashes,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -496,8 +446,9 @@ def test_process_csv_detects_missing_reference(
     )
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
+    mock_batch_hashes.return_value = {"endpoint456": None}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
-    mock_get_old.return_value = None
+    mock_get_old_hash.return_value = None
 
     _, output_df = process_csv(
         "odp",
@@ -513,15 +464,17 @@ def test_process_csv_detects_missing_reference(
     assert "Missing reference" in missing_rows.iloc[0]["message"]
 
 
+@patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
-@patch("batch_assign_entities.get_old_resource_df")
+@patch("batch_assign_entities.get_old_resource_df_from_hash")
 @patch("batch_assign_entities.pd.read_csv")
 @patch("batch_assign_entities.shutil.copy")
 def test_process_csv_skip_checks_bypasses_validation(
     mock_copy,
     mock_read_csv,
-    mock_get_old,
+    mock_get_old_hash,
     mock_check,
+    mock_batch_hashes,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -531,8 +484,9 @@ def test_process_csv_skip_checks_bypasses_validation(
     new_resource_df = pd.DataFrame({"entity": [1], "field": ["prefix"], "value": ["ca"]})
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
+    mock_batch_hashes.return_value = {"endpoint456": None}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
-    mock_get_old.return_value = None
+    mock_get_old_hash.return_value = None
 
     _, output_df = process_csv(
         "odp",

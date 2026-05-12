@@ -106,9 +106,8 @@ jobs:
         with:
           name: generated-files
           path: |
-            batch_assign_summary.csv
-            batch_assign_summary_odp.csv
-            batch_assign_summary_mandated.csv
-            batch_assign_summary_single-source.csv
+            resource/
+            var/cache/
+            batch_assign_summary*.csv
             issue_summary.csv
             
