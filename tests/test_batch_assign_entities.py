@@ -10,7 +10,8 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "bin"))
 
-from batch_assign_entities import ( 
+from batch_assign_entities import (
+    _collect_validation_rows,
     _make_fingerprints,
     download_file,
     download_urls,
@@ -19,6 +20,7 @@ from batch_assign_entities import (
     get_scope,
     process_csv,
     run_command,
+    run_batch_assign_entities,
 )
 
 
@@ -195,6 +197,8 @@ def test_get_old_resource_success_returns_dataframe_with_entities(mock_get):
         "2,organisation,org2\n"
         "2,reference,ref2\n"
     )
+    transformed_response.content = transformed_response.text.encode("utf-8")
+    transformed_response.raise_for_status = Mock()
 
     mock_get.side_effect = [historic_response, transformed_response]
 
@@ -203,8 +207,8 @@ def test_get_old_resource_success_returns_dataframe_with_entities(mock_get):
     assert isinstance(result, pd.DataFrame)
     assert "entity" in result.columns
     assert len(result) == 4
-    assert 1 in result["entity"].values
-    assert 2 in result["entity"].values
+    assert "1" in result["entity"].values
+    assert "2" in result["entity"].values
     assert "org1" in result["value"].values
 
 
@@ -228,6 +232,8 @@ def test_get_old_resource_fetches_correct_url(mock_get):
 
     transformed_response = Mock()
     transformed_response.text = "entity,field,value\n1,organisation,org1\n"
+    transformed_response.content = transformed_response.text.encode("utf-8")
+    transformed_response.raise_for_status = Mock()
 
     mock_get.side_effect = [historic_response, transformed_response]
 
@@ -276,7 +282,7 @@ def test_process_csv_detects_duplicate_all_fields(
     )
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
-    mock_read_csv.side_effect = [lookup_df, pd.DataFrame({"entity": []}), new_resource_df, lookup_df]
+    mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old.return_value = old_resource_df
 
     failed_downloads, output_df = process_csv(
@@ -326,7 +332,7 @@ def test_process_csv_detects_duplicate_prefix_reference_organisation(
     )
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
-    mock_read_csv.side_effect = [lookup_df, pd.DataFrame({"entity": []}), new_resource_df, lookup_df]
+    mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old.return_value = old_resource_df
 
     _, output_df = process_csv(
@@ -377,7 +383,7 @@ def test_process_csv_detects_large_new_entities(
         {"prefix": ["ca"] * 100, "organisation": [f"org{i}" for i in range(1, 101)], "entity": new_entities}
     )
 
-    mock_read_csv.side_effect = [lookup_df, pd.DataFrame({"entity": []}), new_resource_df, lookup_df]
+    mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old.return_value = old_resource_df
 
     _, output_df = process_csv(
@@ -418,7 +424,7 @@ def test_process_csv_detects_duplicate_reference_organisation_in_new_resource(
     )
     lookup_df = pd.DataFrame({"prefix": ["ca", "ca"], "organisation": ["org1", "org1"], "entity": [1, 2]})
 
-    mock_read_csv.side_effect = [lookup_df, pd.DataFrame({"entity": []}), new_resource_df, lookup_df]
+    mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old.return_value = None
 
     _, output_df = process_csv(
@@ -453,7 +459,7 @@ def test_process_csv_detects_missing_organisation(
     )
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
-    mock_read_csv.side_effect = [lookup_df, pd.DataFrame({"entity": []}), new_resource_df, lookup_df]
+    mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old.return_value = None
 
     _, output_df = process_csv(
@@ -490,7 +496,7 @@ def test_process_csv_detects_missing_reference(
     )
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
-    mock_read_csv.side_effect = [lookup_df, pd.DataFrame({"entity": []}), new_resource_df, lookup_df]
+    mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old.return_value = None
 
     _, output_df = process_csv(
@@ -525,7 +531,7 @@ def test_process_csv_skip_checks_bypasses_validation(
     new_resource_df = pd.DataFrame({"entity": [1], "field": ["prefix"], "value": ["ca"]})
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
-    mock_read_csv.side_effect = [lookup_df, pd.DataFrame({"entity": []}), new_resource_df, lookup_df]
+    mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old.return_value = None
 
     _, output_df = process_csv(
@@ -559,6 +565,42 @@ def test_ensure_specification_dir_existing(mock_download):
         result = ensure_specification_dir(spec_dir)
         assert result.exists()
         mock_download.assert_called_once()
+
+
+@patch("batch_assign_entities.process_csv")
+@patch("batch_assign_entities.download_urls")
+@patch("batch_assign_entities.ensure_specification_dir")
+@patch("batch_assign_entities.pd.read_csv")
+@patch("batch_assign_entities.requests.get")
+def test_run_batch_assign_entities_handles_empty_filtered_summary(
+    mock_get,
+    mock_read_csv,
+    mock_ensure_specification_dir,
+    mock_download_urls,
+    mock_process_csv,
+):
+    empty_issue_summary = pd.DataFrame(
+        columns=["issue_type", "scope", "dataset", "collection", "resource", "endpoint", "pipeline", "organisation"]
+    )
+    provision_rule_df = pd.DataFrame(
+        {
+            "project": ["open-digital-planning"],
+            "dataset": ["example-dataset"],
+            "provision-reason": ["statutory"],
+            "role": ["local-planning-authority"],
+        }
+    )
+
+    mock_get.return_value = Mock(text="issue_type,scope,dataset,collection,resource,endpoint,pipeline,organisation\n")
+    mock_read_csv.side_effect = [empty_issue_summary, provision_rule_df]
+    mock_ensure_specification_dir.return_value = Path("specification")
+    mock_process_csv.return_value = ([], pd.DataFrame())
+
+    result = run_batch_assign_entities(scope="mandated", resources="resource-1")
+
+    assert result is None
+    mock_download_urls.assert_not_called()
+    mock_process_csv.assert_not_called()
 
 
 def test_detect_duplicate_all_fields_matches_correctly():
@@ -647,6 +689,32 @@ def test_multiple_duplicates_all_detected():
     matches = new_fp.merge(old_fp, on="fingerprint", how="inner", suffixes=("_new", "_old"))
 
     assert len(matches) == 2
+
+
+def test_collect_validation_rows_reports_previous_resource_empty_and_missing_fields():
+    current_resource_df = pd.DataFrame(
+        {
+            "entity": [1, 1, 2, 2],
+            "field": ["organisation", "reference", "organisation", "reference"],
+            "value": ["org1", "", "", "ref2"],
+        }
+    )
+    old_resource_df = pd.DataFrame(columns=["entity", "field", "value"])
+
+    rows, old_entities, new_entities = _collect_validation_rows(
+        current_resource_df,
+        old_resource_df,
+        "conservation-area",
+        "resource123",
+        new_entity_threshold=10,
+    )
+
+    error_codes = [row["error_code"] for row in rows]
+    assert "previous_resource_empty" in error_codes
+    assert "missing_organisation" in error_codes
+    assert "missing_reference" in error_codes
+    assert old_entities == set()
+    assert new_entities == {1, 2}
 
 
 @patch("batch_assign_entities.check_and_assign_entities")

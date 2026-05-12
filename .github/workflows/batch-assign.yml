@@ -73,7 +73,7 @@ jobs:
           
       - name: Run add-data script
         env:
-          # GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           RESOURCES: ${{ github.event.client_payload.resources || github.event.inputs.resources }}
           BRANCH_PARAM: ${{ github.event.client_payload.branch || github.event.inputs.branch }}
           TRIGGERED_BY: ${{ github.event.client_payload.triggered_by || github.event.inputs.triggered_by }}

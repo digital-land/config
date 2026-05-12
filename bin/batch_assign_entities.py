@@ -1,9 +1,7 @@
 import csv
 import click
 import requests
-import sys
 import pandas as pd
-import os
 import shutil
 import logging
 import traceback
@@ -19,7 +17,7 @@ from tqdm import tqdm
 from urllib.request import urlretrieve
 from concurrent.futures import ThreadPoolExecutor
 
-logger = logging.getLogger("__name__")
+logger = logging.getLogger(__name__)
 
 
 def run_command(cmd, capture_output=False, check=True):
@@ -169,7 +167,7 @@ def download_urls(url_map, max_threads=4):
             try:
                 results.append(future.result())
             except Exception as e:
-                logger.errors(f"Error during download: {e}")
+                logger.error(f"Error during download: {e}")
         return results
 
 def get_old_resource_df(endpoint, collection_name, dataset):
@@ -182,7 +180,7 @@ def get_old_resource_df(endpoint, collection_name, dataset):
     )
     response = requests.get(url)
     response.raise_for_status()
-    previous_resource_df = pd.read_csv(StringIO(response.text))
+    previous_resource_df = pd.read_csv(StringIO(response.text), dtype=str, low_memory=False)
     if len(previous_resource_df) == 0:
         return None
 
@@ -195,11 +193,16 @@ def get_old_resource_df(endpoint, collection_name, dataset):
     )
     transformed_response = requests.get(transformed_url)
     transformed_response.raise_for_status()
-    return pd.read_csv(StringIO(transformed_response.text))
+    # Save the old transformed resource to resource/old before reading
+    old_resource_dir = Path("resource") / "old"
+    old_resource_dir.mkdir(parents=True, exist_ok=True)
+    old_file_path = old_resource_dir / f"{old_resource_hash}.csv"
+    old_file_path.write_bytes(transformed_response.content)
+    return pd.read_csv(old_file_path, dtype=str, low_memory=False)
 
 
                             
-def _make_fingerprints(df,except_fields=["reference", "entry-date"],only_fields=None):
+def _make_fingerprints(df, except_fields=["reference", "entry-date"], only_fields=None):
     tmp = df[~df['field'].isin(except_fields)].copy()
     if only_fields:
         tmp = tmp[tmp['field'].isin(only_fields)]
@@ -220,16 +223,237 @@ def _make_fingerprints(df,except_fields=["reference", "entry-date"],only_fields=
         if _col not in fp.columns:
             fp[_col] = ''
     return fp
-                        
+
+
+def _missing_metadata_frame(df):
+    field_values = df[
+        df['field'].isin(['organisation', 'reference', 'prefix'])
+    ][['entity', 'field', 'value']].drop_duplicates()
+    frame = field_values.pivot_table(index='entity', columns='field', values='value', aggfunc='first').reset_index()
+    for column in ('entity', 'organisation', 'reference', 'prefix'):
+        if column not in frame.columns:
+            frame[column] = ''
+    return frame
+
+
+def _duplicate_error_rows(matches, dataset, resource, error_code, message_factory):
+    if matches.empty:
+        return []
+
+    matches = matches.copy()
+    matches['entity_list'] = (
+        matches.groupby('fingerprint')['entity_old']
+        .transform(lambda x: ', '.join(x.astype(str)))
+    )
+    matches = matches.drop_duplicates('fingerprint')
+
+    return [
+        {
+            'dataset': dataset,
+            'resource': resource,
+            'organisation': match_row.get('organisation_new', ''),
+            'reference': match_row.get('reference_new', ''),
+            'status': 'error',
+            'error_code': error_code,
+            'message': message_factory(match_row),
+        }
+        for _, match_row in matches.iterrows()
+    ]
+
+
+def _duplicate_entities_error_rows(old_df, new_df, dataset, resource):
+    matches = new_df.merge(old_df, on='fingerprint', how='inner', suffixes=('_new', '_old'))
+    return _duplicate_error_rows(
+        matches,
+        dataset,
+        resource,
+        'duplicate_entity_all_fields',
+        lambda match_row: (
+            f"Matches existing entity(s) {match_row['entity_list']} {match_row['fingerprint']}."
+        ),
+    )
+
+
+def _duplicate_prefix_reference_organisation_error_rows(old_df, new_df, dataset, resource):
+    matches = new_df.merge(old_df, on='fingerprint', how='inner', suffixes=('_new', '_old'))
+    return _duplicate_error_rows(
+        matches,
+        dataset,
+        resource,
+        'duplicate_prefix_reference_organisation',
+        lambda match_row: (
+            f"Entity exists with the same prefix, reference and organisation"
+            f" {match_row['entity_list']} {match_row['fingerprint']}."
+        ),
+    )
+
+
+def _duplicate_reference_organisation_error_rows(old_df, new_df, dataset, resource):
+    matches = new_df.merge(old_df, on='fingerprint', how='inner', suffixes=('_new', '_old'))
+    return _duplicate_error_rows(
+        matches,
+        dataset,
+        resource,
+        'duplicate_reference_organisation',
+        lambda match_row: (
+            f"Entity exists with the same reference and organisation"
+            f" {match_row['entity_list']} {match_row['fingerprint']}."
+        ),
+    )
+
+
+def _duplicate_reference_organisation_in_new_resource_error_rows(df, dataset, resource):
+    duplicates = _make_fingerprints(df, except_fields=[], only_fields=['organisation', 'reference'])
+    duplicates = duplicates[
+        duplicates.duplicated('fingerprint', keep=False)
+    ].drop_duplicates('fingerprint')
+
+    if duplicates.empty:
+        return []
+
+    return [
+        {
+            'dataset': dataset,
+            'resource': resource,
+            'organisation': dup_row.get('organisation', ''),
+            'reference': dup_row.get('reference', ''),
+            'status': 'error',
+            'error_code': 'duplicate_reference_organisation_in_new_resource',
+            'message': f"Duplicate reference and organisation found in resource {dup_row['fingerprint']}.",
+        }
+        for _, dup_row in duplicates.iterrows()
+    ]
+
+
+def _missing_organisation_error_rows(df, dataset, resource):
+    missing = df[(df['organisation'].isna()) | (df['organisation'] == '')]
+    return [
+        {
+            'dataset': dataset,
+            'resource': resource,
+            'organisation': missing_row.get('organisation', ''),
+            'reference': missing_row.get('reference', ''),
+            'status': 'error',
+            'error_code': 'missing_organisation',
+            'message': (
+                f"Missing organisation for entity {missing_row.get('entity')} "
+                f"with reference {missing_row.get('reference')} in current transformed rows."
+            ),
+        }
+        for _, missing_row in missing.iterrows()
+    ]
+
+
+def _missing_reference_error_rows(df, dataset, resource):
+    missing = df[(df['reference'].isna()) | (df['reference'] == '')]
+    return [
+        {
+            'dataset': dataset,
+            'resource': resource,
+            'organisation': missing_row.get('organisation', ''),
+            'reference': missing_row.get('reference', ''),
+            'status': 'error',
+            'error_code': 'missing_reference',
+            'message': (
+                f"Missing reference for entity {missing_row.get('entity')} "
+                f"with organisation {missing_row.get('organisation')} in current transformed rows."
+            ),
+        }
+        for _, missing_row in missing.iterrows()
+    ]
+
+
+def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, new_entity_threshold):
+    validation_rows = []
+    current_entities = set(current_resource_df['entity'])
+
+    if old_resource_df is None:
+        old_entities = set()
+        new_entity_ids = current_entities
+    else:
+        old_entities = set(old_resource_df['entity'])
+        new_entity_ids = current_entities - old_entities
+
+    if len(old_entities) == 0 and old_resource_df is not None:
+        validation_rows.append(
+            {
+                'dataset': dataset,
+                'resource': resource,
+                'organisation': '',
+                'reference': '',
+                'status': 'error',
+                'error_code': 'previous_resource_empty',
+                'message': 'Previous resource is has no entities.',
+            }
+        )
+
+    if len(old_entities) > 0 and len(new_entity_ids) > 0:
+        new_resource_only_df = current_resource_df[current_resource_df['entity'].isin(new_entity_ids)]
+
+        if len(new_entity_ids) > (new_entity_threshold / 100) * len(current_entities):
+            validation_rows.append(
+                {
+                    'dataset': dataset,
+                    'resource': resource,
+                    'organisation': '',
+                    'reference': '',
+                    'status': 'error',
+                    'error_code': 'large_number_of_new_entities',
+                    'message': (
+                        f"Resource contains a large number of new entities ({len(new_entity_ids)}) "
+                        f"compared to the previous version ({len(old_entities)})."
+                    ),
+                }
+            )
+
+        validation_rows.extend(
+            _duplicate_entities_error_rows(
+                _make_fingerprints(old_resource_df),
+                _make_fingerprints(new_resource_only_df),
+                dataset,
+                resource,
+            )
+        )
+        validation_rows.extend(
+            _duplicate_prefix_reference_organisation_error_rows(
+                _make_fingerprints(old_resource_df, except_fields=[], only_fields=['prefix', 'organisation', 'reference']),
+                _make_fingerprints(new_resource_only_df, except_fields=[], only_fields=['prefix', 'organisation', 'reference']),
+                dataset,
+                resource,
+            )
+        )
+        validation_rows.extend(
+            _duplicate_reference_organisation_error_rows(
+                _make_fingerprints(old_resource_df, except_fields=[], only_fields=['organisation', 'reference']),
+                _make_fingerprints(new_resource_only_df, except_fields=[], only_fields=['organisation', 'reference']),
+                dataset,
+                resource,
+            )
+        )
+
+    validation_rows.extend(
+        _duplicate_reference_organisation_in_new_resource_error_rows(
+            current_resource_df,
+            dataset,
+            resource,
+        )
+    )
+
+    metadata_frame = _missing_metadata_frame(current_resource_df)
+    validation_rows.extend(_missing_organisation_error_rows(metadata_frame, dataset, resource))
+    validation_rows.extend(_missing_reference_error_rows(metadata_frame, dataset, resource))
+    return validation_rows, old_entities, new_entity_ids
 
 
 def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_threshold=10, skip_checks=False):
     """
     Uses provided file path to automatically process and assign unknown entities
     """
+    resource_dir = Path(resource_dir)
+    cache_dir = Path(cache_dir)
     failed_downloads = []
     successful_resources = []
-    output_df = pd.DataFrame(columns=["dataset", "resource", "organisation", "reference","status","entities_created", "error_code", "message"])
+    output_df = pd.DataFrame(columns=["dataset", "resource", "organisation", "reference", "status", "entities_created", "error_code", "message"])
     try:
         pbar = tqdm(issue_summary_df.iterrows(), total=issue_summary_df.shape[0], desc="Processing resources")
         for row_number, row in pbar:
@@ -240,9 +464,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
             organisation_name = row["organisation"]
             download_link = row["download_link"]
             resource_path = Path(row["resource_path"])
-            cache_dir=Path(cache_dir)
-            
-            
+
             print("********************************************************************************************************************************")
             print("********************************************************************************************************************************")
             print(f"Collection_name > {collection_name}")
@@ -251,7 +473,6 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
             print(f"Download_link > {download_link }")
             print(f"Resource path > {resource_path}")
 
-                
             if not resource_path.is_file():
                 try:
                     print(f"Resource  file not found locally, attempting to download from {download_link}")
@@ -289,10 +510,9 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     Path("specification"),
                     Path(f"pipeline/{collection_name}"),
                     input_path,
-                    prompt_user=False
+                    prompt_user=False,
                 )
-                issue_df = pd.read_csv(cache_dir / "assign_entities" /"issue" / f"{resource}.csv")
-                
+
                 output_rows = []
 
                 def add_output_log(rows):
@@ -300,226 +520,48 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                         output_rows.extend(rows)
 
                 # get old transformed resource
-                old_resource_df = get_old_resource_df(endpoint,collection_name,dataset)
+                old_resource_df = get_old_resource_df(endpoint, collection_name, dataset)
                 # get current transformed resource
                 current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
-                new_entities = set(current_resource_df['entity'])
-                current_entities = set(current_resource_df['entity'])
-                old_entities = set()
-                
+
                 if not skip_checks and len(current_resource_df) == 0:
                     add_output_log([
-                            {
-                                "dataset": dataset,
-                                "resource": resource,
-                                "organisation": organisation_name,
-                                "reference": "",
-                                "status": "error",
-                                "error_code": "current_resource_empty",
-                                "message": f"Current resource has no entities for assignment."
-                            }
-                        ])
+                        {
+                            "dataset": dataset,
+                            "resource": resource,
+                            "organisation": organisation_name,
+                            "reference": "",
+                            "status": "error",
+                            "error_code": "current_resource_empty",
+                            "message": "Current resource has no entities for assignment.",
+                        }
+                    ])
                     output_df = pd.concat(
                         [output_df, pd.DataFrame(output_rows)],
                         ignore_index=True,
                     )
-                        
                     successful_resources.append(resource_path)
                     continue
-                
-                
-                if(old_resource_df is not None):
-                    # we get the old entities from the old transformed resource to compare against new entities in current transformed resource for validation checks. 
-                    old_entities = set(old_resource_df['entity'])
-                    # store new entities in current_resource_df
-                    new_entities = list(current_entities - old_entities)
-                    
-                
+
+                validation_rows, old_entities, new_entities = _collect_validation_rows(
+                    current_resource_df,
+                    old_resource_df,
+                    dataset,
+                    resource,
+                    new_entity_threshold,
+                )
+
                 if not skip_checks:
-                    # There is a possibility that the previous resource had no entities. 
-                    if len(old_entities) < 1 and old_resource_df is not None:
-                        add_output_log([
-                                {
-                                    "dataset": dataset,
-                                    "resource": resource,
-                                    "organisation": organisation_name,
-                                    "reference": "",
-                                "status": "error",
-                                    "error_code": "previous_resource_empty",
-                                    "message": f"Previous resource is has no entities."
-                                }
-                            ])
-                    
-
-                    # perform checks that require the previous resource or existing entities
-                    if len(old_entities) > 0 and len(new_entities) > 0:
-                            
-                        new_resource_only_df = current_resource_df[current_resource_df['entity'].isin(new_entities)]
-                        
-                        if len(new_entities) > (new_entity_threshold / 100) * len(current_entities):
-                            add_output_log(
-                                [
-                                    {
-                                        "dataset": dataset, 
-                                        "resource": resource,
-                                        "organisation": organisation_name,
-                                        "status": "error",
-                                        "error_code": "large_number_of_new_entities",
-                                        "message": f"Resource contains a large number of new entities ({len(new_entities)}) compared to the previous version ({len(old_entities)})."
-                                    }
-                                ]
-                            )
-                        
-
-                        old_fp = _make_fingerprints(old_resource_df)
-                        cur_fp = _make_fingerprints(new_resource_only_df)
-                        
-                        # join on fingerprint to find exact content matches (many-to-many possible)
-                        matches = cur_fp.merge(old_fp, on='fingerprint', how='inner', suffixes=('_new', '_old'))
-                        if not matches.empty:
-                            matches["entity_list"] = (
-                                matches.groupby("fingerprint")["entity_old"]
-                                .transform(lambda x: ", ".join(x.astype(str)))
-                            )
-                            matches = matches.drop_duplicates("fingerprint")
-                            add_output_log([
-                                {
-                                    "dataset": dataset,
-                                    "resource": resource,
-                                    "organisation": match_row["organisation_new"],
-                                    "reference": match_row["reference_new"],
-                                    "status": "error",
-                                    "error_code": "duplicate_entity_all_fields",
-                                    "message": (
-                                        f"Matches existing entity(s) "
-                                        f"{match_row['entity_list']} "
-                                        f"{match_row['fingerprint']}."
-                                    )
-                                }
-                                for fingerprint, match_row in matches.iterrows()
-                            ])
-                            
-                                
-                        dup_old_df=_make_fingerprints(old_resource_df, except_fields=[], only_fields=["prefix", "organisation", "reference"])
-                        dup_new_df=_make_fingerprints(new_resource_only_df, except_fields=[], only_fields=["prefix", "organisation", "reference"])
-                        
-                        matches = dup_new_df.merge(dup_old_df, on='fingerprint', how='inner', suffixes=('_new', '_old'))
-                        if not matches.empty:
-                            matches["entity_list"] = (
-                                matches.groupby("fingerprint")["entity_old"]
-                                .transform(lambda x: ", ".join(x.astype(str)))
-                            )
-                            matches = matches.drop_duplicates("fingerprint")
-                            add_output_log([
-                                {
-                                    "dataset": dataset,
-                                    "resource": resource,
-                                    "organisation": match_row["organisation_new"],
-                                    "reference": match_row["reference_new"],
-                                    "status": "error",
-                                    "error_code": "duplicate_prefix_reference_organisation",
-                                    "message":( f"Entity exists with the same prefix, reference and organisation"
-                                                f"{match_row['entity_list']} "
-                                                f"{match_row['fingerprint']}.")
-                                }
-                                for _, match_row in matches.iterrows()
-                            ])
-
-                        # Duplicate reference for the same organisation in existing entities
-                        dup_ref_org_old_df = _make_fingerprints(old_resource_df, except_fields=[], only_fields=["organisation", "reference"])
-                        dup_ref_org_new_df = _make_fingerprints(new_resource_only_df, except_fields=[], only_fields=["organisation", "reference"])
-                        
-                        matches = dup_ref_org_new_df.merge(dup_ref_org_old_df, on='fingerprint', how='inner', suffixes=('_new', '_old'))
-                        
-                        if not matches.empty:
-                            matches["entity_list"] = (
-                                matches.groupby("fingerprint")["entity_old"]
-                                .transform(lambda x: ", ".join(x.astype(str)))
-                            )
-                            matches = matches.drop_duplicates("fingerprint")
-                            add_output_log([
-                                {
-                                    "dataset": dataset,
-                                    "resource": resource,
-                                    "organisation": match_row["organisation_new"],
-                                    "reference": match_row["reference_new"],
-                                "status": "error",
-                                    "error_code": "duplicate_reference_organisation",
-                                    "message": (f"Entity exists with the same reference and organisation"
-                                                f"{match_row['entity_list']} "
-                                                f"{match_row['fingerprint']}.")
-                                }
-                                for _, match_row in matches.iterrows()
-                            ])
-                        
-                    # Duplicate reference for the same organisation in new entities only (not in old resource)
-                    dup_ref_org_new_only_df = _make_fingerprints(current_resource_df, except_fields=[], only_fields=["organisation", "reference"])
-                    dup_ref_org_new_only_df = dup_ref_org_new_only_df[
-                        dup_ref_org_new_only_df.duplicated("fingerprint", keep=False)
-                    ].drop_duplicates("fingerprint")
-
-                    if not dup_ref_org_new_only_df.empty:
-                        
-                        add_output_log([
-                            {
-                                "dataset": dataset,
-                                "resource": resource,
-                                "organisation": dup_row["organisation"],
-                                "reference": dup_row["reference"],
-                                "status": "error",
-                                "error_code": "duplicate_reference_organisation_in_new_resource",
-                                "message": f"Duplicate reference and organisation found in resource {dup_row['fingerprint']}."
-                            }
-                            for _, dup_row in dup_ref_org_new_only_df.iterrows()
-                        ])
-                        
-                    field_values = current_resource_df[
-                        current_resource_df['field'].isin(['organisation', 'reference', 'prefix'])
-                    ][['entity', 'field', 'value']].drop_duplicates()
-                    fp = field_values.pivot_table(index='entity', columns='field', values='value', aggfunc='first').reset_index()
-
-                    # Missing organisation in current transformed rows
-                    missing_organisation_df = fp[(fp['organisation'].isna()) | (fp['organisation'] == '')]
-                    
-                    if not missing_organisation_df.empty:
-                        add_output_log([
-                            {
-                                'dataset': dataset,
-                                'resource': resource,
-                                'organisation': missing_org_row.get('organisation', ''),
-                                'reference': missing_org_row.get('reference', ''),
-                                'status': 'error',
-                                'error_code': 'missing_organisation',
-                                'message': f"Missing organisation for entity {missing_org_row.get('entity')} with reference {missing_org_row.get('reference')} in current transformed rows."
-                            }
-                            for _, missing_org_row in missing_organisation_df.iterrows()
-                        ])
-
-                    # Missing reference in current transformed rows
-                    missing_reference_df = fp[(fp['reference'].isna()) | (fp['reference'] == '')]
-                    if not missing_reference_df.empty:
-                        add_output_log([
-                            {
-                                'dataset': dataset,
-                                'resource': resource,
-                                'organisation': missing_ref_row.get('organisation', ''),
-                                'reference': missing_ref_row.get('reference', ''),
-                                'status': 'error',
-                                'error_code': 'missing_reference',
-                                'message': f"Missing reference for entity {missing_ref_row.get('entity')} with organisation {missing_ref_row.get('organisation')} in current transformed rows."
-                            }
-                            for _, missing_ref_row in missing_reference_df.iterrows()
-                        ])
+                    add_output_log(validation_rows)
 
                 if output_rows:
                     output_df = pd.concat(
                         [output_df, pd.DataFrame(output_rows)],
                         ignore_index=True,
                     )
-                        
                     successful_resources.append(resource_path)
                     continue
-                    
+
                 add_output_log(
                     [
                         {
@@ -530,7 +572,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                             "status": "success",
                             "entities_created": len(new_entities),
                             "error_code": "",
-                            "message": f"Entities assigned successfully."
+                            "message": "Entities assigned successfully.",
                         }
                     ]
                 )
@@ -543,7 +585,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                 successful_resources.append(resource_path)
 
                 # After successful entity assignment and duplicate checks append entity range to entity-organisation.csv
-                post_lookup_df = pd.read_csv(lookup_path,dtype=str)
+                post_lookup_df = pd.read_csv(lookup_path, dtype=str)
                 post_org_entities = set(
                     post_lookup_df[
                         (post_lookup_df["prefix"] == dataset) &
@@ -561,17 +603,18 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                             writer = csv.writer(f)
                             writer.writerow([dataset, min_entity, max_entity, organisation_name])
                             print(f"\033[95mAppended entity range {min_entity}-{max_entity} for {organisation_name} to {entity_org_file}\033[0m")
-               
+
             except Exception as e:
                 print(f"Failed to assign entities for resource: {resource}")
-                logging.error(f"Error: {str(e)}",exc_info=True)
+                logging.error(f"Error: {str(e)}", exc_info=True)
                 output_df = pd.concat([output_df, pd.DataFrame([{
                     "dataset": dataset,
-                    "resource": resource,  
+                    "resource": resource,
+                    "status": "error",
                     "error_code": type(e).__name__,
                     "message": str(e)
                 }])], ignore_index=True)
-    
+
     finally:
         output_df.to_csv(f"batch_assign_summary_{scope}.csv", index=False)
         # Remove successfully processed resources
@@ -589,7 +632,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                 resource_dir.rmdir()
         except OSError as e:
             print(f"Failed to remove the resources directory: {e}")
-    
+
     # Summary of results
     print("\n--- Summary Report ---")
     if failed_downloads:
@@ -615,7 +658,7 @@ def ensure_specification_dir(specification_dir: Path = Path("specification")) ->
 
 def run_batch_assign_entities(
     scope: str = 'odp',
-    cache_dir: str = "var/cache/",
+    cache_dir: Path = Path("var/cache/"),
     new_entity_threshold: int = 10,
     resources: Optional[str] = None,
     skip_checks: bool = False,
@@ -663,6 +706,10 @@ def run_batch_assign_entities(
     if resources:
         resource_set = {r.strip() for r in resources.split(",") if r.strip()}
         issue_summary_df = issue_summary_df[issue_summary_df["resource"].isin(resource_set)]
+    
+    if issue_summary_df.empty:
+        print(f"No resources found with unknown entity issues for scope '{scope}'. Exiting.")
+        return
     
     issue_summary_df[["download_link", "resource_path"]] = issue_summary_df.apply(
         lambda row: pd.Series({
@@ -758,6 +805,17 @@ def main(
     triggered_by: Optional[str] = None,
     branch: str = "auto/batch-assign-entities",
 ) -> None:
+    # Print input options so the command and options used are visible
+    print("Input options:")
+    print(f"  scope={scope}")
+    print(f"  cache_dir={cache_dir}")
+    print(f"  new_entity_threshold={new_entity_threshold}")
+    print(f"  resources={resources}")
+    print(f"  skip_checks={skip_checks}")
+    print(f"  triggered_by={triggered_by}")
+    print(f"  branch={branch}")
+
+    cache_dir = Path(cache_dir)
     run_batch_assign_entities(
         scope=scope,
         cache_dir=cache_dir,
