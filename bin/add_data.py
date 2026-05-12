@@ -254,7 +254,24 @@ def append_source(response: dict, collection: str) -> None:
     source_summary = response.get("response", {}).get("data", {}).get("source-summary", {})
 
     if as_bool(source_summary.get("documentation_url_in_source_csv")):
-        print("Source already exists in source.csv, skipping")
+        pipelines_append = source_summary.get("pipelines_append_required") or {}
+        updated = pipelines_append.get("updated", "").strip()
+        if updated:
+            existing_entry = source_summary.get("existing_source_entry") or {}
+            source_hash = existing_entry.get("source", "").strip()
+            if not source_hash:
+                print("pipelines_append_required present but no source hash in existing_source_entry, skipping")
+                return
+            frame = pd.read_csv(source_file, dtype=str, keep_default_na=False)
+            mask = frame["source"] == source_hash
+            if not mask.any():
+                print(f"Source {source_hash} not found in source.csv, skipping pipelines update")
+                return
+            frame.loc[mask, "pipelines"] = updated
+            frame.to_csv(source_file, index=False, lineterminator="\r\n")
+            print(f"Updated pipelines to '{updated}' for source {source_hash} in source.csv")
+        else:
+            print("Source already exists in source.csv, skipping")
         return
 
     new_entry = source_summary.get("new_source_entry")
