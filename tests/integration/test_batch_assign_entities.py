@@ -4,7 +4,7 @@ import sys
 import tempfile
 from pathlib import Path
 from unittest.mock import MagicMock, Mock, patch
-
+import pathlib
 import pandas as pd
 import pytest
 
@@ -661,6 +661,7 @@ def test_collect_validation_rows_reports_previous_resource_empty_and_missing_fie
         "conservation-area",
         "resource123",
         new_entity_threshold=10,
+        old_resource_hash="hash"
     )
 
     error_codes = [row["error_code"] for row in rows]
@@ -794,3 +795,14 @@ def test_fingerprint_handles_large_dataset():
     result = _make_fingerprints(df)
     assert len(result) == 1000
     assert len(result["fingerprint"].unique()) > 0
+    
+
+def test_workflow_installs_gdal_and_uses_ubuntu_22_04():
+    p = pathlib.Path(__file__).parent.parent.parent / ".github" / "workflows" / "batch-assign.yml"
+    assert p.exists(), f"Workflow file {p} not found"
+    content = p.read_text()
+
+    assert "runs-on: ubuntu-22.04" in content
+    assert "sudo add-apt-repository ppa:ubuntugis/ppa -y" in content
+    assert "sudo apt-get update" in content
+    assert "sudo apt-get install gdal-bin -y" in content

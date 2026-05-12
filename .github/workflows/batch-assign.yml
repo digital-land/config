@@ -68,7 +68,8 @@ jobs:
         run: |
           sudo add-apt-repository ppa:ubuntugis/ppa -y
           sudo apt-get update
-          sudo apt-get install -y gdal-bin libgdal-dev
+          sudo apt-get install gdal-bin -y
+          gdalinfo --version
           python -m pip install --upgrade pip
           pip install click pandas tqdm
           pip install -e "git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land"
