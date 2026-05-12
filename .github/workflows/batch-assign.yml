@@ -107,7 +107,7 @@ jobs:
           name: generated-files
           path: |
             resource/
-            var/cache/
+            var/cache/assign_entities/transformed/
             batch_assign_summary*.csv
             issue_summary.csv
             

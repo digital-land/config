@@ -192,7 +192,7 @@ FROM (
         ORDER BY rowid
     ) AS rn
     FROM reporting_historic_endpoints
-    WHERE resource_end_date IS NOT NULL
+    WHERE resource_end_date IS NOT NULL and resource_end_date != ''
     AND endpoint IN ({endpoint_list})
 )
 WHERE rn = 1
@@ -400,7 +400,7 @@ def _missing_reference_error_rows(df, dataset, resource):
     ]
 
 
-def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, new_entity_threshold):
+def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, new_entity_threshold, old_resource_hash):
     validation_rows = []
     current_entities = set(current_resource_df['entity'])
 
@@ -420,7 +420,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                 'reference': '',
                 'status': 'error',
                 'error_code': 'previous_resource_empty',
-                'message': 'Previous resource is has no entities.',
+                'message': 'Previous resource is has no entities {old_resource_hash}.',
             }
         )
 
@@ -600,6 +600,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     dataset,
                     resource,
                     new_entity_threshold,
+                    old_resource_hash
                 )
 
                 if not skip_checks:
