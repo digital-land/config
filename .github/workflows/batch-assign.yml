@@ -67,8 +67,6 @@ jobs:
       - name: Install dependencies
         run: |
           sudo add-apt-repository ppa:ubuntugis/ppa -y
-          sudo apt-get update
-          sudo apt-get install libpq-dev gdal-bin libgdal-dev sqlite3 libsqlite3-mod-spatialite -y
           python -m pip install --upgrade pip
           pip install click pandas tqdm
           pip install -e "git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land"
