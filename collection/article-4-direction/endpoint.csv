@@ -230,8 +230,8 @@ f3b4dc7dfbd973e1db97c5db36b831d9cbd68fe693eae243c4284ac70cb3cb57,https://dartfor
 401c5cf9097e2df01ce6755f5092529e3bef7800270913efd5433fc6f0232474,https://www.northwarks.gov.uk/downloads/file/2928/article-4-direction-dataset,,,2026-03-31,2026-03-31,
 7bbff00be0028a6167f30225b49122ae4987713d011311915f76ee50330f1d96,https://maps.northwarks.gov.uk/wfs_a4da/wfs.exe?service=WFS&version=2.0.0&request=GetFeature&TypeNames=ns:Article_4_Direction_Area&srsName=EPSG:4326,,,2026-03-31,2026-03-31,
 6d1f1434c3f7344529ca84153f34cf7b3e14e07bd6f01419c74e478425851b18,https://map.bury.gov.uk/OpenDigitalPlanningWFS/WFS.exe?service=WFS&request=GetFeature&version=2.0.0&typenames=ns:Article4,,,2026-04-01,2026-03-31,
-928fcc02c07e9345e9de8e21e029ee44858b3c4842a022655b6bf5ce390d101b,https://www.ipswich.gov.uk/sites/ipswich/files/2026-04/Article4DirectionDataIpswich.csv,,,2026-04-02,2026-04-02,
-c05a380020639d95ce6c45412d0f7d9cc31abfe792811cd7e1e5d524c2490dda,https://www.ipswich.gov.uk/sites/ipswich/files/2026-04/article4directionareasipswichspatial.csv,,,2026-04-02,2026-04-02,
+928fcc02c07e9345e9de8e21e029ee44858b3c4842a022655b6bf5ce390d101b,https://www.ipswich.gov.uk/sites/ipswich/files/2026-04/Article4DirectionDataIpswich.csv,,,2026-04-02,2026-04-02,2026-05-12
+c05a380020639d95ce6c45412d0f7d9cc31abfe792811cd7e1e5d524c2490dda,https://www.ipswich.gov.uk/sites/ipswich/files/2026-04/article4directionareasipswichspatial.csv,,,2026-04-02,2026-04-02,2026-05-12
 7c038dc1fc0ebafdf6319cfeed427e92a92cb8d451eb2785c70ded40a86b6e06,https://dservices-eu1.arcgis.com/RueeNoynTFyAIwKy/arcgis/services/Article_4_Direction_WFS/WFSServer?service=WFS&request=GetFeature&typename=Article_4_Direction_WFS:Article4Direction_DPIF_AllFields&outputFormat=geojson,,,2026-04-09,2026-04-08,
 e728feaf64002b26b62ee995f91c3e114ae38e5e20267ce15437c1627ccad72e,https://www.oxford.gov.uk/downloads/file/4101/article-4-direction-area-data,,,2026-04-09,2026-04-09,
 f2fa8c559a0b34a6e225a3be85c418f545fe037709234ff1fee7046337bb37ad,https://www.oxford.gov.uk/downloads/file/4100/article-4-direction-data,,,2026-04-13,2026-04-13,
@@ -241,3 +241,5 @@ b2428774a13c84ce2202d666f6fb1bd27a399a10d9972646f4f78d10130aaaf6,https://maps.wi
 57489e33412e74500615142077090138a9b81ba0c4880ac3f83359abe5f70f7c,https://www.wealden.gov.uk/UploadedFiles/Article-4-Direction-Dataset.csv,,,2026-04-30,2026-04-30,
 07bc8d2de221a52b3efe1fc6c44c6984aa1d4a2419d0d017d8f261db23c46b57,https://xmap-hub.s3.eu-west-2.amazonaws.com/public-sector/stafford/digital_planning_data/sbc_article4direction_documentation.csv,,,2026-05-05,2026-05-05,
 1e4e63aae1f88e35b94b80441d5bbd6ed6a2af50af853db3cb6248d8935c08c2,https://services1.arcgis.com/BZNs0xaSHDSi4V6G/ArcGIS/rest/services/Article_4_direction_geojson/FeatureServer/0,,arcgis,2026-05-05,2026-05-05,
+f3e87ef5b0f2dd36a23d3bfcaa5309c7e5308fc2966211bbc391ab71a215c522,https://app.ipswich.gov.uk/open-data/planning/article-4-directions/files/article-4-directions.csv,,,2026-05-12,2026-05-12,
+139f92e263a1104ddd445fda93ca10455eb59ae2f04863f27bc64d165af834ad,https://app.ipswich.gov.uk/open-data/planning/article-4-directions/files/article-4-direction-area.csv,,,2026-05-12,2026-05-12,
