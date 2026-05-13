@@ -807,6 +807,7 @@ local-plan,4220765,4220765,local-authority:HAS
 local-plan,4220064,4220064,local-authority:HAT
 local-plan,4220327,4220329,local-authority:HAT
 local-plan,4220762,4220762,local-authority:HAT
+local-plan,4220981,4220981,local-authority:HAT
 local-plan,4220078,4220078,local-authority:HAV
 local-plan,4220383,4220383,local-authority:HAV
 local-plan,4220799,4220799,local-authority:HAV
@@ -1015,6 +1016,7 @@ local-plan,4220496,4220498,local-authority:ROH
 local-plan,4220871,4220871,local-authority:ROH
 local-plan,4220495,4220495,local-authority:ROS
 local-plan,4220870,4220870,local-authority:ROS
+local-plan,4220982,4220983,local-authority:ROS
 local-plan,4220499,4220500,local-authority:ROT
 local-plan,4220872,4220872,local-authority:ROT
 local-plan,4220510,4220511,local-authority:RUG
@@ -1970,6 +1972,7 @@ plan-timetable,5100155,5100155,local-authority:HAT
 plan-timetable,5100243,5100245,local-authority:HAT
 plan-timetable,5100782,5100785,local-authority:HAT
 plan-timetable,5105593,5105615,local-authority:HAT
+plan-timetable,5109783,5109797,local-authority:HAT
 plan-timetable,5100275,5100275,local-authority:HAV
 plan-timetable,5100949,5100951,local-authority:HAV
 plan-timetable,5106375,5106397,local-authority:HAV
@@ -2199,6 +2202,7 @@ plan-timetable,5101259,5101262,local-authority:ROH
 plan-timetable,5107916,5107938,local-authority:ROH
 plan-timetable,5101254,5101258,local-authority:ROS
 plan-timetable,5107893,5107915,local-authority:ROS
+plan-timetable,5109821,5109848,local-authority:ROS
 plan-timetable,5101263,5101266,local-authority:ROT
 plan-timetable,5107939,5107961,local-authority:ROT
 plan-timetable,5101286,5101289,local-authority:RUG
@@ -2408,6 +2412,7 @@ plan-timetable,5102577,5102601,local-authority:WRL
 plan-timetable,5100302,5100302,local-authority:WRT
 plan-timetable,5101596,5101598,local-authority:WRT
 plan-timetable,5109250,5109272,local-authority:WRT
+plan-timetable,5109798,5109820,local-authority:WRT
 plan-timetable,5101650,5101651,local-authority:WSK
 plan-timetable,5109503,5109525,local-authority:WSK
 plan-timetable,5100019,5100019,local-authority:WSM
@@ -2553,8 +2558,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5109783,5109797,local-authority:HAT
-local-plan,4220981,4220981,local-authority:HAT
-plan-timetable,5109798,5109820,local-authority:WRT
-local-plan,4220982,4220983,local-authority:ROS
-plan-timetable,5109821,5109848,local-authority:ROS
