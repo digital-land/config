@@ -1,0 +1,113 @@
+name: Batch Assign Unknown Entities
+
+on:
+  repository_dispatch:
+    types: [auto-batch-assign]
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: 'The scope of the batch assignment'
+        required: true
+        type: choice
+        default: 'odp'
+        options:
+          - 'mandated'
+          - 'odp'
+          - 'single-source'
+      resources:
+        description: 'Comma-separated list of resource '
+        required: false
+        type: string
+      triggered_by:
+        description: 'Identifier for the actor/system that triggered this run'
+        required: true
+        type: string
+      branch:
+        description: 'Git branch to use (optional)'
+        required: false
+        default: 'auto/batch-assign-entities'
+        type: string
+      skip_checks:
+        description: 'Skip validation checks and directly assign entities (use with caution)'
+        required: false
+        type: boolean
+        default: false
+      new_entities_threshold:
+        description: 'The percentage threshold for new entities to be assigned before triggering a warning (optional)'
+        required: false
+        type: number
+        default: 10
+
+jobs:
+  auto-batch-assign:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        if: ${{ env.ACT != 'true' }}
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          sudo add-apt-repository ppa:ubuntugis/ppa -y
+          sudo apt-get update
+          sudo apt-get install gdal-bin -y
+          gdalinfo --version
+          python -m pip install --upgrade pip
+          pip install click pandas tqdm
+          pip install -e "git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land"
+          
+      - name: Run add-data script
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
+          RESOURCES: ${{ github.event.client_payload.resources || github.event.inputs.resources }}
+          BRANCH_PARAM: ${{ github.event.client_payload.branch || github.event.inputs.branch }}
+          TRIGGERED_BY: ${{ github.event.client_payload.triggered_by || github.event.inputs.triggered_by }}
+          SCOPE: ${{ github.event.client_payload.scope || github.event.inputs.scope || 'odp' }}
+          SKIP_CHECKS: ${{ github.event.client_payload.skip_checks || github.event.inputs.skip_checks }}
+          NEW_ENTITIES_THRESHOLD: ${{ github.event.client_payload.new_entities_threshold || github.event.inputs.new_entities_threshold }}
+        run: |
+          if [ -n "$BRANCH_PARAM" ]; then
+            ARGS+=(--branch "$BRANCH_PARAM")
+          fi
+
+          ARGS+=(--scope "$SCOPE")
+
+          if [ -n "$RESOURCES" ]; then
+            ARGS+=(--resources "$RESOURCES")
+          fi
+
+          if [ "$SKIP_CHECKS" = "true" ]; then
+            ARGS+=(--skip-checks)
+          fi
+
+          if [ -n "$NEW_ENTITIES_THRESHOLD" ]; then
+            ARGS+=(--new-entity-threshold "$NEW_ENTITIES_THRESHOLD")
+          fi
+
+          python3 bin/batch_assign_entities.py "${ARGS[@]}"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-files
+          path: |
+            var/cache/assign_entities/transformed/*.csv
+            batch_assign_summary*.csv
+            issue_summary.csv
+            

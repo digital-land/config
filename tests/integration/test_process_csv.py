@@ -1,4 +1,5 @@
 import requests
+import pandas as pd
 import pytest
 import bin.batch_assign_entities as batch_assign_entities
 
@@ -17,11 +18,6 @@ def setup_test_path(monkeypatch, tmp_path):
 
     # mock check_and_assign_entities
     monkeypatch.setattr(batch_assign_entities, "check_and_assign_entities", lambda *args, **kwargs: None)
-
-
-@pytest.fixture
-def mock_user_response(monkeypatch):
-    monkeypatch.setattr(batch_assign_entities, "get_user_response", lambda _: "no")
 
 
 @pytest.fixture
@@ -86,69 +82,104 @@ class MockResponse:
 
 def test_process_csv_match_entities(
     capfd, 
-    setup_test_path, 
-    mock_user_response, 
-    mock_resource_files, 
+    setup_test_path,
+    mock_resource_files,
     mock_issue_summary,
     monkeypatch,
     tmp_path,
 ):
-    
-    def mock_get_match_entities(url, *args, **kwargs):
-        if "reporting_historic_endpoints.csv" in url:
-            return MockResponse('resource\nold-hash\n')
-        elif "old-hash.csv" in url:
-            return MockResponse(mock_resource_files["failure"]["old_resource"])
-        elif "collection/resource/test-resource" in url:
-            return MockResponse("resource")
-        else:
-            raise ValueError("Unexpected URL")
-
-    monkeypatch.setattr(batch_assign_entities.requests, "get", mock_get_match_entities)
-    monkeypatch.setattr(batch_assign_entities, "check_and_assign_entities", lambda *args, **kwargs: True)
     resource_dir = tmp_path / "resource"
-    resource_dir.mkdir(parents=True,exist_ok=True)
-    failed_downloads, failed_assignments = batch_assign_entities.process_csv(scope="odp",resource_dir=resource_dir)
+    resource_dir.mkdir(parents=True, exist_ok=True)
+    resource_file = resource_dir / "test-resource"
+    resource_file.write_text("resource")
+
+    cache_dir = tmp_path / "var/cache"
+    transformed_dir = cache_dir / "assign_entities" / "transformed"
+    issue_dir = cache_dir / "assign_entities" / "issue"
+    transformed_dir.mkdir(parents=True, exist_ok=True)
+    issue_dir.mkdir(parents=True, exist_ok=True)
+    (transformed_dir / "test-resource.csv").write_text(
+        "entity,field,value\n"
+        "2,organisation,org1\n"
+        "2,name,old_name\n"
+        "2,reference,ref1\n"
+        "2,geometry,POINT()\n"
+    )
+    (issue_dir / "test-resource.csv").write_text("entity,issue\n2,unknown entity\n")
+
+    issue_summary_df = pd.read_csv(mock_issue_summary)
+    issue_summary_df["download_link"] = "http://example.com/test-resource"
+    issue_summary_df["resource_path"] = str(resource_file)
+    issue_summary_df["endpoint"] = "test-endpoint"
+
+    monkeypatch.setattr(batch_assign_entities, "get_old_resource_hashes_batch", lambda *args, **kwargs: {"test-endpoint": "test-hash"})
+    monkeypatch.setattr(batch_assign_entities, "get_old_resource_df_from_hash", lambda *args, **kwargs: pd.DataFrame(
+        {
+            "entity": [1, 1, 1, 1],
+            "field": ["organisation", "name", "reference", "geometry"],
+            "value": ["org1", "old_name", "ref1", "POINT()"],
+        }
+    ))
+    monkeypatch.setattr(batch_assign_entities, "check_and_assign_entities", lambda *args, **kwargs: True)
+
+    failed_downloads, output_df = batch_assign_entities.process_csv(
+        scope="odp",
+        resource_dir=resource_dir,
+        issue_summary_df=issue_summary_df,
+        cache_dir=cache_dir,
+        new_entity_threshold=100,
+    )
     out, err = capfd.readouterr()
 
     assert failed_downloads == []
-    assert failed_assignments == []
-    assert "Downloaded: test-resource" in out
-    assert "Matching entities found (new_entity:matched_current_entity): {10: 1}" in out
-    assert not any(resource_dir.glob("*")), "Resource file still exists"
+    assert "duplicate_entity_all_fields" in output_df["error_code"].values
+    assert "Downloaded: test-resource" not in out
 
 
 def test_process_csv_success(
-    capfd, 
-    setup_test_path, 
-    mock_user_response, 
-    mock_resource_files, 
-    mock_issue_summary, 
+    capfd,
+    setup_test_path,
+    mock_resource_files,
+    mock_issue_summary,
     monkeypatch,
     tmp_path,
 ):
-
-    def mock_get_success(url, *args, **kwargs):
-        if "reporting_historic_endpoints.csv" in url:
-            return MockResponse('resource\nold-hash\n')
-        elif "old-hash.csv" in url:
-            return MockResponse(mock_resource_files["success"]["old_resource"])
-        elif "collection/resource/test-resource" in url:
-            return MockResponse("resource")
-        else:
-            raise ValueError("Unexpected URL")
-
-    monkeypatch.setattr(batch_assign_entities.requests, "get", mock_get_success)
-    monkeypatch.setattr(batch_assign_entities, "check_and_assign_entities", lambda *args, **kwargs: True)
     resource_dir = tmp_path / "resource"
-    resource_dir.mkdir(parents=True,exist_ok=True)
-    failed_downloads, failed_assignments = batch_assign_entities.process_csv(scope="odp",resource_dir=resource_dir)
+    resource_dir.mkdir(parents=True, exist_ok=True)
+    resource_file = resource_dir / "test-resource"
+    resource_file.write_text("resource")
+
+    cache_dir = tmp_path / "var/cache"
+    transformed_dir = cache_dir / "assign_entities" / "transformed"
+    issue_dir = cache_dir / "assign_entities" / "issue"
+    transformed_dir.mkdir(parents=True, exist_ok=True)
+    issue_dir.mkdir(parents=True, exist_ok=True)
+    (transformed_dir / "test-resource.csv").write_text(
+        "entity,field,value\n"
+        "10,organisation,org1\n"
+        "10,reference,ref1\n"
+        "10,prefix,ca\n"
+    )
+    (issue_dir / "test-resource.csv").write_text("entity,issue\n10,unknown entity\n")
+
+    issue_summary_df = pd.read_csv(mock_issue_summary)
+    issue_summary_df["download_link"] = "http://example.com/test-resource"
+    issue_summary_df["resource_path"] = str(resource_file)
+
+    monkeypatch.setattr(batch_assign_entities, "get_old_resource_hashes_batch", lambda *args, **kwargs: {"test-endpoint": None})
+    monkeypatch.setattr(batch_assign_entities, "check_and_assign_entities", lambda *args, **kwargs: True)
+
+    failed_downloads, output_df = batch_assign_entities.process_csv(
+        scope="odp",
+        resource_dir=resource_dir,
+        issue_summary_df=issue_summary_df,
+        cache_dir=cache_dir,
+    )
     out, err = capfd.readouterr()
 
     assert failed_downloads == []
-    assert failed_assignments == []
-    assert "Downloaded: test-resource" in out
-    assert "Matching entities found" not in out
+    assert "success" in output_df["status"].values
+    assert "Downloaded: test-resource" not in out
 
     updated_lookup = tmp_path / "pipeline/test-collection/lookup.csv"
     assert updated_lookup.exists(), "Updated lookup.csv should exist after success"
