@@ -6,6 +6,7 @@ import shutil
 import logging
 import traceback
 import subprocess
+import re
 
 from pathlib import Path
 from typing import Optional, Dict
@@ -65,7 +66,7 @@ def checkout_branch_for_create_mode(branch_name):
 
 def create_or_update_pr_for_success(branch, triggered_by, success_count):
     if not branch:
-        print("No --branch supplied; skipping PR creation")
+        print(f"No --branch supplied; skipping PR creation :: {branch}")
         return
 
     commit_label = f"Batch assign entities update ({success_count} successful resource(s))"
@@ -240,6 +241,13 @@ def get_old_resource_df_from_hash(resource_hash: str, collection_name: str, data
 
                             
 def _make_fingerprints(df, except_fields=["reference", "entry-date"], only_fields=None):
+    """
+    Create a fingerprint for each entity based options specified.
+    By default, the fingerprint is based on all fields except reference and entry-date, but this can be customised by specifying different fields to exclude or include.
+        except_fields: list of fields to exclude from the fingerprint (default: ["reference", "entry-date"])
+        only_fields: if specified, only include these fields in the fingerprint (overrides except_fields)
+    """
+    
     tmp = df[~df['field'].isin(except_fields)].copy()
     if only_fields:
         tmp = tmp[tmp['field'].isin(only_fields)]
@@ -299,6 +307,11 @@ def _duplicate_error_rows(matches, dataset, resource, error_code, message_factor
 
 
 def _duplicate_entities_error_rows(old_df, new_df, dataset, resource):
+    """
+        Check for duplicate entities based on all fields except reference and entry-date. 
+        
+        If a new entity has the same values for all other fields as an old entity, flag as a potential duplicate.
+    """
     matches = new_df.merge(old_df, on='fingerprint', how='inner', suffixes=('_new', '_old'))
     return _duplicate_error_rows(
         matches,
@@ -306,12 +319,17 @@ def _duplicate_entities_error_rows(old_df, new_df, dataset, resource):
         resource,
         'duplicate_entity_all_fields',
         lambda match_row: (
-            f"Matches existing entity(s) {match_row['entity_list']} {match_row['fingerprint']}."
+            f"Matches existing entity(s) {match_row['entity_list']} "
+            f"{re.sub(r'[^|]*multipolygon[^|]*', '<multipolygon>', match_row['fingerprint'])}."
         ),
     )
 
 
 def _duplicate_prefix_reference_organisation_error_rows(old_df, new_df, dataset, resource):
+    """
+        Check for duplicate entities based on prefix, reference and organisation fields only.
+    """
+    
     matches = new_df.merge(old_df, on='fingerprint', how='inner', suffixes=('_new', '_old'))
     return _duplicate_error_rows(
         matches,
@@ -424,9 +442,11 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
             }
         )
 
+    # The following checks require previous resource entities/facts to compare against
     if len(old_entities) > 0 and len(new_entity_ids) > 0:
         new_resource_only_df = current_resource_df[current_resource_df['entity'].isin(new_entity_ids)]
 
+        # If the number of new entities exceeds the threshold compared to the previous resource, flag for review
         if len(new_entity_ids) > (new_entity_threshold / 100) * len(current_entities):
             validation_rows.append(
                 {
@@ -444,6 +464,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                 }
             )
 
+        # Check for duplicate entities (all fields except reference and entry-date) between the new resource and old resource
         validation_rows.extend(
             _duplicate_entities_error_rows(
                 _make_fingerprints(old_resource_df),
@@ -452,6 +473,8 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                 resource,
             )
         )
+        
+        # Check for duplicate entities based on prefix, reference and organisation fields only between the new resource and old resource
         validation_rows.extend(
             _duplicate_prefix_reference_organisation_error_rows(
                 _make_fingerprints(old_resource_df, except_fields=[], only_fields=['prefix', 'organisation', 'reference']),
@@ -460,6 +483,8 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                 resource,
             )
         )
+        
+        # Check for duplicate entities based on reference and organisation fields only between the new resource and old resource
         validation_rows.extend(
             _duplicate_reference_organisation_error_rows(
                 _make_fingerprints(old_resource_df, except_fields=[], only_fields=['organisation', 'reference']),
@@ -469,6 +494,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
             )
         )
 
+    #Check for duplicate reference and organisation combinations within the current resource itself.
     validation_rows.extend(
         _duplicate_reference_organisation_in_new_resource_error_rows(
             current_resource_df,
@@ -476,9 +502,14 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
             resource,
         )
     )
-
+    
+    #Create a df to check for missing metadata fields in the current resource
     metadata_frame = _missing_metadata_frame(current_resource_df)
+    
+    # Check for missing organisation or reference fields in the current resource
     validation_rows.extend(_missing_organisation_error_rows(metadata_frame, dataset, resource))
+    
+    # Check for missing reference fields in the current resource
     validation_rows.extend(_missing_reference_error_rows(metadata_frame, dataset, resource))
     return validation_rows, old_entities, new_entity_ids
 
@@ -528,6 +559,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                 except requests.RequestException as e:
                     print(f"Failed to download: {resource}")
                     print(f"Error: {e}")
+                    failed_downloads.append((resource, str(e)))
                 continue
 
             print(f"Processing resource: {resource}")
@@ -564,11 +596,12 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     if rows:
                         output_rows.extend(rows)
 
-                # get old transformed resource using pre-fetched resource hash
+                # get old transformed resource using pre-fetched resource hash when checks are enabled
                 old_resource_df = None
-                if endpoint in endpoint_resource_map:
+                old_resource_hash = None
+                if not skip_checks and endpoint in endpoint_resource_map:
                     old_resource_hash = endpoint_resource_map[endpoint]
-                    
+
                     print(f"=====")
                     print(f" collection || dataset || old_resource_hash || endpoint")
                     print(f" {collection_name} || {dataset} || {old_resource_hash} || {endpoint}")
@@ -595,16 +628,19 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     )
                     continue
 
-                validation_rows, old_entities, new_entities = _collect_validation_rows(
-                    current_resource_df,
-                    old_resource_df,
-                    dataset,
-                    resource,
-                    new_entity_threshold,
-                    old_resource_hash
-                )
-
-                if not skip_checks:
+                if skip_checks:
+                    old_entities = set()
+                    new_entities = set(current_resource_df['entity'])
+                    validation_rows = []
+                else:
+                    validation_rows, old_entities, new_entities = _collect_validation_rows(
+                        current_resource_df,
+                        old_resource_df,
+                        dataset,
+                        resource,
+                        new_entity_threshold,
+                        old_resource_hash,
+                    )
                     add_output_log(validation_rows)
 
                 if output_rows:
@@ -826,6 +862,7 @@ def run_batch_assign_entities(
     "--branch",
     required=False,
     type=str,
+    default='auto/batch-assign-entities',
     help="Git branch to use (optional metadata).",
 )
 @click.option(

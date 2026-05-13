@@ -45,6 +45,7 @@ jobs:
     steps:
       - name: Generate GitHub App token
         id: app-token
+        if: ${{ env.ACT != 'true' }}
         uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.APP_ID }}
@@ -73,7 +74,7 @@ jobs:
           
       - name: Run add-data script
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
           RESOURCES: ${{ github.event.client_payload.resources || github.event.inputs.resources }}
           BRANCH_PARAM: ${{ github.event.client_payload.branch || github.event.inputs.branch }}
           TRIGGERED_BY: ${{ github.event.client_payload.triggered_by || github.event.inputs.triggered_by }}
@@ -106,7 +107,6 @@ jobs:
         with:
           name: generated-files
           path: |
-            resource/
             var/cache/assign_entities/transformed/*.csv
             batch_assign_summary*.csv
             issue_summary.csv
