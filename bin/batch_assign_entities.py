@@ -65,7 +65,7 @@ def checkout_branch_for_create_mode(branch_name):
 
 
 def create_or_update_pr_for_success(branch, triggered_by, success_count):
-    if not branch:
+    if not branch or branch.strip() == "":
         print(f"No --branch supplied; skipping PR creation :: {branch}")
         return
 
@@ -428,6 +428,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
     else:
         old_entities = set(old_resource_df['entity'])
         new_entity_ids = current_entities - old_entities
+    
 
     if len(old_entities) == 0 and old_resource_df is not None:
         validation_rows.append(
@@ -608,7 +609,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     old_resource_df = get_old_resource_df_from_hash(old_resource_hash, collection_name, dataset)
                 
                 # get current transformed resource
-                current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv")
+                current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv",dtype=str)
 
                 if not skip_checks and len(current_resource_df) == 0:
                     add_output_log([
@@ -756,9 +757,9 @@ def run_batch_assign_entities(
     endpoint_issue_summary_path = "https://datasette.planning.data.gov.uk/performance/endpoint_dataset_issue_type_summary.csv?_sort=rowid&issue_type__exact=unknown+entity&_size=max"
 
     response = requests.get(endpoint_issue_summary_path)
-    issue_summary_df = pd.read_csv(StringIO(response.text))
+    issue_summary_df = pd.read_csv(StringIO(response.text),dtype=str)
     specification_dir = ensure_specification_dir()
-    provision_rule_df = pd.read_csv(specification_dir / "provision-rule.csv")
+    provision_rule_df = pd.read_csv(specification_dir / "provision-rule.csv",dtype=str)
     scope_dict = {
         "odp": provision_rule_df.loc[
             provision_rule_df["project"] == "open-digital-planning", "dataset"
