@@ -1,11 +1,8 @@
-name: Add Data From Async API
+name: Batch Assign Unknown Entities
 
 on:
   repository_dispatch:
     types: [auto-batch-assign]
-  push:
-    branches:
-      - 144-refactor-batch-assign---moving-logic-to-digital-land-python-and-create-github-action
   workflow_dispatch:
     inputs:
       scope:

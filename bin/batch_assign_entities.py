@@ -420,7 +420,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                 'reference': '',
                 'status': 'error',
                 'error_code': 'previous_resource_empty',
-                'message': 'Previous resource is has no entities {old_resource_hash}.',
+                'message': f'Previous resource is has no entities {old_resource_hash}.',
             }
         )
 
@@ -438,7 +438,8 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                     'error_code': 'large_number_of_new_entities',
                     'message': (
                         f"Resource contains a large number of new entities ({len(new_entity_ids)}) "
-                        f"compared to the previous version ({len(old_entities)})."
+                        f"compared to the previous version ({len(old_entities)}). "
+                        f"Old resource hash: {old_resource_hash}."
                     ),
                 }
             )
