@@ -95,7 +95,6 @@ def create_or_update_pr_for_success(branch, triggered_by, success_count, scope,b
         return
 
     run_command(["git", "commit", "-m", commit_label])
-    run_command(["git", "pull"])
     run_command(["git", "push", "origin", branch])
 
     pr_number = run_command(
