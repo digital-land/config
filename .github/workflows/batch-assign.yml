@@ -33,6 +33,11 @@ on:
         required: false
         type: number
         default: 10
+      create_pr:
+        description: 'Whether to create a PR for the batch assignment results'
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   auto-batch-assign:
@@ -77,6 +82,7 @@ jobs:
           SCOPE: ${{ github.event.client_payload.scope || github.event.inputs.scope || 'odp' }}
           SKIP_CHECKS: ${{ github.event.client_payload.skip_checks || github.event.inputs.skip_checks }}
           NEW_ENTITIES_THRESHOLD: ${{ github.event.client_payload.new_entities_threshold || github.event.inputs.new_entities_threshold }}
+          CREATE_PR: ${{ github.event.client_payload.create_pr || github.event.inputs.create_pr }}
         run: |
           if [ -n "$BRANCH_PARAM" ]; then
             ARGS+=(--branch "$BRANCH_PARAM")
@@ -98,6 +104,10 @@ jobs:
 
           if [ -n "$TRIGGERED_BY" ]; then
             ARGS+=(--triggered-by "$TRIGGERED_BY")
+          fi
+
+          if [[ "$CREATE_PR" == "false" ]]; then
+            ARGS+=(--no-create-pr)
           fi
 
           python3 bin/batch_assign_entities.py "${ARGS[@]}"
