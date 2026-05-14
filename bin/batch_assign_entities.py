@@ -545,7 +545,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
     return validation_rows, old_entities, new_entity_ids
 
 
-def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_threshold=10, skip_checks=False):
+def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_threshold=10, skip_checks=False,invalid_uri_issues=None):
     """
     Uses provided file path to automatically process and assign unknown entities
     """
@@ -674,6 +674,24 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                         old_resource_hash,
                     )
                     add_output_log(validation_rows)
+                    
+                    if len(output_rows) == 0:
+                        iui = invalid_uri_issues[
+                                    (invalid_uri_issues["resource"] == resource)
+                                    & (invalid_uri_issues["dataset"] == dataset)
+                                ]
+                        if len(iui) > 0:
+                            add_output_log([
+                                {
+                                    "dataset": dataset,
+                                    "resource": resource,
+                                    "organisation": organisation_name,
+                                    "reference": "",
+                                    "status": "error",
+                                    "error_code": "invalid_uri_issue",
+                                    "message": f"Resource has known issues with invalid URIs that require manual review.",
+                                }
+                            ])
 
                 if output_rows:
                     output_df = pd.concat(
@@ -791,6 +809,12 @@ def run_batch_assign_entities(
 
     response = requests.get(endpoint_issue_summary_path)
     issue_summary_df = pd.read_csv(StringIO(response.text),dtype=str)
+    
+    invalid_uri_issues_path = "https://datasette.planning.data.gov.uk/performance/endpoint_dataset_issue_type_summary.csv?_sort=rowid&issue_type__exact=invalid+URI&_size=max"
+    invalid_uri_response = requests.get(invalid_uri_issues_path)
+    invalid_uri_issues = pd.read_csv(StringIO(invalid_uri_response.text),dtype=str)
+    invalid_uri_issues.to_csv("invalid_uri_issues.csv", index=False)
+    
     specification_dir = ensure_specification_dir()
     provision_rule_df = pd.read_csv(specification_dir / "provision-rule.csv",dtype=str)
     scope_dict = {
@@ -858,6 +882,7 @@ def run_batch_assign_entities(
             cache_dir,
             new_entity_threshold,
             skip_checks,
+            invalid_uri_issues
         )
         error_count = len(output_df[output_df['status'] == 'error'])
         success_count = len(output_df[output_df['status'] == 'success'])

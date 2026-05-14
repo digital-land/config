@@ -170,6 +170,9 @@ def test_process_csv_success(
     issue_summary_df["download_link"] = "http://example.com/test-resource"
     issue_summary_df["resource_path"] = str(resource_file)
     issue_summary_df["endpoint"] = "test-endpoint"
+    invalid_uri_issues_df = pd.DataFrame(
+        columns=["issue_type", "scope", "dataset", "collection", "resource", "endpoint", "pipeline", "organisation"]
+    )
 
     def mock_check_and_assign(*args, **kwargs):
         # Simulate check_and_assign_entities by writing entity 10 to the cache lookup
@@ -195,6 +198,7 @@ def test_process_csv_success(
         issue_summary_df=issue_summary_df,
         cache_dir=cache_dir,
         new_entity_threshold=100,
+        invalid_uri_issues=invalid_uri_issues_df,
     )
     out, err = capfd.readouterr()
 
