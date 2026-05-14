@@ -419,7 +419,7 @@ def _missing_reference_error_rows(df, dataset, resource):
     ]
 
 
-def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, new_entity_threshold, old_resource_hash):
+def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, new_entity_threshold, old_resource_hash,organisation_name=''):
     validation_rows = []
     current_entities = set(current_resource_df['entity'])
 
@@ -440,7 +440,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
             {
                 'dataset': dataset,
                 'resource': resource,
-                'organisation': '',
+                'organisation': organisation_name,
                 'reference': '',
                 'status': 'error',
                 'error_code': 'previous_resource_not_found',
@@ -452,7 +452,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
             {
                 'dataset': dataset,
                 'resource': resource,
-                'organisation': '',
+                'organisation': organisation_name,
                 'reference': '',
                 'status': 'error',
                 'error_code': 'previous_resource_empty',
@@ -465,7 +465,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
             {
                 'dataset': dataset,
                 'resource': resource,
-                'organisation': '',
+                'organisation': organisation_name,
                 'reference': '',
                 'status': 'error',
                 'error_code': 'current_resource_no_new_entities',
@@ -483,7 +483,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                 {
                     'dataset': dataset,
                     'resource': resource,
-                    'organisation': '',
+                    'organisation': organisation_name,
                     'reference': '',
                     'status': 'error',
                     'error_code': 'large_number_of_new_entities',
@@ -672,6 +672,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                         resource,
                         new_entity_threshold,
                         old_resource_hash,
+                        organisation_name=organisation_name
                     )
                     add_output_log(validation_rows)
                     
@@ -832,6 +833,7 @@ def run_batch_assign_entities(
     }
 
     issue_summary_df["scope"] = issue_summary_df["dataset"].apply(lambda x: get_scope(x, scope_dict))
+    issue_summary_df.to_csv("issue_summary_full.csv", index=False)
 
     if triggered_by:
         print(f"Triggered by: {triggered_by}")

@@ -121,4 +121,5 @@ jobs:
             batch_assign_summary*.csv
             issue_summary.csv
             invalid_uri_issues.csv
+            issue_summary_full.csv
             
