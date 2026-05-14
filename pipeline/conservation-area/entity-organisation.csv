@@ -183,6 +183,7 @@ conservation-area,44010415,44010478,local-authority:BUC
 conservation-area,44010479,44010585,local-authority:BUC
 conservation-area,44012802,44012804,local-authority:BUC
 conservation-area,44009193,44009202,local-authority:BUN
+conservation-area,44015909,44015918,local-authority:BUN
 conservation-area,44002695,44002705,local-authority:BUR
 conservation-area,44006212,44006212,local-authority:BUR
 conservation-area,44012878,44012879,local-authority:BUR
@@ -1826,6 +1827,7 @@ conservation-area-document,6300978,6300978,local-authority:IOS
 conservation-area-document,6301007,6301102,local-authority:IOW
 conservation-area-document,6304928,6304942,local-authority:IPS
 conservation-area-document,6315815,6315829,local-authority:IPS
+conservation-area-document,6316352,6316381,local-authority:IPS
 conservation-area-document,6301418,6301458,local-authority:ISL
 conservation-area-document,6302866,6302936,local-authority:KEC
 conservation-area-document,6304943,6304968,local-authority:KHL
@@ -2022,5 +2024,3 @@ conservation-area-document,6313894,6314026,national-park-authority:Q72617158
 conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
-conservation-area-document,6316352,6316381,local-authority:IPS
-conservation-area,44015909,44015918,local-authority:BUN

@@ -2245,6 +2245,7 @@ plan-timetable,5108606,5108628,local-authority:SHN
 plan-timetable,5108445,5108467,local-authority:SHO
 plan-timetable,5101346,5101351,local-authority:SHR
 plan-timetable,5108238,5108260,local-authority:SHR
+plan-timetable,5109849,5109862,local-authority:SHR
 plan-timetable,5101389,5101392,local-authority:SKE
 plan-timetable,5108468,5108490,local-authority:SKE
 plan-timetable,5101467,5101470,local-authority:SKP
@@ -2558,4 +2559,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5109849,5109862,local-authority:SHR
