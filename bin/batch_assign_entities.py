@@ -1,4 +1,5 @@
 import csv
+from time import perf_counter
 import click
 import requests
 import pandas as pd
@@ -22,7 +23,7 @@ from concurrent.futures import ThreadPoolExecutor
 logger = logging.getLogger(__name__)
 
 
-def run_command(cmd, capture_output=False, check=True):
+def run_command(cmd, capture_output=True, check=True):
     """Run a shell command and return stdout when requested."""
     try:
         result = subprocess.run(
@@ -64,17 +65,17 @@ def checkout_branch_for_create_mode(branch_name):
         run_command(["git", "checkout", "-b", branch_name])
 
 
-def create_or_update_pr_for_success(branch, triggered_by, success_count):
+def create_or_update_pr_for_success(branch, triggered_by, success_count, scope,body_suffix=""):
     if not branch or branch.strip() == "":
         print(f"No --branch supplied; skipping PR creation :: {branch}")
         return
 
-    commit_label = f"Batch assign entities update ({success_count} successful resource(s))"
+    commit_label = f"{scope} - Batch assign entities update ({success_count} successful resource(s))"
 
     pr_body = (
         f"{commit_label}\n\n"
-        f"Triggered by: {triggered_by or 'unknown'}\n"
-        f"Branch: {branch}"
+        f"Triggered by: {triggered_by}\n\n"
+        f"{body_suffix}\n\n"
     )
 
     run_command(["git", "config", "user.name", "github-actions-add-data-bot"])
@@ -119,7 +120,7 @@ def create_or_update_pr_for_success(branch, triggered_by, success_count):
             capture_output=True,
         )
         new_body = f"{current_body}\n\n{pr_body}" if current_body else pr_body
-        run_command(["gh", "pr", "edit", pr_number, "--title", "Batch Assign Entities Update", "--body", new_body])
+        run_command(["gh", "pr", "edit", pr_number, "--title", f"{scope} - Batch Assign Entities Update", "--body", new_body])
         print(f"Updated existing PR #{pr_number} on branch {branch}")
         return
 
@@ -129,7 +130,7 @@ def create_or_update_pr_for_success(branch, triggered_by, success_count):
             "pr",
             "create",
             "--title",
-            "Batch Assign Entities Update",
+            f"{scope} - Batch Assign Entities Update",
             "--body",
             pr_body,
             "--base",
@@ -418,7 +419,7 @@ def _missing_reference_error_rows(df, dataset, resource):
     ]
 
 
-def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, new_entity_threshold, old_resource_hash):
+def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, new_entity_threshold, old_resource_hash,organisation_name=''):
     validation_rows = []
     current_entities = set(current_resource_df['entity'])
 
@@ -429,17 +430,46 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
         old_entities = set(old_resource_df['entity'])
         new_entity_ids = current_entities - old_entities
     
+    print(f"Old entities count: {len(old_entities)}, current entities count: {len(current_entities)}, New entities count: {len(new_entity_ids)}")
+    print(f"Last 5 old entities IDs: {sorted(old_entities)[-5:] if old_entities else 'N/A'}")
+    print(f"Last 5 current entities IDs: {sorted(current_entities)[-5:] if current_entities else 'N/A'}")
+    print(f"Last 5 new entities IDs: {sorted(new_entity_ids)[-5:] if new_entity_ids else 'N/A'}")
 
-    if len(old_entities) == 0 and old_resource_df is not None:
+    if old_resource_df is None:
         validation_rows.append(
             {
                 'dataset': dataset,
                 'resource': resource,
-                'organisation': '',
+                'organisation': organisation_name,
+                'reference': '',
+                'status': 'error',
+                'error_code': 'previous_resource_not_found',
+                'message': 'Previous resource not found.',
+            }
+        )
+    elif len(old_entities) == 0:
+        validation_rows.append(
+            {
+                'dataset': dataset,
+                'resource': resource,
+                'organisation': organisation_name,
                 'reference': '',
                 'status': 'error',
                 'error_code': 'previous_resource_empty',
-                'message': f'Previous resource is has no entities {old_resource_hash}.',
+                'message': f'Previous resource has no entities {old_resource_hash}.',
+            }
+        )
+    
+    if len(new_entity_ids) == 0:
+        validation_rows.append(
+            {
+                'dataset': dataset,
+                'resource': resource,
+                'organisation': organisation_name,
+                'reference': '',
+                'status': 'error',
+                'error_code': 'current_resource_no_new_entities',
+                'message': 'Current resource contains no new entities for assignment.',
             }
         )
 
@@ -453,7 +483,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                 {
                     'dataset': dataset,
                     'resource': resource,
-                    'organisation': '',
+                    'organisation': organisation_name,
                     'reference': '',
                     'status': 'error',
                     'error_code': 'large_number_of_new_entities',
@@ -515,7 +545,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
     return validation_rows, old_entities, new_entity_ids
 
 
-def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_threshold=10, skip_checks=False):
+def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_threshold=10, skip_checks=False,invalid_uri_issues=None):
     """
     Uses provided file path to automatically process and assign unknown entities
     """
@@ -534,6 +564,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
     try:
         pbar = tqdm(issue_summary_df.iterrows(), total=issue_summary_df.shape[0], desc="Processing resources")
         for row_number, row in pbar:
+            start_time = perf_counter()
             collection_name = row["collection"]
             resource = row["resource"]
             endpoint = row["endpoint"]
@@ -641,8 +672,27 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                         resource,
                         new_entity_threshold,
                         old_resource_hash,
+                        organisation_name=organisation_name
                     )
                     add_output_log(validation_rows)
+                    
+                    if len(output_rows) == 0:
+                        iui = invalid_uri_issues[
+                                    (invalid_uri_issues["resource"] == resource)
+                                    & (invalid_uri_issues["dataset"] == dataset)
+                                ]
+                        if len(iui) > 0:
+                            add_output_log([
+                                {
+                                    "dataset": dataset,
+                                    "resource": resource,
+                                    "organisation": organisation_name,
+                                    "reference": "",
+                                    "status": "error",
+                                    "error_code": "invalid_uri_issue",
+                                    "message": f"Resource has known issues with invalid URIs that require manual review.",
+                                }
+                            ])
 
                 if output_rows:
                     output_df = pd.concat(
@@ -661,7 +711,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                             "status": "success",
                             "entities_created": len(new_entities),
                             "error_code": "",
-                            "message": "Entities assigned successfully.",
+                            "message": f"Entities assigned successfully. [{sorted(new_entities)[-5:]}]",
                         }
                     ]
                 )
@@ -670,7 +720,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     ignore_index=True,
                 )
                 shutil.copy(cache_dir / "assign_entities" / collection_name / "pipeline" / "lookup.csv", Path("pipeline") / collection_name / "lookup.csv")
-                print(f"\nEntities assigned successfully for")
+                print(f"\nEntities assigned successfully for resource: {resource}. ")
                 successful_resources.append(resource_path)
 
                 # After successful entity assignment and duplicate checks append entity range to entity-organisation.csv
@@ -703,7 +753,8 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     "error_code": type(e).__name__,
                     "message": str(e)
                 }])], ignore_index=True)
-
+            finally:
+                print(f"\nCompleted processing for resource: {resource} in {perf_counter() - start_time:.2f} seconds.")
     finally:
         output_df.to_csv(f"batch_assign_summary_{scope}.csv", index=False)
         # Remove successfully processed resources
@@ -753,11 +804,18 @@ def run_batch_assign_entities(
     skip_checks: bool = False,
     triggered_by: Optional[str] = None,
     branch: str = "auto/batch-assign-entities",
+    create_pr: bool = True,
 ):
     endpoint_issue_summary_path = "https://datasette.planning.data.gov.uk/performance/endpoint_dataset_issue_type_summary.csv?_sort=rowid&issue_type__exact=unknown+entity&_size=max"
 
     response = requests.get(endpoint_issue_summary_path)
     issue_summary_df = pd.read_csv(StringIO(response.text),dtype=str)
+    
+    invalid_uri_issues_path = "https://datasette.planning.data.gov.uk/performance/endpoint_dataset_issue_type_summary.csv?_sort=rowid&issue_type__exact=invalid+URI&_size=max"
+    invalid_uri_response = requests.get(invalid_uri_issues_path)
+    invalid_uri_issues = pd.read_csv(StringIO(invalid_uri_response.text),dtype=str)
+    invalid_uri_issues.to_csv("invalid_uri_issues.csv", index=False)
+    
     specification_dir = ensure_specification_dir()
     provision_rule_df = pd.read_csv(specification_dir / "provision-rule.csv",dtype=str)
     scope_dict = {
@@ -775,6 +833,7 @@ def run_batch_assign_entities(
     }
 
     issue_summary_df["scope"] = issue_summary_df["dataset"].apply(lambda x: get_scope(x, scope_dict))
+    issue_summary_df.to_csv("issue_summary_full.csv", index=False)
 
     if triggered_by:
         print(f"Triggered by: {triggered_by}")
@@ -825,6 +884,7 @@ def run_batch_assign_entities(
             cache_dir,
             new_entity_threshold,
             skip_checks,
+            invalid_uri_issues
         )
         error_count = len(output_df[output_df['status'] == 'error'])
         success_count = len(output_df[output_df['status'] == 'success'])
@@ -833,17 +893,24 @@ def run_batch_assign_entities(
         print(f"Total failed assign-entities operations: {error_count}")
         print(f"Total successful assign-entities operations: {success_count}")
 
-        if success_count > 0:
+        if success_count > 0 and create_pr:
+            body_suffix = f"{success_count} successful resource(s) processed with batch assign entities for scope '{scope}'."
+            f"Options used to run this command: \n\n scope: {scope} \n new_entity_threshold: {new_entity_threshold} \n skip_checks: {skip_checks} \n resources: {resources} \n branch: {branch} \n triggered_by: {triggered_by} \n create_pr: {create_pr} \n\n"
             create_or_update_pr_for_success(
                 branch=branch,
                 triggered_by=triggered_by,
                 success_count=success_count,
+                scope=scope,
+                body_suffix=body_suffix,
             )
+        elif success_count > 0 and not create_pr:
+            print("Successful assignments completed; PR creation disabled by --no-create-pr")
         else:
             print("No successful assignments; skipping PR creation")
     except Exception as e:
-        print(f"An error occurred while processing the CSV file: {e}")
+        print(f"Error running batch assign entities: {e}")
         traceback.print_exc()
+        raise e
     
 @click.command(help="Automatically assign entities for resources with unknown entity issues based on issue summary from performance dataset. This script will download the relevant resources, attempt to assign entities, and handle any errors that occur during the process.")
 @click.option(
@@ -885,6 +952,12 @@ def run_batch_assign_entities(
     type=click.IntRange(min=0, max=100),
     help="The threshold for the number of new entities to be assigned in percentage compared to the previous version of the resource.",
 )
+@click.option(
+    "--create-pr/--no-create-pr",
+    default=True,
+    show_default=True,
+    help="Create or update a PR when there are successful assignments.",
+)
 
 def main(
     scope: str = 'odp',
@@ -894,6 +967,7 @@ def main(
     skip_checks: bool = False,
     triggered_by: Optional[str] = None,
     branch: str = "auto/batch-assign-entities",
+    create_pr: bool = True,
 ) -> None:
     # Print input options so the command and options used are visible
     print("Input options:")
@@ -904,6 +978,7 @@ def main(
     print(f"  skip_checks={skip_checks}")
     print(f"  triggered_by={triggered_by}")
     print(f"  branch={branch}")
+    print(f"  create_pr={create_pr}")
 
     cache_dir = Path(cache_dir)
     run_batch_assign_entities(
@@ -914,6 +989,7 @@ def main(
         skip_checks=skip_checks,
         triggered_by=triggered_by,
         branch=branch,
+        create_pr=create_pr,
     )
 
 if __name__ == "__main__":

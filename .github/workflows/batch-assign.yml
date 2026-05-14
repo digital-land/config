@@ -18,10 +18,6 @@ on:
         description: 'Comma-separated list of resource '
         required: false
         type: string
-      triggered_by:
-        description: 'Identifier for the actor/system that triggered this run'
-        required: true
-        type: string
       branch:
         description: 'Git branch to use (optional)'
         required: false
@@ -37,6 +33,11 @@ on:
         required: false
         type: number
         default: 10
+      create_pr:
+        description: 'Whether to create a PR for the batch assignment results'
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   auto-batch-assign:
@@ -77,10 +78,11 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
           RESOURCES: ${{ github.event.client_payload.resources || github.event.inputs.resources }}
           BRANCH_PARAM: ${{ github.event.client_payload.branch || github.event.inputs.branch }}
-          TRIGGERED_BY: ${{ github.event.client_payload.triggered_by || github.event.inputs.triggered_by }}
+          TRIGGERED_BY: ${{ github.actor || 'unknown' }}
           SCOPE: ${{ github.event.client_payload.scope || github.event.inputs.scope || 'odp' }}
           SKIP_CHECKS: ${{ github.event.client_payload.skip_checks || github.event.inputs.skip_checks }}
           NEW_ENTITIES_THRESHOLD: ${{ github.event.client_payload.new_entities_threshold || github.event.inputs.new_entities_threshold }}
+          CREATE_PR: ${{ github.event.client_payload.create_pr || github.event.inputs.create_pr }}
         run: |
           if [ -n "$BRANCH_PARAM" ]; then
             ARGS+=(--branch "$BRANCH_PARAM")
@@ -100,6 +102,14 @@ jobs:
             ARGS+=(--new-entity-threshold "$NEW_ENTITIES_THRESHOLD")
           fi
 
+          if [ -n "$TRIGGERED_BY" ]; then
+            ARGS+=(--triggered-by "$TRIGGERED_BY")
+          fi
+
+          if [[ "$CREATE_PR" == "false" ]]; then
+            ARGS+=(--no-create-pr)
+          fi
+
           python3 bin/batch_assign_entities.py "${ARGS[@]}"
 
       - name: Upload artifact
@@ -110,4 +120,6 @@ jobs:
             var/cache/assign_entities/transformed/*.csv
             batch_assign_summary*.csv
             issue_summary.csv
+            invalid_uri_issues.csv
+            issue_summary_full.csv
             

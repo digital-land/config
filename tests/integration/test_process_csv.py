@@ -162,18 +162,43 @@ def test_process_csv_success(
     )
     (issue_dir / "test-resource.csv").write_text("entity,issue\n10,unknown entity\n")
 
+    # Create entity-organisation.csv so append operations don't fail
+    entity_org_file = tmp_path / "pipeline/test-collection/entity-organisation.csv"
+    entity_org_file.write_text("dataset,min_entity,max_entity,organisation\n")
+
     issue_summary_df = pd.read_csv(mock_issue_summary)
     issue_summary_df["download_link"] = "http://example.com/test-resource"
     issue_summary_df["resource_path"] = str(resource_file)
+    issue_summary_df["endpoint"] = "test-endpoint"
+    invalid_uri_issues_df = pd.DataFrame(
+        columns=["issue_type", "scope", "dataset", "collection", "resource", "endpoint", "pipeline", "organisation"]
+    )
 
-    monkeypatch.setattr(batch_assign_entities, "get_old_resource_hashes_batch", lambda *args, **kwargs: {"test-endpoint": None})
-    monkeypatch.setattr(batch_assign_entities, "check_and_assign_entities", lambda *args, **kwargs: True)
+    def mock_check_and_assign(*args, **kwargs):
+        # Simulate check_and_assign_entities by writing entity 10 to the cache lookup
+        cache_lookup = tmp_path / "var/cache/assign_entities/test-collection/pipeline/lookup.csv"
+        cache_lookup.write_text(
+            "prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date\n"
+            "test-dataset,test-resource,,1,test-org,ref1,10,,\n"
+        )
+
+    monkeypatch.setattr(batch_assign_entities, "get_old_resource_hashes_batch", lambda *args, **kwargs: {"test-endpoint": "old-resource-hash"})
+    monkeypatch.setattr(batch_assign_entities, "get_old_resource_df_from_hash", lambda *args, **kwargs: pd.DataFrame(
+        {
+            "entity": [1],
+            "field": ["organisation"],
+            "value": ["org1"],
+        }
+    ))
+    monkeypatch.setattr(batch_assign_entities, "check_and_assign_entities", mock_check_and_assign)
 
     failed_downloads, output_df = batch_assign_entities.process_csv(
         scope="odp",
         resource_dir=resource_dir,
         issue_summary_df=issue_summary_df,
         cache_dir=cache_dir,
+        new_entity_threshold=100,
+        invalid_uri_issues=invalid_uri_issues_df,
     )
     out, err = capfd.readouterr()
 

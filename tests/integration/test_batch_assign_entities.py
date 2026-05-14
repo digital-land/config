@@ -544,9 +544,12 @@ def test_run_batch_assign_entities_handles_empty_filtered_summary(
             "role": ["local-planning-authority"],
         }
     )
+    invalid_uri_issues_df = pd.DataFrame(
+        columns=["issue_type", "scope", "dataset", "collection", "resource", "endpoint", "pipeline", "organisation"]
+    )
 
     mock_get.return_value = Mock(text="issue_type,scope,dataset,collection,resource,endpoint,pipeline,organisation\n")
-    mock_read_csv.side_effect = [empty_issue_summary, provision_rule_df]
+    mock_read_csv.side_effect = [empty_issue_summary, invalid_uri_issues_df, provision_rule_df]
     mock_ensure_specification_dir.return_value = Path("specification")
     mock_process_csv.return_value = ([], pd.DataFrame())
 
