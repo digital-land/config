@@ -3,6 +3,8 @@ listed-building,31864000,31864062,government-organisation:PB1164
 listed-building,31864063,31866124,government-organisation:PB1164
 listed-building,31866125,31866152,government-organisation:PB1164
 listed-building,31866153,31866173,government-organisation:PB1164
+listed-building,31866174,31866176,government-organisation:PB1164
+listed-building,31866177,31866196,government-organisation:PB1164
 listed-building,31860570,31861455,local-authority:SWK
 listed-building,31858679,31860569,local-authority:WBK
 listed-building-outline,42189480,42189596,local-authority:ADU
@@ -251,6 +253,7 @@ listed-building-outline,42149747,42149960,local-authority:SAW
 listed-building-outline,42169338,42171337,local-authority:SCA
 listed-building-outline,42176138,42176139,local-authority:SCA
 listed-building-outline,42183787,42184480,local-authority:SCA
+listed-building-outline,42228683,42228683,local-authority:SCA
 listed-building-outline,42175282,42175756,local-authority:SFT
 listed-building-outline,42187000,42187093,local-authority:SFT
 listed-building-outline,42150904,42152987,local-authority:SGC
@@ -426,6 +429,3 @@ listed-building-outline,42158515,42158518,national-park-authority:Q72617890
 listed-building-outline,42158530,42158530,national-park-authority:Q72617890
 locally-listed-building,41100001,41100448,local-authority:CAT
 locally-listed-building,41100001,41100448,local-authority:CAT
-listed-building,31866174,31866176,government-organisation:PB1164
-listed-building,31866177,31866196,government-organisation:PB1164
-listed-building-outline,42228683,42228683,local-authority:SCA
