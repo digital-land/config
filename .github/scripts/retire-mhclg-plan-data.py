@@ -182,7 +182,7 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
     return entities_to_retire
 
 
-def retire_local_plan_data(lookup_rows):
+def retire_local_plan_data(lookup_rows, entity_org_rows):
     """Retire MHCLG seeded data for local-plan dataset. Returns set of entities."""
     logger.info("\n=== Processing local-plan dataset ===")
 
@@ -216,15 +216,20 @@ def retire_local_plan_data(lookup_rows):
     org_mapping = load_organisation_mapping()
     lpa_orgs = set(r['organisation'] for r in lpa_rows)
 
-    fake_plan_references = set()
+    # Validation #4: Fail if any LPA org name could not be resolved
+    unresolved_orgs = [org for org in lpa_orgs if org not in org_mapping]
+    if unresolved_orgs:
+        raise ValueError(
+            f"ERROR: Could not resolve organisation names for: {', '.join(unresolved_orgs)}. "
+            "Cannot generate fake plan references without names."
+        )
+
+    fake_plan_references = {}
     for org in lpa_orgs:
-        if org in org_mapping:
-            slug = authority_to_slug(org_mapping[org])
-            reference = f"{slug}-new-local-plan"
-            fake_plan_references.add(reference)
-            logger.info(f"  {org}: {reference}")
-        else:
-            logger.warning(f"  WARNING: Could not find name for {org}")
+        slug = authority_to_slug(org_mapping[org])
+        reference = f"{slug}-new-local-plan"
+        fake_plan_references[org] = reference
+        logger.info(f"  {org}: {reference}")
 
     logger.info(f"Generated {len(fake_plan_references)} fake plan references")
 
@@ -233,7 +238,7 @@ def retire_local_plan_data(lookup_rows):
     for row in lookup_rows:
         if (row['organisation'] == MHCLG_ORG
                 and row['prefix'] == prefix
-                and row['reference'] in fake_plan_references):
+                and row['reference'] in fake_plan_references.values()):
             entity = int(row['entity'])
             if entity > threshold:
                 raise ValueError(
@@ -243,6 +248,48 @@ def retire_local_plan_data(lookup_rows):
             mhclg_entities.add(entity)
 
     logger.info(f"Found {len(mhclg_entities)} MHCLG local plan entities to retire")
+
+    # Validation #3: Cross-check each entity falls within an entity-organisation range for its LPA
+    entity_org_ranges = [
+        (r['organisation'], int(r['entity-minimum']), int(r['entity-maximum']))
+        for r in entity_org_rows
+        if r['dataset'] == prefix
+    ]
+
+    for entity in mhclg_entities:
+        # Find which LPA this entity's reference belongs to
+        reference = None
+        for row in lookup_rows:
+            if (row['prefix'] == prefix
+                    and int(row['entity']) == entity
+                    and row['organisation'] == MHCLG_ORG):
+                reference = row['reference']
+                break
+
+        # Find the LPA org that generated this reference
+        lpa_org = None
+        for org, ref in fake_plan_references.items():
+            if ref == reference:
+                lpa_org = org
+                break
+
+        if not lpa_org:
+            raise ValueError(
+                f"ERROR: Entity {entity} (ref={reference}) does not map back to any LPA organisation."
+            )
+
+        # Verify entity falls within an entity-organisation range for this LPA
+        in_range = any(
+            org == lpa_org and emin <= entity <= emax
+            for org, emin, emax in entity_org_ranges
+        )
+        if not in_range:
+            raise ValueError(
+                f"ERROR: Entity {entity} (ref={reference}) does not fall within any "
+                f"entity-organisation range for {lpa_org}."
+            )
+
+    logger.info(f"✓ All entities cross-checked against entity-organisation.csv")
     logger.info(f"✓ Queued {len(mhclg_entities)} local-plan entities for retirement")
     return mhclg_entities
 
@@ -306,7 +353,7 @@ def main():
     logger.info(f"Loaded old-entity.csv ({len(old_entity_rows)} rows)")
 
     timetable_entities = retire_plan_timetable_data(lookup_rows, entity_org_rows)
-    local_plan_entities = retire_local_plan_data(lookup_rows)
+    local_plan_entities = retire_local_plan_data(lookup_rows, entity_org_rows)
 
     all_entities = timetable_entities | local_plan_entities
 
