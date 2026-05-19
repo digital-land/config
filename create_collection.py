@@ -15,7 +15,7 @@ COLUMN_MAPPINGS = {
         "default-value.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,resource,start-date,value",
         "default.csv": "dataset,resource,field,default-field,entry-date,start-date,end-date,entry-number,endpoint",
         "entity-organisation.csv": "dataset,entity-minimum,entity-maximum,organisation",
-        "expect.csv": "datasets,organisations,operation,parameters,name,description,notes,severity,responsibility,end-date,entry-date,start-date",
+        "expect.csv": "datasets,organisations,operation,parameters,name,description,notes,severity,responsibility,end-date,entry-date,start-date,schedule",
         "filter.csv": "dataset,end-date,endpoint,entry-date,entry-number,field,pattern,resource,start-date",
         "lookup.csv": "prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date",
         "old-entity.csv": "old-entity,status,entity,notes,end-date,entry-date,start-date",
