@@ -91,26 +91,37 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
     prefix = 'plan-timetable'
 
     # Step 1: Find LPAs that provided data
-    lpa_rows = [
+    all_lpa_rows = [
         r for r in lookup_rows
         if r['organisation'] != MHCLG_ORG and r['prefix'] == prefix
     ]
 
-    if not lpa_rows:
+    if not all_lpa_rows:
         logger.warning(f"No LPA data found for {prefix}")
         return set()
 
-    # Validate: all LPA entities should be above threshold
-    lpa_entities = [int(r['entity']) for r in lpa_rows]
-    min_lpa = min(lpa_entities)
-    max_lpa = max(lpa_entities)
-    logger.info(f"LPA entity range: {min_lpa} - {max_lpa}")
+    # Separate LPAs that created new data (above threshold) from those that
+    # updated MHCLG data in-place (below threshold). In-place updates don't
+    # need retirement since the MHCLG data was overwritten, not duplicated.
+    lpa_rows = [r for r in all_lpa_rows if int(r['entity']) > threshold]
 
-    if min_lpa <= threshold:
-        raise ValueError(
-            f"ERROR: Some LPA entities are not above threshold ({threshold}). "
-            f"Found {min_lpa}. This indicates corrupted or invalid data."
+    updated_in_place_orgs = set(
+        r['organisation'] for r in all_lpa_rows if int(r['entity']) <= threshold
+    ) - set(r['organisation'] for r in lpa_rows)
+
+    if updated_in_place_orgs:
+        logger.info(
+            f"Skipping {len(updated_in_place_orgs)} LPAs that updated MHCLG data in-place "
+            f"(no retirement needed): {', '.join(sorted(updated_in_place_orgs))}"
         )
+
+    if not lpa_rows:
+        logger.info("No LPAs with new data above threshold — nothing to retire")
+        return set()
+
+    min_lpa = min(int(r['entity']) for r in lpa_rows)
+    max_lpa = max(int(r['entity']) for r in lpa_rows)
+    logger.info(f"LPA entity range: {min_lpa} - {max_lpa}")
     logger.info(f"✓ All LPA entities > {threshold}")
 
     # Step 2: Get min/max entity per organisation from LPA data
@@ -124,7 +135,7 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
             org_ranges[org]['min'] = min(org_ranges[org]['min'], entity)
             org_ranges[org]['max'] = max(org_ranges[org]['max'], entity)
 
-    logger.info(f"Found {len(org_ranges)} LPAs with authoritative data")
+    logger.info(f"Found {len(org_ranges)} LPAs with new authoritative data")
 
     # Step 3: Filter entity-organisation to this dataset and orgs with data
     entity_org_filtered = [
@@ -153,8 +164,18 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
     ]
     logger.info(f"Found {len(mhclg_to_retire)} MHCLG-seeded entity ranges to retire")
 
+    # Completeness check: every LPA with data should have a MHCLG template range
+    orgs_with_retirement = set(org for org, _, _ in mhclg_to_retire)
+    orgs_missing = set(org_ranges.keys()) - orgs_with_retirement
+    if orgs_missing:
+        raise ValueError(
+            f"ERROR: No MHCLG template range found for: {', '.join(sorted(orgs_missing))}. "
+            "These LPAs provided data but no fake template was identified to retire."
+        )
+    logger.info(f"✓ All {len(org_ranges)} LPAs have a matching MHCLG template range")
+
     if not mhclg_to_retire:
-        logger.warning("No MHCLG entity ranges to retire for plan-timetable")
+        logger.info("No MHCLG entity ranges to retire for plan-timetable")
         return set()
 
     # Step 6: Expand ranges to individual entities and verify they are MHCLG
@@ -178,6 +199,16 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
 
         entities_to_retire.update(mhclg_entities)
 
+    # No-overlap check: ensure no entity being retired is also LPA authoritative data
+    lpa_entity_set = set(int(r['entity']) for r in lpa_rows)
+    overlap = entities_to_retire & lpa_entity_set
+    if overlap:
+        raise ValueError(
+            f"ERROR: Entities {sorted(overlap)} are in BOTH the retirement list and "
+            "LPA authoritative data. Aborting to prevent data loss."
+        )
+    logger.info(f"✓ No overlap with LPA authoritative data")
+
     logger.info(f"✓ Verified and queued {len(entities_to_retire)} plan-timetable entities for retirement")
     return entities_to_retire
 
@@ -190,26 +221,37 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
     prefix = 'local-plan'
 
     # Step 1: Find LPAs that provided data
-    lpa_rows = [
+    all_lpa_rows = [
         r for r in lookup_rows
         if r['organisation'] != MHCLG_ORG and r['prefix'] == prefix
     ]
 
-    if not lpa_rows:
+    if not all_lpa_rows:
         logger.warning(f"No LPA data found for {prefix}")
         return set()
 
-    # Validate: all LPA entities should be above threshold
-    lpa_entities = [int(r['entity']) for r in lpa_rows]
-    min_lpa = min(lpa_entities)
-    max_lpa = max(lpa_entities)
-    logger.info(f"LPA entity range: {min_lpa} - {max_lpa}")
+    # Separate LPAs that created new data (above threshold) from those that
+    # updated MHCLG data in-place (below threshold). In-place updates don't
+    # need retirement since the MHCLG data was overwritten, not duplicated.
+    lpa_rows = [r for r in all_lpa_rows if int(r['entity']) > threshold]
 
-    if min_lpa <= threshold:
-        raise ValueError(
-            f"ERROR: Some LPA entities are not above threshold ({threshold}). "
-            f"Found {min_lpa}. This indicates corrupted or invalid data."
+    updated_in_place_orgs = set(
+        r['organisation'] for r in all_lpa_rows if int(r['entity']) <= threshold
+    ) - set(r['organisation'] for r in lpa_rows)
+
+    if updated_in_place_orgs:
+        logger.info(
+            f"Skipping {len(updated_in_place_orgs)} LPAs that updated MHCLG data in-place "
+            f"(no retirement needed): {', '.join(sorted(updated_in_place_orgs))}"
         )
+
+    if not lpa_rows:
+        logger.info("No LPAs with new data above threshold — nothing to retire")
+        return set()
+
+    min_lpa = min(int(r['entity']) for r in lpa_rows)
+    max_lpa = max(int(r['entity']) for r in lpa_rows)
+    logger.info(f"LPA entity range: {min_lpa} - {max_lpa}")
     logger.info(f"✓ All LPA entities > {threshold}")
 
     # Step 2: Load organisation mapping to generate fake plan references
@@ -249,7 +291,36 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
 
     logger.info(f"Found {len(mhclg_entities)} MHCLG local plan entities to retire")
 
-    # Validation #3: Cross-check each entity falls within an entity-organisation range for its LPA
+    # Completeness check: every LPA with data should have a MHCLG template entity
+    orgs_with_retirement = set()
+    for row in lookup_rows:
+        if (row['organisation'] == MHCLG_ORG
+                and row['prefix'] == prefix
+                and row['reference'] in fake_plan_references.values()):
+            for org, ref in fake_plan_references.items():
+                if ref == row['reference']:
+                    orgs_with_retirement.add(org)
+                    break
+
+    orgs_missing = lpa_orgs - orgs_with_retirement
+    if orgs_missing:
+        raise ValueError(
+            f"ERROR: No MHCLG template entity found for: {', '.join(sorted(orgs_missing))}. "
+            "These LPAs provided data but no fake template was identified to retire."
+        )
+    logger.info(f"✓ All {len(lpa_orgs)} LPAs have a matching MHCLG template entity")
+
+    # No-overlap check: ensure no entity being retired is also LPA authoritative data
+    lpa_entity_set = set(int(r['entity']) for r in lpa_rows)
+    overlap = mhclg_entities & lpa_entity_set
+    if overlap:
+        raise ValueError(
+            f"ERROR: Entities {sorted(overlap)} are in BOTH the retirement list and "
+            "LPA authoritative data. Aborting to prevent data loss."
+        )
+    logger.info(f"✓ No overlap with LPA authoritative data")
+
+    # Cross-check each entity falls within an entity-organisation range for its LPA
     entity_org_ranges = [
         (r['organisation'], int(r['entity-minimum']), int(r['entity-maximum']))
         for r in entity_org_rows
