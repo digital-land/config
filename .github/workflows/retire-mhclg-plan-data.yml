@@ -26,11 +26,17 @@ jobs:
           python-version: "3.11"
 
       - name: Run retire MHCLG plan data script
+        id: retire-script
         timeout-minutes: 10
         run: |
           echo "Starting retire MHCLG plan data script..."
-          python .github/scripts/retire-mhclg-plan-data.py
+          SUMMARY=$(python .github/scripts/retire-mhclg-plan-data.py)
           echo "Retire script completed"
+          {
+            echo "summary<<EOF"
+            echo "$SUMMARY"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Commit and create PR
         env:
@@ -62,14 +68,15 @@ jobs:
 
           # Create PR
           gh pr create --title "Retire MHCLG plan data" \
-            --body "This PR contains automatic updates to retire MHCLG template data:
+            --body "This PR retires fake MHCLG template data for LPAs that have provided authoritative data.
 
-          ## Changes
+          ## Organisations retired
 
-          **Retire MHCLG Plan Template Data:**
-          - Identifies LPAs that have provided authoritative data
-          - Removes pre-seeded MHCLG template entities for those LPAs
-          - For plan-timetable: Retires 23-entity ranges (22 local plan events)
+          ${{ steps.retire-script.outputs.summary }}
+
+          ## What this does
+
+          - For plan-timetable: Retires 23-entity ranges (23 local plan events)
           - For local-plan: Retires fake plan references (e.g., {slug}-new-local-plan)
           - Adds retired entities to old-entity.csv with status 410
 
