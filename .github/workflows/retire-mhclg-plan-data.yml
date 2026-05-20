@@ -1,0 +1,95 @@
+name: Retire MHCLG Plan Data
+
+on:
+  workflow_dispatch:
+
+jobs:
+  retire-plan-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Run retire MHCLG plan data script
+        timeout-minutes: 10
+        run: |
+          echo "Starting retire MHCLG plan data script..."
+          python .github/scripts/retire-mhclg-plan-data.py
+          echo "Retire script completed"
+
+      - name: Commit and create PR
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          BRANCH_NAME="retire-mhclg-plan-data-$(date +%Y%m%d-%H%M)"
+
+          git config user.name "github-actions-bot"
+          git config user.email "noreply@github.com"
+
+          # Check if there are changes
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git checkout -b "$BRANCH_NAME"
+          git add pipeline/local-plan/old-entity.csv
+
+          # Double-check there are staged changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Retire MHCLG plan data"
+
+          git push origin "$BRANCH_NAME"
+
+          # Create PR
+          gh pr create --title "Retire MHCLG plan data" \
+            --body "This PR contains automatic updates to retire MHCLG template data:
+
+          ## Changes
+
+          **Retire MHCLG Plan Template Data:**
+          - Identifies LPAs that have provided authoritative data
+          - Removes pre-seeded MHCLG template entities for those LPAs
+          - For plan-timetable: Retires 23-entity ranges (22 local plan events)
+          - For local-plan: Retires fake plan references (e.g., {slug}-new-local-plan)
+          - Adds retired entities to old-entity.csv with status 410
+
+          This PR was automatically created via the Retire MHCLG Plan Data workflow.
+
+          **Triggered by:** @${{ github.actor }}
+
+          Please review and merge if appropriate." \
+                                          --base main \
+                                          --head "$BRANCH_NAME"
+
+      - name: Summary
+        run: |
+          echo "### Retire MHCLG Plan Data" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Script executed:" >> $GITHUB_STEP_SUMMARY
+          echo "- Retire MHCLG plan data script" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Datasets processed:" >> $GITHUB_STEP_SUMMARY
+          echo "- local-plan" >> $GITHUB_STEP_SUMMARY
+          echo "- plan-timetable" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Check above for PR creation details." >> $GITHUB_STEP_SUMMARY
