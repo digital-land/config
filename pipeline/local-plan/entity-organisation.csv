@@ -1023,6 +1023,7 @@ local-plan,4220510,4220511,local-authority:RUG
 local-plan,4220877,4220877,local-authority:RUG
 local-plan,4220514,4220516,local-authority:RUH
 local-plan,4220880,4220880,local-authority:RUH
+local-plan,4220984,4220984,local-authority:RUH
 local-plan,4220512,4220512,local-authority:RUN
 local-plan,4220878,4220878,local-authority:RUN
 local-plan,4220513,4220513,local-authority:RUS
@@ -1056,6 +1057,7 @@ local-plan,4220908,4220908,local-authority:SHN
 local-plan,4220896,4220896,local-authority:SHO
 local-plan,4220533,4220534,local-authority:SHR
 local-plan,4220887,4220887,local-authority:SHR
+local-plan,4220985,4220987,local-authority:SHR
 local-plan,4220550,4220551,local-authority:SKE
 local-plan,4220897,4220897,local-authority:SKE
 local-plan,4220575,4220576,local-authority:SKP
@@ -1586,6 +1588,7 @@ minerals-plan,530047,530047,local-authority:OXF
 minerals-plan,530048,530048,local-authority:RDB
 minerals-plan,530049,530049,local-authority:RUT
 minerals-plan,530050,530052,local-authority:SFK
+minerals-plan,530066,530068,local-authority:SHR
 minerals-plan,530053,530053,local-authority:SOM
 minerals-plan,530054,530054,local-authority:SRY
 minerals-plan,530055,530055,local-authority:STS
@@ -2193,6 +2196,7 @@ plan-timetable,5101235,5101238,local-authority:REI
 plan-timetable,5107801,5107823,local-authority:REI
 plan-timetable,5101239,5101245,local-authority:RIB
 plan-timetable,5107824,5107846,local-authority:RIB
+plan-timetable,5109878,5109900,local-authority:RIB
 plan-timetable,5100987,5100992,local-authority:RIC
 plan-timetable,5106582,5106604,local-authority:RIC
 plan-timetable,5101250,5101253,local-authority:ROC
@@ -2208,6 +2212,7 @@ plan-timetable,5101286,5101289,local-authority:RUG
 plan-timetable,5108054,5108076,local-authority:RUG
 plan-timetable,5101298,5101301,local-authority:RUH
 plan-timetable,5108123,5108145,local-authority:RUH
+plan-timetable,5109863,5109877,local-authority:RUH
 plan-timetable,5101290,5101293,local-authority:RUN
 plan-timetable,5108077,5108099,local-authority:RUN
 plan-timetable,5101294,5101297,local-authority:RUS
@@ -2530,6 +2535,7 @@ waste-plan,540048,540050,local-authority:NTH
 waste-plan,540054,540054,local-authority:OXF
 waste-plan,540055,540055,local-authority:PLY
 waste-plan,540056,540057,local-authority:SFK
+waste-plan,540072,540074,local-authority:SHR
 waste-plan,540059,540059,local-authority:SOM
 waste-plan,540060,540061,local-authority:SRY
 waste-plan,540063,540063,local-authority:WAR
@@ -2558,9 +2564,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4220984,4220984,local-authority:RUH
-plan-timetable,5109863,5109877,local-authority:RUH
-minerals-plan,530066,530068,local-authority:SHR
-waste-plan,540072,540074,local-authority:SHR
-local-plan,4220985,4220987,local-authority:SHR
-plan-timetable,5109878,5109900,local-authority:RIB
