@@ -37,10 +37,10 @@ OLD_ENTITY_PATH = PIPELINE_DIR / 'old-entity.csv'
 
 MHCLG_ORG = 'government-organisation:D1342'
 
-# Threshold entity numbers: MHCLG fake template data ends at these values
-MHCLG_THRESHOLDS = {
-    'plan-timetable': 5109686,
-    'local-plan': 4220966,
+# Entity ranges for MHCLG fake template data
+MHCLG_RANGES = {
+    'plan-timetable': (5101702, 5109686),
+    'local-plan': (4220656, 4220966),
 }
 
 # Entity range for MHCLG seeded plan-timetable data (inclusive difference = 22, count = 23)
@@ -87,7 +87,7 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
     """Retire MHCLG seeded data for plan-timetable dataset. Returns set of entities."""
     logger.info("\n=== Processing plan-timetable dataset ===")
 
-    threshold = MHCLG_THRESHOLDS['plan-timetable']
+    mhclg_range_min, mhclg_range_max = MHCLG_RANGES['plan-timetable']
     prefix = 'plan-timetable'
 
     # Step 1: Find LPAs that provided data
@@ -100,13 +100,16 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
         logger.warning(f"No LPA data found for {prefix}")
         return set()
 
-    # Separate LPAs that created new data (above threshold) from those that
-    # updated MHCLG data in-place (below threshold). In-place updates don't
+    # Separate LPAs that created new data (outside MHCLG range) from those that
+    # updated MHCLG data in-place (within MHCLG range). In-place updates don't
     # need retirement since the MHCLG data was overwritten, not duplicated.
-    lpa_rows = [r for r in all_lpa_rows if int(r['entity']) > threshold]
+    def is_in_mhclg_range(entity):
+        return mhclg_range_min <= entity <= mhclg_range_max
+
+    lpa_rows = [r for r in all_lpa_rows if not is_in_mhclg_range(int(r['entity']))]
 
     updated_in_place_orgs = set(
-        r['organisation'] for r in all_lpa_rows if int(r['entity']) <= threshold
+        r['organisation'] for r in all_lpa_rows if is_in_mhclg_range(int(r['entity']))
     ) - set(r['organisation'] for r in lpa_rows)
 
     if updated_in_place_orgs:
@@ -116,13 +119,13 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
         )
 
     if not lpa_rows:
-        logger.info("No LPAs with new data above threshold — nothing to retire")
+        logger.info("No LPAs with new data outside MHCLG range — nothing to retire")
         return set()
 
     min_lpa = min(int(r['entity']) for r in lpa_rows)
     max_lpa = max(int(r['entity']) for r in lpa_rows)
     logger.info(f"LPA entity range: {min_lpa} - {max_lpa}")
-    logger.info(f"✓ All LPA entities > {threshold}")
+    logger.info(f"✓ All LPA entities outside MHCLG range ({mhclg_range_min}-{mhclg_range_max})")
 
     # Step 2: Get min/max entity per organisation from LPA data
     org_ranges = {}
@@ -217,7 +220,7 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
     """Retire MHCLG seeded data for local-plan dataset. Returns set of entities."""
     logger.info("\n=== Processing local-plan dataset ===")
 
-    threshold = MHCLG_THRESHOLDS['local-plan']
+    mhclg_range_min, mhclg_range_max = MHCLG_RANGES['local-plan']
     prefix = 'local-plan'
 
     # Step 1: Find LPAs that provided data
@@ -230,13 +233,16 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
         logger.warning(f"No LPA data found for {prefix}")
         return set()
 
-    # Separate LPAs that created new data (above threshold) from those that
-    # updated MHCLG data in-place (below threshold). In-place updates don't
+    # Separate LPAs that created new data (outside MHCLG range) from those that
+    # updated MHCLG data in-place (within MHCLG range). In-place updates don't
     # need retirement since the MHCLG data was overwritten, not duplicated.
-    lpa_rows = [r for r in all_lpa_rows if int(r['entity']) > threshold]
+    def is_in_mhclg_range(entity):
+        return mhclg_range_min <= entity <= mhclg_range_max
+
+    lpa_rows = [r for r in all_lpa_rows if not is_in_mhclg_range(int(r['entity']))]
 
     updated_in_place_orgs = set(
-        r['organisation'] for r in all_lpa_rows if int(r['entity']) <= threshold
+        r['organisation'] for r in all_lpa_rows if is_in_mhclg_range(int(r['entity']))
     ) - set(r['organisation'] for r in lpa_rows)
 
     if updated_in_place_orgs:
@@ -246,13 +252,13 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
         )
 
     if not lpa_rows:
-        logger.info("No LPAs with new data above threshold — nothing to retire")
+        logger.info("No LPAs with new data outside MHCLG range — nothing to retire")
         return set()
 
     min_lpa = min(int(r['entity']) for r in lpa_rows)
     max_lpa = max(int(r['entity']) for r in lpa_rows)
     logger.info(f"LPA entity range: {min_lpa} - {max_lpa}")
-    logger.info(f"✓ All LPA entities > {threshold}")
+    logger.info(f"✓ All LPA entities outside MHCLG range ({mhclg_range_min}-{mhclg_range_max})")
 
     # Step 2: Load organisation mapping to generate fake plan references
     org_mapping = load_organisation_mapping()
@@ -282,10 +288,10 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
                 and row['prefix'] == prefix
                 and row['reference'] in fake_plan_references.values()):
             entity = int(row['entity'])
-            if entity > threshold:
+            if not is_in_mhclg_range(entity):
                 raise ValueError(
-                    f"ERROR: Found MHCLG entity {entity} above threshold {threshold}. "
-                    "This indicates data corruption."
+                    f"ERROR: Found MHCLG entity {entity} outside expected range "
+                    f"({mhclg_range_min}-{mhclg_range_max}). This indicates data corruption."
                 )
             mhclg_entities.add(entity)
 
