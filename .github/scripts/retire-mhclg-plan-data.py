@@ -84,7 +84,7 @@ def load_organisation_mapping():
 
 
 def retire_plan_timetable_data(lookup_rows, entity_org_rows):
-    """Retire MHCLG seeded data for plan-timetable dataset. Returns set of entities."""
+    """Retire MHCLG seeded data for plan-timetable dataset. Returns (entities, orgs)."""
     logger.info("\n=== Processing plan-timetable dataset ===")
 
     mhclg_range_min, mhclg_range_max = MHCLG_RANGES['plan-timetable']
@@ -98,7 +98,7 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
 
     if not all_lpa_rows:
         logger.warning(f"No LPA data found for {prefix}")
-        return set()
+        return set(), set()
 
     # Separate LPAs that created new data (outside MHCLG range) from those that
     # updated MHCLG data in-place (within MHCLG range). In-place updates don't
@@ -120,7 +120,7 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
 
     if not lpa_rows:
         logger.info("No LPAs with new data outside MHCLG range — nothing to retire")
-        return set()
+        return set(), set()
 
     min_lpa = min(int(r['entity']) for r in lpa_rows)
     max_lpa = max(int(r['entity']) for r in lpa_rows)
@@ -179,10 +179,10 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
 
     if not mhclg_to_retire:
         logger.info("No MHCLG entity ranges to retire for plan-timetable")
-        return set()
+        return set(), set()
 
     # Step 6: Expand ranges to individual entities and verify they are MHCLG
-    entities_to_retire = set()
+    entity_to_org = {}
 
     for org, entity_min, entity_max in mhclg_to_retire:
         mhclg_entities = [
@@ -200,11 +200,12 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
                 f"[{entity_min}, {entity_max}], found {len(mhclg_entities)}"
             )
 
-        entities_to_retire.update(mhclg_entities)
+        for e in mhclg_entities:
+            entity_to_org[e] = (org, prefix)
 
     # No-overlap check: ensure no entity being retired is also LPA authoritative data
     lpa_entity_set = set(int(r['entity']) for r in lpa_rows)
-    overlap = entities_to_retire & lpa_entity_set
+    overlap = set(entity_to_org.keys()) & lpa_entity_set
     if overlap:
         raise ValueError(
             f"ERROR: Entities {sorted(overlap)} are in BOTH the retirement list and "
@@ -212,12 +213,12 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
         )
     logger.info(f"✓ No overlap with LPA authoritative data")
 
-    logger.info(f"✓ Verified and queued {len(entities_to_retire)} plan-timetable entities for retirement")
-    return entities_to_retire
+    logger.info(f"✓ Verified and queued {len(entity_to_org)} plan-timetable entities for retirement")
+    return entity_to_org, set(org_ranges.keys())
 
 
 def retire_local_plan_data(lookup_rows, entity_org_rows):
-    """Retire MHCLG seeded data for local-plan dataset. Returns set of entities."""
+    """Retire MHCLG seeded data for local-plan dataset. Returns (entities, orgs)."""
     logger.info("\n=== Processing local-plan dataset ===")
 
     mhclg_range_min, mhclg_range_max = MHCLG_RANGES['local-plan']
@@ -231,7 +232,7 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
 
     if not all_lpa_rows:
         logger.warning(f"No LPA data found for {prefix}")
-        return set()
+        return set(), set()
 
     # Separate LPAs that created new data (outside MHCLG range) from those that
     # updated MHCLG data in-place (within MHCLG range). In-place updates don't
@@ -253,7 +254,7 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
 
     if not lpa_rows:
         logger.info("No LPAs with new data outside MHCLG range — nothing to retire")
-        return set()
+        return set(), set()
 
     min_lpa = min(int(r['entity']) for r in lpa_rows)
     max_lpa = max(int(r['entity']) for r in lpa_rows)
@@ -282,7 +283,10 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
     logger.info(f"Generated {len(fake_plan_references)} fake plan references")
 
     # Step 3: Find MHCLG entities that match these fake plan references
-    mhclg_entities = set()
+    # Build reverse mapping: reference -> org
+    ref_to_org = {ref: org for org, ref in fake_plan_references.items()}
+
+    entity_to_org = {}
     for row in lookup_rows:
         if (row['organisation'] == MHCLG_ORG
                 and row['prefix'] == prefix
@@ -293,8 +297,9 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
                     f"ERROR: Found MHCLG entity {entity} outside expected range "
                     f"({mhclg_range_min}-{mhclg_range_max}). This indicates data corruption."
                 )
-            mhclg_entities.add(entity)
+            entity_to_org[entity] = (ref_to_org[row['reference']], prefix)
 
+    mhclg_entities = set(entity_to_org.keys())
     logger.info(f"Found {len(mhclg_entities)} MHCLG local plan entities to retire")
 
     # Completeness check: every LPA with data should have a MHCLG template entity
@@ -368,26 +373,26 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
 
     logger.info(f"✓ All entities cross-checked against entity-organisation.csv")
     logger.info(f"✓ Queued {len(mhclg_entities)} local-plan entities for retirement")
-    return mhclg_entities
+    return entity_to_org, lpa_orgs
 
 
-def save_retired_entities(entities_to_retire, old_entity_rows):
+def save_retired_entities(entity_to_org, old_entity_rows):
     """Append retired entities to old-entity.csv."""
-    logger.info(f"\n=== Saving {len(entities_to_retire)} entities to old-entity.csv ===")
+    logger.info(f"\n=== Saving {len(entity_to_org)} entities to old-entity.csv ===")
 
-    if not entities_to_retire:
+    if not entity_to_org:
         logger.warning("No entities to retire")
         return
 
     # Check for duplicates (entities already retired)
     existing = set(int(r['old-entity']) for r in old_entity_rows)
-    duplicates = entities_to_retire & existing
+    duplicates = set(entity_to_org.keys()) & existing
 
     if duplicates:
         logger.warning(f"⚠ {len(duplicates)} entities are already in old-entity.csv (skipping)")
-        entities_to_add = entities_to_retire - duplicates
+        entities_to_add = {e: org for e, org in entity_to_org.items() if e not in duplicates}
     else:
-        entities_to_add = entities_to_retire
+        entities_to_add = entity_to_org
 
     if not entities_to_add:
         logger.info("No new entities to add")
@@ -399,11 +404,12 @@ def save_retired_entities(entities_to_retire, old_entity_rows):
     with open(OLD_ENTITY_PATH, 'a', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         for entity_id in sorted(entities_to_add):
+            org, dataset = entities_to_add[entity_id]
             writer.writerow({
                 'old-entity': entity_id,
                 'status': 410,
                 'entity': '',
-                'notes': 'Retiring fake MHCLG template data',
+                'notes': f'Retiring fake MHCLG template data for {org}-{dataset}',
                 'end-date': '',
                 'entry-date': date.today().isoformat(),
                 'start-date': '',
@@ -429,22 +435,36 @@ def main():
     logger.info(f"Loaded entity-organisation.csv ({len(entity_org_rows)} rows)")
     logger.info(f"Loaded old-entity.csv ({len(old_entity_rows)} rows)")
 
-    timetable_entities = retire_plan_timetable_data(lookup_rows, entity_org_rows)
-    local_plan_entities = retire_local_plan_data(lookup_rows, entity_org_rows)
+    timetable_entity_org, timetable_orgs = retire_plan_timetable_data(lookup_rows, entity_org_rows)
+    local_plan_entity_org, local_plan_orgs = retire_local_plan_data(lookup_rows, entity_org_rows)
 
-    all_entities = timetable_entities | local_plan_entities
+    all_entity_org = {**timetable_entity_org, **local_plan_entity_org}
 
     logger.info(f"\n=== Summary ===")
-    logger.info(f"plan-timetable: {len(timetable_entities)} entities")
-    logger.info(f"local-plan: {len(local_plan_entities)} entities")
-    logger.info(f"Total: {len(all_entities)} entities")
+    logger.info(f"plan-timetable: {len(timetable_entity_org)} entities")
+    logger.info(f"local-plan: {len(local_plan_entity_org)} entities")
+    logger.info(f"Total: {len(all_entity_org)} entities")
 
-    if not all_entities:
+    if not all_entity_org:
         logger.warning("No entities to retire")
         sys.exit(0)
 
-    save_retired_entities(all_entities, old_entity_rows)
+    save_retired_entities(all_entity_org, old_entity_rows)
     logger.info("\n✓ Retirement completed successfully")
+
+    # Print summary to stdout for use in PR body
+    print(f"Total entities retired: {len(all_entity_org)}")
+    print("")
+    if timetable_orgs:
+        print(f"**plan-timetable** ({len(timetable_entity_org)} entities):")
+        for org in sorted(timetable_orgs):
+            print(f"- {org}")
+        print("")
+    if local_plan_orgs:
+        print(f"**local-plan** ({len(local_plan_entity_org)} entities):")
+        for org in sorted(local_plan_orgs):
+            print(f"- {org}")
+        print("")
 
 
 if __name__ == '__main__':
