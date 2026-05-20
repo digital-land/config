@@ -2558,3 +2558,9 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
+local-plan,4220984,4220984,local-authority:RUH
+plan-timetable,5109863,5109877,local-authority:RUH
+minerals-plan,530066,530068,local-authority:SHR
+waste-plan,540072,540074,local-authority:SHR
+local-plan,4220985,4220987,local-authority:SHR
+plan-timetable,5109878,5109900,local-authority:RIB
