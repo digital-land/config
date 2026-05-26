@@ -158,6 +158,12 @@ def _build_all_csv_rules(file_path, specification_dir):
         reader = csv.reader(f)
         header = next(reader)
         columns = [col.strip() for col in header]
+    
+    unregistered = [col for col in columns if col and col not in field_datatype]
+    if unregistered:
+        pytest.fail(
+            f"{Path(file_path).name}: columns not registered in specification: {unregistered}"
+        )
 
     for column in columns:
         datatype = field_datatype.get(column)
