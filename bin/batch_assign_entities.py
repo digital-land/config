@@ -803,7 +803,7 @@ def run_batch_assign_entities(
     resources: Optional[str] = None,
     skip_checks: bool = False,
     triggered_by: Optional[str] = None,
-    branch: str = "auto/batch-assign-entities",
+    branch: str = "config-manager-update",
     create_pr: bool = True,
 ):
     endpoint_issue_summary_path = "https://datasette.planning.data.gov.uk/performance/endpoint_dataset_issue_type_summary.csv?_sort=rowid&issue_type__exact=unknown+entity&_size=max"
@@ -930,7 +930,7 @@ def run_batch_assign_entities(
     "--branch",
     required=False,
     type=str,
-    default='auto/batch-assign-entities',
+    default='config-manager-update',
     help="Git branch to use (optional metadata).",
 )
 @click.option(
@@ -966,7 +966,7 @@ def main(
     resources: Optional[str] = None,
     skip_checks: bool = False,
     triggered_by: Optional[str] = None,
-    branch: str = "auto/batch-assign-entities",
+    branch: str = "config-manager-update",
     create_pr: bool = True,
 ) -> None:
     # Print input options so the command and options used are visible

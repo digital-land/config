@@ -28,7 +28,7 @@ on:
       branch:
         description: "Git branch to use (optional)"
         required: false
-        default: "auto/batch-assign-entities"
+        default: "config-manager-update"
         type: string
       skip_checks:
         description: "Skip validation checks and directly assign entities (use with caution)"
@@ -80,6 +80,12 @@ jobs:
           pip install click pandas tqdm
           pip install -e "git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land"
 
+      - name: Fetch config-manager-update branch if it exists on remote
+        run: |
+          if git ls-remote --heads origin config-manager-update | grep -q config-manager-update; then
+            git fetch origin config-manager-update:config-manager-update
+          fi
+
       - name: Determine scope for scheduled run
         if: github.event_name == 'schedule'
         run: |
@@ -92,11 +98,13 @@ jobs:
             echo "SCHEDULED_SCOPE=odp" >> $GITHUB_ENV
           fi
 
+          echo "SCHEDULED_BRANCH=config-manager-update" >> $GITHUB_ENV
+
       - name: Run add-data script
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
           RESOURCES: ${{ github.event.client_payload.resources || github.event.inputs.resources }}
-          BRANCH_PARAM: ${{ github.event.client_payload.branch || github.event.inputs.branch }}
+          BRANCH_PARAM: ${{ github.event.client_payload.branch || github.event.inputs.branch || env.SCHEDULED_BRANCH }}
           TRIGGERED_BY: ${{ github.actor || 'unknown' }}
           SCOPE: ${{ github.event.client_payload.scope || github.event.inputs.scope || env.SCHEDULED_SCOPE || 'odp' }}
           SKIP_CHECKS: ${{ github.event.client_payload.skip_checks || github.event.inputs.skip_checks }}
