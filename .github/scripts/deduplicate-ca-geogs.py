@@ -64,7 +64,7 @@ def stream_checks_data():
             # Columns we actually need for deduplication
             needed_columns = {
                 'message', 'dataset', 'entity_a', 'entity_b',
-                'entity_a_name', 'entity_b_name', 'lookup-org-a', 'lookup-org-b', 'in-odp'
+                'entity_a_name', 'entity_b_name', 'lookup_org_a', 'lookup_org_b', 'in_odp'
             }
 
             with open(temp_path, 'r', encoding='utf-8') as f:
@@ -128,8 +128,8 @@ def extract_complete_matches(df):
 
     complete_matches = [row for row in df if row['message'] == 'complete_match'
                         and row['dataset'] == 'conservation-area'
-                        and row.get('lookup-org-a') == 'government-organisation:PB1164'
-                        and row.get('lookup-org-b') != 'government-organisation:PB1164']
+                        and row.get('lookup_org_a') == 'government-organisation:PB1164'
+                        and row.get('lookup_org_b') != 'government-organisation:PB1164']
     print(f"Found {len(complete_matches)} complete matches")
 
     # Format for old-entity.csv
@@ -157,9 +157,9 @@ def extract_single_matches(df):
     # Filter for single matches in conservation-area
     single_matches = [row for row in df if row['message'] == 'single_match'
                       and row['dataset'] == 'conservation-area'
-                      and row.get('lookup-org-a') == 'government-organisation:PB1164'
-                      and row.get('lookup-org-b') != 'government-organisation:PB1164'
-                      and row.get('in-odp', '').lower() == 'true']
+                      and row.get('lookup_org_a') == 'government-organisation:PB1164'
+                      and row.get('lookup_org_b') != 'government-organisation:PB1164'
+                      and row.get('in_odp', '').lower() == 'true']
 
     print(f"Found {len(single_matches)} single matches meeting criteria")
 
