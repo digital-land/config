@@ -847,6 +847,7 @@ local-plan,4220345,4220346,local-authority:HYN
 local-plan,4220774,4220774,local-authority:HYN
 local-plan,4220260,4220260,local-authority:IOS
 local-plan,4220715,4220715,local-authority:IOS
+local-plan,4220988,4220989,local-authority:IOS
 local-plan,4220349,4220350,local-authority:IOW
 local-plan,4220776,4220776,local-authority:IOW
 local-plan,4220347,4220348,local-authority:IPS
@@ -1575,6 +1576,7 @@ minerals-plan,530023,530023,local-authority:GLS
 minerals-plan,530024,530024,local-authority:HAM
 minerals-plan,530026,530026,local-authority:HEF
 minerals-plan,530027,530027,local-authority:HRT
+minerals-plan,530069,530069,local-authority:IOS
 minerals-plan,530028,530029,local-authority:KEN
 minerals-plan,530031,530031,local-authority:LAN
 minerals-plan,530032,530032,local-authority:LDS
@@ -2019,6 +2021,7 @@ plan-timetable,5100832,5100837,local-authority:HYN
 plan-timetable,5102002,5102026,local-authority:HYN
 plan-timetable,5100575,5100578,local-authority:IOS
 plan-timetable,5104650,5104672,local-authority:IOS
+plan-timetable,5109901,5109917,local-authority:IOS
 plan-timetable,5100842,5100847,local-authority:IOW
 plan-timetable,5102027,5102051,local-authority:IOW
 plan-timetable,5100838,5100841,local-authority:IPS
@@ -2514,6 +2517,7 @@ plan-timetable,5105248,5105270,national-park-authority:Q72617784
 plan-timetable,5101167,5101170,national-park-authority:Q72617890
 plan-timetable,5107456,5107478,national-park-authority:Q72617890
 plan-timetable,5107617,5107639,national-park-authority:Q72617988
+supplementary-plan,550000,550003,local-authority:IOS
 waste-plan,540005,540006,local-authority:BKM
 waste-plan,540012,540012,local-authority:BRD
 waste-plan,540016,540018,local-authority:CMA
@@ -2524,6 +2528,7 @@ waste-plan,540030,540030,local-authority:GLS
 waste-plan,540031,540031,local-authority:HAM
 waste-plan,540033,540033,local-authority:HEF
 waste-plan,540034,540035,local-authority:HRT
+waste-plan,540075,540075,local-authority:IOS
 waste-plan,540036,540037,local-authority:KEN
 waste-plan,540038,540038,local-authority:LAN
 waste-plan,540039,540039,local-authority:LDS
@@ -2564,8 +2569,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5109901,5109917,local-authority:IOS
-minerals-plan,530069,530069,local-authority:IOS
-local-plan,4220988,4220989,local-authority:IOS
-supplementary-plan,550000,550003,local-authority:IOS
-waste-plan,540075,540075,local-authority:IOS

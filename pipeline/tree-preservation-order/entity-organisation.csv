@@ -240,6 +240,7 @@ tree-preservation-order,7001023960,7001025264,local-authority:HOR
 tree-preservation-order,7001078475,7001078475,local-authority:HOR
 tree-preservation-order,7001090239,7001091194,local-authority:HUN
 tree-preservation-order,7001099484,7001099485,local-authority:HUN
+tree-preservation-order,7001099498,7001099498,local-authority:IOS
 tree-preservation-order,7001035333,7001039892,local-authority:KEC
 tree-preservation-order,7001000000,7001000306,local-authority:LBH
 tree-preservation-order,7001014875,7001014876,local-authority:LBH
@@ -529,4 +530,3 @@ tree-preservation-zone,19168416,19169313,national-park-authority:Q27159704
 tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-order,7001099498,7001099498,local-authority:IOS
