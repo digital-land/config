@@ -345,7 +345,7 @@ def save_output(data):
     """Save the updated data to CSV."""
     print(f"\nSaving to {OLD_ENTITY_PATH}...")
 
-    fieldnames = ['old-entity', 'status', 'entity', 'end-date', 'notes', 'entry-date', 'start-date']
+    fieldnames = ['old-entity', 'status', 'entity', 'notes', 'end-date', 'entry-date', 'start-date']
 
     with open(OLD_ENTITY_PATH, 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
