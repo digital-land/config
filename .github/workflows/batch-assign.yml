@@ -45,6 +45,16 @@ on:
         required: false
         type: boolean
         default: true
+      batch_size:
+        description: "Resources per batch (single-source only). 0 = no batching."
+        required: false
+        type: number
+        default: 0
+      start_batch:
+        description: "Batch number to start from (single-source only). Use to resume a failed run."
+        required: false
+        type: number
+        default: 1
 
 jobs:
   auto-batch-assign:
@@ -94,6 +104,8 @@ jobs:
             echo "SCHEDULED_SCOPE=mandated" >> $GITHUB_ENV
           elif [ "$DAY" = "4" ]; then
             echo "SCHEDULED_SCOPE=single-source" >> $GITHUB_ENV
+            echo "SCHEDULED_BATCH_SIZE=10" >> $GITHUB_ENV
+            echo "SCHEDULED_START_BATCH=1" >> $GITHUB_ENV
           else
             echo "SCHEDULED_SCOPE=odp" >> $GITHUB_ENV
           fi
@@ -110,6 +122,8 @@ jobs:
           SKIP_CHECKS: ${{ github.event.client_payload.skip_checks || github.event.inputs.skip_checks }}
           NEW_ENTITIES_THRESHOLD: ${{ github.event.client_payload.new_entities_threshold || github.event.inputs.new_entities_threshold }}
           CREATE_PR: ${{ github.event.client_payload.create_pr || github.event.inputs.create_pr }}
+          BATCH_SIZE: ${{ github.event.client_payload.batch_size || github.event.inputs.batch_size || env.SCHEDULED_BATCH_SIZE || '0' }}
+          START_BATCH: ${{ github.event.client_payload.start_batch || github.event.inputs.start_batch || env.SCHEDULED_START_BATCH || '1' }}
         run: |
           if [ -n "$BRANCH_PARAM" ]; then
             ARGS+=(--branch "$BRANCH_PARAM")
@@ -137,7 +151,25 @@ jobs:
             ARGS+=(--no-create-pr)
           fi
 
-          python3 bin/batch_assign_entities.py "${ARGS[@]}"
+          if [ "${BATCH_SIZE:-0}" -gt 0 ]; then
+            CURRENT_BATCH="${START_BATCH:-1}"
+            while true; do
+              python3 bin/batch_assign_entities.py "${ARGS[@]}" \
+                --batch-size "$BATCH_SIZE" \
+                --start-batch "$CURRENT_BATCH"
+              EXIT=$?
+              if [ $EXIT -eq 2 ]; then
+                echo "All batches complete."
+                break
+              elif [ $EXIT -ne 0 ]; then
+                echo "::error::Batch $CURRENT_BATCH failed. To resume, trigger manually with: scope=$SCOPE, start_batch=$CURRENT_BATCH, batch_size=$BATCH_SIZE"
+                exit 1
+              fi
+              CURRENT_BATCH=$(( CURRENT_BATCH + 1 ))
+            done
+          else
+            python3 bin/batch_assign_entities.py "${ARGS[@]}"
+          fi
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
