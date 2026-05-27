@@ -142,7 +142,7 @@ def extract_complete_matches(df):
             'status': '301',
             'entity': row['entity_b'],
             'end-date': '',
-            'notes': 'Redirect old entity complete match to LPA entity',
+            'notes': f"Redirect old entity complete match to LPA entity: {row['lookup_org_b']}",
             'entry-date': today,
             'start-date': ''
         })
@@ -213,7 +213,7 @@ def extract_single_matches(df):
                 'status': '301',
                 'entity': row['entity_b'],
                 'end-date': '',
-                'notes': 'Redirect old entity single match to LPA entity',
+                'notes': f"Redirect old entity single match to LPA entity: {row['lookup_org_b']}",
                 'entry-date': today,
                 'start-date': ''
             })
