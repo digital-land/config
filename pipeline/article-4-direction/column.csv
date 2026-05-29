@@ -2,6 +2,9 @@ dataset,endpoint,resource,column,field,start-date,end-date,entry-date
 article-4-direction,02edc278ff79d8a129ca56f6ddece41ce49150e40e5c0fa8d57a784b904cde90,,article_4_direction,reference,,,
 article-4-direction,22315c9b87efad5eb741898c47dc22eba4cfd3fede17768d95c73f772bd5f9bf,,Document_Reference,reference,,,
 article-4-direction,345c6d1562d81d5e440acb797fb354f16188f03859286b0fbae7c339bf5cb87b,,article_4_direction,reference,,,
+article-4-direction,3c70452cd482fd398b68f57d4b4ad78b0eab4c413e947ec4d0af67e3851983b4,,End date,end-date,2026-05-28,,2026-05-28
+article-4-direction,3c70452cd482fd398b68f57d4b4ad78b0eab4c413e947ec4d0af67e3851983b4,,Entry date,entry-date,2026-05-28,,2026-05-28
+article-4-direction,3c70452cd482fd398b68f57d4b4ad78b0eab4c413e947ec4d0af67e3851983b4,,Start date,start-date,2026-05-28,,2026-05-28
 article-4-direction,4263c7ffebf8087c801bb18bb71649d913c241746952e697d5f5b0c3dae03fb1,,Article4_Direction_Reference,reference,,,
 article-4-direction,46077ed7a874c62d1456b24f0693d7cd21929a881d9c33b3aebc277e17fcbc74,,URL to documents,document-url,,,
 article-4-direction,50e7e3aaa409469f02072ac8f5b5e6af38754b6fad2467c44d04057f3460cca4,,gml_id,reference,,,
@@ -190,6 +193,3 @@ article-4-direction-area,,,Designatio,notes,,,
 article-4-direction-area,,,CODE,reference,,,
 article-4-direction-area,,,geography,reference,,,
 article-4-direction-area,,,START_DATE,start-date,,,
-article-4-direction,3c70452cd482fd398b68f57d4b4ad78b0eab4c413e947ec4d0af67e3851983b4,,End date,end-date,2026-05-28,,2026-05-28
-article-4-direction,3c70452cd482fd398b68f57d4b4ad78b0eab4c413e947ec4d0af67e3851983b4,,Entry date,entry-date,2026-05-28,,2026-05-28
-article-4-direction,3c70452cd482fd398b68f57d4b4ad78b0eab4c413e947ec4d0af67e3851983b4,,Start date,start-date,2026-05-28,,2026-05-28

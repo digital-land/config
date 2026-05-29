@@ -757,6 +757,7 @@ local-plan,4220290,4220290,local-authority:ESK
 local-plan,4220583,4220583,local-authority:ESK
 local-plan,4220622,4220622,local-authority:ESK
 local-plan,4220737,4220737,local-authority:ESK
+local-plan,4220990,4220992,local-authority:ESK
 local-plan,4220048,4220048,local-authority:EST
 local-plan,4220289,4220289,local-authority:EST
 local-plan,4220736,4220736,local-authority:EST
@@ -1918,6 +1919,7 @@ plan-timetable,5100656,5100659,local-authority:ERY
 plan-timetable,5101877,5101901,local-authority:ERY
 plan-timetable,5100053,5100053,local-authority:ESK
 plan-timetable,5105087,5105109,local-authority:ESK
+plan-timetable,5109933,5109947,local-authority:ESK
 plan-timetable,5102792,5102795,local-authority:ESS
 plan-timetable,5100008,5100008,local-authority:EST
 plan-timetable,5100660,5100662,local-authority:EST
@@ -2407,6 +2409,7 @@ plan-timetable,5102652,5102676,local-authority:WOC
 plan-timetable,5100277,5100278,local-authority:WOI
 plan-timetable,5101671,5101673,local-authority:WOI
 plan-timetable,5109572,5109594,local-authority:WOI
+plan-timetable,5109918,5109932,local-authority:WOI
 plan-timetable,5101674,5101679,local-authority:WOK
 plan-timetable,5102602,5102626,local-authority:WOK
 plan-timetable,5102989,5102994,local-authority:WOR
@@ -2569,6 +2572,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5109918,5109932,local-authority:WOI
-plan-timetable,5109933,5109947,local-authority:ESK
-local-plan,4220990,4220992,local-authority:ESK
