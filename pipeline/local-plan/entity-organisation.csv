@@ -871,6 +871,7 @@ local-plan,4220355,4220355,local-authority:KWL
 local-plan,4220778,4220778,local-authority:KWL
 local-plan,4220357,4220357,local-authority:LAC
 local-plan,4220780,4220780,local-authority:LAC
+local-plan,4220993,4220994,local-authority:LAC
 local-plan,4220137,4220137,local-authority:LBH
 local-plan,4220388,4220388,local-authority:LBH
 local-plan,4220803,4220803,local-authority:LBH
@@ -2050,6 +2051,7 @@ plan-timetable,5100852,5100855,local-authority:KWL
 plan-timetable,5105892,5105914,local-authority:KWL
 plan-timetable,5100860,5100863,local-authority:LAC
 plan-timetable,5105938,5105960,local-authority:LAC
+plan-timetable,5109948,5109962,local-authority:LAC
 plan-timetable,5102849,5102851,local-authority:LAN
 plan-timetable,5103184,5103186,local-authority:LAN
 plan-timetable,5100043,5100043,local-authority:LBH
@@ -2572,5 +2574,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4220993,4220994,local-authority:LAC
-plan-timetable,5109948,5109962,local-authority:LAC
