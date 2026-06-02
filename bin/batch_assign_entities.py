@@ -85,6 +85,8 @@ def create_or_update_pr_for_success(branch, triggered_by, success_count, scope, 
 
     run_command(["git", "config", "user.name", "github-actions-add-data-bot"])
     run_command(["git", "config", "user.email", "matthew.poole@communities.gov.uk"])
+
+    original_branch = run_command(["git", "rev-parse", "--abbrev-ref", "HEAD"], capture_output=True)
     checkout_branch_for_create_mode(branch)
 
     run_command(["git", "add", "pipeline/"])
@@ -97,10 +99,12 @@ def create_or_update_pr_for_success(branch, triggered_by, success_count, scope, 
 
     if not staged_changes:
         print("No staged changes after batch assignment; skipping PR creation")
+        run_command(["git", "checkout", original_branch])
         return
 
     run_command(["git", "commit", "-m", commit_label])
     run_command(["git", "push", "origin", branch])
+    run_command(["git", "checkout", original_branch])
 
     pr_number = run_command(
         [
@@ -125,7 +129,7 @@ def create_or_update_pr_for_success(branch, triggered_by, success_count, scope, 
             capture_output=True,
         )
         new_body = f"{current_body}\n\n{pr_body}" if current_body else pr_body
-        run_command(["gh", "pr", "edit", pr_number, "--title", f"{scope} - Batch Assign Entities Update", "--body", new_body])
+        run_command(["gh", "pr", "edit", pr_number, "--body", new_body])
         print(f"Updated existing PR #{pr_number} on branch {branch}")
         return
 
