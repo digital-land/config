@@ -1,4 +1,6 @@
 import csv
+import math
+import sys
 from time import perf_counter
 import click
 import requests
@@ -65,12 +67,15 @@ def checkout_branch_for_create_mode(branch_name):
         run_command(["git", "checkout", "-b", branch_name])
 
 
-def create_or_update_pr_for_success(branch, triggered_by, success_count, scope,body_suffix=""):
+def create_or_update_pr_for_success(branch, triggered_by, success_count, scope, body_suffix="", batch_size=0, start_batch=1):
     if not branch or branch.strip() == "":
         print(f"No --branch supplied; skipping PR creation :: {branch}")
         return
 
-    commit_label = f"{scope} - Batch assign entities update ({success_count} successful resource(s))"
+    if batch_size > 0:
+        commit_label = f"{scope} - Batch assign entities update (batch {start_batch}, {success_count} successful resource(s))"
+    else:
+        commit_label = f"{scope} - Batch assign entities update ({success_count} successful resource(s))"
 
     pr_body = (
         f"{commit_label}\n\n"
@@ -545,7 +550,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
     return validation_rows, old_entities, new_entity_ids
 
 
-def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_threshold=10, skip_checks=False,invalid_uri_issues=None):
+def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_threshold=10, skip_checks=False, invalid_uri_issues=None, batch_size=0, start_batch=1):
     """
     Uses provided file path to automatically process and assign unknown entities
     """
@@ -756,7 +761,12 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
             finally:
                 print(f"\nCompleted processing for resource: {resource} in {perf_counter() - start_time:.2f} seconds.")
     finally:
-        output_df.to_csv(f"batch_assign_summary_{scope}.csv", index=False)
+        summary_filename = (
+            f"batch_assign_summary_{scope}_batch_{start_batch}.csv"
+            if batch_size > 0
+            else f"batch_assign_summary_{scope}.csv"
+        )
+        output_df.to_csv(summary_filename, index=False)
         # Remove successfully processed resources
         for resource_path in successful_resources:
             try:
@@ -803,8 +813,10 @@ def run_batch_assign_entities(
     resources: Optional[str] = None,
     skip_checks: bool = False,
     triggered_by: Optional[str] = None,
-    branch: str = "auto/batch-assign-entities",
+    branch: str = "config-manager-update",
     create_pr: bool = True,
+    batch_size: int = 0,
+    start_batch: int = 1,
 ):
     endpoint_issue_summary_path = "https://datasette.planning.data.gov.uk/performance/endpoint_dataset_issue_type_summary.csv?_sort=rowid&issue_type__exact=unknown+entity&_size=max"
 
@@ -854,7 +866,25 @@ def run_batch_assign_entities(
     if resources:
         resource_set = {r.strip() for r in resources.split(",") if r.strip()}
         issue_summary_df = issue_summary_df[issue_summary_df["resource"].isin(resource_set)]
-    
+
+    # Deterministic ordering so batch numbers are stable across runs
+    issue_summary_df = issue_summary_df.sort_values("resource").reset_index(drop=True)
+
+    if batch_size > 0:
+        total_batches = math.ceil(len(issue_summary_df) / batch_size)
+        start_idx = (start_batch - 1) * batch_size
+        if start_idx >= len(issue_summary_df):
+            print(
+                f"Batch {start_batch} is out of range — "
+                f"only {total_batches} batch(es) exist for scope '{scope}'. Exiting."
+            )
+            sys.exit(2)
+        issue_summary_df = issue_summary_df.iloc[start_idx : start_idx + batch_size]
+        print(
+            f"Processing batch {start_batch} of {total_batches} "
+            f"({len(issue_summary_df)} resources)"
+        )
+
     if issue_summary_df.empty:
         print(f"No resources found with unknown entity issues for scope '{scope}'. Exiting.")
         return
@@ -884,7 +914,9 @@ def run_batch_assign_entities(
             cache_dir,
             new_entity_threshold,
             skip_checks,
-            invalid_uri_issues
+            invalid_uri_issues,
+            batch_size=batch_size,
+            start_batch=start_batch
         )
         error_count = len(output_df[output_df['status'] == 'error'])
         success_count = len(output_df[output_df['status'] == 'success'])
@@ -902,6 +934,8 @@ def run_batch_assign_entities(
                 success_count=success_count,
                 scope=scope,
                 body_suffix=body_suffix,
+                batch_size=batch_size,
+                start_batch=start_batch,
             )
         elif success_count > 0 and not create_pr:
             print("Successful assignments completed; PR creation disabled by --no-create-pr")
@@ -930,7 +964,7 @@ def run_batch_assign_entities(
     "--branch",
     required=False,
     type=str,
-    default='auto/batch-assign-entities',
+    default='config-manager-update',
     help="Git branch to use (optional metadata).",
 )
 @click.option(
@@ -958,6 +992,20 @@ def run_batch_assign_entities(
     show_default=True,
     help="Create or update a PR when there are successful assignments.",
 )
+@click.option(
+    "--batch-size",
+    default=0,
+    type=int,
+    show_default=True,
+    help="Number of resources to process per run. 0 = process all (default).",
+)
+@click.option(
+    "--start-batch",
+    default=1,
+    type=int,
+    show_default=True,
+    help="1-indexed batch number to start from. Use with --batch-size to resume a failed run.",
+)
 
 def main(
     scope: str = 'odp',
@@ -966,8 +1014,10 @@ def main(
     resources: Optional[str] = None,
     skip_checks: bool = False,
     triggered_by: Optional[str] = None,
-    branch: str = "auto/batch-assign-entities",
+    branch: str = "config-manager-update",
     create_pr: bool = True,
+    batch_size: int = 0,
+    start_batch: int = 1,
 ) -> None:
     # Print input options so the command and options used are visible
     print("Input options:")
@@ -979,6 +1029,8 @@ def main(
     print(f"  triggered_by={triggered_by}")
     print(f"  branch={branch}")
     print(f"  create_pr={create_pr}")
+    print(f"  batch_size={batch_size}")
+    print(f"  start_batch={start_batch}")
 
     cache_dir = Path(cache_dir)
     run_batch_assign_entities(
@@ -990,6 +1042,8 @@ def main(
         triggered_by=triggered_by,
         branch=branch,
         create_pr=create_pr,
+        batch_size=batch_size,
+        start_batch=start_batch,
     )
 
 if __name__ == "__main__":
