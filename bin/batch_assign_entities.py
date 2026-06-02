@@ -125,7 +125,7 @@ def create_or_update_pr_for_success(branch, triggered_by, success_count, scope, 
             capture_output=True,
         )
         new_body = f"{current_body}\n\n{pr_body}" if current_body else pr_body
-        run_command(["gh", "pr", "edit", pr_number, "--title", f"{scope} - Batch Assign Entities Update", "--body", new_body])
+        run_command(["gh", "pr", "edit", pr_number, "--body", new_body])
         print(f"Updated existing PR #{pr_number} on branch {branch}")
         return
 
