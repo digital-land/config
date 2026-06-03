@@ -156,7 +156,7 @@ jobs:
 
           if [ "${BATCH_SIZE:-0}" -gt 0 ]; then
             # Save the script before git checkout may overwrite it with an older version
-            cp bin/batch_assign_entities.py /tmp/batch_assign_entities.py
+            cp .github/scripts/batch_assign_entities.py /tmp/batch_assign_entities.py
 
             # Switch to config-manager-update so pipeline files accumulate correctly across batches
             if git show-ref --verify --quiet refs/heads/config-manager-update; then
@@ -183,7 +183,7 @@ jobs:
               CURRENT_BATCH=$(( CURRENT_BATCH + 1 ))
             done
           else
-            python3 bin/batch_assign_entities.py "${ARGS[@]}"
+            python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
           fi
 
       - name: Upload artifact
