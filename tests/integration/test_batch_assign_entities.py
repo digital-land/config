@@ -8,7 +8,7 @@ import pathlib
 import pandas as pd
 import pytest
 
-sys.path.insert(0, str(Path(__file__).parent.parent.parent / "bin"))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / ".github/scripts"))
 
 from batch_assign_entities import (
     _collect_validation_rows,

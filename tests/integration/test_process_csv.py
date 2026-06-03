@@ -1,7 +1,10 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / ".github/scripts"))
 import requests
 import pandas as pd
 import pytest
-import bin.batch_assign_entities as batch_assign_entities
+import batch_assign_entities
 
 @pytest.fixture
 def setup_test_path(monkeypatch, tmp_path):
