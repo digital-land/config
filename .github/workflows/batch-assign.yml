@@ -1,12 +1,15 @@
 name: Batch Assign Unknown Entities
 
+env:
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
 on:
   schedule:
-    - cron: "0 20 * * 1" # Monday    – odp
-    - cron: "0 20 * * 2" # Tuesday   – mandated
-    - cron: "0 20 * * 3" # Wednesday – odp
-    - cron: "0 20 * * 4" # Thursday  – single-source
-    - cron: "0 20 * * 5" # Friday    – odp
+    - cron: "0 19 * * 1" # Monday    – odp
+    - cron: "0 19 * * 2" # Tuesday   – mandated
+    - cron: "0 19 * * 3" # Wednesday – odp
+    - cron: "0 19 * * 4" # Thursday  – single-source
+    - cron: "0 19 * * 5" # Friday    – odp
 
   repository_dispatch:
     types: [auto-batch-assign]
@@ -153,7 +156,7 @@ jobs:
 
           if [ "${BATCH_SIZE:-0}" -gt 0 ]; then
             # Save the script before git checkout may overwrite it with an older version
-            cp bin/batch_assign_entities.py /tmp/batch_assign_entities.py
+            cp .github/scripts/batch_assign_entities.py /tmp/batch_assign_entities.py
 
             # Switch to config-manager-update so pipeline files accumulate correctly across batches
             if git show-ref --verify --quiet refs/heads/config-manager-update; then
@@ -164,10 +167,12 @@ jobs:
 
             CURRENT_BATCH="${START_BATCH:-1}"
             while true; do
+              set +e
               python3 /tmp/batch_assign_entities.py "${ARGS[@]}" \
                 --batch-size "$BATCH_SIZE" \
                 --start-batch "$CURRENT_BATCH"
               EXIT=$?
+              set -e
               if [ $EXIT -eq 2 ]; then
                 echo "All batches complete."
                 break
@@ -178,7 +183,7 @@ jobs:
               CURRENT_BATCH=$(( CURRENT_BATCH + 1 ))
             done
           else
-            python3 bin/batch_assign_entities.py "${ARGS[@]}"
+            python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
           fi
 
       - name: Upload artifact
@@ -191,3 +196,11 @@ jobs:
             issue_summary.csv
             invalid_uri_issues.csv
             issue_summary_full.csv
+
+      - name: Notify slack failure
+        if: failure() && github.ref == 'refs/heads/main'
+        uses: digital-land/github-action-slack-notify-build@main
+        with:
+          channel: planning-data-alerts
+          status: FAILED
+          color: danger
