@@ -1,5 +1,8 @@
 name: Batch Assign Unknown Entities
 
+env:
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
 on:
   schedule:
     - cron: "0 19 * * 1" # Monday    – odp
@@ -191,3 +194,11 @@ jobs:
             issue_summary.csv
             invalid_uri_issues.csv
             issue_summary_full.csv
+
+      - name: Notify slack failure
+        if: failure() && github.ref == 'refs/heads/main'
+        uses: digital-land/github-action-slack-notify-build@main
+        with:
+          channel: planning-data-alerts
+          status: FAILED
+          color: danger
