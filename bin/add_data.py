@@ -564,7 +564,7 @@ def run_add_data_async(
     "--environment",
     default=lambda: os.getenv("ASYNC_API_ENVIRONMENT", DEFAULT_ENVIRONMENT),
     show_default=f"env ASYNC_API_ENVIRONMENT or {DEFAULT_ENVIRONMENT}",
-    type=click.Choice(["local", "development", "staging", "production"], case_sensitive=False),
+    type=click.Choice(["development", "staging", "production"], case_sensitive=False),
     help="Async API environment",
 )
 @click.option(
