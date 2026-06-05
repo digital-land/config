@@ -80,7 +80,7 @@ def test_append_endpoint_writes_new_row(tmp_path, monkeypatch):
                     "new_endpoint_entry": {
                         "endpoint": "endpoint-1",
                         "endpoint-url": "https://example.test/data.csv",
-                        "parameters": "x=1,y=2",
+                        "parameters": {"x": "1", "y": "2"},
                         "plugin": "url",
                         "entry-date": "2026-01-01",
                         "start-date": "",
@@ -98,7 +98,7 @@ def test_append_endpoint_writes_new_row(tmp_path, monkeypatch):
     assert rows[1] == [
         "endpoint-1",
         "https://example.test/data.csv",
-        "x=1,y=2",
+        '{"x": "1", "y": "2"}',
         "url",
         "2026-01-01",
         "",

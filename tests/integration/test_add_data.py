@@ -69,7 +69,7 @@ def test_add_data_cli_creates_expected_files(tmp_path, monkeypatch):
                     "new_endpoint_entry": {
                         "endpoint": "endpoint-hash",
                         "endpoint-url": "https://example.test/data.csv",
-                        "parameters": "format=csv",
+                        "parameters": {"format": "csv"},
                         "plugin": "download",
                         "entry-date": "2026-04-24",
                         "start-date": "2026-04-01",
@@ -158,7 +158,7 @@ def test_add_data_cli_creates_expected_files(tmp_path, monkeypatch):
     assert endpoint_rows[1] == [
         "endpoint-hash",
         "https://example.test/data.csv",
-        "format=csv",
+        '{"format": "csv"}',
         "download",
         "2026-04-24",
         "2026-04-01",
@@ -267,7 +267,7 @@ def test_add_data_cli_test_mode_creates_draft_pr(tmp_path, monkeypatch):
                     "new_endpoint_entry": {
                         "endpoint": "endpoint-hash",
                         "endpoint-url": "example.test/data path.csv?x=1,2",
-                        "parameters": "format=csv",
+                        "parameters": {"format": "csv"},
                         "plugin": "download",
                         "entry-date": "2026-04-24",
                         "start-date": "2026-04-01",
@@ -365,7 +365,7 @@ def test_add_data_cli_test_mode_creates_draft_pr(tmp_path, monkeypatch):
     assert endpoint_rows[1] == [
         "endpoint-hash",
         "example.test/data path.csv?x=1,2",
-        "format=csv",
+        '{"format": "csv"}',
         "download",
         "2026-04-24",
         "2026-04-01",

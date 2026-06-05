@@ -235,10 +235,13 @@ def append_endpoint(response: dict, collection: str) -> None:
         print("No new endpoint entry found, skipping")
         return
 
+    raw_params = new_entry.get("parameters")
+    parameters = json.dumps(raw_params) if raw_params else ""
+
     row = [
         new_entry.get("endpoint"),
         new_entry.get("endpoint-url"),
-        new_entry.get("parameters"),
+        parameters,
         new_entry.get("plugin"),
         new_entry.get("entry-date"),
         new_entry.get("start-date"),
