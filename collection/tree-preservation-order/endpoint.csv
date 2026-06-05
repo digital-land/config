@@ -234,7 +234,7 @@ cfc5abb5d1690630507a06f6b70196c67e111a6bbb1f186bcc8dabc5db3bfdc6,https://maps.ca
 a84dc021cc4f3064e16f7ad3b58dd90d6a62ac2e378ffe79cdd73580a63232ba,https://miltonkeynes.statmap.co.uk/map/wfs.svc/MKCC_ODPwfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=statmap:tpo_points&SRSNAME=EPSG:27700&COUNT=2500&STARTINDEX=0,,,2026-05-07,2026-04-27,
 28955998a2fc62334bc56990417d38ff9798e397f764cda96f9f9aed3351b846,https://www.easthants.gov.uk/sites/default/files/2026-05/tree-preservation-order.csv,,,2026-05-11,2026-05-11,
 2da66cbab23b24200351c7eed2cd92cee7e9618b063c8e21c371370e2ce7bd2c,https://www.scilly.gov.uk/sites/default/files/planning-apps/tree-preservation-orders.xlsx,,,2026-05-27,2026-05-27,
-909fbfa4f10f42102b9f543f38d17585801ad906aab00b1b7fcc1bae53d8dd47,https://mapservices.leeds.gov.uk/arcgis/rest/services/Public/Strategic_Planning/FeatureServer/74,,arcgis,2026-06-05,2026-06-05,
 15d3b1ab92a540b12121713f81913f4a50ba4bceec57e6f5738a53f78af283a0,https://services1.arcgis.com/k6HWkz7DMAcnnYfV/arcgis/rest/services/CDC_Tree_Preservation_Orders_view/FeatureServer/1,,arcgis,2026-06-05,2026-06-05,
 855b635ae61fdafd62d87df243c2f98354cf8f53a7a21da20eec9b509ad75e2c,https://services1.arcgis.com/k6HWkz7DMAcnnYfV/arcgis/rest/services/CDC_Tree_Preservation_Orders_view/FeatureServer/2,,arcgis,2026-06-05,2026-06-05,
+909fbfa4f10f42102b9f543f38d17585801ad906aab00b1b7fcc1bae53d8dd47,https://mapservices.leeds.gov.uk/arcgis/rest/services/Public/Strategic_Planning/FeatureServer/74,,arcgis,2026-06-05,2026-06-05,
 cc6f2d701cd3b6c66f61f5150f002b8596f85b9b268f3ed1325cfcb3ed8e6850,https://services1.arcgis.com/k6HWkz7DMAcnnYfV/arcgis/rest/services/CDC_Tree_Preservation_Orders_view/FeatureServer/0,,arcgis,2026-06-05,2026-06-05,

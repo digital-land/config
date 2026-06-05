@@ -789,6 +789,7 @@ local-plan,4220501,4220502,local-authority:GRE
 local-plan,4220873,4220873,local-authority:GRE
 local-plan,4220321,4220322,local-authority:GRT
 local-plan,4220758,4220758,local-authority:GRT
+local-plan,4220995,4220996,local-authority:GRT
 local-plan,4220058,4220058,local-authority:GRY
 local-plan,4220318,4220319,local-authority:GRY
 local-plan,4220757,4220757,local-authority:GRY
@@ -1998,6 +1999,7 @@ plan-timetable,5100811,5100813,local-authority:HIG
 plan-timetable,5105754,5105776,local-authority:HIG
 plan-timetable,5100952,5100955,local-authority:HIL
 plan-timetable,5106398,5106420,local-authority:HIL
+plan-timetable,5109963,5109974,local-authority:HIL
 plan-timetable,5100814,5100818,local-authority:HIN
 plan-timetable,5105777,5105799,local-authority:HIN
 plan-timetable,5100935,5100938,local-authority:HMF
@@ -2574,5 +2576,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5109963,5109974,local-authority:HIL
-local-plan,4220995,4220996,local-authority:GRT
