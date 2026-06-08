@@ -1,0 +1,77 @@
+name: Auto-merge config-manager-update
+
+on:
+  schedule:
+    - cron: "30 18 * * *" # 6:30pm UTC daily
+
+env:
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Check for PR from config-manager-update to main
+        id: check-pr
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          PR_NUMBER=$(gh pr list \
+            --head config-manager-update \ 
+            --base main \
+            --json number \
+            --jq '.[0].number' || echo "")
+
+          if [ -z "$PR_NUMBER" ]; then
+            echo "pr_exists=false" >> $GITHUB_OUTPUT
+            echo "No PR found for config-manager-update → main"
+          else
+            echo "pr_exists=true" >> $GITHUB_OUTPUT
+            echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
+            echo "Found PR #$PR_NUMBER"
+          fi
+
+      - name: Approve PR
+        if: steps.check-pr.outputs.pr_exists == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          gh pr review ${{ steps.check-pr.outputs.pr_number }} \
+            --approve \
+            --body "Auto-approved by workflow"
+
+      - name: Merge PR with squash
+        if: steps.check-pr.outputs.pr_exists == 'true'
+        id: merge
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          gh pr merge ${{ steps.check-pr.outputs.pr_number }} \
+            --squash \
+            --delete-branch \
+            --admin && echo "merge_success=true" >> $GITHUB_OUTPUT || echo "merge_success=false" >> $GITHUB_OUTPUT
+
+      - name: Notify Slack on merge failure
+        if: steps.check-pr.outputs.pr_exists == 'true' && steps.merge.outputs.merge_success == 'false'
+        uses: digital-land/github-action-slack-notify-build@main
+        with:
+          channel: planning-data-alerts
+          status: FAILED
+          color: danger
+          message: |
+            Failed to merge config-manager-update → main (likely due to conflicts).
+            PR: https://github.com/${{ github.repository }}/pull/${{ steps.check-pr.outputs.pr_number }}
+            Please resolve conflicts and merge manually.

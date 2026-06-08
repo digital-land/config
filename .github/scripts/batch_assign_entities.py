@@ -46,46 +46,14 @@ def run_command(cmd, capture_output=True, check=True):
     return (result.stdout or "").strip() if capture_output else ""
 
 
-def checkout_branch_for_create_mode(branch_name):
-    current_branch = run_command(
-        ["git", "rev-parse", "--abbrev-ref", "HEAD"],
-        capture_output=True,
-    )
-    if current_branch == branch_name:
-        return
-
-    local_exists = subprocess.run(
-        ["git", "show-ref", "--verify", f"refs/heads/{branch_name}"],
-        text=True,
-        capture_output=True,
-        check=False,
-    ).returncode == 0
-
-    if local_exists:
-        run_command(["git", "checkout", branch_name])
-    else:
-        run_command(["git", "checkout", "-b", branch_name])
-
-
-def create_or_update_pr_for_success(branch, triggered_by, success_count, scope, body_suffix="", batch_size=0, start_batch=1):
-    if not branch or branch.strip() == "":
-        print(f"No --branch supplied; skipping PR creation :: {branch}")
-        return
-
+def commit_to_main(triggered_by, success_count, scope, batch_size=0, start_batch=1):
     if batch_size > 0:
         commit_label = f"{scope} - Batch assign entities update (batch {start_batch}, {success_count} successful resource(s))"
     else:
         commit_label = f"{scope} - Batch assign entities update ({success_count} successful resource(s))"
 
-    pr_body = (
-        f"{commit_label}\n\n"
-        f"Triggered by: {triggered_by}\n\n"
-        f"{body_suffix}\n\n"
-    )
-
-    run_command(["git", "config", "user.name", "github-actions-add-data-bot"])
-    run_command(["git", "config", "user.email", "matthew.poole@communities.gov.uk"])
-    checkout_branch_for_create_mode(branch)
+    run_command(["git", "config", "user.name", "github-actions-bot"])
+    run_command(["git", "config", "user.email", "noreply@github.com"])
 
     run_command(["git", "add", "pipeline/"])
     run_command(["git", "add", "collection/"], check=False)
@@ -96,55 +64,12 @@ def create_or_update_pr_for_success(branch, triggered_by, success_count, scope, 
     ).returncode != 0
 
     if not staged_changes:
-        print("No staged changes after batch assignment; skipping PR creation")
+        print("No staged changes after batch assignment; skipping commit")
         return
 
     run_command(["git", "commit", "-m", commit_label])
-    run_command(["git", "push", "origin", branch])
-
-    pr_number = run_command(
-        [
-            "gh",
-            "pr",
-            "list",
-            "--head",
-            branch,
-            "--state",
-            "open",
-            "--json",
-            "number",
-            "--jq",
-            ".[0].number // empty",
-        ],
-        capture_output=True,
-    )
-
-    if pr_number:
-        current_body = run_command(
-            ["gh", "pr", "view", pr_number, "--json", "body", "--jq", ".body"],
-            capture_output=True,
-        )
-        new_body = f"{current_body}\n\n{pr_body}" if current_body else pr_body
-        run_command(["gh", "pr", "edit", pr_number, "--body", new_body])
-        print(f"Updated existing PR #{pr_number} on branch {branch}")
-        return
-
-    run_command(
-        [
-            "gh",
-            "pr",
-            "create",
-            "--title",
-            f"{scope} - Batch Assign Entities Update",
-            "--body",
-            pr_body,
-            "--base",
-            "main",
-            "--head",
-            branch,
-        ]
-    )
-    print(f"Created PR on branch {branch}")
+    run_command(["git", "push", "origin", "HEAD:main"])
+    print(f"Committed and pushed to main: {commit_label}")
 
 def download_file(url, output_path, raise_error=False, max_retries=5):
     """Downloads a file using urllib and saves it to the output directory. msj151225"""
@@ -813,8 +738,7 @@ def run_batch_assign_entities(
     resources: Optional[str] = None,
     skip_checks: bool = False,
     triggered_by: Optional[str] = None,
-    branch: str = "config-manager-update",
-    create_pr: bool = True,
+    commit: bool = True,
     batch_size: int = 0,
     start_batch: int = 1,
 ):
@@ -849,8 +773,6 @@ def run_batch_assign_entities(
 
     if triggered_by:
         print(f"Triggered by: {triggered_by}")
-    if branch:
-        print(f"Branch parameter: {branch}")
     print("issue_summary.csv downloaded successfully")
     
     # Build url_map from the CSV data
@@ -925,22 +847,18 @@ def run_batch_assign_entities(
         print(f"Total failed assign-entities operations: {error_count}")
         print(f"Total successful assign-entities operations: {success_count}")
 
-        if success_count > 0 and create_pr:
-            body_suffix = f"{success_count} successful resource(s) processed with batch assign entities for scope '{scope}'."
-            f"Options used to run this command: \n\n scope: {scope} \n new_entity_threshold: {new_entity_threshold} \n skip_checks: {skip_checks} \n resources: {resources} \n branch: {branch} \n triggered_by: {triggered_by} \n create_pr: {create_pr} \n\n"
-            create_or_update_pr_for_success(
-                branch=branch,
+        if success_count > 0 and commit:
+            commit_to_main(
                 triggered_by=triggered_by,
                 success_count=success_count,
                 scope=scope,
-                body_suffix=body_suffix,
                 batch_size=batch_size,
                 start_batch=start_batch,
             )
-        elif success_count > 0 and not create_pr:
-            print("Successful assignments completed; PR creation disabled by --no-create-pr")
+        elif success_count > 0 and not commit:
+            print("Successful assignments completed; --no-commit set, skipping commit to main")
         else:
-            print("No successful assignments; skipping PR creation")
+            print("No successful assignments; skipping commit to main")
     except Exception as e:
         print(f"Error running batch assign entities: {e}")
         traceback.print_exc()
@@ -959,13 +877,6 @@ def run_batch_assign_entities(
     required=False,
     type=str,
     help="Identifier for the actor/system that triggered this run.",
-)
-@click.option(
-    "--branch",
-    required=False,
-    type=str,
-    default='config-manager-update',
-    help="Git branch to use (optional metadata).",
 )
 @click.option(
     "--resources",
@@ -987,10 +898,10 @@ def run_batch_assign_entities(
     help="The threshold for the number of new entities to be assigned in percentage compared to the previous version of the resource.",
 )
 @click.option(
-    "--create-pr/--no-create-pr",
+    "--commit/--no-commit",
     default=True,
     show_default=True,
-    help="Create or update a PR when there are successful assignments.",
+    help="Commit changes to main when there are successful assignments.",
 )
 @click.option(
     "--batch-size",
@@ -1014,8 +925,7 @@ def main(
     resources: Optional[str] = None,
     skip_checks: bool = False,
     triggered_by: Optional[str] = None,
-    branch: str = "config-manager-update",
-    create_pr: bool = True,
+    commit: bool = True,
     batch_size: int = 0,
     start_batch: int = 1,
 ) -> None:
@@ -1027,8 +937,7 @@ def main(
     print(f"  resources={resources}")
     print(f"  skip_checks={skip_checks}")
     print(f"  triggered_by={triggered_by}")
-    print(f"  branch={branch}")
-    print(f"  create_pr={create_pr}")
+    print(f"  commit={commit}")
     print(f"  batch_size={batch_size}")
     print(f"  start_batch={start_batch}")
 
@@ -1040,8 +949,7 @@ def main(
         resources=resources,
         skip_checks=skip_checks,
         triggered_by=triggered_by,
-        branch=branch,
-        create_pr=create_pr,
+        commit=commit,
         batch_size=batch_size,
         start_batch=start_batch,
     )
