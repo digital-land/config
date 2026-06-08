@@ -1,7 +1,7 @@
 dataset,entity-minimum,entity-maximum,organisation
-community-infrastructure-levy-schedule,900009,900009,government-organisation:D1342
-community-infrastructure-levy-schedule,900072,900072,government-organisation:D1342
-community-infrastructure-levy-schedule,900135,900138,government-organisation:D1342
+community-infrastructure-levy-schedule,900009,900009,local-authority:KEN
+community-infrastructure-levy-schedule,900072,900072,local-authority:SHE
+community-infrastructure-levy-schedule,900135,900138,local-authority:NYUA
 community-infrastructure-levy-schedule,900000,900000,local-authority:ARU
 community-infrastructure-levy-schedule,900001,900001,local-authority:BAB
 community-infrastructure-levy-schedule,900004,900004,local-authority:BAE
