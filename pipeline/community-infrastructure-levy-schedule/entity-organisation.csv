@@ -1,7 +1,4 @@
 dataset,entity-minimum,entity-maximum,organisation
-community-infrastructure-levy-schedule,900009,900009,local-authority:KIN
-community-infrastructure-levy-schedule,900072,900072,local-authority:SHE
-community-infrastructure-levy-schedule,900135,900138,local-authority:NYUA
 community-infrastructure-levy-schedule,900000,900000,local-authority:ARU
 community-infrastructure-levy-schedule,900001,900001,local-authority:BAB
 community-infrastructure-levy-schedule,900004,900004,local-authority:BAE
@@ -74,13 +71,16 @@ community-infrastructure-levy-schedule,900078,900078,local-authority:HAA
 community-infrastructure-levy-schedule,900079,900079,local-authority:HER
 community-infrastructure-levy-schedule,900080,900080,local-authority:HOR
 community-infrastructure-levy-schedule,900081,900081,local-authority:HUN
+community-infrastructure-levy-schedule,900009,900009,local-authority:KIN
 community-infrastructure-levy-schedule,900082,900082,local-authority:KIR
 community-infrastructure-levy-schedule,900083,900083,local-authority:LDS
 community-infrastructure-levy-schedule,900084,900084,local-authority:LEE
 community-infrastructure-levy-schedule,900038,900038,local-authority:LIC
 community-infrastructure-levy-schedule,900085,900085,local-authority:LIF
 community-infrastructure-levy-schedule,900039,900039,local-authority:LND
+community-infrastructure-levy-schedule,900135,900138,local-authority:NYUA
 community-infrastructure-levy-schedule,900097,900097,local-authority:SGC
+community-infrastructure-levy-schedule,900072,900072,local-authority:SHE
 community-infrastructure-levy-schedule,900089,900089,local-authority:SHR
 community-infrastructure-levy-schedule,900098,900098,local-authority:SNO
 community-infrastructure-levy-schedule,900090,900090,local-authority:SOL

@@ -1955,6 +1955,7 @@ plan-timetable,5101267,5101270,local-authority:GRE
 plan-timetable,5107962,5107984,local-authority:GRE
 plan-timetable,5100760,5100763,local-authority:GRT
 plan-timetable,5105501,5105523,local-authority:GRT
+plan-timetable,5109975,5109999,local-authority:GRT
 plan-timetable,5100227,5100227,local-authority:GRY
 plan-timetable,5100231,5100232,local-authority:GRY
 plan-timetable,5100754,5100759,local-authority:GRY
@@ -2576,4 +2577,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5109975,5109999,local-authority:GRT
