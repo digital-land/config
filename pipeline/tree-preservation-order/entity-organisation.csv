@@ -545,3 +545,13 @@ tree-preservation-zone,19168416,19169313,national-park-authority:Q27159704
 tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
+tree-preservation-zone,19188221,19188222,local-authority:DAR
+tree,7002230209,7002230209,local-authority:SST
+tree-preservation-zone,19188223,19188223,local-authority:WFT
+tree-preservation-order,7001102525,7001102525,local-authority:WFT
+tree-preservation-order,7001102526,7001102526,local-authority:SST
+tree-preservation-order,7001102527,7001102528,local-authority:DAR
+tree,7002230210,7002230210,local-authority:BST
+tree-preservation-order,7001102529,7001102529,local-authority:BST
+tree,7002230211,7002230231,local-authority:DAR
+tree-preservation-zone,19188224,19188313,local-authority:CLD
