@@ -12,6 +12,7 @@ tree,124dc88d5839fa63b5802abe2847e3bf959b3052a3dcd126f362f78e5342df33,,OBJECTID,
 tree,124dc88d5839fa63b5802abe2847e3bf959b3052a3dcd126f362f78e5342df33,,DATE_CREATED,start-date,,,
 tree,124dc88d5839fa63b5802abe2847e3bf959b3052a3dcd126f362f78e5342df33,,REFVAL,tree-preservation-order,,,
 tree,2333b5caae413ebff6a764269008868db249cbb95decfb4888ee0edebfafcad6,,WKT,geometry,2026-04-28,,2026-04-28
+tree,272bd2c09a85f48da5c69948226376041e4422616236ec76df8626cdfbdf6cd8,,WKT,geometry,2026-06-09,,2026-06-09
 tree,3237276c4ae0e3dae446205a7b917485ce23c196203d80bf30c8cb186e67c8f3,,WKT,geometry,,,
 tree,3237276c4ae0e3dae446205a7b917485ce23c196203d80bf30c8cb186e67c8f3,,COMMENTS,notes,,,
 tree,3237276c4ae0e3dae446205a7b917485ce23c196203d80bf30c8cb186e67c8f3,,ORDERREF,reference,,,
@@ -354,6 +355,7 @@ tree-preservation-zone,504c4c95f0386ed91bb3e2e4bbc801f6cc9a3e5d48ef5942e650de7bc
 tree-preservation-zone,	504c4c95f0386ed91bb3e2e4bbc801f6cc9a3e5d48ef5942e650de7bc90990e4,,tpo_number,tree-preservation-order,,,
 tree-preservation-zone,504c4c95f0386ed91bb3e2e4bbc801f6cc9a3e5d48ef5942e650de7bc90990e4,,species_1_name,tree-species-list,,,
 tree-preservation-zone,	504c4c95f0386ed91bb3e2e4bbc801f6cc9a3e5d48ef5942e650de7bc90990e4,,species_1_name,tree-species-list,,,
+tree-preservation-zone,55a1ca1c3997bc20b98438a4f2702d1803b363185baa368896181ff6e1d21763,,TREE-PRESERVATION-ORDER-TYPE,tree-preservation-zone-type,2026-06-09,,2026-06-09
 tree-preservation-zone,588e4f0dfb29a0181a302b8c9785abb24d881ae8cab1226914bb5896813c5ac4,,DATE_CLOSED,end-date,,,
 tree-preservation-zone,588e4f0dfb29a0181a302b8c9785abb24d881ae8cab1226914bb5896813c5ac4,,DATE_MODIFIED,entry-date,,,
 tree-preservation-zone,588e4f0dfb29a0181a302b8c9785abb24d881ae8cab1226914bb5896813c5ac4,,DESCRIPT,name,,,
@@ -503,5 +505,3 @@ tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c04
 tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c042efa34f8,tpo,tree-preservation-order,,,
 tree-preservation-zone,,,wkt,geometry,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
-tree-preservation-zone,55a1ca1c3997bc20b98438a4f2702d1803b363185baa368896181ff6e1d21763,,TREE-PRESERVATION-ORDER-TYPE,tree-preservation-zone-type,2026-06-09,,2026-06-09
-tree,272bd2c09a85f48da5c69948226376041e4422616236ec76df8626cdfbdf6cd8,,WKT,geometry,2026-06-09,,2026-06-09
