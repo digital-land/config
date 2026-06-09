@@ -160,7 +160,6 @@ jobs:
             python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
           fi
           echo "scope=$SCOPE" >> $GITHUB_OUTPUT
-          fi
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
