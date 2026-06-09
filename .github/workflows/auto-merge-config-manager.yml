@@ -29,11 +29,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          PR_NUMBER=$(gh pr list \
-            --head config-manager-update \ 
-            --base main \
-            --json number \
-            --jq '.[0].number' || echo "")
+          PR_NUMBER=$(gh pr list --head config-manager-update --base main --json number --jq '.[0].number' 2>/dev/null || echo "")
 
           if [ -z "$PR_NUMBER" ]; then
             echo "pr_exists=false" >> $GITHUB_OUTPUT

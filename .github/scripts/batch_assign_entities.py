@@ -68,6 +68,7 @@ def commit_to_main(triggered_by, success_count, scope, batch_size=0, start_batch
         return
 
     run_command(["git", "commit", "-m", commit_label])
+    run_command(["git", "pull", "--rebase", "origin", "main"])
     run_command(["git", "push", "origin", "HEAD:main"])
     print(f"Committed and pushed to main: {commit_label}")
 

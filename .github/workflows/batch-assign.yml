@@ -104,6 +104,7 @@ jobs:
           fi
 
       - name: Run add-data script
+        id: batch-assign
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
           RESOURCES: ${{ github.event.client_payload.resources || github.event.inputs.resources }}
@@ -158,6 +159,7 @@ jobs:
           else
             python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
           fi
+          echo "scope=$SCOPE" >> $GITHUB_OUTPUT
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -177,3 +179,4 @@ jobs:
           channel: planning-data-alerts
           status: FAILED
           color: danger
+          message: "Batch Assign Unknown Entities - ${{ steps.batch-assign.outputs.scope }} workflow on config"
