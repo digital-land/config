@@ -16,6 +16,11 @@ on:
     - cron: "00 19 * * 1-5" # Mon–Fri only (no weekends)
   workflow_dispatch:
     inputs:
+      dry_run:
+        description: "Dry run: run every job but skip the PR merge, all commits/pushes to main, and the S3 sync (for safe end-to-end testing)"
+        required: false
+        type: boolean
+        default: false
       scope:
         description: "The scope of the batch assignment (overrides the per-day default)"
         required: false
@@ -96,7 +101,7 @@ jobs:
           fi
 
       - name: Approve PR
-        if: steps.check-pr.outputs.pr_exists == 'true'
+        if: steps.check-pr.outputs.pr_exists == 'true' && github.event.inputs.dry_run != 'true'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
@@ -105,7 +110,7 @@ jobs:
             --body "Auto-approved by workflow"
 
       - name: Merge PR with squash
-        if: steps.check-pr.outputs.pr_exists == 'true'
+        if: steps.check-pr.outputs.pr_exists == 'true' && github.event.inputs.dry_run != 'true'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
@@ -113,6 +118,11 @@ jobs:
             --squash \
             --delete-branch \
             --admin
+
+      - name: Dry run — skipping PR merge
+        if: steps.check-pr.outputs.pr_exists == 'true' && github.event.inputs.dry_run == 'true'
+        run: |
+          echo "Dry run: PR #${{ steps.check-pr.outputs.pr_number }} would be approved and squash-merged here."
 
   # 2. Batch assign unknown entities. The script self-commits & pushes to main per batch.
   #    Only runs Mon–Fri
@@ -173,7 +183,7 @@ jobs:
           SCOPE: ${{ github.event.inputs.scope || env.SCHEDULED_SCOPE || 'odp' }}
           SKIP_CHECKS: ${{ github.event.inputs.skip_checks }}
           NEW_ENTITIES_THRESHOLD: ${{ github.event.inputs.new_entities_threshold }}
-          COMMIT: ${{ github.event.inputs.commit }}
+          COMMIT: ${{ github.event.inputs.dry_run == 'true' && 'false' || github.event.inputs.commit }}
           BATCH_SIZE: ${{ github.event.inputs.batch_size || env.SCHEDULED_BATCH_SIZE || '0' }}
           START_BATCH: ${{ github.event.inputs.start_batch || env.SCHEDULED_START_BATCH || '1' }}
         run: |
@@ -286,7 +296,7 @@ jobs:
         run: python .github/scripts/retire-mhclg-plan-data.py
 
       - name: Commit and push if changed
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && github.event.inputs.dry_run != 'true' }}
         run: |
           git add pipeline/conservation-area/old-entity.csv \
                   collection/conservation-area/endpoint.csv \
@@ -300,6 +310,16 @@ jobs:
           git commit -m "Deduplicate CA geographies and retire MHCLG CA/plan data"
           git pull --rebase origin main
           git push origin HEAD:main
+
+      - name: Dry run — skipping commit
+        if: ${{ !cancelled() && github.event.inputs.dry_run == 'true' }}
+        run: |
+          echo "Dry run: the following changes would be committed to main:"
+          git status --short -- pipeline/conservation-area/old-entity.csv \
+                                collection/conservation-area/endpoint.csv \
+                                collection/conservation-area/source.csv \
+                                collection/conservation-area/old-resource.csv \
+                                pipeline/local-plan/old-entity.csv || true
 
   # 4. Reorder rows / fix line endings, then commit to main.
   standardise:
@@ -334,6 +354,7 @@ jobs:
         run: python .github/scripts/standardise_csvs.py
 
       - name: Commit and push if changed
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
           git add collection/ pipeline/
           if git diff --staged --quiet; then
@@ -343,6 +364,13 @@ jobs:
           git commit -m "Standardise row ordering and line endings in CSVs"
           git pull --rebase origin main
           git push origin HEAD:main
+
+      - name: Dry run — skipping commit
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        run: |
+          echo "Dry run: the following standardisation changes would be committed to main:"
+          git add collection/ pipeline/
+          git status --short || true
 
   # 5. Detect deployment environments for the S3 upload matrix.
   detect-environments:
@@ -385,9 +413,17 @@ jobs:
           aws-region: eu-west-2
 
       - name: Save to S3
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
           aws s3 sync ./collection s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/collection
           aws s3 sync ./pipeline s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/pipeline
+
+      - name: Dry run — skipping S3 sync
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        run: |
+          echo "Dry run: would sync ./collection and ./pipeline to s3://<bucket>/config/. Listing what would be uploaded:"
+          aws s3 sync --dryrun ./collection s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/collection || true
+          aws s3 sync --dryrun ./pipeline s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/pipeline || true
 
   # 7. Single Slack alert naming any stage that failed.
   notify:
