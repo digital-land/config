@@ -1,0 +1,418 @@
+name: Config Evening Pipeline
+
+# Consolidated evening pipeline that replaces the previously daisy-chained workflows
+# (auto-merge-config-manager, batch-assign, standardise-csvs, upload-to-S3) and folds
+# in the CA / Plans deduplication previously run by manage-ca-geogs / retire-mhclg-plan-data.
+#
+# Ordering is explicit via `needs:` instead of wall-clock crons / workflow_run hooks:
+#   merge -> batch-assign -> deduplicate -> standardise -> detect-environments -> upload-s3
+# Each stage runs with `if: ${{ !cancelled() }}` so a failure in one stage does NOT
+# stop later stages; the final `notify` job raises a single Slack alert naming any
+# stage that failed.
+#
+# NOTE: the deduplicate stage commits CA/Plans retirements DIRECTLY to main (so the
+# reorder + S3 upload pick them up the same evening). This is a behaviour change from the
+# old manage-ca-geogs / retire-mhclg-plan-data workflows, which raised PRs for human
+# review. Those workflows are kept (workflow_dispatch only) for ad-hoc, reviewed runs.
+
+on:
+  schedule:
+    - cron: "00 19 * * *" # PLACEHOLDER — confirm timing against the config DAG
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: "The scope of the batch assignment (overrides the per-day default)"
+        required: false
+        type: choice
+        default: "odp"
+        options:
+          - "mandated"
+          - "odp"
+          - "single-source"
+      resources:
+        description: "Comma-separated list of resource"
+        required: false
+        type: string
+      skip_checks:
+        description: "Skip validation checks and directly assign entities (use with caution)"
+        required: false
+        type: boolean
+        default: false
+      new_entities_threshold:
+        description: "The percentage threshold for new entities to be assigned before triggering a warning (optional)"
+        required: false
+        type: number
+        default: 10
+      commit:
+        description: "Whether to commit results to main (set to false for dry runs)"
+        required: false
+        type: boolean
+        default: true
+      batch_size:
+        description: "Resources per batch (single-source only). 0 = no batching."
+        required: false
+        type: number
+        default: 0
+      start_batch:
+        description: "Batch number to start from (single-source only). Use to resume a failed run."
+        required: false
+        type: number
+        default: 1
+
+env:
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+concurrency:
+  group: config-evening-pipeline
+  cancel-in-progress: false
+
+jobs:
+  # 1. Merge the config-manager-update branch so main is up to date.
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Check for PR from config-manager-update to main
+        id: check-pr
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          PR_NUMBER=$(gh pr list --head config-manager-update --base main --json number --jq '.[0].number' 2>/dev/null || echo "")
+
+          if [ -z "$PR_NUMBER" ]; then
+            echo "pr_exists=false" >> $GITHUB_OUTPUT
+            echo "No PR found for config-manager-update → main"
+          else
+            echo "pr_exists=true" >> $GITHUB_OUTPUT
+            echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
+            echo "Found PR #$PR_NUMBER"
+          fi
+
+      - name: Approve PR
+        if: steps.check-pr.outputs.pr_exists == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          gh pr review ${{ steps.check-pr.outputs.pr_number }} \
+            --approve \
+            --body "Auto-approved by workflow"
+
+      - name: Merge PR with squash
+        if: steps.check-pr.outputs.pr_exists == 'true'
+        id: merge
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          gh pr merge ${{ steps.check-pr.outputs.pr_number }} \
+            --squash \
+            --delete-branch \
+            --admin
+
+  # 2. Batch assign unknown entities. The script self-commits & pushes to main per batch.
+  #    Only runs Mon–Fri
+  batch-assign:
+    runs-on: ubuntu-22.04
+    needs: [merge]
+    if: ${{ !cancelled() }}
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        if: ${{ env.ACT != 'true' }}
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          sudo add-apt-repository ppa:ubuntugis/ppa -y
+          sudo apt-get update
+          sudo apt-get install gdal-bin -y
+          gdalinfo --version
+          python -m pip install --upgrade pip
+          pip install click pandas tqdm
+          pip install -e "git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land"
+
+      - name: Determine scope for scheduled run
+        if: github.event_name == 'schedule'
+        run: |
+          DAY=$(date +%u)  # 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat, 7=Sun
+          if [ "$DAY" -ge 6 ]; then
+            echo "No batch assign scheduled at weekends; skipping."
+            echo "SKIP_BATCH_ASSIGN=true" >> $GITHUB_ENV
+          elif [ "$DAY" = "2" ]; then
+            echo "SCHEDULED_SCOPE=mandated" >> $GITHUB_ENV
+          elif [ "$DAY" = "4" ]; then
+            echo "SCHEDULED_SCOPE=single-source" >> $GITHUB_ENV
+            echo "SCHEDULED_BATCH_SIZE=10" >> $GITHUB_ENV
+            echo "SCHEDULED_START_BATCH=1" >> $GITHUB_ENV
+          else
+            echo "SCHEDULED_SCOPE=odp" >> $GITHUB_ENV
+          fi
+
+      - name: Run add-data script
+        id: batch-assign
+        if: env.SKIP_BATCH_ASSIGN != 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
+          RESOURCES: ${{ github.event.inputs.resources }}
+          TRIGGERED_BY: ${{ github.actor || 'unknown' }}
+          SCOPE: ${{ github.event.inputs.scope || env.SCHEDULED_SCOPE || 'odp' }}
+          SKIP_CHECKS: ${{ github.event.inputs.skip_checks }}
+          NEW_ENTITIES_THRESHOLD: ${{ github.event.inputs.new_entities_threshold }}
+          COMMIT: ${{ github.event.inputs.commit }}
+          BATCH_SIZE: ${{ github.event.inputs.batch_size || env.SCHEDULED_BATCH_SIZE || '0' }}
+          START_BATCH: ${{ github.event.inputs.start_batch || env.SCHEDULED_START_BATCH || '1' }}
+        run: |
+          ARGS+=(--scope "$SCOPE")
+
+          if [ -n "$RESOURCES" ]; then
+            ARGS+=(--resources "$RESOURCES")
+          fi
+
+          if [ "$SKIP_CHECKS" = "true" ]; then
+            ARGS+=(--skip-checks)
+          fi
+
+          if [ -n "$NEW_ENTITIES_THRESHOLD" ]; then
+            ARGS+=(--new-entity-threshold "$NEW_ENTITIES_THRESHOLD")
+          fi
+
+          if [ -n "$TRIGGERED_BY" ]; then
+            ARGS+=(--triggered-by "$TRIGGERED_BY")
+          fi
+
+          if [[ "$COMMIT" == "false" ]]; then
+            ARGS+=(--no-commit)
+          fi
+
+          if [ "${BATCH_SIZE:-0}" -gt 0 ]; then
+            CURRENT_BATCH="${START_BATCH:-1}"
+            while true; do
+              set +e
+              python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}" \
+                --batch-size "$BATCH_SIZE" \
+                --start-batch "$CURRENT_BATCH"
+              EXIT=$?
+              set -e
+              if [ $EXIT -eq 2 ]; then
+                echo "All batches complete."
+                break
+              elif [ $EXIT -ne 0 ]; then
+                echo "::error::Batch $CURRENT_BATCH failed. To resume, trigger manually with: scope=$SCOPE, start_batch=$CURRENT_BATCH, batch_size=$BATCH_SIZE"
+                exit 1
+              fi
+              CURRENT_BATCH=$(( CURRENT_BATCH + 1 ))
+            done
+          else
+            python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
+          fi
+          echo "scope=$SCOPE" >> $GITHUB_OUTPUT
+
+      - name: Upload artifact
+        if: env.SKIP_BATCH_ASSIGN != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-files
+          path: |
+            var/cache/assign_entities/transformed/*.csv
+            batch_assign_summary*.csv
+            issue_summary.csv
+            invalid_uri_issues.csv
+            issue_summary_full.csv
+
+  # ----------------------------------------------------------------------------
+  # 3. Deduplicate CA geographies and retire MHCLG CA / plan data, then commit to main.
+  #    Each script step is `if: ${{ !cancelled() }}` so a failure in one does not stop the
+  #    others; whatever changed is committed at the end. The job still reports failure so
+  #    `notify` flags it.
+  deduplicate:
+    runs-on: ubuntu-latest
+    needs: [batch-assign]
+    if: ${{ !cancelled() }}
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install rapidfuzz
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions-bot"
+          git config user.email "noreply@github.com"
+
+      - name: Deduplicate CA geographies
+        timeout-minutes: 10
+        run: python .github/scripts/deduplicate-ca-geogs.py
+
+      - name: Retire MHCLG CA data
+        if: ${{ !cancelled() }}
+        timeout-minutes: 10
+        run: python .github/scripts/retire-mhclg-ca-data.py
+
+      - name: Retire MHCLG plan data
+        if: ${{ !cancelled() }}
+        timeout-minutes: 10
+        run: python .github/scripts/retire-mhclg-plan-data.py
+
+      - name: Commit and push if changed
+        if: ${{ !cancelled() }}
+        run: |
+          git add pipeline/conservation-area/old-entity.csv \
+                  collection/conservation-area/endpoint.csv \
+                  collection/conservation-area/source.csv \
+                  collection/conservation-area/old-resource.csv \
+                  pipeline/local-plan/old-entity.csv
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Deduplicate CA geographies and retire MHCLG CA/plan data"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+  # 4. Reorder rows / fix line endings, then commit to main.
+  standardise:
+    runs-on: ubuntu-latest
+    needs: [deduplicate]
+    if: ${{ !cancelled() }}
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions-bot"
+          git config user.email "noreply@github.com"
+
+      - name: Run standardise script
+        run: python .github/scripts/standardise_csvs.py
+
+      - name: Commit and push if changed
+        run: |
+          git add collection/ pipeline/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Standardise row ordering and line endings in CSVs"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+  # 5. Detect deployment environments for the S3 upload matrix.
+  detect-environments:
+    runs-on: ubuntu-latest
+    needs: [standardise]
+    if: ${{ !cancelled() }}
+    outputs:
+      environments: ${{ steps.environments.outputs.result }}
+    steps:
+      - uses: actions/github-script@v6
+        id: environments
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          result-encoding: json
+          script: |
+            const {data: {environments}} =
+              await github.request(`GET /repos/${process.env.GITHUB_REPOSITORY}/environments`);
+            return environments.map(e => e.name)
+
+  # 6. Upload collection/ and pipeline/ to S3 for each environment.
+  upload-s3:
+    runs-on: ubuntu-latest
+    needs: [detect-environments]
+    if: ${{ !cancelled() }}
+    strategy:
+      matrix:
+        environment: ${{ fromJSON(needs.detect-environments.outputs.environments) }}
+    environment: ${{ matrix.environment }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.DEPLOY_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEPLOY_AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+
+      - name: Save to S3
+        run: |
+          aws s3 sync ./collection s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/collection
+          aws s3 sync ./pipeline s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/pipeline
+
+  # 7. Single Slack alert naming any stage that failed.
+  notify:
+    runs-on: ubuntu-latest
+    needs: [merge, batch-assign, deduplicate, standardise, detect-environments, upload-s3]
+    if: ${{ !cancelled() && contains(needs.*.result, 'failure') }}
+    steps:
+      - name: Notify Slack of pipeline failure
+        uses: digital-land/github-action-slack-notify-build@main
+        with:
+          channel: planning-data-alerts
+          status: FAILED
+          color: danger
+          message: |
+            Config Evening Pipeline had a failure.
+            Stage results — merge: ${{ needs.merge.result }}, batch-assign: ${{ needs.batch-assign.result }}, deduplicate: ${{ needs.deduplicate.result }}, standardise: ${{ needs.standardise.result }}, detect-environments: ${{ needs.detect-environments.result }}, upload-s3: ${{ needs.upload-s3.result }}
+            Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
