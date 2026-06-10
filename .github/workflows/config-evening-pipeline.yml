@@ -110,7 +110,6 @@ jobs:
 
       - name: Merge PR with squash
         if: steps.check-pr.outputs.pr_exists == 'true'
-        id: merge
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
@@ -128,7 +127,6 @@ jobs:
     steps:
       - name: Generate GitHub App token
         id: app-token
-        if: ${{ env.ACT != 'true' }}
         uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.APP_ID }}
