@@ -10,14 +10,10 @@ name: Config Evening Pipeline
 # stop later stages; the final `notify` job raises a single Slack alert naming any
 # stage that failed.
 #
-# NOTE: the deduplicate stage commits CA/Plans retirements DIRECTLY to main (so the
-# reorder + S3 upload pick them up the same evening). This is a behaviour change from the
-# old manage-ca-geogs / retire-mhclg-plan-data workflows, which raised PRs for human
-# review. Those workflows are kept (workflow_dispatch only) for ad-hoc, reviewed runs.
 
 on:
   schedule:
-    - cron: "00 19 * * *" # PLACEHOLDER — confirm timing against the config DAG
+    - cron: "00 19 * * 1-5" # Mon–Fri only (no weekends)
   workflow_dispatch:
     inputs:
       scope:
@@ -157,11 +153,8 @@ jobs:
       - name: Determine scope for scheduled run
         if: github.event_name == 'schedule'
         run: |
-          DAY=$(date +%u)  # 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat, 7=Sun
-          if [ "$DAY" -ge 6 ]; then
-            echo "No batch assign scheduled at weekends; skipping."
-            echo "SKIP_BATCH_ASSIGN=true" >> $GITHUB_ENV
-          elif [ "$DAY" = "2" ]; then
+          DAY=$(date +%u)  # 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri (pipeline only runs Mon–Fri)
+          if [ "$DAY" = "2" ]; then
             echo "SCHEDULED_SCOPE=mandated" >> $GITHUB_ENV
           elif [ "$DAY" = "4" ]; then
             echo "SCHEDULED_SCOPE=single-source" >> $GITHUB_ENV
@@ -173,7 +166,6 @@ jobs:
 
       - name: Run add-data script
         id: batch-assign
-        if: env.SKIP_BATCH_ASSIGN != 'true'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
           RESOURCES: ${{ github.event.inputs.resources }}
@@ -231,7 +223,6 @@ jobs:
           echo "scope=$SCOPE" >> $GITHUB_OUTPUT
 
       - name: Upload artifact
-        if: env.SKIP_BATCH_ASSIGN != 'true'
         uses: actions/upload-artifact@v4
         with:
           name: generated-files
@@ -401,7 +392,15 @@ jobs:
   # 7. Single Slack alert naming any stage that failed.
   notify:
     runs-on: ubuntu-latest
-    needs: [merge, batch-assign, deduplicate, standardise, detect-environments, upload-s3]
+    needs:
+      [
+        merge,
+        batch-assign,
+        deduplicate,
+        standardise,
+        detect-environments,
+        upload-s3,
+      ]
     if: ${{ !cancelled() && contains(needs.*.result, 'failure') }}
     steps:
       - name: Notify Slack of pipeline failure
