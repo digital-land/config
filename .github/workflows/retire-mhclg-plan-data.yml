@@ -1,5 +1,7 @@
 name: Retire MHCLG Plan Data
 
+# The scheduled plan-data retirement now runs inside config-evening-pipeline.yml.
+# This workflow is kept for ad-hoc manual runs; it also commits directly to main.
 on:
   workflow_dispatch:
 
@@ -38,55 +40,21 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
-      - name: Commit and create PR
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+      - name: Commit and push to main
         run: |
-          BRANCH_NAME="retire-mhclg-plan-data-$(date +%Y%m%d-%H%M)"
-
           git config user.name "github-actions-bot"
           git config user.email "noreply@github.com"
 
-          # Check if there are changes
-          if git diff --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
-
-          git checkout -b "$BRANCH_NAME"
           git add pipeline/local-plan/old-entity.csv
 
-          # Double-check there are staged changes
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0
           fi
 
           git commit -m "Retire MHCLG plan data"
-
-          git push origin "$BRANCH_NAME"
-
-          # Create PR
-          gh pr create --title "Retire MHCLG plan data" \
-            --body "This PR retires fake MHCLG template data for LPAs that have provided authoritative data.
-
-          ## Organisations retired
-
-          ${{ steps.retire-script.outputs.summary }}
-
-          ## What this does
-
-          - For plan-timetable: Retires 23-entity ranges (23 local plan events)
-          - For local-plan: Retires fake plan references (e.g., {slug}-new-local-plan)
-          - Adds retired entities to old-entity.csv with status 410
-
-          This PR was automatically created via the Retire MHCLG Plan Data workflow.
-
-          **Triggered by:** @${{ github.actor }}
-
-          Please review and merge if appropriate." \
-                                          --base main \
-                                          --head "$BRANCH_NAME"
+          git pull --rebase origin main
+          git push origin HEAD:main
 
       - name: Summary
         run: |
@@ -99,4 +67,4 @@ jobs:
           echo "- local-plan" >> $GITHUB_STEP_SUMMARY
           echo "- plan-timetable" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Check above for PR creation details." >> $GITHUB_STEP_SUMMARY
+          echo "Changes committed directly to main (if any)." >> $GITHUB_STEP_SUMMARY

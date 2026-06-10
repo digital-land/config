@@ -1,8 +1,8 @@
 name: Standardise CSVs
 
+# Scheduled run now lives in config-evening-pipeline.yml.
+# Kept here as a manually-runnable workflow for debugging / one-off standardisation.
 on:
-  schedule:
-    - cron: "00 22 * * *"
   workflow_dispatch:
 
 env:

@@ -1,8 +1,9 @@
 name: Auto-merge config-manager-update
 
+# Scheduled run now lives in config-evening-pipeline.yml.
+# Kept here as a manually-runnable workflow for debugging / one-off merges.
 on:
-  schedule:
-    - cron: "30 18 * * *" # 6:30pm UTC daily
+  workflow_dispatch:
 
 env:
   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

@@ -1,5 +1,7 @@
 name: Manage Conservation Area Data
 
+# The scheduled CA deduplication now runs inside config-evening-pipeline.yml.
+# This workflow is kept for ad-hoc manual runs; it also commits directly to main.
 on:
   workflow_dispatch:
 
@@ -44,58 +46,24 @@ jobs:
           python .github/scripts/retire-mhclg-ca-data.py
           echo "Retire script completed"
 
-      - name: Commit and create PR
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+      - name: Commit and push to main
         run: |
-          BRANCH_NAME="manage-ca-data-$(date +%Y%m%d-%H%M)"
-
           git config user.name "github-actions-bot"
           git config user.email "noreply@github.com"
 
-          # Check if there are changes
-          if git diff --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
-
-          git checkout -b "$BRANCH_NAME"
           git add pipeline/conservation-area/old-entity.csv \
                   collection/conservation-area/endpoint.csv \
                   collection/conservation-area/source.csv \
                   collection/conservation-area/old-resource.csv
 
-          # Double-check there are staged changes
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0
           fi
 
           git commit -m "Manage conservation area data"
-
-          git push origin "$BRANCH_NAME"
-
-          # Create PR
-          gh pr create --title "Manage conservation area data" \
-            --body "This PR contains automatic updates to conservation area data:
-
-          ## Changes
-
-          **Deduplicate Conservation Area Geographies:**
-          - Complete matches (100% geometry overlap)
-          - Single matches with >85% name similarity
-
-          **Retire MHCLG Conservation Area Data:**
-          - Mark endpoints and sources as retired
-          - Track retired resources
-
-          This PR was automatically created via the Manage Conservation Area Data workflow.
-
-          **Triggered by:** @${{ github.actor }}
-
-          Please review and merge if appropriate." \
-                                --base main \
-                                --head "$BRANCH_NAME"
+          git pull --rebase origin main
+          git push origin HEAD:main
 
       - name: Summary
         run: |
@@ -105,4 +73,4 @@ jobs:
           echo "- Deduplicate CA geographies" >> $GITHUB_STEP_SUMMARY
           echo "- Retire MHCLG CA data" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Check above for PR creation details." >> $GITHUB_STEP_SUMMARY
+          echo "Changes committed directly to main (if any)." >> $GITHUB_STEP_SUMMARY

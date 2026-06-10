@@ -1,10 +1,8 @@
 name: Upload to S3
 
+# The scheduled S3 upload now runs as a job inside config-evening-pipeline.yml.
+# Kept here as a manually-runnable workflow for debugging / one-off uploads.
 on:
-  workflow_run:
-    workflows: ["Standardise CSVs"]
-    types:
-      - completed
   workflow_dispatch:
     inputs:
       environment:
