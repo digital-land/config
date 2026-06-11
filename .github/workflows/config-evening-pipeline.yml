@@ -62,15 +62,21 @@ on:
 
   # ============================================================================
   # TEMPORARY — REMOVE BEFORE MERGING THIS PR.
-  # Runs the full pipeline on this PR's branch (real runners + secrets) so it can be
-  # tested end-to-end. Every write step is guarded with `github.event_name != 'pull_request'`,
-  # so a PR run skips the config-manager-update merge, all commits/pushes to main, and the
-  # S3 sync — nothing persists. The notify (Slack) job is also silenced for PR runs.
-  pull_request:
+  # Runs the full pipeline on this branch (real runners + secrets) for end-to-end testing.
+  # `push` is used because schedule/workflow_dispatch only fire from the default branch, and
+  # pull_request did not trigger the new file. Writes are gated by WRITES_ENABLED below, so a
+  # push run skips the config-manager-update merge, all commits/pushes to main, and the S3 sync.
+  push:
+    branches:
+      - st/consolidate-nightly-github-actions
   # ============================================================================
 
 env:
   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+  # Persisted writes (PR merge, commits to main, S3 sync) happen ONLY on a genuine scheduled
+  # run or a non-dry-run manual dispatch. Every other trigger (push, pull_request, …) is
+  # treated as no-write, so test runs can never touch main or S3.
+  WRITES_ENABLED: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run != 'true') }}
 
 concurrency:
   group: config-evening-pipeline
@@ -110,7 +116,7 @@ jobs:
           fi
 
       - name: Approve PR
-        if: steps.check-pr.outputs.pr_exists == 'true' && github.event.inputs.dry_run != 'true' && github.event_name != 'pull_request'
+        if: steps.check-pr.outputs.pr_exists == 'true' && env.WRITES_ENABLED == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -119,7 +125,7 @@ jobs:
             --body "Auto-approved by workflow"
 
       - name: Merge PR with squash
-        if: steps.check-pr.outputs.pr_exists == 'true' && github.event.inputs.dry_run != 'true' && github.event_name != 'pull_request'
+        if: steps.check-pr.outputs.pr_exists == 'true' && env.WRITES_ENABLED == 'true'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
@@ -129,7 +135,7 @@ jobs:
             --admin
 
       - name: Dry run — skipping PR merge
-        if: steps.check-pr.outputs.pr_exists == 'true' && (github.event.inputs.dry_run == 'true' || github.event_name == 'pull_request')
+        if: steps.check-pr.outputs.pr_exists == 'true' && env.WRITES_ENABLED != 'true'
         run: |
           echo "Dry run: PR #${{ steps.check-pr.outputs.pr_number }} would be approved and squash-merged here."
 
@@ -192,7 +198,7 @@ jobs:
           SCOPE: ${{ github.event.inputs.scope || env.SCHEDULED_SCOPE || 'odp' }}
           SKIP_CHECKS: ${{ github.event.inputs.skip_checks }}
           NEW_ENTITIES_THRESHOLD: ${{ github.event.inputs.new_entities_threshold }}
-          COMMIT: ${{ (github.event.inputs.dry_run == 'true' || github.event_name == 'pull_request') && 'false' || github.event.inputs.commit }}
+          COMMIT: ${{ env.WRITES_ENABLED != 'true' && 'false' || github.event.inputs.commit }}
           BATCH_SIZE: ${{ github.event.inputs.batch_size || env.SCHEDULED_BATCH_SIZE || '0' }}
           START_BATCH: ${{ github.event.inputs.start_batch || env.SCHEDULED_START_BATCH || '1' }}
         run: |
@@ -305,7 +311,7 @@ jobs:
         run: python .github/scripts/retire-mhclg-plan-data.py
 
       - name: Commit and push if changed
-        if: ${{ !cancelled() && github.event.inputs.dry_run != 'true' && github.event_name != 'pull_request' }}
+        if: ${{ !cancelled() && env.WRITES_ENABLED == 'true' }}
         run: |
           git add pipeline/conservation-area/old-entity.csv \
                   collection/conservation-area/endpoint.csv \
@@ -321,7 +327,7 @@ jobs:
           git push origin HEAD:main
 
       - name: Dry run — skipping commit
-        if: ${{ !cancelled() && (github.event.inputs.dry_run == 'true' || github.event_name == 'pull_request') }}
+        if: ${{ !cancelled() && env.WRITES_ENABLED != 'true' }}
         run: |
           echo "Dry run: the following changes would be committed to main:"
           git status --short -- pipeline/conservation-area/old-entity.csv \
@@ -363,7 +369,7 @@ jobs:
         run: python .github/scripts/standardise_csvs.py
 
       - name: Commit and push if changed
-        if: ${{ github.event.inputs.dry_run != 'true' && github.event_name != 'pull_request' }}
+        if: ${{ env.WRITES_ENABLED == 'true' }}
         run: |
           git add collection/ pipeline/
           if git diff --staged --quiet; then
@@ -375,7 +381,7 @@ jobs:
           git push origin HEAD:main
 
       - name: Dry run — skipping commit
-        if: ${{ github.event.inputs.dry_run == 'true' || github.event_name == 'pull_request' }}
+        if: ${{ env.WRITES_ENABLED != 'true' }}
         run: |
           echo "Dry run: the following standardisation changes would be committed to main:"
           git add collection/ pipeline/
@@ -422,13 +428,13 @@ jobs:
           aws-region: eu-west-2
 
       - name: Save to S3
-        if: ${{ github.event.inputs.dry_run != 'true' && github.event_name != 'pull_request' }}
+        if: ${{ env.WRITES_ENABLED == 'true' }}
         run: |
           aws s3 sync ./collection s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/collection
           aws s3 sync ./pipeline s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/pipeline
 
       - name: Dry run — skipping S3 sync
-        if: ${{ github.event.inputs.dry_run == 'true' || github.event_name == 'pull_request' }}
+        if: ${{ env.WRITES_ENABLED != 'true' }}
         run: |
           echo "Dry run: would sync ./collection and ./pipeline to s3://<bucket>/config/. Listing what would be uploaded:"
           aws s3 sync --dryrun ./collection s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/collection || true
@@ -446,7 +452,7 @@ jobs:
         detect-environments,
         upload-s3,
       ]
-    if: ${{ !cancelled() && contains(needs.*.result, 'failure') && github.event_name != 'pull_request' }}
+    if: ${{ !cancelled() && contains(needs.*.result, 'failure') && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') }}
     steps:
       - name: Notify Slack of pipeline failure
         uses: digital-land/github-action-slack-notify-build@main
