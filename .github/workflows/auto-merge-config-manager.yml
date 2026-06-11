@@ -2,7 +2,7 @@ name: Auto-merge config-manager-update
 
 on:
   schedule:
-    - cron: "15 08 * * *"
+    - cron: "30 18 * * *"
 
 env:
   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
