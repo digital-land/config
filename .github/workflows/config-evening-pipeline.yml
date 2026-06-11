@@ -60,22 +60,11 @@ on:
         type: number
         default: 1
 
-  # ============================================================================
-  # TEMPORARY — REMOVE BEFORE MERGING THIS PR.
-  # Runs the full pipeline on this branch (real runners + secrets) for end-to-end testing.
-  # `push` is used because schedule/workflow_dispatch only fire from the default branch, and
-  # pull_request did not trigger the new file. Writes are gated by WRITES_ENABLED below, so a
-  # push run skips the config-manager-update merge, all commits/pushes to main, and the S3 sync.
-  push:
-    branches:
-      - st/consolidate-nightly-github-actions
-  # ============================================================================
-
 env:
   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
   # Persisted writes (PR merge, commits to main, S3 sync) happen ONLY on a genuine scheduled
-  # run or a non-dry-run manual dispatch. Every other trigger (push, pull_request, …) is
-  # treated as no-write, so test runs can never touch main or S3.
+  # run or a non-dry-run manual dispatch (dry_run input). Any other trigger is treated as
+  # no-write, so it can never touch main or S3.
   WRITES_ENABLED: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run != 'true') }}
 
 concurrency:
