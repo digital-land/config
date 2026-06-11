@@ -734,6 +734,7 @@ local-plan,4220732,4220732,local-authority:EHA
 local-plan,4220047,4220047,local-authority:EHE
 local-plan,4220286,4220286,local-authority:EHE
 local-plan,4220733,4220733,local-authority:EHE
+local-plan,4220999,4221001,local-authority:EHE
 local-plan,4220004,4220004,local-authority:ELI
 local-plan,4220287,4220287,local-authority:ELI
 local-plan,4220734,4220734,local-authority:ELI
@@ -1901,6 +1902,7 @@ plan-timetable,5104995,5105017,local-authority:EHA
 plan-timetable,5100041,5100041,local-authority:EHE
 plan-timetable,5100649,5100651,local-authority:EHE
 plan-timetable,5105018,5105040,local-authority:EHE
+plan-timetable,5110025,5110051,local-authority:EHE
 plan-timetable,5100065,5100065,local-authority:ELI
 plan-timetable,5100122,5100122,local-authority:ELI
 plan-timetable,5100652,5100655,local-authority:ELI
@@ -2579,5 +2581,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4220999,4221001,local-authority:EHE
-plan-timetable,5110025,5110051,local-authority:EHE
