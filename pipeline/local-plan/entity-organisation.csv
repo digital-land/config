@@ -897,6 +897,7 @@ local-plan,4220150,4220150,local-authority:LND
 local-plan,4220708,4220708,local-authority:LND
 local-plan,4220138,4220138,local-authority:LUT
 local-plan,4220814,4220814,local-authority:LUT
+local-plan,4220997,4220998,local-authority:LUT
 local-plan,4220082,4220082,local-authority:MAI
 local-plan,4220403,4220403,local-authority:MAI
 local-plan,4220815,4220815,local-authority:MAI
@@ -2093,6 +2094,7 @@ plan-timetable,5104512,5104534,local-authority:LND
 plan-timetable,5100046,5100046,local-authority:LUT
 plan-timetable,5101020,5101022,local-authority:LUT
 plan-timetable,5106720,5106742,local-authority:LUT
+plan-timetable,5110000,5110024,local-authority:LUT
 plan-timetable,5100307,5100307,local-authority:MAI
 plan-timetable,5101023,5101030,local-authority:MAI
 plan-timetable,5106743,5106765,local-authority:MAI
