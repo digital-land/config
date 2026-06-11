@@ -44,7 +44,7 @@ jobs:
       - name: Approve PR
         if: steps.check-pr.outputs.pr_exists == 'true'
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh pr review ${{ steps.check-pr.outputs.pr_number }} \
             --approve \
