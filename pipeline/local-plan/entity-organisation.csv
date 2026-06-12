@@ -644,6 +644,7 @@ local-plan,4220237,4220238,local-authority:CHE
 local-plan,4220701,4220701,local-authority:CHE
 local-plan,4220156,4220156,local-authority:CHI
 local-plan,4220704,4220704,local-authority:CHI
+local-plan,4221005,4221008,local-authority:CHI
 local-plan,4220142,4220142,local-authority:CHL
 local-plan,4220232,4220232,local-authority:CHL
 local-plan,4220698,4220698,local-authority:CHL
@@ -658,6 +659,7 @@ local-plan,4220233,4220233,local-authority:CHT
 local-plan,4220699,4220699,local-authority:CHT
 local-plan,4220239,4220240,local-authority:CHW
 local-plan,4220702,4220702,local-authority:CHW
+local-plan,4221002,4221004,local-authority:CHW
 local-plan,4220025,4220025,local-authority:CLD
 local-plan,4220218,4220218,local-authority:CLD
 local-plan,4220691,4220691,local-authority:CLD
@@ -1798,6 +1800,7 @@ plan-timetable,5100498,5100501,local-authority:CHE
 plan-timetable,5104397,5104419,local-authority:CHE
 plan-timetable,5100511,5100516,local-authority:CHI
 plan-timetable,5101777,5101801,local-authority:CHI
+plan-timetable,5110124,5110149,local-authority:CHI
 plan-timetable,5100017,5100017,local-authority:CHL
 plan-timetable,5100483,5100485,local-authority:CHL
 plan-timetable,5104328,5104350,local-authority:CHL
@@ -1810,6 +1813,7 @@ plan-timetable,5104443,5104465,local-authority:CHS
 plan-timetable,5104351,5104373,local-authority:CHT
 plan-timetable,5100502,5100506,local-authority:CHW
 plan-timetable,5104420,5104442,local-authority:CHW
+plan-timetable,5110112,5110123,local-authority:CHW
 plan-timetable,5100301,5100301,local-authority:CLD
 plan-timetable,5100447,5100451,local-authority:CLD
 plan-timetable,5104190,5104212,local-authority:CLD
@@ -2290,6 +2294,7 @@ plan-timetable,5102957,5102960,local-authority:SRY
 plan-timetable,5103286,5103294,local-authority:SRY
 plan-timetable,5101411,5101420,local-authority:SST
 plan-timetable,5102277,5102301,local-authority:SST
+plan-timetable,5110052,5110084,local-authority:SST
 plan-timetable,5101454,5101457,local-authority:STA
 plan-timetable,5108629,5108651,local-authority:STA
 plan-timetable,5101479,5101481,local-authority:STE
@@ -2369,6 +2374,7 @@ plan-timetable,5101589,5101591,local-authority:VAL
 plan-timetable,5102477,5102501,local-authority:VAL
 plan-timetable,5101613,5101616,local-authority:WAE
 plan-timetable,5109319,5109341,local-authority:WAE
+plan-timetable,5110085,5110111,local-authority:WAE
 plan-timetable,5102967,5102972,local-authority:WAR
 plan-timetable,5103299,5103302,local-authority:WAR
 plan-timetable,5101603,5101606,local-authority:WAT
@@ -2581,9 +2587,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5110052,5110084,local-authority:SST
-plan-timetable,5110085,5110111,local-authority:WAE
-plan-timetable,5110112,5110123,local-authority:CHW
-local-plan,4221002,4221004,local-authority:CHW
-plan-timetable,5110124,5110149,local-authority:CHI
-local-plan,4221005,4221008,local-authority:CHI
