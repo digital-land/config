@@ -915,6 +915,7 @@ local-plan,4220416,4220417,local-authority:MDB
 local-plan,4220825,4220825,local-authority:MDB
 local-plan,4220411,4220412,local-authority:MDE
 local-plan,4220822,4220822,local-authority:MDE
+local-plan,4221009,4221010,local-authority:MDE
 local-plan,4220406,4220407,local-authority:MDW
 local-plan,4220820,4220820,local-authority:MDW
 local-plan,4220408,4220409,local-authority:MEL
@@ -1798,6 +1799,7 @@ plan-timetable,5100477,5100482,local-authority:CHA
 plan-timetable,5104305,5104327,local-authority:CHA
 plan-timetable,5100498,5100501,local-authority:CHE
 plan-timetable,5104397,5104419,local-authority:CHE
+plan-timetable,5110150,5110162,local-authority:CHE
 plan-timetable,5100511,5100516,local-authority:CHI
 plan-timetable,5101777,5101801,local-authority:CHI
 plan-timetable,5110124,5110149,local-authority:CHI
@@ -2115,6 +2117,7 @@ plan-timetable,5101071,5101078,local-authority:MDB
 plan-timetable,5106950,5106972,local-authority:MDB
 plan-timetable,5101061,5101064,local-authority:MDE
 plan-timetable,5106881,5106903,local-authority:MDE
+plan-timetable,5110150,5110174,local-authority:MDE
 plan-timetable,5106835,5106857,local-authority:MDW
 plan-timetable,5101052,5101056,local-authority:MEL
 plan-timetable,5106858,5106880,local-authority:MEL
@@ -2587,6 +2590,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221009,4221010,local-authority:MDE
-plan-timetable,5110150,5110174,local-authority:MDE
-plan-timetable,5110150,5110162,local-authority:CHE
