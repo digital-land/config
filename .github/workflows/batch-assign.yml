@@ -3,14 +3,9 @@ name: Batch Assign Unknown Entities
 env:
   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
+# Scheduled run (with per-day scope) now lives in config-evening-pipeline.yml.
+# Kept here as a manually/event-triggerable workflow for debugging and ad-hoc runs.
 on:
-  schedule:
-    - cron: "0 19 * * 1" # Monday    – odp
-    - cron: "0 19 * * 2" # Tuesday   – mandated
-    - cron: "0 19 * * 3" # Wednesday – odp
-    - cron: "0 19 * * 4" # Thursday  – single-source
-    - cron: "0 19 * * 5" # Friday    – odp
-
   repository_dispatch:
     types: [auto-batch-assign]
   workflow_dispatch:
