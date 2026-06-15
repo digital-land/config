@@ -134,6 +134,9 @@ jobs:
     runs-on: ubuntu-22.04
     needs: [merge]
     if: ${{ !cancelled() }}
+    outputs:
+      scope: ${{ steps.batch-assign.outputs.scope }}
+      failed_batch: ${{ steps.batch-assign.outputs.failed_batch }}
     steps:
       - name: Generate GitHub App token
         id: app-token
@@ -191,6 +194,9 @@ jobs:
           BATCH_SIZE: ${{ github.event.inputs.batch_size || env.SCHEDULED_BATCH_SIZE || '0' }}
           START_BATCH: ${{ github.event.inputs.start_batch || env.SCHEDULED_START_BATCH || '1' }}
         run: |
+          # Record scope up front so it is reported even if the run fails.
+          echo "scope=$SCOPE" >> "$GITHUB_OUTPUT"
+
           ARGS+=(--scope "$SCOPE")
 
           if [ -n "$RESOURCES" ]; then
@@ -227,6 +233,7 @@ jobs:
                 break
               elif [ $EXIT -ne 0 ]; then
                 echo "::error::Batch $CURRENT_BATCH failed. To resume, trigger manually with: scope=$SCOPE, start_batch=$CURRENT_BATCH, batch_size=$BATCH_SIZE"
+                echo "failed_batch=$CURRENT_BATCH" >> "$GITHUB_OUTPUT"
                 exit 1
               fi
               CURRENT_BATCH=$(( CURRENT_BATCH + 1 ))
@@ -234,7 +241,6 @@ jobs:
           else
             python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
           fi
-          echo "scope=$SCOPE" >> $GITHUB_OUTPUT
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -451,5 +457,5 @@ jobs:
           color: danger
           message: |
             Config Evening Pipeline had a failure.
-            Stage results — merge: ${{ needs.merge.result }}, batch-assign: ${{ needs.batch-assign.result }}, deduplicate: ${{ needs.deduplicate.result }}, standardise: ${{ needs.standardise.result }}, detect-environments: ${{ needs.detect-environments.result }}, upload-s3: ${{ needs.upload-s3.result }}
+            Stage results — merge: ${{ needs.merge.result }}, batch-assign: ${{ needs.batch-assign.result }}${{ needs.batch-assign.outputs.scope && format(' [scope: {0}]', needs.batch-assign.outputs.scope) || '' }}${{ needs.batch-assign.outputs.failed_batch && format(' (failed at batch {0}, resume with start_batch={0})', needs.batch-assign.outputs.failed_batch) || '' }}, deduplicate: ${{ needs.deduplicate.result }}, standardise: ${{ needs.standardise.result }}, detect-environments: ${{ needs.detect-environments.result }}, upload-s3: ${{ needs.upload-s3.result }}
             Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
