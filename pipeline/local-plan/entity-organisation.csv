@@ -642,6 +642,7 @@ local-plan,4220229,4220231,local-authority:CHA
 local-plan,4220697,4220697,local-authority:CHA
 local-plan,4220237,4220238,local-authority:CHE
 local-plan,4220701,4220701,local-authority:CHE
+local-plan,4221011,4221013,local-authority:CHE
 local-plan,4220156,4220156,local-authority:CHI
 local-plan,4220704,4220704,local-authority:CHI
 local-plan,4221005,4221008,local-authority:CHI
@@ -2590,4 +2591,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221011,4221013,local-authority:CHE
