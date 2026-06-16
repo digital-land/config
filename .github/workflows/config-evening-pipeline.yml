@@ -449,13 +449,33 @@ jobs:
       ]
     if: ${{ !cancelled() && contains(needs.*.result, 'failure') && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') }}
     steps:
+      # Uses slackapi/slack-github-action (as upload_to_S3.yml does) because it supports a
+      # custom Block Kit payload — the digital-land/github-action-slack-notify-build action
+      # ignores any message text and only posts an auto-generated "<workflow>: FAILED" line.
       - name: Notify Slack of pipeline failure
-        uses: digital-land/github-action-slack-notify-build@main
+        uses: slackapi/slack-github-action@v1
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         with:
-          channel: planning-data-alerts
-          status: FAILED
-          color: danger
-          message: |
-            Config Evening Pipeline had a failure.
-            Stage results — merge: ${{ needs.merge.result }}, batch-assign: ${{ needs.batch-assign.result }}${{ needs.batch-assign.outputs.scope && format(' [scope: {0}]', needs.batch-assign.outputs.scope) || '' }}${{ needs.batch-assign.outputs.failed_batch && format(' (failed at batch {0}, resume with start_batch={0})', needs.batch-assign.outputs.failed_batch) || '' }}, deduplicate: ${{ needs.deduplicate.result }}, standardise: ${{ needs.standardise.result }}, detect-environments: ${{ needs.detect-environments.result }}, upload-s3: ${{ needs.upload-s3.result }}
-            Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          channel-id: planning-data-alerts
+          payload: |
+            {
+              "text": ":x: Config Evening Pipeline failed (trigger: ${{ github.event_name }})",
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": { "type": "plain_text", "text": ":x: Config Evening Pipeline failed" }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Trigger:* ${{ github.event_name }}\n*Stage results:*\n• merge: `${{ needs.merge.result }}`\n• batch-assign: `${{ needs.batch-assign.result }}`${{ needs.batch-assign.outputs.scope && format(' [scope: {0}]', needs.batch-assign.outputs.scope) || '' }}${{ needs.batch-assign.outputs.failed_batch && format(' (failed at batch {0}, resume with start_batch={0})', needs.batch-assign.outputs.failed_batch) || '' }}\n• deduplicate: `${{ needs.deduplicate.result }}`\n• standardise: `${{ needs.standardise.result }}`\n• detect-environments: `${{ needs.detect-environments.result }}`\n• upload-s3: `${{ needs.upload-s3.result }}`"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": { "type": "mrkdwn", "text": "<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View workflow run>" }
+                }
+              ]
+            }
