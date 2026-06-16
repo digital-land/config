@@ -241,3 +241,7 @@ cc6f2d701cd3b6c66f61f5150f002b8596f85b9b268f3ed1325cfcb3ed8e6850,https://service
 272bd2c09a85f48da5c69948226376041e4422616236ec76df8626cdfbdf6cd8,https://www.stoke.gov.uk/download/downloads/id/3283/tpo_ind_trees_08jun2026.json,,,2026-06-09,2026-06-09,
 55a1ca1c3997bc20b98438a4f2702d1803b363185baa368896181ff6e1d21763,https://www.stoke.gov.uk/download/downloads/id/3284/tpo_zones_08jun2026.json,,,2026-06-09,2026-06-09,
 6df7962e411bb4b0440e54015233f1046b8fbc4205a6a25db1736609f5b22d1a,https://www.stoke.gov.uk/download/downloads/id/3278/tree_preservation_order_dataset_csv_file.csv,,,2026-06-09,2026-06-09,
+c41057d38dfa1e57ead406531bb49d83e8ce8c28b9ac4b2a323c8eab424848ae,https://services6.arcgis.com/Qptn479QktK11k72/arcgis/rest/services/ODP_TREE_DATASET_WGS_1984_POINTS/FeatureServer/0,,arcgis,2026-06-10,2026-06-10,
+84be7c92cd4a2b634f4928b0e1d00f2ad29d175e527fd283c4a0793ecb915fc7,https://www.havant.gov.uk/sites/default/files/2026-06/tree.csv,,,2026-06-12,2026-06-12,
+dada5ec78a2c334101905f90d90a5cd591c657540915ea809dea654de3026a9b,https://www.havant.gov.uk/sites/default/files/2026-06/tree-preservation-order.csv,,,2026-06-12,2026-06-12,
+63efde558a08d655d2185a4480315e787cf53f78029e8cec1af5bd2558a193d9,https://www.havant.gov.uk/sites/default/files/2026-06/tree-preservation-zone.csv,,,2026-06-15,2026-06-12,
