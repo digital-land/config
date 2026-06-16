@@ -60,6 +60,16 @@ on:
         type: number
         default: 1
 
+  # ============================================================================
+  # TEMPORARY — REMOVE BEFORE MERGING THIS PR.
+  # Lets the pipeline run on this branch to test the Slack failure alert end-to-end.
+  # Writes stay gated by WRITES_ENABLED (push is not schedule/dispatch), so nothing is
+  # committed or synced. The notify job's `if` is also temporarily extended to fire on push.
+  push:
+    branches:
+      - st/consolidate-nightly-github-actions
+  # ============================================================================
+
 env:
   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
   # Persisted writes (PR merge, commits to main, S3 sync) happen ONLY on a genuine scheduled
@@ -187,7 +197,10 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
           RESOURCES: ${{ github.event.inputs.resources }}
           TRIGGERED_BY: ${{ github.actor || 'unknown' }}
-          SCOPE: ${{ github.event.inputs.scope || env.SCHEDULED_SCOPE || 'odp' }}
+          # TEMPORARY: the `(github.event_name == 'push' && 'mandated')` clause forces the faster
+          # mandated scope (~5min vs ~45min for odp) on push test runs only; revert to
+          # `... || env.SCHEDULED_SCOPE || 'odp'` when removing the push trigger before merge.
+          SCOPE: ${{ github.event.inputs.scope || env.SCHEDULED_SCOPE || (github.event_name == 'push' && 'mandated') || 'odp' }}
           SKIP_CHECKS: ${{ github.event.inputs.skip_checks }}
           NEW_ENTITIES_THRESHOLD: ${{ github.event.inputs.new_entities_threshold }}
           COMMIT: ${{ env.WRITES_ENABLED != 'true' && 'false' || github.event.inputs.commit }}
@@ -447,7 +460,8 @@ jobs:
         detect-environments,
         upload-s3,
       ]
-    if: ${{ !cancelled() && contains(needs.*.result, 'failure') && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') }}
+    # TEMPORARY — the `|| github.event_name == 'push'` is only to test the alert on this branch; remove with the push trigger before merging.
+    if: ${{ !cancelled() && contains(needs.*.result, 'failure') && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.event_name == 'push') }}
     steps:
       # Uses slackapi/slack-github-action (as upload_to_S3.yml does) because it supports a
       # custom Block Kit payload — the digital-land/github-action-slack-notify-build action
