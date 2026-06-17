@@ -2,6 +2,7 @@ dataset,entity-minimum,entity-maximum,organisation
 article-4-direction,6102302,6102310,local-authority:ADU
 article-4-direction,6100940,6101014,local-authority:ASF
 article-4-direction,6100879,6100881,local-authority:BDG
+article-4-direction,6103139,6103177,local-authority:BEN
 article-4-direction,6100340,6100352,local-authority:BIR
 article-4-direction,6100156,6100170,local-authority:BNE
 article-4-direction,6100409,6100491,local-authority:BRO
@@ -238,4 +239,3 @@ article-4-direction-area,7010005181,7010005190,local-authority:WSM
 article-4-direction-area,7010009089,7010009092,local-authority:YOR
 article-4-direction-area,7010009405,7010009434,national-park-authority:Q27159704
 article-4-direction-area,7010006887,7010006912,national-park-authority:Q72617158
-article-4-direction,6103139,6103177,local-authority:BEN
