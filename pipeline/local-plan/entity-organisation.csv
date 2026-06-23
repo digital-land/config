@@ -2592,3 +2592,9 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
+local-plan,4221014,4221014,local-authority:SOX
+local-plan,4221015,4221015,local-authority:VAL
+plan-timetable,5110187,5110198,local-authority:VAL
+plan-timetable,5110199,5110210,local-authority:SOX
+local-plan,4221015,4221017,local-authority:WOI
+local-plan,4221018,4221019,local-authority:EAT

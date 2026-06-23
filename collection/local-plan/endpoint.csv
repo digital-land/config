@@ -23,7 +23,7 @@ f2b9ceb518962d77dc589f7af6010129a0075b9b9e0c499b62de2108f61487af,https://raw.git
 062b4d4a293fb723593d8d2e0064de09cc6530190364f5662f766b32be5a3034,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/waste-plan-timetable.csv,,,2026-01-29,2026-01-29,
 6bab5e99b83f62c52acfeafd1eebe904608ee9d3e7174afe3905e9626035cabd,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/mineral-plan-timetable.csv,,,2026-01-29,2026-01-29,
 3d475a58bd0ff5d59a02032364e14c6e3fc8218c8c32d6b742e936827a147ecf,https://www.durham.gov.uk/media/49629/County-Durham-Plan/csv/CountyDurhamPlan.csv?m=1777301465763,,,2026-04-28,2026-04-28,
-8183eeae79febe789982afdc090006300ee72487d9af7d37957d44e44e5082a0,https://www.durham.gov.uk/media/49630/County-Durham-Plan-timetable/csv/CountyDurhamPlanTimetable.csv?m=1777301531770,,,2026-04-28,2026-04-28,
+8183eeae79febe789982afdc090006300ee72487d9af7d37957d44e44e5082a0,https://www.durham.gov.uk/media/49630/County-Durham-Plan-timetable/csv/CountyDurhamPlanTimetable.csv?m=1777301531770,,,2026-04-28,2026-04-28,2026-06-23
 a95fa3c165f510f0685116c72e0f6478ab2b7221efc6e13213e2589de6b8003c,https://www.centralbedfordshire.gov.uk/download/downloads/id/206/local-plan-2050-timetable.csv,,,2026-04-28,2026-04-17,
 2dbb1ea06a03c20ba13f09da32c700a66f7cd0ae016cb857af8680961181e7e0,https://www.centralbedfordshire.gov.uk/download/downloads/id/207/central-bedfordshire-local-plans.csv,,,2026-04-30,2026-04-29,
 42a856a94376ee348aa5fa6a8092d8cdd39a966206428ad4fe1520ff5226615f,https://www.somerset.gov.uk/wp-content/uploads/2026/05/Planning-data-Somerset-plan.csv,,,2026-05-01,2026-05-01,
@@ -68,3 +68,9 @@ b86b7ed0a4d23ea30b502145b3525da0e9ed0bd078cae7fff006b24fd284433e,https://www.mid
 e6138e0663cc8fbb7125e0009489ea845570dcdf39c0cab8ac589d3452e49bfc,https://localplan.cheshireeast.gov.uk/sites/localplan-cheshireeast/files/2026-05/planning-data-cheshire-east-local-plan-timetable.csv,,,2026-06-15,2026-06-15,
 a3fb0bb5d099d2ff207ec64059af71c9ba9793bc2dae58b890573a6e28f6f418,https://localplan.cheshireeast.gov.uk/sites/localplan-cheshireeast/files/2026-06/planning-data-cheshire-east-plan_1.csv,,,2026-06-16,2026-06-16,
 cc0b7d13877e275bb983fd7d190a0d56e83e5257d9c0ef05a806bfe4e94f9fcd,https://www.broxtowe.gov.uk/media/u5ooyiie/broxtowe_local_plan_timetable.csv,,,2026-06-19,2026-06-19,
+02f35e2e4357108cb814752aa7f7f0edf5010b1ab8a8409c18d17808b3d726bd,https://www.southandvale.gov.uk/app/uploads/2026/06/Local-Plan-CSV-South-Oxfordshire-District-Council.csv,,,2026-06-23,2026-06-23,
+4364ec653ce3e1509b687deba8c491ec65aa2b1ce5701c58e2001752945593cf,https://www.southandvale.gov.uk/app/uploads/2026/06/Local-Plan-CSV-Vale-of-White-Horse-District-Council.csv,,,2026-06-23,2026-06-23,
+c7fabb7c0d1017c7b77516309b6cc1940384f2e1079fa88710df6fa56c8387ea,https://www.southandvale.gov.uk/app/uploads/2026/06/Local-Plan-Timetable-CSV.csv,,,2026-06-23,2026-06-23,
+f1aa820d39e90f833278a86c2064a2500b996e9f40cb47f0279d3b5f591967c9,https://www.woking.gov.uk/sites/default/files/2026-06/WBC_Local%20Plan%20Data.csv,,,2026-06-23,2026-06-23,
+335d09f245e0a831852e37883bacff8a5f6da68b914cdb87fc1eeb6ee7df364f,https://www.durham.gov.uk/media/50184/County-Durham-Plan-timetable/csv/CountyDurhamPlanTimetable-June2026.csv?m=1781795052570,,,2026-06-23,2026-06-23,
+ff5ee03343283c45df7183ee84e9a4f00f8e6fb08f24a9dd9bd403e8fa48b451,https://www.eastleigh.gov.uk/media/16808/eastleigh-local-plan.csv,,,2026-06-23,2026-06-23,
