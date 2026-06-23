@@ -197,6 +197,7 @@ tree-preservation-order,7001093454,7001093641,local-authority:ADU
 tree-preservation-order,7001093454,7001093641,local-authority:ADU
 tree-preservation-order,7001106251,7001106251,local-authority:ADU
 tree-preservation-order,7001015304,7001016527,local-authority:ASF
+tree-preservation-order,7001106261,7001107489,local-authority:BEN
 tree-preservation-order,7001003250,7001003964,local-authority:BNE
 tree-preservation-order,7001014333,7001014338,local-authority:BNE
 tree-preservation-order,7001015300,7001015302,local-authority:BNE
@@ -580,4 +581,3 @@ tree-preservation-zone,19168416,19169313,national-park-authority:Q27159704
 tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-order,7001106261,7001107489,local-authority:BEN

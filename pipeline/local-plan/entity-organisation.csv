@@ -726,6 +726,7 @@ local-plan,4220291,4220291,local-authority:EAS
 local-plan,4220738,4220738,local-authority:EAS
 local-plan,4220051,4220051,local-authority:EAT
 local-plan,4220739,4220739,local-authority:EAT
+local-plan,4221018,4221019,local-authority:EAT
 local-plan,4220041,4220042,local-authority:ECA
 local-plan,4220730,4220730,local-authority:ECA
 local-plan,4220043,4220045,local-authority:EDE
@@ -1086,6 +1087,7 @@ local-plan,4220563,4220564,local-authority:SOS
 local-plan,4220905,4220905,local-authority:SOS
 local-plan,4220554,4220555,local-authority:SOX
 local-plan,4220899,4220899,local-authority:SOX
+local-plan,4221014,4221014,local-authority:SOX
 local-plan,4220565,4220566,local-authority:SPE
 local-plan,4220906,4220906,local-authority:SPE
 local-plan,4220556,4220557,local-authority:SRI
@@ -1173,6 +1175,7 @@ local-plan,4220937,4220937,local-authority:UTT
 local-plan,4220009,4220009,local-authority:VAL
 local-plan,4220616,4220616,local-authority:VAL
 local-plan,4220938,4220938,local-authority:VAL
+local-plan,4221015,4221015,local-authority:VAL
 local-plan,4220623,4220625,local-authority:WAE
 local-plan,4220944,4220944,local-authority:WAE
 local-plan,4220621,4220621,local-authority:WAT
@@ -1220,6 +1223,7 @@ local-plan,4220961,4220961,local-authority:WOC
 local-plan,4220106,4220106,local-authority:WOI
 local-plan,4220648,4220648,local-authority:WOI
 local-plan,4220959,4220959,local-authority:WOI
+local-plan,4221015,4221017,local-authority:WOI
 local-plan,4220171,4220172,local-authority:WOK
 local-plan,4220960,4220960,local-authority:WOK
 local-plan,4220649,4220649,local-authority:WOT
@@ -2292,6 +2296,7 @@ plan-timetable,5101431,5101437,local-authority:SOS
 plan-timetable,5108583,5108605,local-authority:SOS
 plan-timetable,5101397,5101400,local-authority:SOX
 plan-timetable,5102252,5102274,local-authority:SOX
+plan-timetable,5110199,5110210,local-authority:SOX
 plan-timetable,5101438,5101443,local-authority:SPE
 plan-timetable,5102327,5102349,local-authority:SPE
 plan-timetable,5108514,5108536,local-authority:SRI
@@ -2377,6 +2382,7 @@ plan-timetable,5109181,5109203,local-authority:UTT
 plan-timetable,5100060,5100060,local-authority:VAL
 plan-timetable,5101589,5101591,local-authority:VAL
 plan-timetable,5102477,5102499,local-authority:VAL
+plan-timetable,5110187,5110198,local-authority:VAL
 plan-timetable,5101613,5101616,local-authority:WAE
 plan-timetable,5109319,5109341,local-authority:WAE
 plan-timetable,5110085,5110111,local-authority:WAE
@@ -2592,9 +2598,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221014,4221014,local-authority:SOX
-local-plan,4221015,4221015,local-authority:VAL
-plan-timetable,5110187,5110198,local-authority:VAL
-plan-timetable,5110199,5110210,local-authority:SOX
-local-plan,4221015,4221017,local-authority:WOI
-local-plan,4221018,4221019,local-authority:EAT
