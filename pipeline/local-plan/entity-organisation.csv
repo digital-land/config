@@ -1061,6 +1061,7 @@ local-plan,4220894,4220894,local-authority:SGC
 local-plan,4220895,4220895,local-authority:SHA
 local-plan,4220305,4220306,local-authority:SHE
 local-plan,4220749,4220749,local-authority:SHE
+local-plan,4221023,4221025,local-authority:SHE
 local-plan,4220531,4220532,local-authority:SHF
 local-plan,4220886,4220886,local-authority:SHF
 local-plan,4220569,4220569,local-authority:SHN
@@ -1094,6 +1095,7 @@ local-plan,4220556,4220557,local-authority:SRI
 local-plan,4220900,4220900,local-authority:SRI
 local-plan,4220166,4220167,local-authority:SST
 local-plan,4220901,4220901,local-authority:SST
+local-plan,4221020,4221022,local-authority:SST
 local-plan,4220570,4220572,local-authority:STA
 local-plan,4220909,4220909,local-authority:STA
 local-plan,4220579,4220579,local-authority:STE
@@ -1897,6 +1899,7 @@ plan-timetable,5105110,5105132,local-authority:EAS
 plan-timetable,5100068,5100068,local-authority:EAT
 plan-timetable,5100666,5100668,local-authority:EAT
 plan-timetable,5105133,5105155,local-authority:EAT
+plan-timetable,5110211,5110226,local-authority:EAT
 plan-timetable,5100086,5100086,local-authority:ECA
 plan-timetable,5100179,5100181,local-authority:ECA
 plan-timetable,5100308,5100308,local-authority:ECA
@@ -2269,6 +2272,7 @@ plan-timetable,5108399,5108421,local-authority:SGC
 plan-timetable,5108422,5108444,local-authority:SHA
 plan-timetable,5100717,5100720,local-authority:SHE
 plan-timetable,5105317,5105339,local-authority:SHE
+plan-timetable,5110227,5110244,local-authority:SHE
 plan-timetable,5101340,5101345,local-authority:SHF
 plan-timetable,5108215,5108237,local-authority:SHF
 plan-timetable,5101450,5101453,local-authority:SHN
@@ -2598,7 +2602,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221020,4221022,local-authority:SST
-plan-timetable,5110211,5110226,local-authority:EAT
-local-plan,4221023,4221025,local-authority:SHE
-plan-timetable,5110227,5110244,local-authority:SHE
