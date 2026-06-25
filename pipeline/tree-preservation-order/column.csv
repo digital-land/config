@@ -505,3 +505,13 @@ tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c04
 tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c042efa34f8,tpo,tree-preservation-order,,,
 tree-preservation-zone,,,wkt,geometry,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
+tree,c62670a0ddcba35a90401fd2aed8e4daec343dc389937e17e76116bd8574a38c,,Tree_csv_Events_Tree_csv_Features_Uprn,uprn,2026-06-12,,2026-06-25
+tree,c62670a0ddcba35a90401fd2aed8e4daec343dc389937e17e76116bd8574a38c,,Tree_csv_Events_Tree_csv_Features_name,name,2026-06-12,,2026-06-25
+tree,c62670a0ddcba35a90401fd2aed8e4daec343dc389937e17e76116bd8574a38c,,Tree_csv_Events_Tree_csv_Features_Notes,notes,2026-06-12,,2026-06-25
+tree,c62670a0ddcba35a90401fd2aed8e4daec343dc389937e17e76116bd8574a38c,,Tree_csv_Events_UNI73LIVE_TPAPPL_ADDRESS,address-text,2026-06-12,,2026-06-25
+tree,c62670a0ddcba35a90401fd2aed8e4daec343dc389937e17e76116bd8574a38c,,Tree_csv_Events_UNI73LIVE_TPAPPL_DESCRIPT,description,2026-06-12,,2026-06-25
+tree,c62670a0ddcba35a90401fd2aed8e4daec343dc389937e17e76116bd8574a38c,,Tree_csv_Events_Tree_csv_Features_End_date,end-date,2026-06-12,,2026-06-25
+tree,c62670a0ddcba35a90401fd2aed8e4daec343dc389937e17e76116bd8574a38c,,Tree_csv_Events_Tree_csv_Features_Geometry,geometry,2026-06-12,,2026-06-25
+tree,c62670a0ddcba35a90401fd2aed8e4daec343dc389937e17e76116bd8574a38c,,Tree_csv_Events_Tree_csv_Features_Entry_date,entry-date,2026-06-12,,2026-06-25
+tree,c62670a0ddcba35a90401fd2aed8e4daec343dc389937e17e76116bd8574a38c,,Tree_csv_Events_Tree_csv_Features_Start_date,start-date,2026-06-12,,2026-06-25
+tree,c62670a0ddcba35a90401fd2aed8e4daec343dc389937e17e76116bd8574a38c,,Tree_csv_Events_Tree_csv_Features_Felled_date,felled-date,2026-06-12,,2026-06-25
