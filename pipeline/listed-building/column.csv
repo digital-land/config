@@ -143,3 +143,11 @@ locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf1
 locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf104534fdbf,Policy,notes,,,
 locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf104534fdbf,GlobalID,reference,,,
 locally-listed-building,,,WKT,geometry,,,
+listed-building-outline,ca1c21152437e06805a8a8d07f0a10c285f7e66a620ec7daf15142bd203926ab,,UPRN,uprns,2026-06-25,,2026-06-25
+listed-building-outline,ca1c21152437e06805a8a8d07f0a10c285f7e66a620ec7daf15142bd203926ab,,LISTDD,start-date,2026-06-25,,2026-06-25
+listed-building-outline,ca1c21152437e06805a8a8d07f0a10c285f7e66a620ec7daf15142bd203926ab,,REFVAL,reference,2026-06-25,,2026-06-25
+listed-building-outline,ca1c21152437e06805a8a8d07f0a10c285f7e66a620ec7daf15142bd203926ab,,ADDRESS,name,2026-06-25,,2026-06-25
+listed-building-outline,ca1c21152437e06805a8a8d07f0a10c285f7e66a620ec7daf15142bd203926ab,,LBREFNO,listed-building,2026-06-25,,2026-06-25
+listed-building-outline,ca1c21152437e06805a8a8d07f0a10c285f7e66a620ec7daf15142bd203926ab,,DATEDLIS,end-date,2026-06-25,,2026-06-25
+listed-building-outline,ca1c21152437e06805a8a8d07f0a10c285f7e66a620ec7daf15142bd203926ab,,DESCRIPT,description,2026-06-25,,2026-06-25
+listed-building-outline,ca1c21152437e06805a8a8d07f0a10c285f7e66a620ec7daf15142bd203926ab,,DATE_CREATED,entry-date,2026-06-25,,2026-06-25
