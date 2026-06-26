@@ -840,6 +840,7 @@ local-plan,4220801,4220801,local-authority:HNS
 local-plan,4220146,4220146,local-authority:HOR
 local-plan,4220163,4220163,local-authority:HOR
 local-plan,4220771,4220771,local-authority:HOR
+local-plan,4221036,4221038,local-authority:HOR
 local-plan,4220065,4220065,local-authority:HPL
 local-plan,4220763,4220763,local-authority:HPL
 local-plan,4220381,4220382,local-authority:HRW
@@ -1000,6 +1001,7 @@ local-plan,4220470,4220472,local-authority:PEN
 local-plan,4220858,4220858,local-authority:PEN
 local-plan,4220478,4220478,local-authority:PLY
 local-plan,4220860,4220860,local-authority:PLY
+local-plan,4221034,4221035,local-authority:PLY
 local-plan,4220479,4220479,local-authority:POR
 local-plan,4220861,4220861,local-authority:POR
 local-plan,4220480,4220481,local-authority:PRE
@@ -2032,6 +2034,7 @@ plan-timetable,5106421,5106443,local-authority:HNS
 plan-timetable,5100024,5100024,local-authority:HOR
 plan-timetable,5100819,5100824,local-authority:HOR
 plan-timetable,5101977,5101999,local-authority:HOR
+plan-timetable,5110300,5110314,local-authority:HOR
 plan-timetable,5100074,5100074,local-authority:HPL
 plan-timetable,5100786,5100789,local-authority:HPL
 plan-timetable,5105616,5105638,local-authority:HPL
@@ -2610,6 +2613,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221034,4221035,local-authority:PLY
-local-plan,4221036,4221038,local-authority:HOR
-plan-timetable,5110300,5110314,local-authority:HOR

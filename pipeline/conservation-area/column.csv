@@ -43,6 +43,10 @@ conservation-area,1a6d1c7d4bbb246f6c0dbb8280e13c6f23db307e62980c68d96871e6cf0383
 conservation-area,1a6d1c7d4bbb246f6c0dbb8280e13c6f23db307e62980c68d96871e6cf0383db,,ref,reference,,,
 conservation-area,1a6d1c7d4bbb246f6c0dbb8280e13c6f23db307e62980c68d96871e6cf0383db,,u_id,reference,,,
 conservation-area,1bde62437b23cdd1770de5b468f956ef56e7a3ff8a9c382ce0820296206d2a5d,,organisation,IGNORE,,,
+conservation-area,1d8075f3160504d1c38921ec027274c75d854a28f744c8a8cbeee3167ab8211e,,DESI_DATE,designation-date,2026-06-26,,2026-06-26
+conservation-area,1d8075f3160504d1c38921ec027274c75d854a28f744c8a8cbeee3167ab8211e,,CON_DOC2,document-url,2026-06-26,,2026-06-26
+conservation-area,1d8075f3160504d1c38921ec027274c75d854a28f744c8a8cbeee3167ab8211e,,CON_DOC1,documentation-url,2026-06-26,,2026-06-26
+conservation-area,1d8075f3160504d1c38921ec027274c75d854a28f744c8a8cbeee3167ab8211e,,REFVAL,reference,2026-06-26,,2026-06-26
 conservation-area,1e54db15e6aacb60345575ec20d558851d722a4711bb20b324ccb7cbffd1afa9,,id,reference,,,
 conservation-area,1f93a9e9c319128f58dde0636ea3741349f0ea8c8e382d49bfe92fc4b0b078de,,organisation,IGNORE,,,
 conservation-area,1f9620f1a3febd58719279e7d64021d1263ae0497e25c8cfc13bdfd9718f42eb,,organisation,IGNORE,,,
@@ -576,7 +580,3 @@ conservation-area-document,f83b9f067c28765c7d7576ac51cef6a74017dcbb406e017cc9e59
 conservation-area-document,fb2653ce8185a2888ac99ae7f6f193c138bddfb066d48072a51492270dddf04a,,organisation,IGNORE,,,
 conservation-area-document,,,organisation,IGNORE,,,
 conservation-area-document,,,entity,IGNORE,,,
-conservation-area,1d8075f3160504d1c38921ec027274c75d854a28f744c8a8cbeee3167ab8211e,,REFVAL,reference,2026-06-26,,2026-06-26
-conservation-area,1d8075f3160504d1c38921ec027274c75d854a28f744c8a8cbeee3167ab8211e,,CON_DOC1,documentation-url,2026-06-26,,2026-06-26
-conservation-area,1d8075f3160504d1c38921ec027274c75d854a28f744c8a8cbeee3167ab8211e,,CON_DOC2,document-url,2026-06-26,,2026-06-26
-conservation-area,1d8075f3160504d1c38921ec027274c75d854a28f744c8a8cbeee3167ab8211e,,DESI_DATE,designation-date,2026-06-26,,2026-06-26
