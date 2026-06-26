@@ -2610,3 +2610,6 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
+local-plan,4221034,4221035,local-authority:PLY
+local-plan,4221036,4221038,local-authority:HOR
+plan-timetable,5110300,5110314,local-authority:HOR
