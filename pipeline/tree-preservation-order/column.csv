@@ -515,3 +515,9 @@ tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c04
 tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c042efa34f8,tpo,tree-preservation-order,,,
 tree-preservation-zone,,,wkt,geometry,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
+tree,84d53047a0da023a4484b32f32c4124dc759c3c0ae2c42696ec973f14c1310c1,,na,IGNORE,2026-06-26,,2026-06-26
+tree,84d53047a0da023a4484b32f32c4124dc759c3c0ae2c42696ec973f14c1310c1,,REFVAL,tree-preservation-order,2026-06-26,,2026-06-26
+tree,84d53047a0da023a4484b32f32c4124dc759c3c0ae2c42696ec973f14c1310c1,,ADDRESS,address-text,2026-06-26,,2026-06-26
+tree,84d53047a0da023a4484b32f32c4124dc759c3c0ae2c42696ec973f14c1310c1,,DATEWITH,end-date,2026-06-26,,2026-06-26
+tree,84d53047a0da023a4484b32f32c4124dc759c3c0ae2c42696ec973f14c1310c1,,DCONFIRMED,entry-date,2026-06-26,,2026-06-26
+tree,84d53047a0da023a4484b32f32c4124dc759c3c0ae2c42696ec973f14c1310c1,,SERVEDDATE,start-date,2026-06-26,,2026-06-26
