@@ -2900,6 +2900,8 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 44014477,301,44007671,redirect HE duplicate entity to YOR,,2026-01-27,
 44015385,301,44003758,Redirect old entity complete match to LPA entity,,2026-03-09,
 44015390,301,44015391,Redirect old entity complete match to LPA entity,,2026-03-12,
+44003423,301,44003455,Redirect old entity LPA TWH entity,,2026-03-12,
+44006235,301,44009061,Redirect old entity LPA HCK entity,,2026-03-12,
 6314027,410,,Data added to wrong dataset,,2025-10-09,
 6314028,410,,Data added to wrong dataset,,2025-10-09,
 6314029,410,,Data added to wrong dataset,,2025-10-09,
