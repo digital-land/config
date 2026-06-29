@@ -1,2 +1,3 @@
 dataset,endpoint,resource,column,field,start-date,end-date,entry-date
 infrastructure-funding-statement,1e83e30c7340215456faa34f0dc59ed0c4df3863ddfcae09503eb78bb9e0dcc5,,organisation,IGNORE,2026-06-05,,2026-06-05
+infrastructure-funding-statement,528070edb66505dcb1332102f3633f31ea7aa369b82f9906762b15a9e2f4e652,,organisation,IGNORE,2026-06-29,,2026-06-29

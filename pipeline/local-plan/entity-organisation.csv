@@ -506,7 +506,7 @@ local-plan,4220401,4220402,development-corporation:Q6670544
 local-plan,4220902,4220902,development-corporation:Q72456968
 local-plan,4220292,4220292,development-corporation:Q72463795
 local-plan,4220740,4220740,development-corporation:Q72463795
-local-plan,4220655,4220655,government-organisation:D1342
+local-plan,4220655,4220655,local-authority:CAT
 local-plan,4220010,4220011,local-authority:ADU
 local-plan,4220656,4220656,local-authority:ADU
 local-plan,4220141,4220141,local-authority:AMB
@@ -2613,3 +2613,11 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
+plan-timetable,5110315,5110326,local-authority:NUN
+plan-timetable,5110327,5110340,local-authority:STY
+local-plan,4221039,4221041,local-authority:IOW
+plan-timetable,5110341,5110352,local-authority:SUR
+local-plan,4221042,4221043,local-authority:HNS
+plan-timetable,5110353,5110368,local-authority:TUN
+plan-timetable,5110353,5110367,national-park-authority:Q72617669
+plan-timetable,5110369,5110383,local-authority:STH

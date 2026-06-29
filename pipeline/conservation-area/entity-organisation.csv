@@ -2,9 +2,9 @@ dataset,entity-minimum,entity-maximum,organisation
 conservation-area,44008744,44008744,development-corporation:Q20648596
 conservation-area,44008917,44008917,development-corporation:Q20648596
 conservation-area,44013076,44013076,development-corporation:Q20648596
-conservation-area,44003422,44003423,development-corporation:Q6670544
-conservation-area,44006235,44006235,development-corporation:Q6670544
-conservation-area,44009061,44009061,development-corporation:Q6670544
+conservation-area,44003422,44003422,local-authority:NWM
+conservation-area,44006235,44006235,local-authority:HCK
+conservation-area,44009061,44009061,local-authority:HCK
 conservation-area,44013998,44014004,local-authority:ADU
 conservation-area,44004687,44004715,local-authority:AMB
 conservation-area,44001787,44001787,local-authority:ARU
