@@ -2,9 +2,6 @@ dataset,entity-minimum,entity-maximum,organisation
 conservation-area,44008744,44008744,development-corporation:Q20648596
 conservation-area,44008917,44008917,development-corporation:Q20648596
 conservation-area,44013076,44013076,development-corporation:Q20648596
-conservation-area,44003422,44003422,local-authority:NWM
-conservation-area,44006235,44006235,local-authority:HCK
-conservation-area,44009061,44009061,local-authority:HCK
 conservation-area,44013998,44014004,local-authority:ADU
 conservation-area,44004687,44004715,local-authority:AMB
 conservation-area,44001787,44001787,local-authority:ARU
@@ -506,6 +503,7 @@ conservation-area,44014820,44014858,local-authority:HAT
 conservation-area,44002904,44002914,local-authority:HAV
 conservation-area,44006227,44006229,local-authority:HCK
 conservation-area,44006231,44006234,local-authority:HCK
+conservation-area,44006235,44006235,local-authority:HCK
 conservation-area,44006236,44006241,local-authority:HCK
 conservation-area,44006243,44006249,local-authority:HCK
 conservation-area,44006875,44006878,local-authority:HCK
@@ -515,6 +513,7 @@ conservation-area,44008753,44008753,local-authority:HCK
 conservation-area,44008759,44008759,local-authority:HCK
 conservation-area,44008762,44008763,local-authority:HCK
 conservation-area,44009057,44009057,local-authority:HCK
+conservation-area,44009061,44009061,local-authority:HCK
 conservation-area,44009089,44009089,local-authority:HCK
 conservation-area,44000015,44000034,local-authority:HEF
 conservation-area,44000761,44000772,local-authority:HEF
@@ -891,6 +890,7 @@ conservation-area,44004629,44004647,local-authority:NWL
 conservation-area,44006718,44006721,local-authority:NWL
 conservation-area,44013057,44013058,local-authority:NWL
 conservation-area,44003415,44003421,local-authority:NWM
+conservation-area,44003422,44003422,local-authority:NWM
 conservation-area,44000303,44000313,local-authority:NYUA
 conservation-area,44000332,44000373,local-authority:NYUA
 conservation-area,44000495,44000513,local-authority:NYUA

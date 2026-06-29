@@ -41,6 +41,7 @@ article-4-direction,6102766,6102766,local-authority:HAL
 article-4-direction,6102745,6102758,local-authority:HAR
 article-4-direction,6102673,6102719,local-authority:HAT
 article-4-direction,6101864,6102013,local-authority:HIL
+article-4-direction,6103186,6103188,local-authority:HNS
 article-4-direction,6102136,6102160,local-authority:HRY
 article-4-direction,6102720,6102725,local-authority:HUN
 article-4-direction,6103117,6103120,local-authority:IOS
@@ -174,6 +175,7 @@ article-4-direction-area,7010010026,7010010029,local-authority:IOS
 article-4-direction-area,7010009948,7010009954,local-authority:IPS
 article-4-direction-area,7010010018,7010010024,local-authority:IPS
 article-4-direction-area,7010004790,7010004873,local-authority:KEC
+article-4-direction-area,7010010058,7010010069,local-authority:KIN
 article-4-direction-area,7010000000,7010000009,local-authority:LBH
 article-4-direction-area,7010000012,7010000013,local-authority:LBH
 article-4-direction-area,7010000015,7010000017,local-authority:LBH
@@ -230,6 +232,7 @@ article-4-direction-area,7010002726,7010002735,local-authority:TEW
 article-4-direction-area,7010009093,7010009093,local-authority:TEW
 article-4-direction-area,7010004788,7010004789,local-authority:TOB
 article-4-direction-area,7010004217,7010004279,local-authority:TWH
+article-4-direction-area,7010010070,7010010087,local-authority:UTT
 article-4-direction-area,7010007524,7010007552,local-authority:WAE
 article-4-direction-area,7010002736,7010002744,local-authority:WBK
 article-4-direction-area,7010005191,7010006804,local-authority:WFT
@@ -242,6 +245,3 @@ article-4-direction-area,7010005181,7010005190,local-authority:WSM
 article-4-direction-area,7010009089,7010009092,local-authority:YOR
 article-4-direction-area,7010009405,7010009434,national-park-authority:Q27159704
 article-4-direction-area,7010006887,7010006912,national-park-authority:Q72617158
-article-4-direction-area,7010010058,7010010069,local-authority:KIN
-article-4-direction-area,7010010070,7010010087,local-authority:UTT
-article-4-direction,6103186,6103188,local-authority:HNS

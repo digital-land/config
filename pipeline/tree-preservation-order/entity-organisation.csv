@@ -38,6 +38,7 @@ tree,7002227263,7002227347,local-authority:CAS
 tree,7002217905,7002224425,local-authority:CLD
 tree,7002226473,7002226813,local-authority:CLD
 tree,7002226928,7002227262,local-authority:CLD
+tree,7002244620,7002247162,local-authority:COL
 tree,7002227348,7002230208,local-authority:COT
 tree,7002236844,7002236844,local-authority:COT
 tree,7002192285,7002194516,local-authority:COV
@@ -153,6 +154,7 @@ tree,7002211150,7002211209,local-authority:SST
 tree,7002226828,7002226885,local-authority:SST
 tree,7002226917,7002226919,local-authority:SST
 tree,7002230209,7002230209,local-authority:SST
+tree,7002247163,7002247163,local-authority:SST
 tree,7002212331,7002213822,local-authority:STE
 tree,7002212331,7002213822,local-authority:STE
 tree,7002230232,7002230241,local-authority:STE
@@ -358,6 +360,7 @@ tree-preservation-order,7001099488,7001099488,local-authority:SST
 tree-preservation-order,7001099495,7001099496,local-authority:SST
 tree-preservation-order,7001099499,7001099499,local-authority:SST
 tree-preservation-order,7001102526,7001102526,local-authority:SST
+tree-preservation-order,7001107491,7001107491,local-authority:SST
 tree-preservation-order,7001093319,7001093453,local-authority:STE
 tree-preservation-order,7001093319,7001093453,local-authority:STE
 tree-preservation-order,7001102530,7001102530,local-authority:STE
@@ -566,6 +569,7 @@ tree-preservation-zone,19165815,19165816,local-authority:TOB
 tree-preservation-zone,19181705,19181705,local-authority:TOB
 tree-preservation-zone,19186027,19186028,local-authority:TOB
 tree-preservation-zone,19137719,19137719,local-authority:TWH
+tree-preservation-zone,19189561,19194838,local-authority:UTT
 tree-preservation-zone,19118569,19119455,local-authority:WBK
 tree-preservation-zone,19121596,19121598,local-authority:WBK
 tree-preservation-zone,19135840,19135845,local-authority:WBK
@@ -587,7 +591,3 @@ tree-preservation-zone,19168416,19169313,national-park-authority:Q27159704
 tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-zone,19189561,19194838,local-authority:UTT
-tree,7002244620,7002247162,local-authority:COL
-tree,7002247163,7002247163,local-authority:SST
-tree-preservation-order,7001107491,7001107491,local-authority:SST

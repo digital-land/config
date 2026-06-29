@@ -506,7 +506,6 @@ local-plan,4220401,4220402,development-corporation:Q6670544
 local-plan,4220902,4220902,development-corporation:Q72456968
 local-plan,4220292,4220292,development-corporation:Q72463795
 local-plan,4220740,4220740,development-corporation:Q72463795
-local-plan,4220655,4220655,local-authority:CAT
 local-plan,4220010,4220011,local-authority:ADU
 local-plan,4220656,4220656,local-authority:ADU
 local-plan,4220141,4220141,local-authority:AMB
@@ -633,6 +632,7 @@ local-plan,4220695,4220695,local-authority:CAS
 local-plan,4220029,4220029,local-authority:CAT
 local-plan,4220086,4220086,local-authority:CAT
 local-plan,4220221,4220222,local-authority:CAT
+local-plan,4220655,4220655,local-authority:CAT
 local-plan,4220694,4220694,local-authority:CAT
 local-plan,4220031,4220032,local-authority:CBF
 local-plan,4220226,4220226,local-authority:CBF
@@ -837,6 +837,7 @@ local-plan,4220379,4220380,local-authority:HMF
 local-plan,4220796,4220796,local-authority:HMF
 local-plan,4220386,4220387,local-authority:HNS
 local-plan,4220801,4220801,local-authority:HNS
+local-plan,4221042,4221043,local-authority:HNS
 local-plan,4220146,4220146,local-authority:HOR
 local-plan,4220163,4220163,local-authority:HOR
 local-plan,4220771,4220771,local-authority:HOR
@@ -858,6 +859,7 @@ local-plan,4220715,4220715,local-authority:IOS
 local-plan,4220988,4220989,local-authority:IOS
 local-plan,4220349,4220350,local-authority:IOW
 local-plan,4220776,4220776,local-authority:IOW
+local-plan,4221039,4221041,local-authority:IOW
 local-plan,4220347,4220348,local-authority:IPS
 local-plan,4220775,4220775,local-authority:IPS
 local-plan,4221026,4221027,local-authority:IPS
@@ -2188,6 +2190,7 @@ plan-timetable,5101146,5101149,local-authority:NTY
 plan-timetable,5107318,5107340,local-authority:NTY
 plan-timetable,5101175,5101180,local-authority:NUN
 plan-timetable,5102152,5102174,local-authority:NUN
+plan-timetable,5110315,5110326,local-authority:NUN
 plan-timetable,5101150,5101153,local-authority:NWA
 plan-timetable,5107341,5107363,local-authority:NWA
 plan-timetable,5101154,5101157,local-authority:NWL
@@ -2328,6 +2331,7 @@ plan-timetable,5101458,5101462,local-authority:STF
 plan-timetable,5108652,5108674,local-authority:STF
 plan-timetable,5101427,5101430,local-authority:STH
 plan-timetable,5108560,5108582,local-authority:STH
+plan-timetable,5110369,5110383,local-authority:STH
 plan-timetable,5100316,5100316,local-authority:STN
 plan-timetable,5100997,5100999,local-authority:STN
 plan-timetable,5106628,5106650,local-authority:STN
@@ -2342,6 +2346,7 @@ plan-timetable,5101463,5101466,local-authority:STV
 plan-timetable,5108675,5108697,local-authority:STV
 plan-timetable,5101421,5101426,local-authority:STY
 plan-timetable,5102302,5102324,local-authority:STY
+plan-timetable,5110327,5110340,local-authority:STY
 plan-timetable,5101057,5101060,local-authority:SUA
 plan-timetable,5101322,5101325,local-authority:SUA
 plan-timetable,5101407,5101410,local-authority:SUA
@@ -2352,6 +2357,7 @@ plan-timetable,5109712,5109726,local-authority:SUA
 plan-timetable,5101492,5101497,local-authority:SUF
 plan-timetable,5101501,5101506,local-authority:SUR
 plan-timetable,5102402,5102424,local-authority:SUR
+plan-timetable,5110341,5110352,local-authority:SUR
 plan-timetable,5101512,5101515,local-authority:SWD
 plan-timetable,5108836,5108858,local-authority:SWD
 plan-timetable,5100993,5100996,local-authority:SWK
@@ -2389,6 +2395,7 @@ plan-timetable,5109135,5109157,local-authority:TOR
 plan-timetable,5109158,5109180,local-authority:TRF
 plan-timetable,5101581,5101586,local-authority:TUN
 plan-timetable,5102452,5102474,local-authority:TUN
+plan-timetable,5110353,5110368,local-authority:TUN
 plan-timetable,5101000,5101007,local-authority:TWH
 plan-timetable,5106651,5106673,local-authority:TWH
 plan-timetable,5101587,5101588,local-authority:UTT
@@ -2556,6 +2563,7 @@ plan-timetable,5101091,5101094,national-park-authority:Q72617158
 plan-timetable,5107065,5107087,national-park-authority:Q72617158
 plan-timetable,5101158,5101161,national-park-authority:Q72617669
 plan-timetable,5107387,5107409,national-park-authority:Q72617669
+plan-timetable,5110353,5110367,national-park-authority:Q72617669
 plan-timetable,5100702,5100706,national-park-authority:Q72617784
 plan-timetable,5105248,5105270,national-park-authority:Q72617784
 plan-timetable,5101167,5101170,national-park-authority:Q72617890
@@ -2613,11 +2621,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5110315,5110326,local-authority:NUN
-plan-timetable,5110327,5110340,local-authority:STY
-local-plan,4221039,4221041,local-authority:IOW
-plan-timetable,5110341,5110352,local-authority:SUR
-local-plan,4221042,4221043,local-authority:HNS
-plan-timetable,5110353,5110368,local-authority:TUN
-plan-timetable,5110353,5110367,national-park-authority:Q72617669
-plan-timetable,5110369,5110383,local-authority:STH
