@@ -75,6 +75,8 @@ listed-building-outline,ca1c21152437e06805a8a8d07f0a10c285f7e66a620ec7daf15142bd
 listed-building-outline,d3cafd03dbd7a0d307725e8fa0c5900d67f0e70527af5a6635013d938b20197d,,listing_url,document-url,,,
 listed-building-outline,d3cafd03dbd7a0d307725e8fa0c5900d67f0e70527af5a6635013d938b20197d,,details,notes,,,
 listed-building-outline,d3cafd03dbd7a0d307725e8fa0c5900d67f0e70527af5a6635013d938b20197d,,organisation,organisation,,,
+listed-building-outline,e181663a124522b3f7b1b781e5725d62501da5a2364a8ad26c2c3262ded5176a,,na,IGNORE,2026-06-30,,2026-06-30
+listed-building-outline,e181663a124522b3f7b1b781e5725d62501da5a2364a8ad26c2c3262ded5176a,,listed_bui,listed-building,2026-06-30,,2026-06-30
 listed-building-outline,e5d79f4188020018b0d0c5a66ef53f56b7ce8d6ce12e049585b2f199f987c709,,date_delisted,end-date,2026-03-03,,2026-03-03
 listed-building-outline,e5d79f4188020018b0d0c5a66ef53f56b7ce8d6ce12e049585b2f199f987c709,,e_h_list_entry_num,listed-building,2026-03-03,,2026-03-03
 listed-building-outline,e5d79f4188020018b0d0c5a66ef53f56b7ce8d6ce12e049585b2f199f987c709,,building_name,name,2026-03-03,,2026-03-03
@@ -151,5 +153,3 @@ locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf1
 locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf104534fdbf,Policy,notes,,,
 locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf104534fdbf,GlobalID,reference,,,
 locally-listed-building,,,WKT,geometry,,,
-listed-building-outline,e181663a124522b3f7b1b781e5725d62501da5a2364a8ad26c2c3262ded5176a,,na,IGNORE,2026-06-30,,2026-06-30
-listed-building-outline,e181663a124522b3f7b1b781e5725d62501da5a2364a8ad26c2c3262ded5176a,,listed_bui,listed-building,2026-06-30,,2026-06-30

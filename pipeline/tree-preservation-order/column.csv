@@ -181,6 +181,14 @@ tree,,f74669bf0c4f1f2687cb1ef8c272f108cb0cc0fbb81c192f0e92e7bf55adf9e5,served,st
 tree,,f74669bf0c4f1f2687cb1ef8c272f108cb0cc0fbb81c192f0e92e7bf55adf9e5,tporef,tree-preservation-order,,,
 tree,,,organisation,IGNORE,,,
 tree,,,wkt,point,,,
+tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,DCONFIRMED,confirmed-date,2026-06-30,,2026-06-30
+tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,TPO_Doc2,document-url,2026-06-30,,2026-06-30
+tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,TPO_Doc,documentation-url,2026-06-30,,2026-06-30
+tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,DATEWITH,end-date,2026-06-30,,2026-06-30
+tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,na,IGNORE,2026-06-30,,2026-06-30
+tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,ADDRESS,name,2026-06-30,,2026-06-30
+tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,DESCRIPT,notes,2026-06-30,,2026-06-30
+tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,SERVEDDATE,start-date,2026-06-30,,2026-06-30
 tree-preservation-order,314ce9104c6e495d89317de2085d2bcbac1abe54e9f7cb068f35be8171eaa80b,,INT_ID,reference,,,
 tree-preservation-order,3aeef0b2fb0bb0c85a25bd4491b3c56f70924d6a8ae9d9e22764885965a2b4c7,,ADDRESS,address-text,,,
 tree-preservation-order,3aeef0b2fb0bb0c85a25bd4491b3c56f70924d6a8ae9d9e22764885965a2b4c7,,ADDRESS,address-text,,,
@@ -533,11 +541,3 @@ tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c04
 tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c042efa34f8,tpo,tree-preservation-order,,,
 tree-preservation-zone,,,wkt,geometry,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
-tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,na,IGNORE,2026-06-30,,2026-06-30
-tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,ADDRESS,name,2026-06-30,,2026-06-30
-tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,TPO_Doc,documentation-url,2026-06-30,,2026-06-30
-tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,DATEWITH,end-date,2026-06-30,,2026-06-30
-tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,DESCRIPT,notes,2026-06-30,,2026-06-30
-tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,TPO_Doc2,document-url,2026-06-30,,2026-06-30
-tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,DCONFIRMED,confirmed-date,2026-06-30,,2026-06-30
-tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,SERVEDDATE,start-date,2026-06-30,,2026-06-30
