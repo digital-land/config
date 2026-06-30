@@ -225,18 +225,21 @@ def extract_single_matches(df):
 
 
 def filter_conflicting_matches(old_entity, new_matches):
-    """Filter out new matches that would create circular references with existing redirects.
+    """Filter out new matches that would create circular references or duplicates.
 
-    If a new redirect A -> B would be added, but A is already a target of an
-    existing redirect in old-entity, skip it to preserve the existing A->B, C->B pattern.
+    Skips a new match if:
+    - Its old-entity is already a SOURCE in old-entity.csv (would create a duplicate row).
+    - Its old-entity is already a TARGET of an existing redirect (would create a circular
+      reference). e.g. if a new redirect A -> B would be added, but A is already a target
+      of an existing redirect in old-entity, skip it to preserve the existing A->B, C->B pattern.
     """
     print("\nFiltering for conflicts with existing redirects...")
 
-    # Build set of existing target entities (entities that are already targets of 301 redirects)
-    existing_targets = set()
-    for row in old_entity:
-        if row.get('status') == '301' and row.get('entity'):
-            existing_targets.add(row['entity'])
+    existing_sources = set(row['old-entity'] for row in old_entity if row.get('old-entity'))
+    existing_targets = set(
+        row['entity'] for row in old_entity
+        if row.get('status') == '301' and row.get('entity')
+    )
 
     # Filter new matches: skip if the old-entity is already a target
     filtered = []
@@ -245,16 +248,19 @@ def filter_conflicting_matches(old_entity, new_matches):
 
     for match in new_matches:
         old_ent = match['old-entity']
-        if old_ent in existing_targets:
+        if old_ent in existing_sources:
             skipped_count += 1
-            skipped_matches.append((old_ent, match['entity']))
+            skipped_matches.append((old_ent, match['entity'], 'already a source'))
+        elif old_ent in existing_targets:
+            skipped_count += 1
+            skipped_matches.append((old_ent, match['entity'], 'already a target'))
         else:
             filtered.append(match)
 
     if skipped_count > 0:
-        print(f"Skipped {skipped_count} new matches to avoid conflicts:")
-        for old_ent, target in skipped_matches:
-            print(f"  {old_ent} → {target} (already a target in existing redirects)")
+        print(f"Skipped {skipped_count} new matches:")
+        for old_ent, target, reason in skipped_matches:
+            print(f"  {old_ent} → {target} ({reason} in existing redirects)")
 
     return filtered
 
