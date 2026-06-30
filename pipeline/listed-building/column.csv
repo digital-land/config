@@ -151,3 +151,5 @@ locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf1
 locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf104534fdbf,Policy,notes,,,
 locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf104534fdbf,GlobalID,reference,,,
 locally-listed-building,,,WKT,geometry,,,
+listed-building-outline,e181663a124522b3f7b1b781e5725d62501da5a2364a8ad26c2c3262ded5176a,,na,IGNORE,2026-06-30,,2026-06-30
+listed-building-outline,e181663a124522b3f7b1b781e5725d62501da5a2364a8ad26c2c3262ded5176a,,listed_bui,listed-building,2026-06-30,,2026-06-30

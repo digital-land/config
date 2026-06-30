@@ -1184,7 +1184,7 @@ local-plan,4220937,4220937,local-authority:UTT
 local-plan,4220009,4220009,local-authority:VAL
 local-plan,4220616,4220616,local-authority:VAL
 local-plan,4220938,4220938,local-authority:VAL
-local-plan,4221015,4221015,local-authority:VAL
+local-plan,4221046,4221046,local-authority:VAL
 local-plan,4220623,4220625,local-authority:WAE
 local-plan,4220944,4220944,local-authority:WAE
 local-plan,4220621,4220621,local-authority:WAT
@@ -2621,3 +2621,11 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
+local-plan,4221044,4221045,national-park-authority:Q27159704
+plan-timetable,5110384,5110406,local-authority:SAW
+plan-timetable,5110407,5110418,local-authority:WRL
+local-plan,4221047,4221049,local-authority:WRL
+local-plan,4221050,4221051,local-authority:PEN
+plan-timetable,5110419,5110441,local-authority:BEN
+plan-timetable,5110442,5110460,local-authority:PEN
+plan-timetable,5110442,5110453,local-authority:TOR
