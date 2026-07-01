@@ -257,6 +257,59 @@ def test_lookup(file_path, tmp_path, specification_dir, ended_organisations,pref
     )
 
 
+@pytest.mark.parametrize(
+    "file_path",
+    lookup_files,
+    ids=[_test_id(f) for f in lookup_files],
+)
+def test_entity_belongs_to_single_organisation(file_path, tmp_path):
+    """An entity must not be assigned to more than one organisation within a lookup.csv.
+
+    conservation-area is excluded: HE is deliberately recorded against
+    entities alongside the owning local authority there (see test_lookup).
+    """
+    source_file_path = file_path
+    file_path = _normalise_file(file_path, tmp_path)
+
+    entity_orgs = {}
+    with open(file_path, "r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for line_number, row in enumerate(reader, start=2):
+            if row.get("prefix", "").strip() == "conservation-area":
+                continue
+            entity = row.get("entity", "").strip()
+            organisation = row.get("organisation", "").strip()
+            if not entity or not organisation:
+                continue
+            entity_orgs.setdefault(entity, {}).setdefault(organisation, []).append(
+                line_number
+            )
+
+    conflicts = {
+        entity: organisations
+        for entity, organisations in entity_orgs.items()
+        if len(organisations) > 1
+    }
+
+    if conflicts:
+        messages = ["entities assigned to more than one organisation:"]
+        for entity, organisations in sorted(conflicts.items(), key=lambda x: int(x[0])):
+            line_numbers = sorted(
+                line_number
+                for line_numbers in organisations.values()
+                for line_number in line_numbers
+            )
+            line_refs = [
+                _format_line_reference(source_file_path, line_number)
+                for line_number in line_numbers[:10]
+            ]
+            messages.append(
+                f"  - entity {entity} has {len(organisations)} organisations: {sorted(organisations.keys())}"
+            )
+            messages.append(f"    references: {line_refs}")
+        assert False, "\n".join(messages)
+
+
 # TEST CSV GROUPS
 
 column_csv_files = _collect_files("column.csv")
