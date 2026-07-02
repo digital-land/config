@@ -550,6 +550,7 @@ brownfield-land,1719566,1719569,local-authority:EST
 brownfield-land,1729292,1729295,local-authority:EST
 brownfield-land,1730499,1730519,local-authority:EST
 brownfield-land,1738784,1738799,local-authority:EST
+brownfield-land,1742248,1742250,local-authority:EST
 brownfield-land,1722439,1722461,local-authority:EXE
 brownfield-land,1740899,1740945,local-authority:EXE
 brownfield-land,1741718,1741736,local-authority:EXE
@@ -1421,6 +1422,7 @@ brownfield-land,1722248,1722256,local-authority:SUR
 brownfield-land,1731560,1731571,local-authority:SUR
 brownfield-land,1734947,1734953,local-authority:SUR
 brownfield-land,1738889,1738889,local-authority:SUR
+brownfield-land,1742251,1742263,local-authority:SUR
 brownfield-land,1703815,1703925,local-authority:SWD
 brownfield-land,1706352,1706361,local-authority:SWD
 brownfield-land,1728878,1728904,local-authority:SWD
@@ -1786,5 +1788,3 @@ brownfield-land,1724945,1724947,national-park-authority:Q72617784
 brownfield-land,1721369,1721369,national-park-authority:Q72617890
 brownfield-land,1722291,1722294,national-park-authority:Q72617988
 brownfield-land,1742006,1742006,national-park-authority:Q72617988
-brownfield-land,1742248,1742250,local-authority:EST
-brownfield-land,1742251,1742263,local-authority:SUR
