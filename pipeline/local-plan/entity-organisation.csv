@@ -714,6 +714,7 @@ local-plan,4220629,4220629,local-authority:DST
 local-plan,4220726,4220726,local-authority:DST
 local-plan,4220277,4220279,local-authority:DUD
 local-plan,4220728,4220728,local-authority:DUD
+local-plan,4221069,4221077,local-authority:DUD
 local-plan,4220148,4220148,local-authority:DUR
 local-plan,4220280,4220281,local-authority:DUR
 local-plan,4220729,4220729,local-authority:DUR
@@ -757,6 +758,7 @@ local-plan,4220296,4220297,local-authority:ERE
 local-plan,4220744,4220744,local-authority:ERE
 local-plan,4220160,4220160,local-authority:ERY
 local-plan,4220735,4220735,local-authority:ERY
+local-plan,4221096,4221097,local-authority:ERY
 local-plan,4220049,4220049,local-authority:ESK
 local-plan,4220290,4220290,local-authority:ESK
 local-plan,4220583,4220583,local-authority:ESK
@@ -766,11 +768,13 @@ local-plan,4220990,4220992,local-authority:ESK
 local-plan,4220048,4220048,local-authority:EST
 local-plan,4220289,4220289,local-authority:EST
 local-plan,4220736,4220736,local-authority:EST
+local-plan,4221093,4221095,local-authority:EST
 local-plan,4220298,4220300,local-authority:EXE
 local-plan,4220745,4220745,local-authority:EXE
 local-plan,4220053,4220053,local-authority:FAR
 local-plan,4220302,4220302,local-authority:FAR
 local-plan,4220747,4220747,local-authority:FAR
+local-plan,4221064,4221064,local-authority:FAR
 local-plan,4220054,4220054,local-authority:FEN
 local-plan,4220303,4220304,local-authority:FEN
 local-plan,4220748,4220748,local-authority:FEN
@@ -917,6 +921,7 @@ local-plan,4220818,4220818,local-authority:MAN
 local-plan,4220083,4220083,local-authority:MAS
 local-plan,4220819,4220819,local-authority:MAS
 local-plan,4220817,4220817,local-authority:MAV
+local-plan,4221087,4221087,local-authority:MAV
 local-plan,4220416,4220417,local-authority:MDB
 local-plan,4220825,4220825,local-authority:MDB
 local-plan,4220411,4220412,local-authority:MDE
@@ -940,6 +945,7 @@ local-plan,4220823,4220823,local-authority:MSU
 local-plan,4220454,4220454,local-authority:NBL
 local-plan,4220848,4220848,local-authority:NBL
 local-plan,4220834,4220834,local-authority:NDE
+local-plan,4221052,4221052,local-authority:NDE
 local-plan,4220428,4220428,local-authority:NEA
 local-plan,4220831,4220831,local-authority:NEA
 local-plan,4220430,4220431,local-authority:NEC
@@ -950,10 +956,12 @@ local-plan,4220436,4220437,local-authority:NEL
 local-plan,4220836,4220836,local-authority:NEL
 local-plan,4220429,4220429,local-authority:NET
 local-plan,4220832,4220832,local-authority:NET
+local-plan,4221057,4221058,local-authority:NET
 local-plan,4220423,4220425,local-authority:NEW
 local-plan,4220829,4220829,local-authority:NEW
 local-plan,4220457,4220458,local-authority:NGM
 local-plan,4220851,4220851,local-authority:NGM
+local-plan,4221081,4221084,local-authority:NGM
 local-plan,4220438,4220438,local-authority:NHE
 local-plan,4220837,4220837,local-authority:NHE
 local-plan,4220439,4220439,local-authority:NKE
@@ -1045,13 +1053,16 @@ local-plan,4220512,4220512,local-authority:RUN
 local-plan,4220878,4220878,local-authority:RUN
 local-plan,4220513,4220513,local-authority:RUS
 local-plan,4220879,4220879,local-authority:RUS
+local-plan,4221052,4221055,local-authority:RUS
 local-plan,4220517,4220519,local-authority:RUT
 local-plan,4220881,4220881,local-authority:RUT
+local-plan,4221089,4221092,local-authority:RUT
 local-plan,4220567,4220568,local-authority:SAL
 local-plan,4220907,4220907,local-authority:SAL
 local-plan,4221028,4221028,local-authority:SAL
 local-plan,4220164,4220165,local-authority:SAW
 local-plan,4220883,4220883,local-authority:SAW
+local-plan,4221065,4221068,local-authority:SAW
 local-plan,4220540,4220540,local-authority:SBU
 local-plan,4220006,4220006,local-authority:SCA
 local-plan,4220541,4220542,local-authority:SCA
@@ -1074,6 +1085,7 @@ local-plan,4220531,4220532,local-authority:SHF
 local-plan,4220886,4220886,local-authority:SHF
 local-plan,4220569,4220569,local-authority:SHN
 local-plan,4220908,4220908,local-authority:SHN
+local-plan,4221078,4221080,local-authority:SHN
 local-plan,4220896,4220896,local-authority:SHO
 local-plan,4220533,4220534,local-authority:SHR
 local-plan,4220887,4220887,local-authority:SHR
@@ -1112,6 +1124,7 @@ local-plan,4220007,4220007,local-authority:STF
 local-plan,4220910,4220910,local-authority:STF
 local-plan,4220562,4220562,local-authority:STH
 local-plan,4220904,4220904,local-authority:STH
+local-plan,4221085,4221086,local-authority:STH
 local-plan,4220081,4220081,local-authority:STN
 local-plan,4220094,4220094,local-authority:STN
 local-plan,4220810,4220810,local-authority:STN
@@ -1172,6 +1185,7 @@ local-plan,4220933,4220933,local-authority:TOB
 local-plan,4220609,4220610,local-authority:TON
 local-plan,4220932,4220932,local-authority:TON
 local-plan,4220934,4220934,local-authority:TOR
+local-plan,4221056,4221056,local-authority:TOR
 local-plan,4220100,4220100,local-authority:TRF
 local-plan,4220612,4220613,local-authority:TRF
 local-plan,4220935,4220935,local-authority:TRF
@@ -1211,6 +1225,7 @@ local-plan,4220642,4220643,local-authority:WGN
 local-plan,4220955,4220955,local-authority:WGN
 local-plan,4220644,4220644,local-authority:WIL
 local-plan,4220956,4220956,local-authority:WIL
+local-plan,4221100,4221100,local-authority:WIL
 local-plan,4220645,4220647,local-authority:WIN
 local-plan,4220957,4220957,local-authority:WIN
 local-plan,4220102,4220102,local-authority:WKF
@@ -1231,12 +1246,14 @@ local-plan,4220876,4220876,local-authority:WNM
 local-plan,4220633,4220636,local-authority:WNUA
 local-plan,4220951,4220951,local-authority:WNUA
 local-plan,4220961,4220961,local-authority:WOC
+local-plan,4221099,4221099,local-authority:WOC
 local-plan,4220106,4220106,local-authority:WOI
 local-plan,4220648,4220648,local-authority:WOI
 local-plan,4220959,4220959,local-authority:WOI
 local-plan,4221015,4221017,local-authority:WOI
 local-plan,4220171,4220172,local-authority:WOK
 local-plan,4220960,4220960,local-authority:WOK
+local-plan,4221059,4221063,local-authority:WOK
 local-plan,4220649,4220649,local-authority:WOT
 local-plan,4220962,4220962,local-authority:WOT
 local-plan,4220637,4220638,local-authority:WOX
@@ -1256,6 +1273,7 @@ local-plan,4220151,4220151,local-authority:WSM
 local-plan,4220251,4220251,local-authority:WSM
 local-plan,4220709,4220709,local-authority:WSM
 local-plan,4220963,4220963,local-authority:WYC
+local-plan,4221088,4221088,local-authority:WYC
 local-plan,4220653,4220653,local-authority:WYE
 local-plan,4220965,4220965,local-authority:WYE
 local-plan,4220650,4220650,local-authority:WYO
@@ -1278,6 +1296,7 @@ local-plan,4220193,4220193,local-planning-group:DUD-SAW-WLL-WLV
 local-plan,4220476,4220476,local-planning-group:GAT-NET
 local-plan,4220228,4220228,local-planning-group:LIC-NKE-WLI
 local-plan,4220561,4220561,local-planning-group:MAV-WOC-WYC
+local-plan,4221098,4221098,local-planning-group:MAV-WOC-WYC
 local-plan,4220432,4220432,local-planning-group:NDE-TOR
 local-plan,4220578,4220578,local-planning-group:NEC-STE
 local-plan,4220477,4220477,local-planning-group:PLY-SHA-WDE
@@ -1286,6 +1305,7 @@ local-plan,4220893,4220893,national-park-authority:Q20198711
 local-plan,4220356,4220356,national-park-authority:Q27159704
 local-plan,4220779,4220779,national-park-authority:Q27159704
 local-plan,4221044,4221045,national-park-authority:Q27159704
+local-plan,4221101,4221101,national-park-authority:Q27159704
 local-plan,4220654,4220654,national-park-authority:Q27178932
 local-plan,4220966,4220966,national-park-authority:Q27178932
 local-plan,4220110,4220110,national-park-authority:Q4972284
@@ -1610,6 +1630,7 @@ minerals-plan,530033,530034,local-authority:LEC
 minerals-plan,530035,530036,local-authority:LIN
 minerals-plan,530037,530037,local-authority:MIK
 minerals-plan,530038,530040,local-authority:NFK
+minerals-plan,530070,530070,local-authority:NGM
 minerals-plan,530041,530043,local-authority:NTH
 minerals-plan,530044,530045,local-authority:NTT
 minerals-plan,530047,530047,local-authority:OXF
@@ -1819,7 +1840,7 @@ plan-timetable,5100477,5100482,local-authority:CHA
 plan-timetable,5104305,5104327,local-authority:CHA
 plan-timetable,5100498,5100501,local-authority:CHE
 plan-timetable,5104397,5104419,local-authority:CHE
-plan-timetable,5110150,5110162,local-authority:CHE
+plan-timetable,5110682,5110694,local-authority:CHE
 plan-timetable,5100511,5100516,local-authority:CHI
 plan-timetable,5101777,5101799,local-authority:CHI
 plan-timetable,5110124,5110149,local-authority:CHI
@@ -1864,6 +1885,7 @@ plan-timetable,5100328,5100331,local-authority:CUA
 plan-timetable,5100463,5100466,local-authority:CUA
 plan-timetable,5100559,5100562,local-authority:CUA
 plan-timetable,5104719,5104741,local-authority:CUA
+plan-timetable,5110532,5110546,local-authority:CUA
 plan-timetable,5100324,5100324,local-authority:DAC
 plan-timetable,5100592,5100596,local-authority:DAC
 plan-timetable,5101827,5101849,local-authority:DAC
@@ -1949,6 +1971,7 @@ plan-timetable,5100688,5100693,local-authority:ERE
 plan-timetable,5101927,5101949,local-authority:ERE
 plan-timetable,5100656,5100659,local-authority:ERY
 plan-timetable,5101877,5101899,local-authority:ERY
+plan-timetable,5110637,5110651,local-authority:ERY
 plan-timetable,5100053,5100053,local-authority:ESK
 plan-timetable,5105087,5105109,local-authority:ESK
 plan-timetable,5109933,5109947,local-authority:ESK
@@ -1956,6 +1979,7 @@ plan-timetable,5102792,5102795,local-authority:ESS
 plan-timetable,5100008,5100008,local-authority:EST
 plan-timetable,5100660,5100662,local-authority:EST
 plan-timetable,5105064,5105086,local-authority:EST
+plan-timetable,5110621,5110636,local-authority:EST
 plan-timetable,5100694,5100701,local-authority:EXE
 plan-timetable,5105225,5105247,local-authority:EXE
 plan-timetable,5100160,5100163,local-authority:FAR
@@ -1963,6 +1987,7 @@ plan-timetable,5100167,5100168,local-authority:FAR
 plan-timetable,5100296,5100296,local-authority:FAR
 plan-timetable,5100707,5100708,local-authority:FAR
 plan-timetable,5105271,5105293,local-authority:FAR
+plan-timetable,5110547,5110558,local-authority:FAR
 plan-timetable,5100169,5100174,local-authority:FEN
 plan-timetable,5100709,5100716,local-authority:FEN
 plan-timetable,5105294,5105316,local-authority:FEN
@@ -2136,6 +2161,7 @@ plan-timetable,5100040,5100040,local-authority:MAS
 plan-timetable,5101049,5101051,local-authority:MAS
 plan-timetable,5106812,5106834,local-authority:MAS
 plan-timetable,5102077,5102099,local-authority:MAV
+plan-timetable,5110576,5110590,local-authority:MAV
 plan-timetable,5101071,5101078,local-authority:MDB
 plan-timetable,5106950,5106972,local-authority:MDB
 plan-timetable,5101061,5101064,local-authority:MDE
@@ -2159,6 +2185,7 @@ plan-timetable,5106904,5106926,local-authority:MSU
 plan-timetable,5101162,5101166,local-authority:NBL
 plan-timetable,5107433,5107455,local-authority:NBL
 plan-timetable,5107134,5107156,local-authority:NDE
+plan-timetable,5110461,5110472,local-authority:NDE
 plan-timetable,5101095,5101098,local-authority:NEA
 plan-timetable,5107088,5107110,local-authority:NEA
 plan-timetable,5101099,5101100,local-authority:NEC
@@ -2168,11 +2195,13 @@ plan-timetable,5107157,5107179,local-authority:NED
 plan-timetable,5101113,5101116,local-authority:NEL
 plan-timetable,5107180,5107202,local-authority:NEL
 plan-timetable,5107111,5107133,local-authority:NET
+plan-timetable,5110559,5110575,local-authority:NET
 plan-timetable,5101087,5101090,local-authority:NEW
 plan-timetable,5107042,5107064,local-authority:NEW
 plan-timetable,5102883,5102896,local-authority:NFK
 plan-timetable,5103215,5103228,local-authority:NFK
 plan-timetable,5107502,5107524,local-authority:NGM
+plan-timetable,5110520,5110531,local-authority:NGM
 plan-timetable,5101117,5101120,local-authority:NHE
 plan-timetable,5107203,5107225,local-authority:NHE
 plan-timetable,5107226,5107248,local-authority:NKE
@@ -2222,6 +2251,7 @@ plan-timetable,5102177,5102199,local-authority:PEN
 plan-timetable,5110442,5110460,local-authority:PEN
 plan-timetable,5103265,5103267,local-authority:PLY
 plan-timetable,5107663,5107685,local-authority:PLY
+plan-timetable,5110488,5110502,local-authority:PLY
 plan-timetable,5101213,5101217,local-authority:POR
 plan-timetable,5107686,5107708,local-authority:POR
 plan-timetable,5107709,5107731,local-authority:PRE
@@ -2263,9 +2293,11 @@ plan-timetable,5101290,5101293,local-authority:RUN
 plan-timetable,5108077,5108099,local-authority:RUN
 plan-timetable,5101294,5101297,local-authority:RUS
 plan-timetable,5108100,5108122,local-authority:RUS
+plan-timetable,5110559,5110570,local-authority:RUS
 plan-timetable,5101302,5101307,local-authority:RUT
 plan-timetable,5102202,5102224,local-authority:RUT
 plan-timetable,5102937,5102940,local-authority:RUT
+plan-timetable,5110473,5110487,local-authority:RUT
 plan-timetable,5101444,5101445,local-authority:SAL
 plan-timetable,5102352,5102374,local-authority:SAL
 plan-timetable,5110288,5110299,local-authority:SAL
@@ -2398,7 +2430,7 @@ plan-timetable,5109112,5109134,local-authority:TOB
 plan-timetable,5101571,5101576,local-authority:TON
 plan-timetable,5109089,5109111,local-authority:TON
 plan-timetable,5109135,5109157,local-authority:TOR
-plan-timetable,5110442,5110453,local-authority:TOR
+plan-timetable,5110695,5110706,local-authority:TOR
 plan-timetable,5109158,5109180,local-authority:TRF
 plan-timetable,5101581,5101586,local-authority:TUN
 plan-timetable,5102452,5102474,local-authority:TUN
@@ -2461,6 +2493,7 @@ plan-timetable,5100607,5100610,local-authority:WNUA
 plan-timetable,5101639,5101641,local-authority:WNUA
 plan-timetable,5109457,5109479,local-authority:WNUA
 plan-timetable,5102652,5102674,local-authority:WOC
+plan-timetable,5110667,5110681,local-authority:WOC
 plan-timetable,5100277,5100278,local-authority:WOI
 plan-timetable,5101671,5101673,local-authority:WOI
 plan-timetable,5109572,5109594,local-authority:WOI
@@ -2488,6 +2521,7 @@ plan-timetable,5100069,5100069,local-authority:WSM
 plan-timetable,5100542,5100544,local-authority:WSM
 plan-timetable,5104535,5104557,local-authority:WSM
 plan-timetable,5102677,5102699,local-authority:WYC
+plan-timetable,5110591,5110605,local-authority:WYC
 plan-timetable,5101693,5101696,local-authority:WYE
 plan-timetable,5109641,5109663,local-authority:WYE
 plan-timetable,5101685,5101688,local-authority:WYO
@@ -2496,6 +2530,7 @@ plan-timetable,5109618,5109640,local-authority:WYR
 plan-timetable,5100025,5100025,local-authority:YOR
 plan-timetable,5100551,5100554,local-authority:YOR
 plan-timetable,5104558,5104580,local-authority:YOR
+plan-timetable,5110503,5110519,local-authority:YOR
 plan-timetable,5100287,5100289,local-planning-group:BAB-MSU
 plan-timetable,5100292,5100292,local-planning-group:BAB-MSU
 plan-timetable,5101556,5101557,local-planning-group:BAB-MSU
@@ -2540,6 +2575,7 @@ plan-timetable,5102821,5102823,local-planning-group:HAM-NEW-POR-Q20198711-STH
 plan-timetable,5103155,5103157,local-planning-group:HAM-NEW-POR-Q20198711-STH
 plan-timetable,5100473,5100476,local-planning-group:LIC-NKE-WLI
 plan-timetable,5101035,5101044,local-planning-group:MAV-WOC-WYC
+plan-timetable,5110652,5110666,local-planning-group:MAV-WOC-WYC
 plan-timetable,5101101,5101104,local-planning-group:NDE-TOR
 plan-timetable,5101475,5101478,local-planning-group:NEC-STE
 plan-timetable,5103243,5103252,local-planning-group:NGM-NTT
@@ -2557,6 +2593,7 @@ plan-timetable,5108376,5108398,national-park-authority:Q20198711
 plan-timetable,5100856,5100859,national-park-authority:Q27159704
 plan-timetable,5103007,5103010,national-park-authority:Q27159704
 plan-timetable,5105915,5105937,national-park-authority:Q27159704
+plan-timetable,5110606,5110620,national-park-authority:Q27159704
 plan-timetable,5101697,5101701,national-park-authority:Q27178932
 plan-timetable,5109664,5109686,national-park-authority:Q27178932
 plan-timetable,5100005,5100005,national-park-authority:Q4972284
@@ -2571,13 +2608,14 @@ plan-timetable,5101091,5101094,national-park-authority:Q72617158
 plan-timetable,5107065,5107087,national-park-authority:Q72617158
 plan-timetable,5101158,5101161,national-park-authority:Q72617669
 plan-timetable,5107387,5107409,national-park-authority:Q72617669
-plan-timetable,5110353,5110367,national-park-authority:Q72617669
+plan-timetable,5110695,5110709,national-park-authority:Q72617669
 plan-timetable,5100702,5100706,national-park-authority:Q72617784
 plan-timetable,5105248,5105270,national-park-authority:Q72617784
 plan-timetable,5101167,5101170,national-park-authority:Q72617890
 plan-timetable,5107456,5107478,national-park-authority:Q72617890
 plan-timetable,5107617,5107639,national-park-authority:Q72617988
 supplementary-plan,550000,550003,local-authority:IOS
+supplementary-plan,550004,550004,local-authority:NET
 waste-plan,540005,540006,local-authority:BKM
 waste-plan,540012,540012,local-authority:BRD
 waste-plan,540016,540018,local-authority:CMA
@@ -2596,6 +2634,7 @@ waste-plan,540040,540041,local-authority:LEC
 waste-plan,540042,540043,local-authority:LIN
 waste-plan,540044,540044,local-authority:MIK
 waste-plan,540045,540047,local-authority:NFK
+waste-plan,540076,540076,local-authority:NGM
 waste-plan,540048,540050,local-authority:NTH
 waste-plan,540054,540054,local-authority:OXF
 waste-plan,540055,540055,local-authority:PLY
