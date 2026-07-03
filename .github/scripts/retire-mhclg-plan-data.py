@@ -67,23 +67,46 @@ def authority_to_slug(name):
     return slug.strip('-')
 
 
-def load_organisation_mapping():
-    """Load mapping from organisation CURIE codes to names."""
+def constituent_orgs(org, group_constituents):
+    """Resolve a local-planning-group joint-committee org to its constituent authorities.
+
+    MHCLG seeded fake template data per individual constituent authority, not under
+    the joint group's own code, so retiring a joint group's new data may require
+    retiring each constituent's template. Non-group orgs are returned unchanged.
+    """
+    return set(group_constituents.get(org, [org]))
+
+
+def fetch_organisation_data():
+    """Load organisation names and joint-group membership from planning.data.gov.uk.
+
+    Returns (name_by_org, group_constituents): a mapping of organisation CURIE to
+    name, and a mapping of local-planning-group CURIE to its constituent authority
+    CURIEs (from the 'organisations' column, which is authoritative — constituents
+    aren't always local authorities, some are national park authorities or
+    development corporations, so this can't be inferred from the code alone).
+    """
     logger.info("Loading organisation mapping from planning.data.gov.uk...")
     url = 'https://files.planning.data.gov.uk/organisation-collection/dataset/organisation.csv'
     with urllib.request.urlopen(url) as response:
         content = response.read().decode('utf-8')
 
     reader = csv.DictReader(io.StringIO(content))
-    mapping = {}
+    name_by_org = {}
+    group_constituents = {}
     for row in reader:
-        mapping[row['organisation']] = row['name']
+        name_by_org[row['organisation']] = row['name']
+        constituents = row.get('organisations', '')
+        if constituents:
+            group_constituents[row['organisation']] = [
+                c.strip() for c in constituents.split(';') if c.strip()
+            ]
 
-    logger.info(f"Loaded {len(mapping)} organisations")
-    return mapping
+    logger.info(f"Loaded {len(name_by_org)} organisations ({len(group_constituents)} joint groups)")
+    return name_by_org, group_constituents
 
 
-def retire_plan_timetable_data(lookup_rows, entity_org_rows):
+def retire_plan_timetable_data(lookup_rows, entity_org_rows, group_constituents):
     """Retire MHCLG seeded data for plan-timetable dataset. Returns (entities, orgs)."""
     logger.info("\n=== Processing plan-timetable dataset ===")
 
@@ -167,9 +190,42 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
     ]
     logger.info(f"Found {len(mhclg_to_retire)} MHCLG-seeded entity ranges to retire")
 
-    # Completeness check: every LPA with data should have a MHCLG template range
+    # Completeness check: every LPA with data should have a MHCLG template range.
+    # Joint local-planning-group orgs submit data under a combined code, but MHCLG
+    # seeded fake data per constituent authority under the authority's own code. If
+    # every constituent is already covered — by its own direct submission above, or
+    # by a template found here — the group itself doesn't need one of its own.
     orgs_with_retirement = set(org for org, _, _ in mhclg_to_retire)
     orgs_missing = set(org_ranges.keys()) - orgs_with_retirement
+
+    still_missing = set()
+    for org in sorted(orgs_missing):
+        constituents = constituent_orgs(org, group_constituents)
+        if constituents == {org}:
+            still_missing.add(org)
+            continue
+
+        all_covered = True
+        for constituent in constituents:
+            if constituent in orgs_with_retirement:
+                continue
+            match = next(
+                (r for r in entity_org_rows
+                 if r['dataset'] == prefix and r['organisation'] == constituent
+                 and int(r['entity-maximum']) - int(r['entity-minimum']) == MHCLG_ENTITY_RANGE),
+                None
+            )
+            if match:
+                mhclg_to_retire.append((org, int(match['entity-minimum']), int(match['entity-maximum'])))
+            else:
+                all_covered = False
+
+        if all_covered:
+            orgs_with_retirement.add(org)
+        else:
+            still_missing.add(org)
+
+    orgs_missing = still_missing
     if orgs_missing:
         raise ValueError(
             f"ERROR: No MHCLG template range found for: {', '.join(sorted(orgs_missing))}. "
@@ -217,7 +273,7 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows):
     return entity_to_org, set(org_ranges.keys())
 
 
-def retire_local_plan_data(lookup_rows, entity_org_rows):
+def retire_local_plan_data(lookup_rows, entity_org_rows, org_mapping, group_constituents):
     """Retire MHCLG seeded data for local-plan dataset. Returns (entities, orgs)."""
     logger.info("\n=== Processing local-plan dataset ===")
 
@@ -261,8 +317,7 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
     logger.info(f"LPA entity range: {min_lpa} - {max_lpa}")
     logger.info(f"✓ All LPA entities outside MHCLG range ({mhclg_range_min}-{mhclg_range_max})")
 
-    # Step 2: Load organisation mapping to generate fake plan references
-    org_mapping = load_organisation_mapping()
+    # Step 2: Generate fake plan references from LPA organisation names
     lpa_orgs = set(r['organisation'] for r in lpa_rows)
 
     # Validation #4: Fail if any LPA org name could not be resolved
@@ -299,27 +354,65 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
                 )
             entity_to_org[entity] = (ref_to_org[row['reference']], prefix)
 
-    mhclg_entities = set(entity_to_org.keys())
-    logger.info(f"Found {len(mhclg_entities)} MHCLG local plan entities to retire")
-
-    # Completeness check: every LPA with data should have a MHCLG template entity
-    orgs_with_retirement = set()
-    for row in lookup_rows:
-        if (row['organisation'] == MHCLG_ORG
-                and row['prefix'] == prefix
-                and row['reference'] in fake_plan_references.values()):
-            for org, ref in fake_plan_references.items():
-                if ref == row['reference']:
-                    orgs_with_retirement.add(org)
-                    break
-
+    # Completeness check: every LPA with data should have a MHCLG template entity.
+    # Joint local-planning-group orgs submit data under a combined code, but MHCLG
+    # seeded fake data (and named it) per constituent authority. If every constituent
+    # is already covered — by its own direct submission above, or by a template found
+    # here — the group itself doesn't need one of its own.
+    orgs_with_retirement = set(org for org, _ in entity_to_org.values())
     orgs_missing = lpa_orgs - orgs_with_retirement
+
+    still_missing = set()
+    for org in sorted(orgs_missing):
+        constituents = constituent_orgs(org, group_constituents)
+        if constituents == {org}:
+            still_missing.add(org)
+            continue
+
+        unresolved_constituents = [c for c in constituents if c not in org_mapping]
+        if unresolved_constituents:
+            still_missing.add(org)
+            continue
+
+        all_covered = True
+        for constituent in constituents:
+            if constituent in orgs_with_retirement:
+                continue
+            slug = authority_to_slug(org_mapping[constituent])
+            reference = f"{slug}-new-local-plan"
+            match = next(
+                (r for r in lookup_rows
+                 if r['organisation'] == MHCLG_ORG and r['prefix'] == prefix
+                 and r['reference'] == reference),
+                None
+            )
+            if not match:
+                all_covered = False
+                continue
+            entity = int(match['entity'])
+            if not is_in_mhclg_range(entity):
+                raise ValueError(
+                    f"ERROR: Found MHCLG entity {entity} outside expected range "
+                    f"({mhclg_range_min}-{mhclg_range_max}). This indicates data corruption."
+                )
+            entity_to_org[entity] = (org, prefix)
+            ref_to_org[reference] = org
+
+        if all_covered:
+            orgs_with_retirement.add(org)
+        else:
+            still_missing.add(org)
+
+    orgs_missing = still_missing
     if orgs_missing:
         raise ValueError(
             f"ERROR: No MHCLG template entity found for: {', '.join(sorted(orgs_missing))}. "
             "These LPAs provided data but no fake template was identified to retire."
         )
     logger.info(f"✓ All {len(lpa_orgs)} LPAs have a matching MHCLG template entity")
+
+    mhclg_entities = set(entity_to_org.keys())
+    logger.info(f"Found {len(mhclg_entities)} MHCLG local plan entities to retire")
 
     # No-overlap check: ensure no entity being retired is also LPA authoritative data
     lpa_entity_set = set(int(r['entity']) for r in lpa_rows)
@@ -349,11 +442,7 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
                 break
 
         # Find the LPA org that generated this reference
-        lpa_org = None
-        for org, ref in fake_plan_references.items():
-            if ref == reference:
-                lpa_org = org
-                break
+        lpa_org = ref_to_org.get(reference)
 
         if not lpa_org:
             raise ValueError(
@@ -361,8 +450,9 @@ def retire_local_plan_data(lookup_rows, entity_org_rows):
             )
 
         # Verify entity falls within an entity-organisation range for this LPA
+        # (or one of its constituent authorities, for joint local-planning-groups)
         in_range = any(
-            org == lpa_org and emin <= entity <= emax
+            org in constituent_orgs(lpa_org, group_constituents) and emin <= entity <= emax
             for org, emin, emax in entity_org_ranges
         )
         if not in_range:
@@ -435,8 +525,12 @@ def main():
     logger.info(f"Loaded entity-organisation.csv ({len(entity_org_rows)} rows)")
     logger.info(f"Loaded old-entity.csv ({len(old_entity_rows)} rows)")
 
-    timetable_entity_org, timetable_orgs = retire_plan_timetable_data(lookup_rows, entity_org_rows)
-    local_plan_entity_org, local_plan_orgs = retire_local_plan_data(lookup_rows, entity_org_rows)
+    org_mapping, group_constituents = fetch_organisation_data()
+
+    timetable_entity_org, timetable_orgs = retire_plan_timetable_data(
+        lookup_rows, entity_org_rows, group_constituents)
+    local_plan_entity_org, local_plan_orgs = retire_local_plan_data(
+        lookup_rows, entity_org_rows, org_mapping, group_constituents)
 
     all_entity_org = {**timetable_entity_org, **local_plan_entity_org}
 
