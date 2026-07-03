@@ -945,7 +945,7 @@ local-plan,4220823,4220823,local-authority:MSU
 local-plan,4220454,4220454,local-authority:NBL
 local-plan,4220848,4220848,local-authority:NBL
 local-plan,4220834,4220834,local-authority:NDE
-local-plan,4221052,4221052,local-authority:NDE
+local-plan,4221104,4221104,local-authority:NDE
 local-plan,4220428,4220428,local-authority:NEA
 local-plan,4220831,4220831,local-authority:NEA
 local-plan,4220430,4220431,local-authority:NEC
@@ -2195,7 +2195,8 @@ plan-timetable,5107157,5107179,local-authority:NED
 plan-timetable,5101113,5101116,local-authority:NEL
 plan-timetable,5107180,5107202,local-authority:NEL
 plan-timetable,5107111,5107133,local-authority:NET
-plan-timetable,5110559,5110575,local-authority:NET
+plan-timetable,5110571,5110575,local-authority:NET
+plan-timetable,5110722,5110733,local-authority:NET
 plan-timetable,5101087,5101090,local-authority:NEW
 plan-timetable,5107042,5107064,local-authority:NEW
 plan-timetable,5102883,5102896,local-authority:NFK
@@ -2430,7 +2431,7 @@ plan-timetable,5109112,5109134,local-authority:TOB
 plan-timetable,5101571,5101576,local-authority:TON
 plan-timetable,5109089,5109111,local-authority:TON
 plan-timetable,5109135,5109157,local-authority:TOR
-plan-timetable,5110695,5110706,local-authority:TOR
+plan-timetable,5110734,5110745,local-authority:TOR
 plan-timetable,5109158,5109180,local-authority:TRF
 plan-timetable,5101581,5101586,local-authority:TUN
 plan-timetable,5102452,5102474,local-authority:TUN
