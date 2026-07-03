@@ -275,14 +275,15 @@ def test_entity_belongs_to_single_organisation(file_path, tmp_path):
     with open(file_path, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for line_number, row in enumerate(reader, start=2):
-            if row.get("prefix", "").strip() == "conservation-area":
+            prefix = row.get("prefix", "").strip()
+            if prefix == "conservation-area":
                 continue
             entity = row.get("entity", "").strip()
             organisation = row.get("organisation", "").strip()
             if not entity or not organisation:
                 continue
             entity_orgs.setdefault(entity, {}).setdefault(organisation, []).append(
-                line_number
+                {"line_number": line_number, "prefix": prefix}
             )
 
     conflicts = {
@@ -292,19 +293,33 @@ def test_entity_belongs_to_single_organisation(file_path, tmp_path):
     }
 
     if conflicts:
-        messages = ["entities assigned to more than one organisation:"]
+        affected_prefixes = sorted(
+            {
+                entry["prefix"]
+                for organisations in conflicts.values()
+                for entries in organisations.values()
+                for entry in entries
+            }
+        )
+        messages = [
+            f"entities assigned to more than one organisation (prefixes: {', '.join(affected_prefixes)}):"
+        ]
         for entity, organisations in sorted(conflicts.items(), key=lambda x: int(x[0])):
             line_numbers = sorted(
-                line_number
-                for line_numbers in organisations.values()
-                for line_number in line_numbers
+                entry["line_number"]
+                for entries in organisations.values()
+                for entry in entries
             )
             line_refs = [
                 _format_line_reference(source_file_path, line_number)
                 for line_number in line_numbers[:10]
             ]
+            org_prefixes = {
+                organisation: sorted({entry["prefix"] for entry in entries})
+                for organisation, entries in organisations.items()
+            }
             messages.append(
-                f"  - entity {entity} has {len(organisations)} organisations: {sorted(organisations.keys())}"
+                f"  - entity {entity} has {len(organisations)} organisations: {org_prefixes}"
             )
             messages.append(f"    references: {line_refs}")
         assert False, "\n".join(messages)
