@@ -810,3 +810,4 @@ d3c7b0fafeb8178935c747067e4f17384301508cd1422c8a430a092c4ec1fd24,https://app.ips
 6b3b398acdda4aed4d6124ce986dea58059f0a9830b31dd6828bc43ce6a23567,https://bmaps.brent.gov.uk/ext/odp/conservation-area-document.csv,,,2026-06-17,2026-06-17,
 1d8075f3160504d1c38921ec027274c75d854a28f744c8a8cbeee3167ab8211e,https://www.west-norfolk.gov.uk/download/downloads/id/9982/gis_data_-_conservation_areas.json,,,2026-06-26,2026-06-26,
 518aba1f0fd85bbf754153f7ebecb7030d2d07da48713d433b11326da5073d5e,https://map2.hackney.gov.uk/geoserver/planning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=planning:conservation_area&outputFormat=json&srsName=EPSG:3857,,,2026-07-02,2026-07-02,
+b9423fa1964029bbf19be361ea6caf17fc3323eab0963139320c40203689d2bc,https://www.west-norfolk.gov.uk/download/downloads/id/9981/gis_data_-_conservation_areas.csv,,,2026-07-03,2026-07-03,
