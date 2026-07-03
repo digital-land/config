@@ -687,6 +687,7 @@ local-plan,4220223,4220223,local-authority:CUA
 local-plan,4220253,4220253,local-authority:CUA
 local-plan,4220264,4220265,local-authority:CUA
 local-plan,4220718,4220718,local-authority:CUA
+local-plan,4221105,4221105,local-authority:CUA
 local-plan,4220033,4220033,local-authority:DAC
 local-plan,4220719,4220719,local-authority:DAC
 local-plan,4220003,4220003,local-authority:DAL
@@ -1287,6 +1288,7 @@ local-plan,4220475,4220475,local-planning-group:BOL-BUR-MAN-OLD-RCH-SLF-TAM-TRF-
 local-plan,4220547,4220547,local-planning-group:BOT-SHO
 local-plan,4220600,4220600,local-planning-group:BRA-COL-TEN
 local-plan,4220320,4220320,local-planning-group:BRO-NOW-SNO
+local-plan,4221102,4221103,local-planning-group:BRO-NOW-SNO
 local-plan,4220173,4220173,local-planning-group:BRT-GED-NGM
 local-plan,4220227,4220227,local-planning-group:CHO-PRE-SRI
 local-plan,4220056,4220056,local-planning-group:CHT-GLO-TEW
@@ -1636,6 +1638,7 @@ minerals-plan,530044,530045,local-authority:NTT
 minerals-plan,530047,530047,local-authority:OXF
 minerals-plan,530048,530048,local-authority:RDB
 minerals-plan,530049,530049,local-authority:RUT
+minerals-plan,530071,530072,local-authority:RUT
 minerals-plan,530050,530052,local-authority:SFK
 minerals-plan,530066,530068,local-authority:SHR
 minerals-plan,530053,530053,local-authority:SOM
@@ -1676,6 +1679,7 @@ plan-timetable,5100159,5100159,local-authority:AMB
 plan-timetable,5100251,5100252,local-authority:AMB
 plan-timetable,5100332,5100332,local-authority:AMB
 plan-timetable,5101702,5101724,local-authority:AMB
+plan-timetable,5110760,5110771,local-authority:AMB
 plan-timetable,5100094,5100097,local-authority:ARU
 plan-timetable,5100295,5100295,local-authority:ARU
 plan-timetable,5100333,5100334,local-authority:ARU
@@ -2501,6 +2505,7 @@ plan-timetable,5109572,5109594,local-authority:WOI
 plan-timetable,5109918,5109932,local-authority:WOI
 plan-timetable,5101674,5101679,local-authority:WOK
 plan-timetable,5102602,5102624,local-authority:WOK
+plan-timetable,5110746,5110759,local-authority:WOK
 plan-timetable,5102989,5102994,local-authority:WOR
 plan-timetable,5103323,5103326,local-authority:WOR
 plan-timetable,5101680,5101684,local-authority:WOT
@@ -2553,6 +2558,7 @@ plan-timetable,5101380,5101383,local-planning-group:BOT-SHO
 plan-timetable,5102720,5102725,local-planning-group:BRC-RDG-WBK-WOK
 plan-timetable,5103055,5103060,local-planning-group:BRC-RDG-WBK-WOK
 plan-timetable,5100429,5100432,local-planning-group:BRO-NOW-SNO
+plan-timetable,5110710,5110721,local-planning-group:BRO-NOW-SNO
 plan-timetable,5100742,5100745,local-planning-group:BRT-GED-NGM
 plan-timetable,5101171,5101174,local-planning-group:BRT-NGM-RUS
 plan-timetable,5102726,5102739,local-planning-group:CAM-PTE
@@ -2640,6 +2646,7 @@ waste-plan,540048,540050,local-authority:NTH
 waste-plan,540054,540054,local-authority:OXF
 waste-plan,540055,540055,local-authority:PLY
 waste-plan,540056,540057,local-authority:SFK
+waste-plan,540077,540077,local-authority:SHN
 waste-plan,540072,540074,local-authority:SHR
 waste-plan,540059,540059,local-authority:SOM
 waste-plan,540060,540061,local-authority:SRY
@@ -2669,10 +2676,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221102,4221103,local-planning-group:BRO-NOW-SNO
-plan-timetable,5110710,5110721,local-planning-group:BRO-NOW-SNO
-plan-timetable,5110746,5110759,local-authority:WOK
-waste-plan,540077,540077,local-authority:SHN
-local-plan,4221105,4221105,local-authority:CUA
-minerals-plan,530071,530072,local-authority:RUT
-plan-timetable,5110760,5110771,local-authority:AMB
