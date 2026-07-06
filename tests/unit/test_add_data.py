@@ -228,13 +228,22 @@ def test_resolve_api_base_url_by_environment():
 def test_click_cli_wires_options_to_runner(monkeypatch):
     captured = {}
 
-    def fake_run(request_id, branch, triggered_by, environment, test_mode, retire_endpoints):
+    def fake_run(
+        request_id,
+        branch,
+        triggered_by,
+        environment,
+        test_mode,
+        retire_endpoints,
+        entity_redirects,
+    ):
         captured["request_id"] = request_id
         captured["branch"] = branch
         captured["triggered_by"] = triggered_by
         captured["environment"] = environment
         captured["test_mode"] = test_mode
         captured["retire_endpoints"] = retire_endpoints
+        captured["entity_redirects"] = entity_redirects
 
     monkeypatch.setattr(add_data, "run_add_data_async", fake_run)
     runner = CliRunner()
@@ -254,6 +263,8 @@ def test_click_cli_wires_options_to_runner(monkeypatch):
             "endpoint-a,endpoint-b",
             "--retire-endpoints",
             "endpoint-c",
+            "--entity-redirects",
+            '[{"old_entity":"10","entity":"20","notes":"duplicate"}]',
             "--test",
         ],
     )
@@ -266,7 +277,69 @@ def test_click_cli_wires_options_to_runner(monkeypatch):
         "environment": "development",
         "test_mode": True,
         "retire_endpoints": ["endpoint-a", "endpoint-b", "endpoint-c"],
+        "entity_redirects": [
+            {"old_entity": "10", "entity": "20", "notes": "duplicate"}
+        ],
     }
+
+
+def test_normalize_entity_redirects_parses_json():
+    redirects = add_data.normalize_entity_redirects(
+        '[{"old_entity":"10","entity":"20","notes":"duplicate"},'
+        '{"old_entity":"11","entity":"21"},'
+        '{"old_entity":"","entity":"30"},'
+        '"not-a-redirect"]'
+    )
+
+    assert redirects == [
+        {"old_entity": "10", "entity": "20", "notes": "duplicate"},
+        {"old_entity": "11", "entity": "21", "notes": ""},
+    ]
+
+
+def test_append_entity_redirects_creates_old_entity_csv(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    pipeline_dir = tmp_path / "pipeline" / "test-collection"
+    pipeline_dir.mkdir(parents=True)
+
+    add_data.append_entity_redirects(
+        "test-collection",
+        [{"old_entity": "10", "entity": "20", "notes": "duplicate"}],
+    )
+
+    old_entity_csv = pipeline_dir / "old-entity.csv"
+    rows = list(csv.reader(old_entity_csv.read_text(encoding="utf-8").splitlines()))
+    assert rows[0] == add_data.OLD_ENTITY_HEADER
+    assert rows[1][0:5] == ["10", "301", "20", "duplicate", ""]
+    assert rows[1][5]
+    assert rows[1][6] == ""
+
+
+def test_append_entity_redirects_skips_existing_old_entity(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    pipeline_dir = tmp_path / "pipeline" / "test-collection"
+    pipeline_dir.mkdir(parents=True)
+    old_entity_csv = pipeline_dir / "old-entity.csv"
+    old_entity_csv.write_text(
+        "old-entity,status,entity,notes,end-date,entry-date,start-date\r\n"
+        "10,301,20,existing,,2026-01-01,\r\n",
+        encoding="utf-8",
+    )
+
+    add_data.append_entity_redirects(
+        "test-collection",
+        [
+            {"old_entity": "10", "entity": "99", "notes": "skip"},
+            {"old_entity": "11", "entity": "21", "notes": "append"},
+        ],
+    )
+
+    body = old_entity_csv.read_text(encoding="utf-8")
+    assert body.count("\n") == 3
+    assert "10,301,99,skip" not in body
+    assert "11,301,21,append" in body
+
+
 def test_run_add_data_async_test_mode_creates_draft_pr(tmp_path, monkeypatch, capfd):
     monkeypatch.chdir(tmp_path)
     
@@ -436,6 +509,77 @@ def test_run_add_data_async_applies_retire_endpoints(tmp_path, monkeypatch):
     assert retired == {
         "collection": "test-collection",
         "endpoints": ["endpoint-old"],
+    }
+
+
+def test_run_add_data_async_applies_entity_redirects(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+
+    collection_dir = tmp_path / "collection" / "test-collection"
+    pipeline_dir = tmp_path / "pipeline" / "test-collection"
+    collection_dir.mkdir(parents=True, exist_ok=True)
+    pipeline_dir.mkdir(parents=True, exist_ok=True)
+
+    response = {
+        "status": "COMPLETE",
+        "params": {
+            "collection": "test-collection",
+            "dataset": "test-dataset",
+            "organisation": "test-organisation",
+            "column_mapping": {},
+        },
+        "response": {
+            "data": {
+                "endpoint-summary": {},
+                "source-summary": {},
+                "pipeline-summary": {
+                    "new-entities": [],
+                    "entity-organisation": [],
+                },
+            }
+        },
+    }
+
+    captured = {"collection": "", "redirects": []}
+
+    def fake_append_redirects(collection, redirects):
+        captured["collection"] = collection
+        captured["redirects"] = redirects
+
+    def fake_run(cmd, text=True, capture_output=False, check=False):
+        if cmd[:3] == ["git", "rev-parse", "--abbrev-ref"]:
+            return _CompletedProcess(returncode=0, stdout="main")
+        if cmd[:2] == ["git", "show-ref"]:
+            return _CompletedProcess(returncode=1)
+        if cmd[:3] == ["git", "diff", "--staged"]:
+            return _CompletedProcess(returncode=0)
+        return _CompletedProcess(returncode=0)
+
+    monkeypatch.setattr(add_data.subprocess, "run", fake_run)
+    monkeypatch.setattr(add_data, "fetch_request", lambda api_base_url, request_id: response)
+    monkeypatch.setattr(add_data, "write_summary", lambda *args, **kwargs: None)
+    monkeypatch.setattr(add_data, "append_endpoint", lambda *args, **kwargs: None)
+    monkeypatch.setattr(add_data, "append_source", lambda *args, **kwargs: None)
+    monkeypatch.setattr(add_data, "retire_endpoints_in_csv", lambda *args, **kwargs: None)
+    monkeypatch.setattr(add_data, "append_entity_redirects", fake_append_redirects)
+    monkeypatch.setattr(add_data, "append_lookup", lambda *args, **kwargs: None)
+    monkeypatch.setattr(add_data, "append_column", lambda *args, **kwargs: None)
+    monkeypatch.setattr(add_data, "append_entity_organisation", lambda *args, **kwargs: None)
+
+    add_data.run_add_data_async(
+        request_id="req-123",
+        branch="",
+        triggered_by="bot",
+        test_mode=False,
+        environment="development",
+        entity_redirects='[{"old_entity":"10","entity":"20","notes":"duplicate"}]',
+    )
+
+    assert captured == {
+        "collection": "test-collection",
+        "redirects": [
+            {"old_entity": "10", "entity": "20", "notes": "duplicate"}
+        ],
     }
 
 
