@@ -1,5 +1,7 @@
 dataset,endpoint,resource,column,field,start-date,end-date,entry-date
 brownfield-land,13aab87191ca85e8ef21c82fffccd47fe77f77cfd4caa0643dd727379fe30890,,OrganisationURL,IGNORE,,,
+brownfield-land,181e4d00aa699027a1a16733b9fb2fe61bcf08fb624a69e7a835da1c3e26d023,,SITE_PLAN_URL,SiteplanURL,2026-07-06,,2026-07-06
+brownfield-land,181e4d00aa699027a1a16733b9fb2fe61bcf08fb624a69e7a835da1c3e26d023,,FULL_LF_REF,SiteReference,2026-07-06,,2026-07-06
 brownfield-land,363ec3bed807e3adb377ad3f16722ba8a53fc3be22fb12215737c3ddad3cb46c,,OrganisationURI,IGNORE,,,
 brownfield-land,383bcc7187fc5261037389bdcbc4592f2030a16a825483ccf032438c6eef7cd9,,OrganisationURI,IGNORE,,,
 brownfield-land,44de40ebc3eb192405422d71179793431d4e5ac1d8a7d67645a7466d963f3869,,OrganisationURI,IGNORE,,,
@@ -161,5 +163,3 @@ brownfield-land,,,SiteReference (also SHLAA Reference),SiteReference,,,
 brownfield-land,,,Site Ref,SiteReference,,,
 brownfield-land,,,siterefere,SiteReference,,,
 brownfield-land,,,ogc_fid,SiteReference,,,
-brownfield-land,181e4d00aa699027a1a16733b9fb2fe61bcf08fb624a69e7a835da1c3e26d023,,FULL_LF_REF,SiteReference,2026-07-06,,2026-07-06
-brownfield-land,181e4d00aa699027a1a16733b9fb2fe61bcf08fb624a69e7a835da1c3e26d023,,SITE_PLAN_URL,SiteplanURL,2026-07-06,,2026-07-06

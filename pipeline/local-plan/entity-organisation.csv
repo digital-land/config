@@ -516,6 +516,7 @@ local-plan,4220013,4220013,local-authority:ASF
 local-plan,4220085,4220085,local-authority:ASF
 local-plan,4220178,4220179,local-authority:ASF
 local-plan,4220660,4220660,local-authority:ASF
+local-plan,4221108,4221110,local-authority:ASF
 local-plan,4220012,4220012,local-authority:ASH
 local-plan,4220176,4220177,local-authority:ASH
 local-plan,4220659,4220659,local-authority:ASH
@@ -951,6 +952,7 @@ local-plan,4220428,4220428,local-authority:NEA
 local-plan,4220831,4220831,local-authority:NEA
 local-plan,4220430,4220431,local-authority:NEC
 local-plan,4220833,4220833,local-authority:NEC
+local-plan,4221106,4221107,local-authority:NEC
 local-plan,4220434,4220435,local-authority:NED
 local-plan,4220835,4220835,local-authority:NED
 local-plan,4220436,4220437,local-authority:NEL
@@ -1687,6 +1689,7 @@ plan-timetable,5103477,5103499,local-authority:ARU
 plan-timetable,5100098,5100106,local-authority:ASF
 plan-timetable,5100336,5100339,local-authority:ASF
 plan-timetable,5103523,5103545,local-authority:ASF
+plan-timetable,5110772,5110785,local-authority:ASF
 plan-timetable,5100150,5100152,local-authority:ASH
 plan-timetable,5100212,5100214,local-authority:ASH
 plan-timetable,5100221,5100225,local-authority:ASH
@@ -2676,6 +2679,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221106,4221107,local-authority:NEC
-plan-timetable,5110772,5110785,local-authority:ASF
-local-plan,4221108,4221110,local-authority:ASF
