@@ -20,6 +20,15 @@ API_BASE_URL_BY_ENVIRONMENT = {
     "production": "http://production-pub-async-api-lb-636110663.eu-west-2.elb.amazonaws.com",
 }
 DEFAULT_ENVIRONMENT = "staging"
+OLD_ENTITY_HEADER = [
+    "old-entity",
+    "status",
+    "entity",
+    "notes",
+    "end-date",
+    "entry-date",
+    "start-date",
+]
 
 
 def resolve_api_base_url(environment: str) -> str:
@@ -111,6 +120,74 @@ def normalize_retire_endpoints(value: object) -> list[str]:
     if isinstance(value, list):
         return [str(item).strip() for item in value if str(item).strip()]
     return []
+
+
+def normalize_entity_redirects(value: object) -> list[dict[str, str]]:
+    if value is None:
+        return []
+    if isinstance(value, str):
+        if not value.strip():
+            return []
+        try:
+            value = json.loads(value)
+        except json.JSONDecodeError as exc:
+            fail(f"Failed to parse entity redirects JSON: {exc}")
+    if not isinstance(value, list):
+        return []
+
+    redirects = []
+    for item in value:
+        if not isinstance(item, dict):
+            continue
+        old_entity = str(item.get("old_entity", "") or "").strip()
+        entity = str(item.get("entity", "") or "").strip()
+        if not old_entity or not entity:
+            continue
+        redirects.append(
+            {
+                "old_entity": old_entity,
+                "entity": entity,
+                "notes": item.get("notes", ""),
+            }
+        )
+    return redirects
+
+
+def append_entity_redirects(collection: str, entity_redirects: list[dict[str, str]]) -> None:
+    if not entity_redirects:
+        return
+
+    today = datetime.now().strftime("%Y-%m-%d")
+    old_entity_file = Path("pipeline") / collection / "old-entity.csv"
+    if old_entity_file.exists():
+        frame = pd.read_csv(old_entity_file, dtype=str, keep_default_na=False)
+        existing_old_entities = set(frame.get("old-entity", []))
+    else:
+        old_entity_file.write_text(",".join(OLD_ENTITY_HEADER) + "\r\n", encoding="utf-8")
+        existing_old_entities = set()
+
+    rows = []
+    for redirect in entity_redirects:
+        old_entity = redirect["old_entity"]
+        if old_entity in existing_old_entities:
+            print(f"old-entity {old_entity} already exists, skipping redirect")
+            continue
+        rows.append(
+            [
+                old_entity,
+                "301",
+                redirect["entity"],
+                redirect.get("notes"),
+                "",
+                today,
+                "",
+            ]
+        )
+        existing_old_entities.add(old_entity)
+
+    count = append_csv_rows(old_entity_file, rows)
+    if count:
+        print(f"Appended {count} duplicate redirect row(s) to {old_entity_file}")
 
 
 def retire_endpoints_in_csv(collection: str, retire_endpoints: list[str]) -> None:
@@ -433,6 +510,7 @@ def run_add_data_async(
     environment: str = DEFAULT_ENVIRONMENT,
     test_mode: bool = False,
     retire_endpoints: Optional[list[str]] = None,
+    entity_redirects: Optional[list[dict[str, str]]] = None,
 ) -> None:
     if not request_id.strip():
         fail("request_id is required")
@@ -458,6 +536,7 @@ def run_add_data_async(
     ensure_dir_exists(pipeline_dir)
 
     retire_endpoints = normalize_retire_endpoints(retire_endpoints or [])
+    entity_redirects = normalize_entity_redirects(entity_redirects or [])
 
     if test_mode:
         print("Test mode enabled; this creates a draft PR that must not be merged.")
@@ -468,6 +547,7 @@ def run_add_data_async(
         branch_name, pr_number, mode = resolve_branch(branch.strip(), collection)
 
     retire_endpoints_in_csv(collection, retire_endpoints)
+    append_entity_redirects(collection, entity_redirects)
     append_endpoint(response, collection)
     append_source(response, collection)
     append_lookup(response, collection)
@@ -573,6 +653,12 @@ def run_add_data_async(
     type=click.STRING,
     help="Endpoint strings to retire; pass multiple times or as comma-separated values",
 )
+@click.option(
+    "--entity-redirects",
+    default="",
+    type=click.STRING,
+    help="JSON array of duplicate entity redirects to append to old-entity.csv",
+)
 @click.option("--test/--no-test", "test_mode", default=False, help="Create a draft test PR that should not be merged")
 def main(
     request_id: str,
@@ -580,6 +666,7 @@ def main(
     triggered_by: str,
     environment: str,
     retire_endpoints: tuple[str, ...],
+    entity_redirects: str,
     test_mode: bool,
 ) -> None:
     print(f"Executing add_data.py with request_id={request_id}, branch={branch}, triggered_by={triggered_by}, "
@@ -595,6 +682,7 @@ def main(
         environment=environment,
         test_mode=test_mode,
         retire_endpoints=retire_endpoint_values,
+        entity_redirects=normalize_entity_redirects(entity_redirects),
     )
 
 
