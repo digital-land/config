@@ -153,3 +153,9 @@ locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf1
 locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf104534fdbf,Policy,notes,,,
 locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf104534fdbf,GlobalID,reference,,,
 locally-listed-building,,,WKT,geometry,,,
+listed-building-outline,6c1f583f4df00d89ddf446fee54bd86a033b46ff30f629e5b56ab8739a2bdcb7,,na,IGNORE,2026-07-07,,2026-07-07
+listed-building-outline,6c1f583f4df00d89ddf446fee54bd86a033b46ff30f629e5b56ab8739a2bdcb7,,REF,listed-building,2026-07-07,,2026-07-07
+listed-building-outline,6c1f583f4df00d89ddf446fee54bd86a033b46ff30f629e5b56ab8739a2bdcb7,,NAME,IGNORE,2026-07-07,,2026-07-07
+listed-building-outline,6c1f583f4df00d89ddf446fee54bd86a033b46ff30f629e5b56ab8739a2bdcb7,,LBL_REF,reference,2026-07-07,,2026-07-07
+listed-building-outline,6c1f583f4df00d89ddf446fee54bd86a033b46ff30f629e5b56ab8739a2bdcb7,,ADDRESS_1,name,2026-07-07,,2026-07-07
+listed-building-outline,6c1f583f4df00d89ddf446fee54bd86a033b46ff30f629e5b56ab8739a2bdcb7,,DESCRIPTIO,description,2026-07-07,,2026-07-07
