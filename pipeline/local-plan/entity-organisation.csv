@@ -612,6 +612,7 @@ local-plan,4220111,4220111,local-authority:BST
 local-plan,4220116,4220116,local-authority:BST
 local-plan,4220207,4220208,local-authority:BST
 local-plan,4220682,4220682,local-authority:BST
+local-plan,4221111,4221114,local-authority:BST
 local-plan,4220213,4220213,local-authority:BUC
 local-plan,4220688,4220688,local-authority:BUC
 local-plan,4220108,4220108,local-authority:BUN
@@ -1195,6 +1196,7 @@ local-plan,4220935,4220935,local-authority:TRF
 local-plan,4220101,4220101,local-authority:TUN
 local-plan,4220614,4220614,local-authority:TUN
 local-plan,4220936,4220936,local-authority:TUN
+local-plan,4221115,4221116,local-authority:TUN
 local-plan,4220396,4220397,local-authority:TWH
 local-plan,4220811,4220811,local-authority:TWH
 local-plan,4220615,4220615,local-authority:UTT
@@ -1807,6 +1809,7 @@ plan-timetable,5100039,5100039,local-authority:BST
 plan-timetable,5100079,5100079,local-authority:BST
 plan-timetable,5100426,5100428,local-authority:BST
 plan-timetable,5101727,5101749,local-authority:BST
+plan-timetable,5110786,5110800,local-authority:BST
 plan-timetable,5104121,5104143,local-authority:BUC
 plan-timetable,5100001,5100003,local-authority:BUN
 plan-timetable,5100028,5100029,local-authority:BUN
@@ -2679,6 +2682,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221111,4221114,local-authority:BST
-local-plan,4221115,4221116,local-authority:TUN
-plan-timetable,5110786,5110800,local-authority:BST

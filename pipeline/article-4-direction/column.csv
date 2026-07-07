@@ -19,6 +19,9 @@ article-4-direction,9f61e5a57c1762d7c9468fc192fd0adfab11161110e85f55eaf6fc63f928
 article-4-direction,b67354666c24fe9bc0f6db565e2626c6c5cf2473168233359c92921ae88c5c7f,,article-4-direction,reference,,,
 article-4-direction,c93c4cf0ab5f3eb331de01019359e4c6807a670438d24f232d13347836fc5c1b,,Document_Reference,reference,,,
 article-4-direction,d3599f46a21de336fdcf154dbc0601cae3244cad242afd42b8fbe0fcdedad472,,organisation,IGNORE,,,
+article-4-direction,de6588490d7159e985c9f969068acf3b4bd33cad8f9e5078090df3ebf61981b1,,na,IGNORE,2026-07-07,,2026-07-07
+article-4-direction,de6588490d7159e985c9f969068acf3b4bd33cad8f9e5078090df3ebf61981b1,,reference,IGNORE,2026-07-07,,2026-07-07
+article-4-direction,de6588490d7159e985c9f969068acf3b4bd33cad8f9e5078090df3ebf61981b1,,article_4_direction,reference,2026-07-07,,2026-07-07
 article-4-direction,fa43f1424a3c39642ff4664068da6432efd8f5ab7c81d702cea8fe95e4532d8c,,Document_Reference,reference,,,
 article-4-direction,,,organisation,IGNORE,,,
 article-4-direction-area,01de81578391eab3a1fdc9fcb92e559aa0a0bf1aafc777905d680fc0e189811e,,SUMMARY0,description,,,
@@ -49,6 +52,7 @@ article-4-direction-area,38358cf8e54c5c107d78f76ff9bd71cbea4f7fe4df31006a657ed38
 article-4-direction-area,3ff20e43274e53dcb62309a055825fc6c3d94edeea247e645cd2d7a1d834bbd4,,description,name,,,
 article-4-direction-area,3ff20e43274e53dcb62309a055825fc6c3d94edeea247e645cd2d7a1d834bbd4,,app_ref_no,reference,,,
 article-4-direction-area,4263c7ffebf8087c801bb18bb71649d913c241746952e697d5f5b0c3dae03fb1,,Article4_Direction_Reference,article-4-direction,,,
+article-4-direction-area,466ed2859f894a7914efc8e8b33f804027db036af239966067fe734a3bb5d902,,na,IGNORE,2026-07-07,,2026-07-07
 article-4-direction-area,48ede191b82c811be25256c6d3789ad439f150b1f290142481243a305d80d6ca,,article_4_,article-4-direction,2026-02-26,,2026-02-27
 article-4-direction-area,48ede191b82c811be25256c6d3789ad439f150b1f290142481243a305d80d6ca,,permitted_,permitted-development-rights,2026-02-26,,2026-02-27
 article-4-direction-area,49cbcdf8780dc91403d01ad916b118d31da3d8996f3354f6ef4ea06994dbaa46,,address,address-text,,,
@@ -203,7 +207,3 @@ article-4-direction-area,,,Designatio,notes,,,
 article-4-direction-area,,,CODE,reference,,,
 article-4-direction-area,,,geography,reference,,,
 article-4-direction-area,,,START_DATE,start-date,,,
-article-4-direction-area,466ed2859f894a7914efc8e8b33f804027db036af239966067fe734a3bb5d902,,na,IGNORE,2026-07-07,,2026-07-07
-article-4-direction,de6588490d7159e985c9f969068acf3b4bd33cad8f9e5078090df3ebf61981b1,,na,IGNORE,2026-07-07,,2026-07-07
-article-4-direction,de6588490d7159e985c9f969068acf3b4bd33cad8f9e5078090df3ebf61981b1,,reference,IGNORE,2026-07-07,,2026-07-07
-article-4-direction,de6588490d7159e985c9f969068acf3b4bd33cad8f9e5078090df3ebf61981b1,,article_4_direction,reference,2026-07-07,,2026-07-07

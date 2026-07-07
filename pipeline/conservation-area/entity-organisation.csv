@@ -650,6 +650,7 @@ conservation-area,44008810,44008810,local-authority:KTT
 conservation-area,44008821,44008821,local-authority:KTT
 conservation-area,44009068,44009068,local-authority:KTT
 conservation-area,44007851,44007865,local-authority:KWL
+conservation-area,44016035,44016049,local-authority:KWL
 conservation-area,44012371,44012400,local-authority:LAC
 conservation-area,44012402,44012402,local-authority:LAC
 conservation-area,44012487,44012489,local-authority:LAC
@@ -1696,6 +1697,7 @@ conservation-area,44005905,44005906,national-park-authority:Q72617988
 conservation-area,44006364,44006367,national-park-authority:Q72617988
 conservation-area,44006417,44006417,national-park-authority:Q72617988
 conservation-area,44007421,44007439,national-park-authority:Q72617988
+conservation-area,44016050,44016159,national-park-authority:Q72617988
 conservation-area-document,6310284,6310287,development-corporation:Q20648596
 conservation-area-document,6305657,6305666,development-corporation:Q6670544
 conservation-area-document,6301237,6301248,local-authority:ADU
@@ -1780,6 +1782,7 @@ conservation-area-document,6308251,6308376,local-authority:DUR
 conservation-area-document,6308216,6308250,local-authority:EAL
 conservation-area-document,6308497,6308520,local-authority:EAS
 conservation-area-document,6304506,6304513,local-authority:EAT
+conservation-area-document,6316544,6316551,local-authority:EAT
 conservation-area-document,6306644,6306688,local-authority:ECA
 conservation-area-document,6302991,6303028,local-authority:EDE
 conservation-area-document,6315759,6315814,local-authority:EHA
@@ -2035,7 +2038,4 @@ conservation-area-document,6313894,6314026,national-park-authority:Q72617158
 conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
-conservation-area-document,6316544,6316551,local-authority:EAT
-conservation-area,44016035,44016049,local-authority:KWL
 conservation-area-document,6316552,6316661,national-park-authority:Q72617988
-conservation-area,44016050,44016159,national-park-authority:Q72617988

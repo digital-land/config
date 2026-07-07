@@ -111,6 +111,7 @@ article-4-direction,6100882,6100891,local-authority:WSM
 article-4-direction,6102478,6102481,local-authority:YOR
 article-4-direction,6102767,6102796,national-park-authority:Q27159704
 article-4-direction,6100914,6100939,national-park-authority:Q72617158
+article-4-direction,6103203,6103228,national-park-authority:Q72617988
 article-4-direction-area,7010009055,7010009063,local-authority:ADU
 article-4-direction-area,7010006812,7010006886,local-authority:ASF
 article-4-direction-area,7010002547,7010002549,local-authority:BDG
@@ -248,4 +249,3 @@ article-4-direction-area,7010009089,7010009092,local-authority:YOR
 article-4-direction-area,7010009405,7010009434,national-park-authority:Q27159704
 article-4-direction-area,7010006887,7010006912,national-park-authority:Q72617158
 article-4-direction-area,7010010088,7010010113,national-park-authority:Q72617988
-article-4-direction,6103203,6103228,national-park-authority:Q72617988
