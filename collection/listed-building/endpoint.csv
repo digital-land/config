@@ -106,7 +106,7 @@ ffbd37f09b328cb39b15ec8050421202cce3897cb5d5d661b3b9c3721b237db1,https://www.har
 6d4a00124b38892360a73f975342a315fceb586c1b4c771ed15b2e67fff07e8f,https://maps.calderdale.gov.uk/map/wfs.svc/ODP_Listed_Buildings?service=WFS&version=1.1.0&request=GetFeature&TYPENAME=statmap:OD_Listed_Buildings&outputFormat=application/json,,,2026-02-25,2026-02-25,
 2647c528a873cea4da2920e9cccb1bda7279c71a52123bdda3f8811de8271bba,https://www.hart.gov.uk/sites/default/files/2026-02/Listed-buildings-dataset.csv,,,2026-03-03,2026-03-03,
 e5d79f4188020018b0d0c5a66ef53f56b7ce8d6ce12e049585b2f199f987c709,https://gi.dorsetcouncil.gov.uk/geoserver/planning-mastergov-public/wfs?request=GetFeature&version=2.0.0&outputFormat=application%2Fjson&typename=v_spatial_listedbuildings&CQL_FILTER=grade%20%3C%3E%27DLIST%27,,,2026-03-03,2026-03-03,
-04cf83f83e0848e059f0cd6c17f61ac4630743782d615af34f57de61bed83d8a,https://gis.lambeth.gov.uk/arcgis/rest/services/LambethListedBuildings/MapServer/0,,arcgis,2026-03-04,2026-03-04,
+04cf83f83e0848e059f0cd6c17f61ac4630743782d615af34f57de61bed83d8a,https://gis.lambeth.gov.uk/arcgis/rest/services/LambethListedBuildings/MapServer/0,,arcgis,2026-03-04,2026-03-04,2026-07-07
 bf0257563f3d85ae261d01aa159b67f05883ebd92561c6497c836834a20d825a,https://services-eu1.arcgis.com/OrZ7pO8Ag7olNJcC/arcgis/rest/services/Listed_Buildings_ODP/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2026-03-10,2026-03-09,2026-03-18
 e41974d689948539e4a5f492646ae0e5eb1895134328dbd0186574613c234936,https://services-eu1.arcgis.com/OrZ7pO8Ag7olNJcC/arcgis/rest/services/Listed_Buildings_ODP/FeatureServer/1/query?where=1%3D1&f=geojson&outFields=*,,,2026-03-16,2026-03-16,
 4bd57a7a9d880048f310229d123942a33a338dfd01807f8b3f65a95c9f14aa7e,https://files.planning.data.gov.uk/reporting/listed-building-end-date.csv,,,2026-03-18,2026-03-18,2026-04-10
@@ -128,3 +128,4 @@ d1327a5d7b05b560512e5d1b1ef9d89612f629bec9227fbb0e83f0ae241057cd,https://www.old
 66d2afa3a849b1ffe7846db931461dbe6cf90a10e231b8c4205615af85e8d184,https://services1.arcgis.com/k6HWkz7DMAcnnYfV/arcgis/rest/services/CDC_Listed_Buildings_view/FeatureServer/0,,arcgis,2026-06-05,2026-06-05,
 ca1c21152437e06805a8a8d07f0a10c285f7e66a620ec7daf15142bd203926ab,https://www.west-norfolk.gov.uk/download/downloads/id/9991/gis_data_-_listed_buildings.json,,,2026-06-25,2026-06-25,
 e181663a124522b3f7b1b781e5725d62501da5a2364a8ad26c2c3262ded5176a,https://services.arcgis.com/wDcUiJYKtMulHM03/ArcGIS/rest/services/Listed_Buildings_Outline/FeatureServer/0,,arcgis,2026-06-30,2026-06-30,
+6c1f583f4df00d89ddf446fee54bd86a033b46ff30f629e5b56ab8739a2bdcb7,https://services5.arcgis.com/YzAbPjFO62myKADc/arcgis/rest/services/Listed_Buildings/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2026-07-07,2026-07-07,
