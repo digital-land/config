@@ -22,6 +22,7 @@ tree,3237276c4ae0e3dae446205a7b917485ce23c196203d80bf30c8cb186e67c8f3,,ORDERREF,
 tree,3237276c4ae0e3dae446205a7b917485ce23c196203d80bf30c8cb186e67c8f3,,ORDERYEAR,start-date,,,
 tree,3237276c4ae0e3dae446205a7b917485ce23c196203d80bf30c8cb186e67c8f3,,STATUS,tree-preservation-order-tree,,,
 tree,3237276c4ae0e3dae446205a7b917485ce23c196203d80bf30c8cb186e67c8f3,,TREETYPE,tree-species,,,
+tree,3732023c0fd2e21feeb59a71e370eebed02581644ade00c6ee1713343757cad8,,WKT,geometry,2026-07-08,,2026-07-08
 tree,422e2a9f2fb1d809d8849e05556aa7c232060673c1cc51d84bcf9bb586d5de52,,WKT,geometry,,,
 tree,422e2a9f2fb1d809d8849e05556aa7c232060673c1cc51d84bcf9bb586d5de52,,tree_preservation_zone_type,tree-preservation-order-tree,,,
 tree,599237e24ea953f431090df305657e05d78d64e6e33adc00d907706676c46f4d,,descript,name,,,
@@ -340,6 +341,7 @@ tree-preservation-order,,f9c98a7bb2fe99b4fffb86a5d8f4d840119f6fa72c7b2876ed5dac7
 tree-preservation-order,,f9c98a7bb2fe99b4fffb86a5d8f4d840119f6fa72c7b2876ed5dac7d78fa39bf,TPO_type,tree-preservation-zone-type,,,
 tree-preservation-order,,f9c98a7bb2fe99b4fffb86a5d8f4d840119f6fa72c7b2876ed5dac7d78fa39bf,Species,tree-species-list,,,
 tree-preservation-order,,,organisation,IGNORE,,,
+tree-preservation-zone,067114aee596a3cbc276b94eb18d8859f076fa774928b36eb44543ae9dd15887,,na,IGNORE,2026-07-08,,2026-07-08
 tree-preservation-zone,1dcc702588a70a9e3d5fbeb93fe86a9b94eb2ffee13f2119b36a216379fb42aa,,WKT,geometry,2026-04-28,,2026-04-28
 tree-preservation-zone,236e026d5a3ddde23fe12020816b54f2ba62d38d6ef0455e096c927df7addeda,,REF,reference,,,
 tree-preservation-zone,236e026d5a3ddde23fe12020816b54f2ba62d38d6ef0455e096c927df7addeda,,reference,tree-preservation-order,,,
@@ -541,5 +543,3 @@ tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c04
 tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c042efa34f8,tpo,tree-preservation-order,,,
 tree-preservation-zone,,,wkt,geometry,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
-tree-preservation-zone,067114aee596a3cbc276b94eb18d8859f076fa774928b36eb44543ae9dd15887,,na,IGNORE,2026-07-08,,2026-07-08
-tree,3732023c0fd2e21feeb59a71e370eebed02581644ade00c6ee1713343757cad8,,WKT,geometry,2026-07-08,,2026-07-08
