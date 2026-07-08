@@ -175,6 +175,7 @@ tree,7002101550,7002101551,local-authority:TOB
 tree,7002142380,7002142404,local-authority:TOB
 tree,7002160920,7002160922,local-authority:TOB
 tree,7002211210,7002211210,local-authority:TOB
+tree,7002247166,7002247166,local-authority:TOB
 tree,7002077537,7002079305,local-authority:TWH
 tree,7002226886,7002226894,local-authority:TWH
 tree,7002236873,7002242143,local-authority:UTT
@@ -335,6 +336,7 @@ tree-preservation-order,7001077466,7001077470,local-authority:PTE
 tree-preservation-order,7001088878,7001088878,local-authority:PTE
 tree-preservation-order,7001059104,7001059530,local-authority:ROH
 tree-preservation-order,7001045935,7001046116,local-authority:ROS
+tree-preservation-order,7001110746,7001110746,local-authority:ROS
 tree-preservation-order,7001004397,7001005066,local-authority:SAL
 tree-preservation-order,7001078365,7001078472,local-authority:SAW
 tree-preservation-order,7001056746,7001057440,local-authority:SCA
@@ -380,6 +382,7 @@ tree-preservation-order,7001045934,7001045934,local-authority:TOB
 tree-preservation-order,7001053770,7001053770,local-authority:TOB
 tree-preservation-order,7001056114,7001056116,local-authority:TOB
 tree-preservation-order,7001093317,7001093318,local-authority:TOB
+tree-preservation-order,7001110745,7001110745,local-authority:TOB
 tree-preservation-order,7001076144,7001076213,local-authority:TWH
 tree-preservation-order,7001099489,7001099490,local-authority:TWH
 tree-preservation-order,7001068436,7001068664,local-authority:WFT
@@ -518,6 +521,7 @@ tree-preservation-zone,19156238,19156238,local-authority:PTE
 tree-preservation-zone,19169340,19169357,local-authority:PTE
 tree-preservation-zone,19153565,19153977,local-authority:ROH
 tree-preservation-zone,19141362,19141858,local-authority:ROS
+tree-preservation-zone,19194843,19194843,local-authority:ROS
 tree-preservation-zone,19119456,19119691,local-authority:SAL
 tree-preservation-zone,19127766,19128301,local-authority:SAL
 tree-preservation-zone,19128848,19128848,local-authority:SAL
@@ -600,7 +604,3 @@ tree-preservation-zone,19168416,19169313,national-park-authority:Q27159704
 tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-order,7001110745,7001110745,local-authority:TOB
-tree-preservation-zone,19194843,19194843,local-authority:ROS
-tree,7002247166,7002247166,local-authority:TOB
-tree-preservation-order,7001110746,7001110746,local-authority:ROS
