@@ -130,6 +130,96 @@ def test_append_source_skips_when_documentation_url_exists(tmp_path, monkeypatch
     assert source_file.read_text(encoding="utf-8") == original
 
 
+def _entity_organisation_response(entries, authoritative=True):
+    return {
+        "params": {"authoritative": authoritative},
+        "response": {
+            "data": {
+                "pipeline-summary": {
+                    "entity-organisation": entries,
+                }
+            }
+        },
+    }
+
+
+def test_append_entity_organisation_writes_new_row(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    entity_org_file = tmp_path / "pipeline/test-collection/entity-organisation.csv"
+    _write_csv(entity_org_file, ["dataset", "entity-minimum", "entity-maximum", "organisation"])
+
+    response = _entity_organisation_response(
+        [
+            {
+                "dataset": "nature-improvement-area",
+                "entity-minimum": 10100002,
+                "entity-maximum": 10100005,
+                "organisation": "government-organisation:PB202",
+                "overlap": False,
+                "error": False,
+            }
+        ]
+    )
+
+    add_data.append_entity_organisation(response, "test-collection")
+
+    rows = list(csv.reader(entity_org_file.read_text(encoding="utf-8").splitlines()))
+    assert rows[1] == [
+        "nature-improvement-area",
+        "10100002",
+        "10100005",
+        "government-organisation:PB202",
+    ]
+
+
+def test_append_entity_organisation_skips_entry_missing_range(tmp_path, monkeypatch):
+    """overlap/error entries have no entity-minimum/maximum - must not be written"""
+    monkeypatch.chdir(tmp_path)
+    entity_org_file = tmp_path / "pipeline/test-collection/entity-organisation.csv"
+    _write_csv(entity_org_file, ["dataset", "entity-minimum", "entity-maximum", "organisation"])
+    original = entity_org_file.read_text(encoding="utf-8")
+
+    response = _entity_organisation_response(
+        [
+            {
+                "dataset": "nature-improvement-area",
+                "organisation": "government-organisation:PB202",
+                "overlap": True,
+                "error": False,
+            }
+        ]
+    )
+
+    add_data.append_entity_organisation(response, "test-collection")
+
+    assert entity_org_file.read_text(encoding="utf-8") == original
+
+
+def test_append_entity_organisation_skips_when_not_authoritative(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    entity_org_file = tmp_path / "pipeline/test-collection/entity-organisation.csv"
+    _write_csv(entity_org_file, ["dataset", "entity-minimum", "entity-maximum", "organisation"])
+    original = entity_org_file.read_text(encoding="utf-8")
+
+    response = _entity_organisation_response(
+        [
+            {
+                "dataset": "nature-improvement-area",
+                "entity-minimum": 10100002,
+                "entity-maximum": 10100005,
+                "organisation": "government-organisation:PB202",
+                "overlap": False,
+                "error": False,
+            }
+        ],
+        authoritative=False,
+    )
+
+    add_data.append_entity_organisation(response, "test-collection")
+
+    assert entity_org_file.read_text(encoding="utf-8") == original
+
+
 def test_retire_endpoints_in_csv_updates_source_and_endpoint(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
 

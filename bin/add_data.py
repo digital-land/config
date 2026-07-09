@@ -459,6 +459,13 @@ def append_entity_organisation(response: dict, collection: str) -> None:
 
     rows = []
     for entry in entries:
+        if entry.get("entity-minimum") is None or entry.get("entity-maximum") is None:
+            print(
+                "Skipping entity-organisation entry with no entity-minimum/"
+                f"entity-maximum (overlap={entry.get('overlap')}, "
+                f"error={entry.get('error')})"
+            )
+            continue
         rows.append(
             [
                 entry.get("dataset"),
@@ -467,6 +474,10 @@ def append_entity_organisation(response: dict, collection: str) -> None:
                 entry.get("organisation"),
             ]
         )
+
+    if not rows:
+        print("No valid entity-organisation entries to add, skipping")
+        return
 
     count = append_csv_rows(entity_org_file, rows)
 
