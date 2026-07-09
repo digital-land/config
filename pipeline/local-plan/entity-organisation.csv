@@ -1829,6 +1829,7 @@ plan-timetable,5100088,5100088,local-authority:CAN
 plan-timetable,5100182,5100193,local-authority:CAN
 plan-timetable,5100455,5100458,local-authority:CAN
 plan-timetable,5101752,5101774,local-authority:CAN
+plan-timetable,5110801,5110812,local-authority:CAN
 plan-timetable,5100228,5100230,local-authority:CAS
 plan-timetable,5100233,5100234,local-authority:CAS
 plan-timetable,5100238,5100242,local-authority:CAS
@@ -2133,6 +2134,7 @@ plan-timetable,5100864,5100867,local-authority:LDS
 plan-timetable,5102852,5102857,local-authority:LDS
 plan-timetable,5103187,5103192,local-authority:LDS
 plan-timetable,5105961,5105983,local-authority:LDS
+plan-timetable,5110813,5110835,local-authority:LDS
 plan-timetable,5102858,5102866,local-authority:LEC
 plan-timetable,5103193,5103201,local-authority:LEC
 plan-timetable,5100874,5100877,local-authority:LEE
@@ -2682,5 +2684,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5110801,5110812,local-authority:CAN
-plan-timetable,5110813,5110835,local-authority:LDS

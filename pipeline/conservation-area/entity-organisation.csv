@@ -191,6 +191,7 @@ conservation-area,44005700,44005700,local-authority:CAB
 conservation-area,44006862,44006870,local-authority:CAB
 conservation-area,44012800,44012801,local-authority:CAB
 conservation-area,44011340,44011347,local-authority:CAN
+conservation-area,44016163,44016170,local-authority:CAN
 conservation-area,44010309,44010310,local-authority:CAS
 conservation-area,44001792,44001792,local-authority:CAT
 conservation-area,44001824,44001825,local-authority:CAT
@@ -1745,6 +1746,7 @@ conservation-area-document,6304038,6304057,local-authority:BUN
 conservation-area-document,6307242,6307269,local-authority:BUR
 conservation-area-document,6304058,6304091,local-authority:CAB
 conservation-area-document,6302474,6302483,local-authority:CAN
+conservation-area-document,6316662,6316669,local-authority:CAN
 conservation-area-document,6300230,6300231,local-authority:CAS
 conservation-area-document,6313775,6313835,local-authority:CBF
 conservation-area-document,6300902,6300977,local-authority:CHA
@@ -2040,5 +2042,3 @@ conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
 conservation-area-document,6316552,6316661,national-park-authority:Q72617988
-conservation-area,44016163,44016170,local-authority:CAN
-conservation-area-document,6316662,6316669,local-authority:CAN
