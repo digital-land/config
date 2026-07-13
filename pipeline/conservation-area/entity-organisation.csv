@@ -473,6 +473,7 @@ conservation-area,44012723,44012723,local-authority:GOS
 conservation-area,44012968,44012969,local-authority:GOS
 conservation-area,44001967,44001968,local-authority:GRA
 conservation-area,44004099,44004119,local-authority:GRA
+conservation-area,44016171,44016193,local-authority:GRA
 conservation-area,44008815,44008815,local-authority:GRE
 conservation-area,44009043,44009050,local-authority:GRE
 conservation-area,44009052,44009056,local-authority:GRE
@@ -1809,6 +1810,7 @@ conservation-area-document,6302773,6302792,local-authority:FYL
 conservation-area-document,6304586,6304592,local-authority:GED
 conservation-area-document,6308726,6308760,local-authority:GOS
 conservation-area-document,6304593,6304638,local-authority:GRA
+conservation-area-document,6316670,6316692,local-authority:GRA
 conservation-area-document,6302066,6302111,local-authority:GRE
 conservation-area-document,6308539,6308587,local-authority:GRT
 conservation-area-document,6300684,6300700,local-authority:HAA
@@ -2042,5 +2044,3 @@ conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
 conservation-area-document,6316552,6316661,national-park-authority:Q72617988
-conservation-area,44016171,44016193,local-authority:GRA
-conservation-area-document,6316670,6316692,local-authority:GRA

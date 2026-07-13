@@ -327,6 +327,7 @@ tree-preservation-order,7001099486,7001099486,local-authority:NNO
 tree-preservation-order,7001099494,7001099494,local-authority:NNO
 tree-preservation-order,7001106260,7001106260,local-authority:NNO
 tree-preservation-order,7001110595,7001110595,local-authority:NNO
+tree-preservation-order,7001111026,7001111026,local-authority:NNO
 tree-preservation-order,7001016528,7001022172,local-authority:NSM
 tree-preservation-order,7001025265,7001025265,local-authority:NSM
 tree-preservation-order,7001056112,7001056113,local-authority:NSM
@@ -446,6 +447,7 @@ tree-preservation-zone,19108163,19109735,local-authority:CAT
 tree-preservation-zone,19174676,19176077,local-authority:CLD
 tree-preservation-zone,19185858,19186006,local-authority:CLD
 tree-preservation-zone,19188224,19188313,local-authority:CLD
+tree-preservation-zone,19195257,19195322,local-authority:COL
 tree-preservation-zone,19187574,19188220,local-authority:COT
 tree-preservation-zone,19188915,19188917,local-authority:COT
 tree-preservation-zone,19195249,19195250,local-authority:COT
@@ -519,6 +521,7 @@ tree-preservation-zone,19178266,19178267,local-authority:NNO
 tree-preservation-zone,19186009,19186018,local-authority:NNO
 tree-preservation-zone,19188929,19188929,local-authority:NNO
 tree-preservation-zone,19194842,19194842,local-authority:NNO
+tree-preservation-zone,19195323,19195323,local-authority:NNO
 tree-preservation-zone,19128855,19130267,local-authority:NSM
 tree-preservation-zone,19130707,19130743,local-authority:NSM
 tree-preservation-zone,19130760,19130763,local-authority:NSM
@@ -617,6 +620,3 @@ tree-preservation-zone,19168416,19169313,national-park-authority:Q27159704
 tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-zone,19195257,19195322,local-authority:COL
-tree-preservation-order,7001111026,7001111026,local-authority:NNO
-tree-preservation-zone,19195323,19195323,local-authority:NNO

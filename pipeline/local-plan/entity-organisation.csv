@@ -594,6 +594,7 @@ local-plan,4220679,4220679,local-authority:BRE
 local-plan,4220115,4220115,local-authority:BRM
 local-plan,4220118,4220118,local-authority:BRM
 local-plan,4220685,4220685,local-authority:BRM
+local-plan,4221119,4221120,local-authority:BRM
 local-plan,4220209,4220209,local-authority:BRO
 local-plan,4220683,4220683,local-authority:BRO
 local-plan,4220109,4220109,local-authority:BRT
@@ -1033,6 +1034,7 @@ local-plan,4220483,4220483,local-authority:RDG
 local-plan,4220863,4220863,local-authority:RDG
 local-plan,4220485,4220486,local-authority:RED
 local-plan,4220865,4220865,local-authority:RED
+local-plan,4221117,4221118,local-authority:RED
 local-plan,4220487,4220487,local-authority:REI
 local-plan,4220866,4220866,local-authority:REI
 local-plan,4220488,4220489,local-authority:RIB
@@ -1787,6 +1789,7 @@ plan-timetable,5103937,5103959,local-authority:BRE
 plan-timetable,5100078,5100078,local-authority:BRM
 plan-timetable,5100439,5100441,local-authority:BRM
 plan-timetable,5104052,5104074,local-authority:BRM
+plan-timetable,5110859,5110881,local-authority:BRM
 plan-timetable,5104006,5104028,local-authority:BRO
 plan-timetable,5100004,5100004,local-authority:BRT
 plan-timetable,5100030,5100030,local-authority:BRT
@@ -2281,6 +2284,7 @@ plan-timetable,5101222,5101226,local-authority:RDG
 plan-timetable,5107732,5107754,local-authority:RDG
 plan-timetable,5101231,5101234,local-authority:RED
 plan-timetable,5107778,5107800,local-authority:RED
+plan-timetable,5110836,5110858,local-authority:RED
 plan-timetable,5101235,5101238,local-authority:REI
 plan-timetable,5107801,5107823,local-authority:REI
 plan-timetable,5101239,5101245,local-authority:RIB
@@ -2640,6 +2644,7 @@ waste-plan,540071,540071,local-authority:DUR
 waste-plan,540030,540030,local-authority:GLS
 waste-plan,540031,540031,local-authority:HAM
 waste-plan,540033,540033,local-authority:HEF
+waste-plan,540078,540079,local-authority:HNS
 waste-plan,540034,540035,local-authority:HRT
 waste-plan,540075,540075,local-authority:IOS
 waste-plan,540036,540037,local-authority:KEN
@@ -2684,8 +2689,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221117,4221118,local-authority:RED
-plan-timetable,5110836,5110858,local-authority:RED
-local-plan,4221119,4221120,local-authority:BRM
-waste-plan,540078,540079,local-authority:HNS
-plan-timetable,5110859,5110881,local-authority:BRM
