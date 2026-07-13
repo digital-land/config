@@ -310,9 +310,9 @@ def test_write_summary_appends_markdown(tmp_path, monkeypatch):
 
 
 def test_resolve_api_base_url_by_environment():
-    assert add_data.resolve_api_base_url("development") == "http://development-pub-async-api-lb-69142969.eu-west-2.elb.amazonaws.com"
-    assert add_data.resolve_api_base_url("staging") == "http://staging-pub-async-api-lb-12493311.eu-west-2.elb.amazonaws.com"
-    assert add_data.resolve_api_base_url("production") == "http://production-pub-async-api-lb-636110663.eu-west-2.elb.amazonaws.com"
+    assert add_data.resolve_api_base_url("development") == "https://pub-async.development.planning.data.gov.uk"
+    assert add_data.resolve_api_base_url("staging") == "https://pub-async.staging.planning.data.gov.uk"
+    assert add_data.resolve_api_base_url("production") == "https://pub-async.planning.data.gov.uk"
 
 
 def test_click_cli_wires_options_to_runner(monkeypatch):
