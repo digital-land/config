@@ -819,3 +819,4 @@ c46bcf0152528d30e812add8a41d37aac2eb49438e3970084133ab86a983bd48,https://www.kno
 36d5a39112b01fc0336005fd494bcb053218cbc0aefde87252eaa9f94a5f34eb,https://xmap-hub.s3.eu-west-2.amazonaws.com/public-sector/stafford/digital_planning_data/ccc_conservation_area_documentation.csv,,,2026-07-09,2026-07-09,
 d97c01990c81a18629e0b06f76e4739b1278de2c783c673efcbc850699013e14,https://ccs.maps.xmap.cloud/ccs_public/ccc_conservationarea/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=public:ccc_conservationarea&OUTPUTFORMAT=application/json,,,2026-07-09,2026-07-09,
 c35ce56018df73527d27418d0377403b05fd045d8c9d20f1c499852c747682d2,https://services-eu1.arcgis.com/gENhhjmVDYfAqqnx/arcgis/rest/services/Conservation_area/FeatureServer/0,,arcgis,2026-07-13,2026-07-13,
+f4feb203f8eb268fe8b850358ed4d663ad2742c45589465630cdc8967e2cbc10,https://services-eu1.arcgis.com/gENhhjmVDYfAqqnx/arcgis/rest/services/Conservation_area_document/FeatureServer/0,,arcgis,2026-07-13,2026-07-13,
