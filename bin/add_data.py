@@ -15,9 +15,9 @@ import pandas as pd
 
 
 API_BASE_URL_BY_ENVIRONMENT = {
-    "development": "http://development-pub-async-api-lb-69142969.eu-west-2.elb.amazonaws.com",
-    "staging": "http://staging-pub-async-api-lb-12493311.eu-west-2.elb.amazonaws.com",
-    "production": "http://production-pub-async-api-lb-636110663.eu-west-2.elb.amazonaws.com",
+    "development": "https://pub-async.development.planning.data.gov.uk",
+    "staging": "https://pub-async.staging.planning.data.gov.uk",
+    "production": "https://pub-async.planning.data.gov.uk",
 }
 DEFAULT_ENVIRONMENT = "staging"
 OLD_ENTITY_HEADER = [
