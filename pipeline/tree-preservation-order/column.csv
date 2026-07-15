@@ -445,6 +445,7 @@ tree-preservation-zone,b7c82241d5ad27c0f92cb464dca91aea2461802b345fe3e9df55e844f
 tree-preservation-zone,b7c82241d5ad27c0f92cb464dca91aea2461802b345fe3e9df55e844f4dc477e,,tpo_number,tree-preservation-order,,,
 tree-preservation-zone,b7c82241d5ad27c0f92cb464dca91aea2461802b345fe3e9df55e844f4dc477e,,tpo_type,tree-preservation-zone-type,,,
 tree-preservation-zone,b7c82241d5ad27c0f92cb464dca91aea2461802b345fe3e9df55e844f4dc477e,,species,tree-species-list,,,
+tree-preservation-zone,b860f9806b40f0d32f27075180a79dee0eb6fba60ecde13fc2f156ba16ad5c96,,tpo_type,tree-preservation-zone-type,2026-07-15,,2026-07-15
 tree-preservation-zone,d372312e02ee78347fac7531b43839c4eb3e3247b0b03461a8803a004002bd59,,ADDRESS,address-text,,,
 tree-preservation-zone,d372312e02ee78347fac7531b43839c4eb3e3247b0b03461a8803a004002bd59,,DATE_MODIF,entry-date,,,
 tree-preservation-zone,d372312e02ee78347fac7531b43839c4eb3e3247b0b03461a8803a004002bd59,,DESCRIPT,name,,,
@@ -548,4 +549,3 @@ tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c04
 tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c042efa34f8,tpo,tree-preservation-order,,,
 tree-preservation-zone,,,wkt,geometry,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
-tree-preservation-zone,b860f9806b40f0d32f27075180a79dee0eb6fba60ecde13fc2f156ba16ad5c96,,tpo_type,tree-preservation-zone-type,2026-07-15,,2026-07-15

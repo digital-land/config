@@ -1159,6 +1159,7 @@ conservation-area,44008198,44008198,local-authority:STH
 conservation-area,44012740,44012740,local-authority:STH
 conservation-area,44013448,44013448,local-authority:STH
 conservation-area,44015933,44015953,local-authority:STH
+conservation-area,44016216,44016236,local-authority:STH
 conservation-area,44008764,44008764,local-authority:STN
 conservation-area,44008823,44008825,local-authority:STN
 conservation-area,44008833,44008833,local-authority:STN
@@ -1833,6 +1834,7 @@ conservation-area-document,6308885,6308946,local-authority:HIL
 conservation-area-document,6315645,6315677,local-authority:HIL
 conservation-area-document,6304989,6305037,local-authority:HIN
 conservation-area-document,6309074,6309158,local-authority:HMF
+conservation-area-document,6316714,6316742,local-authority:HNS
 conservation-area-document,6304912,6304927,local-authority:HPL
 conservation-area-document,6300701,6300757,local-authority:HRW
 conservation-area-document,6314648,6314675,local-authority:HRY
@@ -1960,6 +1962,7 @@ conservation-area-document,6305887,6305930,local-authority:STE
 conservation-area-document,6314770,6314791,local-authority:STE
 conservation-area-document,6311903,6311936,local-authority:STF
 conservation-area-document,6306040,6306054,local-authority:STH
+conservation-area-document,6316693,6316713,local-authority:STH
 conservation-area-document,6302188,6302195,local-authority:STN
 conservation-area-document,6311684,6311725,local-authority:STO
 conservation-area-document,6311937,6312088,local-authority:STR
@@ -2045,6 +2048,3 @@ conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
 conservation-area-document,6316552,6316661,national-park-authority:Q72617988
-conservation-area,44016216,44016236,local-authority:STH
-conservation-area-document,6316693,6316713,local-authority:STH
-conservation-area-document,6316714,6316742,local-authority:HNS

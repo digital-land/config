@@ -32,6 +32,7 @@ article-4-direction,6100126,6100155,local-authority:EPS
 article-4-direction,6100335,6100335,local-authority:EPS
 article-4-direction,6102662,6102672,local-authority:ERY
 article-4-direction,6102435,6102435,local-authority:EXE
+article-4-direction,6103370,6103384,local-authority:EXE
 article-4-direction,6102342,6102344,local-authority:FEN
 article-4-direction,6102345,6102346,local-authority:FEN
 article-4-direction,6102345,6102346,local-authority:FOE
@@ -93,6 +94,7 @@ article-4-direction,6100817,6100871,local-authority:SNO
 article-4-direction,6100371,6100386,local-authority:SST
 article-4-direction,6102999,6103001,local-authority:STA
 article-4-direction,6102180,6102206,local-authority:STE
+article-4-direction,6103385,6103392,local-authority:STH
 article-4-direction,6103243,6103369,local-authority:STV
 article-4-direction,6100226,6100229,local-authority:SWK
 article-4-direction,6101015,6101490,local-authority:SWK
@@ -233,6 +235,7 @@ article-4-direction-area,7010007426,7010007429,local-authority:SPE
 article-4-direction-area,7010004773,7010004787,local-authority:SST
 article-4-direction-area,7010009965,7010009967,local-authority:STA
 article-4-direction-area,7010009094,7010009120,local-authority:STE
+article-4-direction-area,7010010155,7010010162,local-authority:STH
 article-4-direction-area,7010003472,7010003895,local-authority:SWK
 article-4-direction-area,7010003908,7010003962,local-authority:SWK
 article-4-direction-area,7010006913,7010006913,local-authority:SWK
@@ -256,6 +259,3 @@ article-4-direction-area,7010009089,7010009092,local-authority:YOR
 article-4-direction-area,7010009405,7010009434,national-park-authority:Q27159704
 article-4-direction-area,7010006887,7010006912,national-park-authority:Q72617158
 article-4-direction-area,7010010088,7010010113,national-park-authority:Q72617988
-article-4-direction,6103370,6103384,local-authority:EXE
-article-4-direction,6103385,6103392,local-authority:STH
-article-4-direction-area,7010010155,7010010162,local-authority:STH
