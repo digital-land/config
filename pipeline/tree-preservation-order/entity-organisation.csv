@@ -624,3 +624,8 @@ tree,7002248363,7002252840,local-authority:STH
 tree-preservation-order,7001111027,7001117942,local-authority:STH
 tree-preservation-zone,19195324,19197761,local-authority:STH
 tree-preservation-zone,19197762,19205270,local-authority:NET
+tree-preservation-order,7001117943,7001117945,local-authority:TOB
+tree-preservation-zone,19205271,19205273,local-authority:TOB
+tree,7002252841,7002252842,local-authority:TOB
+tree,7002252843,7002252843,local-authority:NSM
+tree-preservation-order,7001117946,7001117946,local-authority:NSM
