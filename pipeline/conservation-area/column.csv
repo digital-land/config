@@ -595,3 +595,6 @@ conservation-area-document,f83b9f067c28765c7d7576ac51cef6a74017dcbb406e017cc9e59
 conservation-area-document,fb2653ce8185a2888ac99ae7f6f193c138bddfb066d48072a51492270dddf04a,,organisation,IGNORE,,,
 conservation-area-document,,,organisation,IGNORE,,,
 conservation-area-document,,,entity,IGNORE,,,
+conservation-area-document,bb95c31686ff617cc45ee4e633209bc363a7043b4450e42658c302a0bde733b2,,SUPPLIER_NAME,conservation-area,2026-07-15,,2026-07-15
+conservation-area-document,bb95c31686ff617cc45ee4e633209bc363a7043b4450e42658c302a0bde733b2,,CONSERVATION_AREA_REF,reference,2026-07-15,,2026-07-15
+conservation-area-document,bb95c31686ff617cc45ee4e633209bc363a7043b4450e42658c302a0bde733b2,,CONSERVATION_AREA_NAME,name,2026-07-15,,2026-07-15
