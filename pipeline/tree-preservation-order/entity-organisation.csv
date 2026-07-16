@@ -364,6 +364,7 @@ tree-preservation-order,7001106259,7001106259,local-authority:SCA
 tree-preservation-order,7001066043,7001066315,local-authority:SFT
 tree-preservation-order,7001067887,7001067888,local-authority:SFT
 tree-preservation-order,7001055060,7001056068,local-authority:SGC
+tree-preservation-order,7001117947,7001123934,local-authority:SGC
 tree-preservation-order,7001077494,7001078364,local-authority:SKP
 tree-preservation-order,7001093313,7001093315,local-authority:SKP
 tree-preservation-order,7001067894,7001068400,local-authority:SLF
@@ -629,4 +630,3 @@ tree-preservation-zone,19168416,19169313,national-park-authority:Q27159704
 tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-order,7001117947,7001123934,local-authority:SGC

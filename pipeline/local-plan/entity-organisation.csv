@@ -1250,6 +1250,7 @@ local-plan,4220399,4220400,local-authority:WND
 local-plan,4220813,4220813,local-authority:WND
 local-plan,4220508,4220509,local-authority:WNM
 local-plan,4220876,4220876,local-authority:WNM
+local-plan,4221121,4221123,local-authority:WNM
 local-plan,4220633,4220636,local-authority:WNUA
 local-plan,4220951,4220951,local-authority:WNUA
 local-plan,4220961,4220961,local-authority:WOC
@@ -1659,6 +1660,7 @@ minerals-plan,530000,530000,local-planning-group:BDF-CBF-LUT
 minerals-plan,530020,530022,local-planning-group:BNH-ESX-Q20198711
 minerals-plan,530003,530003,local-planning-group:BOL-BUR-MAN-OLD-RCH-SKP-SLF-TAM-TRF-WGN
 minerals-plan,530004,530004,local-planning-group:BRC-RDG-WBK-WOK
+minerals-plan,530075,530075,local-planning-group:BRC-RDG-WBK-WOK
 minerals-plan,530005,530007,local-planning-group:CAM-PTE
 minerals-plan,530012,530013,local-planning-group:DAL-HPL-MDB-RCC-STT
 minerals-plan,530014,530014,local-planning-group:DBY-DER
@@ -2507,6 +2509,7 @@ plan-timetable,5101012,5101015,local-authority:WND
 plan-timetable,5106697,5106719,local-authority:WND
 plan-timetable,5101282,5101285,local-authority:WNM
 plan-timetable,5108031,5108053,local-authority:WNM
+plan-timetable,5110882,5110896,local-authority:WNM
 plan-timetable,5100607,5100610,local-authority:WNUA
 plan-timetable,5101639,5101641,local-authority:WNUA
 plan-timetable,5109457,5109479,local-authority:WNUA
@@ -2678,6 +2681,7 @@ waste-plan,540027,540029,local-planning-group:BNH-ESX-Q20198711
 waste-plan,540009,540009,local-planning-group:BNS-DNC-ROT
 waste-plan,540010,540010,local-planning-group:BOL-BUR-MAN-OLD-RCH-SKP-SLF-TAM-TRF-WGN
 waste-plan,540011,540011,local-planning-group:BRC-RDG-WBK-WOK
+waste-plan,540080,540080,local-planning-group:BRC-RDG-WBK-WOK
 waste-plan,540013,540015,local-planning-group:CAM-PTE
 waste-plan,540019,540020,local-planning-group:CRY-KTT-MRT-STN
 waste-plan,540021,540022,local-planning-group:DAL-HPL-MDB-RCC-STT
@@ -2690,7 +2694,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5110882,5110896,local-authority:WNM
-local-plan,4221121,4221123,local-authority:WNM
-minerals-plan,530075,530075,local-planning-group:BRC-RDG-WBK-WOK
-waste-plan,540080,540080,local-planning-group:BRC-RDG-WBK-WOK
