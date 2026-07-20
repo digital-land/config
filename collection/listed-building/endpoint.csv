@@ -132,3 +132,4 @@ e181663a124522b3f7b1b781e5725d62501da5a2364a8ad26c2c3262ded5176a,https://service
 eadea6cd90a664a95214ec9aa2853a0cd040667b678f8beb6cab796bbeffdcb5,https://www.southampton.gov.uk/geoserver/Data/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Data%3ALISTED_BUILDINGS_DATA&outputFormat=csv&srsName=EPSG:4326,,,2026-07-15,2026-07-15,
 630b8476c066e07d3d6e0c44354785854e640674f60acc74afa6f1ca232d22e1,https://webmap.newcastle-staffs.gov.uk/arcgisweb/rest/services/WebMap/Planning_Data_Platform/FeatureServer/4,,arcgis,2026-07-16,2026-07-16,
 fa4024836782898ef220e74e568dd62569432d11ed95f6074049a560dc26ec19,https://services-eu1.arcgis.com/J3nU4ueuolsQK4wE/arcgis/rest/services/CBC_Listed_Buildings_view/FeatureServer/0,,arcgis,2026-07-17,2026-07-17,
+21dfbb813b3c7e7e3ec789b52b4149fe1fcac8a0579ca03a918cb6a6a0ba0b08,https://services5.arcgis.com/C36oYlzCOmDbFbhM/ArcGIS/rest/services/Listed_Building/FeatureServer/433,,arcgis,2026-07-20,2026-07-20,
