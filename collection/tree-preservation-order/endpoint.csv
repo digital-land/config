@@ -262,3 +262,4 @@ ae20e1884b354e01a198384ea1a4d1d86ffc430e71f610a35d82290570b866c2,https://www.sou
 b860f9806b40f0d32f27075180a79dee0eb6fba60ecde13fc2f156ba16ad5c96,https://gismo.newcastle.gov.uk/geoserver/gis/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis%3ATPO_OpenData&maxFeatures=9000&outputFormat=application%2Fjson,,,2026-07-15,2026-07-15,
 bd45f59a4ee8ea55fb05f7e451782d3e9c7887602e464faee293c63b6eab938e,https://www.southampton.gov.uk/geoserver/Data/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Data%3ATPOS_DATA_EXT&outputFormat=csv&srsName=EPSG:4326,,,2026-07-15,2026-07-15,
 5026cfa02b694a72a9781cdcdc5be46a13f002af78075eb6fe17e7510a60773f,https://hosted.southglos.gov.uk/OpenData/TPO/TreePreservationOrders.json.txt,,,2026-07-16,2026-07-16,
+811374c70ee7637ee84c9ae39a92cafca8e6af10f62fce8058fd95c2ab0416fc,https://www.stevenage.gov.uk/documents/planning-policy/datasets/sbc-tree-preservation-order-dataset-july-2026.csv,,,2026-07-20,2026-07-20,
