@@ -639,3 +639,5 @@ tree,7002252851,7002254178,local-authority:STV
 tree,7002254179,7002254503,national-park-authority:Q72617988
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone,19205827,19205841,local-authority:STV
+tree,7002254504,7002254506,local-authority:SCA
+tree-preservation-order,7001125283,7001125284,local-authority:SCA
