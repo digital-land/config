@@ -272,3 +272,4 @@ e2a10e3c8e4b1f3977ef8a3df416a02301661777a2b1ff70f3b83f369e4b6d95,https://webmap.
 4ab5950c1278f867fdaf272a78cc9d5fb9c72908faa2384298d28a9e3192bf94,https://exeter.gov.uk/media/nl2fg3yl/article-4-direction.csv,,,2026-07-15,2026-07-15,
 cd84c15f8f3a9b21435d1ce037fc37946742686a9d34f2ed661784c3de254326,https://www.southampton.gov.uk/geoserver/Data/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Data%3AARTICLE_4_DIRECTION_AREA&maxFeatures=50&outputFormat=csv&srsName=EPSG:4326,,,2026-07-15,2026-07-15,
 cd84c15f8f3a9b21435d1ce037fc37946742686a9d34f2ed661784c3de254326,https://www.southampton.gov.uk/geoserver/Data/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Data%3AARTICLE_4_DIRECTION_AREA&maxFeatures=50&outputFormat=csv&srsName=EPSG:4326,,,2026-07-15,2026-07-15,
+ece7dd92c7c480257e230ef0f7f173d1d0970ae5ab336803d60e26ff54b980b3,https://www.stevenage.gov.uk/documents/planning-policy/sbc-article-4-direction-dataset.csv,,,2026-07-20,2026-07-20,
