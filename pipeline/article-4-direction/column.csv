@@ -35,6 +35,8 @@ article-4-direction-area,0c73554d24de07895c68bcbc38e958a9776348338ff2493dae5a22f
 article-4-direction-area,11ceb6807ca6320712e4b589a625e94a6efada5c41928b91579ee7abf236fcae,,fid,reference,,,
 article-4-direction-area,1de93b35ebb37c3b0d5baeb1383cf783b8661ec482f1fd34b4d64efd5e8d1b48,,Article_4_Direction,description,,,
 article-4-direction-area,1de93b35ebb37c3b0d5baeb1383cf783b8661ec482f1fd34b4d64efd5e8d1b48,,More_information,notes,,,
+article-4-direction-area,1f8557a341096cf1d0244326fc8c9e956775c8bd20c90f4a1297619b398aaf54,,address-text,address-texts,2026-07-20,,2026-07-20
+article-4-direction-area,1f8557a341096cf1d0244326fc8c9e956775c8bd20c90f4a1297619b398aaf54,,uprn,uprns,2026-07-20,,2026-07-20
 article-4-direction-area,22315c9b87efad5eb741898c47dc22eba4cfd3fede17768d95c73f772bd5f9bf,,Document_Reference,article-4-direction,,,
 article-4-direction-area,2313bda769b03209f22fa595c3e4a4350720870fd5b5f6708f67a8b71ff70361,,document-url,article-4-direction,2026-07-13,,2026-07-13
 article-4-direction-area,2313bda769b03209f22fa595c3e4a4350720870fd5b5f6708f67a8b71ff70361,,na,IGNORE,2026-07-13,,2026-07-13
@@ -82,6 +84,8 @@ article-4-direction-area,5c8df815e3259c1327301182926edff3fff3a29a5f7df4af90c5cf0
 article-4-direction-area,5c8df815e3259c1327301182926edff3fff3a29a5f7df4af90c5cf00e0c3b75f,,DATE_CONF,start-date,,,
 article-4-direction-area,5fc20cc8e733d12f262bab292b81cb38ff35fb8d17b8503005403652759ba7b3,,address,name,,,
 article-4-direction-area,5fc20cc8e733d12f262bab292b81cb38ff35fb8d17b8503005403652759ba7b3,,address,reference,,,
+article-4-direction-area,63a580ef74bdb02a01f69b8c8dfc12d98c39da75048863b102d5f6cd9019af4d,,address-text,address-texts,2026-07-20,,2026-07-20
+article-4-direction-area,63a580ef74bdb02a01f69b8c8dfc12d98c39da75048863b102d5f6cd9019af4d,,uprn,uprns,2026-07-20,,2026-07-20
 article-4-direction-area,65672f37a643acac1a9d5599a0631db5d9bad9b2cf8874cc7214f06a712664b2,,DEV_TYPE,name,,,
 article-4-direction-area,65672f37a643acac1a9d5599a0631db5d9bad9b2cf8874cc7214f06a712664b2,,INT_ID,reference,,,
 article-4-direction-area,65672f37a643acac1a9d5599a0631db5d9bad9b2cf8874cc7214f06a712664b2,,DATE_CONF,start-date,,,
@@ -144,6 +148,10 @@ article-4-direction-area,e7a76e75e24a96e2b8cf2ee39cdd7bd4fc7fe5978cc77828434787f
 article-4-direction-area,e935a753199dad133aadb816f708e306b63f4e05b5023aa35cd0831a2f26fde5,,address-text,address-texts,,,
 article-4-direction-area,e935a753199dad133aadb816f708e306b63f4e05b5023aa35cd0831a2f26fde5,,Restriction,notes,,,
 article-4-direction-area,e935a753199dad133aadb816f708e306b63f4e05b5023aa35cd0831a2f26fde5,,UPRN,uprns,,,
+article-4-direction-area,ece7dd92c7c480257e230ef0f7f173d1d0970ae5ab336803d60e26ff54b980b3,,Address,address-texts,2026-07-20,,2026-07-20
+article-4-direction-area,ece7dd92c7c480257e230ef0f7f173d1d0970ae5ab336803d60e26ff54b980b3,,Article 4 Direction,article-4-direction,2026-07-20,,2026-07-20
+article-4-direction-area,ece7dd92c7c480257e230ef0f7f173d1d0970ae5ab336803d60e26ff54b980b3,,na,IGNORE,2026-07-20,,2026-07-20
+article-4-direction-area,ece7dd92c7c480257e230ef0f7f173d1d0970ae5ab336803d60e26ff54b980b3,,Permitted Development Right,permitted-development-rights,2026-07-20,,2026-07-20
 article-4-direction-area,f3a8c9747bd876f26208ddfe0dddcf2fd6354ec88fa6eb671575187781bbb783,,Article_4_Direction,description,,,
 article-4-direction-area,f3a8c9747bd876f26208ddfe0dddcf2fd6354ec88fa6eb671575187781bbb783,,More_information,notes,,,
 article-4-direction-area,f710d80e5a2fef8013f5af997839a1fa84e1c25246eed5c2c8895f7566e35715,,Address,address-texts,,,
@@ -216,11 +224,3 @@ article-4-direction-area,,,Designatio,notes,,,
 article-4-direction-area,,,CODE,reference,,,
 article-4-direction-area,,,geography,reference,,,
 article-4-direction-area,,,START_DATE,start-date,,,
-article-4-direction-area,ece7dd92c7c480257e230ef0f7f173d1d0970ae5ab336803d60e26ff54b980b3,,na,IGNORE,2026-07-20,,2026-07-20
-article-4-direction-area,ece7dd92c7c480257e230ef0f7f173d1d0970ae5ab336803d60e26ff54b980b3,,Address,address-texts,2026-07-20,,2026-07-20
-article-4-direction-area,ece7dd92c7c480257e230ef0f7f173d1d0970ae5ab336803d60e26ff54b980b3,,Article 4 Direction,article-4-direction,2026-07-20,,2026-07-20
-article-4-direction-area,ece7dd92c7c480257e230ef0f7f173d1d0970ae5ab336803d60e26ff54b980b3,,Permitted Development Right,permitted-development-rights,2026-07-20,,2026-07-20
-article-4-direction-area,63a580ef74bdb02a01f69b8c8dfc12d98c39da75048863b102d5f6cd9019af4d,,uprn,uprns,2026-07-20,,2026-07-20
-article-4-direction-area,63a580ef74bdb02a01f69b8c8dfc12d98c39da75048863b102d5f6cd9019af4d,,address-text,address-texts,2026-07-20,,2026-07-20
-article-4-direction-area,1f8557a341096cf1d0244326fc8c9e956775c8bd20c90f4a1297619b398aaf54,,uprn,uprns,2026-07-20,,2026-07-20
-article-4-direction-area,1f8557a341096cf1d0244326fc8c9e956775c8bd20c90f4a1297619b398aaf54,,address-text,address-texts,2026-07-20,,2026-07-20

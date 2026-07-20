@@ -1,6 +1,7 @@
 dataset,entity-minimum,entity-maximum,organisation
 article-4-direction,6102302,6102310,local-authority:ADU
 article-4-direction,6100940,6101014,local-authority:ASF
+article-4-direction,6103393,6103395,local-authority:BAN
 article-4-direction,6100879,6100881,local-authority:BDG
 article-4-direction,6103139,6103177,local-authority:BEN
 article-4-direction,6100340,6100352,local-authority:BIR
@@ -119,6 +120,7 @@ article-4-direction,6100914,6100939,national-park-authority:Q72617158
 article-4-direction,6103203,6103228,national-park-authority:Q72617988
 article-4-direction-area,7010009055,7010009063,local-authority:ADU
 article-4-direction-area,7010006812,7010006886,local-authority:ASF
+article-4-direction-area,7010010292,7010010294,local-authority:BAN
 article-4-direction-area,7010002547,7010002549,local-authority:BDG
 article-4-direction-area,7010002745,7010002745,local-authority:BDG
 article-4-direction-area,7010004011,7010004011,local-authority:BDG
@@ -237,6 +239,7 @@ article-4-direction-area,7010004773,7010004787,local-authority:SST
 article-4-direction-area,7010009965,7010009967,local-authority:STA
 article-4-direction-area,7010009094,7010009120,local-authority:STE
 article-4-direction-area,7010010155,7010010162,local-authority:STH
+article-4-direction-area,7010010165,7010010291,local-authority:STV
 article-4-direction-area,7010003472,7010003895,local-authority:SWK
 article-4-direction-area,7010003908,7010003962,local-authority:SWK
 article-4-direction-area,7010006913,7010006913,local-authority:SWK
@@ -260,6 +263,3 @@ article-4-direction-area,7010009089,7010009092,local-authority:YOR
 article-4-direction-area,7010009405,7010009434,national-park-authority:Q27159704
 article-4-direction-area,7010006887,7010006912,national-park-authority:Q72617158
 article-4-direction-area,7010010088,7010010113,national-park-authority:Q72617988
-article-4-direction-area,7010010165,7010010291,local-authority:STV
-article-4-direction,6103393,6103395,local-authority:BAN
-article-4-direction-area,7010010292,7010010294,local-authority:BAN

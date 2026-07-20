@@ -39,6 +39,7 @@ conservation-area,44001663,44001664,local-authority:BAI
 conservation-area,44005370,44005371,local-authority:BAI
 conservation-area,44003524,44003563,local-authority:BAN
 conservation-area,44006782,44006784,local-authority:BAN
+conservation-area,44016237,44016279,local-authority:BAN
 conservation-area,44000195,44000222,local-authority:BAS
 conservation-area,44006553,44006553,local-authority:BAS
 conservation-area,44006636,44006637,local-authority:BAS
@@ -1714,6 +1715,7 @@ conservation-area-document,6302937,6302980,local-authority:ASH
 conservation-area-document,6303568,6303594,local-authority:BAB
 conservation-area-document,6302685,6302750,local-authority:BAE
 conservation-area-document,6306721,6306805,local-authority:BAN
+conservation-area-document,6316773,6316815,local-authority:BAN
 conservation-area-document,6303595,6303617,local-authority:BAS
 conservation-area-document,6306595,6306595,local-authority:BAS
 conservation-area-document,6306981,6307008,local-authority:BBD
@@ -1969,6 +1971,7 @@ conservation-area-document,6311684,6311725,local-authority:STO
 conservation-area-document,6311937,6312088,local-authority:STR
 conservation-area-document,6306022,6306032,local-authority:STT
 conservation-area-document,6306033,6306039,local-authority:STV
+conservation-area-document,6316766,6316772,local-authority:STV
 conservation-area-document,6306168,6306178,local-authority:STY
 conservation-area-document,6306055,6306153,local-authority:SUA
 conservation-area-document,6309510,6309512,local-authority:SUA
@@ -2049,6 +2052,3 @@ conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
 conservation-area-document,6316552,6316661,national-park-authority:Q72617988
-conservation-area-document,6316766,6316772,local-authority:STV
-conservation-area,44016237,44016279,local-authority:BAN
-conservation-area-document,6316773,6316815,local-authority:BAN
