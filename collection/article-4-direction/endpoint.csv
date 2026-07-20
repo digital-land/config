@@ -251,7 +251,7 @@ f202b17499e541f5dc283650aa69b6248f72de72bef95f54830f20fca85592b0,https://www.sci
 00022295db6fce8a35fbb3bd1989670832aa310e3bd12b8f5820750dcc0e46dd,https://dservices-eu1.arcgis.com/RueeNoynTFyAIwKy/arcgis/services/Article_4_Direction_WFS/WFSServer?request=getcapabilities&service=wfs,,,2026-05-29,2026-05-28,
 ca2380a730503c79807af758c8c6b9c2d8f253216b27276c88865ce0d6aad0d0,https://services.arcgis.com/wDcUiJYKtMulHM03/ArcGIS/rest/services/OPD_article4/FeatureServer/0,,arcgis,2026-06-03,2026-06-03,
 e4b2a6820723d1aa5b2f42ea037b4377f99fdcb46d9d2123d8411bce94d7ff5b,https://mapservices.leeds.gov.uk/arcgis/rest/services/Public/Strategic_Planning/FeatureServer/73,,arcgis,2026-06-05,2026-06-05,
-1297a55e1985962be064c4a8d3ba877c814d3f547aef6d46f2538a5b672a2b51,https://exeter.gov.uk/media/joopqe5e/article-4-direction.csv,,,2026-06-10,2026-06-10,
+1297a55e1985962be064c4a8d3ba877c814d3f547aef6d46f2538a5b672a2b51,https://exeter.gov.uk/media/joopqe5e/article-4-direction.csv,,,2026-06-10,2026-06-10,2026-07-20
 3926f93c42c310959af55780e5ce6ed0d8cfb8a849de5dcbb4b758a384036e31,https://burnley.gov.uk/wp-content/uploads/2026/06/Article-4-direction-area.csv,,,2026-06-10,2026-06-10,
 d4ae7ce4ecfe4e895a86750410faac74658b5608c4242ac1dc9d68382f7d8870,https://bmaps.brent.gov.uk/ext/odp/article_4_direction.csv,,,2026-06-17,2026-06-17,
 56ee4d8389321b7bcb73af50bcc9de1e757078fa7185ecb47ab6a139e2e9f254,https://burnley.gov.uk/wp-content/uploads/2026/06/Article-4-direction-dataset.csv,,,2026-06-23,2026-06-23,
@@ -275,3 +275,4 @@ cd84c15f8f3a9b21435d1ce037fc37946742686a9d34f2ed661784c3de254326,https://www.sou
 ece7dd92c7c480257e230ef0f7f173d1d0970ae5ab336803d60e26ff54b980b3,https://www.stevenage.gov.uk/documents/planning-policy/sbc-article-4-direction-dataset.csv,,,2026-07-20,2026-07-20,
 a6db38a4f1bf673b3ef719b5dc86bb40947093c6a0029a5d92488969ef3ca83c,https://www.basingstoke.gov.uk/content/page/94847/DPIF%20-%20Article%204%20direction%20dataset.csv,,,2026-07-20,2026-07-20,
 63a580ef74bdb02a01f69b8c8dfc12d98c39da75048863b102d5f6cd9019af4d,https://www.basingstoke.gov.uk/content/page/94848/DPIF%20-%20Article%204%20direction%20area%20dataset.csv,,,2026-07-20,2026-07-20,
+1f8557a341096cf1d0244326fc8c9e956775c8bd20c90f4a1297619b398aaf54,https://exeter.gov.uk/media/pfeaqvbi/article-4-direction-area.csv,,,2026-07-20,2026-07-20,
