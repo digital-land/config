@@ -564,3 +564,8 @@ tree,2afe0954c0a5a5babcfa9117b87bece02b552bf92ce1f98f6b0a1e5c2ba2f4b2,,Entry dat
 tree,2afe0954c0a5a5babcfa9117b87bece02b552bf92ce1f98f6b0a1e5c2ba2f4b2,,Start date,start-date,2026-07-20,,2026-07-20
 tree,2afe0954c0a5a5babcfa9117b87bece02b552bf92ce1f98f6b0a1e5c2ba2f4b2,,Date Felled,felled-date,2026-07-20,,2026-07-20
 tree,2afe0954c0a5a5babcfa9117b87bece02b552bf92ce1f98f6b0a1e5c2ba2f4b2,,Document URL,address-text,2026-07-20,,2026-07-20
+tree-preservation-zone,5cab61454a613dcd34b698a8d4da3c67138f6855c673a7a79cb1f39a8d2765e0,,TPO,tree-preservation-order,2026-07-20,,2026-07-20
+tree-preservation-zone,5cab61454a613dcd34b698a8d4da3c67138f6855c673a7a79cb1f39a8d2765e0,,End Date,end-date,2026-07-20,,2026-07-20
+tree-preservation-zone,5cab61454a613dcd34b698a8d4da3c67138f6855c673a7a79cb1f39a8d2765e0,,Tree Type,tree-preservation-zone-type,2026-07-20,,2026-07-20
+tree-preservation-zone,5cab61454a613dcd34b698a8d4da3c67138f6855c673a7a79cb1f39a8d2765e0,,Entry Date,entry-date,2026-07-20,,2026-07-20
+tree-preservation-zone,5cab61454a613dcd34b698a8d4da3c67138f6855c673a7a79cb1f39a8d2765e0,,Start Date,start-date,2026-07-20,,2026-07-20
