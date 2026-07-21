@@ -1020,6 +1020,7 @@ local-plan,4220860,4220860,local-authority:PLY
 local-plan,4221034,4221035,local-authority:PLY
 local-plan,4220479,4220479,local-authority:POR
 local-plan,4220861,4220861,local-authority:POR
+local-plan,4221124,4221124,local-authority:POR
 local-plan,4220480,4220481,local-authority:PRE
 local-plan,4220862,4220862,local-authority:PRE
 local-plan,4220473,4220474,local-authority:PTE
@@ -2273,6 +2274,7 @@ plan-timetable,5107663,5107685,local-authority:PLY
 plan-timetable,5110488,5110502,local-authority:PLY
 plan-timetable,5101213,5101217,local-authority:POR
 plan-timetable,5107686,5107708,local-authority:POR
+plan-timetable,5110912,5110926,local-authority:POR
 plan-timetable,5107709,5107731,local-authority:PRE
 plan-timetable,5101205,5101208,local-authority:PTE
 plan-timetable,5107640,5107662,local-authority:PTE
@@ -2627,6 +2629,7 @@ plan-timetable,5104029,5104051,national-park-authority:Q4972284
 plan-timetable,5100306,5100306,national-park-authority:Q5225646
 plan-timetable,5100604,5100606,national-park-authority:Q5225646
 plan-timetable,5104788,5104810,national-park-authority:Q5225646
+plan-timetable,5110897,5110911,national-park-authority:Q5225646
 plan-timetable,5101091,5101094,national-park-authority:Q72617158
 plan-timetable,5107065,5107087,national-park-authority:Q72617158
 plan-timetable,5101158,5101161,national-park-authority:Q72617669
@@ -2694,6 +2697,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5110897,5110911,national-park-authority:Q5225646
-local-plan,4221124,4221124,local-authority:POR
-plan-timetable,5110912,5110926,local-authority:POR

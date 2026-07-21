@@ -94,6 +94,8 @@ article-4-direction-area,657ede08e75ebdacbf21522a8f312e05297cd19ece206c92512db28
 article-4-direction-area,6b7a06249d6ce97ff65cb4431b8ad315bf21b6f5da1e856ad566a618ac60e0a8,,Article_4_Direction,description,,,
 article-4-direction-area,6b7a06249d6ce97ff65cb4431b8ad315bf21b6f5da1e856ad566a618ac60e0a8,,More_information,notes,,,
 article-4-direction-area,6d1f1434c3f7344529ca84153f34cf7b3e14e07bd6f01419c74e478425851b18,,Name_,name,2026-03-31,,2026-04-01
+article-4-direction-area,6df0f48688547fa37a9de0f3c336d3e789cef20abfaa29fdb119c01d7e77135e,,address_text,address-texts,2026-07-21,,2026-07-21
+article-4-direction-area,6df0f48688547fa37a9de0f3c336d3e789cef20abfaa29fdb119c01d7e77135e,,uprn,uprns,2026-07-21,,2026-07-21
 article-4-direction-area,7611c4b234779a4a7783655b0f06f0d72f0a2b2022eec2319b4e00c7f7d90e4c,,DESCRIPTIO,description,,,
 article-4-direction-area,7611c4b234779a4a7783655b0f06f0d72f0a2b2022eec2319b4e00c7f7d90e4c,,gml_id,name,,,
 article-4-direction-area,7611c4b234779a4a7783655b0f06f0d72f0a2b2022eec2319b4e00c7f7d90e4c,,SECTION,notes,,,
@@ -224,5 +226,3 @@ article-4-direction-area,,,Designatio,notes,,,
 article-4-direction-area,,,CODE,reference,,,
 article-4-direction-area,,,geography,reference,,,
 article-4-direction-area,,,START_DATE,start-date,,,
-article-4-direction-area,6df0f48688547fa37a9de0f3c336d3e789cef20abfaa29fdb119c01d7e77135e,,uprn,uprns,2026-07-21,,2026-07-21
-article-4-direction-area,6df0f48688547fa37a9de0f3c336d3e789cef20abfaa29fdb119c01d7e77135e,,address_text,address-texts,2026-07-21,,2026-07-21
