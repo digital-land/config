@@ -990,6 +990,7 @@ local-plan,4220447,4220447,local-authority:NTY
 local-plan,4220843,4220843,local-authority:NTY
 local-plan,4220459,4220459,local-authority:NUN
 local-plan,4220852,4220852,local-authority:NUN
+local-plan,4221125,4221126,local-authority:NUN
 local-plan,4220448,4220448,local-authority:NWA
 local-plan,4220844,4220844,local-authority:NWA
 local-plan,4220449,4220450,local-authority:NWL
@@ -2697,4 +2698,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221125,4221126,local-authority:NUN
