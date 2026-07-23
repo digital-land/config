@@ -775,6 +775,7 @@ local-plan,4220736,4220736,local-authority:EST
 local-plan,4221093,4221095,local-authority:EST
 local-plan,4220298,4220300,local-authority:EXE
 local-plan,4220745,4220745,local-authority:EXE
+local-plan,4221127,4221129,local-authority:EXE
 local-plan,4220053,4220053,local-authority:FAR
 local-plan,4220302,4220302,local-authority:FAR
 local-plan,4220747,4220747,local-authority:FAR
@@ -2001,6 +2002,7 @@ plan-timetable,5105064,5105086,local-authority:EST
 plan-timetable,5110621,5110636,local-authority:EST
 plan-timetable,5100694,5100701,local-authority:EXE
 plan-timetable,5105225,5105247,local-authority:EXE
+plan-timetable,5110927,5110936,local-authority:EXE
 plan-timetable,5100160,5100163,local-authority:FAR
 plan-timetable,5100167,5100168,local-authority:FAR
 plan-timetable,5100296,5100296,local-authority:FAR
@@ -2641,6 +2643,7 @@ plan-timetable,5105248,5105270,national-park-authority:Q72617784
 plan-timetable,5101167,5101170,national-park-authority:Q72617890
 plan-timetable,5107456,5107478,national-park-authority:Q72617890
 plan-timetable,5107617,5107639,national-park-authority:Q72617988
+supplementary-plan,550005,550018,local-authority:EXE
 supplementary-plan,550000,550003,local-authority:IOS
 supplementary-plan,550004,550004,local-authority:NET
 waste-plan,540005,540006,local-authority:BKM
@@ -2698,6 +2701,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221127,4221129,local-authority:EXE
-supplementary-plan,550005,550018,local-authority:EXE
-plan-timetable,5110927,5110936,local-authority:EXE
