@@ -2232,6 +2232,7 @@ plan-timetable,5101121,5101126,local-authority:NLN
 plan-timetable,5107249,5107271,local-authority:NLN
 plan-timetable,5101127,5101137,local-authority:NNO
 plan-timetable,5102127,5102149,local-authority:NNO
+plan-timetable,5110937,5110948,local-authority:NNO
 plan-timetable,5100563,5100566,local-authority:NNUA
 plan-timetable,5101138,5101140,local-authority:NNUA
 plan-timetable,5107272,5107294,local-authority:NNUA
@@ -2701,4 +2702,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5110937,5110948,local-authority:NNO

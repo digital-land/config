@@ -151,6 +151,7 @@ tree,7002130912,7002132150,local-authority:SLF
 tree,7002140598,7002140626,local-authority:SLF
 tree,7002160891,7002160918,local-authority:SLF
 tree,7002248345,7002248349,local-authority:SLF
+tree,7002254507,7002254507,local-authority:SLF
 tree,7002185358,7002185657,local-authority:SPE
 tree,7002083107,7002087725,local-authority:SST
 tree,7002096864,7002096871,local-authority:SST
@@ -641,4 +642,3 @@ tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002254507,7002254507,local-authority:SLF
