@@ -104,8 +104,24 @@ jobs:
             echo "Found PR #$PR_NUMBER"
           fi
 
+      - name: Check latest test status
+        id: check-tests
+        if: steps.check-pr.outputs.pr_exists == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          FAILING=$(gh pr checks ${{ steps.check-pr.outputs.pr_number }} --json name,bucket \
+            --jq '[.[] | select(.bucket != "pass" and .bucket != "skipping")] | length') || FAILING=1
+
+          if [ "$FAILING" -gt 0 ]; then
+            echo "tests_passed=false" >> $GITHUB_OUTPUT
+            echo "One or more checks on config-manager-update are failing or still pending — not merging."
+          else
+            echo "tests_passed=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Approve PR
-        if: steps.check-pr.outputs.pr_exists == 'true' && env.WRITES_ENABLED == 'true'
+        if: steps.check-pr.outputs.pr_exists == 'true' && steps.check-tests.outputs.tests_passed == 'true' && env.WRITES_ENABLED == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -114,7 +130,7 @@ jobs:
             --body "Auto-approved by workflow"
 
       - name: Merge PR with squash
-        if: steps.check-pr.outputs.pr_exists == 'true' && env.WRITES_ENABLED == 'true'
+        if: steps.check-pr.outputs.pr_exists == 'true' && steps.check-tests.outputs.tests_passed == 'true' && env.WRITES_ENABLED == 'true'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
@@ -123,10 +139,16 @@ jobs:
             --delete-branch \
             --admin
 
+      - name: Fail job if merge was skipped due to failing tests
+        if: steps.check-pr.outputs.pr_exists == 'true' && steps.check-tests.outputs.tests_passed == 'false' && env.WRITES_ENABLED == 'true'
+        run: |
+          echo "::error::config-manager-update has failing or pending checks — not merging into main. PR: https://github.com/${{ github.repository }}/pull/${{ steps.check-pr.outputs.pr_number }}"
+          exit 1
+
       - name: Dry run — skipping PR merge
         if: steps.check-pr.outputs.pr_exists == 'true' && env.WRITES_ENABLED != 'true'
         run: |
-          echo "Dry run: PR #${{ steps.check-pr.outputs.pr_number }} would be approved and squash-merged here."
+          echo "Dry run: PR #${{ steps.check-pr.outputs.pr_number }} would be approved and squash-merged here (tests_passed=${{ steps.check-tests.outputs.tests_passed }})."
 
   # 2. Batch assign unknown entities. The script self-commits & pushes to main per batch.
   #    Only runs Mon–Fri
