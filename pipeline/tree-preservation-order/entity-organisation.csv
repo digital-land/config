@@ -101,6 +101,7 @@ tree,7002148192,7002148192,local-authority:NBL
 tree,7002160877,7002160877,local-authority:NBL
 tree,7002185308,7002185313,local-authority:NBL
 tree,7002248352,7002248361,local-authority:NBL
+tree,7002254508,7002256748,local-authority:NEC
 tree,7002009103,7002016439,local-authority:NET
 tree,7002111394,7002118115,local-authority:NEW
 tree,7002038182,7002045165,local-authority:NLN
@@ -528,6 +529,7 @@ tree-preservation-zone,19160840,19160840,local-authority:NBL
 tree-preservation-zone,19178258,19178265,local-authority:NBL
 tree-preservation-zone,19186008,19186008,local-authority:NBL
 tree-preservation-zone,19195248,19195248,local-authority:NBL
+tree-preservation-zone,19205842,19206513,local-authority:NEC
 tree-preservation-zone,19110556,19111312,local-authority:NET
 tree-preservation-zone,19197762,19205270,local-authority:NET
 tree-preservation-zone,19153978,19155592,local-authority:NEW
@@ -642,5 +644,3 @@ tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002254508,7002256748,local-authority:NEC
-tree-preservation-zone,19205842,19206513,local-authority:NEC
