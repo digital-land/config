@@ -51,6 +51,9 @@ conservation-area,1e54db15e6aacb60345575ec20d558851d722a4711bb20b324ccb7cbffd1af
 conservation-area,1f93a9e9c319128f58dde0636ea3741349f0ea8c8e382d49bfe92fc4b0b078de,,organisation,IGNORE,,,
 conservation-area,1f9620f1a3febd58719279e7d64021d1263ae0497e25c8cfc13bdfd9718f42eb,,organisation,IGNORE,,,
 conservation-area,20279f94faf8df9fa7d299ce09c53667042a3b1776b7cae6366dfad374aad2ea,,organisation,IGNORE,,,
+conservation-area,204f2daecc6ce2bbf1834f7c75902a7bd39f6c56905d7b261abd13e1e90ef90b,,na,IGNORE,2026-07-28,,2026-07-28
+conservation-area,204f2daecc6ce2bbf1834f7c75902a7bd39f6c56905d7b261abd13e1e90ef90b,,area_name,name,2026-07-28,,2026-07-28
+conservation-area,204f2daecc6ce2bbf1834f7c75902a7bd39f6c56905d7b261abd13e1e90ef90b,,UID_,reference,2026-07-28,,2026-07-28
 conservation-area,26d47ff808a8292743aa7592c1a8fc94b21b28410d8841af85b9fd21340e0ce3,,organisation,IGNORE,,,
 conservation-area,29bceb2e66a820809ff9b2b49e237eb12c97d3882a25f7f5971ed6436beab50f,,organisation,IGNORE,,,
 conservation-area,29fed73ddb4baea550dd8382adbefbc22db4f84db0dafde1aefec5e60b365e2a,,organisation,IGNORE,,,
@@ -89,6 +92,7 @@ conservation-area,3e7bba7ac22c59c6daaac91eb6f68e513f95032060614b0cb142b7d1cd4bbd
 conservation-area,3e7bba7ac22c59c6daaac91eb6f68e513f95032060614b0cb142b7d1cd4bbd94,,ref,reference,,,
 conservation-area,3e7bcbc7b099c29cf896423408043fdbd7e74e3a590fd41cec2bef02cbf65b71,,description,name,,,
 conservation-area,3e7bcbc7b099c29cf896423408043fdbd7e74e3a590fd41cec2bef02cbf65b71,,name,reference,,,
+conservation-area,3ea1cdf3346577e6e834dd0ca550e5493f64cf24462bddca64fa7bfec31b4065,,na,IGNORE,2026-07-28,,2026-07-28
 conservation-area,3f7f0b05151d0c7c01c526a07f324c6ee2bdc3ddf4e864aa899746eb696c256c,,organisation,IGNORE,,,
 conservation-area,41e3ecab1cf4ba1ea172674c5b39512cf8f915bf3c65172a05d08bf5cebc7b72,,organisation,IGNORE,,,
 conservation-area,43becd73996f7d17bf98fe2ab3add464cab8fe5d9c6c65ca0cd7a07021f38fba,,designationdate,designation-date,2026-04-28,,2026-04-28
@@ -600,7 +604,3 @@ conservation-area-document,f83b9f067c28765c7d7576ac51cef6a74017dcbb406e017cc9e59
 conservation-area-document,fb2653ce8185a2888ac99ae7f6f193c138bddfb066d48072a51492270dddf04a,,organisation,IGNORE,,,
 conservation-area-document,,,organisation,IGNORE,,,
 conservation-area-document,,,entity,IGNORE,,,
-conservation-area,3ea1cdf3346577e6e834dd0ca550e5493f64cf24462bddca64fa7bfec31b4065,,na,IGNORE,2026-07-28,,2026-07-28
-conservation-area,204f2daecc6ce2bbf1834f7c75902a7bd39f6c56905d7b261abd13e1e90ef90b,,na,IGNORE,2026-07-28,,2026-07-28
-conservation-area,204f2daecc6ce2bbf1834f7c75902a7bd39f6c56905d7b261abd13e1e90ef90b,,UID_,reference,2026-07-28,,2026-07-28
-conservation-area,204f2daecc6ce2bbf1834f7c75902a7bd39f6c56905d7b261abd13e1e90ef90b,,area_name,name,2026-07-28,,2026-07-28

@@ -93,6 +93,12 @@ listed-building-outline,e5d79f4188020018b0d0c5a66ef53f56b7ce8d6ce12e049585b2f199
 listed-building-outline,eadea6cd90a664a95214ec9aa2853a0cd040667b678f8beb6cab796bbeffdcb5,,LISTED_BULDING,listed-building,2026-07-15,,2026-07-15
 listed-building-outline,f569cf738abb48f8d9d2bda008b5e27716877dd84a22fa9edc463c288251fad8,,fid,reference,,,
 listed-building-outline,f5b539072135c427d5599292bf2fff6cb7658c9f7dcbf174784a933b217c575c,,listed_bui,listed-building,,,
+listed-building-outline,f8fa28bc63b73e94ff6a50495ec9a20359de1747c8c8831949580678e3c8fe1d,,DATE_CREATED,entry-date,2026-07-28,,2026-07-28
+listed-building-outline,f8fa28bc63b73e94ff6a50495ec9a20359de1747c8c8831949580678e3c8fe1d,,na,IGNORE,2026-07-28,,2026-07-28
+listed-building-outline,f8fa28bc63b73e94ff6a50495ec9a20359de1747c8c8831949580678e3c8fe1d,,LBREFNO,listed-building,2026-07-28,,2026-07-28
+listed-building-outline,f8fa28bc63b73e94ff6a50495ec9a20359de1747c8c8831949580678e3c8fe1d,,ADDRESS,name,2026-07-28,,2026-07-28
+listed-building-outline,f8fa28bc63b73e94ff6a50495ec9a20359de1747c8c8831949580678e3c8fe1d,,MI_PRINX,reference,2026-07-28,,2026-07-28
+listed-building-outline,f8fa28bc63b73e94ff6a50495ec9a20359de1747c8c8831949580678e3c8fe1d,,LISTDD,start-date,2026-07-28,,2026-07-28
 listed-building-outline,f9e48302f921da41ac204cd97817651db192c83dcbc032afc9a8f19f6ce57849,,LISTING_DE,documentation-url,,,
 listed-building-outline,f9e48302f921da41ac204cd97817651db192c83dcbc032afc9a8f19f6ce57849,,GRADE,listed-building-grade,,,
 listed-building-outline,f9e48302f921da41ac204cd97817651db192c83dcbc032afc9a8f19f6ce57849,,ID,reference,,,
@@ -165,9 +171,3 @@ locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf1
 locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf104534fdbf,Policy,notes,,,
 locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf104534fdbf,GlobalID,reference,,,
 locally-listed-building,,,WKT,geometry,,,
-listed-building-outline,f8fa28bc63b73e94ff6a50495ec9a20359de1747c8c8831949580678e3c8fe1d,,na,IGNORE,2026-07-28,,2026-07-28
-listed-building-outline,f8fa28bc63b73e94ff6a50495ec9a20359de1747c8c8831949580678e3c8fe1d,,LISTDD,start-date,2026-07-28,,2026-07-28
-listed-building-outline,f8fa28bc63b73e94ff6a50495ec9a20359de1747c8c8831949580678e3c8fe1d,,ADDRESS,name,2026-07-28,,2026-07-28
-listed-building-outline,f8fa28bc63b73e94ff6a50495ec9a20359de1747c8c8831949580678e3c8fe1d,,LBREFNO,listed-building,2026-07-28,,2026-07-28
-listed-building-outline,f8fa28bc63b73e94ff6a50495ec9a20359de1747c8c8831949580678e3c8fe1d,,MI_PRINX,reference,2026-07-28,,2026-07-28
-listed-building-outline,f8fa28bc63b73e94ff6a50495ec9a20359de1747c8c8831949580678e3c8fe1d,,DATE_CREATED,entry-date,2026-07-28,,2026-07-28

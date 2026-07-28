@@ -508,6 +508,7 @@ tree-preservation-zone,19169339,19169339,local-authority:HOR
 tree-preservation-zone,19183428,19184248,local-authority:HUN
 tree-preservation-zone,19137678,19137718,local-authority:KEC
 tree-preservation-zone,19188935,19189560,local-authority:KIN
+tree-preservation-zone,19206514,19213658,local-authority:KTT
 tree-preservation-zone,19110330,19110555,local-authority:LBH
 tree-preservation-zone,19160621,19160766,local-authority:LCE
 tree-preservation-zone,19169359,19173068,local-authority:LDS
@@ -644,4 +645,3 @@ tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-zone,19206514,19213658,local-authority:KTT

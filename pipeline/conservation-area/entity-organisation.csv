@@ -268,6 +268,7 @@ conservation-area,44005272,44005272,local-authority:CHR
 conservation-area,44005311,44005369,local-authority:CHR
 conservation-area,44012239,44012250,local-authority:CHS
 conservation-area,44000773,44000779,local-authority:CHT
+conservation-area,44016334,44016340,local-authority:CHT
 conservation-area,44012041,44012135,local-authority:CHW
 conservation-area,44003007,44003010,local-authority:CLD
 conservation-area,44003012,44003016,local-authority:CLD
@@ -652,6 +653,7 @@ conservation-area,44008806,44008806,local-authority:KTT
 conservation-area,44008810,44008810,local-authority:KTT
 conservation-area,44008821,44008821,local-authority:KTT
 conservation-area,44009068,44009068,local-authority:KTT
+conservation-area,44016341,44016368,local-authority:KTT
 conservation-area,44007851,44007865,local-authority:KWL
 conservation-area,44016035,44016049,local-authority:KWL
 conservation-area,44012371,44012400,local-authority:LAC
@@ -2052,5 +2054,3 @@ conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
 conservation-area-document,6316552,6316661,national-park-authority:Q72617988
-conservation-area,44016334,44016340,local-authority:CHT
-conservation-area,44016341,44016368,local-authority:KTT
