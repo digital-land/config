@@ -40,7 +40,22 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
+      - name: Run redirect MHCLG plan duplicates script
+        id: redirect-script
+        if: ${{ !cancelled() }}
+        timeout-minutes: 10
+        run: |
+          echo "Starting redirect MHCLG plan duplicates script..."
+          SUMMARY=$(python .github/scripts/redirect-mhclg-plan-duplicates.py)
+          echo "Redirect script completed"
+          {
+            echo "summary<<EOF"
+            echo "$SUMMARY"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
       - name: Commit and push to main
+        if: ${{ !cancelled() }}
         run: |
           git config user.name "github-actions-bot"
           git config user.email "noreply@github.com"
@@ -52,19 +67,34 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Retire MHCLG plan data"
+          git commit -m "Retire and redirect MHCLG plan data"
           git pull --rebase origin main
           git push origin HEAD:main
 
       - name: Summary
+        if: ${{ !cancelled() }}
+        env:
+          RETIRE_SUMMARY: ${{ steps.retire-script.outputs.summary }}
+          REDIRECT_SUMMARY: ${{ steps.redirect-script.outputs.summary }}
         run: |
           echo "### Retire MHCLG Plan Data" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Script executed:" >> $GITHUB_STEP_SUMMARY
+          echo "Scripts executed:" >> $GITHUB_STEP_SUMMARY
           echo "- Retire MHCLG plan data script" >> $GITHUB_STEP_SUMMARY
+          echo "- Redirect MHCLG plan duplicates script" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Datasets processed:" >> $GITHUB_STEP_SUMMARY
           echo "- local-plan" >> $GITHUB_STEP_SUMMARY
+          echo "- waste-plan" >> $GITHUB_STEP_SUMMARY
+          echo "- minerals-plan" >> $GITHUB_STEP_SUMMARY
           echo "- plan-timetable" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Changes committed directly to main (if any)." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "#### Retire MHCLG plan data script output" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "$RETIRE_SUMMARY" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "#### Redirect MHCLG plan duplicates script output" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "$REDIRECT_SUMMARY" >> $GITHUB_STEP_SUMMARY
