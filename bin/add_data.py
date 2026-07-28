@@ -222,6 +222,37 @@ def retire_endpoints_in_csv(collection: str, retire_endpoints: list[str]) -> Non
     update_file(source_file, "source.csv")
 
 
+def unretire_endpoints_in_csv(collection: str, unretire_endpoints: list[str]) -> None:
+    if not unretire_endpoints:
+        return
+
+    endpoint_file = Path("collection") / collection / "endpoint.csv"
+    source_file = Path("collection") / collection / "source.csv"
+
+    def update_file(path: Path, file_label: str) -> None:
+        if not path.exists():
+            print(f"{file_label} not found, skipping unretire endpoints")
+            return
+
+        frame = pd.read_csv(path, dtype=str, keep_default_na=False)
+        if "endpoint" not in frame.columns or "end-date" not in frame.columns:
+            print(f"{file_label} missing required columns, skipping unretire endpoints")
+            return
+
+        mask = frame["endpoint"].isin(unretire_endpoints)
+        updated_count = int(mask.sum())
+        if updated_count == 0:
+            print(f"No matching endpoints found in {file_label}")
+            return
+
+        frame.loc[mask, "end-date"] = ""
+        frame.to_csv(path, index=False, lineterminator="\r\n")
+        print(f"Unretired {updated_count} row(s) in {file_label} (cleared end-date)")
+
+    update_file(endpoint_file, "endpoint.csv")
+    update_file(source_file, "source.csv")
+
+
 def as_bool(value: object) -> bool:
     return str(value).lower() == "true"
 
@@ -521,6 +552,7 @@ def run_add_data_async(
     environment: str = DEFAULT_ENVIRONMENT,
     test_mode: bool = False,
     retire_endpoints: Optional[list[str]] = None,
+    unretire_endpoints: Optional[list[str]] = None,
     entity_redirects: Optional[list[dict[str, str]]] = None,
 ) -> None:
     if not request_id.strip():
@@ -547,6 +579,7 @@ def run_add_data_async(
     ensure_dir_exists(pipeline_dir)
 
     retire_endpoints = normalize_retire_endpoints(retire_endpoints or [])
+    unretire_endpoints = normalize_retire_endpoints(unretire_endpoints or [])
     entity_redirects = normalize_entity_redirects(entity_redirects or [])
 
     if test_mode:
@@ -558,6 +591,7 @@ def run_add_data_async(
         branch_name, pr_number, mode = resolve_branch(branch.strip(), collection)
 
     retire_endpoints_in_csv(collection, retire_endpoints)
+    unretire_endpoints_in_csv(collection, unretire_endpoints)
     append_entity_redirects(collection, entity_redirects)
     append_endpoint(response, collection)
     append_source(response, collection)
@@ -665,6 +699,12 @@ def run_add_data_async(
     help="Endpoint strings to retire; pass multiple times or as comma-separated values",
 )
 @click.option(
+    "--unretire-endpoints",
+    multiple=True,
+    type=click.STRING,
+    help="Endpoint strings to unretire (clear end-date); pass multiple times or as comma-separated values",
+)
+@click.option(
     "--entity-redirects",
     default="",
     type=click.STRING,
@@ -677,14 +717,20 @@ def main(
     triggered_by: str,
     environment: str,
     retire_endpoints: tuple[str, ...],
+    unretire_endpoints: tuple[str, ...],
     entity_redirects: str,
     test_mode: bool,
 ) -> None:
     print(f"Executing add_data.py with request_id={request_id}, branch={branch}, triggered_by={triggered_by}, "
-          f"environment={environment}, retire_endpoints={retire_endpoints}, test_mode={test_mode}")
+          f"environment={environment}, retire_endpoints={retire_endpoints}, "
+          f"unretire_endpoints={unretire_endpoints}, test_mode={test_mode}")
     retire_endpoint_values: list[str] = []
     for value in retire_endpoints:
         retire_endpoint_values.extend(normalize_retire_endpoints(value))
+
+    unretire_endpoint_values: list[str] = []
+    for value in unretire_endpoints:
+        unretire_endpoint_values.extend(normalize_retire_endpoints(value))
 
     run_add_data_async(
         request_id=request_id,
@@ -693,6 +739,7 @@ def main(
         environment=environment,
         test_mode=test_mode,
         retire_endpoints=retire_endpoint_values,
+        unretire_endpoints=unretire_endpoint_values,
         entity_redirects=normalize_entity_redirects(entity_redirects),
     )
 
