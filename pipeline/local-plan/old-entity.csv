@@ -2022,3 +2022,6 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 5101258,301,5109825,Redirecting MHCLG data to authoritative entity (local-authority:ROS)-plan-timetable,,2026-07-28,
 5101326,301,5110260,Redirecting MHCLG data to authoritative entity (local-authority:SFT)-plan-timetable,,2026-07-28,
 5101346,301,5109849,Redirecting MHCLG data to authoritative entity (local-authority:SHR)-plan-timetable,,2026-07-28,
+530018,301,530065,Redirecting MHCLG data to authoritative entity (local-authority:DUR)-minerals-plan,,2026-07-28,
+530049,301,530071,Redirecting MHCLG data to authoritative entity (local-authority:RUT)-minerals-plan,,2026-07-28,
+540025,301,540071,Redirecting MHCLG data to authoritative entity (local-authority:DUR)-waste-plan,,2026-07-28,
