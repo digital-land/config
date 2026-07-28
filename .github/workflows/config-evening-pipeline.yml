@@ -327,6 +327,11 @@ jobs:
         timeout-minutes: 10
         run: python .github/scripts/retire-mhclg-plan-data.py
 
+      - name: Redirect MHCLG plan duplicates
+        if: ${{ !cancelled() }}
+        timeout-minutes: 10
+        run: python .github/scripts/redirect-mhclg-plan-duplicates.py
+
       - name: Commit and push if changed
         if: ${{ !cancelled() && env.WRITES_ENABLED == 'true' }}
         run: |
@@ -339,7 +344,7 @@ jobs:
             echo "No changes to commit"
             exit 0
           fi
-          git commit -m "Deduplicate CA geographies and retire MHCLG CA/plan data"
+          git commit -m "Deduplicate CA geographies and retire/redirect MHCLG CA/plan data"
           git pull --rebase origin main
           git push origin HEAD:main
 
