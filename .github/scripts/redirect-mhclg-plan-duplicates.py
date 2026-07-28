@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Redirect MHCLG-seeded local-plan and plan-timetable data that duplicates data
-since provided by the LPA.
+Redirect MHCLG-seeded plan data (local-plan, waste-plan, minerals-plan) and
+plan-timetable data that duplicates data since provided by the LPA.
 
 Unlike retire-mhclg-plan-data.py (which retires *fake template* placeholders,
 identified structurally by a `{slug}-new-local-plan` reference), this script
@@ -13,20 +13,22 @@ published content instead.
 
 Two passes:
 
-1. local-plan: a seeded row is only redirected when it is an UNAMBIGUOUS
-   duplicate of exactly one authoritative row from the same local planning
-   authority - identical document-url, or identical name/description text
-   (case-insensitive). If a seeded row matches more than one distinct
-   authoritative row (e.g. an LPA reuses a generic name like "Local Plan"
-   across an adopted and an emerging version), it is skipped and flagged for
-   manual review rather than guessed at.
+1. local-plan / waste-plan / minerals-plan: a seeded row is only redirected
+   when it is an UNAMBIGUOUS duplicate of exactly one authoritative row from
+   the same local planning authority - identical document-url, or identical
+   name/description text (case-insensitive). If a seeded row matches more
+   than one distinct authoritative row (e.g. an LPA reuses a generic name
+   like "Local Plan" across an adopted and an emerging version), it is
+   skipped and flagged for manual review rather than guessed at.
 
-2. plan-timetable: once a local-plan reference is confirmed retired (by pass
-   1, or previously), only the seeded plan-timetable rows for that same plan
-   that have an EXACT matching authoritative event (same organisation-entity,
-   plan-event, and date) are redirected. Seeded milestones with no matching
-   authoritative event are left alone - the plan being retired doesn't mean
-   every milestone about it is known to be superseded. Dropping the date
+2. plan-timetable: once a plan reference is confirmed retired (by pass 1, or
+   previously) - regardless of which of the three plan datasets it belongs
+   to, since plan-timetable's `plan` column references all of them - only
+   the seeded plan-timetable rows for that same plan that have an EXACT
+   matching authoritative event (same organisation-entity, plan-event, and
+   date) are redirected. Seeded milestones with no matching authoritative
+   event are left alone - the plan being retired doesn't mean every
+   milestone about it is known to be superseded. Dropping the date
    requirement was tried and rejected: plan-event labels (plan-adopted,
    submit-plan-for-examination, etc.) are a small vocabulary reused across a
    council's old and new plan cycles, so a date-less match can pair up two
@@ -59,7 +61,15 @@ OLD_ENTITY_PATH = PIPELINE_DIR / 'old-entity.csv'
 
 MHCLG_ORG = 'government-organisation:D1342'
 FAKE_TEMPLATE_SUFFIX = '-new-local-plan'
-PUBLISHED_LOCAL_PLAN_URL = 'https://files.planning.data.gov.uk/dataset/local-plan.csv'
+
+# All managed in this same pipeline/local-plan/ lookup.csv and old-entity.csv,
+# distinguished by `prefix`, and all published with the same quality=some
+# (MHCLG-seeded) / quality=authoritative (LPA-submitted) structure.
+PLAN_DATASET_URLS = {
+    'local-plan': 'https://files.planning.data.gov.uk/dataset/local-plan.csv',
+    'waste-plan': 'https://files.planning.data.gov.uk/dataset/waste-plan.csv',
+    'minerals-plan': 'https://files.planning.data.gov.uk/dataset/minerals-plan.csv',
+}
 PUBLISHED_PLAN_TIMETABLE_URL = 'https://files.planning.data.gov.uk/dataset/plan-timetable.csv'
 
 DATE_FIELDS = ['event-date', 'actual-date', 'start-date', 'predicted-date']
@@ -91,18 +101,20 @@ def event_date(row):
     return ''
 
 
-# --- Pass 1: local-plan --------------------------------------------------
+# --- Pass 1: local-plan / waste-plan / minerals-plan -----------------------
 
-def find_seeded_local_plan_entities(lookup_rows):
-    """Find MHCLG-submitted local-plan entities that are real seeded data.
+def find_seeded_plan_entities(lookup_rows, prefix):
+    """Find MHCLG-submitted entities of the given plan prefix that are real
+    seeded data.
 
     Excludes fake template placeholders (identified by the {slug}-new-local-plan
-    reference pattern used elsewhere in this repo), leaving only entities MHCLG
-    researched and entered with real plan content on the LPA's behalf.
+    reference pattern used elsewhere in this repo - only ever seen on
+    local-plan, but harmless to check for all three), leaving only entities
+    MHCLG researched and entered with real plan content on the LPA's behalf.
     """
     seeded = {}
     for row in lookup_rows:
-        if row['organisation'] != MHCLG_ORG or row['prefix'] != 'local-plan':
+        if row['organisation'] != MHCLG_ORG or row['prefix'] != prefix:
             continue
         if row['reference'].endswith(FAKE_TEMPLATE_SUFFIX):
             continue
@@ -110,7 +122,7 @@ def find_seeded_local_plan_entities(lookup_rows):
     return seeded
 
 
-def find_local_plan_duplicates(seeded_entities, published_by_entity, entity_org_from_lookup):
+def find_plan_duplicates(seeded_entities, published_by_entity, entity_org_from_lookup):
     """Match seeded (quality=some) rows to authoritative rows from the same LPA.
 
     Returns (confirmed, ambiguous, skipped):
@@ -181,19 +193,21 @@ def find_local_plan_duplicates(seeded_entities, published_by_entity, entity_org_
 
 # --- Pass 2: plan-timetable ------------------------------------------------
 
-def find_retired_local_plan_references(old_entity_rows, lookup_rows, extra_references=()):
-    """Find local-plan references already retired as MHCLG-seeded duplicates.
+def find_retired_plan_references(old_entity_rows, lookup_rows, prefixes, extra_references=()):
+    """Find plan references already retired as MHCLG-seeded duplicates.
 
     Combines references already in old-entity.csv (from a previous run, or
     retired for any other reason) with `extra_references` just confirmed in
     this run. Excludes fake template placeholders - only real seeded data
-    retired as a content duplicate is a valid base for cascading.
+    retired as a content duplicate is a valid base for cascading. Covers all
+    of `prefixes` (local-plan, waste-plan, minerals-plan) since
+    plan-timetable's `plan` column references all three.
     """
     retired_entities = set(int(r['old-entity']) for r in old_entity_rows)
     reference_by_entity = {
         int(r['entity']): r['reference']
         for r in lookup_rows
-        if r['prefix'] == 'local-plan' and r['organisation'] == MHCLG_ORG
+        if r['prefix'] in prefixes and r['organisation'] == MHCLG_ORG
     }
 
     references = set(extra_references)
@@ -379,50 +393,60 @@ def main():
     logger.info(f"Loaded lookup.csv ({len(lookup_rows)} rows)")
     logger.info(f"Loaded old-entity.csv ({len(old_entity_rows)} rows)")
 
-    # --- Pass 1: local-plan ---
-    logger.info("\n=== Pass 1: local-plan ===")
-    seeded_local_plan = find_seeded_local_plan_entities(lookup_rows)
-    logger.info(f"Found {len(seeded_local_plan)} MHCLG-seeded local-plan entities")
-
-    logger.info("Fetching published local-plan.csv...")
-    local_plan_published = {int(r['entity']): r for r in fetch_csv(PUBLISHED_LOCAL_PLAN_URL)}
-    logger.info(f"Loaded {len(local_plan_published)} published local-plan rows")
-
     # Not filtered by prefix - entity ids are unique across datasets, and this
-    # is reused below to look up the submitting LPA for both local-plan and
-    # plan-timetable redirect targets when building old-entity.csv notes.
+    # is reused below to look up the submitting LPA for every redirect target
+    # when building old-entity.csv notes.
     entity_org_from_lookup = {
         int(r['entity']): r['organisation']
         for r in lookup_rows
     }
 
-    confirmed_lp, ambiguous_lp, skipped_lp = find_local_plan_duplicates(
-        seeded_local_plan, local_plan_published, entity_org_from_lookup)
-    logger.info(f"Confirmed duplicates: {len(confirmed_lp)}")
-    logger.info(f"Ambiguous (needs manual review): {len(ambiguous_lp)}")
-    logger.info(f"No match / not comparable: {len(skipped_lp)}")
+    # --- Pass 1: local-plan / waste-plan / minerals-plan ---
+    plan_records = []
+    seeded_by_prefix = {}
+    published_by_prefix = {}
+    confirmed_by_prefix = {}
+    ambiguous_by_prefix = {}
+    extra_references = set()
 
-    if ambiguous_lp:
-        logger.warning("\nAmbiguous local-plan matches skipped (multiple candidate authoritative rows):")
-        for entity, candidates in sorted(ambiguous_lp.items()):
-            logger.warning(f"  entity {entity} ({seeded_local_plan[entity]}) -> candidates {candidates}")
+    for prefix in PLAN_DATASET_URLS:
+        logger.info(f"\n=== Pass 1: {prefix} ===")
+        seeded = find_seeded_plan_entities(lookup_rows, prefix)
+        logger.info(f"Found {len(seeded)} MHCLG-seeded {prefix} entities")
 
-    local_plan_records = [
-        (
-            entity,
-            matched_entity,
-            f"Redirecting MHCLG data to authoritative entity "
-            f"({entity_org_from_lookup.get(matched_entity, 'unknown')})-local-plan",
-        )
-        for entity, (org_entity, matched_entity, _match_type) in confirmed_lp.items()
-    ]
+        logger.info(f"Fetching published {prefix}.csv...")
+        published = {int(r['entity']): r for r in fetch_csv(PLAN_DATASET_URLS[prefix])}
+        logger.info(f"Loaded {len(published)} published {prefix} rows")
+
+        confirmed, ambiguous, skipped = find_plan_duplicates(seeded, published, entity_org_from_lookup)
+        logger.info(f"Confirmed duplicates: {len(confirmed)}")
+        logger.info(f"Ambiguous (needs manual review): {len(ambiguous)}")
+        logger.info(f"No match / not comparable: {len(skipped)}")
+
+        if ambiguous:
+            logger.warning(f"\nAmbiguous {prefix} matches skipped (multiple candidate authoritative rows):")
+            for entity, candidates in sorted(ambiguous.items()):
+                logger.warning(f"  entity {entity} ({seeded[entity]}) -> candidates {candidates}")
+
+        for entity, (org_entity, matched_entity, _match_type) in confirmed.items():
+            plan_records.append((
+                entity,
+                matched_entity,
+                f"Redirecting MHCLG data to authoritative entity "
+                f"({entity_org_from_lookup.get(matched_entity, 'unknown')})-{prefix}",
+            ))
+
+        seeded_by_prefix[prefix] = seeded
+        published_by_prefix[prefix] = published
+        confirmed_by_prefix[prefix] = confirmed
+        ambiguous_by_prefix[prefix] = ambiguous
+        extra_references |= {seeded[e] for e in confirmed}
 
     # --- Pass 2: plan-timetable ---
     logger.info("\n=== Pass 2: plan-timetable ===")
-    retired_references = find_retired_local_plan_references(
-        old_entity_rows, lookup_rows,
-        extra_references=(seeded_local_plan[e] for e in confirmed_lp))
-    logger.info(f"Found {len(retired_references)} retired local-plan references to match against")
+    retired_references = find_retired_plan_references(
+        old_entity_rows, lookup_rows, PLAN_DATASET_URLS.keys(), extra_references=extra_references)
+    logger.info(f"Found {len(retired_references)} retired plan references to match against")
 
     confirmed_tt = {}
     ambiguous_tt = {}
@@ -468,7 +492,7 @@ def main():
     ]
 
     # --- Save ---
-    all_records = local_plan_records + timetable_records
+    all_records = plan_records + timetable_records
     entities_added = save_redirected_entities(all_records, old_entity_rows)
     if not entities_added and not possible_tt:
         logger.warning("No entities redirected")
@@ -479,15 +503,19 @@ def main():
     print(f"Total entities redirected: {len(entities_added)}")
     print("")
 
-    lp_added = {e: v for e, v in added_by_entity.items() if e in confirmed_lp}
-    if lp_added:
-        print(f"**local-plan seeded duplicates** ({len(lp_added)} entities):")
-        for entity_id in sorted(lp_added):
-            target, _ = lp_added[entity_id]
-            row = local_plan_published.get(entity_id, {})
-            name = row.get('name') or row.get('description') or seeded_local_plan[entity_id]
-            print(f"- entity {entity_id} ({name}) -> 301 to entity {target}")
-        print("")
+    for prefix in PLAN_DATASET_URLS:
+        confirmed = confirmed_by_prefix[prefix]
+        seeded = seeded_by_prefix[prefix]
+        published = published_by_prefix[prefix]
+        added = {e: v for e, v in added_by_entity.items() if e in confirmed}
+        if added:
+            print(f"**{prefix} seeded duplicates** ({len(added)} entities):")
+            for entity_id in sorted(added):
+                target, _ = added[entity_id]
+                row = published.get(entity_id, {})
+                name = row.get('name') or row.get('description') or seeded[entity_id]
+                print(f"- entity {entity_id} ({name}) -> 301 to entity {target}")
+            print("")
 
     tt_added = {e: v for e, v in added_by_entity.items() if e in confirmed_tt}
     if tt_added:
@@ -499,13 +527,17 @@ def main():
             print(f"- entity {entity_id} ({plan_event}) -> 301 to entity {target}")
         print("")
 
-    if ambiguous_lp:
-        print(f"**local-plan needs manual review** ({len(ambiguous_lp)} entities matched more than one candidate):")
-        for entity, candidates in sorted(ambiguous_lp.items()):
-            row = local_plan_published.get(entity, {})
-            name = row.get('name') or row.get('description') or seeded_local_plan[entity]
-            print(f"- entity {entity} ({name}) -> candidates {candidates}")
-        print("")
+    for prefix in PLAN_DATASET_URLS:
+        ambiguous = ambiguous_by_prefix[prefix]
+        if ambiguous:
+            seeded = seeded_by_prefix[prefix]
+            published = published_by_prefix[prefix]
+            print(f"**{prefix} needs manual review** ({len(ambiguous)} entities matched more than one candidate):")
+            for entity, candidates in sorted(ambiguous.items()):
+                row = published.get(entity, {})
+                name = row.get('name') or row.get('description') or seeded[entity]
+                print(f"- entity {entity} ({name}) -> candidates {candidates}")
+            print("")
 
     if ambiguous_tt:
         print(f"**plan-timetable needs manual review** ({len(ambiguous_tt)} entities matched more than one candidate):")
