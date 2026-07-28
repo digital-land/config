@@ -41,8 +41,24 @@ jobs:
             echo "Found PR #$PR_NUMBER"
           fi
 
-      - name: Approve PR
+      - name: Check latest test status
+        id: check-tests
         if: steps.check-pr.outputs.pr_exists == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          FAILING=$(gh pr checks ${{ steps.check-pr.outputs.pr_number }} --json name,bucket \
+            --jq '[.[] | select(.bucket != "pass" and .bucket != "skipping")] | length') || FAILING=1
+
+          if [ "$FAILING" -gt 0 ]; then
+            echo "tests_passed=false" >> $GITHUB_OUTPUT
+            echo "One or more checks on config-manager-update are failing or still pending — not merging."
+          else
+            echo "tests_passed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Approve PR
+        if: steps.check-pr.outputs.pr_exists == 'true' && steps.check-tests.outputs.tests_passed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -51,7 +67,7 @@ jobs:
             --body "Auto-approved by workflow"
 
       - name: Merge PR with squash
-        if: steps.check-pr.outputs.pr_exists == 'true'
+        if: steps.check-pr.outputs.pr_exists == 'true' && steps.check-tests.outputs.tests_passed == 'true'
         id: merge
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -62,7 +78,7 @@ jobs:
             --admin && echo "merge_success=true" >> $GITHUB_OUTPUT || echo "merge_success=false" >> $GITHUB_OUTPUT
 
       - name: Notify Slack on merge failure
-        if: steps.check-pr.outputs.pr_exists == 'true' && steps.merge.outputs.merge_success == 'false'
+        if: steps.check-pr.outputs.pr_exists == 'true' && steps.check-tests.outputs.tests_passed == 'true' && steps.merge.outputs.merge_success == 'false'
         uses: digital-land/github-action-slack-notify-build@main
         with:
           channel: planning-data-alerts

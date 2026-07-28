@@ -3,6 +3,9 @@ on:
   push:
   workflow_dispatch:
 
+env:
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
 jobs:
   build:
 
@@ -29,3 +32,11 @@ jobs:
       run: make test
       env:
         COLLECTION: dummy
+
+    - name: Notify slack failure
+      if: failure()
+      uses: digital-land/github-action-slack-notify-build@main
+      with:
+        channel: planning-data-alerts
+        status: FAILED
+        color: danger

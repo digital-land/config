@@ -115,6 +115,17 @@ def test_add_data_cli_creates_expected_files(tmp_path, monkeypatch):
                             "organisation": "test-organisation",
                         }
                     ],
+                    "old-entity": [
+                        {
+                            "old-entity": "100",
+                            "status": "301",
+                            "entity": "101",
+                            "notes": "duplicate",
+                            "end-date": "",
+                            "entry-date": "2026-04-24",
+                            "start-date": "",
+                        }
+                    ],
                 },
             }
         },
@@ -154,6 +165,7 @@ def test_add_data_cli_creates_expected_files(tmp_path, monkeypatch):
     lookup_rows = list(csv.reader((pipeline_dir / "lookup.csv").read_text(encoding="utf-8").splitlines()))
     column_rows = list(csv.reader((pipeline_dir / "column.csv").read_text(encoding="utf-8").splitlines()))
     entity_org_rows = list(csv.reader((pipeline_dir / "entity-organisation.csv").read_text(encoding="utf-8").splitlines()))
+    old_entity_rows = list(csv.reader((pipeline_dir / "old-entity.csv").read_text(encoding="utf-8").splitlines()))
 
     assert endpoint_rows[1] == [
         "endpoint-hash",
@@ -210,6 +222,8 @@ def test_add_data_cli_creates_expected_files(tmp_path, monkeypatch):
         "2026-04-24",
     ]
     assert entity_org_rows[1] == ["test-dataset", "101", "101", "test-organisation"]
+    assert old_entity_rows[0] == add_data.OLD_ENTITY_HEADER
+    assert old_entity_rows[1] == ["100", "301", "101", "duplicate", "", "2026-04-24", ""]
 
     summary = (tmp_path / "summary.md").read_text(encoding="utf-8")
     assert "test-collection updated via async request req-123" in summary

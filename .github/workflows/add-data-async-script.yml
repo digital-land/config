@@ -34,10 +34,6 @@ on:
         description: 'Comma-separated endpoint strings to unretire, i.e. clear the end-date (optional)'
         required: false
         type: string
-      entity_redirects:
-        description: 'JSON duplicate entity redirects to append to old-entity.csv (optional)'
-        required: false
-        type: string
       test:
         description: 'Run in test mode (creates draft PR)'
         required: false
@@ -81,7 +77,6 @@ jobs:
           ENVIRONMENT: ${{ github.event.client_payload.environment || github.event.inputs.environment || 'staging' }}
           RETIRE_ENDPOINTS: ${{ github.event.client_payload.retire_endpoints || github.event.inputs.retire_endpoints }}
           UNRETIRE_ENDPOINTS: ${{ github.event.client_payload.unretire_endpoints || github.event.inputs.unretire_endpoints }}
-          ENTITY_REDIRECTS: ${{ github.event.client_payload.entity_redirects || github.event.inputs.entity_redirects }}
           TEST_MODE: ${{ github.event.inputs.test }}
         run: |
           ARGS=(
@@ -101,10 +96,6 @@ jobs:
 
           if [ -n "$UNRETIRE_ENDPOINTS" ]; then
             ARGS+=(--unretire-endpoints "$UNRETIRE_ENDPOINTS")
-          fi
-
-          if [ -n "$ENTITY_REDIRECTS" ]; then
-            ARGS+=(--entity-redirects "$ENTITY_REDIRECTS")
           fi
 
           if [ "$TEST_MODE" = "true" ]; then

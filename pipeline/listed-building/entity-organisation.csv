@@ -11,6 +11,9 @@ listed-building,31866212,31866213,government-organisation:PB1164
 listed-building,31866214,31866214,government-organisation:PB1164
 listed-building,31866215,31866219,government-organisation:PB1164
 listed-building,31866220,31866224,government-organisation:PB1164
+listed-building,31866225,31866225,government-organisation:PB1164
+listed-building,31866226,31866230,government-organisation:PB1164
+listed-building,31866231,31866234,government-organisation:PB1164
 listed-building,31860570,31861455,local-authority:SWK
 listed-building,31858679,31860569,local-authority:WBK
 listed-building-outline,42189480,42189596,local-authority:ADU
@@ -37,12 +40,14 @@ listed-building-outline,42140888,42146764,local-authority:BUC
 listed-building-outline,42171339,42172175,local-authority:CAB
 listed-building-outline,42176134,42176134,local-authority:CAB
 listed-building-outline,42224951,42224951,local-authority:CAB
+listed-building-outline,42240657,42240737,local-authority:CAN
 listed-building-outline,42130455,42130490,local-authority:CAS
 listed-building-outline,42110481,42112258,local-authority:CAT
 listed-building-outline,42147532,42147532,local-authority:CAT
 listed-building-outline,42150807,42150903,local-authority:CAT
 listed-building-outline,42162718,42164634,local-authority:CBF
 listed-building-outline,42171338,42171338,local-authority:CBF
+listed-building-outline,42235788,42236920,local-authority:CHT
 listed-building-outline,42198246,42200442,local-authority:CLD
 listed-building-outline,42115854,42117814,local-authority:CMD
 listed-building-outline,42139048,42139052,local-authority:CMD
@@ -61,6 +66,9 @@ listed-building-outline,42200443,42209297,local-authority:DST
 listed-building-outline,42232836,42232837,local-authority:DST
 listed-building-outline,42232838,42232839,local-authority:DST
 listed-building-outline,42234829,42234831,local-authority:DST
+listed-building-outline,42239765,42239806,local-authority:DST
+listed-building-outline,42240738,42240743,local-authority:DST
+listed-building-outline,42240785,42240790,local-authority:DST
 listed-building-outline,42159658,42160583,local-authority:ECA
 listed-building-outline,42172727,42173711,local-authority:ECA
 listed-building-outline,42189814,42189814,local-authority:ECA
@@ -242,6 +250,7 @@ listed-building-outline,42158519,42158529,local-authority:NBL
 listed-building-outline,42158531,42158614,local-authority:NBL
 listed-building-outline,42176135,42176135,local-authority:NBL
 listed-building-outline,42186999,42186999,local-authority:NBL
+listed-building-outline,42235424,42235787,local-authority:NEC
 listed-building-outline,42112274,42113038,local-authority:NET
 listed-building-outline,42128845,42128851,local-authority:NET
 listed-building-outline,42174375,42175281,local-authority:NEW
@@ -277,6 +286,7 @@ listed-building-outline,42149961,42150199,local-authority:SLF
 listed-building-outline,42234828,42234828,local-authority:SLF
 listed-building-outline,42174177,42174374,local-authority:SPE
 listed-building-outline,42160584,42161245,local-authority:SST
+listed-building-outline,42239807,42240656,local-authority:STA
 listed-building-outline,42188904,42189115,local-authority:STE
 listed-building-outline,42234972,42235423,local-authority:STH
 listed-building-outline,42181979,42182070,local-authority:SUR
@@ -305,6 +315,9 @@ listed-building-outline,42234891,42234894,local-authority:TOB
 listed-building-outline,42234896,42234929,local-authority:TOB
 listed-building-outline,42234931,42234964,local-authority:TOB
 listed-building-outline,42234965,42234971,local-authority:TOB
+listed-building-outline,42240744,42240760,local-authority:TOB
+listed-building-outline,42240761,42240784,local-authority:TOB
+listed-building-outline,42240791,42240805,local-authority:TOB
 listed-building-outline,42130946,42131847,local-authority:TWH
 listed-building-outline,42184483,42184483,local-authority:TWH
 listed-building-outline,42187193,42187193,local-authority:TWH
@@ -453,5 +466,6 @@ listed-building-outline,42158497,42158497,national-park-authority:Q72617890
 listed-building-outline,42158500,42158500,national-park-authority:Q72617890
 listed-building-outline,42158515,42158518,national-park-authority:Q72617890
 listed-building-outline,42158530,42158530,national-park-authority:Q72617890
+listed-building-outline,42236921,42239764,national-park-authority:Q72617988
 locally-listed-building,41100001,41100448,local-authority:CAT
 locally-listed-building,41100001,41100448,local-authority:CAT

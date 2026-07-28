@@ -1,6 +1,7 @@
 dataset,entity-minimum,entity-maximum,organisation
 article-4-direction,6102302,6102310,local-authority:ADU
 article-4-direction,6100940,6101014,local-authority:ASF
+article-4-direction,6103393,6103395,local-authority:BAN
 article-4-direction,6100879,6100881,local-authority:BDG
 article-4-direction,6103139,6103177,local-authority:BEN
 article-4-direction,6100340,6100352,local-authority:BIR
@@ -119,6 +120,7 @@ article-4-direction,6100914,6100939,national-park-authority:Q72617158
 article-4-direction,6103203,6103228,national-park-authority:Q72617988
 article-4-direction-area,7010009055,7010009063,local-authority:ADU
 article-4-direction-area,7010006812,7010006886,local-authority:ASF
+article-4-direction-area,7010010292,7010010294,local-authority:BAN
 article-4-direction-area,7010002547,7010002549,local-authority:BDG
 article-4-direction-area,7010002745,7010002745,local-authority:BDG
 article-4-direction-area,7010004011,7010004011,local-authority:BDG
@@ -136,11 +138,13 @@ article-4-direction-area,7010004997,7010005017,local-authority:BUC
 article-4-direction-area,7010010046,7010010057,local-authority:BUN
 article-4-direction-area,7010009946,7010009947,local-authority:BUR
 article-4-direction-area,7010005110,7010005128,local-authority:CAB
+article-4-direction-area,7010010295,7010010300,local-authority:CAN
 article-4-direction-area,7010004065,7010004068,local-authority:CAS
 article-4-direction-area,7010000744,7010000744,local-authority:CAT
 article-4-direction-area,7010004297,7010004758,local-authority:CAT
 article-4-direction-area,7010006805,7010006811,local-authority:CBF
 article-4-direction-area,7010010114,7010010137,local-authority:CHL
+article-4-direction-area,7010010163,7010010164,local-authority:CHL
 article-4-direction-area,7010010025,7010010025,local-authority:CHT
 article-4-direction-area,7010009031,7010009038,local-authority:CLD
 article-4-direction-area,7010002599,7010002615,local-authority:CMD
@@ -149,6 +153,7 @@ article-4-direction-area,7010010016,7010010016,local-authority:CMD
 article-4-direction-area,7010009500,7010009521,local-authority:COT
 article-4-direction-area,7010009010,7010009022,local-authority:COV
 article-4-direction-area,7010009235,7010009235,local-authority:COV
+article-4-direction-area,7010010301,7010010319,local-authority:CRW
 article-4-direction-area,7010009399,7010009404,local-authority:DAR
 article-4-direction-area,7010002598,7010002598,local-authority:DNC
 article-4-direction-area,7010002616,7010002617,local-authority:DNC
@@ -236,6 +241,7 @@ article-4-direction-area,7010004773,7010004787,local-authority:SST
 article-4-direction-area,7010009965,7010009967,local-authority:STA
 article-4-direction-area,7010009094,7010009120,local-authority:STE
 article-4-direction-area,7010010155,7010010162,local-authority:STH
+article-4-direction-area,7010010165,7010010291,local-authority:STV
 article-4-direction-area,7010003472,7010003895,local-authority:SWK
 article-4-direction-area,7010003908,7010003962,local-authority:SWK
 article-4-direction-area,7010006913,7010006913,local-authority:SWK
