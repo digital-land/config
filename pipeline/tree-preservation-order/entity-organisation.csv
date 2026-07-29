@@ -646,3 +646,8 @@ tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
 tree,7002256749,7002263203,local-authority:KTT
+tree,7002263204,7002263204,local-authority:BEN
+tree-preservation-zone,19213659,19213661,local-authority:WRL
+tree,7002263205,7002263209,local-authority:WRL
+tree-preservation-order,7001125285,7001125285,local-authority:WRL
+tree-preservation-zone,19213662,19213668,local-authority:NET
