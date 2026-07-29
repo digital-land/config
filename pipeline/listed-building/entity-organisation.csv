@@ -69,6 +69,7 @@ listed-building-outline,42234829,42234831,local-authority:DST
 listed-building-outline,42239765,42239806,local-authority:DST
 listed-building-outline,42240738,42240743,local-authority:DST
 listed-building-outline,42240785,42240790,local-authority:DST
+listed-building-outline,42241673,42241674,local-authority:DST
 listed-building-outline,42159658,42160583,local-authority:ECA
 listed-building-outline,42172727,42173711,local-authority:ECA
 listed-building-outline,42189814,42189814,local-authority:ECA
@@ -319,9 +320,11 @@ listed-building-outline,42234965,42234971,local-authority:TOB
 listed-building-outline,42240744,42240760,local-authority:TOB
 listed-building-outline,42240761,42240784,local-authority:TOB
 listed-building-outline,42240791,42240805,local-authority:TOB
+listed-building-outline,42241740,42241753,local-authority:TOB
 listed-building-outline,42130946,42131847,local-authority:TWH
 listed-building-outline,42184483,42184483,local-authority:TWH
 listed-building-outline,42187193,42187193,local-authority:TWH
+listed-building-outline,42241675,42241739,local-authority:TWH
 listed-building-outline,42228684,42232815,local-authority:UTT
 listed-building-outline,42122307,42124195,local-authority:WBK
 listed-building-outline,42128852,42128853,local-authority:WBK
@@ -470,6 +473,3 @@ listed-building-outline,42158530,42158530,national-park-authority:Q72617890
 listed-building-outline,42236921,42239764,national-park-authority:Q72617988
 locally-listed-building,41100001,41100448,local-authority:CAT
 locally-listed-building,41100001,41100448,local-authority:CAT
-listed-building-outline,42241673,42241674,local-authority:DST
-listed-building-outline,42241675,42241739,local-authority:TWH
-listed-building-outline,42241740,42241753,local-authority:TOB

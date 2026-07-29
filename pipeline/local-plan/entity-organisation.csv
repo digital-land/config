@@ -1325,10 +1325,12 @@ local-plan,4220117,4220117,national-park-authority:Q4972284
 local-plan,4220684,4220684,national-park-authority:Q4972284
 local-plan,4220074,4220074,national-park-authority:Q5225646
 local-plan,4220722,4220722,national-park-authority:Q5225646
+local-plan,4221132,4221133,national-park-authority:Q5225646
 local-plan,4220426,4220427,national-park-authority:Q72617158
 local-plan,4220830,4220830,national-park-authority:Q72617158
 local-plan,4220451,4220451,national-park-authority:Q72617669
 local-plan,4220846,4220846,national-park-authority:Q72617669
+local-plan,4221130,4221131,national-park-authority:Q72617669
 local-plan,4220301,4220301,national-park-authority:Q72617784
 local-plan,4220746,4220746,national-park-authority:Q72617784
 local-plan,4220455,4220455,national-park-authority:Q72617890
@@ -2702,5 +2704,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221130,4221131,national-park-authority:Q72617669
-local-plan,4221132,4221133,national-park-authority:Q5225646

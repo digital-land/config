@@ -6,6 +6,7 @@ tree,7002096873,7002098096,local-authority:ASF
 tree,7002171318,7002171866,local-authority:BAI
 tree,7002178988,7002180216,local-authority:BEN
 tree,7002211103,7002211104,local-authority:BEN
+tree,7002263204,7002263204,local-authority:BEN
 tree,7002019928,7002026161,local-authority:BNE
 tree,7002049989,7002050009,local-authority:BNE
 tree,7002050601,7002050605,local-authority:BNE
@@ -86,6 +87,7 @@ tree,7002194517,7002198311,local-authority:HUN
 tree,7002226826,7002226826,local-authority:HUN
 tree,7002072977,7002077536,local-authority:KEC
 tree,7002242144,7002244619,local-authority:KIN
+tree,7002256749,7002263203,local-authority:KTT
 tree,7002006552,7002009102,local-authority:LBH
 tree,7002153367,7002158371,local-authority:LCE
 tree,7002200984,7002207598,local-authority:LDS
@@ -212,6 +214,7 @@ tree,7002160924,7002163140,local-authority:WRL
 tree,7002211211,7002211212,local-authority:WRL
 tree,7002226895,7002226913,local-authority:WRL
 tree,7002226920,7002226920,local-authority:WRL
+tree,7002263205,7002263209,local-authority:WRL
 tree,7002103186,7002107471,local-authority:WSM
 tree,7002171867,7002173959,national-park-authority:Q27159704
 tree,7002126765,7002129340,national-park-authority:Q72617158
@@ -420,6 +423,7 @@ tree-preservation-order,7001045226,7001045930,local-authority:WRL
 tree-preservation-order,7001077476,7001077493,local-authority:WRL
 tree-preservation-order,7001099491,7001099493,local-authority:WRL
 tree-preservation-order,7001099497,7001099497,local-authority:WRL
+tree-preservation-order,7001125285,7001125285,local-authority:WRL
 tree-preservation-order,7001058418,7001059103,local-authority:WSM
 tree-preservation-order,7001089618,7001090020,national-park-authority:Q27159704
 tree-preservation-order,7001099503,7001099506,national-park-authority:Q27159704
@@ -533,6 +537,7 @@ tree-preservation-zone,19195248,19195248,local-authority:NBL
 tree-preservation-zone,19205842,19206513,local-authority:NEC
 tree-preservation-zone,19110556,19111312,local-authority:NET
 tree-preservation-zone,19197762,19205270,local-authority:NET
+tree-preservation-zone,19213662,19213668,local-authority:NET
 tree-preservation-zone,19153978,19155592,local-authority:NEW
 tree-preservation-zone,19120902,19121281,local-authority:NLN
 tree-preservation-zone,19151109,19151109,local-authority:NLN
@@ -639,15 +644,10 @@ tree-preservation-zone,19186031,19187317,local-authority:WOT
 tree-preservation-zone,19138582,19139802,local-authority:WRL
 tree-preservation-zone,19165819,19167055,local-authority:WRL
 tree-preservation-zone,19187527,19187567,local-authority:WRL
+tree-preservation-zone,19213659,19213661,local-authority:WRL
 tree-preservation-zone,19153301,19153564,local-authority:WSM
 tree-preservation-zone,19168416,19169313,national-park-authority:Q27159704
 tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002256749,7002263203,local-authority:KTT
-tree,7002263204,7002263204,local-authority:BEN
-tree-preservation-zone,19213659,19213661,local-authority:WRL
-tree,7002263205,7002263209,local-authority:WRL
-tree-preservation-order,7001125285,7001125285,local-authority:WRL
-tree-preservation-zone,19213662,19213668,local-authority:NET

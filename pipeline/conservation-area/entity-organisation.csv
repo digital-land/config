@@ -1017,6 +1017,7 @@ conservation-area,44009077,44009087,local-authority:RIC
 conservation-area,44008337,44008346,local-authority:ROC
 conservation-area,44010296,44010305,local-authority:ROH
 conservation-area,44010125,44010134,local-authority:ROS
+conservation-area,44016369,44016369,local-authority:ROS
 conservation-area,44006174,44006199,local-authority:ROT
 conservation-area,44006477,44006478,local-authority:ROT
 conservation-area,44011539,44011557,local-authority:RUG
@@ -1929,6 +1930,7 @@ conservation-area-document,6310342,6310465,local-authority:RIC
 conservation-area-document,6305876,6305886,local-authority:ROC
 conservation-area-document,6300214,6300229,local-authority:ROH
 conservation-area-document,6300062,6300095,local-authority:ROS
+conservation-area-document,6316816,6316818,local-authority:ROS
 conservation-area-document,6305715,6305770,local-authority:ROT
 conservation-area-document,6300560,6300578,local-authority:RUG
 conservation-area-document,6302981,6302990,local-authority:RUH
@@ -2054,5 +2056,3 @@ conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
 conservation-area-document,6316552,6316661,national-park-authority:Q72617988
-conservation-area-document,6316816,6316818,local-authority:ROS
-conservation-area,44016369,44016369,local-authority:ROS
