@@ -575,3 +575,10 @@ tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c04
 tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c042efa34f8,tpo,tree-preservation-order,,,
 tree-preservation-zone,,,wkt,geometry,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
+tree,4b706934371b6ee6704689ac1e1d0e5e6f24336d17c4c683efafbb81c0e52baf,,id,reference,2026-07-29,,2026-07-29
+tree,4b706934371b6ee6704689ac1e1d0e5e6f24336d17c4c683efafbb81c0e52baf,,na,IGNORE,2026-07-29,,2026-07-29
+tree,4b706934371b6ee6704689ac1e1d0e5e6f24336d17c4c683efafbb81c0e52baf,,TNUM,tree-preservation-order,2026-07-29,,2026-07-29
+tree,4b706934371b6ee6704689ac1e1d0e5e6f24336d17c4c683efafbb81c0e52baf,,ADDRESS,address-text,2026-07-29,,2026-07-29
+tree,4b706934371b6ee6704689ac1e1d0e5e6f24336d17c4c683efafbb81c0e52baf,,DESCRIPT,description,2026-07-29,,2026-07-29
+tree,4b706934371b6ee6704689ac1e1d0e5e6f24336d17c4c683efafbb81c0e52baf,,TREE_TYPE,tree-species,2026-07-29,,2026-07-29
+tree,4b706934371b6ee6704689ac1e1d0e5e6f24336d17c4c683efafbb81c0e52baf,,DATE_CREATED,entry-date,2026-07-29,,2026-07-29
