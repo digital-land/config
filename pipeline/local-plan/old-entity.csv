@@ -2037,3 +2037,5 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 530018,301,530065,Redirecting MHCLG data to authoritative entity (local-authority:DUR)-minerals-plan,,2026-07-28,
 530049,301,530071,Redirecting MHCLG data to authoritative entity (local-authority:RUT)-minerals-plan,,2026-07-28,
 540025,301,540071,Redirecting MHCLG data to authoritative entity (local-authority:DUR)-waste-plan,,2026-07-28,
+4220722,410,,Retiring fake MHCLG template data for national-park-authority:Q5225646-local-plan,,2026-07-29,
+4220846,410,,Retiring fake MHCLG template data for national-park-authority:Q72617669-local-plan,,2026-07-29,
