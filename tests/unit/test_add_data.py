@@ -364,6 +364,51 @@ def test_retire_endpoints_in_csv_updates_source_and_endpoint(tmp_path, monkeypat
     assert source_rows[1]["end-date"] == ""
 
 
+def test_unretire_endpoints_in_csv_clears_end_date(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+
+    endpoint_file = tmp_path / "collection/test-collection/endpoint.csv"
+    source_file = tmp_path / "collection/test-collection/source.csv"
+    _write_csv(
+        endpoint_file,
+        ["endpoint", "endpoint-url", "parameters", "plugin", "entry-date", "start-date", "end-date"],
+        [
+            ["endpoint-1", "https://example.test/1", "", "", "2026-01-01", "", "2026-06-01"],
+            ["endpoint-2", "https://example.test/2", "", "", "2026-01-01", "", "2026-06-01"],
+        ],
+    )
+    _write_csv(
+        source_file,
+        [
+            "source",
+            "attribution",
+            "collection",
+            "documentation-url",
+            "endpoint",
+            "licence",
+            "organisation",
+            "pipelines",
+            "entry-date",
+            "start-date",
+            "end-date",
+        ],
+        [
+            ["source-1", "", "test-collection", "", "endpoint-1", "", "", "", "2026-01-01", "", "2026-06-01"],
+            ["source-2", "", "test-collection", "", "endpoint-2", "", "", "", "2026-01-01", "", "2026-06-01"],
+        ],
+    )
+
+    add_data.unretire_endpoints_in_csv("test-collection", ["endpoint-1"])
+
+    endpoint_rows = list(csv.DictReader(endpoint_file.read_text(encoding="utf-8").splitlines()))
+    source_rows = list(csv.DictReader(source_file.read_text(encoding="utf-8").splitlines()))
+
+    assert endpoint_rows[0]["end-date"] == ""
+    assert endpoint_rows[1]["end-date"] == "2026-06-01"
+    assert source_rows[0]["end-date"] == ""
+    assert source_rows[1]["end-date"] == "2026-06-01"
+
+
 def test_resolve_branch_uses_append_mode_when_open_pr(monkeypatch):
     calls = []
 
@@ -423,6 +468,7 @@ def test_click_cli_wires_options_to_runner(monkeypatch):
         environment,
         test_mode,
         retire_endpoints,
+        unretire_endpoints,
     ):
         captured["request_id"] = request_id
         captured["branch"] = branch
@@ -430,6 +476,7 @@ def test_click_cli_wires_options_to_runner(monkeypatch):
         captured["environment"] = environment
         captured["test_mode"] = test_mode
         captured["retire_endpoints"] = retire_endpoints
+        captured["unretire_endpoints"] = unretire_endpoints
 
     monkeypatch.setattr(add_data, "run_add_data_async", fake_run)
     runner = CliRunner()
@@ -449,6 +496,8 @@ def test_click_cli_wires_options_to_runner(monkeypatch):
             "endpoint-a,endpoint-b",
             "--retire-endpoints",
             "endpoint-c",
+            "--unretire-endpoints",
+            "endpoint-x,endpoint-y",
             "--test",
         ],
     )
@@ -461,6 +510,7 @@ def test_click_cli_wires_options_to_runner(monkeypatch):
         "environment": "development",
         "test_mode": True,
         "retire_endpoints": ["endpoint-a", "endpoint-b", "endpoint-c"],
+        "unretire_endpoints": ["endpoint-x", "endpoint-y"],
     }
 
 
