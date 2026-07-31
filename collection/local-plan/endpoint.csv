@@ -46,7 +46,7 @@ ce00da9a0ee7a9efd55c42fb49ecdc06b114982be1ee357249293db5d352a4c6,https://www.sci
 d821742b863788f0e6f092f772038535e1a67aae2728b61affc5878088d97c97,https://www.scilly.gov.uk/sites/default/files/planning-apps/minerals-plan.xlsx,,,2026-05-27,2026-05-27,
 5460572ae2a11365354fe2e743079591e97fa59aa8504b01b2c489a84fb1b074,https://www.woking.gov.uk/sites/default/files/2026-05/Woking%20New%20local%20Plan%20timetable.csv,,,2026-05-28,2026-05-28,
 381410034dcb864c5ea27970f72f47249f44ac60f4ee202bf0b6e25842665f32,https://www.eastsuffolk.gov.uk/sites/default/files/2026-05/ES%20Plans.csv,,,2026-05-29,2026-05-29,
-489e990a85596faea02b497a8fc0c092f09cef1201c3ded6e6da232c1bdb8354,https://www.eastsuffolk.gov.uk/sites/default/files/2026-05/ES%20local%20plan%20timetable%20CSV.csv,,,2026-05-29,2026-05-29,
+489e990a85596faea02b497a8fc0c092f09cef1201c3ded6e6da232c1bdb8354,https://www.eastsuffolk.gov.uk/sites/default/files/2026-05/ES%20local%20plan%20timetable%20CSV.csv,,,2026-05-29,2026-05-29,2026-07-31
 250c2e846391555faef5893e0691849f23125ce33b0b7fc56033b88aa3d7e2f6,https://www.lancaster.gov.uk/assets/attach/17988/plan-timetable_lancaster.csv,,,2026-06-01,2026-06-01,
 e544666155ce80098afe6d4259d22af26506fb0398b080ab343a339fb45590fd,https://www.lancaster.gov.uk/assets/attach/17992/local-plan_lancaster_.csv,,,2026-06-01,2026-06-01,
 73aad6681e6faef35b90dced20d6237fbe306fc65fda92507083b180abe5719e,https://guildford.gov.uk/media/37737/Guildford-local-plan-data/CSV/guildford_local_plan_dataset.csv?m=1780671158747,,,2026-06-05,2026-06-05,
@@ -107,7 +107,7 @@ d46183279d160c0fdd2c6754a8eca854bab2527041c5f07e7f0d5ad284b28f06,https://www.tor
 f0357e15ac0042b89da983d2d17ae1de4415b442d871438b3f5fbf05a7644738,https://www.pendle.gov.uk/download/downloads/id/12729/local_plan.csv,,,2026-06-30,2026-06-30,
 f1b84f88d933e8327d60308839c4958c2db2c74ef766609925187768adf995f7,https://www.pendle.gov.uk/download/downloads/id/12732/local_plan_timetable.csv,,,2026-06-30,2026-06-30,
 1b692d33d36d0a7cc6fe979e88d2d28589c701fe73034c7082b32c8450be3837,https://www.plymouth.gov.uk/sites/default/files/2026-06/Plymouth-local-plan-and-minerals-and-waste-plan-timetable-JUNE-2026-V3.csv,,,2026-07-01,2026-07-01,2026-07-29
-1f70f3d18e849f28620dc3bf9294b97b2e8ea55b985f40864b8b53010ca83fa5,https://data.yorkopendata.org/dataset/5a37763e-fdac-451a-8a95-c5a477c17c0c/resource/e43c3bd5-21f7-49bc-ae15-4c7632d24681/download/final-city-of-york-plan-timetable-26062026.csv,,,2026-07-01,2026-06-27,
+1f70f3d18e849f28620dc3bf9294b97b2e8ea55b985f40864b8b53010ca83fa5,https://data.yorkopendata.org/dataset/5a37763e-fdac-451a-8a95-c5a477c17c0c/resource/e43c3bd5-21f7-49bc-ae15-4c7632d24681/download/final-city-of-york-plan-timetable-26062026.csv,,,2026-07-01,2026-06-27,2026-07-31
 227d63868af30c5c5b743fbabcb1763f2587e7582a511b98d11b6521e1b12dc9,https://www.southampton.gov.uk/media/2wckpwoi/plan-dataset-southampton-city-council.csv,,,2026-07-01,2026-07-01,
 245ccf61173e38c2e838633d92bb93013c382b32cfde504db399930c42f70872,https://www.wokingham.gov.uk/sites/wokingham/files/2026-06/Local_Plan_Data_CSV.csv,,,2026-07-01,2026-07-01,
 29a0b52d44e4ef66bd282c4818d1ac6e54fce8ec66462e766658958d111dc8b7,https://www.nottinghamcity.gov.uk/media/520dponb/ncc-mineral-plan-data-csv.csv,,,2026-07-01,2026-07-01,
@@ -184,3 +184,5 @@ b06614c9b865737b1a1e8a4ea99b3aa82a97093479e2450cc9bd831c6b657797,https://www.nor
 f1ef8a9a844591b0b871484afc0008702ef570c6ae3f6f43d21389b733068e7a,https://www.plymouth.gov.uk/sites/default/files/2026-07/Plymouth-local-plan-and-minerals-and-waste-plan-timetable-JULY-2026.csv,,,2026-07-29,2026-07-29,
 36978bf353c9b913ef8a3ed46a53765f3dc7a1398f50e398718415f3c9f4ea5a,https://localplan.great-yarmouth.gov.uk/media/9665/Great-Yarmouth-Local-Plans/csv/Great_Yarmouth_Local_Plans_-_Version_1_June_2026.csv?m=1782489555980,,,2026-07-30,2026-07-30,
 5178fb332c17bf81820f5cfec5ae3160f6aa2283293ce9253b84f154e6070627,https://localplan.great-yarmouth.gov.uk/media/9663/Local-Plan-Timetable/csv/Local_Plan_Timetable__Version2_July26.csv?m=1785405254347,,,2026-07-30,2026-07-30,
+1c0937d773cb0ed985bcfae03fd8e8248fff4e3fcd9747f2d9d1ed199e837558,https://data.yorkopendata.org/dataset/5a37763e-fdac-451a-8a95-c5a477c17c0c/resource/e43c3bd5-21f7-49bc-ae15-4c7632d24681/download/city-of-york-local-plan-timetable.csv,,,2026-07-31,2026-07-31,
+10a7ff05f21587f69343cdd20698d838dc187f3dd5aed5b8477254045e5d2e73,https://www.eastsuffolk.gov.uk/sites/default/files/2026-07/ES%20local%20plan%20timetable%20CSV.csv,,,2026-07-31,2026-07-31,
