@@ -2,6 +2,10 @@ dataset,endpoint,resource,column,field,start-date,end-date,entry-date
 tree,02b7f5e685be3fedc7145c397927bccb4c4c8d660e8eebb4e9f0b917bee9ce82,,WKT,geometry,,,
 tree,02b7f5e685be3fedc7145c397927bccb4c4c8d660e8eebb4e9f0b917bee9ce82,,REF,reference,,,
 tree,02b7f5e685be3fedc7145c397927bccb4c4c8d660e8eebb4e9f0b917bee9ce82,,reference,tree-preservation-order,,,
+tree,08d45287003781bbc2e04d10ea5cd4640fa5311696f1a19c69af8b0b747ade1e,,Address,address-text,2026-07-31,,2026-07-31
+tree,08d45287003781bbc2e04d10ea5cd4640fa5311696f1a19c69af8b0b747ade1e,,na,IGNORE,2026-07-31,,2026-07-31
+tree,08d45287003781bbc2e04d10ea5cd4640fa5311696f1a19c69af8b0b747ade1e,,TPO,tree-preservation-order,2026-07-31,,2026-07-31
+tree,08d45287003781bbc2e04d10ea5cd4640fa5311696f1a19c69af8b0b747ade1e,,TreeSpecies,tree-species,2026-07-31,,2026-07-31
 tree,0c83c1c9572e704f3d51c4a5dd5f950c5aa0e9ecf7353a009b03575beecf5a47,,tree-preservation-zone-type,tree-preservation-order-tree,,,
 tree,0cfd31d51f6c7f8970b87a59b295083e383661d48ec12ea3ff5f652498b9b867,,WKT,geometry,,,
 tree,124dc88d5839fa63b5802abe2847e3bf959b3052a3dcd126f362f78e5342df33,,ADDRESS,address-text,,,
@@ -582,7 +586,3 @@ tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c04
 tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c042efa34f8,tpo,tree-preservation-order,,,
 tree-preservation-zone,,,wkt,geometry,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
-tree,08d45287003781bbc2e04d10ea5cd4640fa5311696f1a19c69af8b0b747ade1e,,na,IGNORE,2026-07-31,,2026-07-31
-tree,08d45287003781bbc2e04d10ea5cd4640fa5311696f1a19c69af8b0b747ade1e,,TPO,tree-preservation-order,2026-07-31,,2026-07-31
-tree,08d45287003781bbc2e04d10ea5cd4640fa5311696f1a19c69af8b0b747ade1e,,Address,address-text,2026-07-31,,2026-07-31
-tree,08d45287003781bbc2e04d10ea5cd4640fa5311696f1a19c69af8b0b747ade1e,,TreeSpecies,tree-species,2026-07-31,,2026-07-31

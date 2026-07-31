@@ -44,6 +44,7 @@ tree,7002244620,7002247162,local-authority:COL
 tree,7002227348,7002230208,local-authority:COT
 tree,7002236844,7002236844,local-authority:COT
 tree,7002248350,7002248351,local-authority:COT
+tree,7002263210,7002263211,local-authority:COT
 tree,7002192285,7002194516,local-authority:COV
 tree,7002185658,7002186858,local-authority:DAR
 tree,7002186859,7002186859,local-authority:DAR
@@ -85,6 +86,7 @@ tree,7002148179,7002148191,local-authority:HOR
 tree,7002173960,7002173983,local-authority:HOR
 tree,7002194517,7002198311,local-authority:HUN
 tree,7002226826,7002226826,local-authority:HUN
+tree,7002263212,7002263229,local-authority:HUN
 tree,7002072977,7002077536,local-authority:KEC
 tree,7002242144,7002244619,local-authority:KIN
 tree,7002256749,7002263203,local-authority:KTT
@@ -275,6 +277,7 @@ tree-preservation-order,7001094849,7001095398,local-authority:CLD
 tree-preservation-order,7001101956,7001102524,local-authority:COT
 tree-preservation-order,7001106256,7001106257,local-authority:COT
 tree-preservation-order,7001111024,7001111025,local-authority:COT
+tree-preservation-order,7001125540,7001125540,local-authority:COT
 tree-preservation-order,7001077014,7001077446,local-authority:COV
 tree-preservation-order,7001089278,7001089617,local-authority:DAR
 tree-preservation-order,7001099479,7001099479,local-authority:DAR
@@ -382,6 +385,7 @@ tree-preservation-order,7001093313,7001093315,local-authority:SKP
 tree-preservation-order,7001067894,7001068400,local-authority:SLF
 tree-preservation-order,7001076214,7001076221,local-authority:SLF
 tree-preservation-order,7001094676,7001094683,local-authority:SLF
+tree-preservation-order,7001125539,7001125539,local-authority:SLF
 tree-preservation-order,7001051485,7001053767,local-authority:SNO
 tree-preservation-order,7001059535,7001061534,local-authority:SPE
 tree-preservation-order,7001064345,7001065300,local-authority:SPE
@@ -511,6 +515,7 @@ tree-preservation-zone,19161557,19161557,local-authority:HOR
 tree-preservation-zone,19169316,19169338,local-authority:HOR
 tree-preservation-zone,19169339,19169339,local-authority:HOR
 tree-preservation-zone,19183428,19184248,local-authority:HUN
+tree-preservation-zone,19213979,19213979,local-authority:HUN
 tree-preservation-zone,19137678,19137718,local-authority:KEC
 tree-preservation-zone,19188935,19189560,local-authority:KIN
 tree-preservation-zone,19206514,19213658,local-authority:KTT
@@ -653,8 +658,3 @@ tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-order,7001125539,7001125539,local-authority:SLF
-tree,7002263210,7002263211,local-authority:COT
-tree,7002263212,7002263229,local-authority:HUN
-tree-preservation-order,7001125540,7001125540,local-authority:COT
-tree-preservation-zone,19213979,19213979,local-authority:HUN

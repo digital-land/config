@@ -39,6 +39,7 @@ article-4-direction,6102342,6102344,local-authority:FEN
 article-4-direction,6102345,6102346,local-authority:FOE
 article-4-direction,6100874,6100878,local-authority:GAT
 article-4-direction,6102656,6102661,local-authority:HAA
+article-4-direction,6103404,6103409,local-authority:HAA
 article-4-direction,6102765,6102765,local-authority:HAL
 article-4-direction,6102766,6102766,local-authority:HAL
 article-4-direction,6102745,6102758,local-authority:HAR
@@ -179,6 +180,7 @@ article-4-direction-area,7010002917,7010002971,local-authority:GLO
 article-4-direction-area,7010002618,7010002634,local-authority:GRY
 article-4-direction-area,7010002695,7010002695,local-authority:GRY
 article-4-direction-area,7010009773,7010009778,local-authority:HAA
+article-4-direction-area,7010010438,7010010443,local-authority:HAA
 article-4-direction-area,7010009885,7010009885,local-authority:HAL
 article-4-direction-area,7010010017,7010010017,local-authority:HAL
 article-4-direction-area,7010009871,7010009884,local-authority:HAR
@@ -269,5 +271,3 @@ article-4-direction-area,7010009089,7010009092,local-authority:YOR
 article-4-direction-area,7010009405,7010009434,national-park-authority:Q27159704
 article-4-direction-area,7010006887,7010006912,national-park-authority:Q72617158
 article-4-direction-area,7010010088,7010010113,national-park-authority:Q72617988
-article-4-direction,6103404,6103409,local-authority:HAA
-article-4-direction-area,7010010438,7010010443,local-authority:HAA
