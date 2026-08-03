@@ -2706,3 +2706,12 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
+plan-timetable,5110965,5110979,local-authority:DAC
+plan-timetable,5110980,5110994,local-authority:BAB
+plan-timetable,5110995,5111018,local-authority:BAE
+plan-timetable,5111019,5111030,local-authority:BRO
+plan-timetable,5111031,5111045,local-authority:DNC
+local-plan,4221137,4221138,local-authority:DNC
+plan-timetable,5111046,5111069,local-authority:DUD
+plan-timetable,5111070,5111092,local-authority:ERE
+plan-timetable,5111093,5111115,local-authority:REI
