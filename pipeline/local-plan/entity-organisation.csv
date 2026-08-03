@@ -707,6 +707,7 @@ local-plan,4220723,4220723,local-authority:DER
 local-plan,4220039,4220039,local-authority:DNC
 local-plan,4220273,4220273,local-authority:DNC
 local-plan,4220725,4220725,local-authority:DNC
+local-plan,4221137,4221138,local-authority:DNC
 local-plan,4220087,4220087,local-authority:DOV
 local-plan,4220275,4220276,local-authority:DOV
 local-plan,4220727,4220727,local-authority:DOV
@@ -1711,9 +1712,11 @@ plan-timetable,5100335,5100335,local-authority:ASH
 plan-timetable,5103500,5103522,local-authority:ASH
 plan-timetable,5100340,5100343,local-authority:AYL
 plan-timetable,5103546,5103568,local-authority:BAB
+plan-timetable,5110980,5110994,local-authority:BAB
 plan-timetable,5100322,5100322,local-authority:BAE
 plan-timetable,5100354,5100357,local-authority:BAE
 plan-timetable,5103638,5103660,local-authority:BAE
+plan-timetable,5110995,5111018,local-authority:BAE
 plan-timetable,5100087,5100087,local-authority:BAI
 plan-timetable,5100194,5100199,local-authority:BAI
 plan-timetable,5100349,5100350,local-authority:BAI
@@ -1800,6 +1803,7 @@ plan-timetable,5100439,5100441,local-authority:BRM
 plan-timetable,5104052,5104074,local-authority:BRM
 plan-timetable,5110859,5110881,local-authority:BRM
 plan-timetable,5104006,5104028,local-authority:BRO
+plan-timetable,5111019,5111030,local-authority:BRO
 plan-timetable,5100004,5100004,local-authority:BRT
 plan-timetable,5100030,5100030,local-authority:BRT
 plan-timetable,5100052,5100052,local-authority:BRT
@@ -1912,6 +1916,7 @@ plan-timetable,5110532,5110546,local-authority:CUA
 plan-timetable,5100324,5100324,local-authority:DAC
 plan-timetable,5100592,5100596,local-authority:DAC
 plan-timetable,5101827,5101849,local-authority:DAC
+plan-timetable,5110965,5110979,local-authority:DAC
 plan-timetable,5100063,5100063,local-authority:DAL
 plan-timetable,5100597,5100599,local-authority:DAL
 plan-timetable,5104742,5104764,local-authority:DAL
@@ -1929,6 +1934,7 @@ plan-timetable,5103110,5103113,local-authority:DEV
 plan-timetable,5100073,5100073,local-authority:DNC
 plan-timetable,5100617,5100620,local-authority:DNC
 plan-timetable,5104857,5104879,local-authority:DNC
+plan-timetable,5111031,5111045,local-authority:DNC
 plan-timetable,5102776,5102779,local-authority:DOR
 plan-timetable,5100279,5100279,local-authority:DOV
 plan-timetable,5100624,5100627,local-authority:DOV
@@ -1941,6 +1947,7 @@ plan-timetable,5103331,5103334,local-authority:DST
 plan-timetable,5104880,5104902,local-authority:DST
 plan-timetable,5100632,5100633,local-authority:DUD
 plan-timetable,5101852,5101874,local-authority:DUD
+plan-timetable,5111046,5111069,local-authority:DUD
 plan-timetable,5100084,5100084,local-authority:DUR
 plan-timetable,5100634,5100636,local-authority:DUR
 plan-timetable,5103120,5103125,local-authority:DUR
@@ -1992,6 +1999,7 @@ plan-timetable,5100682,5100687,local-authority:EPS
 plan-timetable,5101902,5101924,local-authority:EPS
 plan-timetable,5100688,5100693,local-authority:ERE
 plan-timetable,5101927,5101949,local-authority:ERE
+plan-timetable,5111070,5111092,local-authority:ERE
 plan-timetable,5100656,5100659,local-authority:ERY
 plan-timetable,5101877,5101899,local-authority:ERY
 plan-timetable,5110637,5110651,local-authority:ERY
@@ -2300,6 +2308,7 @@ plan-timetable,5107778,5107800,local-authority:RED
 plan-timetable,5110836,5110858,local-authority:RED
 plan-timetable,5101235,5101238,local-authority:REI
 plan-timetable,5107801,5107823,local-authority:REI
+plan-timetable,5111093,5111115,local-authority:REI
 plan-timetable,5101239,5101245,local-authority:RIB
 plan-timetable,5107824,5107846,local-authority:RIB
 plan-timetable,5109878,5109900,local-authority:RIB
@@ -2706,12 +2715,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5110965,5110979,local-authority:DAC
-plan-timetable,5110980,5110994,local-authority:BAB
-plan-timetable,5110995,5111018,local-authority:BAE
-plan-timetable,5111019,5111030,local-authority:BRO
-plan-timetable,5111031,5111045,local-authority:DNC
-local-plan,4221137,4221138,local-authority:DNC
-plan-timetable,5111046,5111069,local-authority:DUD
-plan-timetable,5111070,5111092,local-authority:ERE
-plan-timetable,5111093,5111115,local-authority:REI

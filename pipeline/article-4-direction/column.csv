@@ -24,6 +24,11 @@ article-4-direction,de6588490d7159e985c9f969068acf3b4bd33cad8f9e5078090df3ebf619
 article-4-direction,de6588490d7159e985c9f969068acf3b4bd33cad8f9e5078090df3ebf61981b1,,reference,IGNORE,2026-07-07,,2026-07-07
 article-4-direction,de6588490d7159e985c9f969068acf3b4bd33cad8f9e5078090df3ebf61981b1,,article_4_direction,reference,2026-07-07,,2026-07-07
 article-4-direction,fa43f1424a3c39642ff4664068da6432efd8f5ab7c81d702cea8fe95e4532d8c,,Document_Reference,reference,,,
+article-4-direction,ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,,Document URL,document-url,2026-08-03,,2026-08-03
+article-4-direction,ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,,Documentation URL,documentation-url,2026-08-03,,2026-08-03
+article-4-direction,ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,,End Date,end-date,2026-08-03,,2026-08-03
+article-4-direction,ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,,Entry Date,entry-date,2026-08-03,,2026-08-03
+article-4-direction,ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,,Start Date,start-date,2026-08-03,,2026-08-03
 article-4-direction,,,organisation,IGNORE,,,
 article-4-direction-area,01de81578391eab3a1fdc9fcb92e559aa0a0bf1aafc777905d680fc0e189811e,,SUMMARY0,description,,,
 article-4-direction-area,01de81578391eab3a1fdc9fcb92e559aa0a0bf1aafc777905d680fc0e189811e,,ON_DATE,entry-date,,,
@@ -235,8 +240,3 @@ article-4-direction-area,,,Designatio,notes,,,
 article-4-direction-area,,,CODE,reference,,,
 article-4-direction-area,,,geography,reference,,,
 article-4-direction-area,,,START_DATE,start-date,,,
-article-4-direction,ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,,End Date,end-date,2026-08-03,,2026-08-03
-article-4-direction,ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,,Entry Date,entry-date,2026-08-03,,2026-08-03
-article-4-direction,ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,,Start Date,start-date,2026-08-03,,2026-08-03
-article-4-direction,ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,,Document URL,document-url,2026-08-03,,2026-08-03
-article-4-direction,ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,,Documentation URL,documentation-url,2026-08-03,,2026-08-03

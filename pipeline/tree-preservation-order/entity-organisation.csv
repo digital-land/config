@@ -170,6 +170,7 @@ tree,7002226828,7002226885,local-authority:SST
 tree,7002226917,7002226919,local-authority:SST
 tree,7002230209,7002230209,local-authority:SST
 tree,7002247163,7002247163,local-authority:SST
+tree,7002263230,7002263287,local-authority:SST
 tree,7002212331,7002213822,local-authority:STE
 tree,7002212331,7002213822,local-authority:STE
 tree,7002230232,7002230241,local-authority:STE
@@ -605,6 +606,7 @@ tree-preservation-zone,19186019,19186026,local-authority:SST
 tree-preservation-zone,19187516,19187526,local-authority:SST
 tree-preservation-zone,19187568,19187568,local-authority:SST
 tree-preservation-zone,19187569,19187569,local-authority:SST
+tree-preservation-zone,19213980,19213988,local-authority:SST
 tree-preservation-zone,19187318,19187419,local-authority:STE
 tree-preservation-zone,19187318,19187419,local-authority:STE
 tree-preservation-zone,19188314,19188314,local-authority:STE
@@ -658,5 +660,3 @@ tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-zone,19213980,19213988,local-authority:SST
-tree,7002263230,7002263287,local-authority:SST
