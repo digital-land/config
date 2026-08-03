@@ -24,7 +24,7 @@ f2b9ceb518962d77dc589f7af6010129a0075b9b9e0c499b62de2108f61487af,https://raw.git
 6bab5e99b83f62c52acfeafd1eebe904608ee9d3e7174afe3905e9626035cabd,https://raw.githubusercontent.com/digital-land/local-plan-extractor/refs/heads/main/dataset/mineral-plan-timetable.csv,,,2026-01-29,2026-01-29,
 3d475a58bd0ff5d59a02032364e14c6e3fc8218c8c32d6b742e936827a147ecf,https://www.durham.gov.uk/media/49629/County-Durham-Plan/csv/CountyDurhamPlan.csv?m=1777301465763,,,2026-04-28,2026-04-28,
 8183eeae79febe789982afdc090006300ee72487d9af7d37957d44e44e5082a0,https://www.durham.gov.uk/media/49630/County-Durham-Plan-timetable/csv/CountyDurhamPlanTimetable.csv?m=1777301531770,,,2026-04-28,2026-04-28,2026-06-23
-a95fa3c165f510f0685116c72e0f6478ab2b7221efc6e13213e2589de6b8003c,https://www.centralbedfordshire.gov.uk/download/downloads/id/206/local-plan-2050-timetable.csv,,,2026-04-28,2026-04-17,
+a95fa3c165f510f0685116c72e0f6478ab2b7221efc6e13213e2589de6b8003c,https://www.centralbedfordshire.gov.uk/download/downloads/id/206/local-plan-2050-timetable.csv,,,2026-04-28,2026-04-17,2026-08-03
 2dbb1ea06a03c20ba13f09da32c700a66f7cd0ae016cb857af8680961181e7e0,https://www.centralbedfordshire.gov.uk/download/downloads/id/207/central-bedfordshire-local-plans.csv,,,2026-04-30,2026-04-29,2026-07-24
 42a856a94376ee348aa5fa6a8092d8cdd39a966206428ad4fe1520ff5226615f,https://www.somerset.gov.uk/wp-content/uploads/2026/05/Planning-data-Somerset-plan.csv,,,2026-05-01,2026-05-01,
 6f286e5f0bfc58c0ddc3d361729232435b40946547e390b939835b464b1ce7ba,https://www.somerset.gov.uk/wp-content/uploads/2026/05/Planning-data-Somerset-local-plan-timetable.csv,,,2026-05-01,2026-05-01,
@@ -195,3 +195,4 @@ e990c1673923090451c06c686d926189f2d0362f2247020e1ea5be4cfaa3b3b1,https://www.bab
 cf67b07b715dbe7a0aaa0d3098e19ab94ed78d0a08504af8896062807f9af5d3,https://www.dudley.gov.uk/media/5cgdkrho/dmbc-plan-timetable.csv,,,2026-08-03,2026-08-03,
 1b14641885c2e150c57c1e85771dfc83e0c64dc5a5d2d40869c6c50645333cdc,https://www.erewash.gov.uk/sites/default/files/2026-06/erewash-new-local-plan-timetable.csv,,,2026-08-03,2026-08-03,
 3c72da28437827bfc0bf751164b431e96f0f13aebdd42509cdbc21013262ba5e,https://www.middevon.gov.uk/media/358397/local-plan-and-minerals-and-waste-plan-timetable.csv,,,2026-08-03,2026-08-03,
+d6a165ffaa142f60002a16e656f24bd5471dff7eda0a08bc48fed52a086cf11f,https://www.centralbedfordshire.gov.uk/sites/default/files/2026-07/local-plan-2050-timetable.csv,,,2026-08-03,2026-08-03,
