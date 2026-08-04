@@ -2811,7 +2811,7 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 44009300,410,,Removal of HE CA single-match to multiple CA,,2026-02-11,
 44009315,410,,Removal of HE CA single-match to multiple CA,,2026-02-06,
 44009317,410,,Removal of HE CA single-match to multiple CA,,2026-02-06,
-44009322,301,44015677,Redirect old entity complete match to LPA entity: local-authority:HAA,,2026-05-27,
+44009322,301,44016382,Consolidated redirect to final entity,,2026-08-04,
 44009392,301,44010418,redirect duplicate entity,,2025-12-11,
 44009393,301,44010459,redirect duplicate entity,,2025-12-11,
 44009395,301,44010515,redirect duplicate entity,,2025-12-11,
