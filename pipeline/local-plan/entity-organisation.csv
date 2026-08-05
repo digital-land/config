@@ -2733,3 +2733,16 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
+plan-timetable,5111326,5111340,local-planning-group:BAB-MSU
+plan-timetable,5111341,5111352,local-authority:SNO
+local-plan,4221152,4221153,local-authority:SNO
+plan-timetable,5111353,5111373,local-authority:NHE
+plan-timetable,5111374,5111396,local-authority:NNUA
+plan-timetable,5111397,5111412,local-authority:NBL
+local-plan,4221154,4221155,local-authority:NBL
+plan-timetable,5111413,5111427,local-authority:SHA
+plan-timetable,5111428,5111442,local-authority:SLG
+plan-timetable,5111443,5111465,local-authority:RUN
+local-plan,4221156,4221156,local-authority:RUN
+plan-timetable,5111466,5111477,local-authority:NOW
+local-plan,4221157,4221158,local-authority:NOW
