@@ -93,7 +93,7 @@ ced0b624cb0e3ed809bf20c6b46b2e603b5b3ee080ee6c988e7f8e8ca0413e05,https://plymout
 81646d2e45c4f7f36846e79ccbd98f1c18ccb61f56cdfb768c46ac59396d2735,https://www.southnorfolkandbroadland.gov.uk/asset-library/bdc-article-4-direction-dataset.csv,,,2024-12-12,,2025-01-15
 0fba0f5e837fe76d0054f5d5e257a6af4cada7cd8efc5ddfe0c0af08562f2f80,https://www.torbay.gov.uk/services/geoserver/DigitalPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=DigitalPlanning%3ADLUHC_article_4_direction_area_Torbay&outputFormat=application%2Fjson,,,2024-12-17,2024-12-17,
 a73868707618b1ae4a543481668721eca479dbe9e90691583a5b2f694a781f1c,https://www.torbay.gov.uk/services/geoserver/DigitalPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=DigitalPlanning%3ADLUHC_article_4_direction_Torbay&outputFormat=CSV&format_options=filename:article_4_direction_Torbay.csv,,,2024-12-17,2024-12-17,
-1169c99235083f6e03fce461a88f285aff1350289123ca6e4fc30e3b3fcb2df1,https://www.easthants.gov.uk/sites/default/files/2024-10/Open%20data%20-%20article%204%20direction.csv,,,2024-12-18,2024-12-18,
+1169c99235083f6e03fce461a88f285aff1350289123ca6e4fc30e3b3fcb2df1,https://www.easthants.gov.uk/sites/default/files/2024-10/Open%20data%20-%20article%204%20direction.csv,,,2024-12-18,2024-12-18,2026-08-05
 098f0733c0e45568c70460ba521ebd269cd0e18253f944ec03a2252c2febcd71,https://data.rochdale.gov.uk/files/Article_4_DirectionsDocumentDataset.csv,,,2025-01-02,,
 1e75db94e3349d46db1e037d5cd4b9b0967d22e2d6f69f041a0788c361afb32d,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/LBTH_Article_4_Direction_Residential_To_HMO/FeatureServer/83/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,
 2428c7af0edd692592197b477c6f1d61129ee54568b1caab2be88c89bc7696a0,https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/LBTH_Article_4_Direction_Class_E_To_Residential/FeatureServer/84/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,
@@ -284,3 +284,4 @@ e1e927d071ce6d74eba0dfa86ea82e751bb9f06a4f04c16ad2bdfe0a0f8211b4,https://xmap-hu
 43a65cf6ddf0588046768289e3edcb30fd20191ff62c9acba1358c3250c33cae,https://www.havant.gov.uk/media/11181/download?inline,,,2026-07-31,2026-07-31,
 d2799639819c5b1ba73c38e346d3de7804537ca5b0cb289bee99057ecc889a9f,https://www.havant.gov.uk/media/11180/download?inline,,,2026-07-31,2026-07-31,
 ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,https://www.bury.gov.uk/asset-library/article-4-direction-dataset.csv,,,2026-08-03,2026-08-03,
+2072ac01496ccf76cd937582df339cf702be9d168cff64fb231a2e8e1824ffa0,https://maps.easthants.gov.uk/Heritage/open_data/article-4.csv,,,2026-08-05,2026-08-05,
