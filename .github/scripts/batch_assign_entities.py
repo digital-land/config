@@ -331,6 +331,32 @@ def _missing_organisation_error_rows(df, dataset, resource):
     ]
 
 
+def _contiguous_ranges_by_org(new_entities, entity_org_map):
+    """Group newly created entity numbers into contiguous per-organisation ranges.
+
+    Entities for different organisations can be interleaved within a single
+    resource (e.g. a multi-authority endpoint), so a single min/max span across
+    all new entities would wrongly claim entity numbers belonging to another
+    organisation. A run only continues while both the organisation and the
+    entity number stay consecutive.
+
+    Returns a list of (organisation, min_entity, max_entity) tuples.
+    """
+    ranges = []
+    run_org = run_start = run_end = None
+    for entity in sorted(new_entities):
+        org_value = entity_org_map.get(entity, "")
+        if run_org == org_value and run_end is not None and entity == run_end + 1:
+            run_end = entity
+        else:
+            if run_org is not None:
+                ranges.append((run_org, run_start, run_end))
+            run_org, run_start, run_end = org_value, entity, entity
+    if run_org is not None:
+        ranges.append((run_org, run_start, run_end))
+    return ranges
+
+
 def _missing_reference_error_rows(df, dataset, resource):
     missing = df[(df['reference'].isna()) | (df['reference'] == '')]
     return [
@@ -531,12 +557,11 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
             input_path = cache_dir / "assign_entities" / "transformed" / f"{resource}.csv"
             lookup_path = Path("pipeline") / collection_name / "lookup.csv"
             try:
-                # Snapshot existing entities for this org before assignment
+                # Snapshot existing entities for this dataset before assignment
                 pre_lookup_df = pd.read_csv(lookup_path,dtype=str)
-                pre_org_entities = set(
+                pre_dataset_entities = set(
                     pre_lookup_df[
-                        (pre_lookup_df["prefix"] == dataset) &
-                        (pre_lookup_df["organisation"] == organisation_name)
+                        pre_lookup_df["prefix"] == dataset
                     ]["entity"].dropna().astype(int)
                 )
                 check_and_assign_entities(
@@ -654,25 +679,30 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                 print(f"\nEntities assigned successfully for resource: {resource}. ")
                 successful_resources.append(resource_path)
 
-                # After successful entity assignment and duplicate checks append entity range to entity-organisation.csv
+                # After successful entity assignment and duplicate checks append entity range(s) to entity-organisation.csv.
+                # A single resource can carry rows for more than one organisation (e.g. a
+                # multi-authority endpoint), so entities must be grouped by their *actual*
+                # organisation rather than assumed to all belong to `organisation_name` -
+                # otherwise entities for other organisations end up with no registered range.
                 post_lookup_df = pd.read_csv(lookup_path, dtype=str)
-                post_org_entities = set(
-                    post_lookup_df[
-                        (post_lookup_df["prefix"] == dataset) &
-                        (post_lookup_df["organisation"] == organisation_name)
-                    ]["entity"].dropna().astype(int)
+                post_dataset_df = post_lookup_df[post_lookup_df["prefix"] == dataset].dropna(subset=["entity"])
+                post_entity_org = (
+                    post_dataset_df.assign(entity=post_dataset_df["entity"].astype(int))
+                    .drop_duplicates("entity")
+                    .set_index("entity")["organisation"]
+                    .to_dict()
                 )
-                org_new_entities = post_org_entities - pre_org_entities
-                if org_new_entities:
-                    min_entity = min(org_new_entities)
-                    max_entity = max(org_new_entities)
+                new_dataset_entities = set(post_entity_org) - pre_dataset_entities
+                if new_dataset_entities:
                     entity_org_file = Path("pipeline") / collection_name / "entity-organisation.csv"
-                    # Hard code single exception for conservation-area dataset org HE
-                    if not (dataset == "conservation-area" and organisation_name == "government-organisation:PB1164"):
+                    for org_value, min_entity, max_entity in _contiguous_ranges_by_org(new_dataset_entities, post_entity_org):
+                        # Hard code single exception for conservation-area dataset org HE
+                        if dataset == "conservation-area" and org_value == "government-organisation:PB1164":
+                            continue
                         with open(entity_org_file, "a", newline="") as f:
                             writer = csv.writer(f)
-                            writer.writerow([dataset, min_entity, max_entity, organisation_name])
-                            print(f"\033[95mAppended entity range {min_entity}-{max_entity} for {organisation_name} to {entity_org_file}\033[0m")
+                            writer.writerow([dataset, min_entity, max_entity, org_value])
+                            print(f"\033[95mAppended entity range {min_entity}-{max_entity} for {org_value} to {entity_org_file}\033[0m")
 
             except Exception as e:
                 print(f"Failed to assign entities for resource: {resource}")
