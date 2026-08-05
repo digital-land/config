@@ -428,7 +428,7 @@ ff654199651b9da8eb203aa26f9cda9469a789612a93c3507a0fb7fc4f23df8a,https://raw.git
 9181f07d30189821c33ea48304029441910724c3f4529c1758751d3b393ba104,https://www.sstaffs.gov.uk/sites/default/files/2024-12/South%20Staffs%20Conservation%20Area%20document%20dataset_1.csv,,,2024-12-17,2024-12-17,
 c5e2d6e496bd8144a3848fda83edfc3abf7e0ac680340ce52cae870e17958375,https://www.torbay.gov.uk/services/geoserver/DigitalPlanning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=DigitalPlanning%3ADLUHC_conservation_area_document_Torbay&outputFormat=csv&format_options=filename:conservation_area_document_Torbay.csv,,,2024-12-17,2024-12-17,
 0ee5cc32fae15fa17b57d2fa55f96e3f7c453ca9e4503e88612d5cd8234ac974,https://eastcambs.gov.uk/sites/default/files/2024-12/Conservation%20area%20documents%20datasets.csv,,,2024-12-18,2024-12-18,2025-01-21
-330a3056cae0abd2395e9dc253ed519db95f9524c9e9c7920a82081604648904,https://www.easthants.gov.uk/sites/default/files/2024-10/Open%20data%20-%20conservation%20areas.csv,,,2024-12-18,2024-12-18,
+330a3056cae0abd2395e9dc253ed519db95f9524c9e9c7920a82081604648904,https://www.easthants.gov.uk/sites/default/files/2024-10/Open%20data%20-%20conservation%20areas.csv,,,2024-12-18,2024-12-18,2026-08-05
 51fe21e9011479314712c9bc6e51015c2ab07c6f8fc25874eca1eeffdfa0563a,https://eastcambs.gov.uk/sites/default/files/2024-12/Conservation%20area%20dataset.gpkg,,,2024-12-18,2024-12-18,2025-08-01
 56b7cf4cc457dd53ecfeb3f5cf7e34637b8f0efdb9711758cf4287901bbe0dbe,https://services-eu1.arcgis.com/tO2FhEnLa2qmISt9/arcgis/rest/services/South_Cambs_District_Council_Conservation_Areas/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,
 72b72c28986d9ad90a889c8c60a8de40bb086014d380d173f4f109a2e8757faa,https://www.rbkc.gov.uk/media/document/conservationareacsv,,,2025-01-02,,
@@ -833,3 +833,4 @@ dca2adb6c348e91999698202ea1705a224cd7edad2db97cd8141753d6daab9a2,https://www.bas
 36f443f95b3377a54f9f65521d0a775d7d2b837d2a8dc70758df5011ab62d1a3,https://www.havant.gov.uk/media/11198/download?inline,,,2026-08-04,2026-08-04,
 68648b39cfcc51f8e3d0ab2ca27a5a428963db7e796a52a5b1298affa45ac559,https://www.havant.gov.uk/media/11197/download?inline,,,2026-08-04,2026-08-04,
 7cbb46c4b53a4d7e3e4f76a420587fa6c353b06dc1d65ca94e1f95ef58d2e327,https://services.arcgis.com/wDcUiJYKtMulHM03/ArcGIS/rest/services/Conservation_Areas_document/FeatureServer/0,,arcgis,2026-08-04,2026-08-04,
+e188a99e6d6836ac56f0c84007910b45e1fbdf88a12022de53d258fab0c8005a,https://maps.easthants.gov.uk/Heritage/open_data/conservation-area.csv,,,2026-08-05,2026-08-05,
