@@ -953,6 +953,7 @@ local-plan,4220824,4220824,local-authority:MSS
 local-plan,4220823,4220823,local-authority:MSU
 local-plan,4220454,4220454,local-authority:NBL
 local-plan,4220848,4220848,local-authority:NBL
+local-plan,4221154,4221155,local-authority:NBL
 local-plan,4220834,4220834,local-authority:NDE
 local-plan,4221104,4221104,local-authority:NDE
 local-plan,4220428,4220428,local-authority:NEA
@@ -989,6 +990,7 @@ local-plan,4220841,4220841,local-authority:NNUA
 local-plan,4220136,4220136,local-authority:NOW
 local-plan,4220456,4220456,local-authority:NOW
 local-plan,4220850,4220850,local-authority:NOW
+local-plan,4221157,4221158,local-authority:NOW
 local-plan,4220445,4220446,local-authority:NSM
 local-plan,4220842,4220842,local-authority:NSM
 local-plan,4220447,4220447,local-authority:NTY
@@ -1064,6 +1066,7 @@ local-plan,4220880,4220880,local-authority:RUH
 local-plan,4220984,4220984,local-authority:RUH
 local-plan,4220512,4220512,local-authority:RUN
 local-plan,4220878,4220878,local-authority:RUN
+local-plan,4221156,4221156,local-authority:RUN
 local-plan,4220513,4220513,local-authority:RUS
 local-plan,4220879,4220879,local-authority:RUS
 local-plan,4221052,4221055,local-authority:RUS
@@ -1115,6 +1118,7 @@ local-plan,4220093,4220093,local-authority:SND
 local-plan,4220917,4220917,local-authority:SND
 local-plan,4220553,4220553,local-authority:SNO
 local-plan,4220898,4220898,local-authority:SNO
+local-plan,4221152,4221153,local-authority:SNO
 local-plan,4220537,4220537,local-authority:SOL
 local-plan,4220889,4220889,local-authority:SOL
 local-plan,4220563,4220564,local-authority:SOS
@@ -2226,6 +2230,7 @@ plan-timetable,5106927,5106949,local-authority:MSS
 plan-timetable,5106904,5106926,local-authority:MSU
 plan-timetable,5101162,5101166,local-authority:NBL
 plan-timetable,5107433,5107455,local-authority:NBL
+plan-timetable,5111397,5111412,local-authority:NBL
 plan-timetable,5107134,5107156,local-authority:NDE
 plan-timetable,5110461,5110472,local-authority:NDE
 plan-timetable,5101095,5101098,local-authority:NEA
@@ -2247,6 +2252,7 @@ plan-timetable,5107502,5107524,local-authority:NGM
 plan-timetable,5110520,5110531,local-authority:NGM
 plan-timetable,5101117,5101120,local-authority:NHE
 plan-timetable,5107203,5107225,local-authority:NHE
+plan-timetable,5111353,5111373,local-authority:NHE
 plan-timetable,5107226,5107248,local-authority:NKE
 plan-timetable,5101121,5101126,local-authority:NLN
 plan-timetable,5107249,5107271,local-authority:NLN
@@ -2256,8 +2262,10 @@ plan-timetable,5110937,5110948,local-authority:NNO
 plan-timetable,5100563,5100566,local-authority:NNUA
 plan-timetable,5101138,5101140,local-authority:NNUA
 plan-timetable,5107272,5107294,local-authority:NNUA
+plan-timetable,5111374,5111396,local-authority:NNUA
 plan-timetable,5100049,5100049,local-authority:NOW
 plan-timetable,5107479,5107501,local-authority:NOW
+plan-timetable,5111466,5111477,local-authority:NOW
 plan-timetable,5101141,5101145,local-authority:NSM
 plan-timetable,5107295,5107317,local-authority:NSM
 plan-timetable,5102897,5102910,local-authority:NTH
@@ -2338,6 +2346,7 @@ plan-timetable,5108123,5108145,local-authority:RUH
 plan-timetable,5109863,5109877,local-authority:RUH
 plan-timetable,5101290,5101293,local-authority:RUN
 plan-timetable,5108077,5108099,local-authority:RUN
+plan-timetable,5111443,5111465,local-authority:RUN
 plan-timetable,5101294,5101297,local-authority:RUS
 plan-timetable,5108100,5108122,local-authority:RUS
 plan-timetable,5110559,5110570,local-authority:RUS
@@ -2368,6 +2377,7 @@ plan-timetable,5110260,5110272,local-authority:SFT
 plan-timetable,5101384,5101388,local-authority:SGC
 plan-timetable,5108399,5108421,local-authority:SGC
 plan-timetable,5108422,5108444,local-authority:SHA
+plan-timetable,5111413,5111427,local-authority:SHA
 plan-timetable,5100717,5100720,local-authority:SHE
 plan-timetable,5105317,5105339,local-authority:SHE
 plan-timetable,5110227,5110244,local-authority:SHE
@@ -2386,11 +2396,13 @@ plan-timetable,5108698,5108720,local-authority:SKP
 plan-timetable,5108146,5108168,local-authority:SLF
 plan-timetable,5101352,5101355,local-authority:SLG
 plan-timetable,5108261,5108283,local-authority:SLG
+plan-timetable,5111428,5111442,local-authority:SLG
 plan-timetable,5100304,5100304,local-authority:SND
 plan-timetable,5101498,5101500,local-authority:SND
 plan-timetable,5108790,5108812,local-authority:SND
 plan-timetable,5111275,5111297,local-authority:SND
 plan-timetable,5108491,5108513,local-authority:SNO
+plan-timetable,5111341,5111352,local-authority:SNO
 plan-timetable,5101356,5101363,local-authority:SOL
 plan-timetable,5108284,5108306,local-authority:SOL
 plan-timetable,5102953,5102956,local-authority:SOM
@@ -2591,6 +2603,7 @@ plan-timetable,5110503,5110519,local-authority:YOR
 plan-timetable,5100287,5100289,local-planning-group:BAB-MSU
 plan-timetable,5100292,5100292,local-planning-group:BAB-MSU
 plan-timetable,5101556,5101557,local-planning-group:BAB-MSU
+plan-timetable,5111326,5111340,local-planning-group:BAB-MSU
 plan-timetable,5103011,5103014,local-planning-group:BAS-BST-NSM-SGC
 plan-timetable,5102780,5102785,local-planning-group:BCP-DOR
 plan-timetable,5103114,5103119,local-planning-group:BCP-DOR
@@ -2733,16 +2746,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5111326,5111340,local-planning-group:BAB-MSU
-plan-timetable,5111341,5111352,local-authority:SNO
-local-plan,4221152,4221153,local-authority:SNO
-plan-timetable,5111353,5111373,local-authority:NHE
-plan-timetable,5111374,5111396,local-authority:NNUA
-plan-timetable,5111397,5111412,local-authority:NBL
-local-plan,4221154,4221155,local-authority:NBL
-plan-timetable,5111413,5111427,local-authority:SHA
-plan-timetable,5111428,5111442,local-authority:SLG
-plan-timetable,5111443,5111465,local-authority:RUN
-local-plan,4221156,4221156,local-authority:RUN
-plan-timetable,5111466,5111477,local-authority:NOW
-local-plan,4221157,4221158,local-authority:NOW

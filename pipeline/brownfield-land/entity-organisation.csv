@@ -407,6 +407,8 @@ brownfield-land,1734642,1734653,local-authority:CHW
 brownfield-land,1734655,1734659,local-authority:CHW
 brownfield-land,1739273,1739326,local-authority:CHW
 brownfield-land,1741162,1741180,local-authority:CHW
+brownfield-land,1742294,1742299,local-authority:CHW
+brownfield-land,1742303,1742303,local-authority:CHW
 brownfield-land,1724149,1724312,local-authority:CLD
 brownfield-land,1727934,1727943,local-authority:CLD
 brownfield-land,1727975,1727979,local-authority:CLD
@@ -425,6 +427,7 @@ brownfield-land,1734580,1734580,local-authority:CON
 brownfield-land,1734628,1734628,local-authority:CON
 brownfield-land,1740741,1740787,local-authority:CON
 brownfield-land,1741975,1742005,local-authority:CON
+brownfield-land,1742305,1742305,local-authority:CON
 brownfield-land,1700093,1700115,local-authority:COP
 brownfield-land,1717833,1717858,local-authority:COT
 brownfield-land,1722308,1722319,local-authority:COT
@@ -1318,6 +1321,8 @@ brownfield-land,1734654,1734654,local-authority:SHR
 brownfield-land,1734660,1734660,local-authority:SHR
 brownfield-land,1736220,1736228,local-authority:SHR
 brownfield-land,1742050,1742065,local-authority:SHR
+brownfield-land,1742300,1742302,local-authority:SHR
+brownfield-land,1742304,1742304,local-authority:SHR
 brownfield-land,1704626,1704637,local-authority:SKE
 brownfield-land,1725097,1725123,local-authority:SKP
 brownfield-land,1728905,1728951,local-authority:SKP
@@ -1787,8 +1792,3 @@ brownfield-land,1724945,1724947,national-park-authority:Q72617784
 brownfield-land,1721369,1721369,national-park-authority:Q72617890
 brownfield-land,1722291,1722294,national-park-authority:Q72617988
 brownfield-land,1742006,1742006,national-park-authority:Q72617988
-brownfield-land,1742294,1742299,local-authority:CHW
-brownfield-land,1742300,1742302,local-authority:SHR
-brownfield-land,1742303,1742303,local-authority:CHW
-brownfield-land,1742304,1742304,local-authority:SHR
-brownfield-land,1742305,1742305,local-authority:CON
