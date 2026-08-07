@@ -1171,6 +1171,7 @@ local-plan,4220588,4220589,local-authority:SWD
 local-plan,4220920,4220920,local-authority:SWD
 local-plan,4220395,4220395,local-authority:SWK
 local-plan,4220809,4220809,local-authority:SWK
+local-plan,4221159,4221160,local-authority:SWK
 local-plan,4220586,4220587,local-authority:SWL
 local-plan,4220919,4220919,local-authority:SWL
 local-plan,4220590,4220591,local-authority:TAM
@@ -2746,4 +2747,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221159,4221160,local-authority:SWK

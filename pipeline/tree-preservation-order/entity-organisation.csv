@@ -35,6 +35,7 @@ tree,7002236842,7002236843,local-authority:BST
 tree,7002236854,7002236854,local-authority:BST
 tree,7002000000,7002006551,local-authority:BUC
 tree,7002079306,7002080344,local-authority:BUC
+tree,7002263288,7002268941,local-authority:CAB
 tree,7002101556,7002103184,local-authority:CAS
 tree,7002227263,7002227347,local-authority:CAS
 tree,7002217905,7002224425,local-authority:CLD
@@ -59,6 +60,7 @@ tree,7002160865,7002160873,local-authority:DNC
 tree,7002180220,7002180221,local-authority:DNC
 tree,7002226814,7002226820,local-authority:DNC
 tree,7002236855,7002236872,local-authority:DNC
+tree,7002268942,7002268946,local-authority:DNC
 tree,7002019247,7002019927,local-authority:DOV
 tree,7002045166,7002046530,local-authority:DOV
 tree,7002098097,7002100645,local-authority:ECA
@@ -470,6 +472,7 @@ tree-preservation-zone,19100000,19108162,local-authority:BUC
 tree-preservation-zone,19131865,19134106,local-authority:BUC
 tree-preservation-zone,19137720,19138310,local-authority:BUC
 tree-preservation-zone,19138463,19138468,local-authority:BUC
+tree-preservation-zone,19213993,19214382,local-authority:CAB
 tree-preservation-zone,19151123,19151300,local-authority:CAS
 tree-preservation-zone,19159896,19159907,local-authority:CAS
 tree-preservation-zone,19187570,19187573,local-authority:CAS
@@ -492,6 +495,7 @@ tree-preservation-zone,19151082,19151092,local-authority:DNC
 tree-preservation-zone,19187514,19187514,local-authority:DNC
 tree-preservation-zone,19188930,19188934,local-authority:DNC
 tree-preservation-zone,19194839,19194840,local-authority:DNC
+tree-preservation-zone,19214383,19214392,local-authority:DNC
 tree-preservation-zone,19113431,19114781,local-authority:DOV
 tree-preservation-zone,19121282,19121595,local-authority:DOV
 tree-preservation-zone,19149881,19150443,local-authority:ECA
@@ -665,7 +669,3 @@ tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002263288,7002268941,local-authority:CAB
-tree-preservation-zone,19213993,19214382,local-authority:CAB
-tree,7002268942,7002268946,local-authority:DNC
-tree-preservation-zone,19214383,19214392,local-authority:DNC

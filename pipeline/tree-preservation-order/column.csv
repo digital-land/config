@@ -15,6 +15,7 @@ tree,124dc88d5839fa63b5802abe2847e3bf959b3052a3dcd126f362f78e5342df33,,DESCRIPT,
 tree,124dc88d5839fa63b5802abe2847e3bf959b3052a3dcd126f362f78e5342df33,,OBJECTID,reference,,,
 tree,124dc88d5839fa63b5802abe2847e3bf959b3052a3dcd126f362f78e5342df33,,DATE_CREATED,start-date,,,
 tree,124dc88d5839fa63b5802abe2847e3bf959b3052a3dcd126f362f78e5342df33,,REFVAL,tree-preservation-order,,,
+tree,19fc51a9b43dba6bddd88fdde165527efebb9fd21bacb4af8a2c2a7ffaa34e65,,na,IGNORE,2026-08-06,,2026-08-06
 tree,2333b5caae413ebff6a764269008868db249cbb95decfb4888ee0edebfafcad6,,WKT,geometry,2026-04-28,,2026-04-28
 tree,272bd2c09a85f48da5c69948226376041e4422616236ec76df8626cdfbdf6cd8,,WKT,geometry,2026-06-09,,2026-06-09
 tree,2afe0954c0a5a5babcfa9117b87bece02b552bf92ce1f98f6b0a1e5c2ba2f4b2,,Document URL,address-text,2026-07-20,,2026-07-20
@@ -368,6 +369,7 @@ tree-preservation-order,,f9c98a7bb2fe99b4fffb86a5d8f4d840119f6fa72c7b2876ed5dac7
 tree-preservation-order,,f9c98a7bb2fe99b4fffb86a5d8f4d840119f6fa72c7b2876ed5dac7d78fa39bf,Species,tree-species-list,,,
 tree-preservation-order,,,organisation,IGNORE,,,
 tree-preservation-zone,067114aee596a3cbc276b94eb18d8859f076fa774928b36eb44543ae9dd15887,,na,IGNORE,2026-07-08,,2026-07-08
+tree-preservation-zone,09e8f706e9f356e07446e4038fb512d1a7b55954fb52a74c07e7e9bce7682028,,na,IGNORE,2026-08-06,,2026-08-06
 tree-preservation-zone,1dcc702588a70a9e3d5fbeb93fe86a9b94eb2ffee13f2119b36a216379fb42aa,,WKT,geometry,2026-04-28,,2026-04-28
 tree-preservation-zone,236e026d5a3ddde23fe12020816b54f2ba62d38d6ef0455e096c927df7addeda,,REF,reference,,,
 tree-preservation-zone,236e026d5a3ddde23fe12020816b54f2ba62d38d6ef0455e096c927df7addeda,,reference,tree-preservation-order,,,
@@ -586,5 +588,3 @@ tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c04
 tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c042efa34f8,tpo,tree-preservation-order,,,
 tree-preservation-zone,,,wkt,geometry,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
-tree,19fc51a9b43dba6bddd88fdde165527efebb9fd21bacb4af8a2c2a7ffaa34e65,,na,IGNORE,2026-08-06,,2026-08-06
-tree-preservation-zone,09e8f706e9f356e07446e4038fb512d1a7b55954fb52a74c07e7e9bce7682028,,na,IGNORE,2026-08-06,,2026-08-06

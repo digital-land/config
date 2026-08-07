@@ -210,6 +210,9 @@ conservation-area,9419f8804448962f2567b68fa1697c9cae2e3b2d7db80816cc0083233a5656
 conservation-area,9419f8804448962f2567b68fa1697c9cae2e3b2d7db80816cc0083233a565670,,desiguid,reference,,,
 conservation-area,9419f8804448962f2567b68fa1697c9cae2e3b2d7db80816cc0083233a565670,,whencreate,start-date,,,
 conservation-area,953d07d825f7a3a214c22b25fc657b6a1b3feb91a094fc9269ce670e9a577f3c,,organisation,IGNORE,,,
+conservation-area,9573bcb7df0d9ab5a576056ad411f85db4ee44e699d21aa95ed88881f95c2fa1,,DESIG_DATE,designation-date,2026-08-06,,2026-08-06
+conservation-area,9573bcb7df0d9ab5a576056ad411f85db4ee44e699d21aa95ed88881f95c2fa1,,document_u,document-url,2026-08-06,,2026-08-06
+conservation-area,9573bcb7df0d9ab5a576056ad411f85db4ee44e699d21aa95ed88881f95c2fa1,,documentat,documentation-url,2026-08-06,,2026-08-06
 conservation-area,95faa3cc94575e5305c159700c457e98d2b97ab4534f711b94a88db675f04d3f,,url,document-url,,,
 conservation-area,95faa3cc94575e5305c159700c457e98d2b97ab4534f711b94a88db675f04d3f,,doc_url,documentation-url,,,
 conservation-area,985c16bc25453fd0649f2e03b4901ee882fd008b06d25cd2ed2f2272e8bc8990,,website,documentation-url,,,
@@ -604,6 +607,3 @@ conservation-area-document,f83b9f067c28765c7d7576ac51cef6a74017dcbb406e017cc9e59
 conservation-area-document,fb2653ce8185a2888ac99ae7f6f193c138bddfb066d48072a51492270dddf04a,,organisation,IGNORE,,,
 conservation-area-document,,,organisation,IGNORE,,,
 conservation-area-document,,,entity,IGNORE,,,
-conservation-area,9573bcb7df0d9ab5a576056ad411f85db4ee44e699d21aa95ed88881f95c2fa1,,DESIG_DATE,designation-date,2026-08-06,,2026-08-06
-conservation-area,9573bcb7df0d9ab5a576056ad411f85db4ee44e699d21aa95ed88881f95c2fa1,,document_u,document-url,2026-08-06,,2026-08-06
-conservation-area,9573bcb7df0d9ab5a576056ad411f85db4ee44e699d21aa95ed88881f95c2fa1,,documentat,documentation-url,2026-08-06,,2026-08-06
