@@ -836,3 +836,5 @@ dca2adb6c348e91999698202ea1705a224cd7edad2db97cd8141753d6daab9a2,https://www.bas
 13742d5908aadf9f39eff969f1b09c817bad1cede1aa5966081697ef691798a4,https://maps.easthants.gov.uk/Heritage/open_data/conservation-area-document.csv,,,2026-08-05,2026-08-05,
 e188a99e6d6836ac56f0c84007910b45e1fbdf88a12022de53d258fab0c8005a,https://maps.easthants.gov.uk/Heritage/open_data/conservation-area.csv,,,2026-08-05,2026-08-05,
 9573bcb7df0d9ab5a576056ad411f85db4ee44e699d21aa95ed88881f95c2fa1,https://maps.3csharedservices.org/arcgis/rest/services/GCSP/GCSPConservationAreas_OpenData/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2026-08-06,2026-08-06,
+8cdc61ba94c9d4a16c9653261ad1ba87a13548789ce743edb3546999b4095c7e,https://www.luton.gov.uk/sites/default/files/2026-08/conservation-area-data-august-2026.csv,,,2026-08-07,2026-08-07,
+71bc4dd746f37e87b254f91b30e8fedbc028700c57278558590814fdc6178481,https://www.luton.gov.uk/sites/default/files/2026-08/conservation-area-document-data-07-august-26.csv,,,2026-08-07,2026-08-07,
