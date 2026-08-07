@@ -3293,3 +3293,6 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 44004478,301,44016442,"geometry complete_match, name similarity 100%",,2026-08-07,
 44004479,301,44016444,"geometry complete_match, name similarity 100%",,2026-08-07,
 44004477,301,44016443,"geometry single_match, name similarity 92%",,2026-08-07,
+44009301,301,44016403,Redirect old entity complete match to LPA entity: local-authority:EHA,,2026-08-07,
+44009302,301,44016421,Redirect old entity complete match to LPA entity: local-authority:EHA,,2026-08-07,
+44009303,301,44016404,Redirect old entity complete match to LPA entity: local-authority:EHA,,2026-08-07,
