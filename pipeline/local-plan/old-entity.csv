@@ -50,6 +50,7 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 4220357,301,4220993,Redirecting MHCLG data to authoritative entity (local-authority:LAC)-local-plan,,2026-07-28,
 4220386,301,4221042,Redirecting MHCLG data to authoritative entity (local-authority:HNS)-local-plan,,2026-07-28,
 4220388,301,4221145,Redirecting MHCLG data to authoritative entity (local-authority:LBH)-local-plan,,2026-08-05,
+4220395,301,4221159,Redirecting MHCLG data to authoritative entity (local-authority:SWK)-local-plan,,2026-08-10,
 4220410,301,4220973,Redirecting MHCLG data to authoritative entity (local-authority:SUA)-local-plan,,2026-07-28,
 4220412,301,4221009,Redirecting MHCLG data to authoritative entity (local-authority:MDE)-local-plan,,2026-07-28,
 4220429,301,4221057,Redirecting MHCLG data to authoritative entity (local-authority:NET)-local-plan,,2026-07-28,
@@ -2669,4 +2670,3 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 530018,301,530065,Redirecting MHCLG data to authoritative entity (local-authority:DUR)-minerals-plan,,2026-07-28,
 530049,301,530071,Redirecting MHCLG data to authoritative entity (local-authority:RUT)-minerals-plan,,2026-07-28,
 540025,301,540071,Redirecting MHCLG data to authoritative entity (local-authority:DUR)-waste-plan,,2026-07-28,
-4220395,301,4221159,Redirecting MHCLG data to authoritative entity (local-authority:SWK)-local-plan,,2026-08-10,
