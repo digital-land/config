@@ -75,7 +75,26 @@ jobs:
   # 1. Merge the config-manager-update branch so main is up to date.
   merge:
     runs-on: ubuntu-latest
+    outputs:
+      batch_assign_scope: ${{ steps.batch-assign-scope.outputs.scope }}
     steps:
+      - name: Determine batch assign scope
+        id: batch-assign-scope
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            DAY=$(date +%u)
+            if [ "$DAY" = "2" ]; then
+              SCOPE=mandated
+            elif [ "$DAY" = "4" ]; then
+              SCOPE=single-source
+            else
+              SCOPE=odp
+            fi
+          else
+            SCOPE="${{ github.event.inputs.scope || 'odp' }}"
+          fi
+          echo "scope=$SCOPE" >> "$GITHUB_OUTPUT"
+
       - name: Generate GitHub App token
         id: app-token
         uses: actions/create-github-app-token@v1
@@ -153,6 +172,7 @@ jobs:
   # 2. Batch assign unknown entities. The script self-commits & pushes to main per batch.
   #    Only runs Mon–Fri
   batch-assign:
+    name: Batch assign (${{ needs.merge.outputs.batch_assign_scope }})
     runs-on: ubuntu-22.04
     needs: [merge]
     if: ${{ !cancelled() }}
@@ -189,27 +209,21 @@ jobs:
           pip install click pandas tqdm
           pip install -e "git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land"
 
-      - name: Determine scope for scheduled run
+      - name: Determine batching for scheduled run
         if: github.event_name == 'schedule'
         run: |
-          DAY=$(date +%u)  # 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri (pipeline only runs Mon–Fri)
-          if [ "$DAY" = "2" ]; then
-            echo "SCHEDULED_SCOPE=mandated" >> $GITHUB_ENV
-          elif [ "$DAY" = "4" ]; then
-            echo "SCHEDULED_SCOPE=single-source" >> $GITHUB_ENV
+          if [ "${{ needs.merge.outputs.batch_assign_scope }}" = "single-source" ]; then
             echo "SCHEDULED_BATCH_SIZE=10" >> $GITHUB_ENV
             echo "SCHEDULED_START_BATCH=1" >> $GITHUB_ENV
-          else
-            echo "SCHEDULED_SCOPE=odp" >> $GITHUB_ENV
           fi
 
-      - name: Run add-data script
+      - name: Run batch assign script
         id: batch-assign
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
           RESOURCES: ${{ github.event.inputs.resources }}
           TRIGGERED_BY: ${{ github.actor || 'unknown' }}
-          SCOPE: ${{ github.event.inputs.scope || env.SCHEDULED_SCOPE || 'odp' }}
+          SCOPE: ${{ needs.merge.outputs.batch_assign_scope }}
           SKIP_CHECKS: ${{ github.event.inputs.skip_checks }}
           NEW_ENTITIES_THRESHOLD: ${{ github.event.inputs.new_entities_threshold }}
           COMMIT: ${{ env.WRITES_ENABLED != 'true' && 'false' || github.event.inputs.commit }}
@@ -264,13 +278,18 @@ jobs:
             python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
           fi
 
-      - name: Upload artifact
+      - name: Upload batch assign output
         uses: actions/upload-artifact@v4
         with:
-          name: generated-files
+          name: batch-assign-${{ steps.batch-assign.outputs.scope }}-output
+          path: batch_assign_summary*.csv
+
+      - name: Upload batch assign diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch-assign-${{ steps.batch-assign.outputs.scope }}-diagnostics
           path: |
             var/cache/assign_entities/transformed/*.csv
-            batch_assign_summary*.csv
             issue_summary.csv
             invalid_uri_issues.csv
             issue_summary_full.csv
