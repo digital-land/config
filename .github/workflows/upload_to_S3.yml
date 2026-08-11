@@ -53,11 +53,11 @@ jobs:
           aws s3 sync ./collection s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/collection
           aws s3 sync ./pipeline s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/pipeline
 
-  check-scheduled-push-failure:
+  check-push-failure:
     runs-on: ubuntu-latest
     needs:
       - upload_to_S3
-    if: github.event_name == 'schedule' && contains(join(needs.*.result, ','), 'failure')
+    if: ${{ !cancelled() && contains(needs.*.result, 'failure') }}
     steps:
       - name: send failure notification
         uses: slackapi/slack-github-action@v1
@@ -67,15 +67,15 @@ jobs:
           channel-id: 'planning-data-alerts'
           payload: |
             {
-              "text": "S3 scheduled push has failed",
+              "text": "S3 manual push has failed",
               "icon_emoji": ":warning:",
-              "username": "S3 scheduled push",
+              "username": "S3 manual push",
               "blocks": [
                 {
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "S3 scheduled push has failed"
+                    "text": "S3 manual push has failed"
                   }
                 },
                 {
