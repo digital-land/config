@@ -800,8 +800,8 @@ def test_fingerprint_handles_large_dataset():
     assert len(result["fingerprint"].unique()) > 0
     
 
-def test_workflow_installs_gdal_and_uses_ubuntu_22_04():
-    p = pathlib.Path(__file__).parent.parent.parent / ".github" / "workflows" / "batch-assign.yml"
+def test_evening_workflow_installs_gdal_and_uses_ubuntu_22_04():
+    p = pathlib.Path(__file__).parent.parent.parent / ".github" / "workflows" / "config-evening-pipeline.yml"
     assert p.exists(), f"Workflow file {p} not found"
     content = p.read_text()
 
@@ -809,3 +809,12 @@ def test_workflow_installs_gdal_and_uses_ubuntu_22_04():
     assert "sudo add-apt-repository ppa:ubuntugis/ppa -y" in content
     assert "sudo apt-get update" in content
     assert "sudo apt-get install gdal-bin -y" in content
+    assert "Run batch assign script" in content
+    assert "name: Batch assign (${{ needs.merge.outputs.batch_assign_scope }})" in content
+    assert "name: batch-assign-${{ steps.batch-assign.outputs.scope }}-output" in content
+    assert "path: batch_assign_summary*.csv" in content
+    assert "name: batch-assign-${{ steps.batch-assign.outputs.scope }}-diagnostics" in content
+    assert "var/cache/assign_entities/transformed/*.csv" in content
+    assert "issue_summary.csv" in content
+    assert "invalid_uri_issues.csv" in content
+    assert "issue_summary_full.csv" in content
