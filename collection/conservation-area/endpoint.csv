@@ -826,7 +826,7 @@ bb95c31686ff617cc45ee4e633209bc363a7043b4450e42658c302a0bde733b2,https://www.sou
 e8d30d770442a7b363fd028319420d8a6cfdabcdb6b1ba1aa4fc8c4480ce34e2,https://blob.datopian.com/resources/2fb371cd-49ab-43e5-8da9-9dad3bfa7ffe/conservation-area-document-sRjc7P.csv,,,2026-07-15,2026-07-15,
 d950a945522335c203eb2b6858d5217771444dd0e679423e12d599c8abf3ce99,https://webmap.newcastle-staffs.gov.uk/arcgisweb/rest/services/WebMap/Planning_Data_Platform/FeatureServer/3,,arcgis,2026-07-16,2026-07-16,
 16df38d5f48c6ad5af2b60d7b761e2918ee6c0169dd9d7f89cc9c0d0b255f662,https://www.basingstoke.gov.uk/content/page/94849/DPIF%20-%20Conservation%20area%20dataset.csv,,,2026-07-20,2026-07-20,
-5c70c741f866c08a0b9e856167f896f21756205e050d284d41b84e8a047b1688,https://www.stevenage.gov.uk/documents/planning-policy/datasets/sbc-conservation-area-document-dataset.csv,,,2026-07-20,2026-07-20,
+5c70c741f866c08a0b9e856167f896f21756205e050d284d41b84e8a047b1688,https://www.stevenage.gov.uk/documents/planning-policy/datasets/sbc-conservation-area-document-dataset.csv,,,2026-07-20,2026-07-20,2026-08-13
 dca2adb6c348e91999698202ea1705a224cd7edad2db97cd8141753d6daab9a2,https://www.basingstoke.gov.uk/content/page/94850/DPIF%20-%20Conservation%20area%20documents%20dataset.csv,,,2026-07-20,2026-07-20,
 204f2daecc6ce2bbf1834f7c75902a7bd39f6c56905d7b261abd13e1e90ef90b,https://kingston.statmap.co.uk/map/wfs.svc/conservation_areas_wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=statmap:conservation_areas&outputFormat=application/json,,,2026-07-28,2026-07-28,
 3ea1cdf3346577e6e834dd0ca550e5493f64cf24462bddca64fa7bfec31b4065,https://services-eu1.arcgis.com/J3nU4ueuolsQK4wE/arcgis/rest/services/Conservation_Areas_view/FeatureServer/1,,arcgis,2026-07-28,2026-07-28,
@@ -838,3 +838,4 @@ e188a99e6d6836ac56f0c84007910b45e1fbdf88a12022de53d258fab0c8005a,https://maps.ea
 9573bcb7df0d9ab5a576056ad411f85db4ee44e699d21aa95ed88881f95c2fa1,https://maps.3csharedservices.org/arcgis/rest/services/GCSP/GCSPConservationAreas_OpenData/MapServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2026-08-06,2026-08-06,
 71bc4dd746f37e87b254f91b30e8fedbc028700c57278558590814fdc6178481,https://www.luton.gov.uk/sites/default/files/2026-08/conservation-area-document-data-07-august-26.csv,,,2026-08-07,2026-08-07,
 8cdc61ba94c9d4a16c9653261ad1ba87a13548789ce743edb3546999b4095c7e,https://www.luton.gov.uk/sites/default/files/2026-08/conservation-area-data-august-2026.csv,,,2026-08-07,2026-08-07,
+2a824ee4e73aa0b6e5aadfcf0da6a825a2d1bcd135d1bdf7cc5ace8443ba4ca7,https://www.stevenage.gov.uk/documents/planning-policy/datasets/sbc-conservation-area-document-dataset-august-2026.csv,,,2026-08-13,2026-08-13,
