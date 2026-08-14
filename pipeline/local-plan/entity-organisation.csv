@@ -1662,6 +1662,7 @@ minerals-plan,530038,530040,local-authority:NFK
 minerals-plan,530070,530070,local-authority:NGM
 minerals-plan,530041,530043,local-authority:NTH
 minerals-plan,530044,530045,local-authority:NTT
+minerals-plan,530076,530076,local-authority:NTT
 minerals-plan,530047,530047,local-authority:OXF
 minerals-plan,530048,530048,local-authority:RDB
 minerals-plan,530049,530049,local-authority:RUT
@@ -2273,6 +2274,7 @@ plan-timetable,5107295,5107317,local-authority:NSM
 plan-timetable,5102897,5102910,local-authority:NTH
 plan-timetable,5103229,5103242,local-authority:NTH
 plan-timetable,5102911,5102920,local-authority:NTT
+plan-timetable,5111478,5111502,local-authority:NTT
 plan-timetable,5101146,5101149,local-authority:NTY
 plan-timetable,5107318,5107340,local-authority:NTY
 plan-timetable,5101175,5101180,local-authority:NUN
@@ -2713,6 +2715,7 @@ waste-plan,540044,540044,local-authority:MIK
 waste-plan,540045,540047,local-authority:NFK
 waste-plan,540076,540076,local-authority:NGM
 waste-plan,540048,540050,local-authority:NTH
+waste-plan,540082,540082,local-authority:NTT
 waste-plan,540054,540054,local-authority:OXF
 waste-plan,540055,540055,local-authority:PLY
 waste-plan,540056,540057,local-authority:SFK
@@ -2748,6 +2751,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-minerals-plan,530076,530076,local-authority:NTT
-waste-plan,540082,540082,local-authority:NTT
-plan-timetable,5111478,5111502,local-authority:NTT
