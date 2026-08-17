@@ -144,6 +144,7 @@ tree,7002070894,7002070914,local-authority:SAL
 tree,7002101549,7002101549,local-authority:SAL
 tree,7002118165,7002118168,local-authority:SAL
 tree,7002226927,7002226927,local-authority:SAL
+tree,7002268963,7002268964,local-authority:SAL
 tree,7002056769,7002057427,local-authority:SAW
 tree,7002158372,7002160848,local-authority:SCA
 tree,7002185357,7002185357,local-authority:SCA
@@ -684,4 +685,3 @@ tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002268963,7002268964,local-authority:SAL
