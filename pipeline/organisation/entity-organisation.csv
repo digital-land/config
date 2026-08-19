@@ -1,4 +1,5 @@
 dataset,entity-minimum,entity-maximum,organisation
+company,2800000,2800009,government-organisation:D1342
 development-corporation,4700013,4700013,development-corporation:northern-gateway-MDC
 development-corporation,4700014,4700014,development-corporation:old-trafford-MDC
 development-corporation,600003,600003,development-corporation:Q105544651
@@ -505,4 +506,3 @@ waste-authority,417,417,waste-authority:Q20713477
 waste-authority,418,418,waste-authority:Q21921612
 waste-authority,419,419,waste-authority:Q21935501
 waste-authority,420,420,waste-authority:Q5600652
-company,2800000,2800009,government-organisation:D1342

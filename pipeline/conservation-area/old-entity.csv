@@ -2229,6 +2229,7 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 44006859,301,44008838,redirect HE single-match to LPA entity,,2026-02-06,
 44006860,301,44008828,,,,
 44006861,301,44008587,,,,
+44006863,301,44012800,Redirect old entity complete match to LPA entity: local-authority:CAB,,2026-08-19,
 44006871,301,44010223,,,,
 44006872,301,44010257,,,,
 44006873,301,44010237,,,,
@@ -3290,4 +3291,3 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 6314060,410,,Data added to wrong dataset,,2025-10-09,
 6314061,410,,Data added to wrong dataset,,2025-10-09,
 6314062,410,,Data added to wrong dataset,,2025-10-09,
-44006863,301,44012800,Redirect old entity complete match to LPA entity: local-authority:CAB,,2026-08-19,
