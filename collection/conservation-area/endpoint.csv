@@ -430,7 +430,7 @@ c5e2d6e496bd8144a3848fda83edfc3abf7e0ac680340ce52cae870e17958375,https://www.tor
 0ee5cc32fae15fa17b57d2fa55f96e3f7c453ca9e4503e88612d5cd8234ac974,https://eastcambs.gov.uk/sites/default/files/2024-12/Conservation%20area%20documents%20datasets.csv,,,2024-12-18,2024-12-18,2025-01-21
 330a3056cae0abd2395e9dc253ed519db95f9524c9e9c7920a82081604648904,https://www.easthants.gov.uk/sites/default/files/2024-10/Open%20data%20-%20conservation%20areas.csv,,,2024-12-18,2024-12-18,2026-08-05
 51fe21e9011479314712c9bc6e51015c2ab07c6f8fc25874eca1eeffdfa0563a,https://eastcambs.gov.uk/sites/default/files/2024-12/Conservation%20area%20dataset.gpkg,,,2024-12-18,2024-12-18,2025-08-01
-56b7cf4cc457dd53ecfeb3f5cf7e34637b8f0efdb9711758cf4287901bbe0dbe,https://services-eu1.arcgis.com/tO2FhEnLa2qmISt9/arcgis/rest/services/South_Cambs_District_Council_Conservation_Areas/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,
+56b7cf4cc457dd53ecfeb3f5cf7e34637b8f0efdb9711758cf4287901bbe0dbe,https://services-eu1.arcgis.com/tO2FhEnLa2qmISt9/arcgis/rest/services/South_Cambs_District_Council_Conservation_Areas/FeatureServer/1/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,2026-08-20
 72b72c28986d9ad90a889c8c60a8de40bb086014d380d173f4f109a2e8757faa,https://www.rbkc.gov.uk/media/document/conservationareacsv,,,2025-01-02,,
 c0edde23d54ff309a28347a18ac195a3bd90ce04c70035dd5bd2a81422501d61,https://services-eu1.arcgis.com/tO2FhEnLa2qmISt9/arcgis/rest/services/Cambridge_City_Council_Conservation_Areas/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2025-01-02,,2026-08-06
 00bad6f714fd60bdaf06145c371f4d6cfb760156a080d578f563179489ca868e,https://raw.githubusercontent.com/digital-land/conservation-area-data/refs/heads/main/data/Output/ExistingMismatched/241216/LUT-conservation-area-document.csv,,,2025-01-13,,2026-08-10
@@ -839,3 +839,4 @@ e188a99e6d6836ac56f0c84007910b45e1fbdf88a12022de53d258fab0c8005a,https://maps.ea
 71bc4dd746f37e87b254f91b30e8fedbc028700c57278558590814fdc6178481,https://www.luton.gov.uk/sites/default/files/2026-08/conservation-area-document-data-07-august-26.csv,,,2026-08-07,2026-08-07,
 8cdc61ba94c9d4a16c9653261ad1ba87a13548789ce743edb3546999b4095c7e,https://www.luton.gov.uk/sites/default/files/2026-08/conservation-area-data-august-2026.csv,,,2026-08-07,2026-08-07,
 2a824ee4e73aa0b6e5aadfcf0da6a825a2d1bcd135d1bdf7cc5ace8443ba4ca7,https://www.stevenage.gov.uk/documents/planning-policy/datasets/sbc-conservation-area-document-dataset-august-2026.csv,,,2026-08-13,2026-08-13,
+d11c260518b233d7a06534f8737dc7ddaf0a78dbcd67afc959b982a8b3fc3e5c,https://services1.arcgis.com/BZNs0xaSHDSi4V6G/ArcGIS/rest/services/ConservationAreas_geojson/FeatureServer/0,,arcgis,2026-08-20,2026-08-20,
