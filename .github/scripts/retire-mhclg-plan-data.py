@@ -7,6 +7,12 @@ that was added as placeholders. MHCLG seeded data is identified by:
 - Entity ranges of 23 entities (difference of 22) for plan timetables
 - Reference matching {slug}-new-local-plan for local plans
 
+Not every organisation that submits data was seeded with fake data. County
+councils providing minerals and waste plans, for example, have no MHCLG template
+to retire. Those organisations are skipped rather than treated as an error; a
+missing template is only an error when MHCLG seeded data does exist for the
+organisation but the expected template shape could not be found.
+
 Each retired entity is added to old-entity.csv with status 410 and today's date.
 
 Datasets processed:
@@ -77,6 +83,28 @@ def constituent_orgs(org, group_constituents):
     return set(group_constituents.get(org, [org]))
 
 
+def mhclg_seeded_orgs(entity_org_rows, prefix):
+    """Organisations that MHCLG seeded template data for in this dataset.
+
+    Identified from entity-organisation.csv: any entity range attributed to the
+    organisation that falls wholly inside the MHCLG seeded range for the dataset.
+
+    This is deliberately independent of the template-shape checks used elsewhere
+    (23-entity ranges for plan-timetable, {slug}-new-local-plan references for
+    local-plan). If one of those checks has a bug - a slug that no longer matches
+    after an authority is renamed, say - the organisation still shows up as seeded
+    here, so the completeness check fails loudly rather than silently concluding
+    that nothing was ever seeded.
+    """
+    range_min, range_max = MHCLG_RANGES[prefix]
+    return {
+        r['organisation'] for r in entity_org_rows
+        if r['dataset'] == prefix
+        and range_min <= int(r['entity-minimum'])
+        and int(r['entity-maximum']) <= range_max
+    }
+
+
 def fetch_organisation_data():
     """Load organisation names and joint-group membership from planning.data.gov.uk.
 
@@ -121,7 +149,7 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows, group_constituents)
 
     if not all_lpa_rows:
         logger.warning(f"No LPA data found for {prefix}")
-        return set(), set()
+        return {}, set()
 
     # Separate LPAs that created new data (outside MHCLG range) from those that
     # updated MHCLG data in-place (within MHCLG range). In-place updates don't
@@ -143,7 +171,7 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows, group_constituents)
 
     if not lpa_rows:
         logger.info("No LPAs with new data outside MHCLG range — nothing to retire")
-        return set(), set()
+        return {}, set()
 
     min_lpa = min(int(r['entity']) for r in lpa_rows)
     max_lpa = max(int(r['entity']) for r in lpa_rows)
@@ -190,24 +218,37 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows, group_constituents)
     ]
     logger.info(f"Found {len(mhclg_to_retire)} MHCLG-seeded entity ranges to retire")
 
-    # Completeness check: every LPA with data should have a MHCLG template range.
+    # Completeness check: every LPA that MHCLG seeded data for should have a
+    # matching template range. Organisations MHCLG never seeded - county councils
+    # submitting minerals and waste plans, for instance - have nothing to retire
+    # and are skipped.
+    #
     # Joint local-planning-group orgs submit data under a combined code, but MHCLG
     # seeded fake data per constituent authority under the authority's own code. If
-    # every constituent is already covered — by its own direct submission above, or
-    # by a template found here — the group itself doesn't need one of its own.
+    # every seeded constituent is already covered — by its own direct submission
+    # above, or by a template found here — the group itself doesn't need one of its
+    # own.
     orgs_with_retirement = set(org for org, _, _ in mhclg_to_retire)
     orgs_missing = set(org_ranges.keys()) - orgs_with_retirement
+    seeded = mhclg_seeded_orgs(entity_org_rows, prefix)
 
     still_missing = set()
+    never_seeded = set()
     for org in sorted(orgs_missing):
         constituents = constituent_orgs(org, group_constituents)
+
+        # Nothing was ever seeded for this org, or for any of its constituents.
+        if not (constituents & seeded):
+            never_seeded.add(org)
+            continue
+
         if constituents == {org}:
             still_missing.add(org)
             continue
 
         all_covered = True
         for constituent in constituents:
-            if constituent in orgs_with_retirement:
+            if constituent in orgs_with_retirement or constituent not in seeded:
                 continue
             match = next(
                 (r for r in entity_org_rows
@@ -225,17 +266,26 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows, group_constituents)
         else:
             still_missing.add(org)
 
-    orgs_missing = still_missing
-    if orgs_missing:
-        raise ValueError(
-            f"ERROR: No MHCLG template range found for: {', '.join(sorted(orgs_missing))}. "
-            "These LPAs provided data but no fake template was identified to retire."
+    if never_seeded:
+        logger.info(
+            f"Skipping {len(never_seeded)} orgs with no MHCLG seeded data for {prefix} "
+            f"(nothing to retire): {', '.join(sorted(never_seeded))}"
         )
-    logger.info(f"✓ All {len(org_ranges)} LPAs have a matching MHCLG template range")
+
+    if still_missing:
+        raise ValueError(
+            f"ERROR: MHCLG seeded data exists for {', '.join(sorted(still_missing))} but no "
+            f"template range of {MHCLG_ENTITY_RANGE + 1} entities was found to retire. "
+            "The seeded data may have an unexpected shape — check manually before rerunning."
+        )
+    logger.info(
+        f"✓ {len(orgs_with_retirement)} LPAs matched a MHCLG template range, "
+        f"{len(never_seeded)} had no seeded data"
+    )
 
     if not mhclg_to_retire:
         logger.info("No MHCLG entity ranges to retire for plan-timetable")
-        return set(), set()
+        return {}, set()
 
     # Step 6: Expand ranges to individual entities and verify they are MHCLG
     entity_to_org = {}
@@ -270,7 +320,7 @@ def retire_plan_timetable_data(lookup_rows, entity_org_rows, group_constituents)
     logger.info(f"✓ No overlap with LPA authoritative data")
 
     logger.info(f"✓ Verified and queued {len(entity_to_org)} plan-timetable entities for retirement")
-    return entity_to_org, set(org_ranges.keys())
+    return entity_to_org, set(org for org, _ in entity_to_org.values())
 
 
 def retire_local_plan_data(lookup_rows, entity_org_rows, org_mapping, group_constituents):
@@ -288,7 +338,7 @@ def retire_local_plan_data(lookup_rows, entity_org_rows, org_mapping, group_cons
 
     if not all_lpa_rows:
         logger.warning(f"No LPA data found for {prefix}")
-        return set(), set()
+        return {}, set()
 
     # Separate LPAs that created new data (outside MHCLG range) from those that
     # updated MHCLG data in-place (within MHCLG range). In-place updates don't
@@ -310,7 +360,7 @@ def retire_local_plan_data(lookup_rows, entity_org_rows, org_mapping, group_cons
 
     if not lpa_rows:
         logger.info("No LPAs with new data outside MHCLG range — nothing to retire")
-        return set(), set()
+        return {}, set()
 
     min_lpa = min(int(r['entity']) for r in lpa_rows)
     max_lpa = max(int(r['entity']) for r in lpa_rows)
@@ -319,9 +369,15 @@ def retire_local_plan_data(lookup_rows, entity_org_rows, org_mapping, group_cons
 
     # Step 2: Generate fake plan references from LPA organisation names
     lpa_orgs = set(r['organisation'] for r in lpa_rows)
+    seeded = mhclg_seeded_orgs(entity_org_rows, prefix)
 
-    # Validation #4: Fail if any LPA org name could not be resolved
-    unresolved_orgs = [org for org in lpa_orgs if org not in org_mapping]
+    # Fail if any LPA org name could not be resolved. Orgs with no seeded data are
+    # exempt: there is no reference to generate for them, so an unresolvable name
+    # is harmless.
+    unresolved_orgs = [
+        org for org in lpa_orgs
+        if org not in org_mapping and (constituent_orgs(org, group_constituents) & seeded)
+    ]
     if unresolved_orgs:
         raise ValueError(
             f"ERROR: Could not resolve organisation names for: {', '.join(unresolved_orgs)}. "
@@ -330,6 +386,8 @@ def retire_local_plan_data(lookup_rows, entity_org_rows, org_mapping, group_cons
 
     fake_plan_references = {}
     for org in lpa_orgs:
+        if org not in org_mapping:
+            continue
         slug = authority_to_slug(org_mapping[org])
         reference = f"{slug}-new-local-plan"
         fake_plan_references[org] = reference
@@ -354,29 +412,42 @@ def retire_local_plan_data(lookup_rows, entity_org_rows, org_mapping, group_cons
                 )
             entity_to_org[entity] = (ref_to_org[row['reference']], prefix)
 
-    # Completeness check: every LPA with data should have a MHCLG template entity.
+    # Completeness check: every LPA that MHCLG seeded data for should have a
+    # matching template entity. Organisations MHCLG never seeded - county councils
+    # submitting minerals and waste plans, for instance - have nothing to retire
+    # and are skipped.
+    #
     # Joint local-planning-group orgs submit data under a combined code, but MHCLG
-    # seeded fake data (and named it) per constituent authority. If every constituent
-    # is already covered — by its own direct submission above, or by a template found
-    # here — the group itself doesn't need one of its own.
+    # seeded fake data (and named it) per constituent authority. If every seeded
+    # constituent is already covered — by its own direct submission above, or by a
+    # template found here — the group itself doesn't need one of its own.
     orgs_with_retirement = set(org for org, _ in entity_to_org.values())
     orgs_missing = lpa_orgs - orgs_with_retirement
 
     still_missing = set()
+    never_seeded = set()
     for org in sorted(orgs_missing):
         constituents = constituent_orgs(org, group_constituents)
+
+        # Nothing was ever seeded for this org, or for any of its constituents.
+        if not (constituents & seeded):
+            never_seeded.add(org)
+            continue
+
         if constituents == {org}:
             still_missing.add(org)
             continue
 
-        unresolved_constituents = [c for c in constituents if c not in org_mapping]
+        unresolved_constituents = [
+            c for c in constituents if c not in org_mapping and c in seeded
+        ]
         if unresolved_constituents:
             still_missing.add(org)
             continue
 
         all_covered = True
         for constituent in constituents:
-            if constituent in orgs_with_retirement:
+            if constituent in orgs_with_retirement or constituent not in seeded:
                 continue
             slug = authority_to_slug(org_mapping[constituent])
             reference = f"{slug}-new-local-plan"
@@ -403,16 +474,30 @@ def retire_local_plan_data(lookup_rows, entity_org_rows, org_mapping, group_cons
         else:
             still_missing.add(org)
 
-    orgs_missing = still_missing
-    if orgs_missing:
-        raise ValueError(
-            f"ERROR: No MHCLG template entity found for: {', '.join(sorted(orgs_missing))}. "
-            "These LPAs provided data but no fake template was identified to retire."
+    if never_seeded:
+        logger.info(
+            f"Skipping {len(never_seeded)} orgs with no MHCLG seeded data for {prefix} "
+            f"(nothing to retire): {', '.join(sorted(never_seeded))}"
         )
-    logger.info(f"✓ All {len(lpa_orgs)} LPAs have a matching MHCLG template entity")
+
+    if still_missing:
+        raise ValueError(
+            f"ERROR: MHCLG seeded data exists for {', '.join(sorted(still_missing))} but no "
+            "template entity matching {slug}-new-local-plan was found to retire. This is "
+            "usually a slug mismatch — check the organisation name against the seeded "
+            "reference before rerunning."
+        )
+    logger.info(
+        f"✓ {len(orgs_with_retirement)} LPAs matched a MHCLG template entity, "
+        f"{len(never_seeded)} had no seeded data"
+    )
 
     mhclg_entities = set(entity_to_org.keys())
     logger.info(f"Found {len(mhclg_entities)} MHCLG local plan entities to retire")
+
+    if not mhclg_entities:
+        logger.info("No MHCLG entities to retire for local-plan")
+        return {}, set()
 
     # No-overlap check: ensure no entity being retired is also LPA authoritative data
     lpa_entity_set = set(int(r['entity']) for r in lpa_rows)
@@ -463,7 +548,7 @@ def retire_local_plan_data(lookup_rows, entity_org_rows, org_mapping, group_cons
 
     logger.info(f"✓ All entities cross-checked against entity-organisation.csv")
     logger.info(f"✓ Queued {len(mhclg_entities)} local-plan entities for retirement")
-    return entity_to_org, lpa_orgs
+    return entity_to_org, set(org for org, _ in entity_to_org.values())
 
 
 def save_retired_entities(entity_to_org, old_entity_rows):
@@ -540,7 +625,10 @@ def main():
     logger.info(f"Total: {len(all_entity_org)} entities")
 
     if not all_entity_org:
-        logger.warning("No entities to retire")
+        logger.info("No entities to retire — nothing to do")
+        print("Total entities retired: 0")
+        print("")
+        print("No MHCLG template data was found to retire in this run.")
         sys.exit(0)
 
     save_retired_entities(all_entity_org, old_entity_rows)
