@@ -569,7 +569,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     [endpoint],
                     collection_name,
                     dataset,
-                    [organisation_name],
+                    [""] if scope== "single-source" else [organisation_name],
                     collection_path,
                     cache_dir.joinpath("organisation.csv"),
                     Path("specification"),
@@ -693,7 +693,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     .to_dict()
                 )
                 new_dataset_entities = set(post_entity_org) - pre_dataset_entities
-                if new_dataset_entities:
+                if new_dataset_entities and scope != "single-source":
                     entity_org_file = Path("pipeline") / collection_name / "entity-organisation.csv"
                     for org_value, min_entity, max_entity in _contiguous_ranges_by_org(new_dataset_entities, post_entity_org):
                         # Hard code single exception for conservation-area dataset org HE
