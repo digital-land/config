@@ -19,6 +19,8 @@ listed-building-outline,0cbe4f9bc30b4b44da34618881d5986fdf49cfcf5d37ea998d26da79
 listed-building-outline,0cbe4f9bc30b4b44da34618881d5986fdf49cfcf5d37ea998d26da79520e12a0,,GRADE,listed-building-grade,,,
 listed-building-outline,0cbe4f9bc30b4b44da34618881d5986fdf49cfcf5d37ea998d26da79520e12a0,,ID,reference,,,
 listed-building-outline,0cbe4f9bc30b4b44da34618881d5986fdf49cfcf5d37ea998d26da79520e12a0,,DATED,start-date,,,
+listed-building-outline,114b170998e715ae8568681dd474a33f6cdfd9b42fd27512ba3c369262f3a2af,,DateListed,entry-date,2026-08-25,,2026-08-25
+listed-building-outline,114b170998e715ae8568681dd474a33f6cdfd9b42fd27512ba3c369262f3a2af,,na,IGNORE,2026-08-25,,2026-08-25
 listed-building-outline,2422d123ec972ac516171687e530b37a7b0c9cfc53cb9154e0121dd5bcaafc03,,OBJECTID,reference,,,
 listed-building-outline,25763ee988ddbee9003f2dd58941c01b166e1a61e88b956f1f734c4dc4584021,,LISTING_DE,documentation-url,,,
 listed-building-outline,25763ee988ddbee9003f2dd58941c01b166e1a61e88b956f1f734c4dc4584021,,GRADE,listed-building-grade,,,
@@ -171,5 +173,3 @@ locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf1
 locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf104534fdbf,Policy,notes,,,
 locally-listed-building,,fd73848f969dd4793016fcc23215a9e88b7805dd5ef1306eed30bf104534fdbf,GlobalID,reference,,,
 locally-listed-building,,,WKT,geometry,,,
-listed-building-outline,114b170998e715ae8568681dd474a33f6cdfd9b42fd27512ba3c369262f3a2af,,na,IGNORE,2026-08-25,,2026-08-25
-listed-building-outline,114b170998e715ae8568681dd474a33f6cdfd9b42fd27512ba3c369262f3a2af,,DateListed,entry-date,2026-08-25,,2026-08-25
