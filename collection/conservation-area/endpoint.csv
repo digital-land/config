@@ -746,7 +746,7 @@ bfcd8edb3a50792023d41688d88d4230b9d12c4252abf7f85cdb5160bd8c2d3c,https://adur-wo
 cffa71525a345060eaeda385ac1a3b24519ce831c59e1b2ab3291c852cda91fe,https://services1.arcgis.com/k6HWkz7DMAcnnYfV/arcgis/rest/services/CDC_Conservation_Areas_WGS/FeatureServer/6,,arcgis,2026-01-29,2026-01-28,
 fbb49b30cd42a556b2ec6665ae3de72fa51f3366c33f78e9a46186d7dd95a570,https://www.cotswold.gov.uk/media/vwmdr4kw/conservation-area-documents-cdc.csv,,,2026-01-29,2026-01-28,
 ffa09cf08c4c5085c98287cb1927d77d6db80690492290625a7e2bc3e257fa4f,https://fenland.maps.arcgis.com/sharing/rest/content/items/b706cfe14118413aa17b65a92cbbdf35/data,,,2026-01-29,2026-01-26,
-83b62000a02ccd6102c698139983995e989a28cbbc65302f0c75c47b6031a6a8,https://www.hart.gov.uk/sites/default/files/2026-01/Conservation-areas-dataset.csv,,,2026-01-30,2026-01-29,
+83b62000a02ccd6102c698139983995e989a28cbbc65302f0c75c47b6031a6a8,https://www.hart.gov.uk/sites/default/files/2026-01/Conservation-areas-dataset.csv,,,2026-01-30,2026-01-29,2026-08-26
 dce13f0be1a7b3a09b64e657216149418bc41dbd0f6c8aaf861391e6131b192c,https://bmaps.brent.gov.uk/geoserver/ldf/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ldf:conservation_areas_latest&OUTPUTFORMAT=application/json,,,2026-01-30,2026-01-29,
 3f913d3f6f47ad9fdd395a2e9b8aade05377e42f1824674b725028c7fc05aef5,https://services.arcgis.com/frayuCBtE5O8qDk4/arcgis/rest/services/TDC_Conservation_Areas/FeatureServer/0,,arcgis,2026-02-02,2026-01-29,
 0be6febed7270a3fca05b0e585be3231ffb386deabff193b427a90937dbafb17,https://mapservices.leeds.gov.uk/arcgis/rest/services/Public/Strategic_Planning/MapServer/64,,arcgis,2026-02-03,2026-02-03,
@@ -843,3 +843,4 @@ d11c260518b233d7a06534f8737dc7ddaf0a78dbcd67afc959b982a8b3fc3e5c,https://service
 5c4dea5ce9bc0462521f05f0caf3ece2ab3d61fd0cb1981f8b45ec0f9b99702b,https://cbccrmdata.blob.core.windows.net/noteattachment/CBC-null-Conservation-Area-Open-Data-Conservation_Area_ODP_Jan26.xlsx,,,2026-08-24,2026-08-24,
 8248a2051e4ae37d8f4cf6a96cb27a2d47c4c4733ccb380a4bd7ba7969800963,https://www.milton-keynes.gov.uk/sites/default/files/2026-07/Conservation%20Area%20Document.csv,,,2026-08-25,2026-08-25,
 f59b598f5a562ac8df314174c03ea9762fd03a2e6ee1e877b2c67bbd040d584d,https://www.hart.gov.uk/sites/default/files/2026-08/conservation-area-document.csv,,,2026-08-26,2026-08-26,
+cea9cb7358c67941b87ddcc59a0b2c6b5368aed8a33af2afa5caaf69ceb51824,https://www.hart.gov.uk/sites/default/files/2026-08/conservation-area.csv,,,2026-08-26,2026-08-26,
