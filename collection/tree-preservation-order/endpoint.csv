@@ -232,7 +232,7 @@ f8294dc2073afcce2db78da401e053e9b250e0a6a782955ca1392301829cdad0,https://www.sto
 b0ed21db14515f80cb485a0bc35a6f34c138073739e6c8674e585ff5627b871a,https://maps.calderdale.gov.uk/map/wfs.svc/ODP_TPOs?service=WFS&version=1.1.0&request=GetFeature&TYPENAME=statmap:ODP_TPO_Table,,,2026-04-29,2026-04-29,
 cfc5abb5d1690630507a06f6b70196c67e111a6bbb1f186bcc8dabc5db3bfdc6,https://maps.calderdale.gov.uk/map/wfs.svc/ODP_TPOs?service=WFS&version=1.1.0&request=GetFeature&TYPENAME=statmap:ODP_TPO_Tree&outputFormat=application/json,,,2026-04-30,2026-04-29,
 a84dc021cc4f3064e16f7ad3b58dd90d6a62ac2e378ffe79cdd73580a63232ba,https://miltonkeynes.statmap.co.uk/map/wfs.svc/MKCC_ODPwfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=statmap:tpo_points&SRSNAME=EPSG:27700&COUNT=2500&STARTINDEX=0,,,2026-05-07,2026-04-27,
-28955998a2fc62334bc56990417d38ff9798e397f764cda96f9f9aed3351b846,https://www.easthants.gov.uk/sites/default/files/2026-05/tree-preservation-order.csv,,,2026-05-11,2026-05-11,
+28955998a2fc62334bc56990417d38ff9798e397f764cda96f9f9aed3351b846,https://www.easthants.gov.uk/sites/default/files/2026-05/tree-preservation-order.csv,,,2026-05-11,2026-05-11,2026-08-26
 2da66cbab23b24200351c7eed2cd92cee7e9618b063c8e21c371370e2ce7bd2c,https://www.scilly.gov.uk/sites/default/files/planning-apps/tree-preservation-orders.xlsx,,,2026-05-27,2026-05-27,
 15d3b1ab92a540b12121713f81913f4a50ba4bceec57e6f5738a53f78af283a0,https://services1.arcgis.com/k6HWkz7DMAcnnYfV/arcgis/rest/services/CDC_Tree_Preservation_Orders_view/FeatureServer/1,,arcgis,2026-06-05,2026-06-05,
 855b635ae61fdafd62d87df243c2f98354cf8f53a7a21da20eec9b509ad75e2c,https://services1.arcgis.com/k6HWkz7DMAcnnYfV/arcgis/rest/services/CDC_Tree_Preservation_Orders_view/FeatureServer/2,,arcgis,2026-06-05,2026-06-05,
@@ -284,3 +284,4 @@ c7f4f2044a5e700db35be820e5b0cec8bde4893151f701ecc0b1e4594b242a42,https://webmap.
 a496ef32a6bc5d8dd1578c631b6cfb42e1ac92e2d498bbb6df4aaa24f05ce8e5,https://ntcouncil.maps.arcgis.com/sharing/rest/content/items/a0a8b2b06c384dcc8e1954df2788cb49/data,,,2026-08-25,2026-08-25,
 c9a64cf278d8e3fd594f4add3c05e8e8bda5f641433c6c0da5fe0d95c0e242bf,https://www.havant.gov.uk/media/11202/download?inline,,,2026-08-25,2026-08-25,
 dffa28bc6f7760ac20843b4e744051e7a1b9e3c3528b64e21117c5e18e5ade90,https://maps.easthants.gov.uk/Heritage/open_data/tree.csv,,,2026-08-26,2026-08-26,
+47cb152b4b1c6fbc84d498f277d84f2c5dacfeb54df5e34e060470b2a8aaf128,https://maps.easthants.gov.uk/Heritage/open_data/tree-preservation-order.csv,,,2026-08-26,2026-08-26,
