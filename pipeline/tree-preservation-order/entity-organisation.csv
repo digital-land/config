@@ -47,6 +47,7 @@ tree,7002227348,7002230208,local-authority:COT
 tree,7002236844,7002236844,local-authority:COT
 tree,7002248350,7002248351,local-authority:COT
 tree,7002263210,7002263211,local-authority:COT
+tree,7002278535,7002278538,local-authority:COT
 tree,7002192285,7002194516,local-authority:COV
 tree,7002268973,7002268973,local-authority:COV
 tree,7002185658,7002186858,local-authority:DAR
@@ -71,6 +72,7 @@ tree,7002160874,7002160876,local-authority:ECA
 tree,7002226821,7002226825,local-authority:ECA
 tree,7002248362,7002248362,local-authority:ECA
 tree,7002198312,7002200983,local-authority:EHA
+tree,7002275416,7002278534,local-authority:EHA
 tree,7002033856,7002038181,local-authority:EPS
 tree,7002140633,7002140650,local-authority:EPS
 tree,7002180222,7002180222,local-authority:EPS
@@ -297,6 +299,7 @@ tree-preservation-order,7001101956,7001102524,local-authority:COT
 tree-preservation-order,7001106256,7001106257,local-authority:COT
 tree-preservation-order,7001111024,7001111025,local-authority:COT
 tree-preservation-order,7001125540,7001125540,local-authority:COT
+tree-preservation-order,7001137571,7001137571,local-authority:COT
 tree-preservation-order,7001077014,7001077446,local-authority:COV
 tree-preservation-order,7001089278,7001089617,local-authority:DAR
 tree-preservation-order,7001099479,7001099479,local-authority:DAR
@@ -309,6 +312,7 @@ tree-preservation-order,7001077460,7001077461,local-authority:ECA
 tree-preservation-order,7001099480,7001099483,local-authority:ECA
 tree-preservation-order,7001111023,7001111023,local-authority:ECA
 tree-preservation-order,7001095476,7001099477,local-authority:EHA
+tree-preservation-order,7001133562,7001137570,local-authority:EHA
 tree-preservation-order,7001014877,7001015291,local-authority:EPS
 tree-preservation-order,7001110747,7001111021,local-authority:FOE
 tree-preservation-order,7001056537,7001056745,local-authority:GAT
@@ -527,6 +531,7 @@ tree-preservation-zone,19121282,19121595,local-authority:DOV
 tree-preservation-zone,19149881,19150443,local-authority:ECA
 tree-preservation-zone,19165809,19165810,local-authority:ECA
 tree-preservation-zone,19184532,19185856,local-authority:EHA
+tree-preservation-zone,19215011,19216336,local-authority:EHA
 tree-preservation-zone,19119963,19120901,local-authority:EPS
 tree-preservation-zone,19161555,19161556,local-authority:EPS
 tree-preservation-zone,19176379,19176379,local-authority:EPS
@@ -701,8 +706,3 @@ tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002275416,7002278534,local-authority:EHA
-tree-preservation-order,7001133562,7001137570,local-authority:EHA
-tree-preservation-zone,19215011,19216336,local-authority:EHA
-tree-preservation-order,7001137571,7001137571,local-authority:COT
-tree,7002278535,7002278538,local-authority:COT
