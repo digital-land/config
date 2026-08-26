@@ -212,7 +212,7 @@ e1d02a30d4b922b7bf395f74fa09188fdcbcd02134f881948e89702dc4c088d2,https://maps.ha
 fdfa77961a88d014e6f5b048366b87975f249ca5b946e059786c4a6290765423,https://www.coventry.gov.uk/downloads/file/46690/trees,,,2026-03-25,2026-03-24,
 1cd13aebff7b5792b8d4f551911add1f44584096d1f7d6dc614cbf4d1fb4774c,https://maps.3csharedservices.org/arcgis/rest/services/HDC/Huntingdonshire_District_Council_ODP_Data/MapServer/3/query?outFields=*&where=1%3D1&f=json,,,2026-04-01,2026-03-31,
 4d406bc3ba343d52ce6dc6233fa1dd535afafebf66a328fd03bf05833c1f476c,https://maps.3csharedservices.org/arcgis/rest/services/HDC/Huntingdonshire_District_Council_ODP_Data/MapServer/2/query?outFields=*&where=1%3D1&f=geojson,,,2026-04-01,2026-03-31,
-4a462499576332efd2f3c89d38b33fbffaae9709a447d23eeb2b8c45127b69a0,https://www.easthants.gov.uk/sites/default/files/2026-04/tree_0.csv,,,2026-04-02,2026-04-01,
+4a462499576332efd2f3c89d38b33fbffaae9709a447d23eeb2b8c45127b69a0,https://www.easthants.gov.uk/sites/default/files/2026-04/tree_0.csv,,,2026-04-02,2026-04-01,2026-08-26
 af4e02d674a4c0b8b8c69510604ad0dd916c4d5a22cf9b3e1fafec9e156e65b3,https://mapservices.leeds.gov.uk/arcgis/rest/services/Public/Strategic_Planning/FeatureServer/62,,arcgis,2026-04-07,2026-04-02,
 d4f59e55e30d156d4ab89a0983a64842d97dfb48f766577b1927ac21abe200dc,https://lbhillingdon.maps.arcgis.com/sharing/rest/content/items/508d89de71b74d24afa310dc3853cc86/data,,,2026-04-07,2026-04-02,
 d322187ede2665dfa4be8bc1de0449d4d3fed2c409c63be75a13dc25e1b9cccc,https://www.oxford.gov.uk/downloads/file/4107/tree-data,,,2026-04-09,2026-04-09,
@@ -283,3 +283,4 @@ c7f4f2044a5e700db35be820e5b0cec8bde4893151f701ecc0b1e4594b242a42,https://webmap.
 3917dff72cabe5f6468953a03f96c074064536f6adb5a5b3ac5735a8b1dfb725,https://www.havant.gov.uk/media/11200/download?inline,,,2026-08-25,2026-08-25,
 a496ef32a6bc5d8dd1578c631b6cfb42e1ac92e2d498bbb6df4aaa24f05ce8e5,https://ntcouncil.maps.arcgis.com/sharing/rest/content/items/a0a8b2b06c384dcc8e1954df2788cb49/data,,,2026-08-25,2026-08-25,
 c9a64cf278d8e3fd594f4add3c05e8e8bda5f641433c6c0da5fe0d95c0e242bf,https://www.havant.gov.uk/media/11202/download?inline,,,2026-08-25,2026-08-25,
+dffa28bc6f7760ac20843b4e744051e7a1b9e3c3528b64e21117c5e18e5ade90,https://maps.easthants.gov.uk/Heritage/open_data/tree.csv,,,2026-08-26,2026-08-26,
