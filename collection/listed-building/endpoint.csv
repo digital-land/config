@@ -104,7 +104,7 @@ b8f11e388fd11dcd3fc455375b6e2f6b4063bf082c99ab9fc1438a642576a20c,https://service
 ffbd37f09b328cb39b15ec8050421202cce3897cb5d5d661b3b9c3721b237db1,https://www.hart.gov.uk/sites/default/files/2026-02/Listed-buildings-data-set.csv,,,2026-02-18,2026-02-18,2026-06-15
 11f530e362091506d04059a515900f630f7e25e36a11754472c97e41bfb5969f,https://services-eu1.arcgis.com/U9TdzyuSbEnjj4tz/arcgis/rest/services/FoD_Listed_Buildings/FeatureServer/0,,arcgis,2026-02-20,2026-02-20,
 6d4a00124b38892360a73f975342a315fceb586c1b4c771ed15b2e67fff07e8f,https://maps.calderdale.gov.uk/map/wfs.svc/ODP_Listed_Buildings?service=WFS&version=1.1.0&request=GetFeature&TYPENAME=statmap:OD_Listed_Buildings&outputFormat=application/json,,,2026-02-25,2026-02-25,
-2647c528a873cea4da2920e9cccb1bda7279c71a52123bdda3f8811de8271bba,https://www.hart.gov.uk/sites/default/files/2026-02/Listed-buildings-dataset.csv,,,2026-03-03,2026-03-03,
+2647c528a873cea4da2920e9cccb1bda7279c71a52123bdda3f8811de8271bba,https://www.hart.gov.uk/sites/default/files/2026-02/Listed-buildings-dataset.csv,,,2026-03-03,2026-03-03,2026-08-26
 e5d79f4188020018b0d0c5a66ef53f56b7ce8d6ce12e049585b2f199f987c709,https://gi.dorsetcouncil.gov.uk/geoserver/planning-mastergov-public/wfs?request=GetFeature&version=2.0.0&outputFormat=application%2Fjson&typename=v_spatial_listedbuildings&CQL_FILTER=grade%20%3C%3E%27DLIST%27,,,2026-03-03,2026-03-03,
 04cf83f83e0848e059f0cd6c17f61ac4630743782d615af34f57de61bed83d8a,https://gis.lambeth.gov.uk/arcgis/rest/services/LambethListedBuildings/MapServer/0,,arcgis,2026-03-04,2026-03-04,2026-07-07
 bf0257563f3d85ae261d01aa159b67f05883ebd92561c6497c836834a20d825a,https://services-eu1.arcgis.com/OrZ7pO8Ag7olNJcC/arcgis/rest/services/Listed_Buildings_ODP/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2026-03-10,2026-03-09,2026-03-18
@@ -139,3 +139,4 @@ f8fa28bc63b73e94ff6a50495ec9a20359de1747c8c8831949580678e3c8fe1d,https://kingsto
 76a205c4ff7e65e4bce7e52febee4675b36bd9baf8ca57399d5391816a96f171,https://www.havant.gov.uk/media/11199/download?inline,,,2026-08-04,2026-08-04,
 089a11899cd24f2ed68c3c4e2292bb7878547d6b871cff47ff6aca2c71fb20e7,https://maps.easthants.gov.uk/Heritage/open_data/listed-buildings.csv,,,2026-08-25,2026-08-25,
 114b170998e715ae8568681dd474a33f6cdfd9b42fd27512ba3c369262f3a2af,https://cbccrmdata.blob.core.windows.net/noteattachment/CBC-null-Listed-Building-Open-Data-Listed%20Building.xlsx,,,2026-08-25,2026-08-25,
+b221b3cde411d8fbd1781428e28023d77d9fe9a5ebc4c3e15bb27f97cae04ca3,https://www.hart.gov.uk/sites/default/files/2026-08/listed-buildings.csv,,,2026-08-26,2026-08-26,
