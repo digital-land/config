@@ -83,6 +83,7 @@ tree,7002029961,7002031960,local-authority:GAT
 tree,7002051964,7002052679,local-authority:GAT
 tree,7002208949,7002211102,local-authority:GAT
 tree,7002050606,7002051963,local-authority:GLO
+tree,7002278539,7002279608,local-authority:GRA
 tree,7002233719,7002236837,local-authority:HAA
 tree,7002268974,7002272092,local-authority:HAA
 tree,7002191836,7002192284,local-authority:HAL
@@ -301,6 +302,7 @@ tree-preservation-order,7001111024,7001111025,local-authority:COT
 tree-preservation-order,7001125540,7001125540,local-authority:COT
 tree-preservation-order,7001137571,7001137571,local-authority:COT
 tree-preservation-order,7001077014,7001077446,local-authority:COV
+tree-preservation-order,7001137572,7001137609,local-authority:COV
 tree-preservation-order,7001089278,7001089617,local-authority:DAR
 tree-preservation-order,7001099479,7001099479,local-authority:DAR
 tree-preservation-order,7001102527,7001102528,local-authority:DAR
@@ -316,6 +318,7 @@ tree-preservation-order,7001133562,7001137570,local-authority:EHA
 tree-preservation-order,7001014877,7001015291,local-authority:EPS
 tree-preservation-order,7001110747,7001111021,local-authority:FOE
 tree-preservation-order,7001056537,7001056745,local-authority:GAT
+tree-preservation-order,7001137610,7001137776,local-authority:GRA
 tree-preservation-order,7001002221,7001003249,local-authority:GRY
 tree-preservation-order,7001081846,7001081912,local-authority:GRY
 tree-preservation-order,7001102531,7001106249,local-authority:HAA
@@ -706,6 +709,3 @@ tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-order,7001137572,7001137609,local-authority:COV
-tree-preservation-order,7001137610,7001137776,local-authority:GRA
-tree,7002278539,7002279608,local-authority:GRA
