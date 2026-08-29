@@ -4,6 +4,8 @@ battlefield,1400000,1400046,government-organisation:PB1164
 building-preservation-notice,2000000,2000013,government-organisation:PB1164
 building-preservation-notice,2000014,2000021,government-organisation:PB1164
 building-preservation-notice,2000022,2000022,government-organisation:PB1164
+building-preservation-notice,2000023,2000026,government-organisation:PB1164
+building-preservation-notice,2000027,2000028,government-organisation:PB1164
 certificate-of-immunity,2300000,2300397,government-organisation:PB1164
 certificate-of-immunity,2300398,2300402,government-organisation:PB1164
 certificate-of-immunity,2300403,2300403,government-organisation:PB1164
@@ -36,5 +38,3 @@ world-heritage-site,16100020,16100039,government-organisation:D1342
 world-heritage-site,16100000,16100019,government-organisation:PB1164
 world-heritage-site-buffer-zone,16110001,16110008,government-organisation:PB1164
 world-heritage-site-buffer-zone,16110009,16110009,government-organisation:PB1164
-building-preservation-notice,2000023,2000026,government-organisation:PB1164
-building-preservation-notice,2000027,2000028,government-organisation:PB1164

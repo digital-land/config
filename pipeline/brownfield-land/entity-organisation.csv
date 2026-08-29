@@ -377,6 +377,7 @@ brownfield-land,1712856,1712939,local-authority:CHL
 brownfield-land,1730586,1730682,local-authority:CHL
 brownfield-land,1735670,1735720,local-authority:CHL
 brownfield-land,1740639,1740682,local-authority:CHL
+brownfield-land,1742337,1742442,local-authority:CHL
 brownfield-land,1704848,1704880,local-authority:CHN
 brownfield-land,1729049,1729066,local-authority:CHN
 brownfield-land,1705706,1705764,local-authority:CHO
@@ -1130,6 +1131,7 @@ brownfield-land,1726752,1726752,local-authority:NWM
 brownfield-land,1733857,1733908,local-authority:NWM
 brownfield-land,1734172,1734192,local-authority:NWM
 brownfield-land,1736110,1736120,local-authority:NWM
+brownfield-land,1742444,1742454,local-authority:NWM
 brownfield-land,1703237,1703305,local-authority:NYUA
 brownfield-land,1710746,1710788,local-authority:NYUA
 brownfield-land,1711178,1711181,local-authority:NYUA
@@ -1146,6 +1148,7 @@ brownfield-land,1728035,1728035,local-authority:NYUA
 brownfield-land,1728039,1728049,local-authority:NYUA
 brownfield-land,1728374,1728374,local-authority:NYUA
 brownfield-land,1735721,1735721,local-authority:NYUA
+brownfield-land,1742443,1742443,local-authority:NYUA
 brownfield-land,1702772,1702786,local-authority:OAD
 brownfield-land,1710109,1710109,local-authority:OAD
 brownfield-land,1729288,1729290,local-authority:OAD
@@ -1251,6 +1254,7 @@ brownfield-land,1725604,1725678,local-authority:RUN
 brownfield-land,1732782,1732849,local-authority:RUN
 brownfield-land,1736181,1736217,local-authority:RUN
 brownfield-land,1741619,1741625,local-authority:RUN
+brownfield-land,1742455,1742471,local-authority:RUN
 brownfield-land,1702233,1702247,local-authority:RUS
 brownfield-land,1721938,1721949,local-authority:RUS
 brownfield-land,1722305,1722307,local-authority:RUS
@@ -1794,7 +1798,3 @@ brownfield-land,1724945,1724947,national-park-authority:Q72617784
 brownfield-land,1721369,1721369,national-park-authority:Q72617890
 brownfield-land,1722291,1722294,national-park-authority:Q72617988
 brownfield-land,1742006,1742006,national-park-authority:Q72617988
-brownfield-land,1742337,1742442,local-authority:CHL
-brownfield-land,1742443,1742443,local-authority:NYUA
-brownfield-land,1742444,1742454,local-authority:NWM
-brownfield-land,1742455,1742471,local-authority:RUN
