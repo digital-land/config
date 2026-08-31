@@ -34,6 +34,7 @@ tree,7002230210,7002230210,local-authority:BST
 tree,7002236842,7002236843,local-authority:BST
 tree,7002236854,7002236854,local-authority:BST
 tree,7002268971,7002268971,local-authority:BST
+tree,7002279609,7002279612,local-authority:BST
 tree,7002000000,7002006551,local-authority:BUC
 tree,7002079306,7002080344,local-authority:BUC
 tree,7002263288,7002268941,local-authority:CAB
@@ -279,6 +280,7 @@ tree-preservation-order,7001102529,7001102529,local-authority:BST
 tree-preservation-order,7001106252,7001106253,local-authority:BST
 tree-preservation-order,7001106258,7001106258,local-authority:BST
 tree-preservation-order,7001129842,7001129842,local-authority:BST
+tree-preservation-order,7001137778,7001137781,local-authority:BST
 tree-preservation-order,7001000307,7001000539,local-authority:BUC
 tree-preservation-order,7001022173,7001023959,local-authority:BUC
 tree-preservation-order,7001057441,7001058416,local-authority:CAB
@@ -711,5 +713,3 @@ tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002279609,7002279612,local-authority:BST
-tree-preservation-order,7001137778,7001137781,local-authority:BST
