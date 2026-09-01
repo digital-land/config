@@ -845,3 +845,4 @@ d11c260518b233d7a06534f8737dc7ddaf0a78dbcd67afc959b982a8b3fc3e5c,https://service
 cea9cb7358c67941b87ddcc59a0b2c6b5368aed8a33af2afa5caaf69ceb51824,https://www.hart.gov.uk/sites/default/files/2026-08/conservation-area.csv,,,2026-08-26,2026-08-26,
 f59b598f5a562ac8df314174c03ea9762fd03a2e6ee1e877b2c67bbd040d584d,https://www.hart.gov.uk/sites/default/files/2026-08/conservation-area-document.csv,,,2026-08-26,2026-08-26,
 fd1ea95dc39e2232d995e9c62c792581e5ee4ac88bb77dca3d8116bba7bdd18c,https://cbccrmdata.blob.core.windows.net/noteattachment/CBC-null-Conservation-Area-Documents-Con%20Area%20Doc%20August%202026.xlsx,,,2026-08-28,2026-08-28,
+cdc08f5da9c47e3faddd528bf895174c6b465e79fd371d8cb63ae1b3bc341121,https://services1.arcgis.com/BZNs0xaSHDSi4V6G/arcgis/rest/services/Conservation_Area_Documents_Geojson/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson,,,2026-09-01,2026-09-01,
