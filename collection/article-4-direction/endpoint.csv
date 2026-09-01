@@ -288,3 +288,4 @@ ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,https://www.bur
 30200e41bee9c0196b874b44911582acf60f427ea43abe332a6314ca514834bc,https://maps.easthants.gov.uk/Heritage/open_data/article-4-direction.csv,,,2026-08-05,2026-08-05,
 31205cf16218767f2c6d6732d91b1b952671751b25a9831b30287fc4f83f0394,https://cbccrmdata.blob.core.windows.net/noteattachment/CBC-null-Article-4-Direction-Area-A4%20Direction%20Area%202026.xlsx,,,2026-08-21,2026-08-21,2026-08-28
 647842dd91f84c6f51658f086e2935ae0ce14ae42b0c824e3478cca51800b08f,https://cbccrmdata.blob.core.windows.net/noteattachment/CBC-null-Article-4-Direction-Area-A4%20Direction%20Area%20August%202026.xlsx,,,2026-08-28,2026-08-28,
+2c2abf97da6f8a45976ab5ed4fe28679b3f6141667e25cdb776ec24e3885ddc5,https://maps.thanet.gov.uk/server/rest/services/Direction_Under_Article_4/FeatureServer/1/query?where=1=1&outFields=*&f=geojson,,,2026-09-01,2026-09-01,
