@@ -146,6 +146,7 @@ tree,7002160881,7002160890,local-authority:PTE
 tree,7002185323,7002185356,local-authority:PTE
 tree,7002107472,7002109393,local-authority:ROH
 tree,7002092803,7002094531,local-authority:ROS
+tree,7002279613,7002279617,local-authority:ROS
 tree,7002029382,7002029960,local-authority:SAL
 tree,7002046531,7002049981,local-authority:SAL
 tree,7002070894,7002070914,local-authority:SAL
@@ -400,6 +401,7 @@ tree-preservation-order,7001088878,7001088878,local-authority:PTE
 tree-preservation-order,7001059104,7001059530,local-authority:ROH
 tree-preservation-order,7001045935,7001046116,local-authority:ROS
 tree-preservation-order,7001110746,7001110746,local-authority:ROS
+tree-preservation-order,7001137782,7001137782,local-authority:ROS
 tree-preservation-order,7001004397,7001005066,local-authority:SAL
 tree-preservation-order,7001078365,7001078472,local-authority:SAW
 tree-preservation-order,7001056746,7001057440,local-authority:SCA
@@ -713,5 +715,3 @@ tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-order,7001137782,7001137782,local-authority:ROS
-tree,7002279613,7002279617,local-authority:ROS

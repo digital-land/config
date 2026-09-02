@@ -452,6 +452,7 @@ conservation-area,44007146,44007147,local-authority:ESK
 conservation-area,44007344,44007344,local-authority:ESK
 conservation-area,44007396,44007397,local-authority:ESK
 conservation-area,44007891,44007901,local-authority:ESK
+conservation-area,44016511,44016561,local-authority:ESK
 conservation-area,44003024,44003041,local-authority:EST
 conservation-area,44005665,44005671,local-authority:EST
 conservation-area,44000587,44000588,local-authority:EXE
@@ -1813,6 +1814,7 @@ conservation-area-document,6308638,6308676,local-authority:ERE
 conservation-area-document,6304334,6304439,local-authority:ERY
 conservation-area-document,6315500,6315622,local-authority:ERY
 conservation-area-document,6308588,6308637,local-authority:ESK
+conservation-area-document,6316986,6317037,local-authority:ESK
 conservation-area-document,6304259,6304283,local-authority:EST
 conservation-area-document,6304665,6304704,local-authority:EXE
 conservation-area-document,6315479,6315498,local-authority:EXE
@@ -2069,5 +2071,3 @@ conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
 conservation-area-document,6316552,6316661,national-park-authority:Q72617988
-conservation-area,44016511,44016561,local-authority:ESK
-conservation-area-document,6316986,6317037,local-authority:ESK
