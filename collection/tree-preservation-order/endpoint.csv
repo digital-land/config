@@ -26,7 +26,7 @@ c02b990ae3d48107c12c7482ab3a9b8662a2ca8b081756c63cabdd8a01e065e7,https://service
 ff199b1dc647436cb33b44f767c27b282ac993f2c0b8b8e9e5158774d1d5824a,https://services-eu1.arcgis.com/xk4RA36G57mVH7Aw/ArcGIS/rest/services/TPO_National_Planning_Map_view/FeatureServer/2/,,arcgis,2023-12-22T10:10:13.450Z,,
 9240f1ca39efc8880a909f92bd0613c9dbd6cf1990217a95af35a57e176ab2e4,https://services7.arcgis.com/NXULfNGIlsKmpCJD/ArcGIS/rest/services/Tree_Preservation_Zone/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-01-02,2023-09-25,
 18b8591914390e3b482e630ca800ab90e75f1022406ed23d04db54b5c481493c,https://tewkesburybc.s3.eu-west-2.amazonaws.com/geojson/tree-preservation-order-dataset.csv,,,2024-01-16,2023-11-03,2024-02-29
-7e6f645c62de982f0dc14414618cfa541ec2e0983cfe4567246bf01ec5f00273,https://tewkesburybc.s3.eu-west-2.amazonaws.com/geojson/tree-preservation-zone.geojson,,,2024-01-22,2023-11-03,
+7e6f645c62de982f0dc14414618cfa541ec2e0983cfe4567246bf01ec5f00273,https://tewkesburybc.s3.eu-west-2.amazonaws.com/geojson/tree-preservation-zone.geojson,,,2024-01-22,2023-11-03,2026-09-03
 bc931f92317d0ed738079632e507f3b58976fe0826c733c1e3a3a7f72fa65624,https://gis.westberks.gov.uk/server/rest/services/Layers/LPA_TREE_PRESERVATION_ORDERS/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2024-01-23,2023-12-18,2025-10-24
 c3b09959756401a0a1e9a3b75e34fe60dcf48c91b3b1b7802beb4d8ba8957445,https://gis.westberks.gov.uk/server/rest/services/Layers/LPA_TREE_PRESERVATION_ZONES/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2024-01-24,2023-12-18,2025-10-24
 3008744aaf73204606f72c826ae9846dc6b24530796029630452dc092ad82a6b,https://www.stalbans.gov.uk/sites/default/files/documents/publications/planning-building-control/Agile/Tree_Preservation_Order_Dataset_Individual.csv,,,2024-02-02,2023-12-18,2025-06-16
@@ -291,3 +291,4 @@ dffa28bc6f7760ac20843b4e744051e7a1b9e3c3528b64e21117c5e18e5ade90,https://maps.ea
 97610f778d2d4b7473068bb0571c107f88bfcc4bb281c3608b7ac95a0af4500b,https://www.southampton.gov.uk/media/pfhnczgf/tree-preservation-zone-29072026.csv,,,2026-08-27,2026-08-27,
 94f926c25537e09bff25a615f461fdfe1ebb4fcffba5240d9bf752a44ab02c27,https://services-eu1.arcgis.com/gENhhjmVDYfAqqnx/arcgis/rest/services/Tree_preservation_zone/FeatureServer/0,,arcgis,2026-08-28,2026-08-28,
 5956d6d451cf16a2cc1acb8a5b3d384a33970f307fad48cde6b02a1e4088c859,https://services-eu1.arcgis.com/HxtQoByBu1lxYPfN/arcgis/rest/services/TPO_planning_data/FeatureServer/1/,,arcgis,2026-09-03,2026-09-03,
+a446fa9d25edaeaec7fd2444513064f7e173b0630e9230de81e8a143ab7edd04,https://services-eu1.arcgis.com/HxtQoByBu1lxYPfN/arcgis/rest/services/TPO_planning_data/FeatureServer/2/,,arcgis,2026-09-03,2026-09-03,
