@@ -203,6 +203,7 @@ tree,7002090228,7002091905,local-authority:TAN
 tree,7002031961,7002033855,local-authority:TEW
 tree,7002049982,7002049986,local-authority:TEW
 tree,7002148193,7002148324,local-authority:TEW
+tree,7002279618,7002279638,local-authority:TEW
 tree,7002173984,7002175891,local-authority:THA
 tree,7002070932,7002072976,local-authority:TOB
 tree,7002092800,7002092802,local-authority:TOB
@@ -678,6 +679,7 @@ tree-preservation-zone,19156966,19156967,local-authority:TAN
 tree-preservation-zone,19118035,19118568,local-authority:TEW
 tree-preservation-zone,19128302,19128302,local-authority:TEW
 tree-preservation-zone,19163346,19163366,local-authority:TEW
+tree-preservation-zone,19216560,19216569,local-authority:TEW
 tree-preservation-zone,19173996,19174675,local-authority:THA
 tree-preservation-zone,19136953,19137677,local-authority:TOB
 tree-preservation-zone,19138480,19138581,local-authority:TOB
@@ -715,5 +717,3 @@ tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002279618,7002279638,local-authority:TEW
-tree-preservation-zone,19216560,19216569,local-authority:TEW
