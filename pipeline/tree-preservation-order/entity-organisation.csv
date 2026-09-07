@@ -38,6 +38,7 @@ tree,7002279609,7002279612,local-authority:BST
 tree,7002000000,7002006551,local-authority:BUC
 tree,7002079306,7002080344,local-authority:BUC
 tree,7002263288,7002268941,local-authority:CAB
+tree,7002279639,7002279639,local-authority:CAB
 tree,7002101556,7002103184,local-authority:CAS
 tree,7002227263,7002227347,local-authority:CAS
 tree,7002217905,7002224425,local-authority:CLD
@@ -188,6 +189,7 @@ tree,7002230209,7002230209,local-authority:SST
 tree,7002247163,7002247163,local-authority:SST
 tree,7002263230,7002263287,local-authority:SST
 tree,7002268956,7002268956,local-authority:SST
+tree,7002279640,7002279640,local-authority:SST
 tree,7002212331,7002213822,local-authority:STE
 tree,7002212331,7002213822,local-authority:STE
 tree,7002230232,7002230241,local-authority:STE
@@ -260,6 +262,7 @@ tree-preservation-order,7001077447,7001077450,local-authority:BNE
 tree-preservation-order,7001078473,7001078473,local-authority:BNE
 tree-preservation-order,7001093276,7001093276,local-authority:BNE
 tree-preservation-order,7001110594,7001110594,local-authority:BNE
+tree-preservation-order,7001137785,7001137785,local-authority:BNE
 tree-preservation-order,7001030483,7001035318,local-authority:BRO
 tree-preservation-order,7001046555,7001051484,local-authority:BRO
 tree-preservation-order,7001025266,7001030147,local-authority:BST
@@ -293,6 +296,7 @@ tree-preservation-order,7001078474,7001078474,local-authority:CAB
 tree-preservation-order,7001081845,7001081845,local-authority:CAB
 tree-preservation-order,7001099478,7001099478,local-authority:CAB
 tree-preservation-order,7001106254,7001106255,local-authority:CAB
+tree-preservation-order,7001137786,7001137786,local-authority:CAB
 tree-preservation-order,7001056119,7001056536,local-authority:CAS
 tree-preservation-order,7001067889,7001067890,local-authority:CAS
 tree-preservation-order,7001126419,7001126423,local-authority:CAS
@@ -441,6 +445,7 @@ tree-preservation-order,7001099499,7001099499,local-authority:SST
 tree-preservation-order,7001102526,7001102526,local-authority:SST
 tree-preservation-order,7001107491,7001107491,local-authority:SST
 tree-preservation-order,7001126425,7001126425,local-authority:SST
+tree-preservation-order,7001137784,7001137784,local-authority:SST
 tree-preservation-order,7001093319,7001093453,local-authority:STE
 tree-preservation-order,7001093319,7001093453,local-authority:STE
 tree-preservation-order,7001102530,7001102530,local-authority:STE
@@ -718,8 +723,3 @@ tree-preservation-zone,19186029,19186030,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-order,7001137784,7001137784,local-authority:SST
-tree,7002279639,7002279639,local-authority:CAB
-tree,7002279640,7002279640,local-authority:SST
-tree-preservation-order,7001137785,7001137785,local-authority:BNE
-tree-preservation-order,7001137786,7001137786,local-authority:CAB
