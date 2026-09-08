@@ -84,6 +84,7 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 4220640,301,4221148,Redirecting MHCLG data to authoritative entity (local-authority:WSK)-local-plan,,2026-08-05,
 4220641,301,4221147,Redirecting MHCLG data to authoritative entity (local-authority:WFUA)-local-plan,,2026-08-05,
 4220660,410,,Retiring fake MHCLG template data for local-authority:ASF-local-plan,,2026-07-06,
+4220681,410,,Retiring fake MHCLG template data for local-authority:BNH-local-plan,,2026-09-08,
 4220682,410,,Retiring fake MHCLG template data for local-authority:BST-local-plan,,2026-07-07,
 4220683,410,,Retiring fake MHCLG template data for local-planning-group:BRO-NOW-SNO-local-plan,,2026-07-03,
 4220685,410,,Retiring fake MHCLG template data for local-authority:BRM-local-plan,,2026-07-13,
@@ -2701,4 +2702,3 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 550016,410,,Isles of Scilly legacy supplementary plan added in error,,2026-09-07,
 550017,410,,Isles of Scilly legacy supplementary plan added in error,,2026-09-07,
 550018,410,,Isles of Scilly legacy supplementary plan added in error,,2026-09-07,
-4220681,410,,Retiring fake MHCLG template data for local-authority:BNH-local-plan,,2026-09-08,

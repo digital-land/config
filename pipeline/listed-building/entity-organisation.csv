@@ -1,8 +1,8 @@
 dataset,entity-minimum,entity-maximum,organisation
 listed-building,31100000,31858678,government-organisation:PB1164
-listed-building,31858679,31860569,local-authority:WBK
-listed-building,31860570,31861455,local-authority:SWK
 listed-building,31861456,41099999,government-organisation:PB1164
+listed-building,31860570,31861455,local-authority:SWK
+listed-building,31858679,31860569,local-authority:WBK
 listed-building-outline,42189480,42189596,local-authority:ADU
 listed-building-outline,42210247,42210247,local-authority:ADU
 listed-building-outline,42136638,42139047,local-authority:ASF
