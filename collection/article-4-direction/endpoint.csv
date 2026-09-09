@@ -273,7 +273,7 @@ e2a10e3c8e4b1f3977ef8a3df416a02301661777a2b1ff70f3b83f369e4b6d95,https://webmap.
 cd84c15f8f3a9b21435d1ce037fc37946742686a9d34f2ed661784c3de254326,https://www.southampton.gov.uk/geoserver/Data/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Data%3AARTICLE_4_DIRECTION_AREA&maxFeatures=50&outputFormat=csv&srsName=EPSG:4326,,,2026-07-15,2026-07-15,
 cd84c15f8f3a9b21435d1ce037fc37946742686a9d34f2ed661784c3de254326,https://www.southampton.gov.uk/geoserver/Data/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Data%3AARTICLE_4_DIRECTION_AREA&maxFeatures=50&outputFormat=csv&srsName=EPSG:4326,,,2026-07-15,2026-07-15,
 1f8557a341096cf1d0244326fc8c9e956775c8bd20c90f4a1297619b398aaf54,https://exeter.gov.uk/media/pfeaqvbi/article-4-direction-area.csv,,,2026-07-20,2026-07-20,
-63a580ef74bdb02a01f69b8c8dfc12d98c39da75048863b102d5f6cd9019af4d,https://www.basingstoke.gov.uk/content/page/94848/DPIF%20-%20Article%204%20direction%20area%20dataset.csv,,,2026-07-20,2026-07-20,
+63a580ef74bdb02a01f69b8c8dfc12d98c39da75048863b102d5f6cd9019af4d,https://www.basingstoke.gov.uk/content/page/94848/DPIF%20-%20Article%204%20direction%20area%20dataset.csv,,,2026-07-20,2026-07-20,2026-09-09
 a6db38a4f1bf673b3ef719b5dc86bb40947093c6a0029a5d92488969ef3ca83c,https://www.basingstoke.gov.uk/content/page/94847/DPIF%20-%20Article%204%20direction%20dataset.csv,,,2026-07-20,2026-07-20,
 ece7dd92c7c480257e230ef0f7f173d1d0970ae5ab336803d60e26ff54b980b3,https://www.stevenage.gov.uk/documents/planning-policy/sbc-article-4-direction-dataset.csv,,,2026-07-20,2026-07-20,
 65026bbecc6431784529f0a620da113c764c7ca82af778d19a5421ffe9d9d69a,https://exeter.gov.uk/media/qxpl0ivf/article-4-direction.csv,,,2026-07-21,2026-07-21,
@@ -289,3 +289,4 @@ ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,https://www.bur
 31205cf16218767f2c6d6732d91b1b952671751b25a9831b30287fc4f83f0394,https://cbccrmdata.blob.core.windows.net/noteattachment/CBC-null-Article-4-Direction-Area-A4%20Direction%20Area%202026.xlsx,,,2026-08-21,2026-08-21,2026-08-28
 647842dd91f84c6f51658f086e2935ae0ce14ae42b0c824e3478cca51800b08f,https://cbccrmdata.blob.core.windows.net/noteattachment/CBC-null-Article-4-Direction-Area-A4%20Direction%20Area%20August%202026.xlsx,,,2026-08-28,2026-08-28,
 2c2abf97da6f8a45976ab5ed4fe28679b3f6141667e25cdb776ec24e3885ddc5,https://maps.thanet.gov.uk/server/rest/services/Direction_Under_Article_4/FeatureServer/1/query?where=1=1&outFields=*&f=geojson,,,2026-09-01,2026-09-01,
+8c1d126322f57826a7eef91d48e497159d9a9acf606a89f83593be7869ec4cde,https://www.basingstoke.gov.uk/content/page/94848/DPIF%20-%20Article%204%20Direction%20Area%20Dataset_July%202026.csv,,,2026-09-09,2026-09-09,
