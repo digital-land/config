@@ -827,7 +827,7 @@ e8d30d770442a7b363fd028319420d8a6cfdabcdb6b1ba1aa4fc8c4480ce34e2,https://blob.da
 d950a945522335c203eb2b6858d5217771444dd0e679423e12d599c8abf3ce99,https://webmap.newcastle-staffs.gov.uk/arcgisweb/rest/services/WebMap/Planning_Data_Platform/FeatureServer/3,,arcgis,2026-07-16,2026-07-16,
 16df38d5f48c6ad5af2b60d7b761e2918ee6c0169dd9d7f89cc9c0d0b255f662,https://www.basingstoke.gov.uk/content/page/94849/DPIF%20-%20Conservation%20area%20dataset.csv,,,2026-07-20,2026-07-20,
 5c70c741f866c08a0b9e856167f896f21756205e050d284d41b84e8a047b1688,https://www.stevenage.gov.uk/documents/planning-policy/datasets/sbc-conservation-area-document-dataset.csv,,,2026-07-20,2026-07-20,2026-08-13
-dca2adb6c348e91999698202ea1705a224cd7edad2db97cd8141753d6daab9a2,https://www.basingstoke.gov.uk/content/page/94850/DPIF%20-%20Conservation%20area%20documents%20dataset.csv,,,2026-07-20,2026-07-20,
+dca2adb6c348e91999698202ea1705a224cd7edad2db97cd8141753d6daab9a2,https://www.basingstoke.gov.uk/content/page/94850/DPIF%20-%20Conservation%20area%20documents%20dataset.csv,,,2026-07-20,2026-07-20,2026-09-09
 204f2daecc6ce2bbf1834f7c75902a7bd39f6c56905d7b261abd13e1e90ef90b,https://kingston.statmap.co.uk/map/wfs.svc/conservation_areas_wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=statmap:conservation_areas&outputFormat=application/json,,,2026-07-28,2026-07-28,
 3ea1cdf3346577e6e834dd0ca550e5493f64cf24462bddca64fa7bfec31b4065,https://services-eu1.arcgis.com/J3nU4ueuolsQK4wE/arcgis/rest/services/Conservation_Areas_view/FeatureServer/1,,arcgis,2026-07-28,2026-07-28,
 36f443f95b3377a54f9f65521d0a775d7d2b837d2a8dc70758df5011ab62d1a3,https://www.havant.gov.uk/media/11198/download?inline,,,2026-08-04,2026-08-04,
@@ -849,3 +849,4 @@ cdc08f5da9c47e3faddd528bf895174c6b465e79fd371d8cb63ae1b3bc341121,https://service
 91e453c4c87eb72daf97a029968ef8f7840349d6e51f6f074d7f1e49d753d940,https://www.eastsuffolk.gov.uk/sites/default/files/2026-09/Conservation_Area_Documents.csv,,,2026-09-02,2026-09-02,
 b31db8a6c1a0b3cdb8f9bab46e7def6a12d17c596ec485faf3ad07b7b984fa7d,https://services5.arcgis.com/1xHocsPj1MaXXW5b/arcgis/rest/services/ConservationAreas_final_WGS84a/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson,,,2026-09-02,2026-09-02,
 451d1ba8f23085aefc9061089981c7f653bdd244d0606d63af32a278a72b6cb9,https://services-eu1.arcgis.com/HxtQoByBu1lxYPfN/arcgis/rest/services/conservation-area/FeatureServer/33/,,arcgis,2026-09-03,2026-09-03,
+5061610a7a3966f18b29fa0f8d6a1e1d53dbd7a90e020f7bb959135be34de33b,https://www.basingstoke.gov.uk/content/page/94850/DPIF%20-%20Conservation%20Area%20Documents%20Dataset_July%202026.csv,,,2026-09-09,2026-09-09,
