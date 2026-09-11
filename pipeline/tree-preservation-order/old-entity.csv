@@ -12511,6 +12511,7 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 7001065298,410,,retire wrong entity added for SPE,,,
 7001065299,410,,retire wrong entity added for SPE,,,
 7001065300,410,,retire wrong entity added for SPE,,,
+7001095398,301,7001095318,local-authority:CLD all comparable fields match,,2026-09-11,
 7001999999,410,,,,,
 7002016555,410,,Doncaster tree - aligning entities,,,
 7002016789,410,,Doncaster tree - aligning entities,,,
@@ -13794,4 +13795,3 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 7002029958,410,,St. Albans - Alligning entities,,,
 7002029959,410,,St. Albans - Alligning entities,,,
 7002029960,410,,St. Albans - Alligning entities,,,
-7001095398,301,7001095318,local-authority:CLD all comparable fields match,,2026-09-11,
