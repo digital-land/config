@@ -3532,3 +3532,5 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 6315919,301,6316957,local-authority:OXO all comparable fields match,,2026-09-01,
 6315920,301,6316958,local-authority:OXO all comparable fields match,,2026-09-01,
 6315921,301,6316959,local-authority:OXO all comparable fields match,,2026-09-01,
+44012401,301,44016568,Redirect old entity complete match to LPA entity: local-authority:LAC,,2026-09-14,
+44000227,301,44016568,Redirect old entity single match to LPA entity: local-authority:LAC,,2026-09-14,
