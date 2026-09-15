@@ -745,6 +745,7 @@ conservation-area,44006065,44006065,local-authority:MAS
 conservation-area,44006523,44006523,local-authority:MAS
 conservation-area,44011356,44011376,local-authority:MAV
 conservation-area,44005652,44005659,local-authority:MDB
+conservation-area,44016600,44016607,local-authority:MDB
 conservation-area,44011864,44011914,local-authority:MDE
 conservation-area,44009804,44009827,local-authority:MDW
 conservation-area,44010829,44010871,local-authority:MEL
@@ -1892,6 +1893,7 @@ conservation-area-document,6305237,6305300,local-authority:MAN
 conservation-area-document,6305154,6305164,local-authority:MAS
 conservation-area-document,6301459,6301500,local-authority:MAV
 conservation-area-document,6305221,6305236,local-authority:MDB
+conservation-area-document,6317193,6317200,local-authority:MDB
 conservation-area-document,6301751,6301852,local-authority:MDE
 conservation-area-document,6301103,6301188,local-authority:MEL
 conservation-area-document,6316517,6316543,local-authority:MIK
@@ -2075,5 +2077,3 @@ conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
 conservation-area-document,6316552,6316661,national-park-authority:Q72617988
-conservation-area,44016600,44016607,local-authority:MDB
-conservation-area-document,6317193,6317200,local-authority:MDB

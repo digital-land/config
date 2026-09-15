@@ -1353,6 +1353,7 @@ local-plan,4220455,4220455,national-park-authority:Q72617890
 local-plan,4220849,4220849,national-park-authority:Q72617890
 local-plan,4220468,4220469,national-park-authority:Q72617988
 local-plan,4220857,4220857,national-park-authority:Q72617988
+local-plan,4221188,4221190,national-park-authority:Q72617988
 local-plan-boundary,4211000,4211363,government-organisation:D1342
 local-plan-housing,1100197,1100197,development-corporation:Q20648596
 local-plan-housing,1100163,1100163,development-corporation:Q6670544
@@ -1692,6 +1693,7 @@ minerals-plan,530046,530046,local-planning-group:NYK-Q72617669-YOR
 minerals-plan,530062,530063,local-planning-group:Q20198711-WSX
 minerals-plan,530058,530060,local-planning-group:SWD-WIL
 minerals-plan,530064,530064,national-park-authority:Q27159704
+minerals-plan,530077,530079,national-park-authority:Q72617988
 minerals-plan-boundary,570000,570043,government-organisation:D1342
 plan-event,2950000,2950021,government-organisation:D1342
 plan-timetable,5106973,5106995,development-corporation:Q117149370
@@ -2169,6 +2171,7 @@ plan-timetable,5106467,5106489,local-authority:LBH
 plan-timetable,5111204,5111230,local-authority:LBH
 plan-timetable,5100868,5100873,local-authority:LCE
 plan-timetable,5105984,5106006,local-authority:LCE
+plan-timetable,5111515,5111539,local-authority:LCE
 plan-timetable,5100864,5100867,local-authority:LDS
 plan-timetable,5102852,5102857,local-authority:LDS
 plan-timetable,5103187,5103192,local-authority:LDS
@@ -2343,6 +2346,7 @@ plan-timetable,5107916,5107938,local-authority:ROH
 plan-timetable,5101254,5101258,local-authority:ROS
 plan-timetable,5107893,5107915,local-authority:ROS
 plan-timetable,5109821,5109848,local-authority:ROS
+plan-timetable,5111540,5111541,local-authority:ROS
 plan-timetable,5101263,5101266,local-authority:ROT
 plan-timetable,5107939,5107961,local-authority:ROT
 plan-timetable,5101286,5101289,local-authority:RUG
@@ -2464,6 +2468,7 @@ plan-timetable,5101492,5101497,local-authority:SUF
 plan-timetable,5101501,5101506,local-authority:SUR
 plan-timetable,5102402,5102424,local-authority:SUR
 plan-timetable,5110341,5110352,local-authority:SUR
+plan-timetable,5111503,5111514,local-authority:SUR
 plan-timetable,5101512,5101515,local-authority:SWD
 plan-timetable,5108836,5108858,local-authority:SWD
 plan-timetable,5100993,5100996,local-authority:SWK
@@ -2753,8 +2758,3 @@ waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan-boundary,580000,580047,government-organisation:D1342
-minerals-plan,530077,530079,national-park-authority:Q72617988
-local-plan,4221188,4221190,national-park-authority:Q72617988
-plan-timetable,5111503,5111514,local-authority:SUR
-plan-timetable,5111515,5111539,local-authority:LCE
-plan-timetable,5111540,5111541,local-authority:ROS
