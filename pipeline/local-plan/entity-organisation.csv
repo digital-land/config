@@ -902,6 +902,7 @@ local-plan,4220803,4220803,local-authority:LBH
 local-plan,4221144,4221146,local-authority:LBH
 local-plan,4220360,4220361,local-authority:LCE
 local-plan,4220782,4220782,local-authority:LCE
+local-plan,4221191,4221191,local-authority:LCE
 local-plan,4220358,4220359,local-authority:LDS
 local-plan,4220781,4220781,local-authority:LDS
 local-plan,4220362,4220363,local-authority:LEE
@@ -2698,6 +2699,7 @@ plan-timetable,5105248,5105270,national-park-authority:Q72617784
 plan-timetable,5101167,5101170,national-park-authority:Q72617890
 plan-timetable,5107456,5107478,national-park-authority:Q72617890
 plan-timetable,5107617,5107639,national-park-authority:Q72617988
+plan-timetable,5111542,5111558,national-park-authority:Q72617988
 supplementary-plan,550005,550018,local-authority:EXE
 supplementary-plan,550000,550003,local-authority:IOS
 supplementary-plan,550004,550004,local-authority:NET
@@ -2757,7 +2759,5 @@ waste-plan,540053,540053,local-planning-group:NYK-Q72617669-YOR
 waste-plan,540070,540070,local-planning-group:Q20198711-WSX
 waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
-waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5111542,5111558,national-park-authority:Q72617988
-local-plan,4221191,4221191,local-authority:LCE
 waste-plan,540083,540085,national-park-authority:Q72617988
+waste-plan-boundary,580000,580047,government-organisation:D1342
