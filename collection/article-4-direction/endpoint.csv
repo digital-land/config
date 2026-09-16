@@ -291,3 +291,4 @@ ff8b6e56327dc6ab61f912d8bdcf87e70f3ec6e1db837e445c7443207c4497fd,https://www.bur
 2c2abf97da6f8a45976ab5ed4fe28679b3f6141667e25cdb776ec24e3885ddc5,https://maps.thanet.gov.uk/server/rest/services/Direction_Under_Article_4/FeatureServer/1/query?where=1=1&outFields=*&f=geojson,,,2026-09-01,2026-09-01,
 8c1d126322f57826a7eef91d48e497159d9a9acf606a89f83593be7869ec4cde,https://www.basingstoke.gov.uk/content/page/94848/DPIF%20-%20Article%204%20Direction%20Area%20Dataset_July%202026.csv,,,2026-09-09,2026-09-09,
 47b16d88f0e42db3130ef822d174476651ed239d505806d2b07883a0fd81088c,https://dservices-eu1.arcgis.com/RueeNoynTFyAIwKy/arcgis/services/Article_4_Direction_Area_WFS/WFSServer?request=getcapabilities&service=wfs,,,2026-09-11,2026-09-11,
+d592fc54eeab0bebeaa01735ba8f087839b388cedec7afdb7090720f288f2399,https://www.arcgis.com/sharing/rest/content/items/f3675944a84c433bb8cbd8adad07add7/data,,,2026-09-16,2026-09-16,
