@@ -842,7 +842,7 @@ e188a99e6d6836ac56f0c84007910b45e1fbdf88a12022de53d258fab0c8005a,https://maps.ea
 d11c260518b233d7a06534f8737dc7ddaf0a78dbcd67afc959b982a8b3fc3e5c,https://services1.arcgis.com/BZNs0xaSHDSi4V6G/ArcGIS/rest/services/ConservationAreas_geojson/FeatureServer/0,,arcgis,2026-08-20,2026-08-20,
 5c4dea5ce9bc0462521f05f0caf3ece2ab3d61fd0cb1981f8b45ec0f9b99702b,https://cbccrmdata.blob.core.windows.net/noteattachment/CBC-null-Conservation-Area-Open-Data-Conservation_Area_ODP_Jan26.xlsx,,,2026-08-24,2026-08-24,
 8248a2051e4ae37d8f4cf6a96cb27a2d47c4c4733ccb380a4bd7ba7969800963,https://www.milton-keynes.gov.uk/sites/default/files/2026-07/Conservation%20Area%20Document.csv,,,2026-08-25,2026-08-25,
-cea9cb7358c67941b87ddcc59a0b2c6b5368aed8a33af2afa5caaf69ceb51824,https://www.hart.gov.uk/sites/default/files/2026-08/conservation-area.csv,,,2026-08-26,2026-08-26,
+cea9cb7358c67941b87ddcc59a0b2c6b5368aed8a33af2afa5caaf69ceb51824,https://www.hart.gov.uk/sites/default/files/2026-08/conservation-area.csv,,,2026-08-26,2026-08-26,2026-09-17
 f59b598f5a562ac8df314174c03ea9762fd03a2e6ee1e877b2c67bbd040d584d,https://www.hart.gov.uk/sites/default/files/2026-08/conservation-area-document.csv,,,2026-08-26,2026-08-26,
 fd1ea95dc39e2232d995e9c62c792581e5ee4ac88bb77dca3d8116bba7bdd18c,https://cbccrmdata.blob.core.windows.net/noteattachment/CBC-null-Conservation-Area-Documents-Con%20Area%20Doc%20August%202026.xlsx,,,2026-08-28,2026-08-28,
 cdc08f5da9c47e3faddd528bf895174c6b465e79fd371d8cb63ae1b3bc341121,https://services1.arcgis.com/BZNs0xaSHDSi4V6G/arcgis/rest/services/Conservation_Area_Documents_Geojson/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson,,,2026-09-01,2026-09-01,
@@ -854,3 +854,4 @@ b31db8a6c1a0b3cdb8f9bab46e7def6a12d17c596ec485faf3ad07b7b984fa7d,https://service
 8900a7e02eecfbdd1ae63a78d0dfbf5f87941a774ac82925183499f8c3dd7fda,https://www.lancaster.gov.uk/assets/attach/18290/conservation-area-document.csv,,,2026-09-14,2026-09-14,
 334c06e85f82bdd4549f213bf764d67c35ba4ffade963afa1e165e6a2379383c,https://gis.middlesbrough.gov.uk/server/rest/services/Hosted/Conservation_Areas_CSV/FeatureServer/0,,arcgis,2026-09-15,2026-09-15,
 77dde22b25e6afcdb0fe02a0d07f10c424dfa6191852cd4ef391d9bce0eef310,https://gis.middlesbrough.gov.uk/server/rest/services/Conservation_Areas/FeatureServer/4,,arcgis,2026-09-15,2026-09-15,
+ef62ab048f1fd6048a5fc61f13c670f561192264d79995f70a4a08772d7a11e2,https://maps.hart.gov.uk/hart/open-data/conservation-area.csv,,,2026-09-17,2026-09-17,
