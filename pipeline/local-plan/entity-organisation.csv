@@ -1098,6 +1098,7 @@ local-plan,4221029,4221031,local-authority:SFT
 local-plan,4220548,4220549,local-authority:SGC
 local-plan,4220894,4220894,local-authority:SGC
 local-plan,4220895,4220895,local-authority:SHA
+local-plan,4221194,4221195,local-authority:SHA
 local-plan,4220305,4220306,local-authority:SHE
 local-plan,4220749,4220749,local-authority:SHE
 local-plan,4221023,4221025,local-authority:SHE
@@ -1234,6 +1235,7 @@ local-plan,4220168,4220169,local-authority:WBK
 local-plan,4220947,4220947,local-authority:WBK
 local-plan,4221032,4221033,local-authority:WBK
 local-plan,4220948,4220948,local-authority:WDE
+local-plan,4221192,4221193,local-authority:WDE
 local-plan,4220626,4220628,local-authority:WEA
 local-plan,4220945,4220945,local-authority:WEA
 local-plan,4220104,4220104,local-authority:WEW
@@ -2173,6 +2175,7 @@ plan-timetable,5111204,5111230,local-authority:LBH
 plan-timetable,5100868,5100873,local-authority:LCE
 plan-timetable,5105984,5106006,local-authority:LCE
 plan-timetable,5111515,5111539,local-authority:LCE
+plan-timetable,5111559,5111563,local-authority:LCE
 plan-timetable,5100864,5100867,local-authority:LDS
 plan-timetable,5102852,5102857,local-authority:LDS
 plan-timetable,5103187,5103192,local-authority:LDS
@@ -2702,6 +2705,7 @@ plan-timetable,5107617,5107639,national-park-authority:Q72617988
 plan-timetable,5111542,5111558,national-park-authority:Q72617988
 supplementary-plan,550005,550018,local-authority:EXE
 supplementary-plan,550000,550003,local-authority:IOS
+supplementary-plan,550019,550019,local-authority:LCE
 supplementary-plan,550004,550004,local-authority:NET
 waste-plan,540005,540006,local-authority:BKM
 waste-plan,540012,540012,local-authority:BRD
@@ -2761,7 +2765,3 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221192,4221193,local-authority:WDE
-local-plan,4221194,4221195,local-authority:SHA
-plan-timetable,5111559,5111563,local-authority:LCE
-supplementary-plan,550019,550019,local-authority:LCE
