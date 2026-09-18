@@ -828,6 +828,7 @@ local-plan,4220064,4220064,local-authority:HAT
 local-plan,4220327,4220329,local-authority:HAT
 local-plan,4220762,4220762,local-authority:HAT
 local-plan,4220981,4220981,local-authority:HAT
+local-plan,4221196,4221196,local-authority:HAT
 local-plan,4220078,4220078,local-authority:HAV
 local-plan,4220383,4220383,local-authority:HAV
 local-plan,4220799,4220799,local-authority:HAV
@@ -2054,6 +2055,7 @@ plan-timetable,5100320,5100320,local-authority:GLO
 plan-timetable,5105432,5105454,local-authority:GLO
 plan-timetable,5102812,5102817,local-authority:GLS
 plan-timetable,5103148,5103151,local-authority:GLS
+plan-timetable,5111564,5111578,local-authority:GLS
 plan-timetable,5100746,5100749,local-authority:GOS
 plan-timetable,5105455,5105477,local-authority:GOS
 plan-timetable,5100750,5100753,local-authority:GRA
@@ -2765,5 +2767,3 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5111564,5111578,local-authority:GLS
-local-plan,4221196,4221196,local-authority:HAT

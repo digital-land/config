@@ -92,6 +92,7 @@ developer-agreement,4604792,4604846,local-authority:NLN
 developer-agreement,4608854,4608859,local-authority:NLN
 developer-agreement,4611553,4611570,local-authority:NLN
 developer-agreement,4601831,4601953,local-authority:NTY
+developer-agreement,4613425,4613435,local-authority:SAL
 developer-agreement,4609277,4609765,local-authority:SGC
 developer-agreement,4603057,4603069,local-authority:SHA
 developer-agreement,4608410,4608434,local-authority:SHA
@@ -223,6 +224,7 @@ developer-agreement-contribution,4314543,4314776,local-authority:NLN
 developer-agreement-contribution,4322712,4322714,local-authority:NLN
 developer-agreement-contribution,4322798,4322815,local-authority:NLN
 developer-agreement-contribution,4305440,4305904,local-authority:NTY
+developer-agreement-contribution,4339814,4339883,local-authority:SAL
 developer-agreement-contribution,4324453,4326564,local-authority:SGC
 developer-agreement-contribution,4304125,4304137,local-authority:SHA
 developer-agreement-contribution,4321412,4321468,local-authority:SHA
@@ -341,6 +343,7 @@ developer-agreement-transaction,4407338,4407395,local-authority:NLN
 developer-agreement-transaction,4416194,4416285,local-authority:NLN
 developer-agreement-transaction,4424908,4424944,local-authority:NLN
 developer-agreement-transaction,4400595,4400835,local-authority:NTY
+developer-agreement-transaction,4450103,4450172,local-authority:SAL
 developer-agreement-transaction,4426788,4429339,local-authority:SGC
 developer-agreement-transaction,4402710,4402756,local-authority:SHA
 developer-agreement-transaction,4422350,4422382,local-authority:SHA
@@ -375,6 +378,3 @@ developer-agreement-transaction,4401339,4401468,national-park-authority:Q7261715
 developer-agreement-transaction,4415906,4416121,national-park-authority:Q72617158
 developer-agreement-transaction,4424609,4424617,national-park-authority:Q72617669
 developer-agreement-transaction,4429340,4429359,national-park-authority:Q72617669
-developer-agreement,4613425,4613435,local-authority:SAL
-developer-agreement-contribution,4339814,4339883,local-authority:SAL
-developer-agreement-transaction,4450103,4450172,local-authority:SAL
