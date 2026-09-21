@@ -1654,6 +1654,7 @@ minerals-plan,530018,530018,local-authority:DUR
 minerals-plan,530065,530065,local-authority:DUR
 minerals-plan,530019,530019,local-authority:ESS
 minerals-plan,530023,530023,local-authority:GLS
+minerals-plan,530080,530081,local-authority:GLS
 minerals-plan,530024,530024,local-authority:HAM
 minerals-plan,530026,530026,local-authority:HEF
 minerals-plan,530073,530074,local-authority:HNS
@@ -2136,6 +2137,7 @@ plan-timetable,5100829,5100831,local-authority:HUN
 plan-timetable,5105823,5105845,local-authority:HUN
 plan-timetable,5100832,5100837,local-authority:HYN
 plan-timetable,5102002,5102024,local-authority:HYN
+plan-timetable,5111579,5111590,local-authority:HYN
 plan-timetable,5100575,5100578,local-authority:IOS
 plan-timetable,5104650,5104672,local-authority:IOS
 plan-timetable,5109901,5109917,local-authority:IOS
@@ -2716,6 +2718,7 @@ waste-plan,540023,540023,local-authority:DEV
 waste-plan,540025,540025,local-authority:DUR
 waste-plan,540071,540071,local-authority:DUR
 waste-plan,540030,540030,local-authority:GLS
+waste-plan,540086,540087,local-authority:GLS
 waste-plan,540031,540031,local-authority:HAM
 waste-plan,540033,540033,local-authority:HEF
 waste-plan,540078,540079,local-authority:HNS
@@ -2767,6 +2770,3 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
-minerals-plan,530080,530081,local-authority:GLS
-waste-plan,540086,540087,local-authority:GLS
-plan-timetable,5111579,5111590,local-authority:HYN
