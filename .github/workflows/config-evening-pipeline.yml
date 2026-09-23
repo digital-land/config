@@ -13,7 +13,7 @@ name: Config Evening Pipeline
 
 on:
   schedule:
-    - cron: "00 19 * * 1-5" # Mon–Fri only (no weekends)
+    - cron: "00 18 * * 1-5" # Mon–Fri only (no weekends)
   workflow_dispatch:
     inputs:
       dry_run:
