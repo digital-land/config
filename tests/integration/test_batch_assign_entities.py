@@ -810,10 +810,10 @@ def test_evening_workflow_installs_gdal_and_uses_ubuntu_22_04():
     assert "sudo apt-get update" in content
     assert "sudo apt-get install gdal-bin -y" in content
     assert "Run batch assign script" in content
-    assert "name: Batch assign (${{ needs.merge.outputs.batch_assign_scope }})" in content
-    assert "name: batch-assign-${{ steps.batch-assign.outputs.scope }}-output" in content
+    assert "name: Batch assign (${{ matrix.scope }})" in content
+    assert "name: batch-assign-${{ matrix.scope }}-output" in content
     assert "path: batch_assign_summary*.csv" in content
-    assert "name: batch-assign-${{ steps.batch-assign.outputs.scope }}-diagnostics" in content
+    assert "name: batch-assign-${{ matrix.scope }}-diagnostics" in content
     assert "var/cache/assign_entities/transformed/*.csv" in content
     assert "issue_summary.csv" in content
     assert "invalid_uri_issues.csv" in content

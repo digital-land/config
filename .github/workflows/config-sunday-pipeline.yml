@@ -1,0 +1,308 @@
+name: Config Sunday Pipeline
+
+# Runs single-source batch assign on its own schedule, separate from the Mon-Fri
+# config-evening-pipeline.yml. Single-source can take 4+ hours, which previously risked
+# the evening pipeline still being mid-run at midnight when Airflow triggers, leaving
+# stale data on the platform. Deliberately lean: batch-assign -> standardise -> upload-s3
+# only (no config-manager-update merge, no CA/plan dedup) so results land in good time
+# for Manage on Monday.
+
+on:
+  schedule:
+    - cron: "0 11 * * 0" # 11:00 UTC, 12:00 BST; Sunday only
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run: run every job but skip all commits/pushes to main and the S3 sync (for safe end-to-end testing)"
+        required: false
+        type: boolean
+        default: false
+      resources:
+        description: "Comma-separated list of resource"
+        required: false
+        type: string
+      skip_checks:
+        description: "Skip validation checks and directly assign entities (use with caution)"
+        required: false
+        type: boolean
+        default: false
+      new_entities_threshold:
+        description: "The percentage threshold for new entities to be assigned before triggering a warning (optional)"
+        required: false
+        type: number
+        default: 10
+      commit:
+        description: "Whether to commit results to main (set to false for dry runs)"
+        required: false
+        type: boolean
+        default: true
+      batch_size:
+        description: "Resources per batch. 0 = no batching."
+        required: false
+        type: number
+        default: 10
+      start_batch:
+        description: "Batch number to start from. Use to resume a failed run."
+        required: false
+        type: number
+        default: 1
+
+env:
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+  # Persisted writes (commits to main, S3 sync) happen ONLY on a genuine scheduled run or
+  # a non-dry-run manual dispatch (dry_run input). Any other trigger is treated as
+  # no-write, so it can never touch main or S3.
+  WRITES_ENABLED: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run != 'true') }}
+
+concurrency:
+  group: config-sunday-pipeline
+  cancel-in-progress: false
+
+jobs:
+  # 1. Batch assign unknown entities (single-source only). The script self-commits &
+  #    pushes to main per batch, resuming from start_batch on retry.
+  batch-assign:
+    name: Batch assign (single-source)
+    runs-on: ubuntu-22.04
+    outputs:
+      failed_batch: ${{ steps.batch-assign.outputs.failed_batch }}
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          sudo add-apt-repository ppa:ubuntugis/ppa -y
+          sudo apt-get update
+          sudo apt-get install gdal-bin -y
+          gdalinfo --version
+          python -m pip install --upgrade pip
+          pip install click pandas tqdm
+          pip install -e "git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land"
+
+      - name: Run batch assign script
+        id: batch-assign
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
+          RESOURCES: ${{ github.event.inputs.resources }}
+          TRIGGERED_BY: ${{ github.actor || 'unknown' }}
+          SKIP_CHECKS: ${{ github.event.inputs.skip_checks }}
+          NEW_ENTITIES_THRESHOLD: ${{ github.event.inputs.new_entities_threshold }}
+          COMMIT: ${{ env.WRITES_ENABLED != 'true' && 'false' || github.event.inputs.commit }}
+          BATCH_SIZE: ${{ github.event.inputs.batch_size || '10' }}
+          START_BATCH: ${{ github.event.inputs.start_batch || '1' }}
+        run: |
+          ARGS+=(--scope single-source)
+
+          if [ -n "$RESOURCES" ]; then
+            ARGS+=(--resources "$RESOURCES")
+          fi
+
+          if [ "$SKIP_CHECKS" = "true" ]; then
+            ARGS+=(--skip-checks)
+          fi
+
+          if [ -n "$NEW_ENTITIES_THRESHOLD" ]; then
+            ARGS+=(--new-entity-threshold "$NEW_ENTITIES_THRESHOLD")
+          fi
+
+          if [ -n "$TRIGGERED_BY" ]; then
+            ARGS+=(--triggered-by "$TRIGGERED_BY")
+          fi
+
+          if [[ "$COMMIT" == "false" ]]; then
+            ARGS+=(--no-commit)
+          fi
+
+          if [ "${BATCH_SIZE:-0}" -gt 0 ]; then
+            CURRENT_BATCH="${START_BATCH:-1}"
+            while true; do
+              set +e
+              python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}" \
+                --batch-size "$BATCH_SIZE" \
+                --start-batch "$CURRENT_BATCH"
+              EXIT=$?
+              set -e
+              if [ $EXIT -eq 2 ]; then
+                echo "All batches complete."
+                break
+              elif [ $EXIT -ne 0 ]; then
+                echo "::error::Batch $CURRENT_BATCH failed. To resume, trigger manually with: start_batch=$CURRENT_BATCH, batch_size=$BATCH_SIZE"
+                echo "failed_batch=$CURRENT_BATCH" >> "$GITHUB_OUTPUT"
+                exit 1
+              fi
+              CURRENT_BATCH=$(( CURRENT_BATCH + 1 ))
+            done
+          else
+            python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
+          fi
+
+      - name: Upload batch assign output
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch-assign-single-source-output
+          path: batch_assign_summary*.csv
+
+      - name: Upload batch assign diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch-assign-single-source-diagnostics
+          path: |
+            var/cache/assign_entities/transformed/*.csv
+            issue_summary.csv
+            invalid_uri_issues.csv
+            issue_summary_full.csv
+
+  # 2. Reorder rows / fix line endings, then commit to main.
+  standardise:
+    runs-on: ubuntu-latest
+    needs: [batch-assign]
+    if: ${{ !cancelled() }}
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions-bot"
+          git config user.email "noreply@github.com"
+
+      - name: Run standardise script
+        run: python .github/scripts/standardise_csvs.py
+
+      - name: Commit and push if changed
+        if: ${{ env.WRITES_ENABLED == 'true' }}
+        run: |
+          git add collection/ pipeline/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Standardise row ordering and line endings in CSVs"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Dry run — skipping commit
+        if: ${{ env.WRITES_ENABLED != 'true' }}
+        run: |
+          echo "Dry run: the following standardisation changes would be committed to main:"
+          git add collection/ pipeline/
+          git status --short || true
+
+  # 3. Detect deployment environments for the S3 upload matrix.
+  detect-environments:
+    runs-on: ubuntu-latest
+    needs: [standardise]
+    if: ${{ !cancelled() }}
+    outputs:
+      environments: ${{ steps.environments.outputs.result }}
+    steps:
+      - uses: actions/github-script@v6
+        id: environments
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          result-encoding: json
+          script: |
+            const {data: {environments}} =
+              await github.request(`GET /repos/${process.env.GITHUB_REPOSITORY}/environments`);
+            return environments.map(e => e.name)
+
+  # 4. Upload collection/ and pipeline/ to S3 for each environment.
+  upload-s3:
+    runs-on: ubuntu-latest
+    needs: [detect-environments]
+    if: ${{ !cancelled() }}
+    strategy:
+      matrix:
+        environment: ${{ fromJSON(needs.detect-environments.outputs.environments) }}
+    environment: ${{ matrix.environment }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.DEPLOY_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEPLOY_AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+
+      - name: Save to S3
+        if: ${{ env.WRITES_ENABLED == 'true' }}
+        run: |
+          aws s3 sync ./collection s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/collection
+          aws s3 sync ./pipeline s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/pipeline
+
+      - name: Dry run — skipping S3 sync
+        if: ${{ env.WRITES_ENABLED != 'true' }}
+        run: |
+          echo "Dry run: would sync ./collection and ./pipeline to s3://<bucket>/config/. Listing what would be uploaded:"
+          aws s3 sync --dryrun ./collection s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/collection || true
+          aws s3 sync --dryrun ./pipeline s3://${{ secrets.DEPLOY_COLLECTION_DATA_BUCKET }}/config/pipeline || true
+
+  # 5. Single Slack alert naming any stage that failed.
+  notify:
+    runs-on: ubuntu-latest
+    needs: [batch-assign, standardise, detect-environments, upload-s3]
+    if: ${{ !cancelled() && contains(needs.*.result, 'failure') && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') }}
+    steps:
+      - name: Notify Slack of pipeline failure
+        uses: slackapi/slack-github-action@v1
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        with:
+          channel-id: planning-data-alerts
+          payload: |
+            {
+              "text": ":x: Config Sunday Pipeline failed (trigger: ${{ github.event_name }})",
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": { "type": "plain_text", "text": ":x: Config Sunday Pipeline failed" }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Trigger:* ${{ github.event_name }}\n*Stage results:*\n• batch-assign (single-source): `${{ needs.batch-assign.result }}`${{ needs.batch-assign.outputs.failed_batch && format(' (failed at batch {0}, resume with start_batch={0})', needs.batch-assign.outputs.failed_batch) || '' }}\n• standardise: `${{ needs.standardise.result }}`\n• detect-environments: `${{ needs.detect-environments.result }}`\n• upload-s3: `${{ needs.upload-s3.result }}`"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": { "type": "mrkdwn", "text": "<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View workflow run>" }
+                }
+              ]
+            }

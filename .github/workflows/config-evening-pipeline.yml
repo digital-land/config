@@ -10,10 +10,15 @@ name: Config Evening Pipeline
 # stop later stages; the final `notify` job raises a single Slack alert naming any
 # stage that failed.
 #
+# Single-source batch assign runs separately on Sundays (see config-sunday-pipeline.yml):
+# it can take 4+ hours, which previously risked this pipeline still being mid-run at
+# midnight when Airflow triggers. batch-assign here now runs odp and mandated as a
+# matrix every scheduled run (Mon-Fri), so both are refreshed daily instead of alternating.
+#
 
 on:
   schedule:
-    - cron: "00 19 * * 1-5" # Mon–Fri only (no weekends)
+    - cron: "00 18 * * 1-5" # Mon–Fri only (no weekends)
   workflow_dispatch:
     inputs:
       dry_run:
@@ -22,14 +27,13 @@ on:
         type: boolean
         default: false
       scope:
-        description: "The scope of the batch assignment (overrides the per-day default)"
+        description: "The scope of the batch assignment (overrides the scheduled odp+mandated matrix)"
         required: false
         type: choice
         default: "odp"
         options:
           - "mandated"
           - "odp"
-          - "single-source"
       resources:
         description: "Comma-separated list of resource"
         required: false
@@ -49,16 +53,6 @@ on:
         required: false
         type: boolean
         default: true
-      batch_size:
-        description: "Resources per batch (single-source only). 0 = no batching."
-        required: false
-        type: number
-        default: 0
-      start_batch:
-        description: "Batch number to start from (single-source only). Use to resume a failed run."
-        required: false
-        type: number
-        default: 1
 
 env:
   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
@@ -76,24 +70,17 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     outputs:
-      batch_assign_scope: ${{ steps.batch-assign-scope.outputs.scope }}
+      batch_assign_scopes: ${{ steps.batch-assign-scope.outputs.scopes }}
     steps:
-      - name: Determine batch assign scope
+      - name: Determine batch assign scope(s)
         id: batch-assign-scope
         run: |
           if [ "${{ github.event_name }}" = "schedule" ]; then
-            DAY=$(date +%u)
-            if [ "$DAY" = "2" ]; then
-              SCOPE=mandated
-            elif [ "$DAY" = "4" ]; then
-              SCOPE=single-source
-            else
-              SCOPE=odp
-            fi
+            SCOPES='["odp", "mandated"]'
           else
-            SCOPE="${{ github.event.inputs.scope || 'odp' }}"
+            SCOPES='["${{ github.event.inputs.scope || 'odp' }}"]'
           fi
-          echo "scope=$SCOPE" >> "$GITHUB_OUTPUT"
+          echo "scopes=$SCOPES" >> "$GITHUB_OUTPUT"
 
       - name: Generate GitHub App token
         id: app-token
@@ -169,16 +156,21 @@ jobs:
         run: |
           echo "Dry run: PR #${{ steps.check-pr.outputs.pr_number }} would be approved and squash-merged here (tests_passed=${{ steps.check-tests.outputs.tests_passed }})."
 
-  # 2. Batch assign unknown entities. The script self-commits & pushes to main per batch.
-  #    Only runs Mon–Fri
+  # 2. Batch assign unknown entities (odp + mandated). The script self-commits & pushes
+  #    to main. Only runs Mon–Fri. Single-source batch assign runs separately on Sundays
+  #    (see config-sunday-pipeline.yml).
   batch-assign:
-    name: Batch assign (${{ needs.merge.outputs.batch_assign_scope }})
+    name: Batch assign (${{ matrix.scope }})
     runs-on: ubuntu-22.04
     needs: [merge]
     if: ${{ !cancelled() }}
-    outputs:
-      scope: ${{ steps.batch-assign.outputs.scope }}
-      failed_batch: ${{ steps.batch-assign.outputs.failed_batch }}
+    strategy:
+      fail-fast: false
+      # Legs push to main independently (git commit / pull --rebase / push, no retry on
+      # conflict) — run one at a time so odp and mandated never race to push at once.
+      max-parallel: 1
+      matrix:
+        scope: ${{ fromJSON(needs.merge.outputs.batch_assign_scopes) }}
     steps:
       - name: Generate GitHub App token
         id: app-token
@@ -209,30 +201,17 @@ jobs:
           pip install click pandas tqdm
           pip install -e "git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land"
 
-      - name: Determine batching for scheduled run
-        if: github.event_name == 'schedule'
-        run: |
-          if [ "${{ needs.merge.outputs.batch_assign_scope }}" = "single-source" ]; then
-            echo "SCHEDULED_BATCH_SIZE=10" >> $GITHUB_ENV
-            echo "SCHEDULED_START_BATCH=1" >> $GITHUB_ENV
-          fi
-
       - name: Run batch assign script
         id: batch-assign
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
           RESOURCES: ${{ github.event.inputs.resources }}
           TRIGGERED_BY: ${{ github.actor || 'unknown' }}
-          SCOPE: ${{ needs.merge.outputs.batch_assign_scope }}
+          SCOPE: ${{ matrix.scope }}
           SKIP_CHECKS: ${{ github.event.inputs.skip_checks }}
           NEW_ENTITIES_THRESHOLD: ${{ github.event.inputs.new_entities_threshold }}
           COMMIT: ${{ env.WRITES_ENABLED != 'true' && 'false' || github.event.inputs.commit }}
-          BATCH_SIZE: ${{ github.event.inputs.batch_size || env.SCHEDULED_BATCH_SIZE || '0' }}
-          START_BATCH: ${{ github.event.inputs.start_batch || env.SCHEDULED_START_BATCH || '1' }}
         run: |
-          # Record scope up front so it is reported even if the run fails.
-          echo "scope=$SCOPE" >> "$GITHUB_OUTPUT"
-
           ARGS+=(--scope "$SCOPE")
 
           if [ -n "$RESOURCES" ]; then
@@ -255,39 +234,18 @@ jobs:
             ARGS+=(--no-commit)
           fi
 
-          if [ "${BATCH_SIZE:-0}" -gt 0 ]; then
-            CURRENT_BATCH="${START_BATCH:-1}"
-            while true; do
-              set +e
-              python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}" \
-                --batch-size "$BATCH_SIZE" \
-                --start-batch "$CURRENT_BATCH"
-              EXIT=$?
-              set -e
-              if [ $EXIT -eq 2 ]; then
-                echo "All batches complete."
-                break
-              elif [ $EXIT -ne 0 ]; then
-                echo "::error::Batch $CURRENT_BATCH failed. To resume, trigger manually with: scope=$SCOPE, start_batch=$CURRENT_BATCH, batch_size=$BATCH_SIZE"
-                echo "failed_batch=$CURRENT_BATCH" >> "$GITHUB_OUTPUT"
-                exit 1
-              fi
-              CURRENT_BATCH=$(( CURRENT_BATCH + 1 ))
-            done
-          else
-            python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
-          fi
+          python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
 
       - name: Upload batch assign output
         uses: actions/upload-artifact@v4
         with:
-          name: batch-assign-${{ steps.batch-assign.outputs.scope }}-output
+          name: batch-assign-${{ matrix.scope }}-output
           path: batch_assign_summary*.csv
 
       - name: Upload batch assign diagnostics
         uses: actions/upload-artifact@v4
         with:
-          name: batch-assign-${{ steps.batch-assign.outputs.scope }}-diagnostics
+          name: batch-assign-${{ matrix.scope }}-diagnostics
           path: |
             var/cache/assign_entities/transformed/*.csv
             issue_summary.csv
@@ -516,7 +474,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*Trigger:* ${{ github.event_name }}\n*Stage results:*\n• merge: `${{ needs.merge.result }}`\n• batch-assign: `${{ needs.batch-assign.result }}`${{ needs.batch-assign.outputs.scope && format(' [scope: {0}]', needs.batch-assign.outputs.scope) || '' }}${{ needs.batch-assign.outputs.failed_batch && format(' (failed at batch {0}, resume with start_batch={0})', needs.batch-assign.outputs.failed_batch) || '' }}\n• deduplicate: `${{ needs.deduplicate.result }}`\n• standardise: `${{ needs.standardise.result }}`\n• detect-environments: `${{ needs.detect-environments.result }}`\n• upload-s3: `${{ needs.upload-s3.result }}`"
+                    "text": "*Trigger:* ${{ github.event_name }}\n*Stage results:*\n• merge: `${{ needs.merge.result }}`\n• batch-assign (odp + mandated): `${{ needs.batch-assign.result }}`\n• deduplicate: `${{ needs.deduplicate.result }}`\n• standardise: `${{ needs.standardise.result }}`\n• detect-environments: `${{ needs.detect-environments.result }}`\n• upload-s3: `${{ needs.upload-s3.result }}`"
                   }
                 },
                 {
