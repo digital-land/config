@@ -729,6 +729,7 @@ conservation-area,44002953,44002953,local-authority:LUT
 conservation-area,44004476,44004479,local-authority:LUT
 conservation-area,44016441,44016445,local-authority:LUT
 conservation-area,44013945,44013997,local-authority:MAI
+conservation-area,44016608,44016647,local-authority:MAI
 conservation-area,44001675,44001675,local-authority:MAL
 conservation-area,44001734,44001734,local-authority:MAL
 conservation-area,44004489,44004498,local-authority:MAL
@@ -1041,6 +1042,7 @@ conservation-area,44013108,44013108,local-authority:RUN
 conservation-area,44004652,44004680,local-authority:RUS
 conservation-area,44006781,44006781,local-authority:RUS
 conservation-area,44013109,44013110,local-authority:RUS
+conservation-area,44016700,44016732,local-authority:RUS
 conservation-area,44001131,44001138,local-authority:RUT
 conservation-area,44001150,44001150,local-authority:RUT
 conservation-area,44006598,44006622,local-authority:RUT
@@ -1271,6 +1273,7 @@ conservation-area,44002311,44002311,local-authority:SWL
 conservation-area,44004188,44004188,local-authority:SWL
 conservation-area,44013221,44013221,local-authority:SWL
 conservation-area,44015104,44015155,local-authority:SWL
+conservation-area,44016648,44016699,local-authority:SWL
 conservation-area,44012222,44012230,local-authority:TAM
 conservation-area,44001839,44001839,local-authority:TAN
 conservation-area,44001885,44001885,local-authority:TAN
@@ -2079,6 +2082,3 @@ conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
 conservation-area-document,6316552,6316661,national-park-authority:Q72617988
-conservation-area,44016608,44016647,local-authority:MAI
-conservation-area,44016648,44016699,local-authority:SWL
-conservation-area,44016700,44016732,local-authority:RUS
