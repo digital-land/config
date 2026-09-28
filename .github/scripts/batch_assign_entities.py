@@ -813,7 +813,9 @@ def run_batch_assign_entities(
     issue_summary_df=issue_summary_df.loc[
         (issue_summary_df["issue_type"].str.lower() == "unknown entity") &
         (issue_summary_df["scope"].str.lower() == scope) &
-        (issue_summary_df["dataset"].str.lower() != "title-boundary")
+        (issue_summary_df["dataset"].str.lower() != "title-boundary") &
+        # planning-application collection is paused, so it shouldn't be batch-assigned
+        (issue_summary_df["dataset"].str.lower() != "planning-application")
     ]
 
     if resources:
