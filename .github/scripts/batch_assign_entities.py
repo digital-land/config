@@ -1,7 +1,7 @@
 import csv
 import math
 import sys
-from time import perf_counter
+from time import perf_counter, sleep
 import click
 import requests
 import pandas as pd
@@ -103,6 +103,23 @@ def download_urls(url_map, max_threads=4):
             except Exception as e:
                 logger.error(f"Error during download: {e}")
         return results
+
+def fetch_csv_with_retry(url, max_retries=5, backoff_seconds=10):
+    """Fetch a CSV URL with retries, since datasette intermittently returns a
+    CloudFront gateway-timeout HTML page instead of CSV under load."""
+    last_error = None
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = requests.get(url, timeout=120)
+            response.raise_for_status()
+            return pd.read_csv(StringIO(response.text), dtype=str)
+        except (requests.RequestException, pd.errors.ParserError) as e:
+            last_error = e
+            logger.warning(f"Attempt {attempt}/{max_retries} failed fetching {url}: {e}")
+            if attempt < max_retries:
+                sleep(backoff_seconds * attempt)
+    raise RuntimeError(f"Failed to fetch CSV from {url} after {max_retries} attempts: {last_error}")
+
 
 def get_old_resource_hashes_batch(endpoints: list) -> Dict[str, str]:
     """
@@ -775,12 +792,10 @@ def run_batch_assign_entities(
 ):
     endpoint_issue_summary_path = "https://datasette.planning.data.gov.uk/performance/endpoint_dataset_issue_type_summary.csv?_sort=rowid&issue_type__exact=unknown+entity&_size=max"
 
-    response = requests.get(endpoint_issue_summary_path)
-    issue_summary_df = pd.read_csv(StringIO(response.text),dtype=str)
-    
+    issue_summary_df = fetch_csv_with_retry(endpoint_issue_summary_path)
+
     invalid_uri_issues_path = "https://datasette.planning.data.gov.uk/performance/endpoint_dataset_issue_type_summary.csv?_sort=rowid&issue_type__exact=invalid+URI&_size=max"
-    invalid_uri_response = requests.get(invalid_uri_issues_path)
-    invalid_uri_issues = pd.read_csv(StringIO(invalid_uri_response.text),dtype=str)
+    invalid_uri_issues = fetch_csv_with_retry(invalid_uri_issues_path)
     invalid_uri_issues.to_csv("invalid_uri_issues.csv", index=False)
     
     specification_dir = ensure_specification_dir()
