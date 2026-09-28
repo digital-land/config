@@ -55,6 +55,7 @@ tree,7002279676,7002279680,local-authority:COT
 tree,7002279693,7002279693,local-authority:COT
 tree,7002192285,7002194516,local-authority:COV
 tree,7002268973,7002268973,local-authority:COV
+tree,7002279694,7002279698,local-authority:COV
 tree,7002185658,7002186858,local-authority:DAR
 tree,7002186859,7002186859,local-authority:DAR
 tree,7002230211,7002230231,local-authority:DAR
@@ -253,6 +254,7 @@ tree,7002103186,7002107471,local-authority:WSM
 tree,7002171867,7002173959,national-park-authority:Q27159704
 tree,7002279653,7002279671,national-park-authority:Q27159704
 tree,7002279681,7002279691,national-park-authority:Q27159704
+tree,7002279699,7002279699,national-park-authority:Q27159704
 tree,7002126765,7002129340,national-park-authority:Q72617158
 tree,7002254179,7002254503,national-park-authority:Q72617988
 tree-preservation-order,7001093454,7001093641,local-authority:ADU
@@ -745,5 +747,3 @@ tree-preservation-zone,19216587,19216604,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002279694,7002279698,local-authority:COV
-tree,7002279699,7002279699,national-park-authority:Q27159704

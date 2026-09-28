@@ -1472,6 +1472,7 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 44004654,301,44016712,"local-authority:RUS geometry single_match, name similarity 100%",,2026-09-24,
 44004655,301,44016706,"local-authority:RUS geometry single_match, name similarity 100%",,2026-09-24,
 44004656,301,44016711,"local-authority:RUS geometry single_match, name similarity 100%",,2026-09-24,
+44004657,301,44016713,Redirect old entity single match to LPA entity: local-authority:RUS,,2026-09-28,
 44004658,301,44016702,"local-authority:RUS geometry complete_match, name similarity 100%",,2026-09-24,
 44004659,301,44016700,"local-authority:RUS geometry complete_match, name similarity 100%",,2026-09-24,
 44004660,301,44016716,"local-authority:RUS geometry complete_match, name similarity 100%",,2026-09-24,
@@ -4029,4 +4030,3 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 6315919,301,6316957,local-authority:OXO all comparable fields match,,2026-09-01,
 6315920,301,6316958,local-authority:OXO all comparable fields match,,2026-09-01,
 6315921,301,6316959,local-authority:OXO all comparable fields match,,2026-09-01,
-44004657,301,44016713,Redirect old entity single match to LPA entity: local-authority:RUS,,2026-09-28,
