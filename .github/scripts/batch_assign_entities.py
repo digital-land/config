@@ -713,7 +713,10 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     .to_dict()
                 )
                 new_dataset_entities = set(post_entity_org) - pre_dataset_entities
-                if new_dataset_entities and scope != "single-source":
+                # Mirror the blank-organisation suppression above: listed-building still gets
+                # no registered range on single-source runs, but every other dataset now gets
+                # a real per-entity organisation and needs its range recorded to match.
+                if new_dataset_entities and not (scope == "single-source" and dataset == "listed-building"):
                     entity_org_file = Path("pipeline") / collection_name / "entity-organisation.csv"
                     for org_value, min_entity, max_entity in _contiguous_ranges_by_org(new_dataset_entities, post_entity_org):
                         # Hard code single exception for conservation-area dataset org HE
