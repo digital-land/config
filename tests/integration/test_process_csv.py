@@ -349,3 +349,7 @@ def test_process_csv_single_source_non_listed_building_uses_real_organisation(
     assert failed_downloads == []
     assert "success" in output_df["status"].values
     assert passed_organisations == [["test-org"]]
+    assert entity_org_file.read_text() == (
+        "dataset,entity-minimum,entity-maximum,organisation\n"
+        "test-dataset,10,10,test-org\n"
+    )
