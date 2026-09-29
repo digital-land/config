@@ -231,7 +231,7 @@ def test_process_csv_single_source_uses_blank_organisation_and_skips_entity_rang
     (transformed_dir / "test-resource.csv").write_text(
         "entity,field,value\n"
         "10,reference,ref1\n"
-        "10,prefix,test-dataset\n"
+        "10,prefix,listed-building\n"
     )
 
     entity_org_file = tmp_path / "pipeline/test-collection/entity-organisation.csv"
@@ -243,6 +243,7 @@ def test_process_csv_single_source_uses_blank_organisation_and_skips_entity_rang
     issue_summary_df["download_link"] = "http://example.com/test-resource"
     issue_summary_df["resource_path"] = str(resource_file)
     issue_summary_df["endpoint"] = "test-endpoint"
+    issue_summary_df["pipeline"] = "listed-building"
 
     passed_organisations = []
 
@@ -253,7 +254,7 @@ def test_process_csv_single_source_uses_blank_organisation_and_skips_entity_rang
         )
         cache_lookup.write_text(
             "prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date\n"
-            "test-dataset,test-resource,,1,,ref1,10,,,\n"
+            "listed-building,test-resource,,1,,ref1,10,,,\n"
         )
 
     monkeypatch.setattr(
@@ -282,3 +283,69 @@ def test_process_csv_single_source_uses_blank_organisation_and_skips_entity_rang
     assert entity_org_file.read_text() == (
         "dataset,entity-minimum,entity-maximum,organisation\n"
     )
+
+def test_process_csv_single_source_non_listed_building_uses_real_organisation(
+    setup_test_path,
+    mock_resource_files,
+    mock_issue_summary,
+    monkeypatch,
+    tmp_path,
+):
+    # Only listed-building is blanked for single-source; every other dataset
+    # should get the real organisation from issue_summary_df.
+    resource_dir = tmp_path / "resource"
+    resource_dir.mkdir(parents=True, exist_ok=True)
+    resource_file = resource_dir / "test-resource"
+    resource_file.write_text("resource")
+
+    cache_dir = tmp_path / "var/cache"
+    transformed_dir = cache_dir / "assign_entities" / "transformed"
+    transformed_dir.mkdir(parents=True, exist_ok=True)
+    (transformed_dir / "test-resource.csv").write_text(
+        "entity,field,value\n"
+        "10,reference,ref1\n"
+        "10,prefix,test-dataset\n"
+    )
+
+    entity_org_file = tmp_path / "pipeline/test-collection/entity-organisation.csv"
+    entity_org_file.write_text(
+        "dataset,entity-minimum,entity-maximum,organisation\n"
+    )
+
+    issue_summary_df = pd.read_csv(mock_issue_summary)
+    issue_summary_df["download_link"] = "http://example.com/test-resource"
+    issue_summary_df["resource_path"] = str(resource_file)
+    issue_summary_df["endpoint"] = "test-endpoint"
+
+    passed_organisations = []
+
+    def mock_check_and_assign(*args, **kwargs):
+        passed_organisations.append(args[4])
+        cache_lookup = (
+            tmp_path / "var/cache/assign_entities/test-collection/pipeline/lookup.csv"
+        )
+        cache_lookup.write_text(
+            "prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date\n"
+            "test-dataset,test-resource,,1,test-org,ref1,10,,,\n"
+        )
+
+    monkeypatch.setattr(
+        batch_assign_entities,
+        "get_old_resource_hashes_batch",
+        lambda *args, **kwargs: {},
+    )
+    monkeypatch.setattr(
+        batch_assign_entities, "check_and_assign_entities", mock_check_and_assign
+    )
+
+    failed_downloads, output_df = batch_assign_entities.process_csv(
+        scope="single-source",
+        resource_dir=resource_dir,
+        issue_summary_df=issue_summary_df,
+        cache_dir=cache_dir,
+        skip_checks=True,
+    )
+
+    assert failed_downloads == []
+    assert "success" in output_df["status"].values
+    assert passed_organisations == [["test-org"]]
