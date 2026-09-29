@@ -82,6 +82,7 @@ tree,7002275416,7002278534,local-authority:EHA
 tree,7002033856,7002038181,local-authority:EPS
 tree,7002140633,7002140650,local-authority:EPS
 tree,7002180222,7002180222,local-authority:EPS
+tree,7002279700,7002279700,local-authority:EPS
 tree,7002186893,7002190368,local-authority:ERY
 tree,7002230242,7002233718,local-authority:ERY
 tree,7002247167,7002248344,local-authority:FOE
@@ -747,4 +748,3 @@ tree-preservation-zone,19216587,19216604,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002279700,7002279700,local-authority:EPS
