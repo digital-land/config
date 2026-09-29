@@ -587,8 +587,8 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     collection_name,
                     dataset,
                     # Blank organisation for single-source is too coarse for most datasets
-+                   # (the endpoint's registered org isn't the right org per-entity), but
-+                   # for now only listed-building actually needs that suppression.
+                    # (the endpoint's registered org isn't the right org per-entity), but
+                    # for now only listed-building actually needs that suppression.
                     [""] if scope == "single-source" and dataset == "listed-building" else [organisation_name],
                     collection_path,
                     cache_dir.joinpath("organisation.csv"),

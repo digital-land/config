@@ -231,7 +231,7 @@ def test_process_csv_single_source_uses_blank_organisation_and_skips_entity_rang
     (transformed_dir / "test-resource.csv").write_text(
         "entity,field,value\n"
         "10,reference,ref1\n"
-        "10,prefix,test-dataset\n"
+        "10,prefix,listed-building\n"
     )
 
     entity_org_file = tmp_path / "pipeline/test-collection/entity-organisation.csv"
@@ -243,6 +243,7 @@ def test_process_csv_single_source_uses_blank_organisation_and_skips_entity_rang
     issue_summary_df["download_link"] = "http://example.com/test-resource"
     issue_summary_df["resource_path"] = str(resource_file)
     issue_summary_df["endpoint"] = "test-endpoint"
+    issue_summary_df["pipeline"] = "listed-building"
 
     passed_organisations = []
 
@@ -253,7 +254,7 @@ def test_process_csv_single_source_uses_blank_organisation_and_skips_entity_rang
         )
         cache_lookup.write_text(
             "prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date\n"
-            "test-dataset,test-resource,,1,,ref1,10,,,\n"
+            "listed-building,test-resource,,1,,ref1,10,,,\n"
         )
 
     monkeypatch.setattr(
