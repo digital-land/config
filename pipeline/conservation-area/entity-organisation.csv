@@ -174,6 +174,7 @@ conservation-area,44009022,44009042,local-authority:BRY
 conservation-area,44009096,44009096,local-authority:BRY
 conservation-area,44009101,44009101,local-authority:BRY
 conservation-area,44012874,44012877,local-authority:BRY
+conservation-area,44016774,44016820,local-authority:BRY
 conservation-area,44001286,44001286,local-authority:BST
 conservation-area,44005462,44005462,local-authority:BST
 conservation-area,44010589,44010622,local-authority:BST
@@ -993,6 +994,7 @@ conservation-area,44002213,44002213,local-authority:POR
 conservation-area,44002279,44002279,local-authority:POR
 conservation-area,44004319,44004321,local-authority:POR
 conservation-area,44011962,44011972,local-authority:PRE
+conservation-area,44016821,44016831,local-authority:PRE
 conservation-area,44001130,44001130,local-authority:PTE
 conservation-area,44001319,44001327,local-authority:PTE
 conservation-area,44004541,44004541,local-authority:PTE
@@ -2102,5 +2104,3 @@ conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
 conservation-area-document,6316552,6316661,national-park-authority:Q72617988
-conservation-area,44016774,44016820,local-authority:BRY
-conservation-area,44016821,44016831,local-authority:PRE
