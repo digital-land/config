@@ -134,12 +134,17 @@ def get_old_resource_hashes_batch(endpoints: list) -> Dict[str, str]:
     # Build the endpoint list for the SQL query
     endpoint_list = ', '.join([f"'{ep}'" for ep in endpoints])
     
+    # Pick the resource with the most recent resource_end_date (the resource immediately
+    # superseded by whatever is now current), not the lowest rowid. rowid usually tracks
+    # recency closely but isn't guaranteed to - resource_end_date can be non-monotonic
+    # relative to rowid for a small number of endpoints, and ORDER BY rowid alone makes
+    # SQLite's row choice on resource_end_date ties implementation-defined.
     query = f"""SELECT endpoint, resource
 FROM (
     SELECT endpoint, resource, resource_end_date,
     ROW_NUMBER() OVER (
         PARTITION BY endpoint
-        ORDER BY rowid
+        ORDER BY resource_end_date DESC, rowid DESC
     ) AS rn
     FROM reporting_historic_endpoints
     WHERE resource_end_date IS NOT NULL and resource_end_date != ''
