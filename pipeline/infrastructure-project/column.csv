@@ -2,3 +2,8 @@ dataset,endpoint,resource,column,field,start-date,end-date,entry-date
 infrastructure-project,,,WKT,geometry,,,
 infrastructure-project,,,Code,reference,,,
 infrastructure-project,bc086e57dacb4b2e67ac8634ed869c910fe7b72eaeb4c3bc1b0473b69b57f012,,caseReference,reference,2026-10-02,,2026-10-02
+infrastructure-project,ae66bb8e8809c2607d62f5c4597bf603026c404bb7e0fe38ebbc70a98a022dde,,Stage,infrastructure-project-decision,2026-10-02,,2026-10-02
+infrastructure-project,ae66bb8e8809c2607d62f5c4597bf603026c404bb7e0fe38ebbc70a98a022dde,,Project name,name,2026-10-02,,2026-10-02
+infrastructure-project,ae66bb8e8809c2607d62f5c4597bf603026c404bb7e0fe38ebbc70a98a022dde,,Application type,infrastructure-project-type,2026-10-02,,2026-10-02
+infrastructure-project,ae66bb8e8809c2607d62f5c4597bf603026c404bb7e0fe38ebbc70a98a022dde,,Project reference,reference,2026-10-02,,2026-10-02
+infrastructure-project,ae66bb8e8809c2607d62f5c4597bf603026c404bb7e0fe38ebbc70a98a022dde,,Date of application,start-date,2026-10-02,,2026-10-02
