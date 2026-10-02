@@ -1,3 +1,4 @@
 dataset,endpoint,resource,column,field,start-date,end-date,entry-date
 infrastructure-project,,,WKT,geometry,,,
 infrastructure-project,,,Code,reference,,,
+infrastructure-project,bc086e57dacb4b2e67ac8634ed869c910fe7b72eaeb4c3bc1b0473b69b57f012,,caseReference,reference,2026-10-02,,2026-10-02
