@@ -118,6 +118,7 @@ conservation-area,44002286,44002286,local-authority:BRC
 conservation-area,44007964,44007965,local-authority:BRC
 conservation-area,44012827,44012828,local-authority:BRC
 conservation-area,44004967,44005025,local-authority:BRD
+conservation-area,44016832,44016896,local-authority:BRD
 conservation-area,44005211,44005211,local-authority:BRE
 conservation-area,44012403,44012446,local-authority:BRE
 conservation-area,44012680,44012680,local-authority:BRE
@@ -1771,6 +1772,7 @@ conservation-area-document,6307165,6307178,local-authority:BPL
 conservation-area-document,6303790,6303827,local-authority:BRA
 conservation-area-document,6307179,6307190,local-authority:BRC
 conservation-area-document,6303828,6303943,local-authority:BRD
+conservation-area-document,6317259,6317868,local-authority:BRD
 conservation-area-document,6307009,6307096,local-authority:BRE
 conservation-area-document,6307213,6307225,local-authority:BRM
 conservation-area-document,6313623,6313654,local-authority:BRO
@@ -2104,5 +2106,3 @@ conservation-area-document,6310267,6310283,national-park-authority:Q72617669
 conservation-area-document,6310487,6310520,national-park-authority:Q72617784
 conservation-area-document,6310521,6310738,national-park-authority:Q72617988
 conservation-area-document,6316552,6316661,national-park-authority:Q72617988
-conservation-area-document,6317259,6317868,local-authority:BRD
-conservation-area,44016832,44016896,local-authority:BRD
