@@ -392,6 +392,7 @@ tree-preservation-order,7001093303,7001093303,local-authority:NBL
 tree-preservation-order,7001111022,7001111022,local-authority:NBL
 tree-preservation-order,7001126432,7001126432,local-authority:NBL
 tree-preservation-order,7001001211,7001001693,local-authority:NET
+tree-preservation-order,7001138345,7001146550,local-authority:NET
 tree-preservation-order,7001061535,7001063525,local-authority:NEW
 tree-preservation-order,7001006967,7001014330,local-authority:NLN
 tree-preservation-order,7001056111,7001056111,local-authority:NLN
@@ -757,4 +758,3 @@ tree-preservation-zone,19216587,19216604,national-park-authority:Q27159704
 tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-order,7001138345,7001146550,local-authority:NET
