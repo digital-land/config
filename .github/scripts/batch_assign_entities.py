@@ -193,7 +193,32 @@ def get_old_resource_df_from_hash(resource_hash: str, collection_name: str, data
         return None
 
 
-                            
+def get_invalid_uri_entities(cache_dir: Path, resource: str) -> set:
+    """
+    Read the per-resource issue log produced by check_and_assign_entities and return
+    the set of entities affected by an 'invalid URI' issue, so only those entities can
+    be excluded from promotion rather than blocking the whole resource.
+
+    The issue log's entity column is backfilled from entry-number once entity
+    assignment completes (digital_land.pipeline.main.Pipeline.save_logs calls
+    IssueLog.apply_entity_map before saving), so this is only populated for rows that
+    both had an invalid URI and resolved to an entity - a row that failed both checks
+    won't appear here, but it also wouldn't be promotable either way.
+    """
+    issue_path = cache_dir / "assign_entities" / "issue" / f"{resource}.csv"
+    if not issue_path.exists():
+        return set()
+    try:
+        issue_df = pd.read_csv(issue_path, dtype=str)
+    except Exception as e:
+        logger.error(f"Error reading issue log {issue_path}: {e}")
+        return set()
+    if "issue-type" not in issue_df.columns or "entity" not in issue_df.columns:
+        return set()
+    invalid_uri_rows = issue_df[issue_df["issue-type"] == "invalid URI"]
+    return set(invalid_uri_rows["entity"].dropna()) - {""}
+
+
 def _make_fingerprints(df, except_fields=["reference", "entry-date"], only_fields=None):
     """
     Create a fingerprint for each entity based options specified.
@@ -621,6 +646,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                 )
 
                 output_rows = []
+                invalid_uri_entities = set()
 
                 def add_output_log(rows):
                     if rows:
@@ -682,17 +708,43 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                                     & (invalid_uri_issues["dataset"] == dataset)
                                 ]
                         if len(iui) > 0:
-                            add_output_log([
-                                {
-                                    "dataset": dataset,
-                                    "resource": resource,
-                                    "organisation": organisation_name,
-                                    "reference": "",
-                                    "status": "error",
-                                    "error_code": "invalid_uri_issue",
-                                    "message": f"Resource has known issues with invalid URIs that require manual review.",
-                                }
-                            ])
+                            invalid_uri_entities = get_invalid_uri_entities(cache_dir, resource)
+                            if invalid_uri_entities:
+                                # Specific entities identified - exclude just those from
+                                # promotion (see promotion step below) rather than blocking
+                                # every other, valid entity in the resource.
+                                add_output_log([
+                                    {
+                                        "dataset": dataset,
+                                        "resource": resource,
+                                        "organisation": organisation_name,
+                                        "reference": "",
+                                        "status": "warn",
+                                        "error_code": "invalid_uri_issue",
+                                        "message": (
+                                            f"Excluded {len(invalid_uri_entities)} "
+                                            f"entit{'y' if len(invalid_uri_entities) == 1 else 'ies'} with invalid "
+                                            f"URIs from promotion, pending manual review: "
+                                            f"{sorted(invalid_uri_entities)}."
+                                        ),
+                                    }
+                                ])
+                            else:
+                                # Datasette's resource-level summary flagged this resource, but
+                                # the local issue log couldn't resolve it to specific entities -
+                                # fail safe to blocking the whole resource rather than silently
+                                # promoting everything.
+                                add_output_log([
+                                    {
+                                        "dataset": dataset,
+                                        "resource": resource,
+                                        "organisation": organisation_name,
+                                        "reference": "",
+                                        "status": "error",
+                                        "error_code": "invalid_uri_issue",
+                                        "message": "Resource has known issues with invalid URIs that require manual review.",
+                                    }
+                                ])
 
                 if any(r.get('status') != 'warn' for r in output_rows):
                     output_df = pd.concat(
@@ -719,7 +771,17 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     [output_df, pd.DataFrame(output_rows)],
                     ignore_index=True,
                 )
-                shutil.copy(cache_dir / "assign_entities" / collection_name / "pipeline" / "lookup.csv", Path("pipeline") / collection_name / "lookup.csv")
+                cache_lookup_path = cache_dir / "assign_entities" / collection_name / "pipeline" / "lookup.csv"
+                real_lookup_path = Path("pipeline") / collection_name / "lookup.csv"
+                if invalid_uri_entities:
+                    # Promote everything except the entities excluded above - they're left
+                    # out of the real lookup.csv entirely, so they'll resurface as
+                    # unresolved next run until the underlying URI is fixed upstream.
+                    cache_lookup_df = pd.read_csv(cache_lookup_path, dtype=str)
+                    cache_lookup_df = cache_lookup_df[~cache_lookup_df["entity"].isin(invalid_uri_entities)]
+                    cache_lookup_df.to_csv(real_lookup_path, index=False)
+                else:
+                    shutil.copy(cache_lookup_path, real_lookup_path)
                 print(f"\nEntities assigned successfully for resource: {resource}. ")
                 successful_resources.append(resource_path)
 
