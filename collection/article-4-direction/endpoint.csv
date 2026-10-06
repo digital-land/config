@@ -299,3 +299,4 @@ c7425fe53a2d47e4baaf19525de6c7cf3775def7f11e42a9cfa8d2e2a28faa3b,https://www.lan
 ecab555f29117170fbfd1b1e32074e1de68d9371553d774b588e88c2e982678c,https://raw.githubusercontent.com/digital-land/collection-datastore/refs/heads/main/article-4-direction/HCK-article-4-direction.csv,,,2026-09-24,2026-09-24,
 aa9c16d5cd8f740beac53f42681112db13af9e205c3f06e162043a22c0a01329,https://www.bradford.gov.uk/media/dmbdad1r/article_4_direction_dataset.csv,,,2026-10-02,2026-10-02,
 ce2be0f49454a0eaf7162952d5972dc01a2bc9dc920d292c14656e067bacb8c0,https://www.bradford.gov.uk/media/rckfpb0z/article_4_direction_area.json,,,2026-10-02,2026-10-02,
+d4e33c7071b86884d1a54cddbe14203b1f0bb03a38fcccea869d68079d9480e8,https://map2.hackney.gov.uk/geoserver/ows?service=WFS&version=2.0&request=GetFeature&outputFormat=application/json&SrsName=EPSG:4326&typeName=planning:article_4_direction,,,2026-10-06,2026-10-06,
