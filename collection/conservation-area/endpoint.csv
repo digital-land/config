@@ -809,7 +809,7 @@ d3c7b0fafeb8178935c747067e4f17384301508cd1422c8a430a092c4ec1fd24,https://app.ips
 8db0a32636ea8ef79a4da0a2ff0978bb446f3791c4cbd9286ff5751ffda77609,https://services.arcgis.com/wDcUiJYKtMulHM03/ArcGIS/rest/services/conservation_area_document/FeatureServer/0,,arcgis,2026-05-29,2026-05-29,2026-08-04
 6b3b398acdda4aed4d6124ce986dea58059f0a9830b31dd6828bc43ce6a23567,https://bmaps.brent.gov.uk/ext/odp/conservation-area-document.csv,,,2026-06-17,2026-06-17,
 1d8075f3160504d1c38921ec027274c75d854a28f744c8a8cbeee3167ab8211e,https://www.west-norfolk.gov.uk/download/downloads/id/9982/gis_data_-_conservation_areas.json,,,2026-06-26,2026-06-26,
-518aba1f0fd85bbf754153f7ebecb7030d2d07da48713d433b11326da5073d5e,https://map2.hackney.gov.uk/geoserver/planning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=planning:conservation_area&outputFormat=json&srsName=EPSG:3857,,,2026-07-02,2026-07-02,
+518aba1f0fd85bbf754153f7ebecb7030d2d07da48713d433b11326da5073d5e,https://map2.hackney.gov.uk/geoserver/planning/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=planning:conservation_area&outputFormat=json&srsName=EPSG:3857,,,2026-07-02,2026-07-02,2026-10-06
 b9423fa1964029bbf19be361ea6caf17fc3323eab0963139320c40203689d2bc,https://www.west-norfolk.gov.uk/download/downloads/id/9981/gis_data_-_conservation_areas.csv,,,2026-07-03,2026-07-03,
 f7fdf6f4c9a081a5a95afea4314ad97753c803c633e62edf4400be364b6fddea,https://www.milton-keynes.gov.uk/sites/default/files/2026-07/Test Conservation Area.csv,,,2026-07-03,2026-07-03,2026-08-25
 40766ea392f9140d090e05e0b8eb550945c4701ed0b92233b662718e792ac59e,https://services5.arcgis.com/C36oYlzCOmDbFbhM/ArcGIS/rest/services/Conservation_Area/FeatureServer/437,,arcgis,2026-07-07,2026-07-07,
@@ -866,3 +866,4 @@ b5126458c615e2e9ef9cde0a19f2264f747b490176d00083d81aecaee55d4324,https://www.bra
 e09af609352a1812942818db4b2159a6e7085d3b88386a298b71cf32b0bbbdca,https://www.bradford.gov.uk/media/mtrng3la/conservation-areas.csv,,,2026-10-02,2026-10-02,
 4feb7e31ba2bdccb645160d2c29ba74c6c7b9b6be5862f91ad5690c61c871543,https://gis.middlesbrough.gov.uk/server/rest/services/Conservation_Areas_Table/FeatureServer/2,,arcgis,2026-10-05,2026-10-05,
 5cb6f512c4f39a09d5bb114842c04952f49f4a9443ba842d7a46703ca1f59aa1,https://gis.middlesbrough.gov.uk/server/rest/services/Conservation_Areas/FeatureServer/6,,arcgis,2026-10-06,2026-10-06,
+49f24baf849d9a5d06a07a80e7729fb8798c4e1d42d85360f4f08047b6e173aa,https://map2.hackney.gov.uk/geoserver/ows?service=WFS&version=2.0&request=GetFeature&outputFormat=application/json&SrsName=EPSG:4326&typeName=planning:conservation_area,,,2026-10-06,2026-10-06,
