@@ -457,8 +457,11 @@ def append_column(response: dict, collection: str) -> None:
 def append_entity_organisation(response: dict, collection: str) -> None:
     entity_org_file = Path("pipeline") / collection / "entity-organisation.csv"
     params = response.get("params", {})
-    if not as_bool(params.get("authoritative", False)):
-        print("authoritative is not true, skipping entity-organisation.csv")
+    if not (
+        as_bool(params.get("authoritative", False))
+        or params.get("authoritative_organisation")
+    ):
+        print("No authoritative organisation selected, skipping entity-organisation.csv")
         return
 
     entries = (

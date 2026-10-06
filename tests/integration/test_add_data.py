@@ -1,5 +1,6 @@
 import csv
 from pathlib import Path
+import pytest
 
 from click.testing import CliRunner
 
@@ -20,7 +21,8 @@ def _write_csv(path: Path, header: str) -> None:
         writer.writerow(header.split(","))
 
 
-def test_add_data_cli_creates_expected_files(tmp_path, monkeypatch):
+@pytest.mark.parametrize("owner", [None, "local-authority:MAN"])
+def test_add_data_cli_creates_expected_files(tmp_path, monkeypatch, owner):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("GITHUB_STEP_SUMMARY", str(tmp_path / "summary.md"))
 
@@ -56,7 +58,8 @@ def test_add_data_cli_creates_expected_files(tmp_path, monkeypatch):
             "collection": "test-collection",
             "dataset": "test-dataset",
             "organisation": "test-organisation",
-            "authoritative": True,
+            "authoritative": owner is None,
+            "authoritative_organisation": owner,
             "column_mapping": {
                 "title": "field-title",
                 "description": "field-description",
@@ -112,7 +115,7 @@ def test_add_data_cli_creates_expected_files(tmp_path, monkeypatch):
                             "dataset": "test-dataset",
                             "entity-minimum": 101,
                             "entity-maximum": 101,
-                            "organisation": "test-organisation",
+                            "organisation": owner or "test-organisation",
                         }
                     ],
                     "old-entity": [
@@ -221,7 +224,7 @@ def test_add_data_cli_creates_expected_files(tmp_path, monkeypatch):
         "",
         "2026-04-24",
     ]
-    assert entity_org_rows[1] == ["test-dataset", "101", "101", "test-organisation"]
+    assert entity_org_rows[1] == ["test-dataset", "101", "101", owner or "test-organisation"]
     assert old_entity_rows[0] == add_data.OLD_ENTITY_HEADER
     assert old_entity_rows[1] == ["100", "301", "101", "duplicate", "", "2026-04-24", ""]
 
