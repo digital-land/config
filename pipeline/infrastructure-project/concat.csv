@@ -1,3 +1,3 @@
 dataset,resource,field,fields,separator,entry-date,start-date,end-date,endpoint,prepend,append
 infrastructure-project,,documentation-url,Project reference,,,,,ae66bb8e8809c2607d62f5c4597bf603026c404bb7e0fe38ebbc70a98a022dde,https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/,
-infrastructure-project,,documentation-url,reference,,,,,bc086e57dacb4b2e67ac8634ed869c910fe7b72eaeb4c3bc1b0473b69b57f012,https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/,
+infrastructure-project,,documentation-url,caseReference,,,,,bc086e57dacb4b2e67ac8634ed869c910fe7b72eaeb4c3bc1b0473b69b57f012,https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects/,
