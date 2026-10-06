@@ -312,7 +312,18 @@ def _duplicate_reference_organisation_error_rows(old_df, new_df, dataset, resour
 
 
 def _duplicate_reference_organisation_in_new_resource_error_rows(df, dataset, resource):
-    duplicates = _make_fingerprints(df, except_fields=[], only_fields=['organisation', 'reference'])
+    """
+        Check for duplicate reference + entry-date combinations within the current resource,
+        matching the pipeline's own "reference values are not unique" issue scope (reference +
+        entry-date), rather than reference + organisation.
+    """
+    metadata = _missing_metadata_frame(df)
+    entry_dates = df.groupby('entity')['entry-date'].first().reset_index()
+    duplicates = metadata.merge(entry_dates, on='entity', how='left')
+    duplicates['reference'] = duplicates['reference'].fillna('').astype(str).str.strip().str.lower()
+    duplicates['entry-date'] = duplicates['entry-date'].fillna('').astype(str).str.strip()
+    duplicates['fingerprint'] = 'reference::' + duplicates['reference'] + '|entry-date::' + duplicates['entry-date']
+
     duplicates = duplicates[
         duplicates.duplicated('fingerprint', keep=False)
     ].drop_duplicates('fingerprint')
@@ -328,13 +339,19 @@ def _duplicate_reference_organisation_in_new_resource_error_rows(df, dataset, re
             'reference': dup_row.get('reference', ''),
             'status': 'error',
             'error_code': 'duplicate_reference_organisation_in_new_resource',
-            'message': f"Duplicate reference and organisation found in resource {dup_row['fingerprint']}.",
+            'message': f"Duplicate reference and entry-date found in resource {dup_row['fingerprint']}.",
         }
         for _, dup_row in duplicates.iterrows()
     ]
 
 
 def _missing_organisation_error_rows(df, dataset, resource):
+    """ 
+        Non-blocking: a missing organisation doesn't stop an entity being assigned
+        (PrintLookupPhase only requires prefix + reference), unlike a missing reference.
+        Still logged so it stays visible, per the pipeline's own "missing value" (error,
+        not critical) treatment of this condition.
+    """
     missing = df[(df['organisation'].isna()) | (df['organisation'] == '')]
     return [
         {
@@ -342,7 +359,7 @@ def _missing_organisation_error_rows(df, dataset, resource):
             'resource': resource,
             'organisation': missing_row.get('organisation', ''),
             'reference': missing_row.get('reference', ''),
-            'status': 'error',
+            'status': 'warn',
             'error_code': 'missing_organisation',
             'message': (
                 f"Missing organisation for entity {missing_row.get('entity')} "
@@ -656,8 +673,10 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                         organisation_name=organisation_name
                     )
                     add_output_log(validation_rows)
-                    
-                    if len(output_rows) == 0:
+
+                    # 'warn' rows (e.g. missing_organisation) are logged but don't block
+                    # other checks from running or promotion from happening.
+                    if not any(r.get('status') != 'warn' for r in output_rows):
                         iui = invalid_uri_issues[
                                     (invalid_uri_issues["resource"] == resource)
                                     & (invalid_uri_issues["dataset"] == dataset)
@@ -675,7 +694,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                                 }
                             ])
 
-                if output_rows:
+                if any(r.get('status') != 'warn' for r in output_rows):
                     output_df = pd.concat(
                         [output_df, pd.DataFrame(output_rows)],
                         ignore_index=True,
