@@ -240,12 +240,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: batch-assign-${{ matrix.scope }}-output
+          retention-days: 7
           path: batch_assign_summary*.csv
 
       - name: Upload batch assign diagnostics
         uses: actions/upload-artifact@v4
         with:
           name: batch-assign-${{ matrix.scope }}-diagnostics
+          retention-days: 7
           path: |
             var/cache/assign_entities/transformed/*.csv
             issue_summary.csv
