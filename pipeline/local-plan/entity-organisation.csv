@@ -2631,6 +2631,7 @@ plan-timetable,5102780,5102785,local-planning-group:BCP-DOR
 plan-timetable,5103114,5103119,local-planning-group:BCP-DOR
 plan-timetable,5102702,5102705,local-planning-group:BDF-CBF-LUT
 plan-timetable,5103015,5103018,local-planning-group:BDF-CBF-LUT
+plan-timetable,5111613,5111627,local-planning-group:BDF-CBF-LUT
 plan-timetable,5103019,5103023,local-planning-group:BDG-HAV-NWM-RDB
 plan-timetable,5103024,5103027,local-planning-group:BEN-EAL-HIL-HNS-HRW-Q20648596-RIC
 plan-timetable,5103038,5103046,local-planning-group:BNE-CMD-ENF-HCK-HRY-ISL-WFT
@@ -2752,6 +2753,7 @@ waste-plan,540069,540069,local-authority:WOR
 waste-plan,540000,540000,local-planning-group:BAS-BST-NSM-SGC
 waste-plan,540024,540024,local-planning-group:BCP-DOR
 waste-plan,540001,540001,local-planning-group:BDF-CBF-LUT
+waste-plan,540088,540090,local-planning-group:BDF-CBF-LUT
 waste-plan,540002,540003,local-planning-group:BDG-HAV-NWM-RDB
 waste-plan,540004,540004,local-planning-group:BEN-EAL-HIL-HNS-HRW-Q20648596-RIC
 waste-plan,540007,540008,local-planning-group:BNE-CMD-ENF-HCK-HRY-ISL-WFT
@@ -2773,5 +2775,3 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5111613,5111627,local-planning-group:BDF-CBF-LUT
-waste-plan,540088,540090,local-planning-group:BDF-CBF-LUT
