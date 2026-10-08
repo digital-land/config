@@ -777,9 +777,12 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     # Promote everything except the entities excluded above - they're left
                     # out of the real lookup.csv entirely, so they'll resurface as
                     # unresolved next run until the underlying URI is fixed upstream.
+                    # lookup.csv uses CRLF line endings throughout the repo - pandas defaults
+                    # to LF, which would rewrite every untouched line and bury the real change
+                    # in a full-file diff, so the line terminator is set explicitly to match.
                     cache_lookup_df = pd.read_csv(cache_lookup_path, dtype=str)
                     cache_lookup_df = cache_lookup_df[~cache_lookup_df["entity"].isin(invalid_uri_entities)]
-                    cache_lookup_df.to_csv(real_lookup_path, index=False)
+                    cache_lookup_df.to_csv(real_lookup_path, index=False, lineterminator="\r\n")
                 else:
                     shutil.copy(cache_lookup_path, real_lookup_path)
                 print(f"\nEntities assigned successfully for resource: {resource}. ")
@@ -799,12 +802,21 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                     .to_dict()
                 )
                 new_dataset_entities = set(post_entity_org) - pre_dataset_entities
+                # entity-organisation.csv always wants a real organisation, even for entities
+                # whose own row had no organisation (missing_organisation, now non-blocking) -
+                # lookup.csv keeps the blank per-row value as-is, but here fall back to the
+                # endpoint's registered organisation, the best available source of truth when
+                # the per-row value is missing.
+                entity_org_for_ranges = {
+                    entity: (org if org else organisation_name)
+                    for entity, org in post_entity_org.items()
+                }
                 # Mirror the blank-organisation suppression above: listed-building still gets
                 # no registered range on single-source runs, but every other dataset now gets
                 # a real per-entity organisation and needs its range recorded to match.
                 if new_dataset_entities and not (scope == "single-source" and dataset == "listed-building"):
                     entity_org_file = Path("pipeline") / collection_name / "entity-organisation.csv"
-                    for org_value, min_entity, max_entity in _contiguous_ranges_by_org(new_dataset_entities, post_entity_org):
+                    for org_value, min_entity, max_entity in _contiguous_ranges_by_org(new_dataset_entities, entity_org_for_ranges):
                         # Hard code single exception for conservation-area dataset org HE
                         if dataset == "conservation-area" and org_value == "government-organisation:PB1164":
                             continue
