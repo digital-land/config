@@ -1686,6 +1686,7 @@ minerals-plan,530057,530057,local-authority:WBK
 minerals-plan,530061,530061,local-authority:WOR
 minerals-plan,530017,530017,local-planning-group:BCP-DOR
 minerals-plan,530000,530000,local-planning-group:BDF-CBF-LUT
+minerals-plan,530082,530084,local-planning-group:BDF-CBF-LUT
 minerals-plan,530020,530022,local-planning-group:BNH-ESX-Q20198711
 minerals-plan,530003,530003,local-planning-group:BOL-BUR-MAN-OLD-RCH-SKP-SLF-TAM-TRF-WGN
 minerals-plan,530004,530004,local-planning-group:BRC-RDG-WBK-WOK
@@ -2775,4 +2776,3 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
-minerals-plan,530082,530084,local-planning-group:BDF-CBF-LUT
