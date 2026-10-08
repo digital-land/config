@@ -236,6 +236,12 @@ jobs:
 
           python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
 
+      - name: Alert on resources with an empty transformed output
+        if: ${{ !cancelled() }}
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        run: python3 .github/scripts/notify_current_resource_empty.py "${{ matrix.scope }}"
+
       - name: Upload batch assign output
         uses: actions/upload-artifact@v4
         with:

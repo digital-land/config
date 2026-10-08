@@ -38,6 +38,11 @@ logger = logging.getLogger(__name__)
 GEOMETRY_OVERLAP_THRESHOLD = 0.9  # intersection-over-union, 0-1
 NAME_SIMILARITY_THRESHOLD = 90  # rapidfuzz token_sort_ratio, 0-100
 
+# Statuses that are recorded and reported but don't stop a resource's other, valid
+# entities from being promoted - everything else blocks. Centralised here rather than
+# checked inline so a new non-blocking status only needs adding in one place.
+NON_BLOCKING_STATUSES = {'warn', 'skipped'}
+
 
 def run_command(cmd, capture_output=True, check=True):
     """Run a shell command and return stdout when requested."""
@@ -174,13 +179,46 @@ ORDER BY endpoint"""
         response = requests.get(url)
         response.raise_for_status()
         result_df = pd.read_csv(StringIO(response.text), dtype=str, low_memory=False)
-        
+
         # Create a mapping of endpoint -> resource
         endpoint_resource_map = dict(zip(result_df['endpoint'], result_df['resource']))
         return endpoint_resource_map
     except Exception as e:
         logger.error(f"Error fetching old resource hashes: {e}")
         return {}
+
+
+def get_endpoints_with_any_history(endpoints: list) -> Optional[set]:
+    """
+    Which of these endpoints have ANY row in reporting_historic_endpoints, regardless of
+    resource_end_date - distinguishes a genuinely brand-new endpoint (nothing to compare
+    against, ever) from one that has real history but get_old_resource_hashes_batch simply
+    failed to resolve a baseline for.
+
+    Returns None (not an empty set) if the query itself fails, so a network blip can't be
+    mistaken for "no endpoints have history" - the caller should then fail safe and treat
+    every endpoint as if it has history, same as today's behaviour.
+    """
+    if not endpoints:
+        return set()
+
+    DATASETTE_BASE_URL = "https://datasette.planning.data.gov.uk/digital-land.csv"
+    endpoint_list = ', '.join([f"'{ep}'" for ep in endpoints])
+    query = f"""SELECT DISTINCT endpoint
+FROM reporting_historic_endpoints
+WHERE endpoint IN ({endpoint_list})"""
+
+    params = urlencode({"sql": query})
+    url = f"{DATASETTE_BASE_URL}?{params}"
+
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        result_df = pd.read_csv(StringIO(response.text), dtype=str, low_memory=False)
+        return set(result_df['endpoint'].dropna())
+    except Exception as e:
+        logger.error(f"Error fetching endpoint history presence: {e}")
+        return None
 
 
 def get_old_resource_df_from_hash(resource_hash: str, collection_name: str, dataset: str):
@@ -554,7 +592,7 @@ def _missing_reference_error_rows(df, dataset, resource):
     ]
 
 
-def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, new_entity_threshold, old_resource_hash,organisation_name=''):
+def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, new_entity_threshold, old_resource_hash,organisation_name='', endpoint_has_history=True):
     validation_rows = []
     current_entities = set(current_resource_df['entity'])
 
@@ -571,17 +609,36 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
     print(f"Last 5 new entities IDs: {sorted(new_entity_ids)[-5:] if new_entity_ids else 'N/A'}")
 
     if old_resource_df is None:
-        validation_rows.append(
-            {
-                'dataset': dataset,
-                'resource': resource,
-                'organisation': organisation_name,
-                'reference': '',
-                'status': 'error',
-                'error_code': 'previous_resource_not_found',
-                'message': 'Previous resource not found.',
-            }
-        )
+        if endpoint_has_history:
+            # Real history exists but we failed to resolve a baseline from it - stay
+            # cautious, same as today: we can't rule out duplicate/growth risk, we just
+            # failed to check it, which is different from there being nothing to check.
+            validation_rows.append(
+                {
+                    'dataset': dataset,
+                    'resource': resource,
+                    'organisation': organisation_name,
+                    'reference': '',
+                    'status': 'error',
+                    'error_code': 'previous_resource_not_found',
+                    'message': 'Previous resource not found.',
+                }
+            )
+        else:
+            # Genuinely brand-new endpoint - every entity is new by definition, so there's
+            # no duplicate-against-history risk to check for, just nothing to compare
+            # against. Logged so it's visible, but doesn't block the first assignment.
+            validation_rows.append(
+                {
+                    'dataset': dataset,
+                    'resource': resource,
+                    'organisation': organisation_name,
+                    'reference': '',
+                    'status': 'warn',
+                    'error_code': 'new_endpoint_no_history',
+                    'message': 'No previous resource exists for this endpoint - treating all entities as new.',
+                }
+            )
     elif len(old_entities) == 0:
         validation_rows.append(
             {
@@ -596,13 +653,15 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
         )
     
     if len(new_entity_ids) == 0:
+        # Pure no-op, not a failure - nothing to promote either way, so this doesn't
+        # block (see NON_BLOCKING_STATUSES).
         validation_rows.append(
             {
                 'dataset': dataset,
                 'resource': resource,
                 'organisation': organisation_name,
                 'reference': '',
-                'status': 'error',
+                'status': 'skipped',
                 'error_code': 'current_resource_no_new_entities',
                 'message': 'Current resource contains no new entities for assignment.',
             }
@@ -696,7 +755,16 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
     print(f"Fetching old resource hashes for {len(unique_endpoints)} unique endpoints...")
     endpoint_resource_map = get_old_resource_hashes_batch(unique_endpoints)
     print(f"Successfully retrieved {len(endpoint_resource_map)} old resource hashes")
-    
+
+    # Which endpoints have no history at all (genuinely brand new) vs real history that
+    # just didn't resolve to a baseline above (a real fetch failure). None means the query
+    # itself failed - fail safe by treating every endpoint as if it has history, same as
+    # today's behaviour, rather than risk mistaking a network blip for "brand new".
+    endpoints_with_history = get_endpoints_with_any_history(unique_endpoints)
+    if endpoints_with_history is None:
+        print("Could not determine which endpoints have history; treating all as having history")
+        endpoints_with_history = set(unique_endpoints)
+
     try:
         pbar = tqdm(issue_summary_df.iterrows(), total=issue_summary_df.shape[0], desc="Processing resources")
         for row_number, row in pbar:
@@ -782,13 +850,17 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                 current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv",dtype=str)
 
                 if not skip_checks and len(current_resource_df) == 0:
+                    # Signals an upstream/pipeline problem, not a data-quality issue with any
+                    # actual rows - 'failed' so it doesn't sit in the same reviewer queue as
+                    # genuine duplicate/quality blocks (those need a data decision; this needs
+                    # an engineer to check source/pipeline health). Still blocks promotion.
                     add_output_log([
                         {
                             "dataset": dataset,
                             "resource": resource,
                             "organisation": organisation_name,
                             "reference": "",
-                            "status": "error",
+                            "status": "failed",
                             "error_code": "current_resource_empty",
                             "message": "Current resource has no entities for assignment.",
                         }
@@ -811,13 +883,14 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                         resource,
                         new_entity_threshold,
                         old_resource_hash,
-                        organisation_name=organisation_name
+                        organisation_name=organisation_name,
+                        endpoint_has_history=endpoint in endpoints_with_history,
                     )
                     add_output_log(validation_rows)
 
-                    # 'warn' rows (e.g. missing_organisation) are logged but don't block
-                    # other checks from running or promotion from happening.
-                    if not any(r.get('status') != 'warn' for r in output_rows):
+                    # Non-blocking rows (e.g. missing_organisation) are logged but don't
+                    # block other checks from running or promotion from happening.
+                    if not any(r.get('status') not in NON_BLOCKING_STATUSES for r in output_rows):
                         iui = invalid_uri_issues[
                                     (invalid_uri_issues["resource"] == resource)
                                     & (invalid_uri_issues["dataset"] == dataset)
@@ -861,7 +934,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                                     }
                                 ])
 
-                if any(r.get('status') != 'warn' for r in output_rows):
+                if any(r.get('status') not in NON_BLOCKING_STATUSES for r in output_rows):
                     output_df = pd.concat(
                         [output_df, pd.DataFrame(output_rows)],
                         ignore_index=True,
@@ -1110,7 +1183,9 @@ def run_batch_assign_entities(
             batch_size=batch_size,
             start_batch=start_batch
         )
-        error_count = len(output_df[output_df['status'] == 'error'])
+        # 'failed' (e.g. current_resource_empty) is a blocking outcome like 'error', just a
+        # distinct label for cases that need an engineer rather than a data reviewer.
+        error_count = len(output_df[output_df['status'].isin(['error', 'failed'])])
         success_count = len(output_df[output_df['status'] == 'success'])
 
         print(f"\nTotal failed downloads: {len(failed_downloads)}")

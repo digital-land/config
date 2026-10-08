@@ -17,6 +17,7 @@ from batch_assign_entities import (
     download_file,
     download_urls,
     ensure_specification_dir,
+    get_endpoints_with_any_history,
     get_old_resource_hashes_batch,
     get_scope,
     process_csv,
@@ -77,6 +78,28 @@ def test_get_scope_not_found_returns_single_source():
 
 def test_get_scope_empty_dict():
     assert get_scope("any-dataset", {}) == "single-source"
+
+
+def test_get_endpoints_with_any_history_empty_input():
+    assert get_endpoints_with_any_history([]) == set()
+
+
+@patch("batch_assign_entities.requests.get")
+def test_get_endpoints_with_any_history_returns_set(mock_get):
+    mock_get.return_value = Mock(
+        status_code=200,
+        text="endpoint\nendpoint-a\nendpoint-b\n",
+        raise_for_status=lambda: None,
+    )
+    result = get_endpoints_with_any_history(["endpoint-a", "endpoint-b", "endpoint-c"])
+    assert result == {"endpoint-a", "endpoint-b"}
+
+
+@patch("batch_assign_entities.requests.get")
+def test_get_endpoints_with_any_history_returns_none_on_failure(mock_get):
+    mock_get.side_effect = Exception("network error")
+    result = get_endpoints_with_any_history(["endpoint-a"])
+    assert result is None
 
 
 @patch("subprocess.run")
@@ -185,6 +208,7 @@ def test_download_urls_empty_map(mock_tqdm, mock_download):
     mock_download.assert_not_called()
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
@@ -196,6 +220,7 @@ def test_process_csv_detects_duplicate_all_fields(
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -219,6 +244,7 @@ def test_process_csv_detects_duplicate_all_fields(
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
     mock_batch_hashes.return_value = {"endpoint456": "hash123"}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = old_resource_df
 
@@ -238,6 +264,7 @@ def test_process_csv_detects_duplicate_all_fields(
     assert "Matches existing entity" in dup_rows.iloc[0]["message"]
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
@@ -249,6 +276,7 @@ def test_process_csv_detects_duplicate_reference_organisation_despite_other_fiel
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
     """duplicate_prefix_reference_organisation was collapsed into
@@ -277,6 +305,7 @@ def test_process_csv_detects_duplicate_reference_organisation_despite_other_fiel
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
     mock_batch_hashes.return_value = {"endpoint456": "hash123"}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = old_resource_df
 
@@ -294,6 +323,7 @@ def test_process_csv_detects_duplicate_reference_organisation_despite_other_fiel
     assert "duplicate_prefix_reference_organisation" not in output_df["error_code"].values
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
@@ -305,6 +335,7 @@ def test_process_csv_detects_large_new_entities(
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -332,6 +363,7 @@ def test_process_csv_detects_large_new_entities(
     )
 
     mock_batch_hashes.return_value = {"endpoint456": "hash123"}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = old_resource_df
 
@@ -349,6 +381,7 @@ def test_process_csv_detects_large_new_entities(
     assert "large number of new entities" in large_new_rows.iloc[0]["message"].lower()
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
@@ -360,6 +393,7 @@ def test_process_csv_detects_duplicate_reference_organisation_in_new_resource(
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -376,6 +410,7 @@ def test_process_csv_detects_duplicate_reference_organisation_in_new_resource(
     lookup_df = pd.DataFrame({"prefix": ["ca", "ca"], "organisation": ["org1", "org1"], "entity": [1, 2]})
 
     mock_batch_hashes.return_value = {"endpoint456": None}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = None
 
@@ -391,6 +426,7 @@ def test_process_csv_detects_duplicate_reference_organisation_in_new_resource(
     assert "duplicate_reference_organisation_in_new_resource" in output_df["error_code"].values
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
@@ -402,6 +438,7 @@ def test_process_csv_detects_missing_organisation(
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -414,6 +451,7 @@ def test_process_csv_detects_missing_organisation(
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
     mock_batch_hashes.return_value = {"endpoint456": None}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = None
 
@@ -431,6 +469,7 @@ def test_process_csv_detects_missing_organisation(
     assert "Missing organisation" in missing_rows.iloc[0]["message"]
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
@@ -442,6 +481,7 @@ def test_process_csv_detects_missing_reference(
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -454,6 +494,7 @@ def test_process_csv_detects_missing_reference(
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
     mock_batch_hashes.return_value = {"endpoint456": None}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = None
 
@@ -471,6 +512,7 @@ def test_process_csv_detects_missing_reference(
     assert "Missing reference" in missing_rows.iloc[0]["message"]
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
@@ -482,6 +524,7 @@ def test_process_csv_skip_checks_bypasses_validation(
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -492,6 +535,7 @@ def test_process_csv_skip_checks_bypasses_validation(
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
     mock_batch_hashes.return_value = {"endpoint456": None}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = None
 
@@ -680,6 +724,47 @@ def test_collect_validation_rows_reports_previous_resource_empty_and_missing_fie
     assert "missing_reference" in error_codes
     assert old_entities == set()
     assert new_entities == {1, 2}
+
+
+def test_collect_validation_rows_blocks_on_fetch_failure_with_real_history():
+    current_resource_df = pd.DataFrame(
+        {"entity": [1], "field": ["reference"], "value": ["ref1"]}
+    )
+
+    rows, _, _ = _collect_validation_rows(
+        current_resource_df,
+        None,  # old_resource_df - fetch failed to resolve a baseline
+        "conservation-area",
+        "resource123",
+        new_entity_threshold=10,
+        old_resource_hash=None,
+        endpoint_has_history=True,
+    )
+
+    matching = [row for row in rows if row["error_code"] == "previous_resource_not_found"]
+    assert len(matching) == 1
+    assert matching[0]["status"] == "error"
+
+
+def test_collect_validation_rows_does_not_block_genuinely_new_endpoint():
+    current_resource_df = pd.DataFrame(
+        {"entity": [1], "field": ["reference"], "value": ["ref1"]}
+    )
+
+    rows, _, _ = _collect_validation_rows(
+        current_resource_df,
+        None,  # old_resource_df - no previous resource exists at all
+        "conservation-area",
+        "resource123",
+        new_entity_threshold=10,
+        old_resource_hash=None,
+        endpoint_has_history=False,
+    )
+
+    matching = [row for row in rows if row["error_code"] == "new_endpoint_no_history"]
+    assert len(matching) == 1
+    assert matching[0]["status"] == "warn"
+    assert "previous_resource_not_found" not in [row["error_code"] for row in rows]
 
 
 @patch("batch_assign_entities.check_and_assign_entities")
