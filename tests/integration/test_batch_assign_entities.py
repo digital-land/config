@@ -242,7 +242,7 @@ def test_process_csv_detects_duplicate_all_fields(
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
 @patch("batch_assign_entities.pd.read_csv")
 @patch("batch_assign_entities.shutil.copy")
-def test_process_csv_detects_duplicate_prefix_reference_organisation(
+def test_process_csv_detects_duplicate_reference_organisation_despite_other_field_changes(
     mock_copy,
     mock_read_csv,
     mock_get_old_hash,
@@ -250,6 +250,11 @@ def test_process_csv_detects_duplicate_prefix_reference_organisation(
     mock_batch_hashes,
     temp_dirs,
 ):
+    """duplicate_prefix_reference_organisation was collapsed into
+    duplicate_reference_organisation (provably identical in every call this script
+    makes, since prefix is constant per dataset) - this still verifies a
+    reference+organisation match is caught even when another field (status) differs,
+    which used to additionally exercise the now-removed prefix-specific check."""
     cache_dir, resource_dir = temp_dirs
     resource_file = resource_dir / "resource123"
     resource_file.write_text("test data")
@@ -284,7 +289,8 @@ def test_process_csv_detects_duplicate_prefix_reference_organisation(
     )
 
     assert not output_df.empty
-    assert "duplicate_prefix_reference_organisation" in output_df["error_code"].values
+    assert "duplicate_reference_organisation" in output_df["error_code"].values
+    assert "duplicate_prefix_reference_organisation" not in output_df["error_code"].values
 
 
 @patch("batch_assign_entities.get_old_resource_hashes_batch")

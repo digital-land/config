@@ -304,25 +304,13 @@ def _duplicate_entities_error_rows(old_df, new_df, dataset, resource):
     )
 
 
-def _duplicate_prefix_reference_organisation_error_rows(old_df, new_df, dataset, resource):
-    """
-        Check for duplicate entities based on prefix, reference and organisation fields only.
-    """
-    
-    matches = new_df.merge(old_df, on='fingerprint', how='inner', suffixes=('_new', '_old'))
-    return _duplicate_error_rows(
-        matches,
-        dataset,
-        resource,
-        'duplicate_prefix_reference_organisation',
-        lambda match_row: (
-            f"Entity exists with the same prefix, reference and organisation"
-            f" {match_row['entity_list']} {match_row['fingerprint']}."
-        ),
-    )
-
-
 def _duplicate_reference_organisation_error_rows(old_df, new_df, dataset, resource):
+    """
+        Collapses what used to be a separate duplicate_prefix_reference_organisation check:
+        within a single dataset's transformed output, prefix is always constant and equal to
+        the dataset, so adding it to the fingerprint never changes which rows match - the two
+        checks were provably identical in every call this script makes.
+    """
     matches = new_df.merge(old_df, on='fingerprint', how='inner', suffixes=('_new', '_old'))
     return _duplicate_error_rows(
         matches,
@@ -343,8 +331,12 @@ def _duplicate_reference_organisation_in_new_resource_error_rows(df, dataset, re
         entry-date), rather than reference + organisation.
     """
     metadata = _missing_metadata_frame(df)
-    entry_dates = df.groupby('entity')['entry-date'].first().reset_index()
-    duplicates = metadata.merge(entry_dates, on='entity', how='left')
+    if 'entry-date' in df.columns:
+        entry_dates = df.groupby('entity')['entry-date'].first().reset_index()
+        duplicates = metadata.merge(entry_dates, on='entity', how='left')
+    else:
+        duplicates = metadata.copy()
+        duplicates['entry-date'] = ''
     duplicates['reference'] = duplicates['reference'].fillna('').astype(str).str.strip().str.lower()
     duplicates['entry-date'] = duplicates['entry-date'].fillna('').astype(str).str.strip()
     duplicates['fingerprint'] = 'reference::' + duplicates['reference'] + '|entry-date::' + duplicates['entry-date']
@@ -521,16 +513,6 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
             _duplicate_entities_error_rows(
                 _make_fingerprints(old_resource_df),
                 _make_fingerprints(new_resource_only_df),
-                dataset,
-                resource,
-            )
-        )
-        
-        # Check for duplicate entities based on prefix, reference and organisation fields only between the new resource and old resource
-        validation_rows.extend(
-            _duplicate_prefix_reference_organisation_error_rows(
-                _make_fingerprints(old_resource_df, except_fields=[], only_fields=['prefix', 'organisation', 'reference']),
-                _make_fingerprints(new_resource_only_df, except_fields=[], only_fields=['prefix', 'organisation', 'reference']),
                 dataset,
                 resource,
             )
