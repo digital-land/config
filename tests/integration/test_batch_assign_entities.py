@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent / ".github/scripts"))
 from batch_assign_entities import (
     _collect_validation_rows,
     _make_fingerprints,
+    _possible_reference_churn_fuzzy_match_rows,
     download_file,
     download_urls,
     ensure_specification_dir,
@@ -824,3 +825,100 @@ def test_evening_workflow_installs_gdal_and_uses_ubuntu_22_04():
     assert "issue_summary.csv" in content
     assert "invalid_uri_issues.csv" in content
     assert "issue_summary_full.csv" in content
+
+
+# TEST _possible_reference_churn_fuzzy_match_rows
+
+def test_fuzzy_match_flags_nudged_boundary_and_identical_name():
+    old_df = pd.DataFrame(
+        [
+            {"entity": 1, "field": "geometry", "value": "POLYGON((0 0, 0 10, 10 10, 10 0, 0 0))"},
+            {"entity": 1, "field": "name", "value": "Riverside Industrial Estate"},
+        ]
+    )
+    new_df = pd.DataFrame(
+        [
+            {
+                "entity": 10,
+                "field": "geometry",
+                "value": "POLYGON((0.05 0.05, 0.05 10.05, 10.05 10.05, 10.05 0.05, 0.05 0.05))",
+            },
+            {"entity": 10, "field": "name", "value": "Riverside Industrial Estate"},
+        ]
+    )
+
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123")
+
+    assert len(rows) == 1
+    assert rows[0]["status"] == "warn"
+    assert rows[0]["error_code"] == "possible_reference_churn_fuzzy_match"
+    assert "Entity 10" in rows[0]["message"]
+    assert "entity 1" in rows[0]["message"]
+
+
+def test_fuzzy_match_name_only_path_when_geometry_absent():
+    old_df = pd.DataFrame([{"entity": 1, "field": "name", "value": "Riverside Industrial Estate"}])
+    new_df = pd.DataFrame([{"entity": 10, "field": "name", "value": "Riverside Industrial Estate"}])
+
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123")
+
+    assert len(rows) == 1
+    assert "name similarity" in rows[0]["message"]
+
+
+def test_fuzzy_match_does_not_flag_unrelated_entities():
+    old_df = pd.DataFrame(
+        [
+            {"entity": 1, "field": "geometry", "value": "POLYGON((0 0, 0 10, 10 10, 10 0, 0 0))"},
+            {"entity": 1, "field": "name", "value": "Riverside Industrial Estate"},
+        ]
+    )
+    new_df = pd.DataFrame(
+        [
+            {"entity": 11, "field": "geometry", "value": "POLYGON((500 500, 500 510, 510 510, 510 500, 500 500))"},
+            {"entity": 11, "field": "name", "value": "Brand New Site"},
+        ]
+    )
+
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123")
+
+    assert rows == []
+
+
+def test_fuzzy_match_handles_malformed_geometry_without_crashing():
+    old_df = pd.DataFrame(
+        [
+            {"entity": 1, "field": "geometry", "value": "NOT VALID WKT"},
+            {"entity": 1, "field": "name", "value": "Some Site"},
+        ]
+    )
+    new_df = pd.DataFrame(
+        [
+            {"entity": 10, "field": "geometry", "value": "ALSO GARBAGE"},
+            {"entity": 10, "field": "name", "value": "Some Site"},
+        ]
+    )
+
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123")
+
+    # Malformed geometry is skipped, not fatal - the identical name still flags it
+    assert len(rows) == 1
+    assert "name similarity" in rows[0]["message"]
+    assert "geometry overlap" not in rows[0]["message"]
+
+
+def test_fuzzy_match_returns_empty_for_missing_name_and_geometry_fields():
+    old_df = pd.DataFrame([{"entity": 1, "field": "reference", "value": "REF1"}])
+    new_df = pd.DataFrame([{"entity": 10, "field": "reference", "value": "REF1"}])
+
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123")
+
+    assert rows == []
+
+
+def test_fuzzy_match_returns_empty_for_empty_inputs():
+    empty_df = pd.DataFrame(columns=["entity", "field", "value"])
+
+    rows = _possible_reference_churn_fuzzy_match_rows(empty_df, empty_df, "test-dataset", "resource123")
+
+    assert rows == []

@@ -22,7 +22,21 @@ from urllib.request import urlretrieve
 from urllib.parse import urlencode
 from concurrent.futures import ThreadPoolExecutor
 
+import shapely.wkt
+from shapely import STRtree
+from shapely.errors import ShapelyError
+from rapidfuzz import fuzz, process
+
 logger = logging.getLogger(__name__)
+
+# duplicate_entity_all_fields (see _duplicate_entities_error_rows) only catches reference
+# churn when every other field is byte-identical, which misses it when a boundary gets
+# nudged or a name gets lightly edited at the same time as the reference. These thresholds
+# control the fuzzy/similarity companion check (see _possible_reference_churn_fuzzy_match_rows)
+# that catches those near-misses - straw man starting values, not calibrated against real
+# data the way the growth/retention thresholds were, so treat as a first guess to revisit.
+GEOMETRY_OVERLAP_THRESHOLD = 0.9  # intersection-over-union, 0-1
+NAME_SIMILARITY_THRESHOLD = 90  # rapidfuzz token_sort_ratio, 0-100
 
 
 def run_command(cmd, capture_output=True, check=True):
@@ -304,6 +318,114 @@ def _duplicate_entities_error_rows(old_df, new_df, dataset, resource):
     )
 
 
+def _extract_field_values(df, fields):
+    """Pivot specific long-format fields out into named columns, one row per entity."""
+    field_values = df[df['field'].isin(fields)][['entity', 'field', 'value']].drop_duplicates()
+    frame = field_values.pivot_table(index='entity', columns='field', values='value', aggfunc='first').reset_index()
+    for field in fields:
+        if field not in frame.columns:
+            frame[field] = None
+    return frame
+
+
+def _parse_geometry(wkt_value):
+    if not wkt_value or not isinstance(wkt_value, str):
+        return None
+    try:
+        geom = shapely.wkt.loads(wkt_value)
+        if geom.is_empty or not geom.is_valid:
+            return None
+        return geom
+    except (ShapelyError, ValueError):
+        return None
+
+
+def _possible_reference_churn_fuzzy_match_rows(old_df, new_df, dataset, resource):
+    """
+        Companion to duplicate_entity_all_fields: that check requires every other field to
+        be byte-identical, so it misses a new entity that's probably the same real-world
+        feature as an old one but with a slightly adjusted boundary or a lightly-edited name
+        alongside the reference change. Lower confidence than an exact match by design (a
+        similarity score, not an equality), so this is 'warn' rather than blocking.
+
+        Geometry candidates are narrowed with an STRtree envelope query before computing the
+        precise intersection-over-union, and name comparisons run as one vectorised rapidfuzz
+        call rather than a nested loop - both make this cheap enough for large datasets, but
+        the geometry side is still the most expensive part of this check at real scale.
+    """
+    old_fields = _extract_field_values(old_df, ['geometry', 'name'])
+    new_fields = _extract_field_values(new_df, ['geometry', 'name'])
+
+    if old_fields.empty or new_fields.empty:
+        return []
+
+    old_fields = old_fields.reset_index(drop=True)
+    old_fields['_geom'] = old_fields['geometry'].apply(_parse_geometry)
+    old_geoms = old_fields[old_fields['_geom'].notna()].reset_index(drop=True)
+    tree = STRtree(old_geoms['_geom'].tolist()) if len(old_geoms) else None
+
+    old_names = old_fields['name'].fillna('').astype(str).tolist()
+    new_names = new_fields['name'].fillna('').astype(str).tolist()
+    name_scores = (
+        process.cdist(new_names, old_names, scorer=fuzz.token_sort_ratio)
+        if any(old_names) and any(new_names)
+        else None
+    )
+
+    rows = []
+    for i, (_, new_row) in enumerate(new_fields.iterrows()):
+        new_geom = _parse_geometry(new_row.get('geometry'))
+
+        geom_entity, geom_overlap = None, 0.0
+        if new_geom is not None and tree is not None:
+            for idx in tree.query(new_geom):
+                old_geom = old_geoms['_geom'].iloc[idx]
+                if not new_geom.intersects(old_geom):
+                    continue
+                union_area = new_geom.union(old_geom).area
+                if union_area == 0:
+                    continue
+                overlap = new_geom.intersection(old_geom).area / union_area
+                if overlap > geom_overlap:
+                    geom_overlap = overlap
+                    geom_entity = old_geoms['entity'].iloc[idx]
+
+        name_entity, name_score = None, 0.0
+        if name_scores is not None:
+            best_idx = name_scores[i].argmax()
+            name_score = name_scores[i][best_idx]
+            if name_score > 0:
+                name_entity = old_fields['entity'].iloc[best_idx]
+
+        geom_hit = geom_overlap >= GEOMETRY_OVERLAP_THRESHOLD
+        name_hit = name_score >= NAME_SIMILARITY_THRESHOLD
+        if not (geom_hit or name_hit):
+            continue
+
+        reasons = []
+        if geom_hit:
+            reasons.append(f"geometry overlap {geom_overlap:.0%} with entity {geom_entity}")
+        if name_hit:
+            reasons.append(f"name similarity {name_score:.0f}/100 with entity {name_entity}")
+
+        rows.append(
+            {
+                'dataset': dataset,
+                'resource': resource,
+                'organisation': '',
+                'reference': '',
+                'status': 'warn',
+                'error_code': 'possible_reference_churn_fuzzy_match',
+                'message': (
+                    f"Entity {new_row['entity']} is a possible match for an existing entity "
+                    f"({'; '.join(reasons)}) - review before treating as genuinely new."
+                ),
+            }
+        )
+
+    return rows
+
+
 def _duplicate_reference_organisation_error_rows(old_df, new_df, dataset, resource):
     """
         Collapses what used to be a separate duplicate_prefix_reference_organisation check:
@@ -517,7 +639,18 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                 resource,
             )
         )
-        
+
+        # Companion to the exact-match check above: catches a likely-same entity that the
+        # exact match misses because a boundary or name also shifted slightly. Non-blocking.
+        validation_rows.extend(
+            _possible_reference_churn_fuzzy_match_rows(
+                old_resource_df,
+                new_resource_only_df,
+                dataset,
+                resource,
+            )
+        )
+
         # Check for duplicate entities based on reference and organisation fields only between the new resource and old resource
         validation_rows.extend(
             _duplicate_reference_organisation_error_rows(
@@ -790,7 +923,10 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                 # endpoint's registered organisation, the best available source of truth when
                 # the per-row value is missing.
                 entity_org_for_ranges = {
-                    entity: (org if org else organisation_name)
+                    # pd.read_csv(..., dtype=str) still converts a blank cell to float('nan'),
+                    # not "" - NaN is truthy in Python, so `org if org else ...` alone would
+                    # silently keep it and write the literal text "nan" into the CSV.
+                    entity: (org if isinstance(org, str) and org else organisation_name)
                     for entity, org in post_entity_org.items()
                 }
                 # Mirror the blank-organisation suppression above: listed-building still gets
