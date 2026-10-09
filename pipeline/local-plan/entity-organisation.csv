@@ -530,6 +530,7 @@ local-plan,4220016,4220017,local-authority:BAI
 local-plan,4220663,4220663,local-authority:BAI
 local-plan,4220018,4220019,local-authority:BAN
 local-plan,4220664,4220664,local-authority:BAN
+local-plan,4221198,4221198,local-authority:BAN
 local-plan,4220128,4220128,local-authority:BAS
 local-plan,4220134,4220134,local-authority:BAS
 local-plan,4220185,4220186,local-authority:BAS
@@ -1752,6 +1753,7 @@ plan-timetable,5100210,5100211,local-authority:BAN
 plan-timetable,5100314,5100314,local-authority:BAN
 plan-timetable,5100351,5100353,local-authority:BAN
 plan-timetable,5103615,5103637,local-authority:BAN
+plan-timetable,5111628,5111639,local-authority:BAN
 plan-timetable,5100262,5100264,local-authority:BAS
 plan-timetable,5100267,5100268,local-authority:BAS
 plan-timetable,5100358,5100361,local-authority:BAS
@@ -2776,5 +2778,3 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221198,4221198,local-authority:BAN
-plan-timetable,5111628,5111639,local-authority:BAN
