@@ -738,7 +738,7 @@ def test_collect_validation_rows_blocks_on_fetch_failure_with_real_history():
 
     matching = [row for row in rows if row["error_code"] == "previous_resource_not_found"]
     assert len(matching) == 1
-    assert matching[0]["status"] == "error"
+    assert matching[0]["status"] == "blocked"
 
 
 def test_collect_validation_rows_does_not_block_genuinely_new_endpoint():

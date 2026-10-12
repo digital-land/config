@@ -211,7 +211,7 @@ def test_process_csv_success(
     out, err = capfd.readouterr()
 
     assert failed_downloads == []
-    assert "success" in output_df["status"].values
+    assert "assigned" in output_df["status"].values
     assert "Downloaded: test-resource" not in out
 
     updated_lookup = tmp_path / "pipeline/test-collection/lookup.csv"
@@ -394,7 +394,7 @@ def test_process_csv_backfills_missing_organisation_in_lookup(
     )
 
     assert failed_downloads == []
-    assert "success" in output_df["status"].values
+    assert "assigned" in output_df["status"].values
     updated_lookup = (tmp_path / "pipeline/test-collection/lookup.csv").read_text()
     assert ",test-org,ref1,10,,," in updated_lookup, (
         "New entity 10's blank organisation should be backfilled with the "
@@ -469,7 +469,7 @@ def test_process_csv_single_source_uses_blank_organisation_and_skips_entity_rang
     )
 
     assert failed_downloads == []
-    assert "success" in output_df["status"].values
+    assert "assigned" in output_df["status"].values
     assert passed_organisations == [[""]]
     assert ",,ref1,10,,," in (
         tmp_path / "pipeline/test-collection/lookup.csv"
@@ -546,7 +546,7 @@ def test_process_csv_single_source_non_listed_building_uses_real_organisation(
     )
 
     assert failed_downloads == []
-    assert "success" in output_df["status"].values
+    assert "assigned" in output_df["status"].values
     assert passed_organisations == [["test-org"]]
     assert entity_org_file.read_text() == (
         "dataset,entity-minimum,entity-maximum,organisation\n"

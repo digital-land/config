@@ -346,7 +346,7 @@ def _duplicate_error_rows(matches, dataset, resource, error_code, message_factor
             'resource': resource,
             'organisation': match_row.get('organisation_new', ''),
             'reference': match_row.get('reference_new', ''),
-            'status': 'error',
+            'status': 'blocked',
             'error_code': error_code,
             'message': message_factory(match_row),
         }
@@ -531,7 +531,7 @@ def _duplicate_reference_organisation_in_new_resource_error_rows(df, dataset, re
             'resource': resource,
             'organisation': dup_row.get('organisation', ''),
             'reference': dup_row.get('reference', ''),
-            'status': 'error',
+            'status': 'blocked',
             'error_code': 'duplicate_reference_organisation_in_new_resource',
             'message': f"Duplicate reference and entry-date found in resource {dup_row['fingerprint']}.",
         }
@@ -598,7 +598,7 @@ def _missing_reference_error_rows(df, dataset, resource):
             'resource': resource,
             'organisation': missing_row.get('organisation', ''),
             'reference': missing_row.get('reference', ''),
-            'status': 'error',
+            'status': 'blocked',
             'error_code': 'missing_reference',
             'message': (
                 f"Missing reference for entity {missing_row.get('entity')} "
@@ -636,7 +636,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                     'resource': resource,
                     'organisation': organisation_name,
                     'reference': '',
-                    'status': 'error',
+                    'status': 'blocked',
                     'error_code': 'previous_resource_not_found',
                     'message': 'Previous resource not found.',
                 }
@@ -663,7 +663,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                 'resource': resource,
                 'organisation': organisation_name,
                 'reference': '',
-                'status': 'error',
+                'status': 'blocked',
                 'error_code': 'previous_resource_empty',
                 'message': f'Previous resource has no entities {old_resource_hash}.',
             }
@@ -700,7 +700,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                     'resource': resource,
                     'organisation': organisation_name,
                     'reference': '',
-                    'status': 'error',
+                    'status': 'blocked',
                     'error_code': 'low_entity_retention',
                     'message': (
                         f"Only {retention_pct:.1f}% of the previous resource's entities "
@@ -956,7 +956,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, skip_checks=Fa
                                         "resource": resource,
                                         "organisation": organisation_name,
                                         "reference": "",
-                                        "status": "error",
+                                        "status": "blocked",
                                         "error_code": "invalid_uri_issue",
                                         "message": "Resource has known issues with invalid URIs that require manual review.",
                                     }
@@ -976,7 +976,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, skip_checks=Fa
                             "resource": resource,
                             "organisation": organisation_name,
                             "reference": "",
-                            "status": "success",
+                            "status": "assigned",
                             "entities_created": len(new_entities),
                             "error_code": "",
                             "message": f"Entities assigned successfully. [{sorted(new_entities)[-5:]}]",
@@ -1065,12 +1065,15 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, skip_checks=Fa
                             print(f"\033[95mAppended entity range {min_entity}-{max_entity} for {org_value} to {entity_org_file}\033[0m")
 
             except Exception as e:
+                # An unhandled exception is a pipeline/engineering problem, not a data-quality
+                # finding a reviewer can action - 'failed', same as current_resource_empty,
+                # rather than 'blocked'.
                 print(f"Failed to assign entities for resource: {resource}")
                 logging.error(f"Error: {str(e)}", exc_info=True)
                 output_df = pd.concat([output_df, pd.DataFrame([{
                     "dataset": dataset,
                     "resource": resource,
-                    "status": "error",
+                    "status": "failed",
                     "error_code": type(e).__name__,
                     "message": str(e)
                 }])], ignore_index=True)
@@ -1229,10 +1232,10 @@ def run_batch_assign_entities(
             batch_size=batch_size,
             start_batch=start_batch
         )
-        # 'failed' (e.g. current_resource_empty) is a blocking outcome like 'error', just a
+        # 'failed' (e.g. current_resource_empty) is a blocking outcome like 'blocked', just a
         # distinct label for cases that need an engineer rather than a data reviewer.
-        error_count = len(output_df[output_df['status'].isin(['error', 'failed'])])
-        success_count = len(output_df[output_df['status'] == 'success'])
+        error_count = len(output_df[output_df['status'].isin(['blocked', 'failed'])])
+        success_count = len(output_df[output_df['status'] == 'assigned'])
 
         print(f"\nTotal failed downloads: {len(failed_downloads)}")
         print(f"Total failed assign-entities operations: {error_count}")
