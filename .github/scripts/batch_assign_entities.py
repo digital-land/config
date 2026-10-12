@@ -1018,11 +1018,31 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, skip_checks=Fa
                     .to_dict()
                 )
                 new_dataset_entities = set(post_entity_org) - pre_dataset_entities
-                # entity-organisation.csv always wants a real organisation, even for entities
-                # whose own row had no organisation (missing_organisation, now non-blocking) -
-                # lookup.csv keeps the blank per-row value as-is, but here fall back to the
-                # endpoint's registered organisation, the best available source of truth when
-                # the per-row value is missing.
+                # A new entity whose own row had no organisation (missing_organisation, now
+                # non-blocking) otherwise sits in lookup.csv with a permanently blank
+                # organisation - backfill it with the endpoint's registered organisation, the
+                # best available source of truth when the per-row value is missing. Mirrors the
+                # single-source listed-building suppression below: that case still gets no
+                # organisation on purpose, so it's left blank.
+                if new_dataset_entities and not (scope == "single-source" and dataset == "listed-building"):
+                    blank_new_entities = {
+                        entity
+                        for entity, org in post_entity_org.items()
+                        if entity in new_dataset_entities and not (isinstance(org, str) and org)
+                    }
+                    if blank_new_entities:
+                        blank_mask = (post_lookup_df["prefix"] == dataset) & post_lookup_df[
+                            "entity"
+                        ].astype(str).isin({str(entity) for entity in blank_new_entities})
+                        post_lookup_df.loc[blank_mask, "organisation"] = organisation_name
+                        # lookup.csv uses CRLF line endings throughout the repo - pandas defaults
+                        # to LF, which would rewrite every untouched line and bury the real
+                        # change in a full-file diff, so the line terminator is set explicitly.
+                        post_lookup_df.to_csv(real_lookup_path, index=False, lineterminator="\r\n")
+                        post_entity_org.update({entity: organisation_name for entity in blank_new_entities})
+                # entity-organisation.csv always wants a real organisation too, as a safety net
+                # for any entity the backfill above didn't cover (e.g. the listed-building
+                # suppression, which leaves lookup.csv's row genuinely blank on purpose).
                 entity_org_for_ranges = {
                     # pd.read_csv(..., dtype=str) still converts a blank cell to float('nan'),
                     # not "" - NaN is truthy in Python, so `org if org else ...` alone would
