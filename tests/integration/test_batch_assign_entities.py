@@ -253,7 +253,6 @@ def test_process_csv_detects_duplicate_all_fields(
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=False,
     )
 
@@ -314,7 +313,6 @@ def test_process_csv_detects_duplicate_reference_organisation_despite_other_fiel
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=False,
     )
 
@@ -329,7 +327,7 @@ def test_process_csv_detects_duplicate_reference_organisation_despite_other_fiel
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
 @patch("batch_assign_entities.pd.read_csv")
 @patch("batch_assign_entities.shutil.copy")
-def test_process_csv_detects_large_new_entities(
+def test_process_csv_detects_low_entity_retention(
     mock_copy,
     mock_read_csv,
     mock_get_old_hash,
@@ -338,6 +336,10 @@ def test_process_csv_detects_large_new_entities(
     mock_endpoints_with_history,
     temp_dirs,
 ):
+    """Replaces the old growth-only large_number_of_new_entities check (see ticket
+    section 3): none of the 10 old entities carry over into the new resource, so
+    retention is 0% - well below the threshold, regardless of how much growth there
+    is alongside it."""
     cache_dir, resource_dir = temp_dirs
     resource_file = resource_dir / "resource123"
     resource_file.write_text("test data")
@@ -350,16 +352,16 @@ def test_process_csv_detects_large_new_entities(
             "value": [f"org{i}" for i in range(1, 11)] + [f"ref{i}" for i in range(1, 11)],
         }
     )
-    new_entities = list(range(1, 101))
+    new_entities = list(range(11, 101))
     new_resource_df = pd.DataFrame(
         {
             "entity": new_entities * 2,
-            "field": ["organisation"] * 100 + ["reference"] * 100,
-            "value": [f"org{i}" for i in range(1, 101)] + [f"ref{i}" for i in range(1, 101)],
+            "field": ["organisation"] * 90 + ["reference"] * 90,
+            "value": [f"org{i}" for i in range(11, 101)] + [f"ref{i}" for i in range(11, 101)],
         }
     )
     lookup_df = pd.DataFrame(
-        {"prefix": ["ca"] * 100, "organisation": [f"org{i}" for i in range(1, 101)], "entity": new_entities}
+        {"prefix": ["ca"] * 90, "organisation": [f"org{i}" for i in range(11, 101)], "entity": new_entities}
     )
 
     mock_batch_hashes.return_value = {"endpoint456": "hash123"}
@@ -372,13 +374,12 @@ def test_process_csv_detects_large_new_entities(
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=False,
     )
 
-    assert "large_number_of_new_entities" in output_df["error_code"].values
-    large_new_rows = output_df[output_df["error_code"] == "large_number_of_new_entities"]
-    assert "large number of new entities" in large_new_rows.iloc[0]["message"].lower()
+    assert "low_entity_retention" in output_df["error_code"].values
+    retention_rows = output_df[output_df["error_code"] == "low_entity_retention"]
+    assert "retention" in retention_rows.iloc[0]["message"].lower()
 
 
 @patch("batch_assign_entities.get_endpoints_with_any_history")
@@ -419,7 +420,6 @@ def test_process_csv_detects_duplicate_reference_organisation_in_new_resource(
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=False,
     )
 
@@ -460,7 +460,6 @@ def test_process_csv_detects_missing_organisation(
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=False,
     )
 
@@ -503,7 +502,6 @@ def test_process_csv_detects_missing_reference(
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=False,
     )
 
@@ -544,7 +542,6 @@ def test_process_csv_skip_checks_bypasses_validation(
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=True,
     )
 
@@ -714,7 +711,6 @@ def test_collect_validation_rows_reports_previous_resource_empty_and_missing_fie
         old_resource_df,
         "conservation-area",
         "resource123",
-        new_entity_threshold=10,
         old_resource_hash="hash"
     )
 
@@ -736,7 +732,6 @@ def test_collect_validation_rows_blocks_on_fetch_failure_with_real_history():
         None,  # old_resource_df - fetch failed to resolve a baseline
         "conservation-area",
         "resource123",
-        new_entity_threshold=10,
         old_resource_hash=None,
         endpoint_has_history=True,
     )
@@ -756,7 +751,6 @@ def test_collect_validation_rows_does_not_block_genuinely_new_endpoint():
         None,  # old_resource_df - no previous resource exists at all
         "conservation-area",
         "resource123",
-        new_entity_threshold=10,
         old_resource_hash=None,
         endpoint_has_history=False,
     )
@@ -798,7 +792,6 @@ def test_process_csv_exception_handling(mock_read_csv, mock_check):
             resource_dir,
             issue_df,
             cache_dir,
-            new_entity_threshold=10,
             skip_checks=False,
         )
 

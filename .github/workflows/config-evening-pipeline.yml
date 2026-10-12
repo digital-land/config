@@ -43,11 +43,6 @@ on:
         required: false
         type: boolean
         default: false
-      new_entities_threshold:
-        description: "The percentage threshold for new entities to be assigned before triggering a warning (optional)"
-        required: false
-        type: number
-        default: 10
       commit:
         description: "Whether to commit results to main (set to false for dry runs)"
         required: false
@@ -209,7 +204,6 @@ jobs:
           TRIGGERED_BY: ${{ github.actor || 'unknown' }}
           SCOPE: ${{ matrix.scope }}
           SKIP_CHECKS: ${{ github.event.inputs.skip_checks }}
-          NEW_ENTITIES_THRESHOLD: ${{ github.event.inputs.new_entities_threshold }}
           COMMIT: ${{ env.WRITES_ENABLED != 'true' && 'false' || github.event.inputs.commit }}
         run: |
           ARGS+=(--scope "$SCOPE")
@@ -220,10 +214,6 @@ jobs:
 
           if [ "$SKIP_CHECKS" = "true" ]; then
             ARGS+=(--skip-checks)
-          fi
-
-          if [ -n "$NEW_ENTITIES_THRESHOLD" ]; then
-            ARGS+=(--new-entity-threshold "$NEW_ENTITIES_THRESHOLD")
           fi
 
           if [ -n "$TRIGGERED_BY" ]; then

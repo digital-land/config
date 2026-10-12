@@ -43,6 +43,17 @@ NAME_SIMILARITY_THRESHOLD = 90  # rapidfuzz token_sort_ratio, 0-100
 # checked inline so a new non-blocking status only needs adding in one place.
 NON_BLOCKING_STATUSES = {'warn', 'skipped'}
 
+# Replaces the old growth-only large_number_of_new_entities check entirely (see ticket
+# section 3): growth divided by the *current* resource's size never matched what the old
+# error message claimed (the *previous* version), and tested against live data it added no
+# discriminating power once retention was accounted for - every case it caught, retention
+# caught too, and raising it only ever downgraded already-low-retention resources rather
+# than flagging anything new. A resource is safe to auto-assign when at least this
+# percentage of the previous resource's entities are still present; below it, manual
+# review is required. 90 is a starting value, open to recalibration once more real
+# examples are seen.
+RETENTION_THRESHOLD = 90
+
 
 def run_command(cmd, capture_output=True, check=True):
     """Run a shell command and return stdout when requested."""
@@ -190,10 +201,15 @@ ORDER BY endpoint"""
 
 def get_endpoints_with_any_history(endpoints: list) -> Optional[set]:
     """
-    Which of these endpoints have ANY row in reporting_historic_endpoints, regardless of
-    resource_end_date - distinguishes a genuinely brand-new endpoint (nothing to compare
-    against, ever) from one that has real history but get_old_resource_hashes_batch simply
-    failed to resolve a baseline for.
+    Which of these endpoints have at least one SUPERSEDED resource (resource_end_date set)
+    in reporting_historic_endpoints - distinguishes a genuinely brand-new endpoint (nothing
+    to compare against, ever) from one that has real history but get_old_resource_hashes_batch
+    simply failed to resolve a baseline for.
+
+    Deliberately excludes rows with a blank resource_end_date: every endpoint being
+    processed here is, by definition, actively being crawled right now, so it always has at
+    least its own current (not-yet-superseded) row - counting that as "history" would make
+    this check true for almost everything and defeat the point of the distinction.
 
     Returns None (not an empty set) if the query itself fails, so a network blip can't be
     mistaken for "no endpoints have history" - the caller should then fail safe and treat
@@ -206,7 +222,8 @@ def get_endpoints_with_any_history(endpoints: list) -> Optional[set]:
     endpoint_list = ', '.join([f"'{ep}'" for ep in endpoints])
     query = f"""SELECT DISTINCT endpoint
 FROM reporting_historic_endpoints
-WHERE endpoint IN ({endpoint_list})"""
+WHERE resource_end_date IS NOT NULL AND resource_end_date != ''
+AND endpoint IN ({endpoint_list})"""
 
     params = urlencode({"sql": query})
     url = f"{DATASETTE_BASE_URL}?{params}"
@@ -592,7 +609,7 @@ def _missing_reference_error_rows(df, dataset, resource):
     ]
 
 
-def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, new_entity_threshold, old_resource_hash,organisation_name='', endpoint_has_history=True):
+def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, old_resource_hash,organisation_name='', endpoint_has_history=True):
     validation_rows = []
     current_entities = set(current_resource_df['entity'])
 
@@ -671,8 +688,12 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
     if len(old_entities) > 0 and len(new_entity_ids) > 0:
         new_resource_only_df = current_resource_df[current_resource_df['entity'].isin(new_entity_ids)]
 
-        # If the number of new entities exceeds the threshold compared to the previous resource, flag for review
-        if len(new_entity_ids) > (new_entity_threshold / 100) * len(current_entities):
+        # Retention: what proportion of the previous resource's entities are still present
+        # in the current one. Low retention is the churn/reference-change signal (old
+        # entities disappearing); growth alone isn't, which is why it's not checked here.
+        retained_count = len(old_entities & current_entities)
+        retention_pct = (retained_count / len(old_entities)) * 100
+        if retention_pct < RETENTION_THRESHOLD:
             validation_rows.append(
                 {
                     'dataset': dataset,
@@ -680,11 +701,12 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                     'organisation': organisation_name,
                     'reference': '',
                     'status': 'error',
-                    'error_code': 'large_number_of_new_entities',
+                    'error_code': 'low_entity_retention',
                     'message': (
-                        f"Resource contains a large number of new entities ({len(new_entity_ids)}) "
-                        f"compared to the previous version ({len(old_entities)}). "
-                        f"Old resource hash: {old_resource_hash}."
+                        f"Only {retention_pct:.1f}% of the previous resource's entities "
+                        f"({retained_count} of {len(old_entities)}) are still present in the "
+                        f"current resource - below the {RETENTION_THRESHOLD}% retention "
+                        f"threshold. Old resource hash: {old_resource_hash}."
                     ),
                 }
             )
@@ -740,7 +762,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
     return validation_rows, old_entities, new_entity_ids
 
 
-def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_threshold=10, skip_checks=False, invalid_uri_issues=None, batch_size=0, start_batch=1):
+def process_csv(scope, resource_dir, issue_summary_df, cache_dir, skip_checks=False, invalid_uri_issues=None, batch_size=0, start_batch=1):
     """
     Uses provided file path to automatically process and assign unknown entities
     """
@@ -881,7 +903,6 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                         old_resource_df,
                         dataset,
                         resource,
-                        new_entity_threshold,
                         old_resource_hash,
                         organisation_name=organisation_name,
                         endpoint_has_history=endpoint in endpoints_with_history,
@@ -896,7 +917,14 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
                                     & (invalid_uri_issues["dataset"] == dataset)
                                 ]
                         if len(iui) > 0:
-                            invalid_uri_entities = get_invalid_uri_entities(cache_dir, resource)
+                            # Scope to genuinely NEW entities only. The issue log covers every
+                            # entity touched by this resource, including pre-existing ones that
+                            # were correctly re-matched to an existing lookup entry (e.g. a
+                            # multi-authority resource resending an organisation's data under a
+                            # reference that already resolves) - excluding those from promotion
+                            # wouldn't just skip creating something new, it would strip their
+                            # existing, already-valid lookup.csv row entirely.
+                            invalid_uri_entities = get_invalid_uri_entities(cache_dir, resource) & new_entities
                             if invalid_uri_entities:
                                 # Specific entities identified - exclude just those from
                                 # promotion (see promotion step below) rather than blocking
@@ -1077,7 +1105,6 @@ def ensure_specification_dir(specification_dir: Path = Path("specification")) ->
 def run_batch_assign_entities(
     scope: str = 'odp',
     cache_dir: Path = Path("var/cache/"),
-    new_entity_threshold: int = 10,
     resources: Optional[str] = None,
     skip_checks: bool = False,
     triggered_by: Optional[str] = None,
@@ -1177,7 +1204,6 @@ def run_batch_assign_entities(
             resource_dir,
             issue_summary_df,
             cache_dir,
-            new_entity_threshold,
             skip_checks,
             invalid_uri_issues,
             batch_size=batch_size,
@@ -1236,13 +1262,6 @@ def run_batch_assign_entities(
     help="Skip validation checks and directly assign entities.",
 )
 @click.option(
-    "--new-entity-threshold",
-    default=10,
-    show_default=True,
-    type=click.IntRange(min=0, max=100),
-    help="The threshold for the number of new entities to be assigned in percentage compared to the previous version of the resource.",
-)
-@click.option(
     "--commit/--no-commit",
     default=True,
     show_default=True,
@@ -1266,7 +1285,6 @@ def run_batch_assign_entities(
 def main(
     scope: str = 'odp',
     cache_dir: str = "var/cache/",
-    new_entity_threshold: int = 10,
     resources: Optional[str] = None,
     skip_checks: bool = False,
     triggered_by: Optional[str] = None,
@@ -1278,7 +1296,6 @@ def main(
     print("Input options:")
     print(f"  scope={scope}")
     print(f"  cache_dir={cache_dir}")
-    print(f"  new_entity_threshold={new_entity_threshold}")
     print(f"  resources={resources}")
     print(f"  skip_checks={skip_checks}")
     print(f"  triggered_by={triggered_by}")
@@ -1290,7 +1307,6 @@ def main(
     run_batch_assign_entities(
         scope=scope,
         cache_dir=cache_dir,
-        new_entity_threshold=new_entity_threshold,
         resources=resources,
         skip_checks=skip_checks,
         triggered_by=triggered_by,
