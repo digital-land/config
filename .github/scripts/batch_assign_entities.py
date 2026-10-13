@@ -216,12 +216,14 @@ ORDER BY endpoint"""
     
     params = urlencode({"sql": query})
     url = f"{DATASETTE_BASE_URL}?{params}"
-    
-    try:
-        response = requests.get(url)
-        response.raise_for_status()
-        result_df = pd.read_csv(StringIO(response.text), dtype=str, low_memory=False)
 
+    try:
+        # fetch_csv_with_retry rather than a bare requests.get - this is called once per
+        # whole run, so a single transient Datasette blip here (not uncommon under load,
+        # see fetch_csv_with_retry's own docstring) would otherwise make every endpoint
+        # look like it has no history, blocking every resource in the batch rather than
+        # just this one call.
+        result_df = fetch_csv_with_retry(url)
         # Create a mapping of endpoint -> resource
         endpoint_resource_map = dict(zip(result_df['endpoint'], result_df['resource']))
         return endpoint_resource_map
@@ -260,16 +262,16 @@ AND endpoint IN ({endpoint_list})"""
     url = f"{DATASETTE_BASE_URL}?{params}"
 
     try:
-        response = requests.get(url)
-        response.raise_for_status()
-        result_df = pd.read_csv(StringIO(response.text), dtype=str, low_memory=False)
+        # fetch_csv_with_retry rather than a bare requests.get - see
+        # get_old_resource_hashes_batch for why this matters at this call frequency.
+        result_df = fetch_csv_with_retry(url)
         return set(result_df['endpoint'].dropna())
     except Exception as e:
         logger.error(f"Error fetching endpoint history presence: {e}")
         return None
 
 
-def get_old_resource_df_from_hash(resource_hash: str, collection_name: str, dataset: str):
+def get_old_resource_df_from_hash(resource_hash: str, collection_name: str, dataset: str, max_retries=5, backoff_seconds=10):
     """
     Fetch the transformed CSV for an old resource given its hash.
     """
@@ -277,16 +279,32 @@ def get_old_resource_df_from_hash(resource_hash: str, collection_name: str, data
         transformed_url = (
             f"https://files.planning.data.gov.uk/{collection_name}-collection/transformed/{dataset}/{resource_hash}.csv"
         )
-        transformed_response = requests.get(transformed_url)
-        transformed_response.raise_for_status()
-        
+        # Retried, same as fetch_csv_with_retry - this feeds every duplicate/retention
+        # check against the previous resource, so a transient blip here would otherwise
+        # silently fail this one resource over to previous_resource_not_found (blocking)
+        # rather than actually comparing against its real history.
+        last_error = None
+        transformed_response = None
+        for attempt in range(1, max_retries + 1):
+            try:
+                transformed_response = requests.get(transformed_url, timeout=120)
+                transformed_response.raise_for_status()
+                break
+            except requests.RequestException as e:
+                last_error = e
+                logger.warning(f"Attempt {attempt}/{max_retries} failed fetching {transformed_url}: {e}")
+                if attempt < max_retries:
+                    sleep(backoff_seconds * attempt)
+        if transformed_response is None:
+            raise RuntimeError(f"Failed to fetch {transformed_url} after {max_retries} attempts: {last_error}")
+
         # Save the old transformed resource to resource/old before reading
         old_resource_dir = Path("resource") / "old"
         old_resource_dir.mkdir(parents=True, exist_ok=True)
         old_file_path = old_resource_dir / f"{resource_hash}.csv"
         old_file_path.write_bytes(transformed_response.content)
-        
-        
+
+
         return pd.read_csv(old_file_path, dtype=str, low_memory=False)
     except Exception as e:
         logger.error(f"Error downloading old resource {resource_hash}: {e}")

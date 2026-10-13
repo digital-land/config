@@ -7,6 +7,7 @@ from unittest.mock import MagicMock, Mock, patch
 import pathlib
 import pandas as pd
 import pytest
+import requests
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / ".github/scripts"))
 
@@ -15,6 +16,7 @@ from batch_assign_entities import (
     _collect_validation_rows,
     _make_fingerprints,
     _possible_reference_churn_fuzzy_match_rows,
+    _promote,
     download_file,
     download_urls,
     ensure_specification_dir,
@@ -101,6 +103,34 @@ def test_get_endpoints_with_any_history_returns_none_on_failure(mock_get):
     mock_get.side_effect = Exception("network error")
     result = get_endpoints_with_any_history(["endpoint-a"])
     assert result is None
+
+
+@patch("batch_assign_entities.sleep")
+@patch("batch_assign_entities.requests.get")
+def test_get_endpoints_with_any_history_retries_transient_failure_then_succeeds(mock_get, mock_sleep):
+    """
+    A 504 (the real failure mode seen from Datasette under load) must be retried via
+    fetch_csv_with_retry, not fail this (whole-run) call on the first blip - that would
+    make every endpoint look like it has no history, blocking every resource in the
+    batch rather than just failing this one call.
+    """
+    # requests.get itself succeeds (a connection is made) - it's raise_for_status() that
+    # raises HTTPError for a real 504, same as fetch_csv_with_retry expects to catch.
+    timeout_response = Mock(
+        raise_for_status=Mock(side_effect=requests.HTTPError("504 Server Error: Gateway Time-out"))
+    )
+    success_response = Mock(
+        status_code=200,
+        text="endpoint\nendpoint-a\n",
+        raise_for_status=lambda: None,
+    )
+    mock_get.side_effect = [timeout_response, timeout_response, success_response]
+
+    result = get_endpoints_with_any_history(["endpoint-a", "endpoint-b"])
+
+    assert result == {"endpoint-a"}
+    assert mock_get.call_count == 3
+    assert mock_sleep.call_count == 2
 
 
 @patch("subprocess.run")
@@ -765,6 +795,51 @@ def test_collect_validation_rows_does_not_block_genuinely_new_endpoint():
     assert "previous_resource_not_found" not in [row["error_code"] for row in rows]
 
 
+def _entity_rows(entities, reference_prefix):
+    rows = []
+    for entity in entities:
+        rows.append({"entity": entity, "field": "reference", "value": f"{reference_prefix}-{entity}"})
+        rows.append({"entity": entity, "field": "organisation", "value": "org1"})
+    return pd.DataFrame(rows)
+
+
+def test_collect_validation_rows_retention_threshold_is_configurable():
+    """
+    Proves ValidationConfig.retention_threshold is actually read by the retention
+    check, not just plumbed through and ignored - the same 80% retention (8 of 10 old
+    entities still present) blocks under the default 90% threshold but not under a
+    looser 70% override.
+    """
+    old_resource_df = _entity_rows(range(1, 11), "ref")  # entities 1-10
+    current_resource_df = pd.concat(
+        [
+            _entity_rows(range(1, 9), "ref"),  # entities 1-8 retained
+            _entity_rows([99], "new-ref"),  # one genuinely new entity
+        ],
+        ignore_index=True,
+    )
+
+    rows_default, _, _ = _collect_validation_rows(
+        current_resource_df,
+        old_resource_df,
+        "conservation-area",
+        "resource123",
+        old_resource_hash="hash",
+        config=ValidationConfig(),
+    )
+    assert "low_entity_retention" in [r["error_code"] for r in rows_default]
+
+    rows_loosened, _, _ = _collect_validation_rows(
+        current_resource_df,
+        old_resource_df,
+        "conservation-area",
+        "resource123",
+        old_resource_hash="hash",
+        config=ValidationConfig(retention_threshold=70),
+    )
+    assert "low_entity_retention" not in [r["error_code"] for r in rows_loosened]
+
+
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.pd.read_csv")
 def test_process_csv_exception_handling(mock_read_csv, mock_check):
@@ -1004,3 +1079,150 @@ def test_fuzzy_match_returns_empty_for_empty_inputs():
     rows = _possible_reference_churn_fuzzy_match_rows(empty_df, empty_df, "test-dataset", "resource123", ValidationConfig())
 
     assert rows == []
+
+
+def _write_promote_fixtures(collection_name, cache_lookup_rows_csv):
+    """Set up the cache + real lookup.csv/entity-organisation.csv files _promote reads
+    and writes, relative to the isolated tmp_path cwd. Returns (cache_dir, lookup_path,
+    entity_org_path)."""
+    cache_dir = Path("var/cache")
+    cache_lookup_path = cache_dir / "assign_entities" / collection_name / "pipeline" / "lookup.csv"
+    cache_lookup_path.parent.mkdir(parents=True, exist_ok=True)
+    cache_lookup_path.write_text(
+        "prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date\n"
+        + cache_lookup_rows_csv
+    )
+
+    lookup_path = Path("pipeline") / collection_name / "lookup.csv"
+    lookup_path.parent.mkdir(parents=True, exist_ok=True)
+    lookup_path.write_text(
+        "prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date\n"
+    )
+    entity_org_path = Path("pipeline") / collection_name / "entity-organisation.csv"
+    entity_org_path.write_text("dataset,entity-minimum,entity-maximum,organisation\n")
+
+    return cache_dir, lookup_path, entity_org_path
+
+
+def test_promote_copies_cache_lookup_and_appends_entity_organisation_range():
+    cache_dir, lookup_path, entity_org_path = _write_promote_fixtures(
+        "test-collection",
+        "test-dataset,res1,,1,org-x,ref1,100,,,\n",
+    )
+
+    _promote(
+        cache_dir,
+        "test-collection",
+        "test-dataset",
+        "org-x",
+        "odp",
+        lookup_path,
+        invalid_uri_entities=set(),
+        pre_dataset_entities=set(),
+    )
+
+    assert set(pd.read_csv(lookup_path, dtype=str)["entity"]) == {"100"}
+    assert entity_org_path.read_text() == (
+        "dataset,entity-minimum,entity-maximum,organisation\n"
+        "test-dataset,100,100,org-x\n"
+    )
+
+
+def test_promote_excludes_invalid_uri_entities_from_real_lookup():
+    cache_dir, lookup_path, entity_org_path = _write_promote_fixtures(
+        "test-collection",
+        "test-dataset,res1,,1,org-x,ref1,100,,,\n"
+        "test-dataset,res1,,2,org-x,ref2,200,,,\n",
+    )
+
+    _promote(
+        cache_dir,
+        "test-collection",
+        "test-dataset",
+        "org-x",
+        "odp",
+        lookup_path,
+        invalid_uri_entities={"100"},
+        pre_dataset_entities=set(),
+    )
+
+    # Excluded entity never reaches the real lookup.csv at all - not just status quo,
+    # genuinely absent, so it resurfaces as unresolved next run.
+    assert set(pd.read_csv(lookup_path, dtype=str)["entity"]) == {"200"}
+    # Only the promoted entity (200) gets a range.
+    assert entity_org_path.read_text() == (
+        "dataset,entity-minimum,entity-maximum,organisation\n"
+        "test-dataset,200,200,org-x\n"
+    )
+
+
+def test_promote_backfills_blank_organisation_in_lookup_and_ranges():
+    cache_dir, lookup_path, entity_org_path = _write_promote_fixtures(
+        "test-collection",
+        # Blank organisation - the missing_organisation warn case, now non-blocking.
+        "test-dataset,res1,,1,,ref1,100,,,\n",
+    )
+
+    _promote(
+        cache_dir,
+        "test-collection",
+        "test-dataset",
+        "org-real",
+        "odp",
+        lookup_path,
+        invalid_uri_entities=set(),
+        pre_dataset_entities=set(),
+    )
+
+    written_df = pd.read_csv(lookup_path, dtype=str)
+    assert written_df.loc[written_df["entity"] == "100", "organisation"].iloc[0] == "org-real"
+    assert "test-dataset,100,100,org-real" in entity_org_path.read_text()
+
+
+def test_promote_respects_pb1164_exclusion():
+    cache_dir, lookup_path, entity_org_path = _write_promote_fixtures(
+        "conservation-area",
+        "conservation-area,res1,,1,government-organisation:PB1164,ref1,100,,,\n",
+    )
+
+    _promote(
+        cache_dir,
+        "conservation-area",
+        "conservation-area",
+        "government-organisation:PB1164",
+        "odp",
+        lookup_path,
+        invalid_uri_entities=set(),
+        pre_dataset_entities=set(),
+    )
+
+    # The entity is still promoted into lookup.csv...
+    assert "100" in set(pd.read_csv(lookup_path, dtype=str)["entity"])
+    # ...but PB1164 never gets its own entity-organisation.csv range on this dataset -
+    # the owning local authority does, recorded separately.
+    assert entity_org_path.read_text() == "dataset,entity-minimum,entity-maximum,organisation\n"
+
+
+def test_promote_single_source_listed_building_skips_entity_organisation_range():
+    cache_dir, lookup_path, entity_org_path = _write_promote_fixtures(
+        "listed-building",
+        # Blank organisation, deliberate for single-source listed-building.
+        "listed-building,res1,,1,,ref1,100,,,\n",
+    )
+
+    _promote(
+        cache_dir,
+        "listed-building",
+        "listed-building",
+        "",
+        "single-source",
+        lookup_path,
+        invalid_uri_entities=set(),
+        pre_dataset_entities=set(),
+    )
+
+    # Stays blank - not backfilled for this specific suppression.
+    written_df = pd.read_csv(lookup_path, dtype=str)
+    assert written_df.loc[written_df["entity"] == "100", "organisation"].isna().all()
+    # No entity-organisation.csv range either.
+    assert entity_org_path.read_text() == "dataset,entity-minimum,entity-maximum,organisation\n"
