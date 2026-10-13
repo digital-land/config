@@ -1,3 +1,44 @@
+"""
+Assigns entities to resources flagged with an 'unknown entity' issue, across the odp,
+mandated and single-source scopes (see run_batch_assign_entities/main's --scope option).
+
+Flow (per resource, see process_csv): fetch the raw resource if it isn't already cached
+-> _run_assignment runs digital-land-python's check_and_assign_entities, which writes
+newly-assigned entities into a *scratch* cache copy of lookup.csv
+(var/cache/assign_entities/<collection>/pipeline/lookup.csv), not the real one -> run
+validation (_run_validation) against the result -> only if nothing blocking was found,
+_promote copies that scratch lookup.csv over the real pipeline/<collection>/lookup.csv
+and appends entity-organisation.csv ranges. A resource that fails validation was still
+fully assigned into the scratch copy; that work is simply never promoted, so it leaves
+no trace in the real lookup.csv - this is intentional, not a bug, but it's why a
+'blocked' resource shows no lookup.csv diff even though check_and_assign_entities ran to
+completion for it.
+
+Status vocabulary (see ValidationConfig and the per-check functions' 'status' values):
+'assigned' (promoted), 'skipped' (no-op, nothing to promote either way), 'blocked'
+(a data-quality finding stopped promotion - needs a reviewer decision) and 'failed' (a
+pipeline/engineering problem, not a data-quality one - current_resource_empty or an
+unhandled exception). 'warn' is a separate, orthogonal severity tier: logged for
+visibility but never blocking - the resource is still promoted.
+
+--skip-checks (skip_checks=True) bypasses *all* of the above validation: every check in
+_run_validation, including the current_resource_empty guard and the invalid_uri_issue
+lookup, not just the duplicate/retention/missing-field checks in _collect_validation_rows.
+With it set, anything check_and_assign_entities successfully assigns gets promoted
+unconditionally.
+
+Scope differences: 'odp' and 'mandated' process whatever Datasette currently reports as
+outstanding for that scope. 'single-source' additionally supports --batch-size/
+--start-batch (self-commits per batch, resumable on failure - see
+config-sunday-pipeline.yml, which needs this because a full single-source run can take
+hours) and is the only scope where organisation gets passed as [""] (blank) to
+check_and_assign_entities - but only for the listed-building dataset specifically (see
+_run_assignment), not single-source in general. That same combination (single-source +
+listed-building) is also the only case _promote never backfills a blank organisation or
+appends an entity-organisation.csv range for - both are deliberate: listed-building's
+single-source organisation is unreliable per-entity, so leaving it unresolved for manual
+follow-up is safer than guessing.
+"""
 import csv
 import math
 import sys
@@ -859,7 +900,11 @@ def _run_assignment(resource_path, resource, endpoint, collection_name, dataset,
     """
     Snapshot this dataset's existing entities, run digital-land-python's assignment
     pipeline (check_and_assign_entities) for this resource, then load the before/after
-    resources validation needs.
+    resources validation needs. Passes organisation as [""] (blank) rather than
+    organisation_name only for scope == "single-source" and dataset ==
+    "listed-building" - that combination's per-entity organisation isn't reliable
+    enough to assume everything in the resource belongs to the endpoint's registered
+    organisation; every other single-source dataset gets the real organisation_name.
 
     :return: (pre_dataset_entities, old_resource_df, old_resource_hash,
         current_resource_df). pre_dataset_entities is this dataset's entity set *before*
@@ -1119,7 +1164,15 @@ def _cleanup_resource_dir(resource_dir, successful_resources):
 
 def process_csv(scope, resource_dir, issue_summary_df, cache_dir, skip_checks=False, invalid_uri_issues=None, batch_size=0, start_batch=1, validation_config=None):
     """
-    Uses provided file path to automatically process and assign unknown entities
+    Process every resource in issue_summary_df: fetch -> assign (into a scratch cache
+    copy of lookup.csv, via _run_assignment) -> validate (_run_validation) -> promote
+    the scratch copy over the real lookup.csv only if nothing blocking was found
+    (_promote). See this module's own docstring for the full flow and what
+    skip_checks bypasses.
+
+    :return: (failed_downloads, output_df) - resources that couldn't even be
+        downloaded, and every row (one per finding, plus one per resource outcome)
+        written to the batch_assign_summary CSV.
     """
     validation_config = validation_config or ValidationConfig()
     resource_dir = Path(resource_dir)
@@ -1298,6 +1351,18 @@ def run_batch_assign_entities(
     batch_size: int = 0,
     start_batch: int = 1,
 ):
+    """
+    Entry point for a scheduled or manual run: fetches the current unknown-entity and
+    invalid-URI issue summaries, filters to scope, then hands off to process_csv.
+
+    :param scope: 'odp' or 'mandated' process whatever Datasette currently reports as
+        outstanding for that scope, in one pass. 'single-source' additionally supports
+        batch_size/start_batch (self-commits per batch, resumable on failure - a full
+        single-source run can take hours) and is the only scope where
+        organisation gets passed as [""] to check_and_assign_entities, but only for the
+        listed-building dataset specifically (see _run_assignment's docstring) - see
+        this module's own docstring for the full scope-difference writeup.
+    """
     endpoint_issue_summary_path = "https://datasette.planning.data.gov.uk/performance/endpoint_dataset_issue_type_summary.csv?_sort=rowid&issue_type__exact=unknown+entity&_size=max"
 
     issue_summary_df = fetch_csv_with_retry(endpoint_issue_summary_path)
@@ -1445,7 +1510,11 @@ def run_batch_assign_entities(
     "--skip-checks",
     is_flag=True,
     default=False,
-    help="Skip validation checks and directly assign entities.",
+    help=(
+        "Bypass every validation check (duplicates, retention, missing fields, "
+        "current_resource_empty, invalid_uri_issue) and promote whatever "
+        "check_and_assign_entities assigns unconditionally. Use with caution."
+    ),
 )
 @click.option(
     "--commit/--no-commit",
