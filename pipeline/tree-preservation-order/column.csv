@@ -202,6 +202,7 @@ tree,,f74669bf0c4f1f2687cb1ef8c272f108cb0cc0fbb81c192f0e92e7bf55adf9e5,treeref,n
 tree,,f74669bf0c4f1f2687cb1ef8c272f108cb0cc0fbb81c192f0e92e7bf55adf9e5,tpotreeref,reference,,,
 tree,,f74669bf0c4f1f2687cb1ef8c272f108cb0cc0fbb81c192f0e92e7bf55adf9e5,served,start-date,,,
 tree,,f74669bf0c4f1f2687cb1ef8c272f108cb0cc0fbb81c192f0e92e7bf55adf9e5,tporef,tree-preservation-order,,,
+tree,,,WKT,geometry,,,
 tree,,,organisation,IGNORE,,,
 tree,,,wkt,point,,,
 tree-preservation-order,27844e5c37a401bcbb18d46e103f841f797bb6a6f96aeb7e9e24fb65c5881940,,DCONFIRMED,confirmed-date,2026-06-30,,2026-06-30
@@ -595,4 +596,3 @@ tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c04
 tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c042efa34f8,tpo,tree-preservation-order,,,
 tree-preservation-zone,,,wkt,geometry,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
-tree,,,WKT,geometry,,,

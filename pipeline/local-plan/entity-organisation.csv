@@ -2242,6 +2242,7 @@ plan-timetable,5101079,5101082,local-authority:MIK
 plan-timetable,5102877,5102882,local-authority:MIK
 plan-timetable,5103212,5103214,local-authority:MIK
 plan-timetable,5106996,5107018,local-authority:MIK
+plan-timetable,5111640,5111654,local-authority:MIK
 plan-timetable,5101083,5101086,local-authority:MOL
 plan-timetable,5107019,5107041,local-authority:MOL
 plan-timetable,5100323,5100323,local-authority:MRT
@@ -2778,4 +2779,3 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5111640,5111654,local-authority:MIK
