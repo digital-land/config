@@ -1,3 +1,44 @@
+"""
+Assigns entities to resources flagged with an 'unknown entity' issue, across the odp,
+mandated and single-source scopes (see run_batch_assign_entities/main's --scope option).
+
+Flow (per resource, see process_csv): fetch the raw resource if it isn't already cached
+-> _run_assignment runs digital-land-python's check_and_assign_entities, which writes
+newly-assigned entities into a *scratch* cache copy of lookup.csv
+(var/cache/assign_entities/<collection>/pipeline/lookup.csv), not the real one -> run
+validation (_run_validation) against the result -> only if nothing blocking was found,
+_promote copies that scratch lookup.csv over the real pipeline/<collection>/lookup.csv
+and appends entity-organisation.csv ranges. A resource that fails validation was still
+fully assigned into the scratch copy; that work is simply never promoted, so it leaves
+no trace in the real lookup.csv - this is intentional, not a bug, but it's why a
+'blocked' resource shows no lookup.csv diff even though check_and_assign_entities ran to
+completion for it.
+
+Status vocabulary (see ValidationConfig and the per-check functions' 'status' values):
+'assigned' (promoted), 'skipped' (no-op, nothing to promote either way), 'blocked'
+(a data-quality finding stopped promotion - needs a reviewer decision) and 'failed' (a
+pipeline/engineering problem, not a data-quality one - current_resource_empty or an
+unhandled exception). 'warn' is a separate, orthogonal severity tier: logged for
+visibility but never blocking - the resource is still promoted.
+
+--skip-checks (skip_checks=True) bypasses *all* of the above validation: every check in
+_run_validation, including the current_resource_empty guard and the invalid_uri_issue
+lookup, not just the duplicate/retention/missing-field checks in _collect_validation_rows.
+With it set, anything check_and_assign_entities successfully assigns gets promoted
+unconditionally.
+
+Scope differences: 'odp' and 'mandated' process whatever Datasette currently reports as
+outstanding for that scope. 'single-source' additionally supports --batch-size/
+--start-batch (self-commits per batch, resumable on failure - see
+config-sunday-pipeline.yml, which needs this because a full single-source run can take
+hours) and is the only scope where organisation gets passed as [""] (blank) to
+check_and_assign_entities - but only for the listed-building dataset specifically (see
+_run_assignment), not single-source in general. That same combination (single-source +
+listed-building) is also the only case _promote never backfills a blank organisation or
+appends an entity-organisation.csv range for - both are deliberate: listed-building's
+single-source organisation is unreliable per-entity, so leaving it unresolved for manual
+follow-up is safer than guessing.
+"""
 import csv
 import math
 import sys
@@ -11,6 +52,7 @@ import traceback
 import subprocess
 import re
 
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional, Dict
 from io import StringIO
@@ -22,7 +64,67 @@ from urllib.request import urlretrieve
 from urllib.parse import urlencode
 from concurrent.futures import ThreadPoolExecutor
 
+import shapely.wkt
+from shapely import STRtree
+from shapely.errors import ShapelyError
+from rapidfuzz import fuzz, process
+
 logger = logging.getLogger(__name__)
+
+# duplicate_entity_all_fields (see _duplicate_entities_error_rows) only catches reference
+# churn when every other field is byte-identical, which misses it when a boundary gets
+# nudged or a name gets lightly edited at the same time as the reference. These thresholds
+# control the fuzzy/similarity companion check (see _possible_reference_churn_fuzzy_match_rows)
+# that catches those near-misses - straw man starting values, not calibrated against real
+# data the way the growth/retention thresholds were, so treat as a first guess to revisit.
+GEOMETRY_OVERLAP_THRESHOLD = 0.9  # intersection-over-union, 0-1
+NAME_SIMILARITY_THRESHOLD = 90  # rapidfuzz token_sort_ratio, 0-100
+
+# Statuses that are recorded and reported but don't stop a resource's other, valid
+# entities from being promoted - everything else blocks. Centralised here rather than
+# checked inline so a new non-blocking status only needs adding in one place.
+NON_BLOCKING_STATUSES = {'warn', 'skipped'}
+
+# Replaces the old growth-only large_number_of_new_entities check entirely (see ticket
+# section 3): growth divided by the *current* resource's size never matched what the old
+# error message claimed (the *previous* version), and tested against live data it added no
+# discriminating power once retention was accounted for - every case it caught, retention
+# caught too, and raising it only ever downgraded already-low-retention resources rather
+# than flagging anything new. A resource is safe to auto-assign when at least this
+# percentage of the previous resource's entities are still present; below it, manual
+# review is required. 90 is a starting value, open to recalibration once more real
+# examples are seen.
+RETENTION_THRESHOLD = 90
+
+
+@dataclass(frozen=True)
+class ValidationConfig:
+    """
+    The tunable thresholds and blocking policy _collect_validation_rows (and the
+    orchestrator deciding what to do with its findings) run against. Bundled into one
+    object - rather than each function reading the module constants above directly -
+    so every dependency a validation function has is visible in its own signature, and
+    a future threshold tweak touches one call site instead of several. The module
+    constants above remain the documented, calibration-tracked defaults; this is just
+    the vehicle for passing (and, in tests, overriding) them.
+    """
+
+    geometry_overlap_threshold: float = GEOMETRY_OVERLAP_THRESHOLD
+    name_similarity_threshold: float = NAME_SIMILARITY_THRESHOLD
+    retention_threshold: float = RETENTION_THRESHOLD
+    non_blocking_statuses: frozenset = field(
+        default_factory=lambda: frozenset(NON_BLOCKING_STATUSES)
+    )
+
+
+# Historic England (PB1164) is deliberately recorded as the organisation against
+# conservation-area entities alongside the owning local authority (see test_lookup in
+# config-manager's test_config_dataset.py, which explicitly allows this), but doesn't
+# get its own entity-organisation.csv range - HE doesn't own a number range on this
+# dataset, the local authority does.
+ENTITY_ORGANISATION_RANGE_EXCLUSIONS = {
+    ("conservation-area", "government-organisation:PB1164"),
+}
 
 
 def run_command(cmd, capture_output=True, check=True):
@@ -134,12 +236,17 @@ def get_old_resource_hashes_batch(endpoints: list) -> Dict[str, str]:
     # Build the endpoint list for the SQL query
     endpoint_list = ', '.join([f"'{ep}'" for ep in endpoints])
     
+    # Pick the resource with the most recent resource_end_date (the resource immediately
+    # superseded by whatever is now current), not the lowest rowid. rowid usually tracks
+    # recency closely but isn't guaranteed to - resource_end_date can be non-monotonic
+    # relative to rowid for a small number of endpoints, and ORDER BY rowid alone makes
+    # SQLite's row choice on resource_end_date ties implementation-defined.
     query = f"""SELECT endpoint, resource
 FROM (
     SELECT endpoint, resource, resource_end_date,
     ROW_NUMBER() OVER (
         PARTITION BY endpoint
-        ORDER BY rowid
+        ORDER BY resource_end_date DESC, rowid DESC
     ) AS rn
     FROM reporting_historic_endpoints
     WHERE resource_end_date IS NOT NULL and resource_end_date != ''
@@ -150,12 +257,14 @@ ORDER BY endpoint"""
     
     params = urlencode({"sql": query})
     url = f"{DATASETTE_BASE_URL}?{params}"
-    
+
     try:
-        response = requests.get(url)
-        response.raise_for_status()
-        result_df = pd.read_csv(StringIO(response.text), dtype=str, low_memory=False)
-        
+        # fetch_csv_with_retry rather than a bare requests.get - this is called once per
+        # whole run, so a single transient Datasette blip here (not uncommon under load,
+        # see fetch_csv_with_retry's own docstring) would otherwise make every endpoint
+        # look like it has no history, blocking every resource in the batch rather than
+        # just this one call.
+        result_df = fetch_csv_with_retry(url)
         # Create a mapping of endpoint -> resource
         endpoint_resource_map = dict(zip(result_df['endpoint'], result_df['resource']))
         return endpoint_resource_map
@@ -164,7 +273,46 @@ ORDER BY endpoint"""
         return {}
 
 
-def get_old_resource_df_from_hash(resource_hash: str, collection_name: str, dataset: str):
+def get_endpoints_with_any_history(endpoints: list) -> Optional[set]:
+    """
+    Which of these endpoints have at least one SUPERSEDED resource (resource_end_date set)
+    in reporting_historic_endpoints - distinguishes a genuinely brand-new endpoint (nothing
+    to compare against, ever) from one that has real history but get_old_resource_hashes_batch
+    simply failed to resolve a baseline for.
+
+    Deliberately excludes rows with a blank resource_end_date: every endpoint being
+    processed here is, by definition, actively being crawled right now, so it always has at
+    least its own current (not-yet-superseded) row - counting that as "history" would make
+    this check true for almost everything and defeat the point of the distinction.
+
+    Returns None (not an empty set) if the query itself fails, so a network blip can't be
+    mistaken for "no endpoints have history" - the caller should then fail safe and treat
+    every endpoint as if it has history, same as today's behaviour.
+    """
+    if not endpoints:
+        return set()
+
+    DATASETTE_BASE_URL = "https://datasette.planning.data.gov.uk/digital-land.csv"
+    endpoint_list = ', '.join([f"'{ep}'" for ep in endpoints])
+    query = f"""SELECT DISTINCT endpoint
+FROM reporting_historic_endpoints
+WHERE resource_end_date IS NOT NULL AND resource_end_date != ''
+AND endpoint IN ({endpoint_list})"""
+
+    params = urlencode({"sql": query})
+    url = f"{DATASETTE_BASE_URL}?{params}"
+
+    try:
+        # fetch_csv_with_retry rather than a bare requests.get - see
+        # get_old_resource_hashes_batch for why this matters at this call frequency.
+        result_df = fetch_csv_with_retry(url)
+        return set(result_df['endpoint'].dropna())
+    except Exception as e:
+        logger.error(f"Error fetching endpoint history presence: {e}")
+        return None
+
+
+def get_old_resource_df_from_hash(resource_hash: str, collection_name: str, dataset: str, max_retries=5, backoff_seconds=10):
     """
     Fetch the transformed CSV for an old resource given its hash.
     """
@@ -172,23 +320,64 @@ def get_old_resource_df_from_hash(resource_hash: str, collection_name: str, data
         transformed_url = (
             f"https://files.planning.data.gov.uk/{collection_name}-collection/transformed/{dataset}/{resource_hash}.csv"
         )
-        transformed_response = requests.get(transformed_url)
-        transformed_response.raise_for_status()
-        
+        # Retried, same as fetch_csv_with_retry - this feeds every duplicate/retention
+        # check against the previous resource, so a transient blip here would otherwise
+        # silently fail this one resource over to previous_resource_not_found (blocking)
+        # rather than actually comparing against its real history.
+        last_error = None
+        transformed_response = None
+        for attempt in range(1, max_retries + 1):
+            try:
+                transformed_response = requests.get(transformed_url, timeout=120)
+                transformed_response.raise_for_status()
+                break
+            except requests.RequestException as e:
+                last_error = e
+                logger.warning(f"Attempt {attempt}/{max_retries} failed fetching {transformed_url}: {e}")
+                if attempt < max_retries:
+                    sleep(backoff_seconds * attempt)
+        if transformed_response is None:
+            raise RuntimeError(f"Failed to fetch {transformed_url} after {max_retries} attempts: {last_error}")
+
         # Save the old transformed resource to resource/old before reading
         old_resource_dir = Path("resource") / "old"
         old_resource_dir.mkdir(parents=True, exist_ok=True)
         old_file_path = old_resource_dir / f"{resource_hash}.csv"
         old_file_path.write_bytes(transformed_response.content)
-        
-        
+
+
         return pd.read_csv(old_file_path, dtype=str, low_memory=False)
     except Exception as e:
         logger.error(f"Error downloading old resource {resource_hash}: {e}")
         return None
 
 
-                            
+def get_invalid_uri_entities(cache_dir: Path, resource: str) -> set:
+    """
+    Read the per-resource issue log produced by check_and_assign_entities and return
+    the set of entities affected by an 'invalid URI' issue, so only those entities can
+    be excluded from promotion rather than blocking the whole resource.
+
+    The issue log's entity column is backfilled from entry-number once entity
+    assignment completes (digital_land.pipeline.main.Pipeline.save_logs calls
+    IssueLog.apply_entity_map before saving), so this is only populated for rows that
+    both had an invalid URI and resolved to an entity - a row that failed both checks
+    won't appear here, but it also wouldn't be promotable either way.
+    """
+    issue_path = cache_dir / "assign_entities" / "issue" / f"{resource}.csv"
+    if not issue_path.exists():
+        return set()
+    try:
+        issue_df = pd.read_csv(issue_path, dtype=str)
+    except Exception as e:
+        logger.error(f"Error reading issue log {issue_path}: {e}")
+        return set()
+    if "issue-type" not in issue_df.columns or "entity" not in issue_df.columns:
+        return set()
+    invalid_uri_rows = issue_df[issue_df["issue-type"] == "invalid URI"]
+    return set(invalid_uri_rows["entity"].dropna()) - {""}
+
+
 def _make_fingerprints(df, except_fields=["reference", "entry-date"], only_fields=None):
     """
     Create a fingerprint for each entity based options specified.
@@ -247,7 +436,7 @@ def _duplicate_error_rows(matches, dataset, resource, error_code, message_factor
             'resource': resource,
             'organisation': match_row.get('organisation_new', ''),
             'reference': match_row.get('reference_new', ''),
-            'status': 'error',
+            'status': 'blocked',
             'error_code': error_code,
             'message': message_factory(match_row),
         }
@@ -274,25 +463,121 @@ def _duplicate_entities_error_rows(old_df, new_df, dataset, resource):
     )
 
 
-def _duplicate_prefix_reference_organisation_error_rows(old_df, new_df, dataset, resource):
+def _extract_field_values(df, fields):
+    """Pivot specific long-format fields out into named columns, one row per entity."""
+    field_values = df[df['field'].isin(fields)][['entity', 'field', 'value']].drop_duplicates()
+    frame = field_values.pivot_table(index='entity', columns='field', values='value', aggfunc='first').reset_index()
+    for field in fields:
+        if field not in frame.columns:
+            frame[field] = None
+    return frame
+
+
+def _parse_geometry(wkt_value):
+    if not wkt_value or not isinstance(wkt_value, str):
+        return None
+    try:
+        geom = shapely.wkt.loads(wkt_value)
+        if geom.is_empty or not geom.is_valid:
+            return None
+        return geom
+    except (ShapelyError, ValueError):
+        return None
+
+
+def _possible_reference_churn_fuzzy_match_rows(old_df, new_df, dataset, resource, config):
     """
-        Check for duplicate entities based on prefix, reference and organisation fields only.
+        Companion to duplicate_entity_all_fields: that check requires every other field to
+        be byte-identical, so it misses a new entity that's probably the same real-world
+        feature as an old one but with a slightly adjusted boundary or a lightly-edited name
+        alongside the reference change. Lower confidence than an exact match by design (a
+        similarity score, not an equality), so this is 'warn' rather than blocking.
+
+        Geometry candidates are narrowed with an STRtree envelope query before computing the
+        precise intersection-over-union, and name comparisons run as one vectorised rapidfuzz
+        call rather than a nested loop - both make this cheap enough for large datasets, but
+        the geometry side is still the most expensive part of this check at real scale.
     """
-    
-    matches = new_df.merge(old_df, on='fingerprint', how='inner', suffixes=('_new', '_old'))
-    return _duplicate_error_rows(
-        matches,
-        dataset,
-        resource,
-        'duplicate_prefix_reference_organisation',
-        lambda match_row: (
-            f"Entity exists with the same prefix, reference and organisation"
-            f" {match_row['entity_list']} {match_row['fingerprint']}."
-        ),
+    old_fields = _extract_field_values(old_df, ['geometry', 'name'])
+    new_fields = _extract_field_values(new_df, ['geometry', 'name'])
+
+    if old_fields.empty or new_fields.empty:
+        return []
+
+    old_fields = old_fields.reset_index(drop=True)
+    old_fields['_geom'] = old_fields['geometry'].apply(_parse_geometry)
+    old_geoms = old_fields[old_fields['_geom'].notna()].reset_index(drop=True)
+    tree = STRtree(old_geoms['_geom'].tolist()) if len(old_geoms) else None
+
+    old_names = old_fields['name'].fillna('').astype(str).tolist()
+    new_names = new_fields['name'].fillna('').astype(str).tolist()
+    name_scores = (
+        process.cdist(new_names, old_names, scorer=fuzz.token_sort_ratio)
+        if any(old_names) and any(new_names)
+        else None
     )
+
+    rows = []
+    for i, (_, new_row) in enumerate(new_fields.iterrows()):
+        new_geom = _parse_geometry(new_row.get('geometry'))
+
+        geom_entity, geom_overlap = None, 0.0
+        if new_geom is not None and tree is not None:
+            for idx in tree.query(new_geom):
+                old_geom = old_geoms['_geom'].iloc[idx]
+                if not new_geom.intersects(old_geom):
+                    continue
+                union_area = new_geom.union(old_geom).area
+                if union_area == 0:
+                    continue
+                overlap = new_geom.intersection(old_geom).area / union_area
+                if overlap > geom_overlap:
+                    geom_overlap = overlap
+                    geom_entity = old_geoms['entity'].iloc[idx]
+
+        name_entity, name_score = None, 0.0
+        if name_scores is not None:
+            best_idx = name_scores[i].argmax()
+            name_score = name_scores[i][best_idx]
+            if name_score > 0:
+                name_entity = old_fields['entity'].iloc[best_idx]
+
+        geom_hit = geom_overlap >= config.geometry_overlap_threshold
+        name_hit = name_score >= config.name_similarity_threshold
+        if not (geom_hit or name_hit):
+            continue
+
+        reasons = []
+        if geom_hit:
+            reasons.append(f"geometry overlap {geom_overlap:.0%} with entity {geom_entity}")
+        if name_hit:
+            reasons.append(f"name similarity {name_score:.0f}/100 with entity {name_entity}")
+
+        rows.append(
+            {
+                'dataset': dataset,
+                'resource': resource,
+                'organisation': '',
+                'reference': '',
+                'status': 'warn',
+                'error_code': 'possible_reference_churn_fuzzy_match',
+                'message': (
+                    f"Entity {new_row['entity']} is a possible match for an existing entity "
+                    f"({'; '.join(reasons)}) - review before treating as genuinely new."
+                ),
+            }
+        )
+
+    return rows
 
 
 def _duplicate_reference_organisation_error_rows(old_df, new_df, dataset, resource):
+    """
+        Collapses what used to be a separate duplicate_prefix_reference_organisation check:
+        within a single dataset's transformed output, prefix is always constant and equal to
+        the dataset, so adding it to the fingerprint never changes which rows match - the two
+        checks were provably identical in every call this script makes.
+    """
     matches = new_df.merge(old_df, on='fingerprint', how='inner', suffixes=('_new', '_old'))
     return _duplicate_error_rows(
         matches,
@@ -307,7 +592,22 @@ def _duplicate_reference_organisation_error_rows(old_df, new_df, dataset, resour
 
 
 def _duplicate_reference_organisation_in_new_resource_error_rows(df, dataset, resource):
-    duplicates = _make_fingerprints(df, except_fields=[], only_fields=['organisation', 'reference'])
+    """
+        Check for duplicate reference + entry-date combinations within the current resource,
+        matching the pipeline's own "reference values are not unique" issue scope (reference +
+        entry-date), rather than reference + organisation.
+    """
+    metadata = _missing_metadata_frame(df)
+    if 'entry-date' in df.columns:
+        entry_dates = df.groupby('entity')['entry-date'].first().reset_index()
+        duplicates = metadata.merge(entry_dates, on='entity', how='left')
+    else:
+        duplicates = metadata.copy()
+        duplicates['entry-date'] = ''
+    duplicates['reference'] = duplicates['reference'].fillna('').astype(str).str.strip().str.lower()
+    duplicates['entry-date'] = duplicates['entry-date'].fillna('').astype(str).str.strip()
+    duplicates['fingerprint'] = 'reference::' + duplicates['reference'] + '|entry-date::' + duplicates['entry-date']
+
     duplicates = duplicates[
         duplicates.duplicated('fingerprint', keep=False)
     ].drop_duplicates('fingerprint')
@@ -321,15 +621,21 @@ def _duplicate_reference_organisation_in_new_resource_error_rows(df, dataset, re
             'resource': resource,
             'organisation': dup_row.get('organisation', ''),
             'reference': dup_row.get('reference', ''),
-            'status': 'error',
+            'status': 'blocked',
             'error_code': 'duplicate_reference_organisation_in_new_resource',
-            'message': f"Duplicate reference and organisation found in resource {dup_row['fingerprint']}.",
+            'message': f"Duplicate reference and entry-date found in resource {dup_row['fingerprint']}.",
         }
         for _, dup_row in duplicates.iterrows()
     ]
 
 
 def _missing_organisation_error_rows(df, dataset, resource):
+    """ 
+        Non-blocking: a missing organisation doesn't stop an entity being assigned
+        (PrintLookupPhase only requires prefix + reference), unlike a missing reference.
+        Still logged so it stays visible, per the pipeline's own "missing value" (error,
+        not critical) treatment of this condition.
+    """
     missing = df[(df['organisation'].isna()) | (df['organisation'] == '')]
     return [
         {
@@ -337,7 +643,7 @@ def _missing_organisation_error_rows(df, dataset, resource):
             'resource': resource,
             'organisation': missing_row.get('organisation', ''),
             'reference': missing_row.get('reference', ''),
-            'status': 'error',
+            'status': 'warn',
             'error_code': 'missing_organisation',
             'message': (
                 f"Missing organisation for entity {missing_row.get('entity')} "
@@ -382,7 +688,7 @@ def _missing_reference_error_rows(df, dataset, resource):
             'resource': resource,
             'organisation': missing_row.get('organisation', ''),
             'reference': missing_row.get('reference', ''),
-            'status': 'error',
+            'status': 'blocked',
             'error_code': 'missing_reference',
             'message': (
                 f"Missing reference for entity {missing_row.get('entity')} "
@@ -393,7 +699,34 @@ def _missing_reference_error_rows(df, dataset, resource):
     ]
 
 
-def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, new_entity_threshold, old_resource_hash,organisation_name=''):
+def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, old_resource_hash, config, organisation_name='', endpoint_has_history=True):
+    """
+    Decide whether this resource is safe to auto-assign, and answer "why was this
+    resource not assigned" when it isn't.
+
+    Pure: takes the current transformed frame, the previous one (or None if no baseline
+    could be resolved), identifying/labelling info for the output rows, and a config of
+    tunable thresholds - and returns findings with no side effects or I/O. Every check
+    here is its own standalone, equally pure function; this one just runs them in
+    sequence and assembles their results.
+
+    :param current_resource_df: this resource's current transformed rows.
+    :param old_resource_df: the previous version's transformed rows, or None if no
+        baseline could be resolved (distinct from a baseline that resolved to zero rows
+        - see endpoint_has_history).
+    :param dataset: dataset (pipeline) name, for labelling output rows.
+    :param resource: resource hash, for labelling output rows.
+    :param old_resource_hash: the previous resource's hash, for labelling output rows.
+    :param config: ValidationConfig - the thresholds this run's checks apply.
+    :param organisation_name: the endpoint's registered organisation, for labelling
+        output rows.
+    :param endpoint_has_history: whether this endpoint has ever had an earlier,
+        superseded resource - distinguishes "real history exists but we failed to
+        resolve a baseline from it" (blocking) from "this is genuinely brand new, there
+        is nothing to compare against" (not blocking).
+    :return: (validation_rows, old_entities, new_entity_ids) - the findings, the
+        previous resource's entity set, and this resource's newly-added entity set.
+    """
     validation_rows = []
     current_entities = set(current_resource_df['entity'])
 
@@ -403,24 +736,38 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
     else:
         old_entities = set(old_resource_df['entity'])
         new_entity_ids = current_entities - old_entities
-    
-    print(f"Old entities count: {len(old_entities)}, current entities count: {len(current_entities)}, New entities count: {len(new_entity_ids)}")
-    print(f"Last 5 old entities IDs: {sorted(old_entities)[-5:] if old_entities else 'N/A'}")
-    print(f"Last 5 current entities IDs: {sorted(current_entities)[-5:] if current_entities else 'N/A'}")
-    print(f"Last 5 new entities IDs: {sorted(new_entity_ids)[-5:] if new_entity_ids else 'N/A'}")
 
     if old_resource_df is None:
-        validation_rows.append(
-            {
-                'dataset': dataset,
-                'resource': resource,
-                'organisation': organisation_name,
-                'reference': '',
-                'status': 'error',
-                'error_code': 'previous_resource_not_found',
-                'message': 'Previous resource not found.',
-            }
-        )
+        if endpoint_has_history:
+            # Real history exists but we failed to resolve a baseline from it - stay
+            # cautious, same as today: we can't rule out duplicate/growth risk, we just
+            # failed to check it, which is different from there being nothing to check.
+            validation_rows.append(
+                {
+                    'dataset': dataset,
+                    'resource': resource,
+                    'organisation': organisation_name,
+                    'reference': '',
+                    'status': 'blocked',
+                    'error_code': 'previous_resource_not_found',
+                    'message': 'Previous resource not found.',
+                }
+            )
+        else:
+            # Genuinely brand-new endpoint - every entity is new by definition, so there's
+            # no duplicate-against-history risk to check for, just nothing to compare
+            # against. Logged so it's visible, but doesn't block the first assignment.
+            validation_rows.append(
+                {
+                    'dataset': dataset,
+                    'resource': resource,
+                    'organisation': organisation_name,
+                    'reference': '',
+                    'status': 'warn',
+                    'error_code': 'new_endpoint_no_history',
+                    'message': 'No previous resource exists for this endpoint - treating all entities as new.',
+                }
+            )
     elif len(old_entities) == 0:
         validation_rows.append(
             {
@@ -428,20 +775,22 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                 'resource': resource,
                 'organisation': organisation_name,
                 'reference': '',
-                'status': 'error',
+                'status': 'blocked',
                 'error_code': 'previous_resource_empty',
                 'message': f'Previous resource has no entities {old_resource_hash}.',
             }
         )
     
     if len(new_entity_ids) == 0:
+        # Pure no-op, not a failure - nothing to promote either way, so this doesn't
+        # block (see ValidationConfig.non_blocking_statuses).
         validation_rows.append(
             {
                 'dataset': dataset,
                 'resource': resource,
                 'organisation': organisation_name,
                 'reference': '',
-                'status': 'error',
+                'status': 'skipped',
                 'error_code': 'current_resource_no_new_entities',
                 'message': 'Current resource contains no new entities for assignment.',
             }
@@ -451,20 +800,25 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
     if len(old_entities) > 0 and len(new_entity_ids) > 0:
         new_resource_only_df = current_resource_df[current_resource_df['entity'].isin(new_entity_ids)]
 
-        # If the number of new entities exceeds the threshold compared to the previous resource, flag for review
-        if len(new_entity_ids) > (new_entity_threshold / 100) * len(current_entities):
+        # Retention: what proportion of the previous resource's entities are still present
+        # in the current one. Low retention is the churn/reference-change signal (old
+        # entities disappearing); growth alone isn't, which is why it's not checked here.
+        retained_count = len(old_entities & current_entities)
+        retention_pct = (retained_count / len(old_entities)) * 100
+        if retention_pct < config.retention_threshold:
             validation_rows.append(
                 {
                     'dataset': dataset,
                     'resource': resource,
                     'organisation': organisation_name,
                     'reference': '',
-                    'status': 'error',
-                    'error_code': 'large_number_of_new_entities',
+                    'status': 'blocked',
+                    'error_code': 'low_entity_retention',
                     'message': (
-                        f"Resource contains a large number of new entities ({len(new_entity_ids)}) "
-                        f"compared to the previous version ({len(old_entities)}). "
-                        f"Old resource hash: {old_resource_hash}."
+                        f"Only {retention_pct:.1f}% of the previous resource's entities "
+                        f"({retained_count} of {len(old_entities)}) are still present in the "
+                        f"current resource - below the {config.retention_threshold}% "
+                        f"retention threshold. Old resource hash: {old_resource_hash}."
                     ),
                 }
             )
@@ -478,17 +832,19 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
                 resource,
             )
         )
-        
-        # Check for duplicate entities based on prefix, reference and organisation fields only between the new resource and old resource
+
+        # Companion to the exact-match check above: catches a likely-same entity that the
+        # exact match misses because a boundary or name also shifted slightly. Non-blocking.
         validation_rows.extend(
-            _duplicate_prefix_reference_organisation_error_rows(
-                _make_fingerprints(old_resource_df, except_fields=[], only_fields=['prefix', 'organisation', 'reference']),
-                _make_fingerprints(new_resource_only_df, except_fields=[], only_fields=['prefix', 'organisation', 'reference']),
+            _possible_reference_churn_fuzzy_match_rows(
+                old_resource_df,
+                new_resource_only_df,
                 dataset,
                 resource,
+                config,
             )
         )
-        
+
         # Check for duplicate entities based on reference and organisation fields only between the new resource and old resource
         validation_rows.extend(
             _duplicate_reference_organisation_error_rows(
@@ -519,10 +875,306 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
     return validation_rows, old_entities, new_entity_ids
 
 
-def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_threshold=10, skip_checks=False, invalid_uri_issues=None, batch_size=0, start_batch=1):
+def _fetch_resource(resource_path, download_link, resource):
     """
-    Uses provided file path to automatically process and assign unknown entities
+    Ensure resource_path exists locally, downloading it from download_link if not.
+    :return: None if the resource is available (already local, or just downloaded);
+        otherwise the download error, so the caller can record the failure and skip it.
     """
+    if resource_path.is_file():
+        return None
+    print(f"Resource  file not found locally, attempting to download from {download_link}")
+    try:
+        response = requests.get(download_link)
+        response.raise_for_status()
+        resource_path.write_bytes(response.content)
+        print(f"Downloaded: {resource}")
+        return None
+    except requests.RequestException as e:
+        print(f"Failed to download: {resource}")
+        print(f"Error: {e}")
+        return str(e)
+
+
+def _run_assignment(resource_path, resource, endpoint, collection_name, dataset, organisation_name, scope, cache_dir, input_path, lookup_path, skip_checks, endpoint_resource_map):
+    """
+    Snapshot this dataset's existing entities, run digital-land-python's assignment
+    pipeline (check_and_assign_entities) for this resource, then load the before/after
+    resources validation needs. Passes organisation as [""] (blank) rather than
+    organisation_name only for scope == "single-source" and dataset ==
+    "listed-building" - that combination's per-entity organisation isn't reliable
+    enough to assume everything in the resource belongs to the endpoint's registered
+    organisation; every other single-source dataset gets the real organisation_name.
+
+    :return: (pre_dataset_entities, old_resource_df, old_resource_hash,
+        current_resource_df). pre_dataset_entities is this dataset's entity set *before*
+        assignment, needed later to work out which entities promotion actually added.
+        old_resource_df is the previous version's transformed rows, or None if there's
+        no history for this endpoint or the fetch failed to resolve a baseline.
+    """
+    pre_lookup_df = pd.read_csv(lookup_path, dtype=str)
+    pre_dataset_entities = set(
+        pre_lookup_df[pre_lookup_df["prefix"] == dataset]["entity"].dropna().astype(int)
+    )
+    check_and_assign_entities(
+        [resource_path],
+        [endpoint],
+        collection_name,
+        dataset,
+        # Blank organisation for single-source is too coarse for most datasets
+        # (the endpoint's registered org isn't the right org per-entity), but
+        # for now only listed-building actually needs that suppression.
+        [""] if scope == "single-source" and dataset == "listed-building" else [organisation_name],
+        Path(f"collection/{collection_name}"),
+        cache_dir.joinpath("organisation.csv"),
+        Path("specification"),
+        Path(f"pipeline/{collection_name}"),
+        input_path,
+        prompt_user=False,
+    )
+
+    old_resource_df = None
+    old_resource_hash = None
+    if not skip_checks and endpoint in endpoint_resource_map:
+        old_resource_hash = endpoint_resource_map[endpoint]
+        print("=====")
+        print(" collection || dataset || old_resource_hash || endpoint")
+        print(f" {collection_name} || {dataset} || {old_resource_hash} || {endpoint}")
+        old_resource_df = get_old_resource_df_from_hash(old_resource_hash, collection_name, dataset)
+
+    current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv", dtype=str)
+
+    return pre_dataset_entities, old_resource_df, old_resource_hash, current_resource_df
+
+
+def _run_validation(current_resource_df, old_resource_df, old_resource_hash, dataset, resource, organisation_name, endpoint, endpoints_with_history, skip_checks, validation_config, cache_dir, invalid_uri_issues):
+    """
+    Decide whether this resource is safe to promote: the current-resource-empty guard,
+    then (unless skip_checks) the pure validation checks plus the invalid-URI-issue
+    lookup that _collect_validation_rows can't do itself (it reads the issue log off
+    disk, so it isn't side-effect-free).
+
+    :return: (output_rows, invalid_uri_entities, new_entities). output_rows is every
+        finding collected for this resource - the caller decides whether any of them
+        block promotion (see ValidationConfig.non_blocking_statuses). invalid_uri_entities
+        are the specific entities, if any, to exclude from promotion rather than
+        blocking the whole resource.
+    """
+    output_rows = []
+    invalid_uri_entities = set()
+
+    if not skip_checks and len(current_resource_df) == 0:
+        # Signals an upstream/pipeline problem, not a data-quality issue with any
+        # actual rows - 'failed' so it doesn't sit in the same reviewer queue as
+        # genuine duplicate/quality blocks (those need a data decision; this needs
+        # an engineer to check source/pipeline health). Still blocks promotion.
+        output_rows.append(
+            {
+                "dataset": dataset,
+                "resource": resource,
+                "organisation": organisation_name,
+                "reference": "",
+                "status": "failed",
+                "error_code": "current_resource_empty",
+                "message": "Current resource has no entities for assignment.",
+            }
+        )
+        return output_rows, invalid_uri_entities, set()
+
+    if skip_checks:
+        return output_rows, invalid_uri_entities, set(current_resource_df['entity'])
+
+    validation_rows, old_entities, new_entities = _collect_validation_rows(
+        current_resource_df,
+        old_resource_df,
+        dataset,
+        resource,
+        old_resource_hash,
+        validation_config,
+        organisation_name=organisation_name,
+        endpoint_has_history=endpoint in endpoints_with_history,
+    )
+    current_entities = set(current_resource_df['entity'])
+    print(f"Old entities count: {len(old_entities)}, current entities count: {len(current_entities)}, New entities count: {len(new_entities)}")
+    print(f"Last 5 old entities IDs: {sorted(old_entities)[-5:] if old_entities else 'N/A'}")
+    print(f"Last 5 current entities IDs: {sorted(current_entities)[-5:] if current_entities else 'N/A'}")
+    print(f"Last 5 new entities IDs: {sorted(new_entities)[-5:] if new_entities else 'N/A'}")
+    output_rows.extend(validation_rows)
+
+    # Non-blocking rows (e.g. missing_organisation) are logged but don't
+    # block other checks from running or promotion from happening.
+    if not any(r.get('status') not in validation_config.non_blocking_statuses for r in output_rows):
+        iui = invalid_uri_issues[
+            (invalid_uri_issues["resource"] == resource)
+            & (invalid_uri_issues["dataset"] == dataset)
+        ]
+        if len(iui) > 0:
+            # Scope to genuinely NEW entities only. The issue log covers every
+            # entity touched by this resource, including pre-existing ones that
+            # were correctly re-matched to an existing lookup entry (e.g. a
+            # multi-authority resource resending an organisation's data under a
+            # reference that already resolves) - excluding those from promotion
+            # wouldn't just skip creating something new, it would strip their
+            # existing, already-valid lookup.csv row entirely.
+            invalid_uri_entities = get_invalid_uri_entities(cache_dir, resource) & new_entities
+            if invalid_uri_entities:
+                # Specific entities identified - exclude just those from
+                # promotion (see promotion step below) rather than blocking
+                # every other, valid entity in the resource.
+                output_rows.append(
+                    {
+                        "dataset": dataset,
+                        "resource": resource,
+                        "organisation": organisation_name,
+                        "reference": "",
+                        "status": "warn",
+                        "error_code": "invalid_uri_issue",
+                        "message": (
+                            f"Excluded {len(invalid_uri_entities)} "
+                            f"entit{'y' if len(invalid_uri_entities) == 1 else 'ies'} with invalid "
+                            f"URIs from promotion, pending manual review: "
+                            f"{sorted(invalid_uri_entities)}."
+                        ),
+                    }
+                )
+            else:
+                # Datasette's resource-level summary flagged this resource, but
+                # the local issue log couldn't resolve it to specific entities -
+                # fail safe to blocking the whole resource rather than silently
+                # promoting everything.
+                output_rows.append(
+                    {
+                        "dataset": dataset,
+                        "resource": resource,
+                        "organisation": organisation_name,
+                        "reference": "",
+                        "status": "blocked",
+                        "error_code": "invalid_uri_issue",
+                        "message": "Resource has known issues with invalid URIs that require manual review.",
+                    }
+                )
+
+    return output_rows, invalid_uri_entities, new_entities
+
+
+def _promote(cache_dir, collection_name, dataset, organisation_name, scope, lookup_path, invalid_uri_entities, pre_dataset_entities):
+    """
+    Copy the newly-assigned entities from the cache lookup.csv into the real one
+    (excluding any invalid_uri_entities, so they're left unresolved and resurface next
+    run until the underlying URI is fixed upstream), backfill any missing per-row
+    organisation (missing_organisation is non-blocking, so such a row would otherwise
+    sit with a permanently blank organisation), and append new entity-number ranges to
+    entity-organisation.csv.
+    """
+    cache_lookup_path = cache_dir / "assign_entities" / collection_name / "pipeline" / "lookup.csv"
+    real_lookup_path = Path("pipeline") / collection_name / "lookup.csv"
+    if invalid_uri_entities:
+        # lookup.csv uses CRLF line endings throughout the repo - pandas defaults
+        # to LF, which would rewrite every untouched line and bury the real change
+        # in a full-file diff, so the line terminator is set explicitly to match.
+        cache_lookup_df = pd.read_csv(cache_lookup_path, dtype=str)
+        cache_lookup_df = cache_lookup_df[~cache_lookup_df["entity"].isin(invalid_uri_entities)]
+        cache_lookup_df.to_csv(real_lookup_path, index=False, lineterminator="\r\n")
+    else:
+        shutil.copy(cache_lookup_path, real_lookup_path)
+
+    # After successful entity assignment and duplicate checks append entity range(s) to entity-organisation.csv.
+    # A single resource can carry rows for more than one organisation (e.g. a
+    # multi-authority endpoint), so entities must be grouped by their *actual*
+    # organisation rather than assumed to all belong to `organisation_name` -
+    # otherwise entities for other organisations end up with no registered range.
+    post_lookup_df = pd.read_csv(lookup_path, dtype=str)
+    post_dataset_df = post_lookup_df[post_lookup_df["prefix"] == dataset].dropna(subset=["entity"])
+    post_entity_org = (
+        post_dataset_df.assign(entity=post_dataset_df["entity"].astype(int))
+        .drop_duplicates("entity")
+        .set_index("entity")["organisation"]
+        .to_dict()
+    )
+    new_dataset_entities = set(post_entity_org) - pre_dataset_entities
+    # A new entity whose own row had no organisation (missing_organisation, now
+    # non-blocking) otherwise sits in lookup.csv with a permanently blank
+    # organisation - backfill it with the endpoint's registered organisation, the
+    # best available source of truth when the per-row value is missing. Mirrors the
+    # single-source listed-building suppression below: that case still gets no
+    # organisation on purpose, so it's left blank.
+    if new_dataset_entities and not (scope == "single-source" and dataset == "listed-building"):
+        blank_new_entities = {
+            entity
+            for entity, org in post_entity_org.items()
+            if entity in new_dataset_entities and not (isinstance(org, str) and org)
+        }
+        if blank_new_entities:
+            blank_mask = (post_lookup_df["prefix"] == dataset) & post_lookup_df[
+                "entity"
+            ].astype(str).isin({str(entity) for entity in blank_new_entities})
+            post_lookup_df.loc[blank_mask, "organisation"] = organisation_name
+            # lookup.csv uses CRLF line endings throughout the repo - pandas defaults
+            # to LF, which would rewrite every untouched line and bury the real
+            # change in a full-file diff, so the line terminator is set explicitly.
+            post_lookup_df.to_csv(real_lookup_path, index=False, lineterminator="\r\n")
+            post_entity_org.update({entity: organisation_name for entity in blank_new_entities})
+    # entity-organisation.csv always wants a real organisation too, as a safety net
+    # for any entity the backfill above didn't cover (e.g. the listed-building
+    # suppression, which leaves lookup.csv's row genuinely blank on purpose).
+    entity_org_for_ranges = {
+        # pd.read_csv(..., dtype=str) still converts a blank cell to float('nan'),
+        # not "" - NaN is truthy in Python, so `org if org else ...` alone would
+        # silently keep it and write the literal text "nan" into the CSV.
+        entity: (org if isinstance(org, str) and org else organisation_name)
+        for entity, org in post_entity_org.items()
+    }
+    # Mirror the blank-organisation suppression above: listed-building still gets
+    # no registered range on single-source runs, but every other dataset now gets
+    # a real per-entity organisation and needs its range recorded to match.
+    if new_dataset_entities and not (scope == "single-source" and dataset == "listed-building"):
+        entity_org_file = Path("pipeline") / collection_name / "entity-organisation.csv"
+        for org_value, min_entity, max_entity in _contiguous_ranges_by_org(new_dataset_entities, entity_org_for_ranges):
+            if (dataset, org_value) in ENTITY_ORGANISATION_RANGE_EXCLUSIONS:
+                continue
+            with open(entity_org_file, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow([dataset, min_entity, max_entity, org_value])
+                print(f"\033[95mAppended entity range {min_entity}-{max_entity} for {org_value} to {entity_org_file}\033[0m")
+
+
+def _append_output_rows(output_df, output_rows):
+    """Accumulate a resource's findings into the running summary frame."""
+    return pd.concat([output_df, pd.DataFrame(output_rows)], ignore_index=True)
+
+
+def _cleanup_resource_dir(resource_dir, successful_resources):
+    """Delete successfully-processed resource files (and .gfs sidecars), then the
+    resource directory itself if it's now empty."""
+    for resource_path in successful_resources:
+        try:
+            if resource_path.exists():
+                resource_path.unlink()
+            gfs_path = resource_path.with_suffix(".gfs")
+            if gfs_path.exists():
+                gfs_path.unlink()
+        except OSError as e:
+            print(f"Failed to remove {resource_path} or its .gfs file: {e}")
+    try:
+        if not any(resource_dir.iterdir()):
+            resource_dir.rmdir()
+    except OSError as e:
+        print(f"Failed to remove the resources directory: {e}")
+
+
+def process_csv(scope, resource_dir, issue_summary_df, cache_dir, skip_checks=False, invalid_uri_issues=None, batch_size=0, start_batch=1, validation_config=None):
+    """
+    Process every resource in issue_summary_df: fetch -> assign (into a scratch cache
+    copy of lookup.csv, via _run_assignment) -> validate (_run_validation) -> promote
+    the scratch copy over the real lookup.csv only if nothing blocking was found
+    (_promote). See this module's own docstring for the full flow and what
+    skip_checks bypasses.
+
+    :return: (failed_downloads, output_df) - resources that couldn't even be
+        downloaded, and every row (one per finding, plus one per resource outcome)
+        written to the batch_assign_summary CSV.
+    """
+    validation_config = validation_config or ValidationConfig()
     resource_dir = Path(resource_dir)
     cache_dir = Path(cache_dir)
     failed_downloads = []
@@ -534,7 +1186,16 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
     print(f"Fetching old resource hashes for {len(unique_endpoints)} unique endpoints...")
     endpoint_resource_map = get_old_resource_hashes_batch(unique_endpoints)
     print(f"Successfully retrieved {len(endpoint_resource_map)} old resource hashes")
-    
+
+    # Which endpoints have no history at all (genuinely brand new) vs real history that
+    # just didn't resolve to a baseline above (a real fetch failure). None means the query
+    # itself failed - fail safe by treating every endpoint as if it has history, same as
+    # today's behaviour, rather than risk mistaking a network blip for "brand new".
+    endpoints_with_history = get_endpoints_with_any_history(unique_endpoints)
+    if endpoints_with_history is None:
+        print("Could not determine which endpoints have history; treating all as having history")
+        endpoints_with_history = set(unique_endpoints)
+
     try:
         pbar = tqdm(issue_summary_df.iterrows(), total=issue_summary_df.shape[0], desc="Processing resources")
         for row_number, row in pbar:
@@ -555,212 +1216,107 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, new_entity_thr
             print(f"Download_link > {download_link }")
             print(f"Resource path > {resource_path}")
 
-            if not resource_path.is_file():
-                try:
-                    print(f"Resource  file not found locally, attempting to download from {download_link}")
-                    response = requests.get(download_link)
-                    response.raise_for_status()
-                    resource_path.write_bytes(response.content)
-                    print(f"Downloaded: {resource}")
-                except requests.RequestException as e:
-                    print(f"Failed to download: {resource}")
-                    print(f"Error: {e}")
-                    failed_downloads.append((resource, str(e)))
+            download_error = _fetch_resource(resource_path, download_link, resource)
+            if download_error is not None:
+                failed_downloads.append((resource, download_error))
                 continue
 
             print(f"Processing resource: {resource}")
-            collection_path = Path(f"collection/{collection_name}")
 
             input_path = cache_dir / "assign_entities" / "transformed" / f"{resource}.csv"
             lookup_path = Path("pipeline") / collection_name / "lookup.csv"
             try:
-                # Snapshot existing entities for this dataset before assignment
-                pre_lookup_df = pd.read_csv(lookup_path,dtype=str)
-                pre_dataset_entities = set(
-                    pre_lookup_df[
-                        pre_lookup_df["prefix"] == dataset
-                    ]["entity"].dropna().astype(int)
-                )
-                check_and_assign_entities(
-                    [resource_path],
-                    [endpoint],
+                pre_dataset_entities, old_resource_df, old_resource_hash, current_resource_df = _run_assignment(
+                    resource_path,
+                    resource,
+                    endpoint,
                     collection_name,
                     dataset,
-                    # Blank organisation for single-source is too coarse for most datasets
-                    # (the endpoint's registered org isn't the right org per-entity), but
-                    # for now only listed-building actually needs that suppression.
-                    [""] if scope == "single-source" and dataset == "listed-building" else [organisation_name],
-                    collection_path,
-                    cache_dir.joinpath("organisation.csv"),
-                    Path("specification"),
-                    Path(f"pipeline/{collection_name}"),
+                    organisation_name,
+                    scope,
+                    cache_dir,
                     input_path,
-                    prompt_user=False,
+                    lookup_path,
+                    skip_checks,
+                    endpoint_resource_map,
                 )
 
-                output_rows = []
+                output_rows, invalid_uri_entities, new_entities = _run_validation(
+                    current_resource_df,
+                    old_resource_df,
+                    old_resource_hash,
+                    dataset,
+                    resource,
+                    organisation_name,
+                    endpoint,
+                    endpoints_with_history,
+                    skip_checks,
+                    validation_config,
+                    cache_dir,
+                    invalid_uri_issues,
+                )
 
-                def add_output_log(rows):
-                    if rows:
-                        output_rows.extend(rows)
-
-                # get old transformed resource using pre-fetched resource hash when checks are enabled
-                old_resource_df = None
-                old_resource_hash = None
-                if not skip_checks and endpoint in endpoint_resource_map:
-                    old_resource_hash = endpoint_resource_map[endpoint]
-
-                    print(f"=====")
-                    print(f" collection || dataset || old_resource_hash || endpoint")
-                    print(f" {collection_name} || {dataset} || {old_resource_hash} || {endpoint}")
-                    old_resource_df = get_old_resource_df_from_hash(old_resource_hash, collection_name, dataset)
-                
-                # get current transformed resource
-                current_resource_df = pd.read_csv(cache_dir / "assign_entities" / "transformed" / f"{resource}.csv",dtype=str)
-
-                if not skip_checks and len(current_resource_df) == 0:
-                    add_output_log([
-                        {
-                            "dataset": dataset,
-                            "resource": resource,
-                            "organisation": organisation_name,
-                            "reference": "",
-                            "status": "error",
-                            "error_code": "current_resource_empty",
-                            "message": "Current resource has no entities for assignment.",
-                        }
-                    ])
-                    output_df = pd.concat(
-                        [output_df, pd.DataFrame(output_rows)],
-                        ignore_index=True,
-                    )
+                if any(r.get('status') not in validation_config.non_blocking_statuses for r in output_rows):
+                    output_df = _append_output_rows(output_df, output_rows)
                     continue
 
-                if skip_checks:
-                    old_entities = set()
-                    new_entities = set(current_resource_df['entity'])
-                    validation_rows = []
-                else:
-                    validation_rows, old_entities, new_entities = _collect_validation_rows(
-                        current_resource_df,
-                        old_resource_df,
-                        dataset,
-                        resource,
-                        new_entity_threshold,
-                        old_resource_hash,
-                        organisation_name=organisation_name
-                    )
-                    add_output_log(validation_rows)
-                    
-                    if len(output_rows) == 0:
-                        iui = invalid_uri_issues[
-                                    (invalid_uri_issues["resource"] == resource)
-                                    & (invalid_uri_issues["dataset"] == dataset)
-                                ]
-                        if len(iui) > 0:
-                            add_output_log([
-                                {
-                                    "dataset": dataset,
-                                    "resource": resource,
-                                    "organisation": organisation_name,
-                                    "reference": "",
-                                    "status": "error",
-                                    "error_code": "invalid_uri_issue",
-                                    "message": f"Resource has known issues with invalid URIs that require manual review.",
-                                }
-                            ])
-
-                if output_rows:
-                    output_df = pd.concat(
-                        [output_df, pd.DataFrame(output_rows)],
-                        ignore_index=True,
-                    )
-                    continue
-
-                add_output_log(
-                    [
-                        {
-                            "dataset": dataset,
-                            "resource": resource,
-                            "organisation": organisation_name,
-                            "reference": "",
-                            "status": "success",
-                            "entities_created": len(new_entities),
-                            "error_code": "",
-                            "message": f"Entities assigned successfully. [{sorted(new_entities)[-5:]}]",
-                        }
-                    ]
+                output_rows.append(
+                    {
+                        "dataset": dataset,
+                        "resource": resource,
+                        "organisation": organisation_name,
+                        "reference": "",
+                        "status": "assigned",
+                        "entities_created": len(new_entities),
+                        "error_code": "",
+                        "message": f"Entities assigned successfully. [{sorted(new_entities)[-5:]}]",
+                    }
                 )
-                output_df = pd.concat(
-                    [output_df, pd.DataFrame(output_rows)],
-                    ignore_index=True,
+                output_df = _append_output_rows(output_df, output_rows)
+
+                _promote(
+                    cache_dir,
+                    collection_name,
+                    dataset,
+                    organisation_name,
+                    scope,
+                    lookup_path,
+                    invalid_uri_entities,
+                    pre_dataset_entities,
                 )
-                shutil.copy(cache_dir / "assign_entities" / collection_name / "pipeline" / "lookup.csv", Path("pipeline") / collection_name / "lookup.csv")
                 print(f"\nEntities assigned successfully for resource: {resource}. ")
                 successful_resources.append(resource_path)
 
-                # After successful entity assignment and duplicate checks append entity range(s) to entity-organisation.csv.
-                # A single resource can carry rows for more than one organisation (e.g. a
-                # multi-authority endpoint), so entities must be grouped by their *actual*
-                # organisation rather than assumed to all belong to `organisation_name` -
-                # otherwise entities for other organisations end up with no registered range.
-                post_lookup_df = pd.read_csv(lookup_path, dtype=str)
-                post_dataset_df = post_lookup_df[post_lookup_df["prefix"] == dataset].dropna(subset=["entity"])
-                post_entity_org = (
-                    post_dataset_df.assign(entity=post_dataset_df["entity"].astype(int))
-                    .drop_duplicates("entity")
-                    .set_index("entity")["organisation"]
-                    .to_dict()
-                )
-                new_dataset_entities = set(post_entity_org) - pre_dataset_entities
-                # Mirror the blank-organisation suppression above: listed-building still gets
-                # no registered range on single-source runs, but every other dataset now gets
-                # a real per-entity organisation and needs its range recorded to match.
-                if new_dataset_entities and not (scope == "single-source" and dataset == "listed-building"):
-                    entity_org_file = Path("pipeline") / collection_name / "entity-organisation.csv"
-                    for org_value, min_entity, max_entity in _contiguous_ranges_by_org(new_dataset_entities, post_entity_org):
-                        # Hard code single exception for conservation-area dataset org HE
-                        if dataset == "conservation-area" and org_value == "government-organisation:PB1164":
-                            continue
-                        with open(entity_org_file, "a", newline="") as f:
-                            writer = csv.writer(f)
-                            writer.writerow([dataset, min_entity, max_entity, org_value])
-                            print(f"\033[95mAppended entity range {min_entity}-{max_entity} for {org_value} to {entity_org_file}\033[0m")
-
             except Exception as e:
+                # An unhandled exception is a pipeline/engineering problem, not a data-quality
+                # finding a reviewer can action - 'failed', same as current_resource_empty,
+                # rather than 'blocked'.
                 print(f"Failed to assign entities for resource: {resource}")
                 logging.error(f"Error: {str(e)}", exc_info=True)
                 output_df = pd.concat([output_df, pd.DataFrame([{
                     "dataset": dataset,
                     "resource": resource,
-                    "status": "error",
+                    "status": "failed",
                     "error_code": type(e).__name__,
                     "message": str(e)
                 }])], ignore_index=True)
             finally:
                 print(f"\nCompleted processing for resource: {resource} in {perf_counter() - start_time:.2f} seconds.")
     finally:
+        # entities_created is only ever set on the 'assigned' success row - every other
+        # row dict (missing_organisation, duplicate checks, current_resource_empty, the
+        # exception handler, etc.) omits the key, so pd.concat fills it with NaN rather
+        # than a count of 0. Must happen before the CSV is written below, not after -
+        # the written file is what Manage and the GitHub Actions artifact actually see.
+        output_df["entities_created"] = output_df["entities_created"].fillna(0).astype(int)
+
         summary_filename = (
             f"batch_assign_summary_{scope}_batch_{start_batch}.csv"
             if batch_size > 0
             else f"batch_assign_summary_{scope}.csv"
         )
         output_df.to_csv(summary_filename, index=False)
-        # Remove successfully processed resources
-        for resource_path in successful_resources:
-            try:
-                if resource_path.exists():
-                    resource_path.unlink()
-                gfs_path = resource_path.with_suffix(".gfs")
-                if gfs_path.exists():
-                    gfs_path.unlink()
-            except OSError as e:
-                print(f"Failed to remove {resource_path} or its .gfs file: {e}")
-        try:
-            if not any(resource_dir.iterdir()):
-                resource_dir.rmdir()
-        except OSError as e:
-            print(f"Failed to remove the resources directory: {e}")
+        _cleanup_resource_dir(resource_dir, successful_resources)
 
     # Summary of results
     print("\n--- Summary Report ---")
@@ -788,7 +1344,6 @@ def ensure_specification_dir(specification_dir: Path = Path("specification")) ->
 def run_batch_assign_entities(
     scope: str = 'odp',
     cache_dir: Path = Path("var/cache/"),
-    new_entity_threshold: int = 10,
     resources: Optional[str] = None,
     skip_checks: bool = False,
     triggered_by: Optional[str] = None,
@@ -796,6 +1351,18 @@ def run_batch_assign_entities(
     batch_size: int = 0,
     start_batch: int = 1,
 ):
+    """
+    Entry point for a scheduled or manual run: fetches the current unknown-entity and
+    invalid-URI issue summaries, filters to scope, then hands off to process_csv.
+
+    :param scope: 'odp' or 'mandated' process whatever Datasette currently reports as
+        outstanding for that scope, in one pass. 'single-source' additionally supports
+        batch_size/start_batch (self-commits per batch, resumable on failure - a full
+        single-source run can take hours) and is the only scope where
+        organisation gets passed as [""] to check_and_assign_entities, but only for the
+        listed-building dataset specifically (see _run_assignment's docstring) - see
+        this module's own docstring for the full scope-difference writeup.
+    """
     endpoint_issue_summary_path = "https://datasette.planning.data.gov.uk/performance/endpoint_dataset_issue_type_summary.csv?_sort=rowid&issue_type__exact=unknown+entity&_size=max"
 
     issue_summary_df = fetch_csv_with_retry(endpoint_issue_summary_path)
@@ -836,7 +1403,8 @@ def run_batch_assign_entities(
         (issue_summary_df["scope"].str.lower() == scope) &
         (issue_summary_df["dataset"].str.lower() != "title-boundary") &
         # planning-application collection is paused, so it shouldn't be batch-assigned
-        (issue_summary_df["dataset"].str.lower() != "planning-application")
+        (issue_summary_df["dataset"].str.lower() != "planning-application") &
+        (issue_summary_df["dataset"].str.lower() != "planning-application-condition")
     ]
 
     if resources:
@@ -888,14 +1456,15 @@ def run_batch_assign_entities(
             resource_dir,
             issue_summary_df,
             cache_dir,
-            new_entity_threshold,
             skip_checks,
             invalid_uri_issues,
             batch_size=batch_size,
             start_batch=start_batch
         )
-        error_count = len(output_df[output_df['status'] == 'error'])
-        success_count = len(output_df[output_df['status'] == 'success'])
+        # 'failed' (e.g. current_resource_empty) is a blocking outcome like 'blocked', just a
+        # distinct label for cases that need an engineer rather than a data reviewer.
+        error_count = len(output_df[output_df['status'].isin(['blocked', 'failed'])])
+        success_count = len(output_df[output_df['status'] == 'assigned'])
 
         print(f"\nTotal failed downloads: {len(failed_downloads)}")
         print(f"Total failed assign-entities operations: {error_count}")
@@ -942,14 +1511,11 @@ def run_batch_assign_entities(
     "--skip-checks",
     is_flag=True,
     default=False,
-    help="Skip validation checks and directly assign entities.",
-)
-@click.option(
-    "--new-entity-threshold",
-    default=10,
-    show_default=True,
-    type=click.IntRange(min=0, max=100),
-    help="The threshold for the number of new entities to be assigned in percentage compared to the previous version of the resource.",
+    help=(
+        "Bypass every validation check (duplicates, retention, missing fields, "
+        "current_resource_empty, invalid_uri_issue) and promote whatever "
+        "check_and_assign_entities assigns unconditionally. Use with caution."
+    ),
 )
 @click.option(
     "--commit/--no-commit",
@@ -975,7 +1541,6 @@ def run_batch_assign_entities(
 def main(
     scope: str = 'odp',
     cache_dir: str = "var/cache/",
-    new_entity_threshold: int = 10,
     resources: Optional[str] = None,
     skip_checks: bool = False,
     triggered_by: Optional[str] = None,
@@ -987,7 +1552,6 @@ def main(
     print("Input options:")
     print(f"  scope={scope}")
     print(f"  cache_dir={cache_dir}")
-    print(f"  new_entity_threshold={new_entity_threshold}")
     print(f"  resources={resources}")
     print(f"  skip_checks={skip_checks}")
     print(f"  triggered_by={triggered_by}")
@@ -999,7 +1563,6 @@ def main(
     run_batch_assign_entities(
         scope=scope,
         cache_dir=cache_dir,
-        new_entity_threshold=new_entity_threshold,
         resources=resources,
         skip_checks=skip_checks,
         triggered_by=triggered_by,

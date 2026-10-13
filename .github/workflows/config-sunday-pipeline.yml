@@ -26,11 +26,6 @@ on:
         required: false
         type: boolean
         default: false
-      new_entities_threshold:
-        description: "The percentage threshold for new entities to be assigned before triggering a warning (optional)"
-        required: false
-        type: number
-        default: 10
       commit:
         description: "Whether to commit results to main (set to false for dry runs)"
         required: false
@@ -93,7 +88,7 @@ jobs:
           sudo apt-get install gdal-bin -y
           gdalinfo --version
           python -m pip install --upgrade pip
-          pip install click pandas tqdm
+          pip install click pandas tqdm rapidfuzz
           pip install -e "git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land"
 
       - name: Run batch assign script
@@ -103,7 +98,6 @@ jobs:
           RESOURCES: ${{ github.event.inputs.resources }}
           TRIGGERED_BY: ${{ github.actor || 'unknown' }}
           SKIP_CHECKS: ${{ github.event.inputs.skip_checks }}
-          NEW_ENTITIES_THRESHOLD: ${{ github.event.inputs.new_entities_threshold }}
           COMMIT: ${{ env.WRITES_ENABLED != 'true' && 'false' || github.event.inputs.commit }}
           BATCH_SIZE: ${{ github.event.inputs.batch_size || '10' }}
           START_BATCH: ${{ github.event.inputs.start_batch || '1' }}
@@ -116,10 +110,6 @@ jobs:
 
           if [ "$SKIP_CHECKS" = "true" ]; then
             ARGS+=(--skip-checks)
-          fi
-
-          if [ -n "$NEW_ENTITIES_THRESHOLD" ]; then
-            ARGS+=(--new-entity-threshold "$NEW_ENTITIES_THRESHOLD")
           fi
 
           if [ -n "$TRIGGERED_BY" ]; then
@@ -152,6 +142,12 @@ jobs:
           else
             python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
           fi
+
+      - name: Alert on resources with an empty transformed output
+        if: ${{ !cancelled() }}
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        run: python3 .github/scripts/notify_current_resource_empty.py "single-source"
 
       - name: Upload batch assign output
         uses: actions/upload-artifact@v4

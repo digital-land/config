@@ -7,15 +7,20 @@ from unittest.mock import MagicMock, Mock, patch
 import pathlib
 import pandas as pd
 import pytest
+import requests
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / ".github/scripts"))
 
 from batch_assign_entities import (
+    ValidationConfig,
     _collect_validation_rows,
     _make_fingerprints,
+    _possible_reference_churn_fuzzy_match_rows,
+    _promote,
     download_file,
     download_urls,
     ensure_specification_dir,
+    get_endpoints_with_any_history,
     get_old_resource_hashes_batch,
     get_scope,
     process_csv,
@@ -76,6 +81,56 @@ def test_get_scope_not_found_returns_single_source():
 
 def test_get_scope_empty_dict():
     assert get_scope("any-dataset", {}) == "single-source"
+
+
+def test_get_endpoints_with_any_history_empty_input():
+    assert get_endpoints_with_any_history([]) == set()
+
+
+@patch("batch_assign_entities.requests.get")
+def test_get_endpoints_with_any_history_returns_set(mock_get):
+    mock_get.return_value = Mock(
+        status_code=200,
+        text="endpoint\nendpoint-a\nendpoint-b\n",
+        raise_for_status=lambda: None,
+    )
+    result = get_endpoints_with_any_history(["endpoint-a", "endpoint-b", "endpoint-c"])
+    assert result == {"endpoint-a", "endpoint-b"}
+
+
+@patch("batch_assign_entities.requests.get")
+def test_get_endpoints_with_any_history_returns_none_on_failure(mock_get):
+    mock_get.side_effect = Exception("network error")
+    result = get_endpoints_with_any_history(["endpoint-a"])
+    assert result is None
+
+
+@patch("batch_assign_entities.sleep")
+@patch("batch_assign_entities.requests.get")
+def test_get_endpoints_with_any_history_retries_transient_failure_then_succeeds(mock_get, mock_sleep):
+    """
+    A 504 (the real failure mode seen from Datasette under load) must be retried via
+    fetch_csv_with_retry, not fail this (whole-run) call on the first blip - that would
+    make every endpoint look like it has no history, blocking every resource in the
+    batch rather than just failing this one call.
+    """
+    # requests.get itself succeeds (a connection is made) - it's raise_for_status() that
+    # raises HTTPError for a real 504, same as fetch_csv_with_retry expects to catch.
+    timeout_response = Mock(
+        raise_for_status=Mock(side_effect=requests.HTTPError("504 Server Error: Gateway Time-out"))
+    )
+    success_response = Mock(
+        status_code=200,
+        text="endpoint\nendpoint-a\n",
+        raise_for_status=lambda: None,
+    )
+    mock_get.side_effect = [timeout_response, timeout_response, success_response]
+
+    result = get_endpoints_with_any_history(["endpoint-a", "endpoint-b"])
+
+    assert result == {"endpoint-a"}
+    assert mock_get.call_count == 3
+    assert mock_sleep.call_count == 2
 
 
 @patch("subprocess.run")
@@ -184,6 +239,7 @@ def test_download_urls_empty_map(mock_tqdm, mock_download):
     mock_download.assert_not_called()
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
@@ -195,6 +251,7 @@ def test_process_csv_detects_duplicate_all_fields(
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -218,6 +275,7 @@ def test_process_csv_detects_duplicate_all_fields(
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
     mock_batch_hashes.return_value = {"endpoint456": "hash123"}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = old_resource_df
 
@@ -226,7 +284,6 @@ def test_process_csv_detects_duplicate_all_fields(
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=False,
     )
 
@@ -237,19 +294,26 @@ def test_process_csv_detects_duplicate_all_fields(
     assert "Matches existing entity" in dup_rows.iloc[0]["message"]
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
 @patch("batch_assign_entities.pd.read_csv")
 @patch("batch_assign_entities.shutil.copy")
-def test_process_csv_detects_duplicate_prefix_reference_organisation(
+def test_process_csv_detects_duplicate_reference_organisation_despite_other_field_changes(
     mock_copy,
     mock_read_csv,
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
+    """duplicate_prefix_reference_organisation was collapsed into
+    duplicate_reference_organisation (provably identical in every call this script
+    makes, since prefix is constant per dataset) - this still verifies a
+    reference+organisation match is caught even when another field (status) differs,
+    which used to additionally exercise the now-removed prefix-specific check."""
     cache_dir, resource_dir = temp_dirs
     resource_file = resource_dir / "resource123"
     resource_file.write_text("test data")
@@ -271,6 +335,7 @@ def test_process_csv_detects_duplicate_prefix_reference_organisation(
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
     mock_batch_hashes.return_value = {"endpoint456": "hash123"}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = old_resource_df
 
@@ -279,27 +344,33 @@ def test_process_csv_detects_duplicate_prefix_reference_organisation(
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=False,
     )
 
     assert not output_df.empty
-    assert "duplicate_prefix_reference_organisation" in output_df["error_code"].values
+    assert "duplicate_reference_organisation" in output_df["error_code"].values
+    assert "duplicate_prefix_reference_organisation" not in output_df["error_code"].values
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
 @patch("batch_assign_entities.pd.read_csv")
 @patch("batch_assign_entities.shutil.copy")
-def test_process_csv_detects_large_new_entities(
+def test_process_csv_detects_low_entity_retention(
     mock_copy,
     mock_read_csv,
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
+    """Replaces the old growth-only large_number_of_new_entities check (see ticket
+    section 3): none of the 10 old entities carry over into the new resource, so
+    retention is 0% - well below the threshold, regardless of how much growth there
+    is alongside it."""
     cache_dir, resource_dir = temp_dirs
     resource_file = resource_dir / "resource123"
     resource_file.write_text("test data")
@@ -312,19 +383,20 @@ def test_process_csv_detects_large_new_entities(
             "value": [f"org{i}" for i in range(1, 11)] + [f"ref{i}" for i in range(1, 11)],
         }
     )
-    new_entities = list(range(1, 101))
+    new_entities = list(range(11, 101))
     new_resource_df = pd.DataFrame(
         {
             "entity": new_entities * 2,
-            "field": ["organisation"] * 100 + ["reference"] * 100,
-            "value": [f"org{i}" for i in range(1, 101)] + [f"ref{i}" for i in range(1, 101)],
+            "field": ["organisation"] * 90 + ["reference"] * 90,
+            "value": [f"org{i}" for i in range(11, 101)] + [f"ref{i}" for i in range(11, 101)],
         }
     )
     lookup_df = pd.DataFrame(
-        {"prefix": ["ca"] * 100, "organisation": [f"org{i}" for i in range(1, 101)], "entity": new_entities}
+        {"prefix": ["ca"] * 90, "organisation": [f"org{i}" for i in range(11, 101)], "entity": new_entities}
     )
 
     mock_batch_hashes.return_value = {"endpoint456": "hash123"}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = old_resource_df
 
@@ -333,15 +405,15 @@ def test_process_csv_detects_large_new_entities(
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=False,
     )
 
-    assert "large_number_of_new_entities" in output_df["error_code"].values
-    large_new_rows = output_df[output_df["error_code"] == "large_number_of_new_entities"]
-    assert "large number of new entities" in large_new_rows.iloc[0]["message"].lower()
+    assert "low_entity_retention" in output_df["error_code"].values
+    retention_rows = output_df[output_df["error_code"] == "low_entity_retention"]
+    assert "retention" in retention_rows.iloc[0]["message"].lower()
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
@@ -353,6 +425,7 @@ def test_process_csv_detects_duplicate_reference_organisation_in_new_resource(
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -369,6 +442,7 @@ def test_process_csv_detects_duplicate_reference_organisation_in_new_resource(
     lookup_df = pd.DataFrame({"prefix": ["ca", "ca"], "organisation": ["org1", "org1"], "entity": [1, 2]})
 
     mock_batch_hashes.return_value = {"endpoint456": None}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = None
 
@@ -377,13 +451,13 @@ def test_process_csv_detects_duplicate_reference_organisation_in_new_resource(
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=False,
     )
 
     assert "duplicate_reference_organisation_in_new_resource" in output_df["error_code"].values
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
@@ -395,6 +469,7 @@ def test_process_csv_detects_missing_organisation(
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -407,6 +482,7 @@ def test_process_csv_detects_missing_organisation(
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
     mock_batch_hashes.return_value = {"endpoint456": None}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = None
 
@@ -415,7 +491,6 @@ def test_process_csv_detects_missing_organisation(
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=False,
     )
 
@@ -424,6 +499,7 @@ def test_process_csv_detects_missing_organisation(
     assert "Missing organisation" in missing_rows.iloc[0]["message"]
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
@@ -435,6 +511,7 @@ def test_process_csv_detects_missing_reference(
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -447,6 +524,7 @@ def test_process_csv_detects_missing_reference(
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
     mock_batch_hashes.return_value = {"endpoint456": None}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = None
 
@@ -455,7 +533,6 @@ def test_process_csv_detects_missing_reference(
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=False,
     )
 
@@ -464,6 +541,7 @@ def test_process_csv_detects_missing_reference(
     assert "Missing reference" in missing_rows.iloc[0]["message"]
 
 
+@patch("batch_assign_entities.get_endpoints_with_any_history")
 @patch("batch_assign_entities.get_old_resource_hashes_batch")
 @patch("batch_assign_entities.check_and_assign_entities")
 @patch("batch_assign_entities.get_old_resource_df_from_hash")
@@ -475,6 +553,7 @@ def test_process_csv_skip_checks_bypasses_validation(
     mock_get_old_hash,
     mock_check,
     mock_batch_hashes,
+    mock_endpoints_with_history,
     temp_dirs,
 ):
     cache_dir, resource_dir = temp_dirs
@@ -485,6 +564,7 @@ def test_process_csv_skip_checks_bypasses_validation(
     lookup_df = pd.DataFrame({"prefix": ["ca"], "organisation": ["org1"], "entity": [1]})
 
     mock_batch_hashes.return_value = {"endpoint456": None}
+    mock_endpoints_with_history.return_value = {"endpoint456"}
     mock_read_csv.side_effect = [lookup_df, new_resource_df, lookup_df]
     mock_get_old_hash.return_value = None
 
@@ -493,7 +573,6 @@ def test_process_csv_skip_checks_bypasses_validation(
         resource_dir,
         _issue_summary_df(resource_file),
         cache_dir,
-        new_entity_threshold=10,
         skip_checks=True,
     )
 
@@ -663,8 +742,8 @@ def test_collect_validation_rows_reports_previous_resource_empty_and_missing_fie
         old_resource_df,
         "conservation-area",
         "resource123",
-        new_entity_threshold=10,
-        old_resource_hash="hash"
+        old_resource_hash="hash",
+        config=ValidationConfig(),
     )
 
     error_codes = [row["error_code"] for row in rows]
@@ -673,6 +752,92 @@ def test_collect_validation_rows_reports_previous_resource_empty_and_missing_fie
     assert "missing_reference" in error_codes
     assert old_entities == set()
     assert new_entities == {1, 2}
+
+
+def test_collect_validation_rows_blocks_on_fetch_failure_with_real_history():
+    current_resource_df = pd.DataFrame(
+        {"entity": [1], "field": ["reference"], "value": ["ref1"]}
+    )
+
+    rows, _, _ = _collect_validation_rows(
+        current_resource_df,
+        None,  # old_resource_df - fetch failed to resolve a baseline
+        "conservation-area",
+        "resource123",
+        old_resource_hash=None,
+        config=ValidationConfig(),
+        endpoint_has_history=True,
+    )
+
+    matching = [row for row in rows if row["error_code"] == "previous_resource_not_found"]
+    assert len(matching) == 1
+    assert matching[0]["status"] == "blocked"
+
+
+def test_collect_validation_rows_does_not_block_genuinely_new_endpoint():
+    current_resource_df = pd.DataFrame(
+        {"entity": [1], "field": ["reference"], "value": ["ref1"]}
+    )
+
+    rows, _, _ = _collect_validation_rows(
+        current_resource_df,
+        None,  # old_resource_df - no previous resource exists at all
+        "conservation-area",
+        "resource123",
+        old_resource_hash=None,
+        config=ValidationConfig(),
+        endpoint_has_history=False,
+    )
+
+    matching = [row for row in rows if row["error_code"] == "new_endpoint_no_history"]
+    assert len(matching) == 1
+    assert matching[0]["status"] == "warn"
+    assert "previous_resource_not_found" not in [row["error_code"] for row in rows]
+
+
+def _entity_rows(entities, reference_prefix):
+    rows = []
+    for entity in entities:
+        rows.append({"entity": entity, "field": "reference", "value": f"{reference_prefix}-{entity}"})
+        rows.append({"entity": entity, "field": "organisation", "value": "org1"})
+    return pd.DataFrame(rows)
+
+
+def test_collect_validation_rows_retention_threshold_is_configurable():
+    """
+    Proves ValidationConfig.retention_threshold is actually read by the retention
+    check, not just plumbed through and ignored - the same 80% retention (8 of 10 old
+    entities still present) blocks under the default 90% threshold but not under a
+    looser 70% override.
+    """
+    old_resource_df = _entity_rows(range(1, 11), "ref")  # entities 1-10
+    current_resource_df = pd.concat(
+        [
+            _entity_rows(range(1, 9), "ref"),  # entities 1-8 retained
+            _entity_rows([99], "new-ref"),  # one genuinely new entity
+        ],
+        ignore_index=True,
+    )
+
+    rows_default, _, _ = _collect_validation_rows(
+        current_resource_df,
+        old_resource_df,
+        "conservation-area",
+        "resource123",
+        old_resource_hash="hash",
+        config=ValidationConfig(),
+    )
+    assert "low_entity_retention" in [r["error_code"] for r in rows_default]
+
+    rows_loosened, _, _ = _collect_validation_rows(
+        current_resource_df,
+        old_resource_df,
+        "conservation-area",
+        "resource123",
+        old_resource_hash="hash",
+        config=ValidationConfig(retention_threshold=70),
+    )
+    assert "low_entity_retention" not in [r["error_code"] for r in rows_loosened]
 
 
 @patch("batch_assign_entities.check_and_assign_entities")
@@ -706,7 +871,6 @@ def test_process_csv_exception_handling(mock_read_csv, mock_check):
             resource_dir,
             issue_df,
             cache_dir,
-            new_entity_threshold=10,
             skip_checks=False,
         )
 
@@ -818,3 +982,247 @@ def test_evening_workflow_installs_gdal_and_uses_ubuntu_22_04():
     assert "issue_summary.csv" in content
     assert "invalid_uri_issues.csv" in content
     assert "issue_summary_full.csv" in content
+
+
+# TEST _possible_reference_churn_fuzzy_match_rows
+
+def test_fuzzy_match_flags_nudged_boundary_and_identical_name():
+    old_df = pd.DataFrame(
+        [
+            {"entity": 1, "field": "geometry", "value": "POLYGON((0 0, 0 10, 10 10, 10 0, 0 0))"},
+            {"entity": 1, "field": "name", "value": "Riverside Industrial Estate"},
+        ]
+    )
+    new_df = pd.DataFrame(
+        [
+            {
+                "entity": 10,
+                "field": "geometry",
+                "value": "POLYGON((0.05 0.05, 0.05 10.05, 10.05 10.05, 10.05 0.05, 0.05 0.05))",
+            },
+            {"entity": 10, "field": "name", "value": "Riverside Industrial Estate"},
+        ]
+    )
+
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123", ValidationConfig())
+
+    assert len(rows) == 1
+    assert rows[0]["status"] == "warn"
+    assert rows[0]["error_code"] == "possible_reference_churn_fuzzy_match"
+    assert "Entity 10" in rows[0]["message"]
+    assert "entity 1" in rows[0]["message"]
+
+
+def test_fuzzy_match_name_only_path_when_geometry_absent():
+    old_df = pd.DataFrame([{"entity": 1, "field": "name", "value": "Riverside Industrial Estate"}])
+    new_df = pd.DataFrame([{"entity": 10, "field": "name", "value": "Riverside Industrial Estate"}])
+
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123", ValidationConfig())
+
+    assert len(rows) == 1
+    assert "name similarity" in rows[0]["message"]
+
+
+def test_fuzzy_match_does_not_flag_unrelated_entities():
+    old_df = pd.DataFrame(
+        [
+            {"entity": 1, "field": "geometry", "value": "POLYGON((0 0, 0 10, 10 10, 10 0, 0 0))"},
+            {"entity": 1, "field": "name", "value": "Riverside Industrial Estate"},
+        ]
+    )
+    new_df = pd.DataFrame(
+        [
+            {"entity": 11, "field": "geometry", "value": "POLYGON((500 500, 500 510, 510 510, 510 500, 500 500))"},
+            {"entity": 11, "field": "name", "value": "Brand New Site"},
+        ]
+    )
+
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123", ValidationConfig())
+
+    assert rows == []
+
+
+def test_fuzzy_match_handles_malformed_geometry_without_crashing():
+    old_df = pd.DataFrame(
+        [
+            {"entity": 1, "field": "geometry", "value": "NOT VALID WKT"},
+            {"entity": 1, "field": "name", "value": "Some Site"},
+        ]
+    )
+    new_df = pd.DataFrame(
+        [
+            {"entity": 10, "field": "geometry", "value": "ALSO GARBAGE"},
+            {"entity": 10, "field": "name", "value": "Some Site"},
+        ]
+    )
+
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123", ValidationConfig())
+
+    # Malformed geometry is skipped, not fatal - the identical name still flags it
+    assert len(rows) == 1
+    assert "name similarity" in rows[0]["message"]
+    assert "geometry overlap" not in rows[0]["message"]
+
+
+def test_fuzzy_match_returns_empty_for_missing_name_and_geometry_fields():
+    old_df = pd.DataFrame([{"entity": 1, "field": "reference", "value": "REF1"}])
+    new_df = pd.DataFrame([{"entity": 10, "field": "reference", "value": "REF1"}])
+
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123", ValidationConfig())
+
+    assert rows == []
+
+
+def test_fuzzy_match_returns_empty_for_empty_inputs():
+    empty_df = pd.DataFrame(columns=["entity", "field", "value"])
+
+    rows = _possible_reference_churn_fuzzy_match_rows(empty_df, empty_df, "test-dataset", "resource123", ValidationConfig())
+
+    assert rows == []
+
+
+def _write_promote_fixtures(collection_name, cache_lookup_rows_csv):
+    """Set up the cache + real lookup.csv/entity-organisation.csv files _promote reads
+    and writes, relative to the isolated tmp_path cwd. Returns (cache_dir, lookup_path,
+    entity_org_path)."""
+    cache_dir = Path("var/cache")
+    cache_lookup_path = cache_dir / "assign_entities" / collection_name / "pipeline" / "lookup.csv"
+    cache_lookup_path.parent.mkdir(parents=True, exist_ok=True)
+    cache_lookup_path.write_text(
+        "prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date\n"
+        + cache_lookup_rows_csv
+    )
+
+    lookup_path = Path("pipeline") / collection_name / "lookup.csv"
+    lookup_path.parent.mkdir(parents=True, exist_ok=True)
+    lookup_path.write_text(
+        "prefix,resource,endpoint,entry-number,organisation,reference,entity,entry-date,start-date,end-date\n"
+    )
+    entity_org_path = Path("pipeline") / collection_name / "entity-organisation.csv"
+    entity_org_path.write_text("dataset,entity-minimum,entity-maximum,organisation\n")
+
+    return cache_dir, lookup_path, entity_org_path
+
+
+def test_promote_copies_cache_lookup_and_appends_entity_organisation_range():
+    cache_dir, lookup_path, entity_org_path = _write_promote_fixtures(
+        "test-collection",
+        "test-dataset,res1,,1,org-x,ref1,100,,,\n",
+    )
+
+    _promote(
+        cache_dir,
+        "test-collection",
+        "test-dataset",
+        "org-x",
+        "odp",
+        lookup_path,
+        invalid_uri_entities=set(),
+        pre_dataset_entities=set(),
+    )
+
+    assert set(pd.read_csv(lookup_path, dtype=str)["entity"]) == {"100"}
+    assert entity_org_path.read_text() == (
+        "dataset,entity-minimum,entity-maximum,organisation\n"
+        "test-dataset,100,100,org-x\n"
+    )
+
+
+def test_promote_excludes_invalid_uri_entities_from_real_lookup():
+    cache_dir, lookup_path, entity_org_path = _write_promote_fixtures(
+        "test-collection",
+        "test-dataset,res1,,1,org-x,ref1,100,,,\n"
+        "test-dataset,res1,,2,org-x,ref2,200,,,\n",
+    )
+
+    _promote(
+        cache_dir,
+        "test-collection",
+        "test-dataset",
+        "org-x",
+        "odp",
+        lookup_path,
+        invalid_uri_entities={"100"},
+        pre_dataset_entities=set(),
+    )
+
+    # Excluded entity never reaches the real lookup.csv at all - not just status quo,
+    # genuinely absent, so it resurfaces as unresolved next run.
+    assert set(pd.read_csv(lookup_path, dtype=str)["entity"]) == {"200"}
+    # Only the promoted entity (200) gets a range.
+    assert entity_org_path.read_text() == (
+        "dataset,entity-minimum,entity-maximum,organisation\n"
+        "test-dataset,200,200,org-x\n"
+    )
+
+
+def test_promote_backfills_blank_organisation_in_lookup_and_ranges():
+    cache_dir, lookup_path, entity_org_path = _write_promote_fixtures(
+        "test-collection",
+        # Blank organisation - the missing_organisation warn case, now non-blocking.
+        "test-dataset,res1,,1,,ref1,100,,,\n",
+    )
+
+    _promote(
+        cache_dir,
+        "test-collection",
+        "test-dataset",
+        "org-real",
+        "odp",
+        lookup_path,
+        invalid_uri_entities=set(),
+        pre_dataset_entities=set(),
+    )
+
+    written_df = pd.read_csv(lookup_path, dtype=str)
+    assert written_df.loc[written_df["entity"] == "100", "organisation"].iloc[0] == "org-real"
+    assert "test-dataset,100,100,org-real" in entity_org_path.read_text()
+
+
+def test_promote_respects_pb1164_exclusion():
+    cache_dir, lookup_path, entity_org_path = _write_promote_fixtures(
+        "conservation-area",
+        "conservation-area,res1,,1,government-organisation:PB1164,ref1,100,,,\n",
+    )
+
+    _promote(
+        cache_dir,
+        "conservation-area",
+        "conservation-area",
+        "government-organisation:PB1164",
+        "odp",
+        lookup_path,
+        invalid_uri_entities=set(),
+        pre_dataset_entities=set(),
+    )
+
+    # The entity is still promoted into lookup.csv...
+    assert "100" in set(pd.read_csv(lookup_path, dtype=str)["entity"])
+    # ...but PB1164 never gets its own entity-organisation.csv range on this dataset -
+    # the owning local authority does, recorded separately.
+    assert entity_org_path.read_text() == "dataset,entity-minimum,entity-maximum,organisation\n"
+
+
+def test_promote_single_source_listed_building_skips_entity_organisation_range():
+    cache_dir, lookup_path, entity_org_path = _write_promote_fixtures(
+        "listed-building",
+        # Blank organisation, deliberate for single-source listed-building.
+        "listed-building,res1,,1,,ref1,100,,,\n",
+    )
+
+    _promote(
+        cache_dir,
+        "listed-building",
+        "listed-building",
+        "",
+        "single-source",
+        lookup_path,
+        invalid_uri_entities=set(),
+        pre_dataset_entities=set(),
+    )
+
+    # Stays blank - not backfilled for this specific suppression.
+    written_df = pd.read_csv(lookup_path, dtype=str)
+    assert written_df.loc[written_df["entity"] == "100", "organisation"].isna().all()
+    # No entity-organisation.csv range either.
+    assert entity_org_path.read_text() == "dataset,entity-minimum,entity-maximum,organisation\n"
