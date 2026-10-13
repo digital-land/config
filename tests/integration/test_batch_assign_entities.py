@@ -11,6 +11,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / ".github/scripts"))
 
 from batch_assign_entities import (
+    ValidationConfig,
     _collect_validation_rows,
     _make_fingerprints,
     _possible_reference_churn_fuzzy_match_rows,
@@ -711,7 +712,8 @@ def test_collect_validation_rows_reports_previous_resource_empty_and_missing_fie
         old_resource_df,
         "conservation-area",
         "resource123",
-        old_resource_hash="hash"
+        old_resource_hash="hash",
+        config=ValidationConfig(),
     )
 
     error_codes = [row["error_code"] for row in rows]
@@ -733,6 +735,7 @@ def test_collect_validation_rows_blocks_on_fetch_failure_with_real_history():
         "conservation-area",
         "resource123",
         old_resource_hash=None,
+        config=ValidationConfig(),
         endpoint_has_history=True,
     )
 
@@ -752,6 +755,7 @@ def test_collect_validation_rows_does_not_block_genuinely_new_endpoint():
         "conservation-area",
         "resource123",
         old_resource_hash=None,
+        config=ValidationConfig(),
         endpoint_has_history=False,
     )
 
@@ -925,7 +929,7 @@ def test_fuzzy_match_flags_nudged_boundary_and_identical_name():
         ]
     )
 
-    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123")
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123", ValidationConfig())
 
     assert len(rows) == 1
     assert rows[0]["status"] == "warn"
@@ -938,7 +942,7 @@ def test_fuzzy_match_name_only_path_when_geometry_absent():
     old_df = pd.DataFrame([{"entity": 1, "field": "name", "value": "Riverside Industrial Estate"}])
     new_df = pd.DataFrame([{"entity": 10, "field": "name", "value": "Riverside Industrial Estate"}])
 
-    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123")
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123", ValidationConfig())
 
     assert len(rows) == 1
     assert "name similarity" in rows[0]["message"]
@@ -958,7 +962,7 @@ def test_fuzzy_match_does_not_flag_unrelated_entities():
         ]
     )
 
-    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123")
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123", ValidationConfig())
 
     assert rows == []
 
@@ -977,7 +981,7 @@ def test_fuzzy_match_handles_malformed_geometry_without_crashing():
         ]
     )
 
-    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123")
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123", ValidationConfig())
 
     # Malformed geometry is skipped, not fatal - the identical name still flags it
     assert len(rows) == 1
@@ -989,7 +993,7 @@ def test_fuzzy_match_returns_empty_for_missing_name_and_geometry_fields():
     old_df = pd.DataFrame([{"entity": 1, "field": "reference", "value": "REF1"}])
     new_df = pd.DataFrame([{"entity": 10, "field": "reference", "value": "REF1"}])
 
-    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123")
+    rows = _possible_reference_churn_fuzzy_match_rows(old_df, new_df, "test-dataset", "resource123", ValidationConfig())
 
     assert rows == []
 
@@ -997,6 +1001,6 @@ def test_fuzzy_match_returns_empty_for_missing_name_and_geometry_fields():
 def test_fuzzy_match_returns_empty_for_empty_inputs():
     empty_df = pd.DataFrame(columns=["entity", "field", "value"])
 
-    rows = _possible_reference_churn_fuzzy_match_rows(empty_df, empty_df, "test-dataset", "resource123")
+    rows = _possible_reference_churn_fuzzy_match_rows(empty_df, empty_df, "test-dataset", "resource123", ValidationConfig())
 
     assert rows == []

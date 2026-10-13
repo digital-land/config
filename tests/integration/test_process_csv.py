@@ -218,6 +218,55 @@ def test_process_csv_success(
     assert updated_lookup.exists(), "Updated lookup.csv should exist after success"
 
 
+def test_process_csv_entities_created_written_to_summary_csv_without_nan(
+    setup_test_path,
+    mock_issue_summary,
+    monkeypatch,
+    tmp_path,
+):
+    """
+    entities_created must be fixed up (NaN -> 0) before the summary CSV is written to
+    disk, not just on the in-memory output_df returned afterward - the written file is
+    what Manage and the GitHub Actions artifact actually see.
+    """
+    resource_dir = tmp_path / "resource"
+    resource_dir.mkdir(parents=True, exist_ok=True)
+    resource_file = resource_dir / "test-resource"
+    resource_file.write_text("resource")
+
+    cache_dir = tmp_path / "var/cache"
+    transformed_dir = cache_dir / "assign_entities" / "transformed"
+    transformed_dir.mkdir(parents=True, exist_ok=True)
+    # Empty transformed resource (header only) triggers the current_resource_empty
+    # ('failed') row, which never sets entities_created at all.
+    (transformed_dir / "test-resource.csv").write_text("entity,field,value\n")
+
+    issue_summary_df = pd.read_csv(mock_issue_summary)
+    issue_summary_df["download_link"] = "http://example.com/test-resource"
+    issue_summary_df["resource_path"] = str(resource_file)
+    issue_summary_df["endpoint"] = "test-endpoint"
+
+    monkeypatch.setattr(batch_assign_entities, "get_old_resource_hashes_batch", lambda *args, **kwargs: {})
+    monkeypatch.setattr(batch_assign_entities, "get_endpoints_with_any_history", lambda *args, **kwargs: set())
+
+    failed_downloads, output_df = batch_assign_entities.process_csv(
+        scope="odp",
+        resource_dir=resource_dir,
+        issue_summary_df=issue_summary_df,
+        cache_dir=cache_dir,
+    )
+
+    assert failed_downloads == []
+    assert "current_resource_empty" in output_df["error_code"].values
+
+    summary_path = tmp_path / "batch_assign_summary_odp.csv"
+    assert summary_path.exists()
+    written_df = pd.read_csv(summary_path)
+    failed_row = written_df[written_df["error_code"] == "current_resource_empty"].iloc[0]
+    assert not pd.isna(failed_row["entities_created"]), "entities_created must not be NaN in the written CSV"
+    assert failed_row["entities_created"] == 0
+
+
 def test_process_csv_invalid_uri_only_excludes_genuinely_new_entities(
     setup_test_path,
     mock_resource_files,
