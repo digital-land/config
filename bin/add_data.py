@@ -315,6 +315,16 @@ def checkout_branch_for_create_mode(branch_name: str) -> None:
         run_command(["git", "checkout", "-b", branch_name])
 
 
+def sync_branch_with_main() -> None:
+    """Update the checked-out branch without discarding pending submissions."""
+    run_command(["git", "fetch", "origin", "main:refs/remotes/origin/main"])
+    try:
+        run_command(["git", "merge", "--no-edit", "origin/main"])
+    except SystemExit:
+        run_command(["git", "merge", "--abort"], check=False)
+        fail("Could not merge main into the submission branch. Resolve conflicts and retry.")
+
+
 def append_endpoint(response: dict, collection: str) -> None:
     endpoint_file = Path("collection") / collection / "endpoint.csv"
     endpoint_summary = response.get("response", {}).get("data", {}).get("endpoint-summary", {})
@@ -576,6 +586,11 @@ def run_add_data_async(
     else:
         branch_name, pr_number, mode = resolve_branch(branch.strip(), collection)
 
+    run_command(["git", "config", "user.name", "github-actions-add-data-bot"])
+    run_command(["git", "config", "user.email", "matthew.poole@communities.gov.uk"])
+    checkout_branch_for_create_mode(branch_name)
+    sync_branch_with_main()
+
     retire_endpoints_in_csv(collection, retire_endpoints)
     unretire_endpoints_in_csv(collection, unretire_endpoints)
     append_old_entity(response, collection)
@@ -586,9 +601,6 @@ def run_add_data_async(
     append_entity_organisation(response, collection)
 
     commit_label = get_commit_label(response, triggered_by)
-
-    run_command(["git", "config", "user.name", "github-actions-add-data-bot"])
-    run_command(["git", "config", "user.email", "matthew.poole@communities.gov.uk"])
 
     run_command(["git", "add", f"collection/{collection}/"])
     run_command(["git", "add", f"pipeline/{collection}/"])
