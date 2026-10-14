@@ -10,10 +10,13 @@ name: Config Evening Pipeline
 # stop later stages; the final `notify` job raises a single Slack alert naming any
 # stage that failed.
 #
-# Single-source batch assign runs separately on Sundays (see config-sunday-pipeline.yml):
-# it can take 4+ hours, which previously risked this pipeline still being mid-run at
-# midnight when Airflow triggers. batch-assign here now runs odp and mandated as a
-# matrix every scheduled run (Mon-Fri), so both are refreshed daily instead of alternating.
+# batch-assign runs odp, mandated AND single-source as a sequential matrix (max-parallel:
+# 1) every scheduled run (Mon-Fri), so all three scopes are refreshed daily. single-source
+# used to run separately on Sundays only (config-sunday-pipeline.yml, now retired), because
+# it could take 4+ hours and risked this pipeline still being mid-run at midnight when
+# Airflow triggers - the digital-land-python O(n) Lookups fix (2026-10-12) brought that
+# down enough to fold it back in here. It still runs in resumable batches (batch_size/
+# start_batch) in case a very large backlog ever threatens that budget again.
 #
 
 on:
@@ -27,13 +30,14 @@ on:
         type: boolean
         default: false
       scope:
-        description: "The scope of the batch assignment (overrides the scheduled odp+mandated matrix)"
+        description: "The scope of the batch assignment (overrides the scheduled odp+mandated+single-source matrix)"
         required: false
         type: choice
         default: "odp"
         options:
           - "mandated"
           - "odp"
+          - "single-source"
       resources:
         description: "Comma-separated list of resource"
         required: false
@@ -48,6 +52,16 @@ on:
         required: false
         type: boolean
         default: true
+      batch_size:
+        description: "Resources per batch for single-source (0 = no batching). Ignored by odp/mandated."
+        required: false
+        type: number
+        default: 10
+      start_batch:
+        description: "Batch number to start from for single-source. Use to resume a failed run."
+        required: false
+        type: number
+        default: 1
 
 env:
   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
@@ -71,7 +85,7 @@ jobs:
         id: batch-assign-scope
         run: |
           if [ "${{ github.event_name }}" = "schedule" ]; then
-            SCOPES='["odp", "mandated"]'
+            SCOPES='["odp", "mandated", "single-source"]'
           else
             SCOPES='["${{ github.event.inputs.scope || 'odp' }}"]'
           fi
@@ -151,18 +165,22 @@ jobs:
         run: |
           echo "Dry run: PR #${{ steps.check-pr.outputs.pr_number }} would be approved and squash-merged here (tests_passed=${{ steps.check-tests.outputs.tests_passed }})."
 
-  # 2. Batch assign unknown entities (odp + mandated). The script self-commits & pushes
-  #    to main. Only runs Mon–Fri. Single-source batch assign runs separately on Sundays
-  #    (see config-sunday-pipeline.yml).
+  # 2. Batch assign unknown entities (odp + mandated + single-source). The script
+  #    self-commits & pushes to main per scope (single-source: per batch). Only runs Mon–Fri.
   batch-assign:
     name: Batch assign (${{ matrix.scope }})
     runs-on: ubuntu-22.04
     needs: [merge]
     if: ${{ !cancelled() }}
+    outputs:
+      failed_batch: ${{ steps.batch-assign.outputs.failed_batch }}
     strategy:
       fail-fast: false
       # Legs push to main independently (git commit / pull --rebase / push, no retry on
-      # conflict) — run one at a time so odp and mandated never race to push at once.
+      # conflict) — run one at a time so odp, mandated and single-source never race to
+      # push at once. single-source runs last (see scope ordering above) so its own
+      # failed_batch output - if set - is the one that survives the matrix's job-output
+      # last-writer-wins behaviour and reaches the notify step below.
       max-parallel: 1
       matrix:
         scope: ${{ fromJSON(needs.merge.outputs.batch_assign_scopes) }}
@@ -205,6 +223,10 @@ jobs:
           SCOPE: ${{ matrix.scope }}
           SKIP_CHECKS: ${{ github.event.inputs.skip_checks }}
           COMMIT: ${{ env.WRITES_ENABLED != 'true' && 'false' || github.event.inputs.commit }}
+          # Only single-source batches by default - odp/mandated are small enough to run as
+          # one commit. A manual dispatch can still override batch_size for any scope.
+          BATCH_SIZE: ${{ github.event.inputs.batch_size || (matrix.scope == 'single-source' && '10' || '0') }}
+          START_BATCH: ${{ github.event.inputs.start_batch || '1' }}
         run: |
           ARGS+=(--scope "$SCOPE")
 
@@ -224,7 +246,28 @@ jobs:
             ARGS+=(--no-commit)
           fi
 
-          python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
+          if [ "${BATCH_SIZE:-0}" -gt 0 ]; then
+            CURRENT_BATCH="${START_BATCH:-1}"
+            while true; do
+              set +e
+              python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}" \
+                --batch-size "$BATCH_SIZE" \
+                --start-batch "$CURRENT_BATCH"
+              EXIT=$?
+              set -e
+              if [ $EXIT -eq 2 ]; then
+                echo "All batches complete."
+                break
+              elif [ $EXIT -ne 0 ]; then
+                echo "::error::Batch $CURRENT_BATCH ($SCOPE) failed. To resume, trigger manually with: scope=$SCOPE, start_batch=$CURRENT_BATCH, batch_size=$BATCH_SIZE"
+                echo "failed_batch=$CURRENT_BATCH" >> "$GITHUB_OUTPUT"
+                exit 1
+              fi
+              CURRENT_BATCH=$(( CURRENT_BATCH + 1 ))
+            done
+          else
+            python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
+          fi
 
       - name: Alert on resources with an empty transformed output
         if: ${{ !cancelled() }}
@@ -474,7 +517,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*Trigger:* ${{ github.event_name }}\n*Stage results:*\n• merge: `${{ needs.merge.result }}`\n• batch-assign (odp + mandated): `${{ needs.batch-assign.result }}`\n• deduplicate: `${{ needs.deduplicate.result }}`\n• standardise: `${{ needs.standardise.result }}`\n• detect-environments: `${{ needs.detect-environments.result }}`\n• upload-s3: `${{ needs.upload-s3.result }}`"
+                    "text": "*Trigger:* ${{ github.event_name }}\n*Stage results:*\n• merge: `${{ needs.merge.result }}`\n• batch-assign (odp + mandated + single-source): `${{ needs.batch-assign.result }}`${{ needs.batch-assign.outputs.failed_batch && format(' (failed at batch {0}, resume with scope=single-source, start_batch={0})', needs.batch-assign.outputs.failed_batch) || '' }}\n• deduplicate: `${{ needs.deduplicate.result }}`\n• standardise: `${{ needs.standardise.result }}`\n• detect-environments: `${{ needs.detect-environments.result }}`\n• upload-s3: `${{ needs.upload-s3.result }}`"
                   }
                 },
                 {
