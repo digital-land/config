@@ -433,11 +433,13 @@ def append_column(response: dict, collection: str) -> None:
         print("No column mapping found, skipping column.csv")
         return
 
-    endpoint_entry = (
+    endpoint_summary = (
         response.get("response", {})
         .get("data", {})
         .get("endpoint-summary", {})
-        .get("new_endpoint_entry", {})
+    )
+    endpoint_entry = endpoint_summary.get("new_endpoint_entry") or endpoint_summary.get(
+        "existing_endpoint_entry", {}
     )
 
     dataset = params.get("dataset", "")
