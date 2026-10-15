@@ -1,1 +1,7 @@
 dataset,resource,field,default-field,entry-date,start-date,end-date,entry-number,endpoint
+developer-agreement,,reference,developer-agreement,,,,,
+developer-agreement,,developer-agreement,reference,,,,,
+developer-agreement-contribution,,reference,developer-agreement-contribution,,,,,
+developer-agreement-contribution,,developer-agreement-contribution,reference,,,,,
+developer-agreement-transaction,,reference,developer-agreement-transaction,,,,,
+developer-agreement-transaction,,developer-agreement-transaction,reference,,,,,
