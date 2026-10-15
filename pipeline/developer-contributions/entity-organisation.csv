@@ -3,6 +3,7 @@ developer-agreement,4600475,4600482,local-authority:ADU
 developer-agreement,4602118,4602131,local-authority:AMB
 developer-agreement,4600909,4601017,local-authority:ARU
 developer-agreement,4605753,4607202,local-authority:ARU
+developer-agreement,4613440,4613558,local-authority:ARU
 developer-agreement,4601635,4601647,local-authority:ASF
 developer-agreement,4604873,4604881,local-authority:ASF
 developer-agreement,4609772,4609776,local-authority:ASF
@@ -134,6 +135,7 @@ developer-agreement,4602907,4602986,national-park-authority:Q20198711
 developer-agreement,4611469,4611483,national-park-authority:Q27178932
 developer-agreement,4613436,4613436,national-park-authority:Q27178932
 developer-agreement,4613438,4613438,national-park-authority:Q27178932
+developer-agreement,4613439,4613439,national-park-authority:Q27178932
 developer-agreement,4601648,4601648,national-park-authority:Q4972284
 developer-agreement,4601954,4602030,national-park-authority:Q72617158
 developer-agreement,4604882,4604937,national-park-authority:Q72617158
@@ -143,6 +145,7 @@ developer-agreement-contribution,4306989,4307010,local-authority:ADU
 developer-agreement-contribution,4304333,4304395,local-authority:AMB
 developer-agreement-contribution,4302610,4303041,local-authority:ARU
 developer-agreement-contribution,4316063,4318121,local-authority:ARU
+developer-agreement-contribution,4339884,4340039,local-authority:ARU
 developer-agreement-contribution,4304470,4304506,local-authority:ASF
 developer-agreement-contribution,4315407,4315494,local-authority:ASF
 developer-agreement-contribution,4323612,4323710,local-authority:ASF
@@ -271,6 +274,7 @@ developer-agreement-transaction,4405557,4405565,local-authority:ADU
 developer-agreement-transaction,4402647,4402709,local-authority:AMB
 developer-agreement-transaction,4406758,4407326,local-authority:ARU
 developer-agreement-transaction,4418718,4419520,local-authority:ARU
+developer-agreement-transaction,4451125,4451380,local-authority:ARU
 developer-agreement-transaction,4406471,4406757,local-authority:ASF
 developer-agreement-transaction,4416620,4417219,local-authority:ASF
 developer-agreement-transaction,4425392,4425591,local-authority:ASF
@@ -382,7 +386,3 @@ developer-agreement-transaction,4401339,4401468,national-park-authority:Q7261715
 developer-agreement-transaction,4415906,4416121,national-park-authority:Q72617158
 developer-agreement-transaction,4424609,4424617,national-park-authority:Q72617669
 developer-agreement-transaction,4429340,4429359,national-park-authority:Q72617669
-developer-agreement,4613439,4613439,national-park-authority:Q27178932
-developer-agreement,4613440,4613558,local-authority:ARU
-developer-agreement-transaction,4451125,4451380,local-authority:ARU
-developer-agreement-contribution,4339884,4340039,local-authority:ARU

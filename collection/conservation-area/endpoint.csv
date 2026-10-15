@@ -867,6 +867,6 @@ e09af609352a1812942818db4b2159a6e7085d3b88386a298b71cf32b0bbbdca,https://www.bra
 4feb7e31ba2bdccb645160d2c29ba74c6c7b9b6be5862f91ad5690c61c871543,https://gis.middlesbrough.gov.uk/server/rest/services/Conservation_Areas_Table/FeatureServer/2,,arcgis,2026-10-05,2026-10-05,
 49f24baf849d9a5d06a07a80e7729fb8798c4e1d42d85360f4f08047b6e173aa,https://map2.hackney.gov.uk/geoserver/ows?service=WFS&version=2.0&request=GetFeature&outputFormat=application/json&SrsName=EPSG:4326&typeName=planning:conservation_area,,,2026-10-06,2026-10-06,
 5cb6f512c4f39a09d5bb114842c04952f49f4a9443ba842d7a46703ca1f59aa1,https://gis.middlesbrough.gov.uk/server/rest/services/Conservation_Areas/FeatureServer/6,,arcgis,2026-10-06,2026-10-06,
-a693648ff424ae92d2db5d6cf6355c041a9d4796c28a82164410be65573d37c2,https://www.rushcliffe.gov.uk/media/kbddqd0w/rbc_conservation-area-documents.csv,,,2026-10-15,2026-10-15,
-691332390383f400459d525f86c0679a360bc3fd1cd6d0f577f16d0586f2ccc3,https://www.arcgis.com/sharing/rest/content/items/2acd4fecf34f40d9ab7d5c1225ccebe3/data,,,2026-10-15,2026-10-15,
 1d732a96a038162a3fd5a64fd82c007fa6361f48c18ab0fcf5f3570a5df498d8,https://dservices-eu1.arcgis.com/RueeNoynTFyAIwKy/arcgis/services/Conservation_Areas_NEW_WFS/WFSServer?request=getcapabilities&service=wfs,,,2026-10-15,2026-10-15,
+691332390383f400459d525f86c0679a360bc3fd1cd6d0f577f16d0586f2ccc3,https://www.arcgis.com/sharing/rest/content/items/2acd4fecf34f40d9ab7d5c1225ccebe3/data,,,2026-10-15,2026-10-15,
+a693648ff424ae92d2db5d6cf6355c041a9d4796c28a82164410be65573d37c2,https://www.rushcliffe.gov.uk/media/kbddqd0w/rbc_conservation-area-documents.csv,,,2026-10-15,2026-10-15,
