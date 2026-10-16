@@ -267,7 +267,7 @@ cf1911438f3a24ecab8bbf590a949a7ad0203acf8d1445b21e1b5efbd93e1d65,https://service
 5474237c48ca604904db40c27e80ccacb4c040d7b74d50d14d74943ec4b93e5f,https://webmap.newcastle-staffs.gov.uk/arcgisweb/rest/services/WebMap/Planning_Data_Platform/FeatureServer/0,,arcgis,2026-07-13,2026-07-13,
 c25d2390e0bc6a7c0a9091f3f4eb4ff4f9f5b0a3dd1f9329a30779fa77139dbb,https://blob.datopian.com/resources/80a198c2-4a67-4e94-a965-cdf66111efbb/Article%204%20direction%20area%20v2-ex3rGz.csv,,,2026-07-13,2026-07-13,
 c904d5d7fbe44d416d8e91e00b6d375a0280dbd27374168b81ed34704a1f0d37,https://www.rushcliffe.gov.uk/media/jydjry4t/art4.csv,,,2026-07-13,2026-07-13,
-d6366c0f4372382d72d9675b485ed36929aee2c434ea58f8a573786f730429b9,https://www.stevenage.gov.uk/documents/planning-policy/article-4-direction.csv,,,2026-07-13,2026-07-13,
+d6366c0f4372382d72d9675b485ed36929aee2c434ea58f8a573786f730429b9,https://www.stevenage.gov.uk/documents/planning-policy/article-4-direction.csv,,,2026-07-13,2026-07-13,2026-10-16
 e2a10e3c8e4b1f3977ef8a3df416a02301661777a2b1ff70f3b83f369e4b6d95,https://webmap.newcastle-staffs.gov.uk/arcgisweb/rest/services/WebMap/Planning_Data_Platform/FeatureServer/1,,arcgis,2026-07-13,2026-07-13,
 4ab5950c1278f867fdaf272a78cc9d5fb9c72908faa2384298d28a9e3192bf94,https://exeter.gov.uk/media/nl2fg3yl/article-4-direction.csv,,,2026-07-15,2026-07-15,2026-07-21
 cd84c15f8f3a9b21435d1ce037fc37946742686a9d34f2ed661784c3de254326,https://www.southampton.gov.uk/geoserver/Data/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Data%3AARTICLE_4_DIRECTION_AREA&maxFeatures=50&outputFormat=csv&srsName=EPSG:4326,,,2026-07-15,2026-07-15,
@@ -301,3 +301,4 @@ aa9c16d5cd8f740beac53f42681112db13af9e205c3f06e162043a22c0a01329,https://www.bra
 ce2be0f49454a0eaf7162952d5972dc01a2bc9dc920d292c14656e067bacb8c0,https://www.bradford.gov.uk/media/rckfpb0z/article_4_direction_area.json,,,2026-10-02,2026-10-02,
 d4e33c7071b86884d1a54cddbe14203b1f0bb03a38fcccea869d68079d9480e8,https://map2.hackney.gov.uk/geoserver/ows?service=WFS&version=2.0&request=GetFeature&outputFormat=application/json&SrsName=EPSG:4326&typeName=planning:article_4_direction,,,2026-10-06,2026-10-06,
 f8ced5be7d3dab88d079bd86b08122e8063637fb03bceddf2ddb7ad4302cda4c,https://map2.hackney.gov.uk/geoserver/ows?service=WFS&version=2.0&request=GetFeature&outputFormat=application/json&SrsName=EPSG:4326&typeName=planning:article_4_direction_nogeometry,,,2026-10-07,2026-10-07,
+83f0292242aec68ab3b9e5d43e1b36a4775b00c070c9264fa8ffa2eacc5437ff,https://www.stevenage.gov.uk/documents/planning-policy/datasets-2/sbc-article-4-direction-dataset.csv,,,2026-10-16,2026-10-16,
