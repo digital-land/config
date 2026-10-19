@@ -12,6 +12,7 @@ brownfield-land,1706814,1706835,local-authority:AMB
 brownfield-land,1723302,1723322,local-authority:AMB
 brownfield-land,1724785,1724789,local-authority:AMB
 brownfield-land,1729637,1729655,local-authority:AMB
+brownfield-land,1745245,1745268,local-authority:AMB
 brownfield-land,1708076,1708101,local-authority:ARU
 brownfield-land,1716585,1716594,local-authority:ARU
 brownfield-land,1725024,1725027,local-authority:ARU
@@ -363,9 +364,7 @@ brownfield-land,1734585,1734586,local-authority:CHE
 brownfield-land,1734589,1734594,local-authority:CHE
 brownfield-land,1734637,1734637,local-authority:CHE
 brownfield-land,1734641,1734641,local-authority:CHE
-brownfield-land,1740606,1740625,local-authority:CHE
-brownfield-land,1740626,1740632,local-authority:CHE
-brownfield-land,1740633,1740638,local-authority:CHE
+brownfield-land,1740606,1740638,local-authority:CHE
 brownfield-land,1741876,1741879,local-authority:CHE
 brownfield-land,1721242,1721259,local-authority:CHI
 brownfield-land,1723618,1723619,local-authority:CHI
@@ -577,6 +576,7 @@ brownfield-land,1733833,1733856,local-authority:FOE
 brownfield-land,1745158,1745182,local-authority:FOE
 brownfield-land,1745188,1745212,local-authority:FOE
 brownfield-land,1745218,1745242,local-authority:FOE
+brownfield-land,1745274,1745298,local-authority:FOE
 brownfield-land,1718628,1718638,local-authority:FOR
 brownfield-land,1701328,1701374,local-authority:FYL
 brownfield-land,1723487,1723593,local-authority:GAT
@@ -1071,7 +1071,6 @@ brownfield-land,1721950,1721955,local-authority:LEE
 brownfield-land,1723668,1723670,local-authority:LEE
 brownfield-land,1740386,1740393,local-authority:LEE
 brownfield-land,1742041,1742043,local-authority:LEE
-brownfield-land,1742041,1742043,local-authority:LEE
 brownfield-land,1742085,1742085,local-authority:LEE
 brownfield-land,1705000,1705167,local-authority:LEW
 brownfield-land,1718582,1718603,local-authority:LEW
@@ -1432,6 +1431,7 @@ brownfield-land,1741626,1741630,local-authority:SAW
 brownfield-land,1742553,1742554,local-authority:SAW
 brownfield-land,1745185,1745186,local-authority:SAW
 brownfield-land,1745215,1745216,local-authority:SAW
+brownfield-land,1745271,1745272,local-authority:SAW
 brownfield-land,1700048,1700069,local-authority:SBU
 brownfield-land,1727277,1727291,local-authority:SBU
 brownfield-land,1715722,1715771,local-authority:SCA
@@ -1606,7 +1606,6 @@ brownfield-land,1732133,1732219,local-authority:TAM
 brownfield-land,1736444,1736456,local-authority:TAM
 brownfield-land,1740421,1740431,local-authority:TAM
 brownfield-land,1742044,1742049,local-authority:TAM
-brownfield-land,1742044,1742049,local-authority:TAM
 brownfield-land,1719589,1719688,local-authority:TAN
 brownfield-land,1721655,1721679,local-authority:TAN
 brownfield-land,1727980,1728006,local-authority:TAN
@@ -1761,8 +1760,7 @@ brownfield-land,1723485,1723486,local-authority:WFUA
 brownfield-land,1725046,1725046,local-authority:WFUA
 brownfield-land,1725879,1725889,local-authority:WFUA
 brownfield-land,1725944,1725944,local-authority:WFUA
-brownfield-land,1735289,1735302,local-authority:WFUA
-brownfield-land,1735303,1735353,local-authority:WFUA
+brownfield-land,1735289,1735353,local-authority:WFUA
 brownfield-land,1739018,1739082,local-authority:WFUA
 brownfield-land,1726139,1726316,local-authority:WGN
 brownfield-land,1726997,1726999,local-authority:WGN
@@ -1773,6 +1771,7 @@ brownfield-land,1741393,1741397,local-authority:WGN
 brownfield-land,1742555,1742555,local-authority:WGN
 brownfield-land,1745187,1745187,local-authority:WGN
 brownfield-land,1745217,1745217,local-authority:WGN
+brownfield-land,1745273,1745273,local-authority:WGN
 brownfield-land,1706093,1706093,local-authority:WIL
 brownfield-land,1726003,1726070,local-authority:WIL
 brownfield-land,1727228,1727276,local-authority:WIL
@@ -1847,6 +1846,7 @@ brownfield-land,1725764,1725765,local-authority:WOT
 brownfield-land,1726075,1726079,local-authority:WOT
 brownfield-land,1735546,1735558,local-authority:WOT
 brownfield-land,1740879,1740882,local-authority:WOT
+brownfield-land,1745243,1745244,local-authority:WOT
 brownfield-land,1707041,1707055,local-authority:WOX
 brownfield-land,1727299,1727304,local-authority:WOX
 brownfield-land,1731672,1731683,local-authority:WOX
@@ -1959,9 +1959,3 @@ brownfield-land,1724945,1724947,national-park-authority:Q72617784
 brownfield-land,1721369,1721369,national-park-authority:Q72617890
 brownfield-land,1722291,1722294,national-park-authority:Q72617988
 brownfield-land,1742006,1742006,national-park-authority:Q72617988
-brownfield-land,1742006,1742006,national-park-authority:Q72617988
-brownfield-land,1745243,1745244,local-authority:WOT
-brownfield-land,1745245,1745268,local-authority:AMB
-brownfield-land,1745271,1745272,local-authority:SAW
-brownfield-land,1745273,1745273,local-authority:WGN
-brownfield-land,1745274,1745298,local-authority:FOE

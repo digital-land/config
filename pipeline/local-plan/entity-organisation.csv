@@ -19,7 +19,6 @@ development-plan-document,3800152,3800153,local-authority:BAE
 development-plan-document,3800284,3800284,local-authority:BAE
 development-plan-document,3800579,3800594,local-authority:BAE
 development-plan-document,3800148,3800148,local-authority:BAI
-development-plan-document,3800566,3800566,local-authority:BAI
 development-plan-document,3800566,3800577,local-authority:BAI
 development-plan-document,3800149,3800151,local-authority:BAN
 development-plan-document,3800278,3800278,local-authority:BAN
@@ -66,9 +65,7 @@ development-plan-document,3800319,3800319,local-authority:BOS
 development-plan-document,3800344,3800346,local-authority:BOS
 development-plan-document,3800348,3800348,local-authority:BOS
 development-plan-document,3800339,3800340,local-authority:BOT
-development-plan-document,3800660,3800660,local-authority:BPC
-development-plan-document,3800661,3800661,local-authority:BPC
-development-plan-document,3800662,3800666,local-authority:BPC
+development-plan-document,3800660,3800666,local-authority:BPC
 development-plan-document,3800906,3800907,local-authority:BPC
 development-plan-document,3800347,3800347,local-authority:BPL
 development-plan-document,3800349,3800350,local-authority:BPL
@@ -156,7 +153,6 @@ development-plan-document,3800940,3800943,local-authority:CUA
 development-plan-document,3800994,3800998,local-authority:CUA
 development-plan-document,3800134,3800134,local-authority:DAC
 development-plan-document,3800187,3800187,local-authority:DAC
-development-plan-document,3800015,3800015,local-authority:DAL
 development-plan-document,3800015,3800065,local-authority:DAL
 development-plan-document,3800188,3800189,local-authority:DAR
 development-plan-document,3800999,3801003,local-authority:DAR
@@ -178,7 +174,6 @@ development-plan-document,3801054,3801058,local-authority:DUD
 development-plan-document,3800358,3800359,local-authority:DUR
 development-plan-document,3800363,3800363,local-authority:DUR
 development-plan-document,3801059,3801076,local-authority:DUR
-development-plan-document,3800194,3800194,local-authority:EAL
 development-plan-document,3800194,3800196,local-authority:EAL
 development-plan-document,3800198,3800198,local-authority:EAL
 development-plan-document,3800256,3800256,local-authority:EAL
@@ -213,7 +208,6 @@ development-plan-document,3801117,3801120,local-authority:EST
 development-plan-document,3801151,3801151,local-authority:EXE
 development-plan-document,3800215,3800215,local-authority:FAR
 development-plan-document,3800232,3800232,local-authority:FAR
-development-plan-document,3800240,3800240,local-authority:FAR
 development-plan-document,3800240,3800241,local-authority:FAR
 development-plan-document,3801153,3801157,local-authority:FEN
 development-plan-document,3801166,3801175,local-authority:FOE
@@ -314,8 +308,7 @@ development-plan-document,3801752,3801764,local-authority:NHE
 development-plan-document,3801765,3801768,local-authority:NKE
 development-plan-document,3801769,3801794,local-authority:NLN
 development-plan-document,3801795,3801802,local-authority:NNO
-development-plan-document,3801803,3801803,local-authority:NNUA
-development-plan-document,3801804,3801804,local-authority:NNUA
+development-plan-document,3801803,3801804,local-authority:NNUA
 development-plan-document,3800364,3800364,local-authority:NOW
 development-plan-document,3801847,3801858,local-authority:NOW
 development-plan-document,3801805,3801806,local-authority:NSM
@@ -573,9 +566,7 @@ local-plan,4220672,4220672,local-authority:BOS
 local-plan,4220132,4220132,local-authority:BOT
 local-plan,4220675,4220675,local-authority:BOT
 local-plan,4220024,4220024,local-authority:BPC
-local-plan,4220198,4220198,local-authority:BPC
-local-plan,4220199,4220199,local-authority:BPC
-local-plan,4220200,4220200,local-authority:BPC
+local-plan,4220198,4220200,local-authority:BPC
 local-plan,4220246,4220246,local-authority:BPC
 local-plan,4220676,4220676,local-authority:BPC
 local-plan,4220119,4220119,local-authority:BPL
@@ -991,8 +982,7 @@ local-plan,4220840,4220840,local-authority:NNO
 local-plan,4220254,4220254,local-authority:NNUA
 local-plan,4220288,4220288,local-authority:NNUA
 local-plan,4220351,4220351,local-authority:NNUA
-local-plan,4220443,4220443,local-authority:NNUA
-local-plan,4220444,4220444,local-authority:NNUA
+local-plan,4220443,4220444,local-authority:NNUA
 local-plan,4220841,4220841,local-authority:NNUA
 local-plan,4220136,4220136,local-authority:NOW
 local-plan,4220456,4220456,local-authority:NOW
@@ -1381,8 +1371,7 @@ local-plan-housing,1100001,1100001,local-authority:BNE
 local-plan-housing,1100041,1100041,local-authority:BNH
 local-plan-housing,1100021,1100021,local-authority:BNS
 local-plan-housing,1100034,1100034,local-authority:BOS
-local-plan-housing,1100036,1100036,local-authority:BPC
-local-plan-housing,1100037,1100037,local-authority:BPC
+local-plan-housing,1100036,1100037,local-authority:BPC
 local-plan-housing,1100038,1100038,local-authority:BRC
 local-plan-housing,1100063,1100063,local-authority:BRD
 local-plan-housing,1100039,1100039,local-authority:BRE
@@ -1521,8 +1510,7 @@ local-plan-housing,1100072,1100072,local-authority:NYUA
 local-plan-housing,1100110,1100110,local-authority:NYUA
 local-plan-housing,1100113,1100113,local-authority:NYUA
 local-plan-housing,1100220,1100220,local-authority:NYUA
-local-plan-housing,1100233,1100233,local-authority:NYUA
-local-plan-housing,1100234,1100234,local-authority:NYUA
+local-plan-housing,1100233,1100234,local-authority:NYUA
 local-plan-housing,1100237,1100237,local-authority:NYUA
 local-plan-housing,1100196,1100196,local-authority:OAD
 local-plan-housing,1100198,1100198,local-authority:OXO
@@ -1803,9 +1791,7 @@ plan-timetable,5100390,5100392,local-authority:BOS
 plan-timetable,5103799,5103821,local-authority:BOS
 plan-timetable,5100075,5100075,local-authority:BOT
 plan-timetable,5103845,5103867,local-authority:BOT
-plan-timetable,5100397,5100400,local-authority:BPC
-plan-timetable,5100401,5100404,local-authority:BPC
-plan-timetable,5100405,5100406,local-authority:BPC
+plan-timetable,5100397,5100406,local-authority:BPC
 plan-timetable,5100526,5100529,local-authority:BPC
 plan-timetable,5103868,5103890,local-authority:BPC
 plan-timetable,5100076,5100076,local-authority:BPL
@@ -1821,8 +1807,7 @@ plan-timetable,5100530,5100533,local-authority:BRD
 plan-timetable,5103061,5103064,local-authority:BRD
 plan-timetable,5104466,5104488,local-authority:BRD
 plan-timetable,5100014,5100014,local-authority:BRE
-plan-timetable,5100020,5100020,local-authority:BRE
-plan-timetable,5100021,5100021,local-authority:BRE
+plan-timetable,5100020,5100021,local-authority:BRE
 plan-timetable,5100415,5100418,local-authority:BRE
 plan-timetable,5103937,5103959,local-authority:BRE
 plan-timetable,5100078,5100078,local-authority:BRM

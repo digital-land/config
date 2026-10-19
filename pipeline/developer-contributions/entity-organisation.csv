@@ -57,8 +57,7 @@ developer-agreement,4603096,4603102,local-authority:EST
 developer-agreement,4608657,4608686,local-authority:EXE
 developer-agreement,4609968,4609997,local-authority:EXE
 developer-agreement,4611492,4611521,local-authority:EXE
-developer-agreement,4611705,4611734,local-authority:EXE
-developer-agreement,4611735,4611764,local-authority:EXE
+developer-agreement,4611705,4611764,local-authority:EXE
 developer-agreement,4601741,4601744,local-authority:GAT
 developer-agreement,4607746,4607756,local-authority:GAT
 developer-agreement,4602713,4602719,local-authority:GLO
@@ -134,8 +133,8 @@ developer-agreement,4604768,4604768,local-authority:WYE
 developer-agreement,4602907,4602986,national-park-authority:Q20198711
 developer-agreement,4611469,4611483,national-park-authority:Q27178932
 developer-agreement,4613436,4613436,national-park-authority:Q27178932
-developer-agreement,4613438,4613438,national-park-authority:Q27178932
-developer-agreement,4613439,4613439,national-park-authority:Q27178932
+developer-agreement,4613438,4613439,national-park-authority:Q27178932
+developer-agreement,4613559,4613559,national-park-authority:Q27178932
 developer-agreement,4601648,4601648,national-park-authority:Q4972284
 developer-agreement,4601954,4602030,national-park-authority:Q72617158
 developer-agreement,4604882,4604937,national-park-authority:Q72617158
@@ -194,8 +193,7 @@ developer-agreement-contribution,4303939,4303944,local-authority:EST
 developer-agreement-contribution,4318940,4319057,local-authority:EXE
 developer-agreement-contribution,4326975,4327092,local-authority:EXE
 developer-agreement-contribution,4331350,4331467,local-authority:EXE
-developer-agreement-contribution,4332052,4332169,local-authority:EXE
-developer-agreement-contribution,4332170,4332287,local-authority:EXE
+developer-agreement-contribution,4332052,4332287,local-authority:EXE
 developer-agreement-contribution,4304465,4304469,local-authority:GAT
 developer-agreement-contribution,4327217,4327251,local-authority:GAT
 developer-agreement-contribution,4304396,4304406,local-authority:GLO
@@ -318,8 +316,7 @@ developer-agreement-transaction,4401469,4401531,local-authority:EST
 developer-agreement-transaction,4420019,4420053,local-authority:EXE
 developer-agreement-transaction,4429727,4429761,local-authority:EXE
 developer-agreement-transaction,4434255,4434289,local-authority:EXE
-developer-agreement-transaction,4435172,4435206,local-authority:EXE
-developer-agreement-transaction,4435207,4435241,local-authority:EXE
+developer-agreement-transaction,4435172,4435241,local-authority:EXE
 developer-agreement-transaction,4420054,4420103,local-authority:GAT
 developer-agreement-transaction,4406141,4406148,local-authority:GLO
 developer-agreement-transaction,4417220,4417288,local-authority:GLO
@@ -386,4 +383,3 @@ developer-agreement-transaction,4401339,4401468,national-park-authority:Q7261715
 developer-agreement-transaction,4415906,4416121,national-park-authority:Q72617158
 developer-agreement-transaction,4424609,4424617,national-park-authority:Q72617669
 developer-agreement-transaction,4429340,4429359,national-park-authority:Q72617669
-developer-agreement,4613559,4613559,national-park-authority:Q27178932
