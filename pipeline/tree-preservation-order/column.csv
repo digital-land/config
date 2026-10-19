@@ -597,3 +597,8 @@ tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c04
 tree-preservation-zone,,eb5dbbbc4aed2ec190375d15f06b772559d336b94ba776aa3ddd3c042efa34f8,tpo,tree-preservation-order,,,
 tree-preservation-zone,,,wkt,geometry,,,
 tree-preservation-zone,,,organisation,IGNORE,,,
+tree-preservation-zone,c9bbc68bdfd9753ed683da196360740e44d87b9c2a4e3fa204fb11c8ed2a73fe,,na,IGNORE,2026-10-19,,2026-10-19
+tree-preservation-zone,c9bbc68bdfd9753ed683da196360740e44d87b9c2a4e3fa204fb11c8ed2a73fe,,Type,tree-preservation-zone-type,2026-10-19,,2026-10-19
+tree-preservation-zone,c9bbc68bdfd9753ed683da196360740e44d87b9c2a4e3fa204fb11c8ed2a73fe,,Situation,notes,2026-10-19,,2026-10-19
+tree-preservation-zone,c9bbc68bdfd9753ed683da196360740e44d87b9c2a4e3fa204fb11c8ed2a73fe,,TPO_Reference,tree-preservation-order,2026-10-19,,2026-10-19
+tree-preservation-zone,c9bbc68bdfd9753ed683da196360740e44d87b9c2a4e3fa204fb11c8ed2a73fe,,Species_Description,name,2026-10-19,,2026-10-19
