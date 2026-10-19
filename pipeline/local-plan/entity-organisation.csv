@@ -1973,6 +1973,7 @@ plan-timetable,5101218,5101221,local-authority:DST
 plan-timetable,5101631,5101634,local-authority:DST
 plan-timetable,5103331,5103334,local-authority:DST
 plan-timetable,5104880,5104902,local-authority:DST
+plan-timetable,5111718,5111729,local-authority:DST
 plan-timetable,5100632,5100633,local-authority:DUD
 plan-timetable,5101852,5101874,local-authority:DUD
 plan-timetable,5111046,5111069,local-authority:DUD
@@ -2251,6 +2252,7 @@ plan-timetable,5106513,5106535,local-authority:MRT
 plan-timetable,5101065,5101070,local-authority:MSS
 plan-timetable,5106927,5106949,local-authority:MSS
 plan-timetable,5106904,5106926,local-authority:MSU
+plan-timetable,5111655,5111669,local-authority:MSU
 plan-timetable,5101162,5101166,local-authority:NBL
 plan-timetable,5107433,5107455,local-authority:NBL
 plan-timetable,5111397,5111412,local-authority:NBL
@@ -2279,6 +2281,7 @@ plan-timetable,5111353,5111373,local-authority:NHE
 plan-timetable,5107226,5107248,local-authority:NKE
 plan-timetable,5101121,5101126,local-authority:NLN
 plan-timetable,5107249,5107271,local-authority:NLN
+plan-timetable,5111670,5111694,local-authority:NLN
 plan-timetable,5101127,5101137,local-authority:NNO
 plan-timetable,5102127,5102149,local-authority:NNO
 plan-timetable,5110937,5110948,local-authority:NNO
@@ -2467,6 +2470,7 @@ plan-timetable,5108767,5108789,local-authority:STR
 plan-timetable,5102961,5102966,local-authority:STS
 plan-timetable,5101471,5101474,local-authority:STT
 plan-timetable,5108721,5108743,local-authority:STT
+plan-timetable,5111742,5111768,local-authority:STT
 plan-timetable,5101463,5101466,local-authority:STV
 plan-timetable,5108675,5108697,local-authority:STV
 plan-timetable,5101421,5101426,local-authority:STY
@@ -2488,6 +2492,7 @@ plan-timetable,5101512,5101515,local-authority:SWD
 plan-timetable,5108836,5108858,local-authority:SWD
 plan-timetable,5100993,5100996,local-authority:SWK
 plan-timetable,5106605,5106627,local-authority:SWK
+plan-timetable,5111730,5111741,local-authority:SWK
 plan-timetable,5101507,5101511,local-authority:SWL
 plan-timetable,5108813,5108835,local-authority:SWL
 plan-timetable,5108859,5108881,local-authority:TAM
@@ -2563,6 +2568,7 @@ plan-timetable,5111231,5111247,local-authority:WFUA
 plan-timetable,5109549,5109571,local-authority:WGN
 plan-timetable,5101652,5101660,local-authority:WIL
 plan-timetable,5102527,5102549,local-authority:WIL
+plan-timetable,5111695,5111717,local-authority:WIL
 plan-timetable,5101661,5101666,local-authority:WIN
 plan-timetable,5102552,5102574,local-authority:WIN
 plan-timetable,5111156,5111178,local-authority:WIN
