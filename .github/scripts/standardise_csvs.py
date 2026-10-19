@@ -55,15 +55,25 @@ def _merge_ranges(rows, expected_cols, min_col, max_col):
     """Merge neighbouring rows whose [min_col, max_col] integer ranges are
     adjacent (max + 1 == next min) or overlapping.
 
-    Rows must already be sorted so that mergeable rows sit next to each other.
-    Two rows are only merged when every other column (e.g. dataset,
-    organisation) is identical. Rows with non-integer range values are left
+    Rows are grouped by every other column (e.g. dataset, organisation) and
+    ordered numerically by min_col before merging, so the result does not
+    depend on the incoming row order. Two rows are only merged when every
+    other column is identical. Rows with non-integer range values are left
     untouched.
     """
     other_cols = [c for c in expected_cols if c not in (min_col, max_col)]
 
     def other_values(row):
         return tuple((row.get(col) or "").strip() for col in other_cols)
+
+    def numeric_min(row):
+        try:
+            return (0, int(row.get(min_col)))
+        except (TypeError, ValueError):
+            return (1, 0)
+
+    # Sort numerically: the caller's string sort puts "1000" before "200"
+    rows = sorted(rows, key=lambda row: (other_values(row), numeric_min(row)))
 
     merged = []
     for row in rows:
@@ -111,6 +121,8 @@ def standardise_csv(file_path, expected_columns, sort_cols=None, merge_config=No
         if merge_config:
             before = len(rows)
             rows = _merge_ranges(rows, expected_cols, **merge_config)
+            if sort_cols:
+                rows.sort(key=lambda row: _sort_key(row, sort_cols))
             if len(rows) < before:
                 print(f"  merged {before - len(rows)} range row(s) in {file_path}")
 
