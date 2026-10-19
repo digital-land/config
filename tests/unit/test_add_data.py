@@ -106,6 +106,44 @@ def test_append_endpoint_writes_new_row(tmp_path, monkeypatch):
     ]
 
 
+@pytest.mark.parametrize("entry_key", ["new_endpoint_entry", "existing_endpoint_entry"])
+def test_append_column_scopes_mapping_to_endpoint(tmp_path, monkeypatch, entry_key):
+    monkeypatch.chdir(tmp_path)
+    column_file = tmp_path / "pipeline/tree-preservation-order/column.csv"
+    header = [
+        "dataset", "endpoint", "resource", "column", "field",
+        "start-date", "end-date", "entry-date",
+    ]
+    _write_csv(column_file, header)
+    response = {
+        "params": {"dataset": "tree", "column_mapping": {"WKT": "geometry"}},
+        "response": {
+            "data": {
+                "endpoint-summary": {
+                    "endpoint_url_in_endpoint_csv": entry_key == "existing_endpoint_entry",
+                    entry_key: {
+                        "endpoint": "endpoint-hash",
+                        "endpoint-url": "https://example.test/trees.json",
+                        "entry-date": "2025-11-28",
+                        "start-date": "2025-11-26",
+                        "end-date": "",
+                        "parameters": "",
+                        "plugin": "",
+                    },
+                }
+            }
+        },
+    }
+
+    add_data.append_column(response, "tree-preservation-order")
+
+    rows = list(csv.reader(column_file.read_text(encoding="utf-8").splitlines()))
+    assert rows == [
+        header,
+        ["tree", "endpoint-hash", "", "WKT", "geometry", "2025-11-26", "", "2025-11-28"],
+    ]
+
+
 def test_append_source_skips_when_documentation_url_exists(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     source_file = tmp_path / "collection/test-collection/source.csv"
