@@ -107,6 +107,7 @@ conservation-area,44007347,44007376,local-authority:BPC
 conservation-area,44005660,44005663,local-authority:BPL
 conservation-area,44012651,44012653,local-authority:BPL
 conservation-area,44012824,44012826,local-authority:BPL
+conservation-area,44017408,44017414,local-authority:BPL
 conservation-area,44001078,44001105,local-authority:BRA
 conservation-area,44001630,44001631,local-authority:BRA
 conservation-area,44005274,44005278,local-authority:BRA
@@ -1769,6 +1770,7 @@ conservation-area-document,6303747,6303782,local-authority:BNS
 conservation-area-document,6307191,6307212,local-authority:BOT
 conservation-area-document,6303944,6304037,local-authority:BPC
 conservation-area-document,6307165,6307178,local-authority:BPL
+conservation-area-document,6317902,6317908,local-authority:BPL
 conservation-area-document,6303790,6303827,local-authority:BRA
 conservation-area-document,6307179,6307190,local-authority:BRC
 conservation-area-document,6303828,6303943,local-authority:BRD
@@ -1984,6 +1986,7 @@ conservation-area-document,6300560,6300578,local-authority:RUG
 conservation-area-document,6302981,6302990,local-authority:RUH
 conservation-area-document,6310756,6310770,local-authority:RUN
 conservation-area-document,6310937,6310999,local-authority:RUS
+conservation-area-document,6317869,6317901,local-authority:RUS
 conservation-area-document,6305808,6305875,local-authority:RUT
 conservation-area-document,6300000,6300044,local-authority:SAL
 conservation-area-document,6313739,6313759,local-authority:SAW
