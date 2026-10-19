@@ -293,3 +293,4 @@ dffa28bc6f7760ac20843b4e744051e7a1b9e3c3528b64e21117c5e18e5ade90,https://maps.ea
 5956d6d451cf16a2cc1acb8a5b3d384a33970f307fad48cde6b02a1e4088c859,https://services-eu1.arcgis.com/HxtQoByBu1lxYPfN/arcgis/rest/services/TPO_planning_data/FeatureServer/1/,,arcgis,2026-09-03,2026-09-03,
 a446fa9d25edaeaec7fd2444513064f7e173b0630e9230de81e8a143ab7edd04,https://services-eu1.arcgis.com/HxtQoByBu1lxYPfN/arcgis/rest/services/TPO_planning_data/FeatureServer/2/,,arcgis,2026-09-03,2026-09-03,
 2189d1668b9eafb3f65314350a27df9ed7ee279efdc031a45d3458c4e1a4076a,https://community.newcastle.gov.uk/gisfiles/NCC_TreePreservationOrders.csv,,,2026-10-06,2026-10-06,
+c9bbc68bdfd9753ed683da196360740e44d87b9c2a4e3fa204fb11c8ed2a73fe,https://maps.fareham.gov.uk/server/services/Corporate/TPOs/MapServer/WFSServer?request=getcapabilities&service=wfs,,,2026-10-19,2026-10-19,
