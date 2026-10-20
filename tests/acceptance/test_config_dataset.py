@@ -440,6 +440,67 @@ def test_endpoint_csv(file_path, tmp_path, specification_dir):
     )
 
 
+@pytest.mark.parametrize(
+    "file_path",
+    endpoint_csv_files,
+    ids=[_test_id(f) for f in endpoint_csv_files],
+)
+def test_endpoint_has_single_entry(file_path, tmp_path):
+    """An endpoint must not appear more than once in a collection's endpoint.csv.
+
+    This covers exact duplicate rows, and rows which only differ by
+    entry-date, start-date or end-date. Where duplicates are found, the
+    oldest row (by entry-date) should be kept.
+    """
+    source_file_path = file_path
+    file_path = _normalise_file(file_path, tmp_path)
+
+    endpoint_rows = {}
+    with open(file_path, "r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for line_number, row in enumerate(reader, start=2):
+            endpoint = row.get("endpoint", "").strip()
+            if not endpoint:
+                continue
+            endpoint_rows.setdefault(endpoint, []).append(
+                {"line_number": line_number, "row": tuple(row.items())}
+            )
+
+    duplicates = {
+        endpoint: entries
+        for endpoint, entries in endpoint_rows.items()
+        if len(entries) > 1
+    }
+    exact_duplicates = {
+        endpoint: entries
+        for endpoint, entries in duplicates.items()
+        if len({entry["row"] for entry in entries}) < len(entries)
+    }
+    date_only_duplicates = {
+        endpoint: entries
+        for endpoint, entries in duplicates.items()
+        if endpoint not in exact_duplicates
+    }
+
+    messages = []
+    for title, failures in [
+        ("endpoints with exact duplicate rows (delete the extra copies):", exact_duplicates),
+        ("endpoints with more than one entry (keep the oldest row by entry-date):", date_only_duplicates),
+    ]:
+        if not failures:
+            continue
+        messages.append(title)
+        for endpoint, entries in failures.items():
+            line_refs = [
+                _format_line_reference(source_file_path, entry["line_number"])
+                for entry in entries[:10]
+            ]
+            messages.append(f"  - endpoint {endpoint} has {len(entries)} entries")
+            messages.append(f"    references: {line_refs}")
+
+    assert not messages, "\n".join(messages)
+
+
 expect_csv_files = _collect_files("expect.csv")
 
 
