@@ -746,6 +746,7 @@ local-plan,4220139,4220139,local-authority:ELM
 local-plan,4220147,4220147,local-authority:ELM
 local-plan,4220294,4220294,local-authority:ELM
 local-plan,4220741,4220741,local-authority:ELM
+local-plan,4221199,4221199,local-authority:ELM
 local-plan,4220374,4220375,local-authority:ENF
 local-plan,4220794,4220794,local-authority:ENF
 local-plan,4220052,4220052,local-authority:EPP
@@ -1636,6 +1637,7 @@ local-plan-housing,1100096,1100096,national-park-authority:Q72617784
 local-plan-housing,1100194,1100194,national-park-authority:Q72617890
 local-plan-housing,1100199,1100199,national-park-authority:Q72617988
 minerals-plan,530001,530002,local-authority:BKM
+minerals-plan,530085,530087,local-authority:CHW
 minerals-plan,530008,530010,local-authority:CMA
 minerals-plan,530011,530011,local-authority:CON
 minerals-plan,530015,530015,local-authority:DEV
@@ -2004,6 +2006,7 @@ plan-timetable,5100033,5100033,local-authority:ELM
 plan-timetable,5100045,5100045,local-authority:ELM
 plan-timetable,5100673,5100677,local-authority:ELM
 plan-timetable,5105179,5105201,local-authority:ELM
+plan-timetable,5111769,5111780,local-authority:ELM
 plan-timetable,5100925,5100930,local-authority:ENF
 plan-timetable,5106260,5106282,local-authority:ENF
 plan-timetable,5100083,5100083,local-authority:EPP
@@ -2712,6 +2715,7 @@ supplementary-plan,550019,550019,local-authority:LCE
 supplementary-plan,550004,550004,local-authority:NET
 waste-plan,540005,540006,local-authority:BKM
 waste-plan,540012,540012,local-authority:BRD
+waste-plan,540091,540093,local-authority:CHW
 waste-plan,540016,540018,local-authority:CMA
 waste-plan,540023,540023,local-authority:DEV
 waste-plan,540025,540025,local-authority:DUR
@@ -2770,7 +2774,3 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
-minerals-plan,530085,530087,local-authority:CHW
-waste-plan,540091,540093,local-authority:CHW
-plan-timetable,5111769,5111780,local-authority:ELM
-local-plan,4221199,4221199,local-authority:ELM
