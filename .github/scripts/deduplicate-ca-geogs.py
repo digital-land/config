@@ -17,6 +17,7 @@ import time
 import tempfile
 
 CHECKS_URL = 'https://files.planning.data.gov.uk/reporting/duplicate_entity_expectation.csv'
+HISTORIC_ENGLAND_ORG = 'government-organisation:PB1164'
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 OLD_ENTITY_PATH = REPO_ROOT / 'pipeline' / 'conservation-area' / 'old-entity.csv'
 
@@ -122,14 +123,50 @@ def load_old_entity():
     return rows
 
 
+def historic_england_pairs(df, message):
+    """Return conservation-area pairs of the given match type between a Historic
+    England entity and a non-Historic England entity.
+
+    Pairs can be reported either way round, so each pair is oriented so that the
+    Historic England entity is always entity_a. Pairs reported in both orientations
+    are only returned once.
+    """
+    pairs = []
+    seen = set()
+
+    for row in df:
+        if row['message'] != message or row['dataset'] != 'conservation-area':
+            continue
+
+        org_a, org_b = row.get('lookup_org_a'), row.get('lookup_org_b')
+        if org_a == HISTORIC_ENGLAND_ORG and org_b != HISTORIC_ENGLAND_ORG:
+            oriented = row
+        elif org_b == HISTORIC_ENGLAND_ORG and org_a != HISTORIC_ENGLAND_ORG:
+            oriented = {
+                **row,
+                'entity_a': row['entity_b'],
+                'entity_b': row['entity_a'],
+                'entity_a_name': row.get('entity_b_name', ''),
+                'entity_b_name': row.get('entity_a_name', ''),
+                'lookup_org_a': org_b,
+                'lookup_org_b': org_a,
+            }
+        else:
+            continue
+
+        key = (oriented['entity_a'], oriented['entity_b'])
+        if key not in seen:
+            seen.add(key)
+            pairs.append(oriented)
+
+    return pairs
+
+
 def extract_complete_matches(df):
     """Extract complete match duplicates and format for old-entity.csv."""
     print("\nFiltering for complete matches...")
 
-    complete_matches = [row for row in df if row['message'] == 'complete_match'
-                        and row['dataset'] == 'conservation-area'
-                        and row.get('lookup_org_a') == 'government-organisation:PB1164'
-                        and row.get('lookup_org_b') != 'government-organisation:PB1164']
+    complete_matches = historic_england_pairs(df, 'complete_match')
     print(f"Found {len(complete_matches)} complete matches")
 
     # Format for old-entity.csv
@@ -155,11 +192,8 @@ def extract_single_matches(df):
     print("\nFiltering for single matches...")
 
     # Filter for single matches in conservation-area
-    single_matches = [row for row in df if row['message'] == 'single_match'
-                      and row['dataset'] == 'conservation-area'
-                      and row.get('lookup_org_a') == 'government-organisation:PB1164'
-                      and row.get('lookup_org_b') != 'government-organisation:PB1164'
-                      and row.get('in_odp', '').lower() == 'true']
+    single_matches = [row for row in historic_england_pairs(df, 'single_match')
+                      if row.get('in_odp', '').lower() == 'true']
 
     print(f"Found {len(single_matches)} single matches meeting criteria")
 
