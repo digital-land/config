@@ -128,6 +128,7 @@ tree,7002148192,7002148192,local-authority:NBL
 tree,7002160877,7002160877,local-authority:NBL
 tree,7002185308,7002185313,local-authority:NBL
 tree,7002248352,7002248361,local-authority:NBL
+tree,7002279804,7002279804,local-authority:NBL
 tree,7002254508,7002256748,local-authority:NEC
 tree,7002009103,7002016439,local-authority:NET
 tree,7002111394,7002118115,local-authority:NEW
@@ -404,6 +405,7 @@ tree-preservation-order,7001093303,7001093303,local-authority:NBL
 tree-preservation-order,7001111022,7001111022,local-authority:NBL
 tree-preservation-order,7001126432,7001126432,local-authority:NBL
 tree-preservation-order,7001146551,7001146552,local-authority:NBL
+tree-preservation-order,7001146843,7001146843,local-authority:NBL
 tree-preservation-order,7001001211,7001001693,local-authority:NET
 tree-preservation-order,7001138345,7001146550,local-authority:NET
 tree-preservation-order,7001061535,7001063525,local-authority:NEW
@@ -600,6 +602,7 @@ tree-preservation-zone,19119963,19120901,local-authority:EPS
 tree-preservation-zone,19161555,19161556,local-authority:EPS
 tree-preservation-zone,19176379,19176379,local-authority:EPS
 tree-preservation-zone,19181974,19183301,local-authority:ERY
+tree-preservation-zone,19223194,19224521,local-authority:ERY
 tree-preservation-zone,19216742,19223130,local-authority:FAR
 tree-preservation-zone,19194844,19195247,local-authority:FOE
 tree-preservation-zone,19119692,19119962,local-authority:GAT
@@ -779,6 +782,3 @@ tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone,19216695,19216734,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree-preservation-zone,19223194,19224521,local-authority:ERY
-tree-preservation-order,7001146843,7001146843,local-authority:NBL
-tree,7002279804,7002279804,local-authority:NBL
