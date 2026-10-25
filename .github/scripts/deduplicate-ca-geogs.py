@@ -6,6 +6,10 @@ Processes duplicate geometry checks and generates old-entity redirects
 for conservation areas with:
 - Complete matches (100% geometry overlap)
 - Single matches with high name similarity (>85%)
+
+Each old-entity is written once. A complete match means identical geometry, so when
+a Historic England entity completely matches several LPA entities it is redirected
+(301) to one of them rather than ended.
 """
 
 import csv
@@ -162,24 +166,56 @@ def historic_england_pairs(df, message):
     return pairs
 
 
+def choose_redirect_target(candidates):
+    """Pick the entity to redirect to when one Historic England entity completely
+    matches several LPA entities.
+
+    A complete match means identical geometry, so any candidate is a correct
+    redirect target. The lowest entity number (the earliest created) is used so the
+    choice is deterministic and does not change between nightly runs.
+    """
+    return min(candidates, key=lambda row: int(row['entity_b']))
+
+
 def extract_complete_matches(df):
-    """Extract complete match duplicates and format for old-entity.csv."""
+    """Extract complete match duplicates and format for old-entity.csv.
+
+    Returns at most one row per Historic England entity. If an entity completely
+    matches several LPA entities it is redirected to the lowest numbered one.
+    """
     print("\nFiltering for complete matches...")
 
     complete_matches = historic_england_pairs(df, 'complete_match')
     print(f"Found {len(complete_matches)} complete matches")
 
+    matches_by_entity = {}
+    for row in complete_matches:
+        matches_by_entity.setdefault(row['entity_a'], []).append(row)
+
+    multiple = {k: v for k, v in matches_by_entity.items() if len(v) > 1}
+    if multiple:
+        print(f"{len(multiple)} Historic England entities completely match more than one entity; "
+              "redirecting each to the lowest numbered match:")
+        for old_ent, rows in multiple.items():
+            chosen = choose_redirect_target(rows)
+            others = sorted(r['entity_b'] for r in rows if r is not chosen)
+            print(f"  {old_ent} -> {chosen['entity_b']} (also matches {', '.join(others)})")
+
     # Format for old-entity.csv
     formatted = []
     today = datetime.now().strftime('%Y-%m-%d')
 
-    for row in complete_matches:
+    for old_ent, rows in matches_by_entity.items():
+        chosen = choose_redirect_target(rows)
+        notes = f"Redirect old entity complete match to LPA entity: {chosen['lookup_org_b']}"
+        if len(rows) > 1:
+            notes += f" (1 of {len(rows)} complete matches; lowest entity chosen)"
         formatted.append({
-            'old-entity': row['entity_a'],
+            'old-entity': old_ent,
             'status': '301',
-            'entity': row['entity_b'],
+            'entity': chosen['entity_b'],
             'end-date': '',
-            'notes': f"Redirect old entity complete match to LPA entity: {row['lookup_org_b']}",
+            'notes': notes,
             'entry-date': today,
             'start-date': ''
         })
@@ -256,6 +292,38 @@ def extract_single_matches(df):
     print(f"  - {len([x for x in formatted if x['status'] == '301'])} regular redirects (status 301)")
     print(f"  - {len([x for x in formatted if x['status'] == '410'])} split cases (status 410)")
     return formatted
+
+
+def drop_superseded_single_matches(complete_matches, single_matches):
+    """Drop single matches for entities that already have a complete match.
+
+    A complete match is identical geometry and always gives a clean redirect, so it
+    wins over a partial match (which could otherwise add a second row, or a 410).
+    """
+    complete_old_entities = {m['old-entity'] for m in complete_matches}
+    kept = [m for m in single_matches if m['old-entity'] not in complete_old_entities]
+    dropped = len(single_matches) - len(kept)
+    if dropped:
+        print(f"Dropped {dropped} single matches for entities that already have a complete match")
+    return kept
+
+
+def check_old_entities_unique(data):
+    """Fail before writing if any old-entity appears more than once.
+
+    old-entity.csv must have unique old-entity values (checked by
+    tests/acceptance/test_config_dataset.py), so refuse to write a file that would
+    break it rather than committing it from the pipeline.
+    """
+    counts = {}
+    for row in data:
+        counts[row['old-entity']] = counts.get(row['old-entity'], 0) + 1
+    duplicates = sorted(k for k, v in counts.items() if v > 1)
+    if duplicates:
+        raise ValueError(
+            f"{len(duplicates)} old-entity values appear more than once, refusing to write "
+            f"{OLD_ENTITY_PATH.name}: {', '.join(duplicates[:20])}"
+        )
 
 
 def filter_conflicting_matches(old_entity, new_matches):
@@ -411,7 +479,8 @@ def main():
         complete_matches = extract_complete_matches(checks_data)
         single_matches = extract_single_matches(checks_data)
 
-        # Combine both types of matches
+        # Combine both types of matches, preferring complete matches
+        single_matches = drop_superseded_single_matches(complete_matches, single_matches)
         all_new_matches = complete_matches + single_matches
         print(f"\nTotal new redirects to add: {len(all_new_matches)}")
 
@@ -421,6 +490,7 @@ def main():
 
         combined = combine_data(old_entity, all_new_matches)
         combined = resolve_redirect_chains(combined)
+        check_old_entities_unique(combined)
         save_output(combined)
     except Exception as e:
         print(f"Error: {e}")
