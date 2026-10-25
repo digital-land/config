@@ -169,3 +169,191 @@ def test_complete_and_single_matches_combined_have_unique_old_entities():
 
     dedupe.check_old_entities_unique(combined)
     assert sorted(m["old-entity"] for m in combined) == ["1", "7"]
+
+
+HAA = "local-authority:HAA"
+EHA = "local-authority:EHA"
+AUTHORITATIVE_HAA = [(44016370, 44016384, HAA)]
+
+
+def test_load_authoritative_entities_reads_ranges(tmp_path):
+    path = tmp_path / "authoritative.csv"
+    path.write_text(
+        "dataset,entity-minimum,entity-maximum,organisation,notes\n"
+        "conservation-area,10,20,local-authority:AAA,a note\n"
+        "listed-building,1,2,local-authority:BBB,ignored dataset\n",
+        encoding="utf-8",
+    )
+
+    assert dedupe.load_authoritative_entities(path) == [(10, 20, "local-authority:AAA")]
+
+
+def test_load_authoritative_entities_missing_file_is_empty(tmp_path):
+    assert dedupe.load_authoritative_entities(tmp_path / "missing.csv") == []
+
+
+def test_repo_authoritative_list_parses_and_covers_havant_conservation_areas():
+    ranges = dedupe.load_authoritative_entities()
+
+    assert (44016370, 44016384, HAA) in ranges
+
+
+def test_is_authoritative_requires_entity_in_range_and_matching_organisation():
+    in_range = _check_row("1", "44016376", HE, HAA)
+    wrong_org = _check_row("1", "44016376", HE, EHA)
+    out_of_range = _check_row("1", "44016391", HE, HAA)
+
+    assert dedupe.is_authoritative(in_range, AUTHORITATIVE_HAA)
+    assert not dedupe.is_authoritative(wrong_org, AUTHORITATIVE_HAA)
+    assert not dedupe.is_authoritative(out_of_range, AUTHORITATIVE_HAA)
+
+
+def test_choose_redirect_target_prefers_authoritative_over_lowest_entity():
+    candidates = [
+        _check_row("1", "100", HE, "local-authority:LOW"),
+        _check_row("1", "44016376", HE, HAA),
+    ]
+
+    chosen, reason = dedupe.choose_redirect_target(candidates, AUTHORITATIVE_HAA)
+
+    assert chosen["entity_b"] == "44016376"
+    assert reason == "authoritative"
+
+
+def test_choose_redirect_target_falls_back_to_lowest_when_no_authoritative():
+    candidates = [_check_row("1", "30", HE, HAA), _check_row("1", "20", HE, EHA)]
+
+    chosen, reason = dedupe.choose_redirect_target(candidates)
+
+    assert chosen["entity_b"] == "20"
+    assert reason == "lowest"
+
+
+def test_choose_redirect_target_lowest_of_several_authoritative_is_not_authoritative():
+    candidates = [_check_row("1", "44016380", HE, HAA), _check_row("1", "44016375", HE, HAA)]
+
+    chosen, reason = dedupe.choose_redirect_target(candidates, AUTHORITATIVE_HAA)
+
+    assert chosen["entity_b"] == "44016375"
+    assert reason == "lowest"
+
+
+def test_choose_redirect_target_single_match_is_only():
+    chosen, reason = dedupe.choose_redirect_target([_check_row("1", "5", HE, HAA)], AUTHORITATIVE_HAA)
+
+    assert chosen["entity_b"] == "5"
+    assert reason == "only"
+
+
+def test_resolve_complete_matches_redirects_duplicates_to_authoritative_entity():
+    rows = [
+        _check_row("44017008", "44016398", HE, EHA),
+        _check_row("44017008", "44016382", HE, HAA),
+        _check_row("44016438", "44017008", EHA, HE),
+    ]
+
+    he_rows, duplicate_rows, flagged = dedupe.resolve_complete_matches(rows, AUTHORITATIVE_HAA)
+
+    assert [(r["old-entity"], r["status"], r["entity"]) for r in he_rows] == [
+        ("44017008", "301", "44016382")
+    ]
+    assert "authoritative of 3 complete matches" in he_rows[0]["notes"]
+    assert sorted((r["old-entity"], r["entity"]) for r in duplicate_rows) == [
+        ("44016398", "44016382"),
+        ("44016438", "44016382"),
+    ]
+    assert all(r["status"] == "301" for r in duplicate_rows)
+    assert flagged == []
+
+
+def test_resolve_complete_matches_flags_but_does_not_redirect_duplicates_without_authority():
+    rows = [
+        _check_row("1", "30", HE, "local-authority:AAA"),
+        _check_row("1", "20", HE, "local-authority:BBB"),
+    ]
+
+    he_rows, duplicate_rows, flagged = dedupe.resolve_complete_matches(rows, AUTHORITATIVE_HAA)
+
+    assert he_rows[0]["entity"] == "20"
+    assert duplicate_rows == []
+    assert len(flagged) == 1
+    assert flagged[0]["old-entity"] == "1"
+    assert flagged[0]["chosen"] == "20"
+    assert flagged[0]["others"] == [("30", "local-authority:AAA")]
+
+
+def test_resolve_complete_matches_does_not_flag_single_or_authoritative_matches():
+    rows = [
+        _check_row("1", "5", HE, EHA),
+        _check_row("2", "44016376", HE, HAA),
+        _check_row("2", "44016391", HE, EHA),
+    ]
+
+    _, _, flagged = dedupe.resolve_complete_matches(rows, AUTHORITATIVE_HAA)
+
+    assert flagged == []
+
+
+def test_resolve_complete_matches_shared_duplicate_is_redirected_once():
+    rows = [
+        _check_row("1", "44016376", HE, HAA),
+        _check_row("1", "44016391", HE, EHA),
+        _check_row("2", "44016375", HE, HAA),
+        _check_row("2", "44016391", HE, EHA),
+    ]
+
+    _, duplicate_rows, _ = dedupe.resolve_complete_matches(rows, AUTHORITATIVE_HAA)
+
+    assert [(r["old-entity"], r["entity"]) for r in duplicate_rows] == [("44016391", "44016376")]
+
+
+def test_filter_authoritative_duplicates_keeps_duplicate_that_is_a_redirect_target():
+    old_entity = [{"old-entity": "44009285", "status": "301", "entity": "44016391"}]
+    duplicates = [_new_match("44016391", entity="44016376")]
+
+    assert dedupe.filter_authoritative_duplicates(old_entity, duplicates, []) == duplicates
+
+
+def test_filter_authoritative_duplicates_skips_existing_source_and_new_source():
+    old_entity = [{"old-entity": "44016391", "status": "301", "entity": "99"}]
+    duplicates = [_new_match("44016391", entity="44016376"), _new_match("44016392", entity="44016377")]
+
+    result = dedupe.filter_authoritative_duplicates(old_entity, duplicates, [_new_match("44016392", entity="1")])
+
+    assert result == []
+
+
+def test_filter_authoritative_duplicates_skips_loops():
+    old_entity = [{"old-entity": "44016376", "status": "301", "entity": "44016391"}]
+    duplicates = [_new_match("44016391", entity="44016376")]
+
+    assert dedupe.filter_authoritative_duplicates(old_entity, duplicates, []) == []
+
+
+def test_report_flagged_matches_prints_warning_and_writes_summary(tmp_path, monkeypatch, capsys):
+    summary = tmp_path / "summary.md"
+    monkeypatch.setenv("GITHUB_STEP_SUMMARY", str(summary))
+    flagged = [{
+        "old-entity": "44017008",
+        "chosen": "44016382",
+        "chosen_org": HAA,
+        "others": [("44016398", EHA)],
+    }]
+
+    dedupe.report_flagged_matches(flagged)
+
+    out = capsys.readouterr().out
+    assert "::warning" in out
+    assert "44017008" in out
+    text = summary.read_text(encoding="utf-8")
+    assert "44017008" in text and "44016398" in text
+
+
+def test_report_flagged_matches_is_silent_when_nothing_flagged(tmp_path, monkeypatch, capsys):
+    summary = tmp_path / "summary.md"
+    monkeypatch.setenv("GITHUB_STEP_SUMMARY", str(summary))
+
+    dedupe.report_flagged_matches([])
+
+    assert capsys.readouterr().out == ""
+    assert not summary.exists()

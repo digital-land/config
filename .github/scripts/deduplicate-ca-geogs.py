@@ -9,10 +9,15 @@ for conservation areas with:
 
 Each old-entity is written once. A complete match means identical geometry, so when
 a Historic England entity completely matches several LPA entities it is redirected
-(301) to one of them rather than ended.
+(301) to one of them rather than ended. The target is chosen in this order:
+1. The LPA entity listed in ca-authoritative-entities.csv (the organisation that
+   really owns the area). The other, non-authoritative LPA entities are redirected
+   to it too.
+2. Otherwise the lowest entity number, and the case is flagged for review.
 """
 
 import csv
+import os
 import urllib.request
 from datetime import datetime
 from pathlib import Path
@@ -24,6 +29,7 @@ CHECKS_URL = 'https://files.planning.data.gov.uk/reporting/duplicate_entity_expe
 HISTORIC_ENGLAND_ORG = 'government-organisation:PB1164'
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 OLD_ENTITY_PATH = REPO_ROOT / 'pipeline' / 'conservation-area' / 'old-entity.csv'
+AUTHORITATIVE_PATH = Path(__file__).resolve().parent / 'ca-authoritative-entities.csv'
 
 # Network retry configuration
 MAX_RETRIES = 3
@@ -166,22 +172,66 @@ def historic_england_pairs(df, message):
     return pairs
 
 
-def choose_redirect_target(candidates):
-    """Pick the entity to redirect to when one Historic England entity completely
-    matches several LPA entities.
+def load_authoritative_entities(path=AUTHORITATIVE_PATH):
+    """Load the reviewed list of authoritative LPA entity ranges.
 
-    A complete match means identical geometry, so any candidate is a correct
-    redirect target. The lowest entity number (the earliest created) is used so the
-    choice is deterministic and does not change between nightly runs.
+    Each row says that entities min-max belong to the given organisation, and that
+    it is the authoritative publisher where another organisation has published a
+    copy of the same area.
     """
-    return min(candidates, key=lambda row: int(row['entity_b']))
+    if not Path(path).exists():
+        return []
+
+    ranges = []
+    with open(path, 'r', encoding='utf-8', newline='') as f:
+        for row in csv.DictReader(f):
+            if row.get('dataset') != 'conservation-area':
+                continue
+            ranges.append((int(row['entity-minimum']), int(row['entity-maximum']), row['organisation']))
+    return ranges
 
 
-def extract_complete_matches(df):
-    """Extract complete match duplicates and format for old-entity.csv.
+def is_authoritative(pair, authoritative):
+    """True if the LPA entity (entity_b) of an oriented pair is in the authoritative list."""
+    entity = int(pair['entity_b'])
+    return any(low <= entity <= high and pair.get('lookup_org_b') == org
+               for low, high, org in authoritative)
 
-    Returns at most one row per Historic England entity. If an entity completely
-    matches several LPA entities it is redirected to the lowest numbered one.
+
+def choose_redirect_target(candidates, authoritative=()):
+    """Pick the entity to redirect to when one Historic England entity completely
+    matches several LPA entities. Returns (chosen pair, reason).
+
+    A complete match means identical geometry, so any candidate is a correct redirect
+    target, but the authoritative publisher's entity is the right one to keep.
+
+    reason is:
+    - 'only': a single match, nothing to choose.
+    - 'authoritative': exactly one candidate is in the authoritative list.
+    - 'lowest': no single authoritative candidate, so the lowest entity number (the
+      earliest created) is used. It is deterministic, so the choice does not change
+      between nightly runs, and the caller flags it for review.
+    """
+    if len(candidates) == 1:
+        return candidates[0], 'only'
+
+    authoritative_candidates = [c for c in candidates if is_authoritative(c, authoritative)]
+    if len(authoritative_candidates) == 1:
+        return authoritative_candidates[0], 'authoritative'
+
+    pool = authoritative_candidates or candidates
+    return min(pool, key=lambda row: int(row['entity_b'])), 'lowest'
+
+
+def resolve_complete_matches(df, authoritative=()):
+    """Work out the redirects for complete matches.
+
+    Returns (historic_england_rows, duplicate_rows, flagged):
+    - historic_england_rows: one 301 row per Historic England entity.
+    - duplicate_rows: 301 rows redirecting the non-authoritative LPA entities to the
+      authoritative one, only where an authoritative entity was identified.
+    - flagged: Historic England entities with several matches and no single
+      authoritative entity, for review.
     """
     print("\nFiltering for complete matches...")
 
@@ -192,25 +242,22 @@ def extract_complete_matches(df):
     for row in complete_matches:
         matches_by_entity.setdefault(row['entity_a'], []).append(row)
 
-    multiple = {k: v for k, v in matches_by_entity.items() if len(v) > 1}
-    if multiple:
-        print(f"{len(multiple)} Historic England entities completely match more than one entity; "
-              "redirecting each to the lowest numbered match:")
-        for old_ent, rows in multiple.items():
-            chosen = choose_redirect_target(rows)
-            others = sorted(r['entity_b'] for r in rows if r is not chosen)
-            print(f"  {old_ent} -> {chosen['entity_b']} (also matches {', '.join(others)})")
-
-    # Format for old-entity.csv
-    formatted = []
     today = datetime.now().strftime('%Y-%m-%d')
+    historic_england_rows = []
+    duplicates = {}
+    flagged = []
 
     for old_ent, rows in matches_by_entity.items():
-        chosen = choose_redirect_target(rows)
+        chosen, reason = choose_redirect_target(rows, authoritative)
+        others = sorted((r for r in rows if r is not chosen), key=lambda r: int(r['entity_b']))
+
         notes = f"Redirect old entity complete match to LPA entity: {chosen['lookup_org_b']}"
-        if len(rows) > 1:
+        if reason == 'authoritative':
+            notes += f" (authoritative of {len(rows)} complete matches)"
+        elif reason == 'lowest':
             notes += f" (1 of {len(rows)} complete matches; lowest entity chosen)"
-        formatted.append({
+
+        historic_england_rows.append({
             'old-entity': old_ent,
             'status': '301',
             'entity': chosen['entity_b'],
@@ -220,7 +267,69 @@ def extract_complete_matches(df):
             'start-date': ''
         })
 
-    return formatted
+        if reason == 'authoritative':
+            for other in others:
+                if other['entity_b'] not in duplicates:
+                    duplicates[other['entity_b']] = {
+                        'old-entity': other['entity_b'],
+                        'status': '301',
+                        'entity': chosen['entity_b'],
+                        'end-date': '',
+                        'notes': f"Redirect non-authoritative duplicate to LPA entity: {chosen['lookup_org_b']}",
+                        'entry-date': today,
+                        'start-date': ''
+                    }
+        elif reason == 'lowest':
+            flagged.append({
+                'old-entity': old_ent,
+                'chosen': chosen['entity_b'],
+                'chosen_org': chosen['lookup_org_b'],
+                'others': [(r['entity_b'], r['lookup_org_b']) for r in others],
+            })
+
+    print(f"{len(historic_england_rows)} Historic England entities to redirect")
+    if duplicates:
+        print(f"{len(duplicates)} non-authoritative LPA duplicates to redirect to their authoritative entity")
+    return historic_england_rows, list(duplicates.values()), flagged
+
+
+def extract_complete_matches(df, authoritative=()):
+    """Complete match redirects for Historic England entities, one row per entity."""
+    return resolve_complete_matches(df, authoritative)[0]
+
+
+def report_flagged_matches(flagged):
+    """Flag Historic England entities that match several LPA entities with no
+    authoritative one, so someone can decide which organisation owns the area.
+
+    Prints a GitHub Actions warning and, when running in Actions, adds a table to the
+    job summary. If a decision is made, add the authoritative entities to
+    ca-authoritative-entities.csv.
+    """
+    if not flagged:
+        return
+
+    lines = [f"{len(flagged)} Historic England entities completely match several LPA entities "
+             "with no authoritative LPA listed in ca-authoritative-entities.csv; "
+             "redirected to the lowest entity number. Review which organisation owns the area:"]
+    for item in flagged:
+        others = ', '.join(f"{ent} ({org})" for ent, org in item['others'])
+        lines.append(f"  {item['old-entity']} -> {item['chosen']} ({item['chosen_org']}); also matches {others}")
+    print("\n" + "\n".join(lines))
+    print(f"::warning title=CA complete matches need an authoritative LPA::{len(flagged)} Historic England "
+          "entities match several LPA entities, see the job summary")
+
+    summary_path = os.environ.get('GITHUB_STEP_SUMMARY')
+    if summary_path:
+        with open(summary_path, 'a', encoding='utf-8') as f:
+            f.write("### Conservation areas needing an authoritative LPA\n\n")
+            f.write("Each Historic England entity below completely matches several LPA entities. "
+                    "It was redirected to the lowest entity number. If another organisation owns the area, "
+                    "add its entities to `.github/scripts/ca-authoritative-entities.csv`.\n\n")
+            f.write("| Historic England entity | Redirected to | Also matches |\n|---|---|---|\n")
+            for item in flagged:
+                others = ', '.join(f"{ent} ({org})" for ent, org in item['others'])
+                f.write(f"| {item['old-entity']} | {item['chosen']} ({item['chosen_org']}) | {others} |\n")
 
 
 def extract_single_matches(df):
@@ -367,6 +476,33 @@ def filter_conflicting_matches(old_entity, new_matches):
     return filtered
 
 
+def filter_authoritative_duplicates(old_entity, duplicates, new_matches):
+    """Filter the non-authoritative duplicate redirects.
+
+    These do not use filter_conflicting_matches: that skips any entity that is already
+    the target of another redirect, but a duplicate is expected to have redirects
+    pointing at it, and resolve_redirect_chains then points those at the authoritative
+    entity. A duplicate is only skipped if:
+    - it is already a source (it would create a duplicate row), or is a source in the
+      new matches, or
+    - the authoritative entity already redirects to it (it would create a loop).
+    """
+    existing_sources = {row['old-entity'] for row in old_entity if row.get('old-entity')}
+    new_sources = {m['old-entity'] for m in new_matches}
+    existing_redirects = {row['old-entity']: row['entity'] for row in old_entity
+                          if row.get('status') == '301' and row.get('entity')}
+
+    kept = []
+    for dup in duplicates:
+        if dup['old-entity'] in existing_sources or dup['old-entity'] in new_sources:
+            print(f"  Skipped duplicate {dup['old-entity']} -> {dup['entity']} (already a source)")
+        elif existing_redirects.get(dup['entity']) == dup['old-entity']:
+            print(f"  Skipped duplicate {dup['old-entity']} -> {dup['entity']} (would create a loop)")
+        else:
+            kept.append(dup)
+    return kept
+
+
 def combine_data(old_entity, new_matches):
     """Combine old and new data."""
     print("\nCombining data...")
@@ -476,7 +612,10 @@ def main():
         old_entity = load_old_entity()
 
         # Extract both complete and single matches
-        complete_matches = extract_complete_matches(checks_data)
+        authoritative = load_authoritative_entities()
+        complete_matches, authoritative_duplicates, flagged = resolve_complete_matches(
+            checks_data, authoritative)
+        report_flagged_matches(flagged)
         single_matches = extract_single_matches(checks_data)
 
         # Combine both types of matches, preferring complete matches
@@ -487,6 +626,11 @@ def main():
         # Filter out matches that would conflict with existing redirects
         all_new_matches = filter_conflicting_matches(old_entity, all_new_matches)
         print(f"After filtering conflicts: {len(all_new_matches)} matches remain")
+
+        # Redirect non-authoritative LPA duplicates to the authoritative entity
+        authoritative_duplicates = filter_authoritative_duplicates(
+            old_entity, authoritative_duplicates, all_new_matches)
+        all_new_matches = all_new_matches + authoritative_duplicates
 
         combined = combine_data(old_entity, all_new_matches)
         combined = resolve_redirect_chains(combined)
