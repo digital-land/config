@@ -12,8 +12,9 @@ a Historic England entity completely matches several LPA entities it is redirect
 (301) rather than ended, but only when it is clear which one is right: exactly one of
 the matched entities is inside its own organisation's LPA boundary (the
 count_lpa_boundary expectation, as flagged in the duplicate report by
-reporting-task). The matched entities outside their boundary are copies, so they are
-redirected to it as well.
+reporting-task). Only the Historic England entity is redirected. The other matched
+LPA entities are left alone, as a wrong boundary usually means the LPA's published
+data needs fixing, not that the entity should be retired.
 
 If that cannot be told (several or none are inside, or the flag is missing), nothing
 is written for that Historic England entity. Every other redirect is still written,
@@ -220,10 +221,8 @@ def choose_redirect_target(candidates):
 def resolve_complete_matches(df):
     """Work out the redirects for complete matches.
 
-    Returns (historic_england_rows, duplicate_rows, ambiguous):
+    Returns (historic_england_rows, ambiguous):
     - historic_england_rows: one 301 row per Historic England entity that can be resolved.
-    - duplicate_rows: 301 rows redirecting the matched entities that are outside their
-      LPA boundary to the one that is inside, only where one was identified.
     - ambiguous: Historic England entities that match several LPA entities where it cannot
       be told which is right. Nothing is written for these.
     """
@@ -238,7 +237,6 @@ def resolve_complete_matches(df):
 
     today = datetime.now().strftime('%Y-%m-%d')
     historic_england_rows = []
-    duplicates = {}
     ambiguous = []
 
     for old_ent, rows in matches_by_entity.items():
@@ -269,25 +267,10 @@ def resolve_complete_matches(df):
             'start-date': ''
         })
 
-        if reason == 'in-bounds':
-            for other in rows:
-                if other is not chosen and other['entity_b'] not in duplicates:
-                    duplicates[other['entity_b']] = {
-                        'old-entity': other['entity_b'],
-                        'status': '301',
-                        'entity': chosen['entity_b'],
-                        'end-date': '',
-                        'notes': f"Redirect duplicate outside its LPA boundary to LPA entity: {chosen['lookup_org_b']}",
-                        'entry-date': today,
-                        'start-date': ''
-                    }
-
     print(f"{len(historic_england_rows)} Historic England entities to redirect")
-    if duplicates:
-        print(f"{len(duplicates)} duplicates outside their LPA boundary to redirect to the entity inside it")
     if ambiguous:
         print(f"{len(ambiguous)} Historic England entities cannot be resolved and will not be redirected")
-    return historic_england_rows, list(duplicates.values()), ambiguous
+    return historic_england_rows, ambiguous
 
 
 def extract_complete_matches(df):
@@ -481,33 +464,6 @@ def filter_conflicting_matches(old_entity, new_matches):
     return filtered
 
 
-def filter_out_of_bounds_duplicates(old_entity, duplicates, new_matches):
-    """Filter the redirects for duplicates outside their LPA boundary.
-
-    These do not use filter_conflicting_matches: that skips any entity that is already
-    the target of another redirect, but a duplicate is expected to have redirects
-    pointing at it, and resolve_redirect_chains then repoints those at the entity inside
-    the boundary. A duplicate is only skipped if:
-    - it is already a source (it would create a duplicate row), or is a source in the
-      new matches, or
-    - the entity inside the boundary already redirects to it (it would create a loop).
-    """
-    existing_sources = {row['old-entity'] for row in old_entity if row.get('old-entity')}
-    new_sources = {m['old-entity'] for m in new_matches}
-    existing_redirects = {row['old-entity']: row['entity'] for row in old_entity
-                          if row.get('status') == '301' and row.get('entity')}
-
-    kept = []
-    for dup in duplicates:
-        if dup['old-entity'] in existing_sources or dup['old-entity'] in new_sources:
-            print(f"  Skipped duplicate {dup['old-entity']} -> {dup['entity']} (already a source)")
-        elif existing_redirects.get(dup['entity']) == dup['old-entity']:
-            print(f"  Skipped duplicate {dup['old-entity']} -> {dup['entity']} (would create a loop)")
-        else:
-            kept.append(dup)
-    return kept
-
-
 def combine_data(old_entity, new_matches):
     """Combine old and new data."""
     print("\nCombining data...")
@@ -617,7 +573,7 @@ def main():
         old_entity = load_old_entity()
 
         # Extract both complete and single matches
-        complete_matches, out_of_bounds_duplicates, ambiguous = resolve_complete_matches(checks_data)
+        complete_matches, ambiguous = resolve_complete_matches(checks_data)
         single_matches = extract_single_matches(checks_data)
 
         # Combine both types of matches, preferring complete matches
@@ -629,11 +585,6 @@ def main():
         # Filter out matches that would conflict with existing redirects
         all_new_matches = filter_conflicting_matches(old_entity, all_new_matches)
         print(f"After filtering conflicts: {len(all_new_matches)} matches remain")
-
-        # Redirect duplicates outside their LPA boundary to the entity inside it
-        out_of_bounds_duplicates = filter_out_of_bounds_duplicates(
-            old_entity, out_of_bounds_duplicates, all_new_matches)
-        all_new_matches = all_new_matches + out_of_bounds_duplicates
 
         combined = combine_data(old_entity, all_new_matches)
         combined = resolve_redirect_chains(combined)

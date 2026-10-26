@@ -166,17 +166,16 @@ def test_choose_is_ambiguous_when_the_column_is_missing_from_the_report():
 
 # ---------------------------------------------------------------- resolve_complete_matches
 
-def test_resolve_redirects_he_entity_and_its_out_of_bounds_copy_to_the_inside_one():
+def test_resolve_redirects_he_entity_to_the_one_inside_its_boundary():
     rows = [
         _he_pair("44017000", "44016385", EHA, "True"),
         _he_pair("44017000", "44016370", HAA, "False"),
     ]
 
-    he_rows, duplicate_rows, ambiguous = dedupe.resolve_complete_matches(rows)
+    he_rows, ambiguous = dedupe.resolve_complete_matches(rows)
 
     assert [(r["old-entity"], r["status"], r["entity"]) for r in he_rows] == [("44017000", "301", "44016370")]
     assert "only one of 2 complete matches inside its LPA boundary" in he_rows[0]["notes"]
-    assert [(r["old-entity"], r["status"], r["entity"]) for r in duplicate_rows] == [("44016385", "301", "44016370")]
     assert ambiguous == []
 
 
@@ -186,10 +185,9 @@ def test_resolve_handles_pairs_reported_with_he_as_entity_b():
         _check_row("44016370", "44017000", HAA, HE, a_out_of_bounds="False"),
     ]
 
-    he_rows, duplicate_rows, ambiguous = dedupe.resolve_complete_matches(rows)
+    he_rows, ambiguous = dedupe.resolve_complete_matches(rows)
 
     assert [(r["old-entity"], r["entity"]) for r in he_rows] == [("44017000", "44016370")]
-    assert [(r["old-entity"], r["entity"]) for r in duplicate_rows] == [("44016385", "44016370")]
     assert ambiguous == []
 
 
@@ -202,10 +200,9 @@ def test_resolve_writes_nothing_for_an_ambiguous_entity_but_resolves_the_others(
         _he_pair("44017008", "44016438", EHA, "False"),
     ]
 
-    he_rows, duplicate_rows, ambiguous = dedupe.resolve_complete_matches(rows)
+    he_rows, ambiguous = dedupe.resolve_complete_matches(rows)
 
     assert [r["old-entity"] for r in he_rows] == ["44017000"]
-    assert [r["old-entity"] for r in duplicate_rows] == ["44016385"]
     assert [a["old-entity"] for a in ambiguous] == ["44017008"]
     assert ambiguous[0]["matches"] == [
         ("44016382", HAA, False),
@@ -214,28 +211,26 @@ def test_resolve_writes_nothing_for_an_ambiguous_entity_but_resolves_the_others(
     ]
 
 
-def test_resolve_never_redirects_duplicates_of_an_ambiguous_entity():
+def test_resolve_writes_no_row_for_an_ambiguous_entity():
     rows = [_he_pair("1", "10", HAA, "False"), _he_pair("1", "20", EHA, "False")]
 
-    he_rows, duplicate_rows, ambiguous = dedupe.resolve_complete_matches(rows)
+    he_rows, ambiguous = dedupe.resolve_complete_matches(rows)
 
     assert he_rows == []
-    assert duplicate_rows == []
     assert len(ambiguous) == 1
 
 
-def test_resolve_single_match_is_a_plain_redirect_with_no_duplicates():
+def test_resolve_single_match_is_a_plain_redirect():
     rows = [_he_pair("5", "50", HAA, "")]
 
-    he_rows, duplicate_rows, ambiguous = dedupe.resolve_complete_matches(rows)
+    he_rows, ambiguous = dedupe.resolve_complete_matches(rows)
 
     assert he_rows[0]["entity"] == "50"
     assert he_rows[0]["notes"] == "Redirect old entity complete match to LPA entity: local-authority:HAA"
-    assert duplicate_rows == []
     assert ambiguous == []
 
 
-def test_resolve_redirects_a_shared_duplicate_only_once():
+def test_resolve_leaves_out_of_bounds_lpa_entities_alone():
     rows = [
         _he_pair("1", "44016376", HAA, "False"),
         _he_pair("1", "44016391", EHA, "True"),
@@ -243,9 +238,9 @@ def test_resolve_redirects_a_shared_duplicate_only_once():
         _he_pair("2", "44016391", EHA, "True"),
     ]
 
-    _, duplicate_rows, _ = dedupe.resolve_complete_matches(rows)
+    he_rows, _ = dedupe.resolve_complete_matches(rows)
 
-    assert [(r["old-entity"], r["entity"]) for r in duplicate_rows] == [("44016391", "44016376")]
+    assert [(r["old-entity"], r["entity"]) for r in he_rows] == [("1", "44016376"), ("2", "44016375")]
 
 
 def test_resolve_never_ends_an_entity():
@@ -257,10 +252,10 @@ def test_resolve_never_ends_an_entity():
         _he_pair("3", "50", EHA, "False"),
     ]
 
-    he_rows, duplicate_rows, _ = dedupe.resolve_complete_matches(rows)
+    he_rows, _ = dedupe.resolve_complete_matches(rows)
 
-    assert {r["status"] for r in he_rows + duplicate_rows} == {"301"}
-    assert all(r["entity"] for r in he_rows + duplicate_rows)
+    assert {r["status"] for r in he_rows} == {"301"}
+    assert all(r["entity"] for r in he_rows)
 
 
 def test_extract_complete_matches_returns_only_resolved_historic_england_rows():
@@ -305,31 +300,6 @@ def test_check_old_entities_unique_rejects_duplicates():
 
     with pytest.raises(ValueError, match="1"):
         dedupe.check_old_entities_unique(rows)
-
-
-# ---------------------------------------------------------------- duplicate filter
-
-def test_filter_out_of_bounds_duplicates_keeps_duplicate_that_is_a_redirect_target():
-    old_entity = [{"old-entity": "44009285", "status": "301", "entity": "44016391"}]
-    duplicates = [_new_match("44016391", entity="44016376")]
-
-    assert dedupe.filter_out_of_bounds_duplicates(old_entity, duplicates, []) == duplicates
-
-
-def test_filter_out_of_bounds_duplicates_skips_existing_source_and_new_source():
-    old_entity = [{"old-entity": "44016391", "status": "301", "entity": "99"}]
-    duplicates = [_new_match("44016391", entity="44016376"), _new_match("44016392", entity="44016377")]
-
-    result = dedupe.filter_out_of_bounds_duplicates(old_entity, duplicates, [_new_match("44016392", entity="1")])
-
-    assert result == []
-
-
-def test_filter_out_of_bounds_duplicates_skips_loops():
-    old_entity = [{"old-entity": "44016376", "status": "301", "entity": "44016391"}]
-    duplicates = [_new_match("44016391", entity="44016376")]
-
-    assert dedupe.filter_out_of_bounds_duplicates(old_entity, duplicates, []) == []
 
 
 # ---------------------------------------------------------------- reporting
@@ -391,10 +361,7 @@ def test_main_returns_zero_when_everything_is_resolved(monkeypatch, tmp_path):
     code, rows = _run_main(monkeypatch, tmp_path, checks)
 
     assert code == 0
-    assert sorted((r["old-entity"], r["entity"]) for r in rows) == [
-        ("44016385", "44016370"),
-        ("44017000", "44016370"),
-    ]
+    assert [(r["old-entity"], r["entity"]) for r in rows] == [("44017000", "44016370")]
 
 
 def test_main_writes_the_safe_rows_then_fails_for_an_ambiguous_entity(monkeypatch, tmp_path):
@@ -410,7 +377,7 @@ def test_main_writes_the_safe_rows_then_fails_for_an_ambiguous_entity(monkeypatc
 
     assert code == 1
     old_entities = [r["old-entity"] for r in rows]
-    assert sorted(old_entities) == ["44016385", "44017000"]
+    assert old_entities == ["44017000"]
     assert "44017008" not in old_entities
     assert len(old_entities) == len(set(old_entities))
 
