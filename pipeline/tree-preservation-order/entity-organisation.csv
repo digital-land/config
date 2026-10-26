@@ -783,3 +783,8 @@ tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone,19216695,19216734,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
 tree-preservation-order,7001146844,7001147110,local-authority:BEX
+tree-preservation-order,7001147111,7001147149,local-authority:NSM
+tree,7002279805,7002279834,local-authority:NSM
+tree-preservation-zone,19224522,19224530,local-authority:NSM
+tree,7002279835,7002279836,local-authority:SCA
+tree-preservation-zone,19224531,19224537,local-authority:NET
