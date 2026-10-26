@@ -7,19 +7,14 @@ for conservation areas with:
 - Complete matches (100% geometry overlap)
 - Single matches with high name similarity (>85%)
 
-Each old-entity is written once. A complete match means identical geometry, so when
-a Historic England entity completely matches several LPA entities it is redirected
-(301) rather than ended, but only when it is clear which one is right: exactly one of
-the matched entities is inside its own organisation's LPA boundary (the
-count_lpa_boundary expectation, as flagged in the duplicate report by
-reporting-task). Only the Historic England entity is redirected. The other matched
-LPA entities are left alone, as a wrong boundary usually means the LPA's published
-data needs fixing, not that the entity should be retired.
+Each old-entity is written once. Only Historic England entities are redirected; LPA
+entities are never redirected to each other.
 
-If that cannot be told (several or none are inside, or the flag is missing), nothing
-is written for that Historic England entity. Every other redirect is still written,
-and the script then exits non-zero so the pipeline job fails and Slack is alerted.
-Those cases need a manual decision: add a row to old-entity.csv by hand.
+If a Historic England entity completely matches several LPA entities, it is not clear
+which one is right (it can also be a sign of bad LPA data), so nothing is written for
+it. Every other redirect is still written, and the script then exits non-zero so the
+pipeline job fails and Slack is alerted. Those cases need a manual decision: add a row
+to old-entity.csv by hand.
 """
 
 import csv
@@ -81,8 +76,7 @@ def stream_checks_data():
             # Columns we actually need for deduplication
             needed_columns = {
                 'message', 'dataset', 'entity_a', 'entity_b',
-                'entity_a_name', 'entity_b_name', 'lookup_org_a', 'lookup_org_b', 'in_odp',
-                'entity_a_out_of_bounds', 'entity_b_out_of_bounds'
+                'entity_a_name', 'entity_b_name', 'lookup_org_a', 'lookup_org_b', 'in_odp'
             }
 
             with open(temp_path, 'r', encoding='utf-8') as f:
@@ -167,8 +161,6 @@ def historic_england_pairs(df, message):
                 'entity_b_name': row.get('entity_a_name', ''),
                 'lookup_org_a': org_b,
                 'lookup_org_b': org_a,
-                'entity_a_out_of_bounds': row.get('entity_b_out_of_bounds'),
-                'entity_b_out_of_bounds': row.get('entity_a_out_of_bounds'),
             }
         else:
             continue
@@ -181,50 +173,15 @@ def historic_england_pairs(df, message):
     return pairs
 
 
-def parse_flag(value):
-    """Read a True/False flag from the duplicate report. Blank or missing is unknown (None)."""
-    text = str(value if value is not None else '').strip().lower()
-    if text == 'true':
-        return True
-    if text == 'false':
-        return False
-    return None
-
-
-def choose_redirect_target(candidates):
-    """Pick the entity to redirect to when one Historic England entity completely
-    matches several LPA entities. Returns (chosen pair or None, reason).
-
-    A complete match means identical geometry, so redirecting to a matching entity loses
-    nothing, but only the one in the right place should be kept. The report flags each
-    entity that is outside its own organisation's LPA boundary (entity_b_out_of_bounds).
-
-    reason is:
-    - 'only': a single match, nothing to choose.
-    - 'in-bounds': every candidate's flag is known and exactly one is inside its boundary.
-    - 'ambiguous': otherwise (several or no candidates inside, or a flag is missing). No
-      choice is made. Guessing, for example by entity number, risks redirecting to the
-      wrong organisation's copy.
-    """
-    if len(candidates) == 1:
-        return candidates[0], 'only'
-
-    flags = [parse_flag(c.get('entity_b_out_of_bounds')) for c in candidates]
-    if all(flag is not None for flag in flags):
-        in_bounds = [c for c, flag in zip(candidates, flags) if flag is False]
-        if len(in_bounds) == 1:
-            return in_bounds[0], 'in-bounds'
-
-    return None, 'ambiguous'
-
-
 def resolve_complete_matches(df):
     """Work out the redirects for complete matches.
 
     Returns (historic_england_rows, ambiguous):
-    - historic_england_rows: one 301 row per Historic England entity that can be resolved.
-    - ambiguous: Historic England entities that match several LPA entities where it cannot
-      be told which is right. Nothing is written for these.
+    - historic_england_rows: one 301 row per Historic England entity with a single
+      complete match.
+    - ambiguous: Historic England entities that completely match several LPA entities.
+      Guessing, for example by entity number, risks redirecting to the wrong
+      organisation's entity, so nothing is written for these.
     """
     print("\nFiltering for complete matches...")
 
@@ -240,29 +197,21 @@ def resolve_complete_matches(df):
     ambiguous = []
 
     for old_ent, rows in matches_by_entity.items():
-        chosen, reason = choose_redirect_target(rows)
-
-        if reason == 'ambiguous':
+        if len(rows) > 1:
             ambiguous.append({
                 'old-entity': old_ent,
-                'matches': sorted(
-                    ((r['entity_b'], r['lookup_org_b'], parse_flag(r.get('entity_b_out_of_bounds')))
-                     for r in rows),
-                    key=lambda m: int(m[0])
-                ),
+                'matches': sorted(((r['entity_b'], r['lookup_org_b']) for r in rows),
+                                  key=lambda m: int(m[0])),
             })
             continue
 
-        notes = f"Redirect old entity complete match to LPA entity: {chosen['lookup_org_b']}"
-        if reason == 'in-bounds':
-            notes += f" (the only one of {len(rows)} complete matches inside its LPA boundary)"
-
+        chosen = rows[0]
         historic_england_rows.append({
             'old-entity': old_ent,
             'status': '301',
             'entity': chosen['entity_b'],
             'end-date': '',
-            'notes': notes,
+            'notes': f"Redirect old entity complete match to LPA entity: {chosen['lookup_org_b']}",
             'entry-date': today,
             'start-date': ''
         })
@@ -290,13 +239,11 @@ def report_ambiguous_matches(ambiguous):
         return
 
     def describe(match):
-        entity, org, out_of_bounds = match
-        position = {True: 'outside its LPA boundary', False: 'inside its LPA boundary'}.get(
-            out_of_bounds, 'boundary unknown')
-        return f"{entity} ({org}, {position})"
+        entity, org = match
+        return f"{entity} ({org})"
 
-    print(f"\n{len(ambiguous)} Historic England entities completely match several LPA entities and the "
-          "LPA boundary check cannot tell which one is right. No redirect was written for them:")
+    print(f"\n{len(ambiguous)} Historic England entities completely match several LPA entities, so it is "
+          "not clear which one is right. No redirect was written for them:")
     for item in ambiguous:
         print(f"  {item['old-entity']} matches " + "; ".join(describe(m) for m in item['matches']))
     print("Decide which entity is right and add a row to pipeline/conservation-area/old-entity.csv by hand. "
@@ -308,9 +255,9 @@ def report_ambiguous_matches(ambiguous):
     if summary_path:
         with open(summary_path, 'a', encoding='utf-8') as f:
             f.write("### Conservation areas needing a manual decision\n\n")
-            f.write("Each Historic England entity below completely matches several LPA entities and the "
-                    "LPA boundary check cannot tell which one is right (it needs exactly one inside its "
-                    "boundary). No redirect was written, so the data committed is safe, but this job fails "
+            f.write("Each Historic England entity below completely matches several LPA entities, so it is "
+                    "not clear which one is right. This can also mean an LPA has published the wrong data. "
+                    "No redirect was written, so the data committed is safe, but this job fails "
                     "on every run until a row is added to `pipeline/conservation-area/old-entity.csv` "
                     "by hand.\n\n")
             f.write("| Historic England entity | Matches |\n|---|---|\n")

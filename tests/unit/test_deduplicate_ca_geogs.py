@@ -15,8 +15,7 @@ HAA = "local-authority:HAA"
 EHA = "local-authority:EHA"
 
 
-def _check_row(entity_a, entity_b, org_a, org_b, message="complete_match", in_odp="True",
-               a_out_of_bounds="", b_out_of_bounds=""):
+def _check_row(entity_a, entity_b, org_a, org_b, message="complete_match", in_odp="True"):
     return {
         "message": message,
         "dataset": "conservation-area",
@@ -27,14 +26,12 @@ def _check_row(entity_a, entity_b, org_a, org_b, message="complete_match", in_od
         "lookup_org_a": org_a,
         "lookup_org_b": org_b,
         "in_odp": in_odp,
-        "entity_a_out_of_bounds": a_out_of_bounds,
-        "entity_b_out_of_bounds": b_out_of_bounds,
     }
 
 
-def _he_pair(he_entity, lpa_entity, lpa_org, out_of_bounds):
+def _he_pair(he_entity, lpa_entity, lpa_org):
     """Historic England as entity_a, the LPA entity as entity_b."""
-    return _check_row(he_entity, lpa_entity, HE, lpa_org, b_out_of_bounds=out_of_bounds)
+    return _check_row(he_entity, lpa_entity, HE, lpa_org)
 
 
 def _new_match(old_entity, status="301", entity="", notes="note", entry_date="2026-10-23"):
@@ -52,7 +49,7 @@ def _new_match(old_entity, status="301", entity="", notes="note", entry_date="20
 # ---------------------------------------------------------------- historic_england_pairs
 
 def test_historic_england_pairs_orients_he_as_entity_a():
-    rows = [_check_row("2", "1", "local-authority:HAA", HE)]
+    rows = [_check_row("2", "1", HAA, HE)]
 
     pairs = dedupe.historic_england_pairs(rows, "complete_match")
 
@@ -60,22 +57,13 @@ def test_historic_england_pairs_orients_he_as_entity_a():
     assert pairs[0]["entity_a"] == "1"
     assert pairs[0]["entity_b"] == "2"
     assert pairs[0]["lookup_org_a"] == HE
-    assert pairs[0]["lookup_org_b"] == "local-authority:HAA"
-
-
-def test_historic_england_pairs_swaps_out_of_bounds_flags_with_the_entities():
-    rows = [_check_row("44016391", "44017000", EHA, HE, a_out_of_bounds="True", b_out_of_bounds="")]
-
-    pair = dedupe.historic_england_pairs(rows, "complete_match")[0]
-
-    assert pair["entity_b"] == "44016391"
-    assert pair["entity_b_out_of_bounds"] == "True"
+    assert pairs[0]["lookup_org_b"] == HAA
 
 
 def test_historic_england_pairs_counts_pair_reported_both_ways_once():
     rows = [
-        _check_row("1", "2", HE, "local-authority:HAA"),
-        _check_row("2", "1", "local-authority:HAA", HE),
+        _check_row("1", "2", HE, HAA),
+        _check_row("2", "1", HAA, HE),
     ]
 
     assert len(dedupe.historic_england_pairs(rows, "complete_match")) == 1
@@ -84,106 +72,26 @@ def test_historic_england_pairs_counts_pair_reported_both_ways_once():
 def test_historic_england_pairs_ignores_he_to_he_and_non_he_pairs():
     rows = [
         _check_row("1", "2", HE, HE),
-        _check_row("3", "4", "local-authority:HAA", "local-authority:EHA"),
+        _check_row("3", "4", HAA, EHA),
     ]
 
     assert dedupe.historic_england_pairs(rows, "complete_match") == []
 
 
-# ---------------------------------------------------------------- parse_flag
-
-@pytest.mark.parametrize("value,expected", [
-    ("True", True), ("true", True), (" TRUE ", True),
-    ("False", False), ("false", False),
-    ("", None), (None, None), ("nan", None), ("<NA>", None), ("maybe", None),
-])
-def test_parse_flag(value, expected):
-    assert dedupe.parse_flag(value) is expected
-
-
-# ---------------------------------------------------------------- choose_redirect_target
-
-def test_choose_single_match_is_only_whatever_the_flag():
-    for flag in ("True", "False", ""):
-        chosen, reason = dedupe.choose_redirect_target([_he_pair("1", "5", HAA, flag)])
-
-        assert chosen["entity_b"] == "5"
-        assert reason == "only"
-
-
-def test_choose_picks_the_one_candidate_inside_its_boundary():
-    candidates = [_he_pair("1", "44016391", EHA, "True"), _he_pair("1", "44016376", HAA, "False")]
-
-    chosen, reason = dedupe.choose_redirect_target(candidates)
-
-    assert chosen["entity_b"] == "44016376"
-    assert reason == "in-bounds"
-
-
-def test_choose_does_not_depend_on_row_order_or_entity_number():
-    in_bounds_has_higher_number = [_he_pair("1", "10", EHA, "True"), _he_pair("1", "99", HAA, "False")]
-
-    forward, _ = dedupe.choose_redirect_target(in_bounds_has_higher_number)
-    backward, _ = dedupe.choose_redirect_target(list(reversed(in_bounds_has_higher_number)))
-
-    assert forward["entity_b"] == backward["entity_b"] == "99"
-
-
-def test_choose_is_ambiguous_when_several_candidates_are_inside():
-    # the Sir George Staunton case: copies that only touch the boundary are not flagged
-    candidates = [
-        _he_pair("44017008", "44016382", HAA, "False"),
-        _he_pair("44017008", "44016398", EHA, "False"),
-        _he_pair("44017008", "44016438", EHA, "False"),
-    ]
-
-    chosen, reason = dedupe.choose_redirect_target(candidates)
-
-    assert chosen is None
-    assert reason == "ambiguous"
-
-
-def test_choose_is_ambiguous_when_all_candidates_are_outside():
-    candidates = [_he_pair("1", "10", HAA, "True"), _he_pair("1", "20", EHA, "True")]
-
-    assert dedupe.choose_redirect_target(candidates) == (None, "ambiguous")
-
-
-def test_choose_is_ambiguous_when_any_flag_is_unknown():
-    # one known inside and one unknown: the unknown one could also be inside
-    candidates = [_he_pair("1", "10", HAA, "False"), _he_pair("1", "20", EHA, "")]
-
-    assert dedupe.choose_redirect_target(candidates) == (None, "ambiguous")
-
-
-def test_choose_is_ambiguous_when_the_column_is_missing_from_the_report():
-    rows = [_he_pair("1", "10", HAA, ""), _he_pair("1", "20", EHA, "")]
-    for row in rows:
-        del row["entity_b_out_of_bounds"]
-
-    assert dedupe.choose_redirect_target(rows) == (None, "ambiguous")
-
-
 # ---------------------------------------------------------------- resolve_complete_matches
 
-def test_resolve_redirects_he_entity_to_the_one_inside_its_boundary():
-    rows = [
-        _he_pair("44017000", "44016385", EHA, "True"),
-        _he_pair("44017000", "44016370", HAA, "False"),
-    ]
+def test_resolve_single_match_is_a_plain_redirect():
+    rows = [_he_pair("5", "50", HAA)]
 
     he_rows, ambiguous = dedupe.resolve_complete_matches(rows)
 
-    assert [(r["old-entity"], r["status"], r["entity"]) for r in he_rows] == [("44017000", "301", "44016370")]
-    assert "only one of 2 complete matches inside its LPA boundary" in he_rows[0]["notes"]
+    assert [(r["old-entity"], r["status"], r["entity"]) for r in he_rows] == [("5", "301", "50")]
+    assert he_rows[0]["notes"] == "Redirect old entity complete match to LPA entity: local-authority:HAA"
     assert ambiguous == []
 
 
 def test_resolve_handles_pairs_reported_with_he_as_entity_b():
-    rows = [
-        _check_row("44016385", "44017000", EHA, HE, a_out_of_bounds="True"),
-        _check_row("44016370", "44017000", HAA, HE, a_out_of_bounds="False"),
-    ]
+    rows = [_check_row("44016370", "44017000", HAA, HE)]
 
     he_rows, ambiguous = dedupe.resolve_complete_matches(rows)
 
@@ -191,13 +99,12 @@ def test_resolve_handles_pairs_reported_with_he_as_entity_b():
     assert ambiguous == []
 
 
-def test_resolve_writes_nothing_for_an_ambiguous_entity_but_resolves_the_others():
+def test_resolve_writes_nothing_for_an_entity_with_several_matches_but_resolves_the_others():
     rows = [
-        _he_pair("44017000", "44016385", EHA, "True"),
-        _he_pair("44017000", "44016370", HAA, "False"),
-        _he_pair("44017008", "44016382", HAA, "False"),
-        _he_pair("44017008", "44016398", EHA, "False"),
-        _he_pair("44017008", "44016438", EHA, "False"),
+        _he_pair("44017000", "44016370", HAA),
+        _he_pair("44017008", "44016398", EHA),
+        _he_pair("44017008", "44016382", HAA),
+        _he_pair("44017008", "44016438", EHA),
     ]
 
     he_rows, ambiguous = dedupe.resolve_complete_matches(rows)
@@ -205,65 +112,39 @@ def test_resolve_writes_nothing_for_an_ambiguous_entity_but_resolves_the_others(
     assert [r["old-entity"] for r in he_rows] == ["44017000"]
     assert [a["old-entity"] for a in ambiguous] == ["44017008"]
     assert ambiguous[0]["matches"] == [
-        ("44016382", HAA, False),
-        ("44016398", EHA, False),
-        ("44016438", EHA, False),
+        ("44016382", HAA),
+        ("44016398", EHA),
+        ("44016438", EHA),
     ]
 
 
-def test_resolve_writes_no_row_for_an_ambiguous_entity():
-    rows = [_he_pair("1", "10", HAA, "False"), _he_pair("1", "20", EHA, "False")]
+def test_resolve_counts_a_pair_reported_both_ways_as_one_match():
+    rows = [_he_pair("1", "10", HAA), _check_row("10", "1", HAA, HE)]
 
     he_rows, ambiguous = dedupe.resolve_complete_matches(rows)
 
-    assert he_rows == []
-    assert len(ambiguous) == 1
-
-
-def test_resolve_single_match_is_a_plain_redirect():
-    rows = [_he_pair("5", "50", HAA, "")]
-
-    he_rows, ambiguous = dedupe.resolve_complete_matches(rows)
-
-    assert he_rows[0]["entity"] == "50"
-    assert he_rows[0]["notes"] == "Redirect old entity complete match to LPA entity: local-authority:HAA"
+    assert [(r["old-entity"], r["entity"]) for r in he_rows] == [("1", "10")]
     assert ambiguous == []
 
 
-def test_resolve_leaves_out_of_bounds_lpa_entities_alone():
+def test_resolve_only_redirects_historic_england_entities():
     rows = [
-        _he_pair("1", "44016376", HAA, "False"),
-        _he_pair("1", "44016391", EHA, "True"),
-        _he_pair("2", "44016375", HAA, "False"),
-        _he_pair("2", "44016391", EHA, "True"),
+        _he_pair("1", "10", HAA),
+        _he_pair("2", "10", HAA),
+        _check_row("10", "20", HAA, EHA),
     ]
 
     he_rows, _ = dedupe.resolve_complete_matches(rows)
 
-    assert [(r["old-entity"], r["entity"]) for r in he_rows] == [("1", "44016376"), ("2", "44016375")]
-
-
-def test_resolve_never_ends_an_entity():
-    rows = [
-        _he_pair("1", "10", HAA, "False"),
-        _he_pair("1", "20", EHA, "True"),
-        _he_pair("2", "30", HAA, "False"),
-        _he_pair("3", "40", HAA, "False"),
-        _he_pair("3", "50", EHA, "False"),
-    ]
-
-    he_rows, _ = dedupe.resolve_complete_matches(rows)
-
+    assert sorted(r["old-entity"] for r in he_rows) == ["1", "2"]
     assert {r["status"] for r in he_rows} == {"301"}
-    assert all(r["entity"] for r in he_rows)
 
 
 def test_extract_complete_matches_returns_only_resolved_historic_england_rows():
     rows = [
-        _he_pair("1", "10", HAA, "False"),
-        _he_pair("1", "20", EHA, "True"),
-        _he_pair("2", "30", HAA, "False"),
-        _he_pair("2", "40", EHA, "False"),
+        _he_pair("1", "10", HAA),
+        _he_pair("2", "30", HAA),
+        _he_pair("2", "40", EHA),
     ]
 
     assert [r["old-entity"] for r in dedupe.extract_complete_matches(rows)] == ["1"]
@@ -306,7 +187,7 @@ def test_check_old_entities_unique_rejects_duplicates():
 
 AMBIGUOUS = [{
     "old-entity": "44017008",
-    "matches": [("44016382", HAA, False), ("44016398", EHA, False), ("44016438", EHA, False)],
+    "matches": [("44016382", HAA), ("44016398", EHA), ("44016438", EHA)],
 }]
 
 
@@ -321,7 +202,7 @@ def test_report_ambiguous_matches_prints_an_error_and_writes_the_summary(tmp_pat
     assert "44017008" in out
     assert "by hand" in out
     text = summary.read_text(encoding="utf-8")
-    assert "44017008" in text and "44016398" in text and "inside its LPA boundary" in text
+    assert "44017008" in text and "44016398 (local-authority:EHA)" in text
 
 
 def test_report_ambiguous_matches_is_silent_when_nothing_is_ambiguous(tmp_path, monkeypatch, capsys):
@@ -356,7 +237,7 @@ def _run_main(monkeypatch, tmp_path, checks, existing_rows=()):
 
 
 def test_main_returns_zero_when_everything_is_resolved(monkeypatch, tmp_path):
-    checks = [_he_pair("44017000", "44016385", EHA, "True"), _he_pair("44017000", "44016370", HAA, "False")]
+    checks = [_he_pair("44017000", "44016370", HAA)]
 
     code, rows = _run_main(monkeypatch, tmp_path, checks)
 
@@ -366,11 +247,10 @@ def test_main_returns_zero_when_everything_is_resolved(monkeypatch, tmp_path):
 
 def test_main_writes_the_safe_rows_then_fails_for_an_ambiguous_entity(monkeypatch, tmp_path):
     checks = [
-        _he_pair("44017000", "44016385", EHA, "True"),
-        _he_pair("44017000", "44016370", HAA, "False"),
-        _he_pair("44017008", "44016382", HAA, "False"),
-        _he_pair("44017008", "44016398", EHA, "False"),
-        _he_pair("44017008", "44016438", EHA, "False"),
+        _he_pair("44017000", "44016370", HAA),
+        _he_pair("44017008", "44016382", HAA),
+        _he_pair("44017008", "44016398", EHA),
+        _he_pair("44017008", "44016438", EHA),
     ]
 
     code, rows = _run_main(monkeypatch, tmp_path, checks)
@@ -378,12 +258,11 @@ def test_main_writes_the_safe_rows_then_fails_for_an_ambiguous_entity(monkeypatc
     assert code == 1
     old_entities = [r["old-entity"] for r in rows]
     assert old_entities == ["44017000"]
-    assert "44017008" not in old_entities
     assert len(old_entities) == len(set(old_entities))
 
 
 def test_main_is_a_no_op_on_a_second_run(monkeypatch, tmp_path):
-    checks = [_he_pair("44017000", "44016385", EHA, "True"), _he_pair("44017000", "44016370", HAA, "False")]
+    checks = [_he_pair("44017000", "44016370", HAA)]
     _, first = _run_main(monkeypatch, tmp_path, checks)
 
     _, second = _run_main(monkeypatch, tmp_path, checks, existing_rows=first)
@@ -391,10 +270,10 @@ def test_main_is_a_no_op_on_a_second_run(monkeypatch, tmp_path):
     assert second == first
 
 
-def test_main_leaves_a_manually_resolved_entity_alone_and_stops_failing(monkeypatch, tmp_path):
+def test_main_leaves_a_manually_resolved_entity_alone(monkeypatch, tmp_path):
     checks = [
-        _he_pair("44017008", "44016382", HAA, "False"),
-        _he_pair("44017008", "44016398", EHA, "False"),
+        _he_pair("44017008", "44016382", HAA),
+        _he_pair("44017008", "44016398", EHA),
     ]
     manual = [_new_match("44017008", entity="44016382", notes="Manual decision")]
 
