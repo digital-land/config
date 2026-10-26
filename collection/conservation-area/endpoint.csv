@@ -871,3 +871,4 @@ a693648ff424ae92d2db5d6cf6355c041a9d4796c28a82164410be65573d37c2,https://www.rus
 797492273a219ccafa0620a06cae50925ea0e6bf51d2d2c142a1efcd93f53df1,https://www.southampton.gov.uk/geoserver/Data/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Data%3ACONSERVATION_AREA_DOC_DATA&outputFormat=csv&srsName=EPSG:4326,,,2026-10-20,2026-10-20,
 18f5fd65786c3b983bf2f3542b9741a7fd9376c21d1ca9373a8bed2695495d6a,https://www.easthants.gov.uk/sites/default/files/2026-08/conservation-area.csv,,,2026-10-26,2026-10-26,
 57a70251f452b0303af3fc85904a9b00d89266c2d7122c74e40ccfd0951d7bed,https://www.easthants.gov.uk/sites/default/files/2026-08/conservation-area-document.csv,,,2026-10-26,2026-10-26,
+3047c7e91779c8068c35f4b6a4de817d05e62b4e04595fc6218e191763cd733e,https://lbbplanningdatasets.blob.core.windows.net/conservation-areas/dataset/All-Bexley-Conservation-Areas.csv,,,2026-10-26,2026-10-26,
