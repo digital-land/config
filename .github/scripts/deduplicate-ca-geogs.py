@@ -6,9 +6,20 @@ Processes duplicate geometry checks and generates old-entity redirects
 for conservation areas with:
 - Complete matches (100% geometry overlap)
 - Single matches with high name similarity (>85%)
+
+Each old-entity is written once. Only Historic England entities are redirected; LPA
+entities are never redirected to each other.
+
+If a Historic England entity completely matches several LPA entities, it is not clear
+which one is right (it can also be a sign of bad LPA data), so nothing is written for
+it. Every other redirect is still written, and the script then exits non-zero so the
+pipeline job fails and Slack is alerted. Those cases need a manual decision: add a row
+to old-entity.csv by hand.
 """
 
 import csv
+import os
+import sys
 import urllib.request
 from datetime import datetime
 from pathlib import Path
@@ -162,29 +173,96 @@ def historic_england_pairs(df, message):
     return pairs
 
 
-def extract_complete_matches(df):
-    """Extract complete match duplicates and format for old-entity.csv."""
+def resolve_complete_matches(df):
+    """Work out the redirects for complete matches.
+
+    Returns (historic_england_rows, ambiguous):
+    - historic_england_rows: one 301 row per Historic England entity with a single
+      complete match.
+    - ambiguous: Historic England entities that completely match several LPA entities.
+      Guessing, for example by entity number, risks redirecting to the wrong
+      organisation's entity, so nothing is written for these.
+    """
     print("\nFiltering for complete matches...")
 
     complete_matches = historic_england_pairs(df, 'complete_match')
     print(f"Found {len(complete_matches)} complete matches")
 
-    # Format for old-entity.csv
-    formatted = []
-    today = datetime.now().strftime('%Y-%m-%d')
-
+    matches_by_entity = {}
     for row in complete_matches:
-        formatted.append({
-            'old-entity': row['entity_a'],
+        matches_by_entity.setdefault(row['entity_a'], []).append(row)
+
+    today = datetime.now().strftime('%Y-%m-%d')
+    historic_england_rows = []
+    ambiguous = []
+
+    for old_ent, rows in matches_by_entity.items():
+        if len(rows) > 1:
+            ambiguous.append({
+                'old-entity': old_ent,
+                'matches': sorted(((r['entity_b'], r['lookup_org_b']) for r in rows),
+                                  key=lambda m: int(m[0])),
+            })
+            continue
+
+        chosen = rows[0]
+        historic_england_rows.append({
+            'old-entity': old_ent,
             'status': '301',
-            'entity': row['entity_b'],
+            'entity': chosen['entity_b'],
             'end-date': '',
-            'notes': f"Redirect old entity complete match to LPA entity: {row['lookup_org_b']}",
+            'notes': f"Redirect old entity complete match to LPA entity: {chosen['lookup_org_b']}",
             'entry-date': today,
             'start-date': ''
         })
 
-    return formatted
+    print(f"{len(historic_england_rows)} Historic England entities to redirect")
+    if ambiguous:
+        print(f"{len(ambiguous)} Historic England entities cannot be resolved and will not be redirected")
+    return historic_england_rows, ambiguous
+
+
+def extract_complete_matches(df):
+    """Complete match redirects for Historic England entities, one row per resolved entity."""
+    return resolve_complete_matches(df)[0]
+
+
+def report_ambiguous_matches(ambiguous):
+    """Report Historic England entities that could not be resolved.
+
+    Prints a GitHub Actions error and, when running in Actions, adds a table to the job
+    summary. The caller then exits non-zero so the job fails and the pipeline's Slack alert
+    fires. Nothing was written for these entities, so the committed data is safe, but they
+    will be reported on every run until someone adds a row to old-entity.csv by hand.
+    """
+    if not ambiguous:
+        return
+
+    def describe(match):
+        entity, org = match
+        return f"{entity} ({org})"
+
+    print(f"\n{len(ambiguous)} Historic England entities completely match several LPA entities, so it is "
+          "not clear which one is right. No redirect was written for them:")
+    for item in ambiguous:
+        print(f"  {item['old-entity']} matches " + "; ".join(describe(m) for m in item['matches']))
+    print("Decide which entity is right and add a row to pipeline/conservation-area/old-entity.csv by hand. "
+          "This step fails on every run until then.")
+    print(f"::error title=CA duplicates need a manual decision::{len(ambiguous)} Historic England entities "
+          "match several LPA entities and could not be resolved, see the job summary")
+
+    summary_path = os.environ.get('GITHUB_STEP_SUMMARY')
+    if summary_path:
+        with open(summary_path, 'a', encoding='utf-8') as f:
+            f.write("### Conservation areas needing a manual decision\n\n")
+            f.write("Each Historic England entity below completely matches several LPA entities, so it is "
+                    "not clear which one is right. This can also mean an LPA has published the wrong data. "
+                    "No redirect was written, so the data committed is safe, but this job fails "
+                    "on every run until a row is added to `pipeline/conservation-area/old-entity.csv` "
+                    "by hand.\n\n")
+            f.write("| Historic England entity | Matches |\n|---|---|\n")
+            for item in ambiguous:
+                f.write(f"| {item['old-entity']} | " + "<br>".join(describe(m) for m in item['matches']) + " |\n")
 
 
 def extract_single_matches(df):
@@ -256,6 +334,40 @@ def extract_single_matches(df):
     print(f"  - {len([x for x in formatted if x['status'] == '301'])} regular redirects (status 301)")
     print(f"  - {len([x for x in formatted if x['status'] == '410'])} split cases (status 410)")
     return formatted
+
+
+def drop_superseded_single_matches(complete_matches, single_matches, ambiguous_entities=()):
+    """Drop single matches for entities that already have a complete match.
+
+    A complete match is identical geometry and always gives a clean redirect, so it
+    wins over a partial match (which could otherwise add a second row, or a 410).
+    Single matches are also dropped for entities left unresolved, so nothing is
+    written for an entity that needs a manual decision.
+    """
+    skip = {m['old-entity'] for m in complete_matches} | set(ambiguous_entities)
+    kept = [m for m in single_matches if m['old-entity'] not in skip]
+    dropped = len(single_matches) - len(kept)
+    if dropped:
+        print(f"Dropped {dropped} single matches for entities that have a complete match or need a manual decision")
+    return kept
+
+
+def check_old_entities_unique(data):
+    """Fail before writing if any old-entity appears more than once.
+
+    old-entity.csv must have unique old-entity values (checked by
+    tests/acceptance/test_config_dataset.py), so refuse to write a file that would
+    break it rather than committing it from the pipeline.
+    """
+    counts = {}
+    for row in data:
+        counts[row['old-entity']] = counts.get(row['old-entity'], 0) + 1
+    duplicates = sorted(k for k, v in counts.items() if v > 1)
+    if duplicates:
+        raise ValueError(
+            f"{len(duplicates)} old-entity values appear more than once, refusing to write "
+            f"{OLD_ENTITY_PATH.name}: {', '.join(duplicates[:20])}"
+        )
 
 
 def filter_conflicting_matches(old_entity, new_matches):
@@ -402,16 +514,18 @@ def save_output(data):
 
 
 def main():
-    """Main execution function."""
+    """Main execution function. Returns the process exit code."""
     try:
         checks_data = stream_checks_data()
         old_entity = load_old_entity()
 
         # Extract both complete and single matches
-        complete_matches = extract_complete_matches(checks_data)
+        complete_matches, ambiguous = resolve_complete_matches(checks_data)
         single_matches = extract_single_matches(checks_data)
 
-        # Combine both types of matches
+        # Combine both types of matches, preferring complete matches
+        single_matches = drop_superseded_single_matches(
+            complete_matches, single_matches, {a['old-entity'] for a in ambiguous})
         all_new_matches = complete_matches + single_matches
         print(f"\nTotal new redirects to add: {len(all_new_matches)}")
 
@@ -421,11 +535,16 @@ def main():
 
         combined = combine_data(old_entity, all_new_matches)
         combined = resolve_redirect_chains(combined)
+        check_old_entities_unique(combined)
         save_output(combined)
     except Exception as e:
         print(f"Error: {e}")
         raise
 
+    # Everything safe has been written. Fail the job if anything needs a manual decision
+    report_ambiguous_matches(ambiguous)
+    return 1 if ambiguous else 0
+
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
