@@ -4563,3 +4563,6 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 44012741,301,44016417,"local-authority:EHA geometry complete_match, name similarity 100%",,2026-10-26,
 44012742,301,44016426,"local-authority:EHA geometry complete_match, name similarity 100%",,2026-10-26,
 44016438,301,44016398,"local-authority:EHA geometry complete_match, name similarity 67%",,2026-10-26,
+44004541,301,44017423,Redirect old entity complete match to LPA entity: local-authority:HUN,,2026-10-26,
+44005388,301,44017421,Redirect old entity complete match to LPA entity: national-park-authority:Q72617158,,2026-10-26,
+44007335,301,44017420,Redirect old entity complete match to LPA entity: national-park-authority:Q72617158,,2026-10-26,
