@@ -285,7 +285,7 @@ a496ef32a6bc5d8dd1578c631b6cfb42e1ac92e2d498bbb6df4aaa24f05ce8e5,https://ntcounc
 c9a64cf278d8e3fd594f4add3c05e8e8bda5f641433c6c0da5fe0d95c0e242bf,https://www.havant.gov.uk/media/11202/download?inline,,,2026-08-25,2026-08-25,
 12fd3764a9f74eb3c0e6a1a0496077f14ca7fc82f671a34778984858c0db32ca,https://maps.easthants.gov.uk/Heritage/open_data/tree-preservation-zone.csv,,,2026-08-26,2026-08-26,
 47cb152b4b1c6fbc84d498f277d84f2c5dacfeb54df5e34e060470b2a8aaf128,https://maps.easthants.gov.uk/Heritage/open_data/tree-preservation-order.csv,,,2026-08-26,2026-08-26,
-dffa28bc6f7760ac20843b4e744051e7a1b9e3c3528b64e21117c5e18e5ade90,https://maps.easthants.gov.uk/Heritage/open_data/tree.csv,,,2026-08-26,2026-08-26,
+dffa28bc6f7760ac20843b4e744051e7a1b9e3c3528b64e21117c5e18e5ade90,https://maps.easthants.gov.uk/Heritage/open_data/tree.csv,,,2026-08-26,2026-08-26,2026-10-27
 2d7d5718534bc61c46d5584de3e5c6ea1b9adc77c8abc808314b6c20b7ae1084,https://services-eu1.arcgis.com/gENhhjmVDYfAqqnx/arcgis/rest/services/Tree_preservation_tree/FeatureServer/0,,arcgis,2026-08-27,2026-08-27,
 5642eebf59a8fe35e239a96425516159563621435604981624f3ba56de75daf9,https://services-eu1.arcgis.com/gENhhjmVDYfAqqnx/arcgis/rest/services/Tree_preservation_order/FeatureServer/0,,arcgis,2026-08-27,2026-08-27,
 97610f778d2d4b7473068bb0571c107f88bfcc4bb281c3608b7ac95a0af4500b,https://www.southampton.gov.uk/media/pfhnczgf/tree-preservation-zone-29072026.csv,,,2026-08-27,2026-08-27,
@@ -295,3 +295,4 @@ a446fa9d25edaeaec7fd2444513064f7e173b0630e9230de81e8a143ab7edd04,https://service
 2189d1668b9eafb3f65314350a27df9ed7ee279efdc031a45d3458c4e1a4076a,https://community.newcastle.gov.uk/gisfiles/NCC_TreePreservationOrders.csv,,,2026-10-06,2026-10-06,
 c9bbc68bdfd9753ed683da196360740e44d87b9c2a4e3fa204fb11c8ed2a73fe,https://maps.fareham.gov.uk/server/services/Corporate/TPOs/MapServer/WFSServer?request=getcapabilities&service=wfs,,,2026-10-19,2026-10-19,
 2b15c27204d1abca4248b769db0bf8f1bd05d14efec18a67a8809b69569ca91c,https://lbbplanningdatasets.blob.core.windows.net/tpo/dataset/All-Bexley-Tree-preservation-orders.csv,,,2026-10-26,2026-10-26,
+a34987c1d6aa928c96d653545f1ab1ffbc3646402255cb3ca12e18a8d128f3d2,https://www.easthants.gov.uk/sites/default/files/2026-08/tree.csv,,,2026-10-27,2026-10-27,
