@@ -1,4 +1,6 @@
 dataset,entity-minimum,entity-maximum,organisation
+infrastructure-funding-statement,8100250,8100315,government-organisation:D1342
+infrastructure-funding-statement,8100317,8100409,government-organisation:D1342
 infrastructure-funding-statement,8100158,8100158,local-authority:ADU
 infrastructure-funding-statement,8100032,8100032,local-authority:AMB
 infrastructure-funding-statement,8100149,8100149,local-authority:ARU
@@ -213,5 +215,3 @@ infrastructure-funding-statement,8100116,8100116,local-authority:WSK
 infrastructure-funding-statement,8100150,8100150,local-authority:WSX
 infrastructure-funding-statement,8100157,8100157,national-park-authority:Q20198711
 infrastructure-funding-statement,8100009,8100009,national-park-authority:Q72617158
-infrastructure-funding-statement,8100250,8100315,government-organisation:D1342
-infrastructure-funding-statement,8100317,8100409,government-organisation:D1342

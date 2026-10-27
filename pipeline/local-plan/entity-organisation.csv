@@ -1980,6 +1980,7 @@ plan-timetable,5100068,5100068,local-authority:EAT
 plan-timetable,5100666,5100668,local-authority:EAT
 plan-timetable,5105133,5105155,local-authority:EAT
 plan-timetable,5110211,5110226,local-authority:EAT
+plan-timetable,5111789,5111789,local-authority:EAT
 plan-timetable,5100086,5100086,local-authority:ECA
 plan-timetable,5100179,5100181,local-authority:ECA
 plan-timetable,5100308,5100308,local-authority:ECA
@@ -2775,4 +2776,3 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5111789,5111789,local-authority:EAT
