@@ -1,0 +1,265 @@
+name: Batch Assign Entities
+
+# Assigns entities to resources with an 'unknown entity' issue across the odp, mandated and
+# single-source scopes. It is meant to be started by Airflow (build-digital-land-builder) once
+# the nightly build has finished and Datasette and its CDN are serving it, so:
+#   - resources fixed by hand the previous day have dropped out of the issue summary and no
+#     longer linger in Manage's flagged-resources list, and
+#   - unknown entities introduced by the nightly run are assigned the same morning.
+# Until then it only runs when dispatched by hand, and config-evening-pipeline.yml still runs
+# its own batch assign against main. Once Airflow starts this, remove the batch-assign job
+# from the evening pipeline so the two don't both run.
+#
+# Commits go to config-manager-update (the branch Manage writes to) rather than straight to
+# main, so a run that finishes late can't clash with data being added through Manage. The
+# evening pipeline's merge stage brings that branch into main, then standardises and uploads
+# to S3, so the look-ups still reach the pipeline the same night.
+#
+# Manage's flagged-resources list finds this workflow's output by artifact name
+# (batch-assign-<scope>-output), across the whole repo - keep those names unchanged.
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: "Scope to run. 'all' runs odp, mandated and single-source in turn (what Airflow runs)"
+        required: false
+        type: choice
+        default: "all"
+        options:
+          - "all"
+          - "odp"
+          - "mandated"
+          - "single-source"
+      branch:
+        description: "Branch to commit to. Created from main, with a PR into main, if it doesn't exist"
+        required: false
+        type: string
+        default: "config-manager-update"
+      resources:
+        description: "Comma-separated list of resource"
+        required: false
+        type: string
+      skip_checks:
+        description: "Skip validation checks and directly assign entities (use with caution)"
+        required: false
+        type: boolean
+        default: false
+      commit:
+        description: "Whether to commit results (set to false for dry runs)"
+        required: false
+        type: boolean
+        default: true
+      batch_size:
+        description: "Resources per batch (0 = no batching). Leave blank for the default: 10 for single-source, 0 for odp/mandated."
+        required: false
+        type: string
+      start_batch:
+        description: "Batch number to start from. Use with batch_size to resume a failed single-source run."
+        required: false
+        type: number
+        default: 1
+
+env:
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+concurrency:
+  # The evening pipeline's concurrency group, deliberately: its merge stage squashes and deletes
+  # config-manager-update, so a batch assign still running at 18:00 has to finish before that
+  # merge starts - otherwise its next push would replay already-merged commits.
+  group: config-evening-pipeline
+  cancel-in-progress: false
+
+jobs:
+  scopes:
+    runs-on: ubuntu-latest
+    outputs:
+      scopes: ${{ steps.scopes.outputs.scopes }}
+    steps:
+      - name: Determine batch assign scope(s)
+        id: scopes
+        env:
+          SCOPE: ${{ inputs.scope }}
+        run: |
+          if [ -z "$SCOPE" ] || [ "$SCOPE" = "all" ]; then
+            SCOPES='["odp", "mandated", "single-source"]'
+          else
+            SCOPES="[\"$SCOPE\"]"
+          fi
+          echo "scopes=$SCOPES" >> "$GITHUB_OUTPUT"
+
+  batch-assign:
+    name: Batch assign (${{ matrix.scope }})
+    runs-on: ubuntu-22.04
+    needs: [scopes]
+    outputs:
+      failed_batch: ${{ steps.batch-assign.outputs.failed_batch }}
+    strategy:
+      fail-fast: false
+      # Legs push to the branch independently (git commit / pull --rebase / push, no retry on
+      # conflict) - run one at a time so odp, mandated and single-source never race to push at
+      # once, and each leg starts from the previous leg's commits. single-source runs last so its
+      # own failed_batch output - if set - is the one that survives the matrix's job-output
+      # last-writer-wins behaviour and reaches the notify step below.
+      max-parallel: 1
+      matrix:
+        scope: ${{ fromJSON(needs.scopes.outputs.scopes) }}
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          ref: main
+          # full history, so the script's pull --rebase can always find a merge base whether it
+          # rebases onto the branch or onto main
+          fetch-depth: 0
+
+      # Assign against the branch Manage writes to, so entity numbers are allocated after anything
+      # Manage has already committed there today. If it doesn't exist (the evening merge deletes
+      # it), start from main - the script creates the branch and its PR on its first commit.
+      - name: Check out target branch
+        env:
+          BRANCH: ${{ inputs.branch || 'config-manager-update' }}
+        run: |
+          if git ls-remote --exit-code --heads origin "$BRANCH" > /dev/null; then
+            git fetch origin "$BRANCH"
+            git checkout -B "$BRANCH" "origin/$BRANCH"
+          else
+            echo "$BRANCH does not exist yet - starting from main"
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          sudo add-apt-repository ppa:ubuntugis/ppa -y
+          sudo apt-get update
+          sudo apt-get install gdal-bin -y
+          gdalinfo --version
+          python -m pip install --upgrade pip
+          pip install click pandas tqdm rapidfuzz
+          pip install -e "git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land"
+
+      - name: Run batch assign script
+        id: batch-assign
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
+          RESOURCES: ${{ inputs.resources }}
+          TRIGGERED_BY: ${{ github.actor || 'unknown' }}
+          SCOPE: ${{ matrix.scope }}
+          BRANCH: ${{ inputs.branch || 'config-manager-update' }}
+          SKIP_CHECKS: ${{ inputs.skip_checks }}
+          COMMIT: ${{ inputs.commit }}
+          # Only single-source batches by default - odp/mandated are small enough to run as
+          # one commit. A manual dispatch can still override batch_size for any scope.
+          BATCH_SIZE: ${{ inputs.batch_size || (matrix.scope == 'single-source' && '10' || '0') }}
+          START_BATCH: ${{ inputs.start_batch || '1' }}
+        run: |
+          ARGS+=(--scope "$SCOPE" --branch "$BRANCH")
+
+          if [ -n "$RESOURCES" ]; then
+            ARGS+=(--resources "$RESOURCES")
+          fi
+
+          if [ "$SKIP_CHECKS" = "true" ]; then
+            ARGS+=(--skip-checks)
+          fi
+
+          if [ -n "$TRIGGERED_BY" ]; then
+            ARGS+=(--triggered-by "$TRIGGERED_BY")
+          fi
+
+          if [[ "$COMMIT" == "false" ]]; then
+            ARGS+=(--no-commit)
+          fi
+
+          if [ "${BATCH_SIZE:-0}" -gt 0 ]; then
+            CURRENT_BATCH="${START_BATCH:-1}"
+            while true; do
+              set +e
+              python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}" \
+                --batch-size "$BATCH_SIZE" \
+                --start-batch "$CURRENT_BATCH"
+              EXIT=$?
+              set -e
+              if [ $EXIT -eq 2 ]; then
+                echo "All batches complete."
+                break
+              elif [ $EXIT -ne 0 ]; then
+                echo "::error::Batch $CURRENT_BATCH ($SCOPE) failed. To resume, trigger manually with: scope=$SCOPE, start_batch=$CURRENT_BATCH, batch_size=$BATCH_SIZE"
+                echo "failed_batch=$CURRENT_BATCH" >> "$GITHUB_OUTPUT"
+                exit 1
+              fi
+              CURRENT_BATCH=$(( CURRENT_BATCH + 1 ))
+            done
+          else
+            python3 .github/scripts/batch_assign_entities.py "${ARGS[@]}"
+          fi
+
+      - name: Alert on resources with an empty transformed output
+        if: ${{ !cancelled() }}
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        run: python3 .github/scripts/notify_current_resource_empty.py "${{ matrix.scope }}"
+
+      - name: Upload batch assign output
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch-assign-${{ matrix.scope }}-output
+          retention-days: 7
+          path: batch_assign_summary*.csv
+
+      - name: Upload batch assign diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch-assign-${{ matrix.scope }}-diagnostics
+          retention-days: 7
+          path: |
+            var/cache/assign_entities/transformed/*.csv
+            issue_summary.csv
+            invalid_uri_issues.csv
+            issue_summary_full.csv
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: [batch-assign]
+    if: ${{ !cancelled() && needs.batch-assign.result == 'failure' }}
+    steps:
+      - name: Notify Slack of batch assign failure
+        uses: slackapi/slack-github-action@v1
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        with:
+          channel-id: planning-data-alerts
+          payload: |
+            {
+              "text": ":x: Batch Assign Entities failed",
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": { "type": "plain_text", "text": ":x: Batch Assign Entities failed" }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Branch:* `${{ inputs.branch || 'config-manager-update' }}`\n*Result:* `${{ needs.batch-assign.result }}`${{ needs.batch-assign.outputs.failed_batch && format(' (failed at batch {0}, resume with scope=single-source, start_batch={0})', needs.batch-assign.outputs.failed_batch) || '' }}"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": { "type": "mrkdwn", "text": "<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View workflow run>" }
+                }
+              ]
+            }
