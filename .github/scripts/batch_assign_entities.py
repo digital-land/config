@@ -148,7 +148,38 @@ def run_command(cmd, capture_output=True, check=True):
     return (result.stdout or "").strip() if capture_output else ""
 
 
-def commit_to_main(triggered_by, success_count, scope, batch_size=0, start_batch=1):
+def remote_branch_exists(branch):
+    return subprocess.run(
+        ["git", "ls-remote", "--exit-code", "--heads", "origin", branch],
+        text=True,
+        capture_output=True,
+        check=False,
+    ).returncode == 0
+
+
+def ensure_pull_request(branch, commit_label):
+    """Open a PR from branch into main unless one is already open. config-manager-update's PR is
+    the one the evening pipeline auto-merges; an existing one is left alone, as Manage maintains
+    its title and body."""
+    pr_number = run_command(
+        ["gh", "pr", "list", "--head", branch, "--base", "main", "--state", "open", "--json", "number", "--jq", ".[0].number // empty"],
+    )
+    if pr_number:
+        print(f"PR #{pr_number} already open for {branch}")
+        return
+
+    run_command(["gh", "pr", "create", "--base", "main", "--head", branch, "--title", "Manage Service Update", "--body", commit_label])
+    print(f"Opened PR for {branch} into main")
+
+
+def commit_and_push(triggered_by, success_count, scope, batch_size=0, start_batch=1, branch="main"):
+    """Commit the assigned look-ups and push them to branch.
+
+    For any branch other than main, the branch is created from main if it doesn't exist (the
+    evening pipeline deletes config-manager-update once it has merged it), and a PR into main is
+    opened for it if there isn't one already. The rebase is onto whatever the branch is now,
+    not what was checked out, so commits Manage has pushed in the meantime are kept.
+    """
     if batch_size > 0:
         commit_label = f"{scope} - Batch assign entities update (batch {start_batch}, {success_count} successful resource(s))"
     else:
@@ -170,9 +201,14 @@ def commit_to_main(triggered_by, success_count, scope, batch_size=0, start_batch
         return
 
     run_command(["git", "commit", "-m", commit_label])
-    run_command(["git", "pull", "--rebase", "origin", "main"])
-    run_command(["git", "push", "origin", "HEAD:main"])
-    print(f"Committed and pushed to main: {commit_label}")
+    rebase_onto = branch if branch == "main" or remote_branch_exists(branch) else "main"
+    run_command(["git", "pull", "--rebase", "origin", rebase_onto])
+    # a full ref, so the push can create the branch even when HEAD isn't a local branch of that name
+    run_command(["git", "push", "origin", f"HEAD:refs/heads/{branch}"])
+    print(f"Committed and pushed to {branch}: {commit_label}")
+
+    if branch != "main":
+        ensure_pull_request(branch, commit_label)
 
 def download_file(url, output_path, raise_error=False, max_retries=5):
     """Downloads a file using urllib and saves it to the output directory. msj151225"""
@@ -1350,6 +1386,7 @@ def run_batch_assign_entities(
     commit: bool = True,
     batch_size: int = 0,
     start_batch: int = 1,
+    branch: str = "main",
 ):
     """
     Entry point for a scheduled or manual run: fetches the current unknown-entity and
@@ -1471,17 +1508,18 @@ def run_batch_assign_entities(
         print(f"Total successful assign-entities operations: {success_count}")
 
         if success_count > 0 and commit:
-            commit_to_main(
+            commit_and_push(
                 triggered_by=triggered_by,
                 success_count=success_count,
                 scope=scope,
                 batch_size=batch_size,
                 start_batch=start_batch,
+                branch=branch,
             )
         elif success_count > 0 and not commit:
-            print("Successful assignments completed; --no-commit set, skipping commit to main")
+            print(f"Successful assignments completed; --no-commit set, skipping commit to {branch}")
         else:
-            print("No successful assignments; skipping commit to main")
+            print(f"No successful assignments; skipping commit to {branch}")
     except Exception as e:
         print(f"Error running batch assign entities: {e}")
         traceback.print_exc()
@@ -1521,7 +1559,13 @@ def run_batch_assign_entities(
     "--commit/--no-commit",
     default=True,
     show_default=True,
-    help="Commit changes to main when there are successful assignments.",
+    help="Commit changes to --branch when there are successful assignments.",
+)
+@click.option(
+    "--branch",
+    default="main",
+    show_default=True,
+    help="Branch to push commits to. Any branch other than main is created from main if it doesn't exist, with a PR into main.",
 )
 @click.option(
     "--batch-size",
@@ -1547,6 +1591,7 @@ def main(
     commit: bool = True,
     batch_size: int = 0,
     start_batch: int = 1,
+    branch: str = "main",
 ) -> None:
     # Print input options so the command and options used are visible
     print("Input options:")
@@ -1558,6 +1603,7 @@ def main(
     print(f"  commit={commit}")
     print(f"  batch_size={batch_size}")
     print(f"  start_batch={start_batch}")
+    print(f"  branch={branch}")
 
     cache_dir = Path(cache_dir)
     run_batch_assign_entities(
@@ -1569,6 +1615,7 @@ def main(
         commit=commit,
         batch_size=batch_size,
         start_batch=start_batch,
+        branch=branch,
     )
 
 if __name__ == "__main__":
