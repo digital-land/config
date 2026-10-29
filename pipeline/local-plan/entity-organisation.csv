@@ -2205,6 +2205,7 @@ plan-timetable,5100047,5100047,local-authority:LND
 plan-timetable,5100050,5100050,local-authority:LND
 plan-timetable,5100085,5100085,local-authority:LND
 plan-timetable,5100534,5100541,local-authority:LND
+plan-timetable,5100548,5100548,local-authority:LND
 plan-timetable,5104512,5104534,local-authority:LND
 plan-timetable,5100046,5100046,local-authority:LUT
 plan-timetable,5101020,5101022,local-authority:LUT
@@ -2570,7 +2571,8 @@ plan-timetable,5101635,5101638,local-authority:WLA
 plan-timetable,5109411,5109433,local-authority:WLA
 plan-timetable,5109434,5109456,local-authority:WLI
 plan-timetable,5109227,5109249,local-authority:WLL
-plan-timetable,5100545,5100550,local-authority:WLV
+plan-timetable,5100545,5100547,local-authority:WLV
+plan-timetable,5100549,5100550,local-authority:WLV
 plan-timetable,5102627,5102649,local-authority:WLV
 plan-timetable,5111179,5111203,local-authority:WLV
 plan-timetable,5101012,5101015,local-authority:WND
