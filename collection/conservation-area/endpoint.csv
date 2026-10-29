@@ -873,3 +873,4 @@ a693648ff424ae92d2db5d6cf6355c041a9d4796c28a82164410be65573d37c2,https://www.rus
 3047c7e91779c8068c35f4b6a4de817d05e62b4e04595fc6218e191763cd733e,https://lbbplanningdatasets.blob.core.windows.net/conservation-areas/dataset/All-Bexley-Conservation-Areas.csv,,,2026-10-26,2026-10-26,
 57a70251f452b0303af3fc85904a9b00d89266c2d7122c74e40ccfd0951d7bed,https://www.easthants.gov.uk/sites/default/files/2026-08/conservation-area-document.csv,,,2026-10-26,2026-10-26,
 abc1696c8c18ba69e57e8ba12194da4302db2dc3bbfe1f609585f864300bff82,https://www.preston.gov.uk/media/27784/Conservation-Area-Document-Dataset/speadsheet/conservation-area-document.csv?m=1793116546147,,,2026-10-28,2026-10-28,
+6db087c51717237aa3c97e788578867e212aa1b3998551e4349312c3b3103481,https://maps.bcpcouncil.gov.uk/map/wfs.svc/Conservation Areas?version=2.0.0&REQUEST=GetFeature&TYPENAMES=ldf:CONS&OUTPUTFORMAT=application/json,,,2026-10-29,2026-10-29,
