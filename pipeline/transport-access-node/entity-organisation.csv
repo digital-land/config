@@ -1,6 +1,2 @@
 dataset,entity-minimum,entity-maximum,organisation
-transport-access-node,50000000,50363999,government-organisation:D9
-transport-access-node,50364000,50364003,government-organisation:D9
-transport-access-node,50364004,50364014,government-organisation:D9
-transport-access-node,50364015,50364016,government-organisation:D9
-transport-access-node,50364017,50364018,government-organisation:D9
+transport-access-node,50000000,50364018,government-organisation:D9
