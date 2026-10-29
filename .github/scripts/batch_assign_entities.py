@@ -735,7 +735,7 @@ def _missing_reference_error_rows(df, dataset, resource):
     ]
 
 
-def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, old_resource_hash, config, organisation_name='', endpoint_has_history=True):
+def _collect_validation_rows(current_resource_df, old_resource_df, dataset, resource, old_resource_hash, config, organisation_name='', endpoint_has_history=True, pre_dataset_entities=frozenset()):
     """
     Decide whether this resource is safe to auto-assign, and answer "why was this
     resource not assigned" when it isn't.
@@ -760,6 +760,14 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
         superseded resource - distinguishes "real history exists but we failed to
         resolve a baseline from it" (blocking) from "this is genuinely brand new, there
         is nothing to compare against" (not blocking).
+    :param pre_dataset_entities: this dataset's entity set before this resource was
+        assigned (see _run_assignment). When old_resource_df is None there's no
+        per-resource baseline to diff against, but the entity itself may still
+        pre-date this resource (e.g. a resource re-published under a new endpoint that
+        the lookup phase correctly re-matched to existing entities) - without this,
+        those get wrongly counted as new_entity_ids, and an invalid_uri_issue on the
+        resource then strips their existing, already-valid lookup.csv rows (see
+        _promote's invalid_uri_entities exclusion).
     :return: (validation_rows, old_entities, new_entity_ids) - the findings, the
         previous resource's entity set, and this resource's newly-added entity set.
     """
@@ -768,7 +776,7 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
 
     if old_resource_df is None:
         old_entities = set()
-        new_entity_ids = current_entities
+        new_entity_ids = current_entities - {str(e) for e in pre_dataset_entities}
     else:
         old_entities = set(old_resource_df['entity'])
         new_entity_ids = current_entities - old_entities
@@ -983,7 +991,7 @@ def _run_assignment(resource_path, resource, endpoint, collection_name, dataset,
     return pre_dataset_entities, old_resource_df, old_resource_hash, current_resource_df
 
 
-def _run_validation(current_resource_df, old_resource_df, old_resource_hash, dataset, resource, organisation_name, endpoint, endpoints_with_history, skip_checks, validation_config, cache_dir, invalid_uri_issues):
+def _run_validation(current_resource_df, old_resource_df, old_resource_hash, dataset, resource, organisation_name, endpoint, endpoints_with_history, skip_checks, validation_config, cache_dir, invalid_uri_issues, pre_dataset_entities):
     """
     Decide whether this resource is safe to promote: the current-resource-empty guard,
     then (unless skip_checks) the pure validation checks plus the invalid-URI-issue
@@ -1029,6 +1037,7 @@ def _run_validation(current_resource_df, old_resource_df, old_resource_hash, dat
         validation_config,
         organisation_name=organisation_name,
         endpoint_has_history=endpoint in endpoints_with_history,
+        pre_dataset_entities=pre_dataset_entities,
     )
     current_entities = set(current_resource_df['entity'])
     print(f"Old entities count: {len(old_entities)}, current entities count: {len(current_entities)}, New entities count: {len(new_entities)}")
@@ -1290,6 +1299,7 @@ def process_csv(scope, resource_dir, issue_summary_df, cache_dir, skip_checks=Fa
                     validation_config,
                     cache_dir,
                     invalid_uri_issues,
+                    pre_dataset_entities,
                 )
 
                 if any(r.get('status') not in validation_config.non_blocking_statuses for r in output_rows):

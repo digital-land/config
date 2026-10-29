@@ -795,6 +795,34 @@ def test_collect_validation_rows_does_not_block_genuinely_new_endpoint():
     assert "previous_resource_not_found" not in [row["error_code"] for row in rows]
 
 
+def test_collect_validation_rows_excludes_pre_existing_entities_with_no_history():
+    # Reproduces the 2026-10-28 incident: a resource with no resolvable old_resource_df
+    # (new_endpoint_no_history) whose entities were all correctly re-matched by the
+    # lookup phase to entities that already existed in the dataset before this resource
+    # ran. Without pre_dataset_entities, every one of them would be wrongly counted as
+    # new_entity_ids - and if the resource also has an invalid_uri_issue, _promote's
+    # invalid_uri_entities exclusion then strips those pre-existing, already-valid rows
+    # out of the real lookup.csv entirely.
+    current_resource_df = pd.DataFrame(
+        {"entity": ["1", "2"], "field": ["reference", "reference"], "value": ["ref1", "ref2"]}
+    )
+
+    rows, _, new_entities = _collect_validation_rows(
+        current_resource_df,
+        None,  # old_resource_df - no previous resource exists for this endpoint
+        "conservation-area",
+        "resource123",
+        old_resource_hash=None,
+        config=ValidationConfig(),
+        endpoint_has_history=False,
+        pre_dataset_entities={1, 2},  # both entities already existed in the dataset
+    )
+
+    assert new_entities == set()
+    matching = [row for row in rows if row["error_code"] == "new_endpoint_no_history"]
+    assert len(matching) == 1
+
+
 def _entity_rows(entities, reference_prefix):
     rows = []
     for entity in entities:
