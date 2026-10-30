@@ -72,6 +72,7 @@ tree,7002236855,7002236872,local-authority:DNC
 tree,7002268942,7002268946,local-authority:DNC
 tree,7002279701,7002279707,local-authority:DNC
 tree,7002279801,7002279803,local-authority:DNC
+tree,7002279839,7002279843,local-authority:DNC
 tree,7002019247,7002019927,local-authority:DOV
 tree,7002045166,7002046530,local-authority:DOV
 tree,7002098097,7002100645,local-authority:ECA
@@ -175,6 +176,7 @@ tree,7002101549,7002101549,local-authority:SAL
 tree,7002118165,7002118168,local-authority:SAL
 tree,7002226927,7002226927,local-authority:SAL
 tree,7002268963,7002268964,local-authority:SAL
+tree,7002279838,7002279838,local-authority:SAL
 tree,7002056769,7002057427,local-authority:SAW
 tree,7002158372,7002160848,local-authority:SCA
 tree,7002185357,7002185357,local-authority:SCA
@@ -599,6 +601,7 @@ tree-preservation-zone,19216607,19216609,local-authority:DNC
 tree-preservation-zone,19216737,19216740,local-authority:DNC
 tree-preservation-zone,19223192,19223193,local-authority:DNC
 tree-preservation-zone,19224538,19224538,local-authority:DNC
+tree-preservation-zone,19224540,19224542,local-authority:DNC
 tree-preservation-zone,19113431,19114781,local-authority:DOV
 tree-preservation-zone,19121282,19121595,local-authority:DOV
 tree-preservation-zone,19149881,19150443,local-authority:ECA
@@ -792,6 +795,3 @@ tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone,19216695,19216734,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002279838,7002279838,local-authority:SAL
-tree,7002279839,7002279843,local-authority:DNC
-tree-preservation-zone,19224540,19224542,local-authority:DNC

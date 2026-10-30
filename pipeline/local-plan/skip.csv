@@ -1,4 +1,4 @@
 dataset,resource,pattern,entry-number,start-date,end-date,entry-date,endpoint
 local-plan,,"^Central and Eastern Berkshire Minerals and Waste Plan,",,,,2026-10-29,1351438e145b435b677af0e44e2279624f305bc79b47df4e55b5aa8a1589befe
 local-plan,,"^JMWP2023,",,,,2026-10-29,245ccf61173e38c2e838633d92bb93013c382b32cfde504db399930c42f70872
-plan-timetable,,"^Kirklees Local Plan Timetable",,,,2026-10-29,90186eb122a6f5bb36fc489aecea2dfc4443233c26771597171b4273cef218a4
+plan-timetable,,^Kirklees Local Plan Timetable,,,,2026-10-29,90186eb122a6f5bb36fc489aecea2dfc4443233c26771597171b4273cef218a4

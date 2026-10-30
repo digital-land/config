@@ -1148,6 +1148,7 @@ local-plan,4220810,4220810,local-authority:STN
 local-plan,4220092,4220092,local-authority:STO
 local-plan,4220582,4220582,local-authority:STO
 local-plan,4220916,4220916,local-authority:STO
+local-plan,4221200,4221202,local-authority:STO
 local-plan,4220580,4220581,local-authority:STR
 local-plan,4220915,4220915,local-authority:STR
 local-plan,4220577,4220577,local-authority:STT
@@ -2157,6 +2158,7 @@ plan-timetable,5100825,5100828,local-authority:KHL
 plan-timetable,5105800,5105822,local-authority:KHL
 plan-timetable,5100393,5100396,local-authority:KIN
 plan-timetable,5102052,5102074,local-authority:KIN
+plan-timetable,5111790,5111805,local-authority:KIN
 plan-timetable,5100058,5100058,local-authority:KIR
 plan-timetable,5100848,5100851,local-authority:KIR
 plan-timetable,5105869,5105891,local-authority:KIR
@@ -2778,5 +2780,3 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
-plan-timetable,5111790,5111805,local-authority:KIN
-local-plan,4221200,4221202,local-authority:STO
