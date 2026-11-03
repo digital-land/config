@@ -1,3 +1,43 @@
 dataset,resource,field,pattern,value,entry-number,start-date,end-date,entry-date,endpoint
 minerals-plan,,dataset,minerals,minerals-plan,,,,2026-04-30,
+plan-timetable,,plan-event,^reg-18-consultation-end$,reg-18-public-consultation-end,,,,2026-11-03,08f5823c49c7bd4de148c2458c9e54973b6d2c5380323c062202a39992edee28
+plan-timetable,,plan-event,^reg-18-consultation-start$,reg-18-public-consultation-start,,,,2026-11-03,08f5823c49c7bd4de148c2458c9e54973b6d2c5380323c062202a39992edee28
+plan-timetable,,plan-event,^publish-local-plan-timetable$,timetable-published,,,,2026-11-03,6c6255bfdf0dc9bf54efffbdc93ea35e520d2fba17d4e8cdcd7f1abc4333dce4
+plan-timetable,,plan-event,^Adoption of Local Plan.?$,adopted,,,,2026-11-03,85d9a174245796d620be7be1cc277bba896959b387b4397fc10f8fdd4e6f57e4
+plan-timetable,,plan-event,^Gateway 1 Self-Assessment.?$,gateway-1-self-assessment,,,,2026-11-03,85d9a174245796d620be7be1cc277bba896959b387b4397fc10f8fdd4e6f57e4
+plan-timetable,,plan-event,^Gateway 2 - Advice sought.?$,gateway-2-advice-sought,,,,2026-11-03,85d9a174245796d620be7be1cc277bba896959b387b4397fc10f8fdd4e6f57e4
+plan-timetable,,plan-event,^Gateway 3 and Advice sought.?$,gateway-3-advice-sought,,,,2026-11-03,85d9a174245796d620be7be1cc277bba896959b387b4397fc10f8fdd4e6f57e4
+plan-timetable,,plan-event,^Proposed Plan Consultation.?$,proposed-plan-consultation-start,,,,2026-11-03,85d9a174245796d620be7be1cc277bba896959b387b4397fc10f8fdd4e6f57e4
+plan-timetable,,plan-event,^Publish Notice of Intention to Commence and timetable.?$,publish-notice-intention-commence,,,,2026-11-03,85d9a174245796d620be7be1cc277bba896959b387b4397fc10f8fdd4e6f57e4
+plan-timetable,,plan-event,^Scoping Consultation.?$,scoping-consultation-start,,,,2026-11-03,85d9a174245796d620be7be1cc277bba896959b387b4397fc10f8fdd4e6f57e4
+plan-timetable,,plan-event,^Submission of the proposed Local Plan to the Secretary of State.?$,examination-submitted,,,,2026-11-03,85d9a174245796d620be7be1cc277bba896959b387b4397fc10f8fdd4e6f57e4
+plan-timetable,,plan-event,^Adoption of Southwark Plan 2045$,adopted,,,,2026-11-03,9123a4760b930f9866cda4a17cddad181a647dd95e9f1eb2a83b7820b8b712ef
+plan-timetable,,plan-event,^Consultation on Proposed Local Plan end date$,proposed-plan-consultation-end,,,,2026-11-03,9123a4760b930f9866cda4a17cddad181a647dd95e9f1eb2a83b7820b8b712ef
+plan-timetable,,plan-event,^Consultation on Proposed Local Plan start date$,proposed-plan-consultation-start,,,,2026-11-03,9123a4760b930f9866cda4a17cddad181a647dd95e9f1eb2a83b7820b8b712ef
+plan-timetable,,plan-event,^Consultation on proposed Local Plan content and evidence end date$,plan-content-evidence-consultation-end,,,,2026-11-03,9123a4760b930f9866cda4a17cddad181a647dd95e9f1eb2a83b7820b8b712ef
+plan-timetable,,plan-event,^Consultation on proposed Local Plan content and evidence start date$,plan-content-evidence-consultation-start,,,,2026-11-03,9123a4760b930f9866cda4a17cddad181a647dd95e9f1eb2a83b7820b8b712ef
+plan-timetable,,plan-event,^Notice of Intention to Commence Plan$,publish-notice-intention-commence,,,,2026-11-03,9123a4760b930f9866cda4a17cddad181a647dd95e9f1eb2a83b7820b8b712ef
+plan-timetable,,plan-event,^Publish Gateway 1 self-assessment summary$,gateway-1-self-assessment,,,,2026-11-03,9123a4760b930f9866cda4a17cddad181a647dd95e9f1eb2a83b7820b8b712ef
+plan-timetable,,plan-event,^Statutory scoping consultation end date$,scoping-consultation-end,,,,2026-11-03,9123a4760b930f9866cda4a17cddad181a647dd95e9f1eb2a83b7820b8b712ef
+plan-timetable,,plan-event,^Statutory scoping consultation start date$,scoping-consultation-start,,,,2026-11-03,9123a4760b930f9866cda4a17cddad181a647dd95e9f1eb2a83b7820b8b712ef
+plan-timetable,,plan-event,^Submission of Southwark Plan 2045 for independent examination$,examination-submitted,,,,2026-11-03,9123a4760b930f9866cda4a17cddad181a647dd95e9f1eb2a83b7820b8b712ef
+plan-timetable,,plan-event,^Adoption$,adopted,,,,2026-11-03,a5783d168d6eae7b16036f2d0cf65d0bc2571f33eceee3b6ced4a561441c0081
+plan-timetable,,plan-event,^Consultation on local plan content and evidence ends$,plan-content-evidence-consultation-end,,,,2026-11-03,a5783d168d6eae7b16036f2d0cf65d0bc2571f33eceee3b6ced4a561441c0081
+plan-timetable,,plan-event,^Consultation on local plan content and evidence starts$,plan-content-evidence-consultation-start,,,,2026-11-03,a5783d168d6eae7b16036f2d0cf65d0bc2571f33eceee3b6ced4a561441c0081
+plan-timetable,,plan-event,^Consultation on proposed Local Plan ends$,proposed-plan-consultation-end,,,,2026-11-03,a5783d168d6eae7b16036f2d0cf65d0bc2571f33eceee3b6ced4a561441c0081
+plan-timetable,,plan-event,^Consultation on proposed Local Plan starts$,proposed-plan-consultation-start,,,,2026-11-03,a5783d168d6eae7b16036f2d0cf65d0bc2571f33eceee3b6ced4a561441c0081
+plan-timetable,,plan-event,^Publication of Gateway 1 self-assessment$,gateway-1-self-assessment,,,,2026-11-03,a5783d168d6eae7b16036f2d0cf65d0bc2571f33eceee3b6ced4a561441c0081
+plan-timetable,,plan-event,^Publish notice of intention to commence local plan preparation$,publish-notice-intention-commence,,,,2026-11-03,a5783d168d6eae7b16036f2d0cf65d0bc2571f33eceee3b6ced4a561441c0081
+plan-timetable,,plan-event,^Scoping consultation ends$,scoping-consultation-end,,,,2026-11-03,a5783d168d6eae7b16036f2d0cf65d0bc2571f33eceee3b6ced4a561441c0081
+plan-timetable,,plan-event,^Scoping consultation starts$,scoping-consultation-start,,,,2026-11-03,a5783d168d6eae7b16036f2d0cf65d0bc2571f33eceee3b6ced4a561441c0081
+plan-timetable,,plan-event,^Submit for examination$,examination-submitted,,,,2026-11-03,a5783d168d6eae7b16036f2d0cf65d0bc2571f33eceee3b6ced4a561441c0081
+plan-timetable,,plan-event,^adoption$,adopted,,,,2026-11-03,de6aa875d445476eb61437638d26856e7caaa5d323ab91cffda80fc3b29c4980
+plan-timetable,,plan-event,^consultation:-proposed-local-plan-content-and-evidence-end$,plan-content-evidence-consultation-end,,,,2026-11-03,de6aa875d445476eb61437638d26856e7caaa5d323ab91cffda80fc3b29c4980
+plan-timetable,,plan-event,^consultation:-proposed-local-plan-content-and-evidence-start$,plan-content-evidence-consultation-start,,,,2026-11-03,de6aa875d445476eb61437638d26856e7caaa5d323ab91cffda80fc3b29c4980
+plan-timetable,,plan-event,^consultation:-proposed-local-plan-end$,proposed-plan-consultation-end,,,,2026-11-03,de6aa875d445476eb61437638d26856e7caaa5d323ab91cffda80fc3b29c4980
+plan-timetable,,plan-event,^consultation:-proposed-local-plan-start$,proposed-plan-consultation-start,,,,2026-11-03,de6aa875d445476eb61437638d26856e7caaa5d323ab91cffda80fc3b29c4980
+plan-timetable,,plan-event,^gateway-1:-self-assessment-of-readiness$,gateway-1-self-assessment,,,,2026-11-03,de6aa875d445476eb61437638d26856e7caaa5d323ab91cffda80fc3b29c4980
+plan-timetable,,plan-event,^publish-local-plan-timetable$,timetable-published,,,,2026-11-03,de6aa875d445476eb61437638d26856e7caaa5d323ab91cffda80fc3b29c4980
+plan-timetable,,plan-event,^publish-notice-of-intention-to-commence-local-plan-preparation$,publish-notice-intention-commence,,,,2026-11-03,de6aa875d445476eb61437638d26856e7caaa5d323ab91cffda80fc3b29c4980
+plan-timetable,,plan-event,^submission-to-examination$,examination-submitted,,,,2026-11-03,de6aa875d445476eb61437638d26856e7caaa5d323ab91cffda80fc3b29c4980
 waste-plan,,dataset,waste,waste-plan,,,,2026-04-30,
