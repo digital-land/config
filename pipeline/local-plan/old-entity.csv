@@ -3136,3 +3136,5 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 5110783,410,,Entity no longer exists in endpoint (local-authority:ASF)-plan-timetable,,2026-11-02,
 5110784,410,,Entity no longer exists in endpoint (local-authority:ASF)-plan-timetable,,2026-11-02,
 5110785,410,,Entity no longer exists in endpoint (local-authority:ASF)-plan-timetable,,2026-11-02,
+4220092,301,4221201,Redirecting MHCLG data to authoritative entity (local-authority:STO)-local-plan,,2026-11-03,
+4220582,301,4221200,Redirecting MHCLG data to authoritative entity (local-authority:STO)-local-plan,,2026-11-03,
