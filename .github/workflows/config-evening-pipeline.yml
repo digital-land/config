@@ -30,11 +30,12 @@ on:
         type: boolean
         default: false
       scope:
-        description: "The scope of the batch assignment (overrides the scheduled odp+mandated+single-source matrix)"
+        description: "The scope of the batch assignment (overrides the scheduled odp+mandated+single-source matrix; 'all' runs the same matrix as a scheduled run)"
         required: false
         type: choice
         default: "odp"
         options:
+          - "all"
           - "mandated"
           - "odp"
           - "single-source"
@@ -53,7 +54,7 @@ on:
         type: boolean
         default: true
       batch_size:
-        description: "Resources per batch for single-source (0 = no batching). Ignored by odp/mandated."
+        description: "Resources per batch for single-source (0 = no batching). Ignored by odp/mandated when scope=all."
         required: false
         type: number
         default: 10
@@ -84,7 +85,7 @@ jobs:
       - name: Determine batch assign scope(s)
         id: batch-assign-scope
         run: |
-          if [ "${{ github.event_name }}" = "schedule" ]; then
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event.inputs.scope }}" = "all" ]; then
             SCOPES='["odp", "mandated", "single-source"]'
           else
             SCOPES='["${{ github.event.inputs.scope || 'odp' }}"]'
@@ -224,9 +225,10 @@ jobs:
           SKIP_CHECKS: ${{ github.event.inputs.skip_checks }}
           COMMIT: ${{ env.WRITES_ENABLED != 'true' && 'false' || github.event.inputs.commit }}
           # Only single-source batches by default - odp/mandated are small enough to run as
-          # one commit. A manual dispatch can still override batch_size for any scope.
-          BATCH_SIZE: ${{ github.event.inputs.batch_size || (matrix.scope == 'single-source' && '10' || '0') }}
-          START_BATCH: ${{ github.event.inputs.start_batch || '1' }}
+          # one commit. A manual dispatch can still override batch_size for any scope, except
+          # with scope=all, where batch_size/start_batch only apply to single-source (as scheduled).
+          BATCH_SIZE: ${{ (github.event.inputs.scope == 'all' && matrix.scope != 'single-source') && '0' || (github.event.inputs.batch_size || (matrix.scope == 'single-source' && '10' || '0')) }}
+          START_BATCH: ${{ (github.event.inputs.scope == 'all' && matrix.scope != 'single-source') && '1' || (github.event.inputs.start_batch || '1') }}
         run: |
           ARGS+=(--scope "$SCOPE")
 
