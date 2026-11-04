@@ -866,6 +866,7 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 44002708,301,44015850,Redirect old entity complete match to LPA entity: national-park-authority:Q5225646,,2026-05-27,
 44002709,301,44015852,Redirect old entity complete match to LPA entity: national-park-authority:Q5225646,,2026-05-27,
 44002710,301,44015843,Redirect old entity complete match to LPA entity: national-park-authority:Q5225646,,2026-05-27,
+44002791,301,44017492,Redirect old entity complete match to LPA entity: local-authority:BEX,,2026-11-04,
 44002792,301,44017493,"local-authority:BEX geometry complete_match, name similarity 100%",,2026-11-02,
 44002793,301,44017495,"local-authority:BEX geometry complete_match, name similarity 100%",,2026-11-02,
 44002794,301,44017497,"local-authority:BEX geometry complete_match, name similarity 100%",,2026-11-02,
@@ -4635,4 +4636,3 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 6315919,301,6316957,local-authority:OXO all comparable fields match,,2026-09-01,
 6315920,301,6316958,local-authority:OXO all comparable fields match,,2026-09-01,
 6315921,301,6316959,local-authority:OXO all comparable fields match,,2026-09-01,
-44002791,301,44017492,Redirect old entity complete match to LPA entity: local-authority:BEX,,2026-11-04,
