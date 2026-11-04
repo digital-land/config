@@ -34,8 +34,9 @@ config-sunday-pipeline.yml, which needs this because a full single-source run ca
 hours) and is the only scope where organisation gets passed as [""] (blank) to
 check_and_assign_entities - but only for the listed-building dataset specifically (see
 _run_assignment), not single-source in general. That same combination (single-source +
-listed-building) is also the only case _promote never backfills a blank organisation or
-appends an entity-organisation.csv range for - both are deliberate: listed-building's
+listed-building) is also the only case _promote still promotes a new entity with a blank
+organisation for, and never appends an entity-organisation.csv range for - both are
+deliberate: listed-building's
 single-source organisation is unreliable per-entity, so leaving it unresolved for manual
 follow-up is safer than guessing.
 """
@@ -1105,20 +1106,36 @@ def _run_validation(current_resource_df, old_resource_df, old_resource_hash, dat
 def _promote(cache_dir, collection_name, dataset, organisation_name, scope, lookup_path, invalid_uri_entities, pre_dataset_entities):
     """
     Copy the newly-assigned entities from the cache lookup.csv into the real one
-    (excluding any invalid_uri_entities, so they're left unresolved and resurface next
-    run until the underlying URI is fixed upstream), backfill any missing per-row
-    organisation (missing_organisation is non-blocking, so such a row would otherwise
-    sit with a permanently blank organisation), and append new entity-number ranges to
-    entity-organisation.csv.
+    (excluding any invalid_uri_entities and any new entity with no organisation, so
+    they're left unresolved and resurface next run until the data is fixed upstream),
+    and append new entity-number ranges to entity-organisation.csv.
     """
     cache_lookup_path = cache_dir / "assign_entities" / collection_name / "pipeline" / "lookup.csv"
     real_lookup_path = Path("pipeline") / collection_name / "lookup.csv"
-    if invalid_uri_entities:
+    cache_lookup_df = pd.read_csv(cache_lookup_path, dtype=str)
+    excluded_entities = set(invalid_uri_entities)
+    # A new entity whose own row has no organisation (missing_organisation, e.g. a
+    # blank or unrecognised OrganisationURI) isn't promoted. Lookups are keyed on
+    # (prefix, organisation, reference): backfilling the endpoint's organisation meant
+    # the row never matched its own lookup again, so every run assigned it a fresh
+    # duplicate entity; leaving it blank instead would let any other organisation's
+    # blank-organisation row with the same reference match it. Single-source
+    # listed-building is the exception - its organisation is blank on purpose.
+    if not (scope == "single-source" and dataset == "listed-building"):
+        new_rows = cache_lookup_df[
+            (cache_lookup_df["prefix"] == dataset)
+            & cache_lookup_df["entity"].notna()
+            & ~cache_lookup_df["entity"].isin({str(entity) for entity in pre_dataset_entities})
+        ]
+        blank_org_entities = set(new_rows.loc[new_rows["organisation"].fillna("") == "", "entity"])
+        if blank_org_entities:
+            print(f"\033[93mNot promoting {len(blank_org_entities)} new {dataset} entities with no organisation - fix the organisation at source\033[0m")
+            excluded_entities |= blank_org_entities
+    if excluded_entities:
         # lookup.csv uses CRLF line endings throughout the repo - pandas defaults
         # to LF, which would rewrite every untouched line and bury the real change
         # in a full-file diff, so the line terminator is set explicitly to match.
-        cache_lookup_df = pd.read_csv(cache_lookup_path, dtype=str)
-        cache_lookup_df = cache_lookup_df[~cache_lookup_df["entity"].isin(invalid_uri_entities)]
+        cache_lookup_df = cache_lookup_df[~cache_lookup_df["entity"].isin(excluded_entities)]
         cache_lookup_df.to_csv(real_lookup_path, index=False, lineterminator="\r\n")
     else:
         shutil.copy(cache_lookup_path, real_lookup_path)
@@ -1137,31 +1154,8 @@ def _promote(cache_dir, collection_name, dataset, organisation_name, scope, look
         .to_dict()
     )
     new_dataset_entities = set(post_entity_org) - pre_dataset_entities
-    # A new entity whose own row had no organisation (missing_organisation, now
-    # non-blocking) otherwise sits in lookup.csv with a permanently blank
-    # organisation - backfill it with the endpoint's registered organisation, the
-    # best available source of truth when the per-row value is missing. Mirrors the
-    # single-source listed-building suppression below: that case still gets no
-    # organisation on purpose, so it's left blank.
-    if new_dataset_entities and not (scope == "single-source" and dataset == "listed-building"):
-        blank_new_entities = {
-            entity
-            for entity, org in post_entity_org.items()
-            if entity in new_dataset_entities and not (isinstance(org, str) and org)
-        }
-        if blank_new_entities:
-            blank_mask = (post_lookup_df["prefix"] == dataset) & post_lookup_df[
-                "entity"
-            ].astype(str).isin({str(entity) for entity in blank_new_entities})
-            post_lookup_df.loc[blank_mask, "organisation"] = organisation_name
-            # lookup.csv uses CRLF line endings throughout the repo - pandas defaults
-            # to LF, which would rewrite every untouched line and bury the real
-            # change in a full-file diff, so the line terminator is set explicitly.
-            post_lookup_df.to_csv(real_lookup_path, index=False, lineterminator="\r\n")
-            post_entity_org.update({entity: organisation_name for entity in blank_new_entities})
-    # entity-organisation.csv always wants a real organisation too, as a safety net
-    # for any entity the backfill above didn't cover (e.g. the listed-building
-    # suppression, which leaves lookup.csv's row genuinely blank on purpose).
+    # entity-organisation.csv always wants a real organisation, as a safety net for
+    # any row that still reaches here without one.
     entity_org_for_ranges = {
         # pd.read_csv(..., dtype=str) still converts a blank cell to float('nan'),
         # not "" - NaN is truthy in Python, so `org if org else ...` alone would
@@ -1169,9 +1163,9 @@ def _promote(cache_dir, collection_name, dataset, organisation_name, scope, look
         entity: (org if isinstance(org, str) and org else organisation_name)
         for entity, org in post_entity_org.items()
     }
-    # Mirror the blank-organisation suppression above: listed-building still gets
-    # no registered range on single-source runs, but every other dataset now gets
-    # a real per-entity organisation and needs its range recorded to match.
+    # listed-building still gets no registered range on single-source runs (its
+    # organisation is suppressed on purpose), but every other dataset needs its
+    # range recorded.
     if new_dataset_entities and not (scope == "single-source" and dataset == "listed-building"):
         entity_org_file = Path("pipeline") / collection_name / "entity-organisation.csv"
         for org_value, min_entity, max_entity in _contiguous_ranges_by_org(new_dataset_entities, entity_org_for_ranges):

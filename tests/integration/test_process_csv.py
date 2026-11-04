@@ -376,16 +376,16 @@ def test_process_csv_invalid_uri_only_excludes_genuinely_new_entities(
     )
 
 
-def test_process_csv_backfills_missing_organisation_in_lookup(
+def test_process_csv_does_not_promote_entity_with_missing_organisation(
     setup_test_path,
     mock_resource_files,
     mock_issue_summary,
     monkeypatch,
     tmp_path,
 ):
-    # A new entity whose own row has no organisation (missing_organisation, now
-    # non-blocking) must still get a real organisation in lookup.csv, not be left
-    # blank forever - backfilled from the endpoint's registered organisation.
+    # A new entity whose own row has no organisation (missing_organisation) isn't
+    # promoted - backfilling it meant the row never matched its own lookup again, so
+    # a duplicate entity was assigned every run. It resurfaces until fixed at source.
     resource_dir = tmp_path / "resource"
     resource_dir.mkdir(parents=True, exist_ok=True)
     resource_file = resource_dir / "test-resource"
@@ -445,10 +445,10 @@ def test_process_csv_backfills_missing_organisation_in_lookup(
     assert failed_downloads == []
     assert "assigned" in output_df["status"].values
     updated_lookup = (tmp_path / "pipeline/test-collection/lookup.csv").read_text()
-    assert ",test-org,ref1,10,,," in updated_lookup, (
-        "New entity 10's blank organisation should be backfilled with the "
-        "endpoint's registered organisation ('test-org')"
+    assert ",ref1,10," not in updated_lookup, (
+        "New entity 10 has no organisation so must not be promoted into lookup.csv"
     )
+    assert entity_org_file.read_text() == "dataset,entity-minimum,entity-maximum,organisation\n"
 
 
 def test_process_csv_single_source_uses_blank_organisation_and_skips_entity_range(
