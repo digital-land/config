@@ -1184,7 +1184,7 @@ def test_promote_excludes_invalid_uri_entities_from_real_lookup():
     )
 
 
-def test_promote_backfills_blank_organisation_in_lookup_and_ranges():
+def test_promote_does_not_promote_new_entity_with_blank_organisation():
     cache_dir, lookup_path, entity_org_path = _write_promote_fixtures(
         "test-collection",
         # Blank organisation - the missing_organisation warn case, now non-blocking.
@@ -1202,9 +1202,59 @@ def test_promote_backfills_blank_organisation_in_lookup_and_ranges():
         pre_dataset_entities=set(),
     )
 
-    written_df = pd.read_csv(lookup_path, dtype=str)
-    assert written_df.loc[written_df["entity"] == "100", "organisation"].iloc[0] == "org-real"
-    assert "test-dataset,100,100,org-real" in entity_org_path.read_text()
+    # Left unresolved until the organisation is fixed at source - backfilling it meant
+    # the row never matched its own lookup again, so a fresh duplicate entity was
+    # assigned every run.
+    assert "100" not in set(pd.read_csv(lookup_path, dtype=str)["entity"])
+    assert entity_org_path.read_text() == "dataset,entity-minimum,entity-maximum,organisation\n"
+
+
+def test_promote_skips_blank_organisation_entity_but_keeps_the_rest():
+    cache_dir, lookup_path, entity_org_path = _write_promote_fixtures(
+        "test-collection",
+        "test-dataset,res1,,1,,ref1,100,,,\n"
+        "test-dataset,res1,,2,org-real,ref2,101,,,\n",
+    )
+
+    _promote(
+        cache_dir,
+        "test-collection",
+        "test-dataset",
+        "org-real",
+        "odp",
+        lookup_path,
+        invalid_uri_entities=set(),
+        pre_dataset_entities=set(),
+    )
+
+    assert set(pd.read_csv(lookup_path, dtype=str)["entity"]) == {"101"}
+    assert entity_org_path.read_text() == (
+        "dataset,entity-minimum,entity-maximum,organisation\n"
+        "test-dataset,101,101,org-real\n"
+    )
+
+
+def test_promote_keeps_existing_blank_organisation_lookups():
+    # Only *new* blank-organisation entities are held back - an existing lookup row
+    # with no organisation must survive promotion untouched.
+    cache_dir, lookup_path, entity_org_path = _write_promote_fixtures(
+        "test-collection",
+        "test-dataset,res0,,1,,ref0,50,,,\n"
+        "test-dataset,res1,,2,org-real,ref1,100,,,\n",
+    )
+
+    _promote(
+        cache_dir,
+        "test-collection",
+        "test-dataset",
+        "org-real",
+        "odp",
+        lookup_path,
+        invalid_uri_entities=set(),
+        pre_dataset_entities={50},
+    )
+
+    assert set(pd.read_csv(lookup_path, dtype=str)["entity"]) == {"50", "100"}
 
 
 def test_promote_respects_pb1164_exclusion():
