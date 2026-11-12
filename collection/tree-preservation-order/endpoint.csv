@@ -200,7 +200,7 @@ c69e35a34c3be28d99f1b7fa1e5d905d91297d007a3aab60b5df0976f014fad0,https://service
 fdefa6597f00a493f4d8b1db432237b9a0ff191f3928643bf8c47c8cbcd614a0,https://services-eu1.arcgis.com/OrZ7pO8Ag7olNJcC/arcgis/rest/services/ODP_Trees/FeatureServer/0/query?where=1%3D1&f=geojson&outFields=*,,,2026-03-10,2026-03-06,
 6049d646ba943a026661e0047938a3c5322968f6d927389eed50bd835d660f45,https://services6.arcgis.com/Qptn479QktK11k72/arcgis/rest/services/ODP_TREE_PRESERVATION_ZONES_WGS_1984/FeatureServer/0,,arcgis,2026-03-16,2026-03-16,
 8ddc7bd3e1b8da9c27a9eca89be3e8355c26ffbf58bef6dee920fee308b17f12,https://dartfordbc.maps.arcgis.com/sharing/rest/content/items/f883bd04113e4f7a91b5a7188ad2f538/data,,,2026-03-16,2026-03-13,
-b92b93b84e24ffc22425e85b6692729713e6e61015661f231812199d86061614,https://services6.arcgis.com/Qptn479QktK11k72/arcgis/rest/services/ODP_TREE_DATASET_WGS_1984/FeatureServer/0,,arcgis,2026-03-16,2026-03-16,2026-07-01
+b92b93b84e24ffc22425e85b6692729713e6e61015661f231812199d86061614,https://services6.arcgis.com/Qptn479QktK11k72/arcgis/rest/services/ODP_TREE_DATASET_WGS_1984/FeatureServer/0,,arcgis,2026-03-16,2026-03-16,
 bce228a3bea6506b7391ef6d738bdbbd3856c1a4641f129443d0321da562c77f,https://geodata.halton.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3Atree_preservation_zone&outputFormat=application%2Fjson,,,2026-03-16,2026-03-13,
 c7f7a4cbd12a8eabbb4efb16084dfd32f1ed7463c1d209927c8f3dd2f020f05e,https://geodata.halton.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3Atree_preservation_order&outputFormat=application%2Fjson,,,2026-03-16,2026-03-13,
 1c0b3013386bcd6c02aeba36fce2ba2bd38035f5c8ad5245e5994e477b577a5e,https://geodata.halton.gov.uk/geoserver/ODP/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODP%3Atree&outputFormat=application%2Fjson,,,2026-03-18,2026-03-17,
@@ -300,3 +300,4 @@ c9bbc68bdfd9753ed683da196360740e44d87b9c2a4e3fa204fb11c8ed2a73fe,https://maps.fa
 501e925e38055e589ce56ac0b19d1c565b57eebf8e2e89f9b366be4ed4f1301f,https://www.easthants.gov.uk/sites/default/files/2026-08/tree_preservation_order.csv,,,2026-10-27,2026-10-27,
 a34987c1d6aa928c96d653545f1ab1ffbc3646402255cb3ca12e18a8d128f3d2,https://www.easthants.gov.uk/sites/default/files/2026-08/tree.csv,,,2026-10-27,2026-10-27,
 b930b1a4e565cdf2e94444b7e62ff4e679e644933ba95ed7e2d998a855f597a5,https://lbbplanningdatasets.blob.core.windows.net/tpo/dataset/Bexley-Tree-Preservation-Zone-Dataset.csv,,,2026-11-02,2026-11-02,
+79fccd41b202add07d065d6e76893448468d68840cf460753e40282ac70dd53d,https://lbbplanningdatasets.blob.core.windows.net/tpo/dataset/Tree-information-dataset.csv,,,2026-11-06,2026-11-06,
