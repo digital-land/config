@@ -3186,3 +3186,4 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 5100787,410,,Removing erroneous plan-timetable seeded data for local-authority:HPL,,2026-11-12,
 5100553,410,,Removing erroneous plan-timetable seeded data for local-authority:YOR,,2026-11-12,
 5110507,410,,Removing erroneous plan-timetable seeded data for local-authority:YOR,,2026-11-12,
+4220239,301,4221004,Redirecting MHCLG data to authoritative entity (local-authority:CHW)-local-plan,,2026-11-12,
