@@ -4,9 +4,6 @@ development-plan-document,3801249,3801251,development-corporation:Q124604981
 development-plan-document,3801891,3801896,development-corporation:Q20648596
 development-plan-document,3801629,3801636,development-corporation:Q6670544
 development-plan-document,3801133,3801133,development-corporation:Q72463795
-development-plan-document,3802695,3802697,local-authority:MRT
-development-plan-document,3802698,3802698,local-authority:MSS
-development-plan-document,3802699,3802699,national-park-authority:Q27178932
 development-plan-document,3800139,3800140,local-authority:ADU
 development-plan-document,3800419,3800432,local-authority:ADU
 development-plan-document,3800512,3800524,local-authority:AMB
@@ -146,6 +143,7 @@ development-plan-document,3800066,3800066,local-authority:CMD
 development-plan-document,3800307,3800307,local-authority:CMD
 development-plan-document,3800927,3800939,local-authority:COL
 development-plan-document,3800944,3800951,local-authority:CON
+development-plan-document,3802717,3802717,local-authority:COP
 development-plan-document,3800952,3800970,local-authority:COT
 development-plan-document,3800989,3800990,local-authority:COV
 development-plan-document,3800992,3800993,local-authority:CRW
@@ -299,8 +297,10 @@ development-plan-document,3801681,3801698,local-authority:MIK
 development-plan-document,3801699,3801699,local-authority:MOL
 development-plan-document,3800254,3800254,local-authority:MRT
 development-plan-document,3801543,3801550,local-authority:MRT
+development-plan-document,3802695,3802697,local-authority:MRT
 development-plan-document,3800283,3800283,local-authority:MSS
 development-plan-document,3801676,3801677,local-authority:MSS
+development-plan-document,3802698,3802698,local-authority:MSS
 development-plan-document,3801843,3801845,local-authority:NBL
 development-plan-document,3801717,3801725,local-authority:NEA
 development-plan-document,3801736,3801739,local-authority:NED
@@ -416,6 +416,7 @@ development-plan-document,3802430,3802447,local-authority:TES
 development-plan-document,3802448,3802456,local-authority:TEW
 development-plan-document,3802402,3802418,local-authority:TFW
 development-plan-document,3802457,3802463,local-authority:THA
+development-plan-document,3802714,3802716,local-authority:THA
 development-plan-document,3802464,3802469,local-authority:THE
 development-plan-document,3800127,3800133,local-authority:THR
 development-plan-document,3802470,3802480,local-authority:THR
@@ -429,6 +430,7 @@ development-plan-document,3800239,3800239,local-authority:TUN
 development-plan-document,3802503,3802504,local-authority:TUN
 development-plan-document,3801590,3801603,local-authority:TWH
 development-plan-document,3802505,3802505,local-authority:UTT
+development-plan-document,3802712,3802713,local-authority:UTT
 development-plan-document,3800091,3800103,local-authority:VAL
 development-plan-document,3802506,3802506,local-authority:VAL
 development-plan-document,3802564,3802570,local-authority:WAE
@@ -487,6 +489,7 @@ development-plan-document,3801934,3801936,local-planning-group:PLY-SHA-WDE
 development-plan-document,3802186,3802206,national-park-authority:Q20198711
 development-plan-document,3801357,3801357,national-park-authority:Q27159704
 development-plan-document,3802692,3802692,national-park-authority:Q27178932
+development-plan-document,3802699,3802699,national-park-authority:Q27178932
 development-plan-document,3800301,3800301,national-park-authority:Q4972284
 development-plan-document,3800723,3800723,national-park-authority:Q4972284
 development-plan-document,3800190,3800191,national-park-authority:Q5225646
@@ -977,6 +980,7 @@ local-plan,4220836,4220836,local-authority:NEL
 local-plan,4220429,4220429,local-authority:NET
 local-plan,4220832,4220832,local-authority:NET
 local-plan,4221057,4221058,local-authority:NET
+local-plan,4221203,4221203,local-authority:NET
 local-plan,4220423,4220425,local-authority:NEW
 local-plan,4220829,4220829,local-authority:NEW
 local-plan,4220457,4220458,local-authority:NGM
@@ -1229,6 +1233,7 @@ local-plan,4220396,4220397,local-authority:TWH
 local-plan,4220811,4220811,local-authority:TWH
 local-plan,4220615,4220615,local-authority:UTT
 local-plan,4220937,4220937,local-authority:UTT
+local-plan,4221209,4221210,local-authority:UTT
 local-plan,4220009,4220009,local-authority:VAL
 local-plan,4220616,4220616,local-authority:VAL
 local-plan,4220938,4220938,local-authority:VAL
@@ -2203,6 +2208,7 @@ plan-timetable,5105892,5105914,local-authority:KWL
 plan-timetable,5100860,5100863,local-authority:LAC
 plan-timetable,5105938,5105960,local-authority:LAC
 plan-timetable,5109948,5109962,local-authority:LAC
+plan-timetable,5111835,5111836,local-authority:LAC
 plan-timetable,5102849,5102851,local-authority:LAN
 plan-timetable,5103184,5103186,local-authority:LAN
 plan-timetable,5100043,5100043,local-authority:LBH
@@ -2583,6 +2589,7 @@ plan-timetable,5106651,5106673,local-authority:TWH
 plan-timetable,5101587,5101588,local-authority:UTT
 plan-timetable,5103441,5103441,local-authority:UTT
 plan-timetable,5109181,5109203,local-authority:UTT
+plan-timetable,5111834,5111834,local-authority:UTT
 plan-timetable,5100060,5100060,local-authority:VAL
 plan-timetable,5101589,5101591,local-authority:VAL
 plan-timetable,5102477,5102499,local-authority:VAL
@@ -2852,10 +2859,3 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221203,4221203,local-authority:NET
-local-plan,4221209,4221210,local-authority:UTT
-development-plan-document,3802712,3802713,local-authority:UTT
-plan-timetable,5111834,5111834,local-authority:UTT
-development-plan-document,3802714,3802716,local-authority:THA
-development-plan-document,3802717,3802717,local-authority:COP
-plan-timetable,5111835,5111836,local-authority:LAC
