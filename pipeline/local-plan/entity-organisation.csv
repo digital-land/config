@@ -4,7 +4,9 @@ development-plan-document,3801249,3801251,development-corporation:Q124604981
 development-plan-document,3801891,3801896,development-corporation:Q20648596
 development-plan-document,3801629,3801636,development-corporation:Q6670544
 development-plan-document,3801133,3801133,development-corporation:Q72463795
-development-plan-document,3802695,3802699,government-organisation:D1342
+development-plan-document,3802695,3802697,local-authority:MRT
+development-plan-document,3802698,3802698,local-authority:MSS
+development-plan-document,3802699,3802699,national-park-authority:Q27178932
 development-plan-document,3800139,3800140,local-authority:ADU
 development-plan-document,3800419,3800432,local-authority:ADU
 development-plan-document,3800512,3800524,local-authority:AMB
@@ -20,6 +22,7 @@ development-plan-document,3800284,3800284,local-authority:BAE
 development-plan-document,3800579,3800594,local-authority:BAE
 development-plan-document,3800148,3800148,local-authority:BAI
 development-plan-document,3800566,3800577,local-authority:BAI
+development-plan-document,3802700,3802702,local-authority:BAI
 development-plan-document,3800149,3800151,local-authority:BAN
 development-plan-document,3800278,3800278,local-authority:BAN
 development-plan-document,3800578,3800578,local-authority:BAN
@@ -280,6 +283,7 @@ development-plan-document,3800362,3800362,local-authority:LND
 development-plan-document,3800368,3800378,local-authority:LND
 development-plan-document,3800380,3800380,local-authority:LND
 development-plan-document,3800396,3800396,local-authority:LND
+development-plan-document,3802703,3802704,local-authority:LND
 development-plan-document,3800385,3800395,local-authority:LUT
 development-plan-document,3800252,3800252,local-authority:MAI
 development-plan-document,3801637,3801640,local-authority:MAI
@@ -341,6 +345,7 @@ development-plan-document,3801558,3801567,local-authority:RDB
 development-plan-document,3801949,3801954,local-authority:RDG
 development-plan-document,3801962,3801963,local-authority:RED
 development-plan-document,3801964,3801964,local-authority:REI
+development-plan-document,3802705,3802706,local-authority:REI
 development-plan-document,3801965,3801971,local-authority:RIB
 development-plan-document,3801568,3801570,local-authority:RIC
 development-plan-document,3801975,3801992,local-authority:ROC
@@ -374,6 +379,7 @@ development-plan-document,3800186,3800186,local-authority:SND
 development-plan-document,3802353,3802353,local-authority:SND
 development-plan-document,3802236,3802239,local-authority:SNO
 development-plan-document,3802145,3802152,local-authority:SOL
+development-plan-document,3802707,3802709,local-authority:SOL
 development-plan-document,3802258,3802268,local-authority:SOS
 development-plan-document,3802240,3802245,local-authority:SOX
 development-plan-document,3802269,3802280,local-authority:SPE
@@ -382,6 +388,7 @@ development-plan-document,3800473,3800479,local-authority:SST
 development-plan-document,3802302,3802312,local-authority:STA
 development-plan-document,3802330,3802331,local-authority:STE
 development-plan-document,3800116,3800126,local-authority:STF
+development-plan-document,3802710,3802710,local-authority:STF
 development-plan-document,3802257,3802257,local-authority:STH
 development-plan-document,3800250,3800251,local-authority:STN
 development-plan-document,3801586,3801589,local-authority:STN
@@ -412,6 +419,7 @@ development-plan-document,3802457,3802463,local-authority:THA
 development-plan-document,3802464,3802469,local-authority:THE
 development-plan-document,3800127,3800133,local-authority:THR
 development-plan-document,3802470,3802480,local-authority:THR
+development-plan-document,3802711,3802711,local-authority:THR
 development-plan-document,3802490,3802499,local-authority:TOB
 development-plan-document,3802481,3802489,local-authority:TON
 development-plan-document,3800243,3800243,local-authority:TRF
@@ -521,6 +529,7 @@ local-plan,4220184,4220184,local-authority:BAE
 local-plan,4220665,4220665,local-authority:BAE
 local-plan,4220016,4220017,local-authority:BAI
 local-plan,4220663,4220663,local-authority:BAI
+local-plan,4221204,4221204,local-authority:BAI
 local-plan,4220018,4220019,local-authority:BAN
 local-plan,4220664,4220664,local-authority:BAN
 local-plan,4221198,4221198,local-authority:BAN
@@ -573,6 +582,7 @@ local-plan,4220119,4220119,local-authority:BPL
 local-plan,4220133,4220133,local-authority:BPL
 local-plan,4220194,4220194,local-authority:BPL
 local-plan,4220671,4220671,local-authority:BPL
+local-plan,4221205,4221205,local-authority:BPL
 local-plan,4220123,4220123,local-authority:BRA
 local-plan,4220202,4220202,local-authority:BRA
 local-plan,4220678,4220678,local-authority:BRA
@@ -1044,6 +1054,7 @@ local-plan,4220865,4220865,local-authority:RED
 local-plan,4221117,4221118,local-authority:RED
 local-plan,4220487,4220487,local-authority:REI
 local-plan,4220866,4220866,local-authority:REI
+local-plan,4221206,4221206,local-authority:REI
 local-plan,4220488,4220489,local-authority:RIB
 local-plan,4220867,4220867,local-authority:RIB
 local-plan,4220394,4220394,local-authority:RIC
@@ -1120,6 +1131,7 @@ local-plan,4220898,4220898,local-authority:SNO
 local-plan,4221152,4221153,local-authority:SNO
 local-plan,4220537,4220537,local-authority:SOL
 local-plan,4220889,4220889,local-authority:SOL
+local-plan,4221207,4221207,local-authority:SOL
 local-plan,4220563,4220564,local-authority:SOS
 local-plan,4220905,4220905,local-authority:SOS
 local-plan,4220554,4220555,local-authority:SOX
@@ -1139,6 +1151,7 @@ local-plan,4220579,4220579,local-authority:STE
 local-plan,4220914,4220914,local-authority:STE
 local-plan,4220007,4220007,local-authority:STF
 local-plan,4220910,4220910,local-authority:STF
+local-plan,4221208,4221208,local-authority:STF
 local-plan,4220562,4220562,local-authority:STH
 local-plan,4220904,4220904,local-authority:STH
 local-plan,4221085,4221086,local-authority:STH
@@ -1774,6 +1787,7 @@ plan-timetable,5100286,5100286,local-authority:BIR
 plan-timetable,5100305,5100305,local-authority:BIR
 plan-timetable,5100371,5100376,local-authority:BIR
 plan-timetable,5103707,5103729,local-authority:BIR
+plan-timetable,5111817,5111817,local-authority:BIR
 plan-timetable,5102706,5102715,local-authority:BKM
 plan-timetable,5103028,5103037,local-authority:BKM
 plan-timetable,5100009,5100009,local-authority:BLA
@@ -1978,6 +1992,7 @@ plan-timetable,5101852,5101874,local-authority:DUD
 plan-timetable,5111046,5111069,local-authority:DUD
 plan-timetable,5100084,5100084,local-authority:DUR
 plan-timetable,5100634,5100636,local-authority:DUR
+plan-timetable,5102786,5102791,local-authority:DUR
 plan-timetable,5103120,5103125,local-authority:DUR
 plan-timetable,5104926,5104948,local-authority:DUR
 plan-timetable,5109768,5109782,local-authority:DUR
@@ -1998,6 +2013,7 @@ plan-timetable,5100179,5100181,local-authority:ECA
 plan-timetable,5100308,5100308,local-authority:ECA
 plan-timetable,5100637,5100640,local-authority:ECA
 plan-timetable,5104949,5104971,local-authority:ECA
+plan-timetable,5111818,5111820,local-authority:ECA
 plan-timetable,5100208,5100209,local-authority:EDE
 plan-timetable,5100317,5100317,local-authority:EDE
 plan-timetable,5100319,5100319,local-authority:EDE
@@ -2078,7 +2094,7 @@ plan-timetable,5107962,5107984,local-authority:GRE
 plan-timetable,5100760,5100763,local-authority:GRT
 plan-timetable,5105501,5105523,local-authority:GRT
 plan-timetable,5109975,5109999,local-authority:GRT
-plan-timetable,5100227,5100227,local-authority:GRY
+plan-timetable,5100226,5100227,local-authority:GRY
 plan-timetable,5100231,5100232,local-authority:GRY
 plan-timetable,5100754,5100759,local-authority:GRY
 plan-timetable,5101952,5101974,local-authority:GRY
@@ -2136,6 +2152,7 @@ plan-timetable,5100024,5100024,local-authority:HOR
 plan-timetable,5100819,5100824,local-authority:HOR
 plan-timetable,5101977,5101999,local-authority:HOR
 plan-timetable,5110300,5110314,local-authority:HOR
+plan-timetable,5111821,5111824,local-authority:HOR
 plan-timetable,5100074,5100074,local-authority:HPL
 plan-timetable,5100786,5100789,local-authority:HPL
 plan-timetable,5105616,5105638,local-authority:HPL
@@ -2227,6 +2244,7 @@ plan-timetable,5100085,5100085,local-authority:LND
 plan-timetable,5100534,5100541,local-authority:LND
 plan-timetable,5100548,5100548,local-authority:LND
 plan-timetable,5104512,5104534,local-authority:LND
+plan-timetable,5111825,5111826,local-authority:LND
 plan-timetable,5100046,5100046,local-authority:LUT
 plan-timetable,5101020,5101022,local-authority:LUT
 plan-timetable,5106720,5106742,local-authority:LUT
@@ -2458,6 +2476,7 @@ plan-timetable,5108491,5108513,local-authority:SNO
 plan-timetable,5111341,5111352,local-authority:SNO
 plan-timetable,5101356,5101363,local-authority:SOL
 plan-timetable,5108284,5108306,local-authority:SOL
+plan-timetable,5111827,5111830,local-authority:SOL
 plan-timetable,5102953,5102956,local-authority:SOM
 plan-timetable,5103282,5103285,local-authority:SOM
 plan-timetable,5101431,5101437,local-authority:SOS
@@ -2547,6 +2566,7 @@ plan-timetable,5100061,5100061,local-authority:THR
 plan-timetable,5100138,5100146,local-authority:THR
 plan-timetable,5101565,5101570,local-authority:THR
 plan-timetable,5109066,5109088,local-authority:THR
+plan-timetable,5111831,5111833,local-authority:THR
 plan-timetable,5101577,5101580,local-authority:TOB
 plan-timetable,5109112,5109134,local-authority:TOB
 plan-timetable,5101571,5101576,local-authority:TON
@@ -2832,3 +2852,9 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
+local-plan,4221203,4221203,local-authority:NET
+local-plan,4221209,4221210,local-authority:UTT
+development-plan-document,3802712,3802713,local-authority:UTT
+plan-timetable,5111834,5111834,local-authority:UTT
+development-plan-document,3802714,3802716,local-authority:THA
+development-plan-document,3802717,3802717,local-authority:COP
