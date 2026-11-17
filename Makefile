@@ -67,3 +67,45 @@ test-integration:
 
 test-acceptance:
 	pytest tests/acceptance/
+
+# Run Manage's checks locally (bin/manage_check.py) if Manage and async are unavailable.
+# async-request-backend's code needs Python >= 3.10, so this uses its own venv, not .venv (3.9).
+MANAGE_DIR=var/manage/
+MANAGE_VENV=$(MANAGE_DIR)venv/
+MANAGE_PYTHON_BIN ?= python3.13
+# The async-request-backend commit whose Check and Add data code we run. Change it deliberately.
+ASYNC_COMMIT=17959d321ab7e10df89e8bef5d942874e3efc6c8
+ASYNC_SRC=$(MANAGE_DIR)async-request-backend-$(ASYNC_COMMIT)/request-processor/src/
+
+$(MANAGE_VENV).installed: requirements-manage-check.txt
+	$(MANAGE_PYTHON_BIN) -m venv $(MANAGE_VENV)
+	$(MANAGE_VENV)bin/pip install --quiet --upgrade pip
+	$(MANAGE_VENV)bin/pip install --quiet -r requirements-manage-check.txt
+	touch $@
+
+$(ASYNC_SRC)application/core/workflow.py:
+	@mkdir -p $(MANAGE_DIR)
+	curl -qfsL https://github.com/digital-land/async-request-backend/archive/$(ASYNC_COMMIT).tar.gz | tar -xz -C $(MANAGE_DIR)
+
+# makerules' specification target doesn't download these; refreshed by make init like the rest.
+# issue-type.csv gives the Check step its issue severities; provision.csv says who provides each dataset.
+specification::
+	@mkdir -p specification/
+	curl -qfsL '$(SOURCE_URL)specification/main/specification/issue-type.csv' > specification/issue-type.csv
+	curl -qfsL '$(SOURCE_URL)specification/main/specification/provision.csv' > specification/provision.csv
+
+.PHONY: manage-setup
+manage-setup: $(MANAGE_VENV).installed $(ASYNC_SRC)application/core/workflow.py $(CACHE_DIR)organisation.csv
+
+# make manage-check COLLECTION=local-plan DATASET=plan-timetable ORGANISATION=local-authority:WRL \
+#   ENDPOINT_URL='https://...' DOCUMENTATION_URL='https://...'
+.PHONY: manage-check
+manage-check: manage-setup
+	@test -n "$(DATASET)" -a -n "$(ORGANISATION)" -a -n "$(ENDPOINT_URL)" -a -n "$(DOCUMENTATION_URL)" || \
+		(echo "Set DATASET, ORGANISATION, ENDPOINT_URL and DOCUMENTATION_URL (and COLLECTION)"; exit 1)
+	@test -f specification/dataset.csv -a -f specification/issue-type.csv -a -f specification/provision.csv || \
+		(echo "specification/ is missing files - run make init COLLECTION=$(COLLECTION) first"; exit 1)
+	PYTHONPATH=$(ASYNC_SRC) $(MANAGE_VENV)bin/python bin/manage_check.py \
+		--collection '$(COLLECTION)' --dataset '$(DATASET)' --organisation '$(ORGANISATION)' \
+		--endpoint-url '$(ENDPOINT_URL)' --documentation-url '$(DOCUMENTATION_URL)' \
+		--organisation-csv $(CACHE_DIR)organisation.csv $(MANAGE_CHECK_FLAGS)
