@@ -1,0 +1,13 @@
+# Python 3.13 environment for `make manage-check` (bin/manage_check.py).
+# Separate from requirements.txt because async-request-backend's code needs Python >= 3.10
+# and config's own .venv / CI run 3.9.
+# digital-land tracks main, as in requirements.txt and async-request-backend.
+-e git+https://github.com/digital-land/digital-land-python.git@main#egg=digital-land
+botocore==1.44.4
+cchardet==2.4.1
+click==8.5.1
+cryptography==50.0.2
+duckdb==1.4.5
+PyYAML==6.0.3
+rapidfuzz==3.14.6
+requests==2.34.2
