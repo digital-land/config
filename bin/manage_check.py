@@ -20,10 +20,13 @@ import json
 import shutil
 import subprocess
 from datetime import datetime, timezone
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.error import HTTPError
+from urllib.parse import urljoin, urlparse
 
 import click
+import requests
 from digital_land.collect import Collector, FetchStatus
 
 from application.configurations.config import CONFIG_URL, Directories
@@ -266,6 +269,100 @@ def print_add_summary(response, collection):
         click.echo("Source: new row for source.csv")
 
 
+class _HrefCollector(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.hrefs = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "a":
+            for name, value in attrs:
+                if name == "href" and value:
+                    self.hrefs.append(value.strip())
+
+
+def _hrefs_match(href, endpoint_url, documentation_url):
+    """Return True if href resolves to endpoint_url under any matching strategy."""
+    endpoint_parsed = urlparse(endpoint_url)
+    endpoint_path = endpoint_parsed.path
+
+    # Exact full URL match
+    if href == endpoint_url:
+        return True
+
+    # Resolve relative href against documentation URL and compare
+    try:
+        resolved = urljoin(documentation_url, href)
+        if resolved == endpoint_url:
+            return True
+    except Exception:
+        pass
+
+    # Path-only match (e.g. /downloads/file/3149/... == endpoint path)
+    if href == endpoint_path:
+        return True
+
+    # Compare the path portion of an absolute href
+    try:
+        href_parsed = urlparse(href)
+        if href_parsed.path and href_parsed.path == endpoint_path:
+            return True
+    except Exception:
+        pass
+
+    return False
+
+
+def check_endpoint_on_documentation_page(documentation_url, endpoint_url):
+    """Whether the documentation page links to the endpoint, as Manage's results page
+    shows. Information only: Manage doesn't block on it either.
+
+    Copied from config-manager datamanager/services/doc_crawler.py
+    (check_endpoint_in_doc and _hrefs_match); keep the two in step.
+    """
+    try:
+        response = requests.get(
+            documentation_url,
+            timeout=10,
+            allow_redirects=True,
+            headers={"User-Agent": "digital-land-config-manager/1.0"},
+        )
+        response.raise_for_status()
+        collector = _HrefCollector()
+        collector.feed(response.text)
+    except requests.exceptions.HTTPError as e:
+        click.echo(
+            f"Documentation page: could not be read (HTTP {e.response.status_code})."
+        )
+        return
+    except Exception as e:
+        click.echo(f"Documentation page: could not be read ({type(e).__name__}).")
+        return
+    for href in collector.hrefs:
+        if _hrefs_match(href, endpoint_url, documentation_url):
+            click.echo(f"Documentation page: links to the endpoint ({href}).")
+            return
+    click.secho(
+        "Documentation page: does NOT link to the endpoint URL. The documentation "
+        "URL may be wrong; it doesn't stop the data being added.",
+        fg="yellow",
+    )
+
+
+def warn_if_replacement_creates_entities(response, retire):
+    """Retiring an endpoint means this replaces it, which normally creates no new
+    entities. If it does, the organisation may have changed its references."""
+    new_entities = response["pipeline-summary"].get("new-entities") or []
+    if retire and new_entities:
+        click.secho(
+            f"Warning: this replaces {len(retire)} endpoint(s) but creates "
+            f"{len(new_entities)} new entities. A replacement normally creates none. "
+            "Check the organisation hasn't changed its references before writing.",
+            fg="yellow",
+            bold=True,
+        )
+
+
 def choose_endpoints_to_retire(response, collection, endpoint_url):
     candidates = (
         response["source-summary"].get("existing_endpoint_for_organisation_dataset")
@@ -431,9 +528,11 @@ def main(
     if "pipeline-summary" not in added:
         raise click.ClickException(f"Add data failed: {added.get('message')}")
     print_add_summary(added, collection)
+    check_endpoint_on_documentation_page(documentation_url, endpoint_url)
 
     click.secho("\n4. Write", bold=True)
     retire = choose_endpoints_to_retire(added, collection, endpoint_url)
+    warn_if_replacement_creates_entities(added, retire)
     authoritative = ask_if_authoritative(added, organisation)
     if not click.confirm(
         f"Write these changes to collection/{collection}/ and pipeline/{collection}/?",

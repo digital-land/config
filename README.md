@@ -92,7 +92,7 @@ It works through four stages:
 
 1. **Fetch** downloads the endpoint, trying the ArcGIS and WFS plugins if a plain download fails.
 2. **Check** prints what must be fixed and what should be fixed. If anything must be fixed (a missing mandatory column, or an issue with severity `critical`), it stops and writes nothing. Any entity numbers printed here are provisional.
-3. **Add data** prints the new and existing entities, possible duplicates, redirects, and whether the endpoint and source are new. The log lines say files were downloaded from GitHub; they are actually read from your checkout.
+3. **Add data** prints the new and existing entities, possible duplicates, redirects, and whether the endpoint and source are new. It also says whether the documentation page links to the endpoint. This is information only: if it doesn't, the documentation URL is probably wrong and is worth fixing, but the data can still be added. The log lines say files were downloaded from GitHub; they are actually read from your checkout.
 4. **Write** asks the questions below, then writes the rows.
 
 It also stops without writing if the organisation code doesn't exist, if the organisation isn't listed as a provider of the dataset in `specification/provision.csv`, or if the endpoint can't be fetched. Everything apart from the rows it writes goes in `var/manage/runs/`, including the Check and Add data responses as JSON.
@@ -102,7 +102,7 @@ It also stops without writing if the organisation code doesn't exist, if the org
 | Question | When it's asked | Answer |
 | --- | --- | --- |
 | You are on `<branch>`, not config-manager-update. Continue anyway? | You aren't on `config-manager-update` | `N`, then switch branch. Answer `y` only to try the tool out, as the branch checks are then skipped. |
-| Retire existing endpoint `<url>` (start `<date>`)? | Once for each active endpoint the organisation already has for this dataset | `y` if the new endpoint replaces it, otherwise `N`. Endpoints that are already retired are listed but not asked about. |
+| Retire existing endpoint `<url>` (start `<date>`)? | Once for each active endpoint the organisation already has for this dataset | `y` if the new endpoint replaces it, otherwise `N`. Endpoints that are already retired are listed but not asked about. If you retire an endpoint and the run also creates new entities, it warns you: a replacement normally creates none, so stop and check the organisation hasn't changed its references. |
 | Is `<organisation>` the authoritative source for this data? | Only when there are new entities | `y` if the organisation is publishing its own data, for example a council's own plan timetable. `n` if it is publishing data about another organisation's area; the data will then count as "some" rather than "authoritative". |
 | Write these changes to collection/`<collection>`/ and pipeline/`<collection>`/? | Always, last | `y` to write the rows. `N` writes nothing. |
 
