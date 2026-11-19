@@ -992,8 +992,8 @@ def test_fingerprint_handles_large_dataset():
     assert len(result["fingerprint"].unique()) > 0
     
 
-def test_evening_workflow_installs_gdal_and_uses_ubuntu_22_04():
-    p = pathlib.Path(__file__).parent.parent.parent / ".github" / "workflows" / "config-evening-pipeline.yml"
+def test_batch_assign_workflow_installs_gdal_and_uploads_its_outputs():
+    p = pathlib.Path(__file__).parent.parent.parent / ".github" / "workflows" / "batch-assign.yml"
     assert p.exists(), f"Workflow file {p} not found"
     content = p.read_text()
 
