@@ -2329,7 +2329,7 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 44006665,301,44014568,Redirect old entity complete match to LPA entity,,2026-03-09,
 44006675,301,44014776,redirect HE entity to Cotswold District Council,,2026-02-02,
 44006676,301,44014757,redirect HE entity to Cotswold District Council,,2026-02-02,
-44006677,301,44016424,"geometry complete_match, name similarity 100%",,2026-08-05,
+44006677,301,44009886,Redirect CA HE entity to LPA - local-authority:DNC,,2026-11-19,
 44006678,301,44014785,redirect HE entity to Cotswold District Council,,2026-02-02,
 44006679,410,,Removal of old WOX CA from opendata website,,2026-01-23,
 44006680,410,,Removal of old WOX CA from opendata website,,2026-01-23,

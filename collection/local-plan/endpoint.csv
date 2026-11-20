@@ -89,7 +89,7 @@ df2e39a2aad183ffb00b09e59c69f39b008f05a4a87607a05cd1710815cd8835,https://www.sef
 08dcff51a25f5be8521f29c21f128682abab509fbc3cefcd996d431e7820ea43,https://www.horsham.gov.uk/__data/assets/file/0004/165406/Horsham_District_2045_Timetable.csv,,,2026-06-26,2026-06-26,
 5ae2599cafaa38ffd25a4f0789ec6554e58df0c43acc1760e59fc8f6060e331c,https://www.horsham.gov.uk/__data/assets/file/0005/165407/Horsham_District_Local_Plan.csv,,,2026-06-26,2026-06-26,2026-08-12
 9fce26a16804f8f0f56a253b1ffba740878079235b57c236ac48c95916b2c9cc,https://localplan.cheshireeast.gov.uk/document/17,,,2026-06-26,2026-06-26,
-eac40572c0d0546f79d261e7358a4e5918a639bd66b6db8a41b4aaf307064337,https://www.plymouth.gov.uk/sites/default/files/2026-06/Plymouth-Local-Plan-data_June%202026.csv,,,2026-06-26,2026-06-26,
+eac40572c0d0546f79d261e7358a4e5918a639bd66b6db8a41b4aaf307064337,https://www.plymouth.gov.uk/sites/default/files/2026-06/Plymouth-Local-Plan-data_June%202026.csv,,,2026-06-26,2026-06-26,2026-11-19
 10297fe8656aa7652555c29ebbbedb054b1db66ed4acacfa07fbb3ed2734acbd,https://www.northyorkmoors.org.uk/__data/assets/file/0020/232841/local-plan-and-minerals-and-waste-plan-timetable-template-29-06-2026.csv,,,2026-06-29,2026-06-29,
 16e71c4300a7dc36d34adfc66ccd1e360589f49cb7bbb8cdbcf8a9f1027e8e78,https://www.nuneatonandbedworth.gov.uk/downloads/file/2597/local-plan-timetable-csv-file-29-06-26,,,2026-06-29,2026-06-29,
 373aceae002e23af3cc48d13d027e4dabb6f0bbce5c30e5f4e5b0ce4d8aaa8ea,https://tunbridgewells.gov.uk/__data/assets/file/0017/535130/Local-Plan-review-timetable.csv,,,2026-06-29,2026-06-29,
@@ -102,7 +102,7 @@ fad31352fceb9442060bbf427eaf2986abf02def9053bdc19ef848153f54a922,https://blob.da
 2fec6fc960581bcdc97e28140ed15866ba64bd9674fc32d52a60c01ce3b9e5d6,https://www.brent.gov.uk/-/media/files/resident-documents/planning-and-bc-documents/local-plan-timetable.csv?rev=67b19b83cf0348f284554a0421400ca0&hash=CD4CA574128789EC02B499DC8BA1C6CA,,,2026-06-30,2026-06-30,2026-11-02
 304e116718ccbdfe5961d0b9b50df5e96fe4088baebcba16f4be84867a4809ae,https://www.wirral.gov.uk/files/wirral-local-plan0.csv/download?inline,,,2026-06-30,2026-06-30,
 5ad9e61b325223e3e58392b3eead7501b4a9d0a5e5bb2c32ed73c3ef42d99de1,https://lakedistrict.gov.uk/wp-content/uploads/2026/06/local-plan-dataset-June-2026.csv,,,2026-06-30,2026-06-30,2026-07-02
-946c7ad4b25be1559f3900b44e1ddd9bf3dd9b1dca57fa888e3a2a23d8c1db05,https://www.wirral.gov.uk/files/wbc-plan-timetable-june2026-v1.csv/download?inline,,,2026-06-30,2026-06-30,
+946c7ad4b25be1559f3900b44e1ddd9bf3dd9b1dca57fa888e3a2a23d8c1db05,https://www.wirral.gov.uk/files/wbc-plan-timetable-june2026-v1.csv/download?inline,,,2026-06-30,2026-06-30,2026-11-19
 d46183279d160c0fdd2c6754a8eca854bab2527041c5f07e7f0d5ad284b28f06,https://www.torridge.gov.uk/media/28794/Local-Plan-Timetable/csv/Local-Plan-Timetable.csv?m=1782815254383,,,2026-06-30,2026-06-30,2026-11-03
 f0357e15ac0042b89da983d2d17ae1de4415b442d871438b3f5fbf05a7644738,https://www.pendle.gov.uk/download/downloads/id/12729/local_plan.csv,,,2026-06-30,2026-06-30,
 f1b84f88d933e8327d60308839c4958c2db2c74ef766609925187768adf995f7,https://www.pendle.gov.uk/download/downloads/id/12732/local_plan_timetable.csv,,,2026-06-30,2026-06-30,
@@ -339,3 +339,5 @@ ca6dd6d289e0e2ddafec227133883bdce0e319b65bdd9642f2c5c23407932a66,https://www.bas
 dc8e67d1ef38150f1ead201b1fd220f7a95a00d80cd1b1d2e4932beebccb525c,https://www.elmbridge.gov.uk/sites/default/files/2026-11/Elmbridge%20Local%20Plan%20timetable.csv,,,2026-11-18,2026-11-18,
 ea72791889a85fefc032a888501ad1f0cf64c286cb447a27a645efe58c2e112d,https://www.northdevon.gov.uk/sites/default/files/2026-11/Local-Plan-Timetable-3-Nov-26.csv,,,2026-11-18,2026-11-18,
 f72d0e80d10c7f774f6042eacfcb425ecd04a133e4d7e5b0dad6e637bddbf65c,https://www.lambeth.gov.uk/sites/default/files/2026-11/Plan_Timetable%2017.11.2026.csv,,,2026-11-18,2026-11-18,
+b402d6294c62f0363f56b22e1237868e6c31c28fcd197e45344974946bb64b02,https://www.plymouth.gov.uk/plymouth-local-plan-data-file,,,2026-11-19,2026-11-19,
+131de2475a68f3ca4f4f9806a85aa60f28b085114b992d11237dd8b724e19361,https://www.wirral.gov.uk/files/wbc-plan-timetable-october2026-v2.csv/download?inline,,,2026-11-19,2026-11-19,
