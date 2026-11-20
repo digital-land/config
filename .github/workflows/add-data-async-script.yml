@@ -1,4 +1,4 @@
-name: Add Data From Async API
+name: Add Data From Async Results
 
 on:
   repository_dispatch:
@@ -18,7 +18,7 @@ on:
         required: false
         type: string
       environment:
-        description: 'Async API environment'
+        description: 'Async results environment'
         required: false
         type: choice
         default: 'staging'
@@ -43,6 +43,10 @@ on:
 jobs:
   fetch-and-append:
     runs-on: ubuntu-latest
+    environment: ${{ github.event.client_payload.environment || github.event.inputs.environment || 'staging' }}
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
       - name: Generate GitHub App token
@@ -63,10 +67,16 @@ jobs:
           python-version: '3.10'
           cache: 'pip'
 
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.DEPLOY_AWS_ROLE_ARN }}
+          aws-region: eu-west-2
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install click pandas
+          pip install click pandas boto3
 
       - name: Run add-data script
         env:
@@ -78,6 +88,7 @@ jobs:
           RETIRE_ENDPOINTS: ${{ github.event.client_payload.retire_endpoints || github.event.inputs.retire_endpoints }}
           UNRETIRE_ENDPOINTS: ${{ github.event.client_payload.unretire_endpoints || github.event.inputs.unretire_endpoints }}
           TEST_MODE: ${{ github.event.inputs.test }}
+          REQUEST_DETAILS_BUCKET_NAME: ${{ vars.REQUEST_DETAILS_BUCKET_NAME }}
         run: |
           ARGS=(
             --request-id "$REQUEST_ID"
