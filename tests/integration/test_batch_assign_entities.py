@@ -823,6 +823,28 @@ def test_collect_validation_rows_excludes_pre_existing_entities_with_no_history(
     assert len(matching) == 1
 
 
+def test_collect_validation_rows_excludes_pre_existing_entities_with_old_resource():
+    # Reproduces the 2026-11-20 incident: brownfield-land local-authority:SAW reference
+    # 7621 (entity 1745654) was already in lookup.csv from the previous night's run, but
+    # wasn't in the endpoint's old_resource_df, so current - old counted it as new. The
+    # resource's invalid_uri_issue then put it in invalid_uri_entities, and _promote
+    # stripped its existing lookup.csv row.
+    old_resource_df = _entity_rows(["1"], "ref")
+    current_resource_df = _entity_rows(["1", "2", "3"], "ref")
+
+    _, _, new_entities = _collect_validation_rows(
+        current_resource_df,
+        old_resource_df,
+        "brownfield-land",
+        "resource123",
+        old_resource_hash="old123",
+        config=ValidationConfig(),
+        pre_dataset_entities={1, 2},  # entity 2 already in the lookup, not in old resource
+    )
+
+    assert new_entities == {"3"}
+
+
 def _entity_rows(entities, reference_prefix):
     rows = []
     for entity in entities:
