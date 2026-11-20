@@ -122,6 +122,7 @@ article-4-direction,6101810,6101838,local-authority:WAE
 article-4-direction,6102885,6102971,local-authority:WEA
 article-4-direction,6100899,6100913,local-authority:WFT
 article-4-direction,6102797,6102844,local-authority:WIL
+article-4-direction,6103784,6103785,local-authority:WIL
 article-4-direction,6102294,6102301,local-authority:WOT
 article-4-direction,6102207,6102290,local-authority:WOX
 article-4-direction,6100387,6100399,local-authority:WRL
@@ -289,6 +290,7 @@ article-4-direction-area,7010007524,7010007552,local-authority:WAE
 article-4-direction-area,7010002736,7010002744,local-authority:WBK
 article-4-direction-area,7010005191,7010006804,local-authority:WFT
 article-4-direction-area,7010009968,7010010015,local-authority:WIL
+article-4-direction-area,7010010963,7010010964,local-authority:WIL
 article-4-direction-area,7010009023,7010009030,local-authority:WOT
 article-4-direction-area,7010009121,7010009204,local-authority:WOX
 article-4-direction-area,7010004760,7010004772,local-authority:WRL
@@ -299,5 +301,3 @@ article-4-direction-area,7010009405,7010009434,national-park-authority:Q27159704
 article-4-direction-area,7010010962,7010010962,national-park-authority:Q27159704
 article-4-direction-area,7010006887,7010006912,national-park-authority:Q72617158
 article-4-direction-area,7010010088,7010010113,national-park-authority:Q72617988
-article-4-direction-area,7010010963,7010010964,local-authority:WIL
-article-4-direction,6103784,6103785,local-authority:WIL
