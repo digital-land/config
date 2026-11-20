@@ -1,14 +1,13 @@
 name: Batch Assign Entities
 
 # Assigns entities to resources with an 'unknown entity' issue across the odp, mandated and
-# single-source scopes. It is meant to be started by Airflow (build-digital-land-builder) once
+# single-source scopes. Airflow (build-digital-land-builder) starts it each weekday morning once
 # the nightly build has finished and Datasette and its CDN are serving it, so:
 #   - resources fixed by hand the previous day have dropped out of the issue summary and no
 #     longer linger in Manage's flagged-resources list, and
 #   - unknown entities introduced by the nightly run are assigned the same morning.
-# Until then it only runs when dispatched by hand, and config-evening-pipeline.yml still runs
-# its own batch assign against main. Once Airflow starts this, remove the batch-assign job
-# from the evening pipeline so the two don't both run.
+# It can also be dispatched by hand, for example to re-run one scope or resume single-source
+# from a failed batch.
 #
 # Commits go to config-manager-update (the branch Manage writes to) rather than straight to
 # main, so a run that finishes late can't clash with data being added through Manage. The
