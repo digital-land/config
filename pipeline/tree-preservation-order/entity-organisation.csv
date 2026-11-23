@@ -165,6 +165,7 @@ tree,7002211130,7002211133,local-authority:NSM
 tree,7002252843,7002252843,local-authority:NSM
 tree,7002268957,7002268959,local-authority:NSM
 tree,7002279805,7002279834,local-authority:NSM
+tree,7002281925,7002281966,local-authority:NSM
 tree,7002272093,7002275415,local-authority:NTY
 tree,7002279713,7002279713,local-authority:NTY
 tree,7002281916,7002281918,local-authority:NTY
@@ -234,6 +235,7 @@ tree,7002252847,7002252850,local-authority:STH
 tree,7002268965,7002268970,local-authority:STH
 tree,7002279647,7002279652,local-authority:STH
 tree,7002279729,7002279731,local-authority:STH
+tree,7002281967,7002281969,local-authority:STH
 tree,7002252851,7002254178,local-authority:STV
 tree,7002050069,7002050600,local-authority:SWK
 tree,7002087726,7002090227,local-authority:SWK
@@ -526,6 +528,7 @@ tree-preservation-order,7001126433,7001126438,local-authority:STH
 tree-preservation-order,7001137783,7001137783,local-authority:STH
 tree-preservation-order,7001138328,7001138333,local-authority:STH
 tree-preservation-order,7001146736,7001146745,local-authority:STH
+tree-preservation-order,7001152034,7001152036,local-authority:STH
 tree-preservation-order,7001123940,7001125282,local-authority:STV
 tree-preservation-order,7001000844,7001001210,local-authority:SWK
 tree-preservation-order,7001079854,7001081839,local-authority:SWL
@@ -825,6 +828,3 @@ tree-preservation-zone,19157175,19158150,national-park-authority:Q72617158
 tree-preservation-zone,19205275,19205826,national-park-authority:Q72617988
 tree-preservation-zone,19216695,19216734,national-park-authority:Q72617988
 tree-preservation-zone-type,18100000,18100002,government-organisation:D1342
-tree,7002281925,7002281966,local-authority:NSM
-tree-preservation-order,7001152034,7001152036,local-authority:STH
-tree,7002281967,7002281969,local-authority:STH
