@@ -88,7 +88,7 @@ jobs:
           RETIRE_ENDPOINTS: ${{ github.event.client_payload.retire_endpoints || github.event.inputs.retire_endpoints }}
           UNRETIRE_ENDPOINTS: ${{ github.event.client_payload.unretire_endpoints || github.event.inputs.unretire_endpoints }}
           TEST_MODE: ${{ github.event.inputs.test }}
-          REQUEST_DETAILS_BUCKET_NAME: ${{ vars.REQUEST_DETAILS_BUCKET_NAME }}
+          REQUEST_DETAILS_BUCKET_NAME: ${{ secrets.REQUEST_DETAILS_BUCKET_NAME }}
         run: |
           ARGS=(
             --request-id "$REQUEST_ID"
