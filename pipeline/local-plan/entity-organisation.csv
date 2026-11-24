@@ -1011,6 +1011,7 @@ local-plan,4220843,4220843,local-authority:NTY
 local-plan,4220459,4220459,local-authority:NUN
 local-plan,4220852,4220852,local-authority:NUN
 local-plan,4221125,4221126,local-authority:NUN
+local-plan,4221212,4221212,local-authority:NUN
 local-plan,4220448,4220448,local-authority:NWA
 local-plan,4220844,4220844,local-authority:NWA
 local-plan,4220449,4220450,local-authority:NWL
@@ -1305,6 +1306,7 @@ local-plan,4220105,4220105,local-authority:WRL
 local-plan,4220170,4220170,local-authority:WRL
 local-plan,4220958,4220958,local-authority:WRL
 local-plan,4221047,4221049,local-authority:WRL
+local-plan,4221213,4221213,local-authority:WRL
 local-plan,4220103,4220103,local-authority:WRT
 local-plan,4220619,4220619,local-authority:WRT
 local-plan,4220941,4220941,local-authority:WRT
@@ -2860,5 +2862,3 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
-local-plan,4221212,4221212,local-authority:NUN
-local-plan,4221213,4221213,local-authority:WRL
