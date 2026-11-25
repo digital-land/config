@@ -2,23 +2,20 @@
 import csv
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
-from urllib.error import HTTPError, URLError
-from urllib.request import urlopen
 
+import boto3
+from botocore.exceptions import BotoCoreError, ClientError
 import click
 import pandas as pd
 
 
-API_BASE_URL_BY_ENVIRONMENT = {
-    "development": "https://pub-async.development.planning.data.gov.uk",
-    "staging": "https://pub-async.staging.planning.data.gov.uk",
-    "production": "https://pub-async.planning.data.gov.uk",
-}
+ENVIRONMENTS = ("development", "staging", "production")
 DEFAULT_ENVIRONMENT = "staging"
 OLD_ENTITY_HEADER = [
     "old-entity",
@@ -29,13 +26,6 @@ OLD_ENTITY_HEADER = [
     "entry-date",
     "start-date",
 ]
-
-
-def resolve_api_base_url(environment: str) -> str:
-    env = str(environment).strip().lower() or DEFAULT_ENVIRONMENT
-    if env in API_BASE_URL_BY_ENVIRONMENT:
-        return API_BASE_URL_BY_ENVIRONMENT[env]
-    fail(f"Unsupported environment: {environment}")
 
 
 def fail(message: str) -> None:
@@ -64,22 +54,36 @@ def run_command(cmd: list[str], capture_output: bool = False, check: bool = True
     return (result.stdout or "").strip() if capture_output else ""
 
 
-def fetch_request(api_base_url: str, request_id: str) -> dict:
-    request_url = f"{api_base_url.rstrip('/')}/requests/{request_id}"
-    print(f"Fetching request data from {request_url}")
-
+def fetch_request(environment: str, request_id: str) -> dict:
+    if environment.strip().lower() not in ENVIRONMENTS:
+        fail(f"Unsupported environment: {environment}")
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", request_id):
+        fail("Invalid request_id")
+    bucket = os.environ.get("REQUEST_DETAILS_BUCKET_NAME", "").strip()
+    if not bucket:
+        fail("REQUEST_DETAILS_BUCKET_NAME must be configured for the selected environment")
+    key = f"{request_id}.json"
+    print(f"Fetching request data from s3://{bucket}/{key}")
     try:
-        with urlopen(request_url) as response:  # nosec B310
-            payload = response.read().decode("utf-8")
-    except HTTPError as exc:
-        fail(f"Failed to fetch request data for {request_id}: HTTP {exc.code}")
-    except URLError as exc:
-        fail(f"Failed to fetch request data for {request_id}: {exc.reason}")
+        obj = boto3.client("s3").get_object(Bucket=bucket, Key=key)
+        try:
+            payload = json.loads(obj["Body"].read())
+        finally:
+            obj["Body"].close()
+    except ClientError as exc:
+        fail(f"Failed to fetch request {request_id} from S3: {exc.response['Error']['Code']}")
+    except BotoCoreError as exc:
+        fail(f"Failed to fetch request {request_id} from S3: {type(exc).__name__}")
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        fail(f"Invalid JSON in S3 result for request {request_id}")
 
-    try:
-        return json.loads(payload)
-    except json.JSONDecodeError as exc:
-        fail(f"Failed to parse async API response: {exc}")
+    if (
+        not isinstance(payload, dict)
+        or payload.get("id") != request_id
+        or payload.get("type") != "add_data"
+    ):
+        fail("S3 result does not match the requested add-data request")
+    return payload
 
 
 def ensure_dir_exists(path: Path) -> None:
@@ -547,18 +551,20 @@ def run_add_data_async(
     if not request_id.strip():
         fail("request_id is required")
 
-    api_base_url = resolve_api_base_url(environment)
-    response = fetch_request(api_base_url, request_id)
+    response = fetch_request(environment, request_id)
 
     status = response.get("status")
     if status != "COMPLETE":
         fail(f"Request status is '{status}', expected 'COMPLETE'")
 
-    error_value = response.get("response", {}).get("error")
+    if not isinstance(response.get("params"), dict) or not isinstance(response.get("response"), dict):
+        fail("Completed S3 request must contain params and response objects")
+
+    error_value = response["response"].get("error")
     if error_value:
         fail(f"Request has error: {error_value}")
 
-    collection = response.get("params", {}).get("collection")
+    collection = response["params"].get("collection")
     if not collection:
         fail("collection not found in request params")
 
@@ -669,7 +675,7 @@ def run_add_data_async(
     write_summary(collection, request_id)
 
 
-@click.command(help="Append async API data to collection/pipeline CSV files and manage PR flow")
+@click.command(help="Append async results from S3 to collection/pipeline CSV files and manage PR flow")
 @click.option("--request-id", required=True, type=click.STRING, help="Async API request id")
 @click.option("--branch", default="", type=click.STRING, help="Optional branch supplied by dispatch payload")
 @click.option("--triggered-by", default="", type=click.STRING, help="Identifier for the actor/system that triggered this run")
@@ -678,7 +684,7 @@ def run_add_data_async(
     default=lambda: os.getenv("ASYNC_API_ENVIRONMENT", DEFAULT_ENVIRONMENT),
     show_default=f"env ASYNC_API_ENVIRONMENT or {DEFAULT_ENVIRONMENT}",
     type=click.Choice(["development", "staging", "production"], case_sensitive=False),
-    help="Async API environment",
+    help="Async environment; REQUEST_DETAILS_BUCKET_NAME must select its results bucket",
 )
 @click.option(
     "--retire-endpoints",

@@ -2,7 +2,7 @@ dataset,entity-minimum,entity-maximum,organisation
 battlefield,1400047,1400093,government-organisation:D1342
 battlefield,1400000,1400046,government-organisation:PB1164
 building-preservation-notice,2000000,2000028,government-organisation:PB1164
-certificate-of-immunity,2300000,2300429,government-organisation:PB1164
+certificate-of-immunity,2300000,2300430,government-organisation:PB1164
 heritage-at-risk,7500000,7505754,government-organisation:PB1164
 park-and-garden,11100000,11199999,government-organisation:PB1164
 park-and-garden-grade,11000000,11000002,government-organisation:PB1164

@@ -774,13 +774,18 @@ def _collect_validation_rows(current_resource_df, old_resource_df, dataset, reso
     """
     validation_rows = []
     current_entities = set(current_resource_df['entity'])
+    # An entity already in the dataset's lookup before this resource ran is never new,
+    # whether or not a baseline resource exists - it may have been assigned from a
+    # different resource than old_resource_df (e.g. the previous night's run), so
+    # "not in the old resource" alone doesn't make it new.
+    pre_existing_entities = {str(e) for e in pre_dataset_entities}
 
     if old_resource_df is None:
         old_entities = set()
-        new_entity_ids = current_entities - {str(e) for e in pre_dataset_entities}
+        new_entity_ids = current_entities - pre_existing_entities
     else:
         old_entities = set(old_resource_df['entity'])
-        new_entity_ids = current_entities - old_entities
+        new_entity_ids = current_entities - old_entities - pre_existing_entities
 
     if old_resource_df is None:
         if endpoint_has_history:

@@ -72,6 +72,7 @@ article-4-direction,6100369,6100369,local-authority:LND
 article-4-direction,6103760,6103765,local-authority:LUT
 article-4-direction,6102504,6102588,local-authority:MAI
 article-4-direction,6103510,6103594,local-authority:MAI
+article-4-direction,6103786,6103792,local-authority:MAI
 article-4-direction,6102120,6102135,local-authority:MIK
 article-4-direction,6103182,6103182,local-authority:MIK
 article-4-direction,6103396,6103397,local-authority:MIK
@@ -113,6 +114,7 @@ article-4-direction,6100226,6100229,local-authority:SWK
 article-4-direction,6101015,6101490,local-authority:SWK
 article-4-direction,6102482,6102503,local-authority:SWL
 article-4-direction,6103601,6103622,local-authority:SWL
+article-4-direction,6103793,6103793,local-authority:SWL
 article-4-direction,6102589,6102633,local-authority:TAN
 article-4-direction,6101844,6101857,local-authority:TEN
 article-4-direction,6100492,6100493,local-authority:TOB
@@ -122,6 +124,7 @@ article-4-direction,6101810,6101838,local-authority:WAE
 article-4-direction,6102885,6102971,local-authority:WEA
 article-4-direction,6100899,6100913,local-authority:WFT
 article-4-direction,6102797,6102844,local-authority:WIL
+article-4-direction,6103784,6103785,local-authority:WIL
 article-4-direction,6102294,6102301,local-authority:WOT
 article-4-direction,6102207,6102290,local-authority:WOX
 article-4-direction,6100387,6100399,local-authority:WRL
@@ -235,6 +238,7 @@ article-4-direction-area,7010007582,7010009002,local-authority:LIV
 article-4-direction-area,7010010933,7010010944,local-authority:LUT
 article-4-direction-area,7010007433,7010007517,local-authority:MAI
 article-4-direction-area,7010010848,7010010932,local-authority:MAI
+article-4-direction-area,7010010965,7010010971,local-authority:MAI
 article-4-direction-area,7010002218,7010002256,local-authority:MDW
 article-4-direction-area,7010002787,7010002826,local-authority:MDW
 article-4-direction-area,7010009781,7010009787,local-authority:MDW
@@ -289,6 +293,8 @@ article-4-direction-area,7010007524,7010007552,local-authority:WAE
 article-4-direction-area,7010002736,7010002744,local-authority:WBK
 article-4-direction-area,7010005191,7010006804,local-authority:WFT
 article-4-direction-area,7010009968,7010010015,local-authority:WIL
+article-4-direction-area,7010010963,7010010964,local-authority:WIL
+article-4-direction-area,7010010972,7010010974,local-authority:WIL
 article-4-direction-area,7010009023,7010009030,local-authority:WOT
 article-4-direction-area,7010009121,7010009204,local-authority:WOX
 article-4-direction-area,7010004760,7010004772,local-authority:WRL
