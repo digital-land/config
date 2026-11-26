@@ -26,7 +26,7 @@ f2b9ceb518962d77dc589f7af6010129a0075b9b9e0c499b62de2108f61487af,https://raw.git
 8183eeae79febe789982afdc090006300ee72487d9af7d37957d44e44e5082a0,https://www.durham.gov.uk/media/49630/County-Durham-Plan-timetable/csv/CountyDurhamPlanTimetable.csv?m=1777301531770,,,2026-04-28,2026-04-28,2026-06-23
 a95fa3c165f510f0685116c72e0f6478ab2b7221efc6e13213e2589de6b8003c,https://www.centralbedfordshire.gov.uk/download/downloads/id/206/local-plan-2050-timetable.csv,,,2026-04-28,2026-04-17,2026-08-03
 2dbb1ea06a03c20ba13f09da32c700a66f7cd0ae016cb857af8680961181e7e0,https://www.centralbedfordshire.gov.uk/download/downloads/id/207/central-bedfordshire-local-plans.csv,,,2026-04-30,2026-04-29,2026-07-24
-42a856a94376ee348aa5fa6a8092d8cdd39a966206428ad4fe1520ff5226615f,https://www.somerset.gov.uk/wp-content/uploads/2026/05/Planning-data-Somerset-plan.csv,,,2026-05-01,2026-05-01,
+42a856a94376ee348aa5fa6a8092d8cdd39a966206428ad4fe1520ff5226615f,https://www.somerset.gov.uk/wp-content/uploads/2026/05/Planning-data-Somerset-plan.csv,,,2026-05-01,2026-05-01,2026-11-26
 6f286e5f0bfc58c0ddc3d361729232435b40946547e390b939835b464b1ce7ba,https://www.somerset.gov.uk/wp-content/uploads/2026/05/Planning-data-Somerset-local-plan-timetable.csv,,,2026-05-01,2026-05-01,2026-08-03
 12cc9f36438dd300d4aff25bef6828404d5c58425389bc592f93c0381cd7df9a,https://www.cornwall.gov.uk/media/1cray3kj/cornwall-council-plan-timetable.csv,,,2026-05-05,2026-05-05,
 2d26e6beda1ce5c6af1b6961d2a2448618443bc31ce35e447e7e4d39446a12d2,https://www.warrington.gov.uk/sites/default/files/2026-04/the-warrington-local-plan-timetable-april-2026.csv,,,2026-05-13,2026-05-13,2026-08-03
@@ -56,7 +56,7 @@ c9a62eadbfbcd1ff16de2c4264d1757de8ed8c7e224495e6954358adfc3ee749,https://pre.hil
 80b4ea1d0a004206798ed9f5b5ea1dd7bb7c7d05277cb5085bc4e5fd0faa500a,https://www.luton.gov.uk/sites/default/files/2026-06/Luton_plan-timetable.csv,,,2026-06-10,2026-06-09,2026-11-03
 deabe2729d0bfeea56b66868c7a59ed828fa473401bc7bb7cbb02ed9103c5515,https://www.guildford.gov.uk/media/37730/Guildford-Local-Plan-Timetable-EXCEL-JUNE-2026/xls/guildford_local_plan_timetable_JUNE_2026_10_17wjwdbvhis1m.csv?m=1781082512703,,,2026-06-10,2026-06-10,2026-10-30
 4a19e1116630f8da37600166eb992e472d9d41244642047525b07c47d87cd15b,https://eastherts.fra1.digitaloceanspaces.com/s3fs-public/2026-06/plan-timetable%20%281%29.xlsx,,,2026-06-11,2026-06-11,2026-11-02
-d9275db8e8f727ec33562964a36518058c108d56f8c743f55349be231119d40a,https://eastherts.fra1.digitaloceanspaces.com/s3fs-public/2026-06/local-plan%20%281%29.xlsx,,,2026-06-11,2026-06-11,
+d9275db8e8f727ec33562964a36518058c108d56f8c743f55349be231119d40a,https://eastherts.fra1.digitaloceanspaces.com/s3fs-public/2026-06/local-plan%20%281%29.xlsx,,,2026-06-11,2026-06-11,2026-11-26
 0b380ac0cc29ebdb8c13d8ec0147aba54ffa746441432dfacb4f179da85e5f6b,https://planningpolicy.cheshirewestandchester.gov.uk/sites/planningpolicy-cheshirewestandchester/files/2026-06/cheshire-west-and-chester-local-plan-timetable.csv,,,2026-06-12,2026-06-12,2026-09-14
 0d3bf01b68bc7482ac8c945352bd2ec0fe2249b3caacdfabc5f4880f162fe107,https://www.chichester.gov.uk/media/42581/Local-Plan-2045-timetable/xls/plan-timetable_data_set_CSV_1t5w7usbyuz3q.csv?m=1781170500327,,,2026-06-12,2026-06-12,2026-11-02
 400565c2daa7425126414b2b7511fa0efe4589543f130d854b06d728c88117db,https://www.chichester.gov.uk/media/42580/Local-Plan-dataset-2045/xls/local-plan__dataset_CSV.csv?m=1781100520610,,,2026-06-12,2026-06-12,
@@ -90,7 +90,7 @@ df2e39a2aad183ffb00b09e59c69f39b008f05a4a87607a05cd1710815cd8835,https://www.sef
 5ae2599cafaa38ffd25a4f0789ec6554e58df0c43acc1760e59fc8f6060e331c,https://www.horsham.gov.uk/__data/assets/file/0005/165407/Horsham_District_Local_Plan.csv,,,2026-06-26,2026-06-26,2026-08-12
 9fce26a16804f8f0f56a253b1ffba740878079235b57c236ac48c95916b2c9cc,https://localplan.cheshireeast.gov.uk/document/17,,,2026-06-26,2026-06-26,
 eac40572c0d0546f79d261e7358a4e5918a639bd66b6db8a41b4aaf307064337,https://www.plymouth.gov.uk/sites/default/files/2026-06/Plymouth-Local-Plan-data_June%202026.csv,,,2026-06-26,2026-06-26,2026-11-19
-10297fe8656aa7652555c29ebbbedb054b1db66ed4acacfa07fbb3ed2734acbd,https://www.northyorkmoors.org.uk/__data/assets/file/0020/232841/local-plan-and-minerals-and-waste-plan-timetable-template-29-06-2026.csv,,,2026-06-29,2026-06-29,
+10297fe8656aa7652555c29ebbbedb054b1db66ed4acacfa07fbb3ed2734acbd,https://www.northyorkmoors.org.uk/__data/assets/file/0020/232841/local-plan-and-minerals-and-waste-plan-timetable-template-29-06-2026.csv,,,2026-06-29,2026-06-29,2026-11-26
 16e71c4300a7dc36d34adfc66ccd1e360589f49cb7bbb8cdbcf8a9f1027e8e78,https://www.nuneatonandbedworth.gov.uk/downloads/file/2597/local-plan-timetable-csv-file-29-06-26,,,2026-06-29,2026-06-29,
 373aceae002e23af3cc48d13d027e4dabb6f0bbce5c30e5f4e5b0ce4d8aaa8ea,https://tunbridgewells.gov.uk/__data/assets/file/0017/535130/Local-Plan-review-timetable.csv,,,2026-06-29,2026-06-29,
 49e7e8a0f538ff02edb0d65d8a7109093c28f57b5f87a9c87af766fbfdea6a40,https://www.southampton.gov.uk/media/tstj5lzi/plan-timetable-dataset-local-plan-29062026.csv,,,2026-06-29,2026-06-29,2026-07-24
@@ -109,7 +109,7 @@ f1b84f88d933e8327d60308839c4958c2db2c74ef766609925187768adf995f7,https://www.pen
 1b692d33d36d0a7cc6fe979e88d2d28589c701fe73034c7082b32c8450be3837,https://www.plymouth.gov.uk/sites/default/files/2026-06/Plymouth-local-plan-and-minerals-and-waste-plan-timetable-JUNE-2026-V3.csv,,,2026-07-01,2026-07-01,2026-07-29
 1f70f3d18e849f28620dc3bf9294b97b2e8ea55b985f40864b8b53010ca83fa5,https://data.yorkopendata.org/dataset/5a37763e-fdac-451a-8a95-c5a477c17c0c/resource/e43c3bd5-21f7-49bc-ae15-4c7632d24681/download/final-city-of-york-plan-timetable-26062026.csv,,,2026-07-01,2026-06-27,2026-07-31
 227d63868af30c5c5b743fbabcb1763f2587e7582a511b98d11b6521e1b12dc9,https://www.southampton.gov.uk/media/2wckpwoi/plan-dataset-southampton-city-council.csv,,,2026-07-01,2026-07-01,
-245ccf61173e38c2e838633d92bb93013c382b32cfde504db399930c42f70872,https://www.wokingham.gov.uk/sites/wokingham/files/2026-06/Local_Plan_Data_CSV.csv,,,2026-07-01,2026-07-01,
+245ccf61173e38c2e838633d92bb93013c382b32cfde504db399930c42f70872,https://www.wokingham.gov.uk/sites/wokingham/files/2026-06/Local_Plan_Data_CSV.csv,,,2026-07-01,2026-07-01,2026-11-26
 29a0b52d44e4ef66bd282c4818d1ac6e54fce8ec66462e766658958d111dc8b7,https://www.nottinghamcity.gov.uk/media/520dponb/ncc-mineral-plan-data-csv.csv,,,2026-07-01,2026-07-01,
 36c6006b2112e765d665683fcf8927062334a13f0a9f3d16d2d68c13ed024758,https://www.cumberland.gov.uk/sites/default/files/2026-06/local_plan_timetable_dataset_cvs.csv,,,2026-07-01,2026-07-01,2026-11-18
 4f9cca0a2dead2c4f4def457745ca728bea663240fdd5805da9093627b76dfd0,https://www.northdevon.gov.uk/sites/default/files/2026-06/Local-Plan-CSV-North-Devon.csv,,,2026-07-01,2026-07-01,
@@ -173,12 +173,12 @@ fff49c6fa3e0e2791e8b6ac25ec8d65f73723a79bf12ebfa044a52b063d098dd,https://www.dar
 31dcc464e6e0403b6927aff22f408217b02801c9327386fa626403258fed892a,https://exeter.gov.uk/media/wjkngsu3/local-plan.csv,,,2026-07-23,2026-07-23,
 3cf1f55299a7927428720576ea1b385968b46549f25478c1034f8cab172ecfd9,https://exeter.gov.uk/media/hezbvbf4/plan-timetable.csv,,,2026-07-23,2026-07-23,
 4394123a2a0103edda2fcb7f22e2bbc5ae5339a5181c944d28e54766c89321fb,https://exeter.gov.uk/media/iiml0tta/supplementary-plan.csv,,,2026-07-23,2026-07-23,2026-09-04
-35b05b57edfef2e34567c1a2f9b84c9a5db5f5b0636506679625e55eaf098bf5,https://southandvale.gov.uk/SouthDataset,,,2026-07-24,2026-07-24,
+35b05b57edfef2e34567c1a2f9b84c9a5db5f5b0636506679625e55eaf098bf5,https://southandvale.gov.uk/SouthDataset,,,2026-07-24,2026-07-24,2026-11-26
 85e9f136c1d94e0be50f9aa147df59ef57ff35c731a8ffbd8865c337130bc86a,https://westberks.gov.uk/media/67143/West-Berkshire-Local-Plan-Timetable-24-July-2026/csv/west-berkshire-local-plan-timetable.csv?m=1784817999993,,,2026-07-24,2026-07-24,2026-09-07
 932e401413fc4a3d0ca47e56c489509afe8d10dec7caa3a8e0af2eafacc58da5,https://www.centralbedfordshire.gov.uk/sites/default/files/2026-07/central_bedfordshire_local_plans.csv,,,2026-07-24,2026-07-24,
 a358f04c6c4cf0cf1d5d0263ee6f0c3190270aa6f7903081b406ff7a171c3a3f,https://www.southampton.gov.uk/media/tstj5lzi/plan_timetable_dataset_-_local_plan.csv,,,2026-07-24,2026-07-24,
 bb2264801224e19f840cce95563890fba2e6e565ec6025046f9b4a3d9fe77293,https://www.north-norfolk.gov.uk/media/localplan/north-norfolk-local-plan-timetable.csv,,,2026-07-24,2026-07-24,
-fbfc4296f6b4c0875187680fadb88f52a339625a4d7d94603c067d6e109b8356,https://www.southandvale.gov.uk/ValeDataset,,,2026-07-24,2026-07-24,
+fbfc4296f6b4c0875187680fadb88f52a339625a4d7d94603c067d6e109b8356,https://www.southandvale.gov.uk/ValeDataset,,,2026-07-24,2026-07-24,2026-11-26
 4a97f6b21a90c282b3e19accb5420138704d72a35a53315ae6837e932521cda7,https://www.dartmoor.gov.uk/__data/assets/excel_doc/0018/236016/09-Data-Standard-local-plan.xlsx,,,2026-07-29,2026-07-29,
 b06614c9b865737b1a1e8a4ea99b3aa82a97093479e2450cc9bd831c6b657797,https://www.northyorkmoors.org.uk/__data/assets/file/0029/234992/plan-template.csv,,,2026-07-29,2026-07-29,
 f1ef8a9a844591b0b871484afc0008702ef570c6ae3f6f43d21389b733068e7a,https://www.plymouth.gov.uk/sites/default/files/2026-07/Plymouth-local-plan-and-minerals-and-waste-plan-timetable-JULY-2026.csv,,,2026-07-29,2026-07-29,2026-11-03
@@ -199,7 +199,7 @@ cf67b07b715dbe7a0aaa0d3098e19ab94ed78d0a08504af8896062807f9af5d3,https://www.dud
 d6a165ffaa142f60002a16e656f24bd5471dff7eda0a08bc48fed52a086cf11f,https://www.centralbedfordshire.gov.uk/sites/default/files/2026-07/local-plan-2050-timetable.csv,,,2026-08-03,2026-08-03,
 e990c1673923090451c06c686d926189f2d0362f2247020e1ea5be4cfaa3b3b1,https://www.babergh.gov.uk/documents/d/babergh/local-plan-timetable-csv-babergh-district-council,,,2026-08-03,2026-08-03,2026-11-03
 f8597b2eaf8912d85ec9a7cfcf6e5c9b0342747d7506217b5112153c406a5eb7,https://www.somerset.gov.uk/wp-content/uploads/2026/07/Planning-data-Somerset-local-plan-timetable.csv,,,2026-08-03,2026-08-03,2026-11-16
-1e2293713944dfe239e9acae37119db132450fa3e4fc804078c1bc0a3c8c8170,https://www.fdean.gov.uk/media/ygmfwvyd/forest-of-dean-local-plan-2046.csv,,,2026-08-04,2026-08-04,
+1e2293713944dfe239e9acae37119db132450fa3e4fc804078c1bc0a3c8c8170,https://www.fdean.gov.uk/media/ygmfwvyd/forest-of-dean-local-plan-2046.csv,,,2026-08-04,2026-08-04,2026-11-26
 28ceb68eda453bdd8e210e4b0c64521e802a0b8bbf90c01f441337e97c6f93ce,https://www.wolverhampton.gov.uk/file/418737/download?token=J43tCrDY,,,2026-08-04,2026-08-04,
 2c4aa8c872fcc60869b8c2fd6085a0868acce24ff006e84e7c2a38e7323a45ba,https://www.staffordbc.gov.uk/open-government-stafford-borough-council-local-plan-timetable-xls,,,2026-08-04,2026-08-04,2026-09-18
 339a19a43c791a0f5f5fcf8d32e621ad6d23090579945e3cbddf60a3d727f53e,https://www.westdevon.gov.uk/sites/default/files/2026-07/SHWD-joint-local-plan-timetable.csv,,,2026-08-04,2026-08-04,2026-11-03
@@ -262,7 +262,7 @@ aa872bc7cbcdfc4cc60ef0ce71c720aaf595d79c850a7542327cda5d063cff07,https://www.hyn
 982793423e8135bf2b64e96f60e1c8af0c190ab776ef24de6b86d9f03e8b80de,https://www.localplan.winchester.gov.uk/assets/attach/2905/CSV-18.09.xlsx,,,2026-09-22,2026-09-22,
 143c53ada4bec8b1bf9e7e82749bdb0b44ad84056268adbcedcae4cc44911d90,https://www.scilly.gov.uk/sites/default/files/planning-apps/IoS%20Plan%20Timetable%20%282%29%202026.csv,,,2026-09-29,2026-09-29,
 29cda62889108be2b854a7bbdefec18cff3329bab70c11dca2b9cf57c0300aed,https://www.blackburn.gov.uk/sites/default/files/2026-09/plan-timetable.csv,,,2026-09-29,2026-09-29,
-ad308849d36e36564d7d1e2903e1b9c1a678201e06322363842752b19707a3d7,https://www.blackburn.gov.uk/sites/default/files/2026-08/Local%20Plan.csv,,,2026-09-29,2026-09-29,
+ad308849d36e36564d7d1e2903e1b9c1a678201e06322363842752b19707a3d7,https://www.blackburn.gov.uk/sites/default/files/2026-08/Local%20Plan.csv,,,2026-09-29,2026-09-29,2026-11-26
 2e7517fc08acfac134ef25fae0505e59537d4bea0eb956f55e6e526f20b686bc,https://www.greaternorwichdevelopment.org.uk/media/48054/GNLP-2045-Timetable/excel/3kGNLP-local-plan-timetable.csv?m=1790867248617,,,2026-10-01,2026-10-01,2026-11-03
 765a29e834227fe6c4d2457e6f9835fb076fac5635e9ba0655411dffdb661463,https://www.eastleigh.gov.uk/media/17107/eastleigh-local-plan-timetable-v3.csv,,,2026-10-02,2026-10-02,2026-10-27
 6d347864619cde0007ee9f6f3a6bc9789fc436f880dd15a9e76432f2c3c332e4,https://www.chesterfield.gov.uk/media/xxipm0mu/cbc-local-plan-timetable-v2.csv,,,2026-10-05,2026-10-05,
@@ -288,7 +288,7 @@ b7964ffc107a4e08a73565705bf8d8b3d012d8f1291723b58483213f7dbada4d,https://www.fol
 9a3e8ea84d618a4cd7d7f5e06f2f358bcfbd0ad9c9ea0544dfde3899c45e98be,https://app.ipswich.gov.uk/open-data/planning/local-plans/files/local-plan-template-ipswich-borough-council-csv.csv,,,2026-10-28,2026-10-28,
 ba80bbec2b9f9702d5abc58759b9037d4e05d5c9528337b0f255f7a0766fc81e,https://app.ipswich.gov.uk/open-data/planning/local-plans/files/local-plan-timetable-ipswich-borough-council-csv.csv,,,2026-10-28,2026-10-28,
 f71b4f6b1a1125c5fd4ee5401413a147a701c655b9011f967133e0c51f949355,https://www.northdevon.gov.uk/local-plan-timetable-csv,,,2026-10-29,2026-10-29,2026-11-03
-30334599257ea118c807fac3aea3267e01705e0d5d6cb7db25cd96aad497318e,https://www.stroud.gov.uk/media/xobfizot/plan_dataset-v2.csv,,,2026-10-30,2026-10-30,
+30334599257ea118c807fac3aea3267e01705e0d5d6cb7db25cd96aad497318e,https://www.stroud.gov.uk/media/xobfizot/plan_dataset-v2.csv,,,2026-10-30,2026-10-30,2026-11-26
 3e449878396b54e6f706479dbebc420f90b407860035393de18cb428ac79535d,https://www.west-norfolk.gov.uk/download/downloads/id/9971/next_local_plan_timetable_noi_-_june_2026.csv,,,2026-10-30,2026-10-30,2026-11-02
 bb70f86fa379b3a3dec19bc527450ff7e44844d46c6043a852cf8ba181a4649b,https://www.guildford.gov.uk/media/37730/Guildford-Local-Plan-Timetable-EXCEL-OCT-2026/xls/Guildford_Local_Plan_Timetable_EXCEL_OCT_2026.xlsx?m=1793205693207,,,2026-10-30,2026-10-30,
 16243a8b71ed1c3d35bc3fb50af809e1fcafe135a660a0ac8961f40cf1c0d09f,https://www.dacorum.gov.uk/docs/default-source/strategic-planning/timetable-october-20262d756379-d118-42f3-add2-9ae955a1cbea.csv?sfvrsn=bfd5169e_10,,,2026-11-02,2026-11-02,
@@ -318,11 +318,11 @@ f5126a12b701d4ea08f0adec25f48469efbcf14dccd03683a061cb0c6b1cc59d,https://localpl
 6efff85fbe91270530b1369461e9c1e8d291ed72b2c4dd868d767cac029c9001,https://www.northumberland.gov.uk/NorthumberlandCountyCouncil/media/Planning-and-Building/planning%20policy/Local%20Plan/plan-timetable%20-%20Gateway%201.csv,,,2026-11-03,2026-11-03,
 7108bcad6b2efbda3d1f1b90d43c6bbb04125799ced9e892862d980f90d5aa9c,https://www.greaternorwichdevelopment.org.uk/media/48054/GNLP-2045-Timetable/excel/mn2026-10-30_local-plan-timetable.csv?m=1793357110040,,,2026-11-03,2026-11-03,
 8e79cc536740d34a6d13d06503c05573bb9c42cf656a72e9e3807f3c9f3aa8d8,https://www.midsuffolk.gov.uk/documents/d/asset-library-54706/bms-local-plan-timetable-csv-mid-suffolk-district-council,,,2026-11-03,2026-11-03,
-a5783d168d6eae7b16036f2d0cf65d0bc2571f33eceee3b6ced4a561441c0081,https://www.wokingham.gov.uk/sites/wokingham/files/2026-10/Local_Plan_2045_Timetable_CSV.csv,,,2026-11-03,2026-11-03,
+a5783d168d6eae7b16036f2d0cf65d0bc2571f33eceee3b6ced4a561441c0081,https://www.wokingham.gov.uk/sites/wokingham/files/2026-10/Local_Plan_2045_Timetable_CSV.csv,,,2026-11-03,2026-11-03,2026-11-26
 a6f8db2496a069e6d7daae3a83be0a6132b932e68855915f4c447cf42856a0a7,https://www.southandvale.gov.uk/vale-of-white-horse-local-plan-timetable-csv-4/,,,2026-11-03,2026-11-03,
 b0cbc81feae36aa6054dbdc19eda0d0cb4260431a8dc9e42690bc918749780ce,https://www.southhams.gov.uk/sites/default/files/2026-10/SHWD-joint-local-plan-timetable.csv,,,2026-11-03,2026-11-03,
 bcc78b2bd722f2937ee69a5163fb3f4a9240397924793cddbfd6ee8b73107116,https://www.plymouth.gov.uk/plymouth-local-plan-timetable-file,,,2026-11-03,2026-11-03,
-e34e6656db99ea203025974ab96179702d50867f35d9d37d2f058ca8b47fdc8b,https://www.warrington.gov.uk/sites/default/files/2026-09/Warrington Local Plan Timetable -  21 September 2026.csv,,,2026-11-03,2026-11-03,
+e34e6656db99ea203025974ab96179702d50867f35d9d37d2f058ca8b47fdc8b,https://www.warrington.gov.uk/sites/default/files/2026-09/Warrington Local Plan Timetable -  21 September 2026.csv,,,2026-11-03,2026-11-03,2026-11-26
 ea41a951a6607db939f04e40d5bb64d863a8a0409be59820f94e00b693bc53b3,https://www.rbwm.gov.uk/sites/default/files/2026-10/pp_rbwm_local_plan_timetable_october_2026.csv,,,2026-11-03,2026-11-03,
 41f20b5535ac42500570caa4614086f17657310cd506968c77ec287482398505,https://community.newcastle.gov.uk/gisfiles/Local%20Plan%20data.csv,,,2026-11-06,2026-11-06,
 2158cd91c13a7f66816b05d18738fb0b330369968c73314c34cc1af61659c8be,https://www.somerset.gov.uk/wp-content/uploads/2026/11/Planning-data-Somerset-local-plan-timetable.csv,,,2026-11-16,,
@@ -343,3 +343,15 @@ f72d0e80d10c7f774f6042eacfcb425ecd04a133e4d7e5b0dad6e637bddbf65c,https://www.lam
 b402d6294c62f0363f56b22e1237868e6c31c28fcd197e45344974946bb64b02,https://www.plymouth.gov.uk/plymouth-local-plan-data-file,,,2026-11-19,2026-11-19,
 b8ad772b2c8fb02612981888afbb8d6615e2fd177148002334d41a08dd6cd453,https://localplan.cheshireeast.gov.uk/document/16,,,2026-11-23,2026-11-23,
 94872a50bcb56fe0253784973bc669abe35fe781f292e44a0365dcf3e0a75c9e,https://community.newcastle.gov.uk/gisfiles/Time%20Table.csv,,,2026-11-24,2026-11-24,
+7ac684106d939a94c65fb42a5877b7363448a6fdb2d53bed3ba8bc69d8619313,https://www.blackburn.gov.uk/sites/default/files/2026-10/Local-plan.csv,,,2026-11-26,2026-11-26,
+2e72bdaba902323be580651b154e0b292c610f443e938e2445177fb08e1125ff,https://planningpolicy.cheshirewestandchester.gov.uk/sites/planningpolicy-cheshirewestandchester/files/2026-11/cheshire-west-and-chester-local-plan.csv,,,2026-11-26,2026-11-26,
+5e3142ef9e7e56974a10a39a39095d1d76c930248fd55f5576eab5fb7542fa8e,https://eastherts.fra1.digitaloceanspaces.com/s3fs-public/2026-10/local-plan.xlsx,,,2026-11-26,2026-11-26,
+5ed8532aa7ae67c097b2e0fe5e1de77c91664e6f71b1fa57472d65e11a17cc3b,https://www.fdean.gov.uk/media/qnxh1kyr/forest-of-dean-local-plan-updated-oct-2026.csv,,,2026-11-26,2026-11-26,
+6f422093b1ded108dc9fb93b6be52a891954e80e565e03b04f3cc2604926899d,https://www.southandvale.gov.uk/app/uploads/2026/07/Local-Plan-CSV-South-Oxfordshire-District-Council-2.csv,,,2026-11-26,2026-11-26,
+5f57c313075f9cab2f1198a9f7fc19ee8dce571e02c3c651e4dd92116c0cb750,https://www.stroud.gov.uk/media/zusdmi35/plan_dataset-v2.csv,,,2026-11-26,2026-11-26,
+31aabf9bec411aaa5a283a1e078070adc8891ca0f2de73d43dc4838bd77cacbb,https://www.somerset.gov.uk/wp-content/uploads/2026/11/Planning-data-Somerset-plan.csv,,,2026-11-26,2026-11-26,
+696f2e5671db10a8c7c5633cdc7c1b83d936230854da50923a738d7333fe1b8e,https://www.southandvale.gov.uk/app/uploads/2026/07/Local-Plan-CSV-Vale-of-White-Horse-District-Council-1.csv,,,2026-11-26,2026-11-26,
+944137d255398ae995a6c3b16715c22fcaaba209219d0024f9311684543790f5,https://www.wokingham.gov.uk/sites/wokingham/files/2026-07/Local_Plan_Data_CSV.csv,,,2026-11-26,2026-11-26,
+d389ef404defd62e3578a34ced1345dec0e543a1688b33e52de298be85c04508,https://www.wokingham.gov.uk/sites/wokingham/files/2026-11/Local_Plan_2045_Timetable_CSV.csv,,,2026-11-26,2026-11-26,
+c4e8c8146a4238f5b63e3b9a256881fc141ce5141d2e30e72164a0f79d13f0f3,https://www.warrington.gov.uk/sites/default/files/2026-11/the-warrington-local-plan-timetable-November-2026.csv,,,2026-11-26,2026-11-26,
+4ca01d4b82f700622677b267221d43e976e5547fd8f792945fb4b25c65dfdd0f,https://www.northyorkmoors.org.uk/__data/assets/file/0020/232841/local-plan-and-minerals-and-waste-plan-timetable-template-02-11-2026.csv,,,2026-11-26,2026-11-26,
