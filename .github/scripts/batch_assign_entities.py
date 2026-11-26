@@ -159,14 +159,19 @@ def remote_branch_exists(branch):
 
 
 def ensure_pull_request(branch, commit_label):
-    """Open a PR from branch into main unless one is already open. config-manager-update's PR is
-    the one the evening pipeline auto-merges; an existing one is left alone, as Manage maintains
-    its title and body."""
+    """Open a PR from branch into main, or append commit_label to the open one's body.
+    config-manager-update's PR is the one the evening pipeline auto-merges. Its body is a
+    one-line-per-change log that Manage (bin/add_data.py) appends to, so batch assign appends
+    its own line the same way rather than leaving only the first commit's label there. The
+    title is left alone - Manage sets it, and a PR created here already has it."""
     pr_number = run_command(
         ["gh", "pr", "list", "--head", branch, "--base", "main", "--state", "open", "--json", "number", "--jq", ".[0].number // empty"],
     )
     if pr_number:
-        print(f"PR #{pr_number} already open for {branch}")
+        current_body = run_command(["gh", "pr", "view", pr_number, "--json", "body", "--jq", ".body"])
+        new_body = f"{current_body}\n{commit_label}" if current_body else commit_label
+        run_command(["gh", "pr", "edit", pr_number, "--body", new_body])
+        print(f"Appended to PR #{pr_number} for {branch}: {commit_label}")
         return
 
     run_command(["gh", "pr", "create", "--base", "main", "--head", branch, "--title", "Manage Service Update", "--body", commit_label])
@@ -178,7 +183,8 @@ def commit_and_push(triggered_by, success_count, scope, batch_size=0, start_batc
 
     For any branch other than main, the branch is created from main if it doesn't exist (the
     evening pipeline deletes config-manager-update once it has merged it), and a PR into main is
-    opened for it if there isn't one already. The rebase is onto whatever the branch is now,
+    opened for it if there isn't one already, or the commit label appended to the open PR's body
+    if there is. The rebase is onto whatever the branch is now,
     not what was checked out, so commits Manage has pushed in the meantime are kept.
     """
     if batch_size > 0:

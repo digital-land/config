@@ -124,13 +124,31 @@ def test_skips_commit_when_nothing_changed(origin, work):
 
 
 @patch("batch_assign_entities.run_command")
-def test_ensure_pull_request_leaves_an_open_pr_alone(mock_run):
-    mock_run.return_value = "123"
+def test_ensure_pull_request_appends_label_to_an_open_prs_body(mock_run):
+    # gh pr list -> open PR 123; gh pr view -> its current body; gh pr edit -> ""
+    mock_run.side_effect = ["123", "odp - Batch assign entities update (6 successful resource(s))", ""]
+
+    ensure_pull_request("config-manager-update", "single-source - Batch assign entities update (batch 1, 2 successful resource(s))")
+
+    calls = [c.args[0] for c in mock_run.call_args_list]
+    assert [c[:3] for c in calls] == [["gh", "pr", "list"], ["gh", "pr", "view"], ["gh", "pr", "edit"]]
+    edit = calls[2]
+    assert edit[3] == "123"
+    assert "--title" not in edit
+    assert edit[edit.index("--body") + 1] == (
+        "odp - Batch assign entities update (6 successful resource(s))\n"
+        "single-source - Batch assign entities update (batch 1, 2 successful resource(s))"
+    )
+
+
+@patch("batch_assign_entities.run_command")
+def test_ensure_pull_request_uses_label_alone_when_open_pr_body_is_empty(mock_run):
+    mock_run.side_effect = ["123", "", ""]
 
     ensure_pull_request("config-manager-update", "label")
 
-    assert mock_run.call_count == 1
-    assert mock_run.call_args.args[0][:3] == ["gh", "pr", "list"]
+    edit = mock_run.call_args_list[2].args[0]
+    assert edit[edit.index("--body") + 1] == "label"
 
 
 @patch("batch_assign_entities.run_command")
