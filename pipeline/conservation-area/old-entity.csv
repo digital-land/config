@@ -4052,6 +4052,7 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 44015680,301,44016375,"geometry complete_match, name similarity 100%",,2026-08-04,
 44015681,301,44016379,"geometry complete_match, name similarity 100%",,2026-08-04,
 44015808,301,44014030,Redirect old entity complete match to LPA entity: local-authority:WOT,,2026-10-23,
+44015932,301,44005529,Redirect LPA entity to Historic England entity as agreed with council,,2026-11-25,
 44016324,301,44015560,Redirect old entity complete match to LPA entity: local-authority:HAR,,2026-10-23,
 44016325,301,44015562,Redirect old entity complete match to LPA entity: local-authority:HAR,,2026-10-23,
 44016326,301,44015563,Redirect old entity complete match to LPA entity: local-authority:HAR,,2026-10-23,
@@ -4776,4 +4777,3 @@ old-entity,status,entity,notes,end-date,entry-date,start-date
 6315919,301,6316957,local-authority:OXO all comparable fields match,,2026-09-01,
 6315920,301,6316958,local-authority:OXO all comparable fields match,,2026-09-01,
 6315921,301,6316959,local-authority:OXO all comparable fields match,,2026-09-01,
-44015932,301,44005529,Redirect LPA entity to Historic England entity as agreed with council,,2026-11-25,

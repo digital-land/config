@@ -2,6 +2,7 @@ dataset,resource,field,pattern,value,entry-number,start-date,end-date,entry-date
 brownfield-land,,OrganisationURI,https://opendatacommunities.org/atlas/resource?uri=http%3A%2F%2Fopendatacommunities.org%2Fid%2Fgeography%2Fadministration%2Fnmd%2FE07000202,http://opendatacommunities.org/id/district-council/ipswich,,,,,0bd5f4de0d78b7f39fdc65c5ad4993403be263d7c7ac3871a70e0c836b9b9f57
 brownfield-land,,OrganisationURI,,http://opendatacommunities.org/id/unitary-authority/rutland,,,,,1f8955632ae7cb5476920108013ec56a23fc1935bc771ed1f1d0e3384676e22a
 brownfield-land,,OrganisationURI,,http://opendatacommunities.org/id/unitary-authority/bristol,,,,,2375df61460fc711d49e1e00ece36b0022f94d84481f519ad57be8d4c1c70092
+brownfield-land,,OrganisationURI,^.*london-borough-council\\?/camden.*$,http://opendatacommunities.org/id/london-borough-council/camden,,,,,269141bab886d55b06b3c6ae18ac82c894763eb657f8efdaedd9b2abf34ceb5e
 brownfield-land,,OrganisationURI,,http://opendatacommunities.org/id/national-park-authority/yorkshire-dales,,,,,31776a19e37f9132580e9db51428d75131183b5d0bc391495dd4bd14974d73da
 brownfield-land,,OrganisationURI,http://eforms.eden.gov.uk/fastweb/detail.asp?AltRef=07/0343&ApplicationNumber=07%2F0343&AddressPrefix=&Postcode=&Submit=Search,http://opendatacommunities.org/id/district-council/eden,,,,,31881b6f74d09d38d05526346c4448857b8609d433bd52e034d882bc6a0fbff5
 brownfield-land,,OrganisationURI,,http://opendatacommunities.org/id/district-council/stafford,,,,,3cee4eb9a89953edb04a6857891ad7f53258c1d7009b9ba4e9829f56322afc2c
@@ -419,4 +420,3 @@ brownfield-land,,,^<*[Nn][Uu][Ll][Ll]>*$,,,,,,
 brownfield-land,,,^#*[Nn]/?[Aa]$,,,,,,
 brownfield-land,,,^\?*$,,,,,,
 brownfield-land,,,^-+$,,,,,,
-brownfield-land,,OrganisationURI,^.*london-borough-council\\?/camden.*$,http://opendatacommunities.org/id/london-borough-council/camden,,,,,269141bab886d55b06b3c6ae18ac82c894763eb657f8efdaedd9b2abf34ceb5e
