@@ -64,7 +64,7 @@ env:
 
 concurrency:
   # The evening pipeline's concurrency group, deliberately: its merge stage squashes and deletes
-  # config-manager-update, so a batch assign still running at 18:00 has to finish before that
+  # config-manager-update, so a batch assign still running at 23:00 has to finish before that
   # merge starts - otherwise its next push would replay already-merged commits.
   group: config-evening-pipeline
   cancel-in-progress: false
