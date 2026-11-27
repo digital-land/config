@@ -14,10 +14,11 @@ name: Config Evening Pipeline
 # started by Airflow once the nightly build has finished, and commits to config-manager-update,
 # which the merge stage below brings into main.
 #
+# Airflow starts this pipeline at 23:00 UTC on weekdays (the trigger-config-evening-pipeline
+# DAG in digital-land/airflow-dags). It can also be started by hand from the Actions tab.
+#
 
 on:
-  schedule:
-    - cron: "00 18 * * 1-5" # Mon–Fri only (no weekends)
   workflow_dispatch:
     inputs:
       dry_run:
