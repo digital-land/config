@@ -2863,3 +2863,6 @@ waste-plan,540062,540062,local-planning-group:STE-STS
 waste-plan,540065,540067,local-planning-group:SWD-WIL
 waste-plan,540083,540085,national-park-authority:Q72617988
 waste-plan-boundary,580000,580047,government-organisation:D1342
+local-plan,4221214,4221225,local-authority:CHW
+minerals-plan,530088,530099,local-authority:CHW
+waste-plan,540094,540105,local-authority:CHW
